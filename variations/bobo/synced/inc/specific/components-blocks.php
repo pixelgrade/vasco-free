@@ -76,16 +76,16 @@ function variation_register_blog_blocks( $component_slug, $component_config ) {
 			'layout' => array(
 				'extend' => 'blog/container',
 				'blocks' => array(
+					'image-portrait'  => array(
+						'extend' => 'blog/single-portrait',
+						'checks' => array(
+							'callback' => 'pixelgrade_has_portrait_thumbnail',
+						),
+					),
 					'image-landscape' => array(
 						'extend' => 'blog/single-landscape',
 						'checks' => array(
 							'callback' => 'pixelgrade_has_landscape_thumbnail',
-						),
-					),
-					'image-portrait'  => array(
-						'extend' => 'blog/single-portrait',
-						'checks' => array(
-							'callback' => 'pixelgradee_has_portrait_thumbnail',
 						),
 					),
 					'image-none'      => array(
