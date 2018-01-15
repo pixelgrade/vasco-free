@@ -85,7 +85,7 @@ function variation_register_blog_blocks( $component_slug, $component_config ) {
 					'image-portrait'  => array(
 						'extend' => 'blog/single-portrait',
 						'checks' => array(
-							'callback' => 'pixelgrade_has_portrait_thumbnail',
+							'callback' => 'pixelgradee_has_portrait_thumbnail',
 						),
 					),
 					'image-none'      => array(
