@@ -7,37 +7,11 @@
  */
 
 /**
- * Register the widget areas.
+ * Register the theme specific widget areas, besides the ones registered by components.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function bobo_widget_areas_init() {
-	/**
-	 * The main widget area
-	 */
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', '__theme_txtd' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', '__theme_txtd' ),
-		'before_widget' => '<section id="%1$s" class="widget widget--side %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget__title h3"><span>',
-		'after_title'   => '</span></h2>',
-	) );
-
-	/**
-	 * The below single post widget area
-	 */
-	register_sidebar( array(
-		'name'          => esc_html__( 'Below Post', '__theme_txtd' ),
-		'id'            => 'sidebar-2',
-		'description'   => esc_html__( 'Add widgets here.', '__theme_txtd' ),
-		'before_widget' => '<section id="%1$s" class="widget widget--content %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget__title h3"><span>',
-		'after_title'   => '</span></h2>',
-	) );
-
 	/**
 	 * The Front Page Widget Area
 	 */
