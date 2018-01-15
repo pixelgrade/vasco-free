@@ -1,3 +1,3 @@
-import { Boilerplate } from './Boilerplate';
+import { Bobo } from './Bobo';
 
-new Boilerplate();
+new Bobo();

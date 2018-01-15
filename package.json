@@ -1,10 +1,10 @@
 {
-  "name": "boilerplate",
+  "name": "bobo",
   "main": "webpack.config.js",
   "scripts": {
-    "boilerplate:prod": "webpack --env.variation=boilerplate && npm run rtl  && gulp zip --variation boilerplate",
-    "boilerplate:dev": "concurrently --kill-others \"npm run boilerplate\" \"npm run watch\"",
-    "boilerplate": "webpack --watch --env.variation=boilerplate",
+    "bobo:prod": "webpack --env.variation=bobo && npm run rtl  && gulp zip --variation bobo",
+    "bobo:dev": "concurrently --kill-others \"npm run bobo\" \"npm run watch\"",
+    "bobo": "webpack --watch --env.variation=bobo",
     "rtl": "./node_modules/.bin/rtlcss style.css rtl.css",
     "watch": "npm-watch"
   },

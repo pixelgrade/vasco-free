@@ -1,10 +1,10 @@
 <?php
 /**
- * Boilerplate functions and definitions.
+ * Bobo functions and definitions.
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package Boilerplate
+ * @package Bobo
  * @since 1.0.0
  */
 
@@ -36,7 +36,7 @@ require_once trailingslashit( get_template_directory() ) . 'components/component
 Pixelgrade_Components_Autoload();
 
 
-if ( ! function_exists( 'boilerplate_setup' ) ) {
+if ( ! function_exists( 'bobo_setup' ) ) {
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -44,7 +44,7 @@ if ( ! function_exists( 'boilerplate_setup' ) ) {
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function boilerplate_setup() {
+	function bobo_setup() {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
@@ -75,11 +75,11 @@ if ( ! function_exists( 'boilerplate_setup' ) ) {
 		 * Add image sizes used by theme.
 		 */
 		// Used for blog archive(the height is flexible)
-		add_image_size( 'boilerplate-card-image', 450, 9999, false );
+		add_image_size( 'bobo-card-image', 450, 9999, false );
 		// Used for sliders(fixed height)
-		add_image_size( 'boilerplate-slide-image', 9999, 800, false );
+		add_image_size( 'bobo-slide-image', 9999, 800, false );
 		// Used for hero image
-		add_image_size( 'boilerplate-hero-image', 2700, 9999, false );
+		add_image_size( 'bobo-hero-image', 2700, 9999, false );
 
 		/*
 		 * Add theme support for site logo
@@ -87,7 +87,7 @@ if ( ! function_exists( 'boilerplate_setup' ) ) {
 		 * First, it's the image size we want to use for the logo thumbnails
 		 * Second, the 2 classes we want to use for the "Display Header Text" Customizer logic
 		 */
-		add_theme_support( 'custom-logo', apply_filters( 'boilerplate_header_site_logo', array(
+		add_theme_support( 'custom-logo', apply_filters( 'bobo_header_site_logo', array(
 			'height'      => 600,
 			'width'       => 1360,
 			'flex-height' => true,
@@ -130,7 +130,7 @@ if ( ! function_exists( 'boilerplate_setup' ) ) {
 		add_theme_support( 'customize-selective-refresh-widgets' );
 	}
 }
-add_action( 'after_setup_theme', 'boilerplate_setup', 10 );
+add_action( 'after_setup_theme', 'bobo_setup', 10 );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -139,12 +139,12 @@ add_action( 'after_setup_theme', 'boilerplate_setup', 10 );
  *
  * @global int $content_width
  */
-function boilerplate_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'boilerplate_content_width', 720 );
+function bobo_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'bobo_content_width', 720 );
 }
-add_action( 'after_setup_theme', 'boilerplate_content_width', 0 );
+add_action( 'after_setup_theme', 'bobo_content_width', 0 );
 
-function boilerplate_custom_tiled_gallery_width() {
+function bobo_custom_tiled_gallery_width() {
 	$width = pixelgrade_option( 'main_content_container_width', 1300 );
 
 	if ( is_active_sidebar( 'sidebar-1' ) ) {
@@ -153,39 +153,39 @@ function boilerplate_custom_tiled_gallery_width() {
 
 	return $width;
 }
-add_filter( 'tiled_gallery_content_width', 'boilerplate_custom_tiled_gallery_width' );
+add_filter( 'tiled_gallery_content_width', 'bobo_custom_tiled_gallery_width' );
 
 /**
  * Enqueue scripts and styles.
  */
-function boilerplate_scripts() {
+function bobo_scripts() {
 	$theme           = wp_get_theme();
 	$main_style_deps = array();
 
 	/* The main theme stylesheet */
 	if ( ! is_rtl() ) {
-		wp_enqueue_style( 'boilerplate-style', get_stylesheet_uri(), $main_style_deps, $theme->get( 'Version' ) );
+		wp_enqueue_style( 'bobo-style', get_stylesheet_uri(), $main_style_deps, $theme->get( 'Version' ) );
 	}
 
 	/* Scripts */
 
 	//The main script
-	wp_enqueue_script( 'boilerplate-commons-scripts', get_theme_file_uri( '/assets/js/commons.js' ), array( 'jquery' ), $theme->get( 'Version' ), true );
-	wp_enqueue_script( 'boilerplate-scripts', get_theme_file_uri( '/assets/js/app.bundle.js' ), array( 'boilerplate-commons-scripts' ), $theme->get( 'Version' ), true );
+	wp_enqueue_script( 'bobo-commons-scripts', get_theme_file_uri( '/assets/js/commons.js' ), array( 'jquery' ), $theme->get( 'Version' ), true );
+	wp_enqueue_script( 'bobo-scripts', get_theme_file_uri( '/assets/js/app.bundle.js' ), array( 'bobo-commons-scripts' ), $theme->get( 'Version' ), true );
 
 	$localization_array = array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
 	);
 
-	wp_localize_script( 'boilerplate-main-scripts', 'boilerplateStrings', $localization_array );
+	wp_localize_script( 'bobo-main-scripts', 'boboStrings', $localization_array );
 }
-add_action( 'wp_enqueue_scripts', 'boilerplate_scripts' );
+add_action( 'wp_enqueue_scripts', 'bobo_scripts' );
 
-function boilerplate_load_wp_admin_style() {
-	wp_register_style( 'boilerplate_wp_admin_css', get_template_directory_uri() . '/admin.css', false, '1.0.0' );
-	wp_enqueue_style( 'boilerplate_wp_admin_css' );
+function bobo_load_wp_admin_style() {
+	wp_register_style( 'bobo_wp_admin_css', get_template_directory_uri() . '/admin.css', false, '1.0.0' );
+	wp_enqueue_style( 'bobo_wp_admin_css' );
 }
-add_action( 'admin_enqueue_scripts', 'boilerplate_load_wp_admin_style' );
+add_action( 'admin_enqueue_scripts', 'bobo_load_wp_admin_style' );
 
 /*
  * ==================================================

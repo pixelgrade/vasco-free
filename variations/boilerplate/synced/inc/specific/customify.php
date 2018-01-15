@@ -8,7 +8,7 @@
  *
  * Development notice: This file is synced from the variations directory! Do not edit in the `inc` directory!
  *
- * @package Boilerplate
+ * @package Bobo
  * @since 1.0.0
  */
 
@@ -514,7 +514,7 @@ function variation_change_customify_footer_section_options( $section_options, $o
 // Custom single post header width for the case in which there is no sidebar.
 // In this case, the header's width is container-width + sidebar-width (300)
 // @todo Are these needed in the BOILERPLATE and is their place here?
-function boilerplate_container_width_single_header( $value, $selector, $property, $unit ) {
+function bobo_container_width_single_header( $value, $selector, $property, $unit ) {
 	$output = '';
 	$value  = $value - 300;
 
@@ -525,7 +525,7 @@ function boilerplate_container_width_single_header( $value, $selector, $property
 	return $output;
 }
 
-function boilerplate_single_header_width( $value, $selector, $property, $unit ) {
+function bobo_single_header_width( $value, $selector, $property, $unit ) {
 	$output = '';
 
 	$output .= $selector . ' {' . PHP_EOL .
