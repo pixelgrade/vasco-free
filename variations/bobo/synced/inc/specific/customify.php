@@ -4,7 +4,7 @@
  *
  * Some of the Customify controls come straight from components.
  * If you need to customize the settings for those controls you can use the appropriate filter.
- * For details search for the add_customify_options() function in the main component class (usually in class-componentname.php).
+ * For details search for the addCustomifyOptions() method in the main component class (usually in class-ComponentName.php).
  *
  * Development notice: This file is synced from the variations directory! Do not edit in the `inc` directory!
  *
