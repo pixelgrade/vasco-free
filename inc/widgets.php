@@ -47,6 +47,10 @@ function bobo_custom_widgets_init() {
 	require_once pixelgrade_get_parent_theme_file_path( 'inc/widgets/class-ProfileWidget.php' );
 	register_widget( 'Pixelgrade_ProfileWidget' );
 
+	// The Location Widget
+	require_once pixelgrade_get_parent_theme_file_path( 'inc/widgets/class-LocationWidget.php' );
+	register_widget( 'Pixelgrade_LocationWidget' );
+
 	// The Promo Box Widget
 	require_once pixelgrade_get_parent_theme_file_path( 'inc/widgets/class-PromoBoxWidget.php' );
 	register_widget( 'Pixelgrade_PromoBoxWidget' );

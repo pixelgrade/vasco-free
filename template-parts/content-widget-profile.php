@@ -2,13 +2,12 @@
 /**
  * Template part for displaying the Profile widget.
  *
- * @global int $featured_image The featured image attachment ID.
- * @global string $headline The headline text.
+ * @global string $title The title text.
+ * @global string $subtitle The subtitle text.
  * @global string $description The description text.
  * @global string $button_text The button text.
  * @global string $button_url The button link URL.
- * @global string $box_style The box style (currently either 'light' or 'dark').
- * @global bool $switch_content_order Whether to switch the content order.
+ * @global int $profile_image The profile image attachment ID.
  *
  * @package Bobo
  * @since 1.0.0
@@ -20,20 +19,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<?php if ( ! empty( $headline ) || ! empty( $description ) || ( ! empty( $button_text ) && ! empty( $button_url ) ) ) { ?>
+<?php if ( ! empty( $title ) || ! empty( $description ) || ( ! empty( $button_text ) && ! empty( $button_url ) ) ) { ?>
 
 	<div class="c-profile__content">
 
-		<?php if ( ! empty( $secondary_headline ) ) { ?>
-			<div class="c-profile__subtitle h6"><?php echo $secondary_headline; ?></div>
+		<?php if ( ! empty( $subtitle ) ) { ?>
+			<div class="c-profile__subtitle h6"><?php echo $subtitle; ?></div>
 		<?php } ?>
 
-		<?php if ( ! empty( $headline ) ) { ?>
-			<div class="c-profile__title"><div><?php echo $headline ?></div></div>
+		<?php if ( ! empty( $title ) ) { ?>
+			<div class="c-profile__title"><?php echo $title ?></div>
 		<?php } ?>
 
 		<?php if ( ! empty( $description ) ) { ?>
-			<div class="c-profile__description"><div><?php echo $description; ?></div></div>
+			<div class="c-profile__description"><?php echo $description; ?></div>
 		<?php } ?>
 
 		<?php if ( ! empty( $button_text ) && ! empty( $button_url ) ) { ?>
