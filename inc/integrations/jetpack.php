@@ -74,7 +74,7 @@ function bobo_infinite_scroll_render() {
 		the_post();
 
 		// We use the same theme partial regardless of archive or search page
-		get_template_part( 'template-parts/content', get_post_format() );
+		pixelgrade_get_component_template_part( Pixelgrade_Blog::COMPONENT_SLUG, 'content', get_post_format(), true );
 	}
 }
 
