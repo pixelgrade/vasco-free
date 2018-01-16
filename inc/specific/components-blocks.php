@@ -14,7 +14,7 @@
  * @param string $component_slug The component's slug.
  * @param array $component_config The component entire component config.
  */
-function variation_register_blog_blocks( $component_slug, $component_config ) {
+function bobo_register_blog_blocks( $component_slug, $component_config ) {
 
 	Pixelgrade_BlocksManager()->registerBlock( 'blog/single-portrait', array(
 		'blocks' => array(
@@ -136,8 +136,40 @@ function variation_register_blog_blocks( $component_slug, $component_config ) {
 					),
 				),
 			),
-			'blog/related-posts',
-		)
+		),
+	) );
+
+	Pixelgrade_BlocksManager()->registerBlock( 'blog/front-page', array(
+		'extend' => 'blog/page',
+		'blocks' => array(
+			'content' => array(
+				'extend' => 'blog/container',
+				'blocks' => array(
+					'layout' => array(
+						'extend' => 'blog/layout',
+						'wrappers' => array(
+							'layout' => array(
+								'extend_classes' => 'o-layout--blog'
+							),
+						),
+						'blocks' => array(
+							'main' => array(
+								'extend' => 'blog/main',
+								'blocks' => array(
+									'front-page-sidebar' => array(
+										'type'     => 'callback',
+										'callback' => 'pixelgrade_get_sidebar',
+										'args' => array(
+											'front-page',
+										),
+									),
+								),
+							),
+						),
+					),
+				),
+			),
+		),
 	) );
 }
-add_action( 'pixelgrade_blog_after_register_blocks', 'variation_register_blog_blocks', 10, 2 );
+add_action( 'pixelgrade_blog_after_register_blocks', 'bobo_register_blog_blocks', 10, 2 );

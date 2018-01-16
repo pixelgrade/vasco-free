@@ -27,10 +27,10 @@ add_filter( 'customify_filter_fields', 'bobo_add_customify_options', 11, 1 );
 
 // Modify Customify Config
 add_filter( 'pixelgrade_customify_general_section_options', 'bobo_customify_general_section', 10, 2 );
-add_filter( 'pixelgrade_header_customify_section_options', 'bobo_change_customify_header_section_options', 10, 2 );
-add_filter( 'pixelgrade_customify_main_content_section_options', 'bobo_customify_main_content', 10, 2 );
-add_filter( 'pixelgrade_customify_buttons_section_options', 'bobo_customify_buttons', 10, 2 );
-add_filter( 'pixelgrade_footer_customify_section_options', 'bobo_change_customify_footer_section_options', 10, 2 );
+add_filter( 'pixelgrade_header_customify_section_options', 'bobo_customify_header_section', 10, 2 );
+add_filter( 'pixelgrade_customify_main_content_section_options', 'bobo_customify_main_content_section', 10, 2 );
+add_filter( 'pixelgrade_customify_buttons_section_options', 'bobo_customify_buttons_section', 10, 2 );
+add_filter( 'pixelgrade_footer_customify_section_options', 'bobo_customify_footer_section', 10, 2 );
 add_filter( 'pixelgrade_customify_blog_grid_section_options', 'bobo_customify_blog_grid_section', 10, 2 );
 
 function bobo_add_customify_options( $options ) {
@@ -45,14 +45,14 @@ function bobo_add_customify_options( $options ) {
 /**
  * Modify the Customify config for the General Section - from the Base component
  *
- * @param array $general_section The specific Customify config to be filtered
+ * @param array $section_options The specific Customify config to be filtered
  * @param array $options The whole Customify config
  *
  * @return array $general_section The modified specific config
  */
-function bobo_customify_general_section( $general_section, $options ) {
+function bobo_customify_general_section( $section_options, $options ) {
 
-	$modified_config = array(
+	$new_section_options = array(
 		// General
 		'general' => array(
 			'options' => array(
@@ -62,12 +62,12 @@ function bobo_customify_general_section( $general_section, $options ) {
 
 	// Now we merge the modified config with the original one
 	// Thus overwriting what we have changed
-	$general_section = Pixelgrade_Config::merge( $general_section, $modified_config );
+	$section_options = Pixelgrade_Config::merge( $section_options, $new_section_options );
 
 	// Remove Ajax Loading Option
-//	unset( $general_section['general']['options']['use_ajax_loading'] );
+	unset( $section_options['general']['options']['use_ajax_loading'] );
 
-	return $general_section;
+	return $section_options;
 }
 
 /**
@@ -78,7 +78,7 @@ function bobo_customify_general_section( $general_section, $options ) {
  *
  * @return array $main_content_section The modified specific config
  */
-function bobo_customify_main_content( $section_options, $options ) {
+function bobo_customify_main_content_section( $section_options, $options ) {
 
 	$new_section_options = array(
 
@@ -167,7 +167,7 @@ function bobo_customify_main_content( $section_options, $options ) {
  *
  * @return array $main_content_section The modified specific config
  */
-function bobo_customify_buttons( $section_options, $options ) {
+function bobo_customify_buttons_section( $section_options, $options ) {
 
 	$new_section_options = array(
 
@@ -297,7 +297,7 @@ function bobo_customify_blog_grid_section( $section_options, $options ) {
  *
  * @return array $main_content_section The modified specific config
  */
-function bobo_change_customify_header_section_options( $section_options, $options ) {
+function bobo_customify_header_section( $section_options, $options ) {
 
 	$new_section_options = array(
 		'header_section' => array(
@@ -351,7 +351,7 @@ function bobo_change_customify_header_section_options( $section_options, $option
  *
  * @return array $main_content_section The modified specific config
  */
-function bobo_change_customify_footer_section_options( $section_options, $options ) {
+function bobo_customify_footer_section( $section_options, $options ) {
 	// First setup the default values
 	// These should always come from the theme, not relying on the component's defaults
 	$new_section_options = array(

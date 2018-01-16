@@ -1,155 +1,55 @@
 <?php
 /**
- * Template Name: Front Page
+ * The template for displaying all pages.
  *
- * The template for displaying the widgetized front page.
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages
+ * and that other 'pages' on your WordPress site may use a
+ * different template.
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Bobo
- * @since 1.0.0
+ * This template part can be overridden by copying it to a child theme or in the same theme
+ * by putting it in the root `/front-page.php` or in `/page-templates/front-page.php`.
+ *
+ * HOWEVER, on occasion Pixelgrade will need to update template files and you
+ * will need to copy the new files to your child theme to
+ * maintain compatibility. We try to do this as little as possible, but it does
+ * happen. When this occurs the version of the template file will be bumped and
+ * the readme will list any important changes.
+ *
+ * @package    Bobo
+ * @since      1.0.0
  */
 
-//let the template parts know about our location
-$location = pixelgrade_set_location( 'page front-page' );
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
-// Here get the content width class
-$content_width_class = 'u-content-width';
+// Let the template parts know about our location
+$location = pixelgrade_set_location( 'page' );
+if ( is_front_page() ) {
+	// Add some more contextual info
+	$location = pixelgrade_set_location( 'front-page' );
+}
 
 pixelgrade_get_header(); ?>
 
 <?php
 /**
- * pixelgrade_before_main_content hook.
- *
- * @hooked nothing() - 10 (outputs nothing)
+ * pixelgrade_before_primary_wrapper hook.
  */
-do_action( 'pixelgrade_before_main_content', $location );
+do_action( 'pixelgrade_before_primary_wrapper', $location );
 ?>
-    <div id="primary" class="content-area">
-        <main id="main" class="site-main  u-content-bottom-spacing" role="main">
 
-            <?php
-            /**
-             * pixelgrade_before_loop hook.
-             *
-             * @hooked nothing - 10 (outputs nothing)
-             */
-            do_action( 'pixelgrade_before_loop', $location );
-            ?>
-
-            <?php while ( have_posts() ) : the_post(); ?>
-
-                <?php
-                /**
-                 * pixelgrade_before_loop_entry hook.
-                 *
-                 * @hooked julia_custom_page_css() - 10 (outputs the page's custom css)
-                 */
-                do_action( 'pixelgrade_before_loop_entry', $location );
-                ?>
-
-                <?php
-                $header_class = '';
-                if ( ! apply_filters( 'pixelgrade_display_entry_header', false, $location ) ) {
-                    $header_class .= 'screen-reader-text';
-                }
-                ?>
-
-                <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                    <div class="u-container-sides-spacing">
-                        <div class="o-wrapper u-container-width">
-
-                            <header class="entry-header <?php echo $header_class; ?>">
-
-                                <?php
-                                /**
-                                 * pixelgrade_before_entry_title hook.
-                                 *
-                                 * @hooked pixelgrade_the_hero() - 10 (outputs the hero markup)
-                                 */
-                                do_action( 'pixelgrade_before_entry_title', $location );
-                                ?>
-
-                                <?php the_title( '<h1 class="entry-title  c-page-header__title">', '</h1>' ); ?>
-
-                                <?php
-                                /**
-                                 * pixelgrade_after_entry_title hook.
-                                 *
-                                 * @hooked nothing() - 10 (outputs nothing)
-                                 */
-                                do_action( 'pixelgrade_after_entry_title', $location );
-                                ?>
-
-                            </header><!-- .entry-header -->
-
-                            <div class="o-layout">
-                                <?php
-                                // The Full Width Area #1
-                                pixelgrade_get_sidebar( 'front-page-fullwidth-1' );
-                                ?>
-
-                                <?php
-                                // The Content Area #1
-                                pixelgrade_get_sidebar( 'front-page-content-1' );
-                                // The Sidebar Area #1
-                                pixelgrade_get_sidebar( 'front-page-sidebar-1' );
-                                ?>
-
-                                <?php
-                                // The Full Width Area #2
-                                pixelgrade_get_sidebar( 'front-page-fullwidth-2' );
-                                ?>
-
-                                <?php
-                                // The Content Area #2
-                                pixelgrade_get_sidebar( 'front-page-content-2' );
-                                // The Sidebar Area #2
-                                pixelgrade_get_sidebar( 'front-page-sidebar-2' );
-                                ?>
-
-                                <?php
-                                // The Full Width Area #3
-                                pixelgrade_get_sidebar( 'front-page-fullwidth-3' );
-                                ?>
-                            </div>
-
-                        </div><!-- .o-wrapper .u-container-width -->
-                    </div><!-- .u-container-sides-spacing -->
-                </article><!-- #post-## -->
-
-                <?php
-                /**
-                 * pixelgrade_after_loop_entry hook.
-                 *
-                 * @hooked nothing() - 10 (outputs nothing)
-                 */
-                do_action( 'pixelgrade_after_loop_entry', $location );
-                ?>
-
-            <?php endwhile; // End of the loop. ?>
-
-            <?php
-            /**
-             * pixelgrade_after_loop hook.
-             *
-             * @hooked nothing() - 10 (outputs nothing)
-             */
-            do_action( 'pixelgrade_after_loop', $location );
-            ?>
-
-        </main><!-- #main -->
-    </div><!-- #primary -->
+<?php pixelgrade_render_block( 'blog/front-page' ); ?>
 
 <?php
 /**
- * pixelgrade_after_main_content hook.
- *
- * @hooked nothing - 10 (outputs nothing)
+ * pixelgrade_after_primary_wrapper hook.
  */
-do_action( 'pixelgrade_after_main_content', $location );
+do_action( 'pixelgrade_after_primary_wrapper', $location );
 ?>
 
-<?php
-pixelgrade_get_footer();
+<?php pixelgrade_get_footer();
+
