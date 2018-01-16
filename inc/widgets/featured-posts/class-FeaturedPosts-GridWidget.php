@@ -2,7 +2,7 @@
 /**
  * The Featured Posts - Grid Widget
  *
- * @package Julia
+ * @package Bobo
  * @since 1.0.0
  */
 

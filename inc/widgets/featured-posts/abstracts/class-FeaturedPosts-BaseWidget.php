@@ -4,7 +4,7 @@
  * Extend this class and make it your own.
  * You can use it as it is but it will work as the Featured Posts - Grid widget.
  *
- * @package Julia
+ * @package Bobo
  * @since 1.0.0
  */
 

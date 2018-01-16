@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Template part for displaying the Promo Box widget.
  *
@@ -11,9 +10,13 @@
  * @global string $box_style The box style (currently either 'light' or 'dark').
  * @global bool $switch_content_order Whether to switch the content order.
  *
- * @package Julia
- * @since 2.0.0
+ * @package Bobo
+ * @since 1.0.0
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 ?>
 

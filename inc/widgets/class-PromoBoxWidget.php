@@ -2,8 +2,8 @@
 /**
  * The Promo Box Widget class
  *
- * @package Julia
- * @since 2.0.0
+ * @package Bobo
+ * @since 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

@@ -1,24 +1,24 @@
 <?php
 /**
- * The Promo Box Widget class
+ * The Profile Widget class
  *
- * @package Julia
- * @since 2.0.0
+ * @package Bobo
+ * @since 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
+if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 
 	/**
-	 * Class used to implement the Pixelgrade Promo Box widget.
+	 * Class used to implement the Pixelgrade Profile widget.
 	 *
 	 * @see Pixelgrade_Widget_Fields
 	 * @see WP_Widget
 	 */
-	class Pixelgrade_PromoBoxWidget extends Pixelgrade_WidgetFields {
+	class Pixelgrade_ProfileWidget extends Pixelgrade_WidgetFields {
 
 		// These are the widget args
 		public $args = array(
@@ -29,7 +29,7 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 		);
 
 		/**
-		 * Sets up a new Promo Box widget instance.
+		 * Sets up a new Profile widget instance.
 		 *
 		 * @access public
 		 */
@@ -37,107 +37,67 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 			// Set up the widget config
 			$config = array(
 			    'fields_sections' => array(
-			        'default' => array(
-			            'title' => '',
-			            'priority' => 1, // This section should really be the first as it is not part of the accordion
-                    ),
                     'content' => array(
                         'title' => esc_html__( 'Content', '__theme_txtd' ),
                         'default_state' => 'open',
                         'priority' => 10,
                     ),
-                    'layout' => array(
-                        'title' => esc_html__( 'Layout', '__theme_txtd' ),
-                        'priority' => 20,
-                    ),
-                    'display' => array(
-                        'title' => esc_html__( 'Display', '__theme_txtd' ),
-                        'priority' => 30,
-                    ),
-                    'others' => array(
-                        'title' => esc_html__( 'Others', '__theme_txtd' ),
-                        'priority' => 40,
-                    ),
                 ),
 			    'fields' => array(
 
-				    // Title Section
-				    'title'                => array(
-					    'type'     => 'text',
-					    'label'    => esc_html__( 'Section Title:', '__theme_txtd' ),
-					    'default'  => esc_html__( 'My Promo Box', '__theme_txtd' ),
-					    'section'  => 'default',
-					    'priority' => 10,
-				    ),
-
 				    // Content Section
-				    'featured_image'       => array(
-					    'type'     => 'image',
-					    'label'    => esc_html__( 'Featured Image:', '__theme_txtd' ),
-					    'default'  => 0, // This is the attachment ID
-					    'section'  => 'content',
-					    'priority' => 10,
-				    ),
 				    'headline'             => array(
 					    'type'     => 'textarea',
 					    'label'    => esc_html__( 'Headline:', '__theme_txtd' ),
-					    'default'  => 'What is a high converting headline worth to you?',
+					    'default'  => 'Howdy! I\'m %first_name%, a millennial traveler looking to see the world and help others do the same.',
 					    'section'  => 'content',
+					    'filter_callback' => 'pixelgrade_parse_content_tags', // This will be applied before rendering the widget output
 					    'priority' => 20,
+				    ),
+				    'secondary_headline'          => array(
+					    'type'     => 'text',
+					    'label'    => esc_html__( 'Secondary Headline:', '__theme_txtd' ),
+					    'default'  => esc_html__('Welcome to My Blog', '__theme_txtd' ),
+					    'section'  => 'content',
+					    'priority' => 30,
 				    ),
 				    'description'          => array(
 					    'type'     => 'textarea',
 					    'label'    => esc_html__( 'Description:', '__theme_txtd' ),
-					    'default'  => 'This is a Promo Box Widget where you can personalize your own advertisment area, with your content, images and call to actions. You can promote your product or link to another website of yours.',
+					    'default'  => 'I recently quit my corporate job to travel full time and I will be sharing the experience along the way. Are you ready to achieve your travel goals? Join me and follow my adventures!',
 					    'section'  => 'content',
-					    'priority' => 30,
+					    'priority' => 40,
 				    ),
 				    'button_text'          => array(
 					    'type'     => 'text',
 					    'label'    => esc_html__( 'Button Text:', '__theme_txtd' ),
-					    'default'  => esc_html__('Get started now', '__theme_txtd' ),
+					    'default'  => esc_html__('Subscribe', '__theme_txtd' ),
 					    'section'  => 'content',
-					    'priority' => 40,
+					    'priority' => 50,
 				    ),
 				    'button_url'           => array(
 					    'type'     => 'text',
 					    'label'    => esc_html__( 'Button Link URL:', '__theme_txtd' ),
 					    'default'  => esc_html__('#', '__theme_txtd' ),
 					    'section'  => 'content',
-					    'priority' => 50,
+					    'priority' => 60,
 				    ),
-
-
-				    // Display Section
-				    'box_style'            => array(
-					    'type'     => 'radio_group',
-					    'label'    => esc_html__( 'Box Style:', '__theme_txtd' ),
-					    'options'  => array(
-						    'light' => esc_html__( 'Light', '__theme_txtd' ),
-						    'dark'  => esc_html__( 'Dark', '__theme_txtd' ),
-					    ),
-					    'default'  => 'dark',
-					    'section'  => 'display',
-					    'priority' => 10,
+				    'profile_image'       => array(
+					    'type'     => 'image',
+					    'label'    => esc_html__( 'Image:', '__theme_txtd' ),
+					    'default'  => 0, // This is the attachment ID
+					    'section'  => 'content',
+					    'priority' => 70,
 				    ),
-				    'switch_content_order' => array(
-					    'type'     => 'checkbox',
-					    'label'    => esc_html__( 'Switch Content Order', '__theme_txtd' ),
-					    'default'  => false,
-					    'section'  => 'display',
-					    'priority' => 20,
-				    ),
-
-				    // Others Section
 			    ),
 			    'posts'    => array(
-				    'classes'   => array( 'c-promo' ),
+				    'classes'   => array( 'c-profile' ),
 				    // You can have multiple templates here (array of arrays) and we will use the first one that passes processing and is found
 				    // @see Pixelgrade_Config::evaluateTemplateParts()
 				    'templates' => array(
 					    'component_slug'    => Pixelgrade_Blog::COMPONENT_SLUG,
 					    'slug'              => 'content-widget',
-					    'name'              => 'promo-box',
+					    'name'              => 'profile',
 					    'lookup_parts_root' => true,
 				    ),
 			    ),
@@ -145,23 +105,23 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 
             // Set up the widget options
             $widget_ops = array(
-                'classname'                   => 'widget_promo_box',
-                'description'                 => esc_html__( 'Do you promo, in style.', '__theme_txtd' ),
+                'classname'                   => 'widget_profile',
+                'description'                 => esc_html__( 'Say something about you, in style.', '__theme_txtd' ),
                 'customize_selective_refresh' => true,
             );
 
 			// Initialize the widget
-			parent::__construct( 'pixelgrade-promo-box',
-				apply_filters( 'pixelgrade_promo_box_widget_name', esc_html__( '&#32; Pixelgrade: Promo Box', '__theme_txtd' ) ),
+			parent::__construct( 'pixelgrade-profile',
+				apply_filters( 'pixelgrade_profile_widget_name', esc_html__( '&#32; Pixelgrade: Profile', '__theme_txtd' ) ),
 				$widget_ops,
                 $config );
 
 			// Set up an alternate widget options name
-			$this->alt_option_name = 'widget_promo_box';
+			$this->alt_option_name = 'widget_profile';
 		}
 
 		/**
-		 * Outputs the content for the current Featured Posts widget instance.
+		 * Outputs the content for the current widget instance.
 		 *
 		 * @access public
 		 *
@@ -183,6 +143,9 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 				// Make sure that we have properly sanitized values (although they should be sanitized on save/update)
 				$instance = $this->sanitizeFields( $instance );
 
+				// Make sure that we apply any configured filters to the field values
+				$instance = $this->applyFilters( $instance );
+
 				// Make every instance entry a variable in the current symbol table (scope in plain English)
 				foreach ( $instance as $k => $v ) {
 					if ( ! $this->isFieldDisabled( $k ) ) {
@@ -191,40 +154,16 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 					}
 				}
 
-				/**
-				 * Filters the widget title.
-				 *
-				 * @var string $title
-				 *
-				 * @param string $title The widget title. Default 'Pages'.
-				 * @param array $instance An array of the widget's settings.
-				 * @param mixed $id_base The widget ID.
-				 */
-				$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
-
 				$classes = array();
 				if ( ! empty( $this->config['posts']['classes'] ) ) {
 					$classes = array_merge( $classes, (array) $this->config['posts']['classes'] );
 				}
 
-				// Add our dynamic classes
-				if ( isset( $box_style ) ) {
-					$classes[] = 'c-promo--' . $box_style;
-					// We also want to add our class to the widget top wrapper
-					preg_match('/class="([^"]*)"/', $args['before_widget'], $matches);
-					if ( ! empty( $matches[1] ) ) {
-						$args['before_widget'] = str_replace( $matches[1], $matches[1] . ' widget_promo_box--' . $box_style, $args['before_widget'] );
-					}
-				}
-				if ( ! empty( $switch_content_order ) ) {
-					$classes[] = 'c-promo--reversed';
-				}
-
 				// Allow others (maybe other widgets that extend this) to change the classes
-				$classes = apply_filters( 'pixelgrade_promo_box_widget_classes', $classes, $instance );
+				$classes = apply_filters( 'pixelgrade_profile_widget_classes', $classes, $instance );
 
 				// Allow others (maybe other widgets that extend this) to change the attributes
-				$attributes = apply_filters( 'pixelgrade_promo_box_widget_attributes', array(), $instance );
+				$attributes = apply_filters( 'pixelgrade_profile_widget_attributes', array(), $instance );
 
 				/*
 				 * Start outputting the widget markup
@@ -232,9 +171,9 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 				echo $args['before_widget'];
 
 				/**
-				 * Fires at the beginning of the Promo Box widget, after the title.
+				 * Fires at the beginning of the widget, after the title.
 				 */
-				do_action( 'pixelgrade_promo_box_widget_start', $instance, $args ); ?>
+				do_action( 'pixelgrade_profile_widget_start', $instance, $args ); ?>
 
 				<div <?php pixelgrade_css_class( $classes ); ?> <?php pixelgrade_element_attributes( $attributes ); ?>>
 
@@ -248,7 +187,7 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 				/**
 				 * Fires at the end of the Promo Box widget.
 				 */
-				do_action( 'pixelgrade_promo_box_widget_end', $instance, $args );
+				do_action( 'pixelgrade_profile_widget_end', $instance, $args );
 
 				echo $args['after_widget'];
 			} else {

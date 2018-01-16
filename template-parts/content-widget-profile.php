@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying the Promo Box widget.
+ * Template part for displaying the Profile widget.
  *
  * @global int $featured_image The featured image attachment ID.
  * @global string $headline The headline text.
@@ -22,23 +22,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php if ( ! empty( $headline ) || ! empty( $description ) || ( ! empty( $button_text ) && ! empty( $button_url ) ) ) { ?>
 
-	<div class="c-promo__content">
+	<div class="c-profile__content">
 
-		<?php if ( ! empty( $title ) ) { ?>
-			<div class="c-promo__subtitle h6"><?php echo $title; ?></div>
+		<?php if ( ! empty( $secondary_headline ) ) { ?>
+			<div class="c-profile__subtitle h6"><?php echo $secondary_headline; ?></div>
 		<?php } ?>
 
 		<?php if ( ! empty( $headline ) ) { ?>
-			<div class="c-promo__title"><div><?php echo $headline ?></div></div>
+			<div class="c-profile__title"><div><?php echo $headline ?></div></div>
 		<?php } ?>
 
 		<?php if ( ! empty( $description ) ) { ?>
-			<div class="c-promo__description"><div><?php echo $description; ?></div></div>
+			<div class="c-profile__description"><div><?php echo $description; ?></div></div>
 		<?php } ?>
 
 		<?php if ( ! empty( $button_text ) && ! empty( $button_url ) ) { ?>
-			<div class="c-promo__action">
-				<a href="<?php echo $button_url; ?>" class="c-promo__btn c-btn"><?php echo $button_text; ?></a>
+			<div class="c-profile__action">
+				<a href="<?php echo $button_url; ?>" class="c-profile__btn c-btn"><?php echo $button_text; ?></a>
 			</div>
 		<?php } ?>
 
@@ -46,8 +46,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php } ?>
 
-<?php if ( ! empty ( $featured_image ) ) { ?>
-	<div class="c-promo__media">
-		<?php echo wp_get_attachment_image( $featured_image, 'full' ); ?>
+<?php if ( ! empty ( $profile_image ) ) { ?>
+	<div class="c-profile__media">
+		<?php echo wp_get_attachment_image( $profile_image, 'full' ); ?>
 	</div>
 <?php } ?>

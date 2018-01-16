@@ -43,6 +43,10 @@ function bobo_custom_widgets_init() {
      * Load other custom widgets
      */
 
+	// The Profile Widget
+	require_once pixelgrade_get_parent_theme_file_path( 'inc/widgets/class-ProfileWidget.php' );
+	register_widget( 'Pixelgrade_ProfileWidget' );
+
 	// The Promo Box Widget
 	require_once pixelgrade_get_parent_theme_file_path( 'inc/widgets/class-PromoBoxWidget.php' );
 	register_widget( 'Pixelgrade_PromoBoxWidget' );
