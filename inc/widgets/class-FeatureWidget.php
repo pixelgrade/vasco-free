@@ -1,6 +1,6 @@
 <?php
 /**
- * The Profile Widget class
+ * The Feature Widget class
  *
  * @package Bobo
  * @since 1.0.0
@@ -10,15 +10,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
+if ( ! class_exists( 'Pixelgrade_FeatureWidget' ) ) :
 
 	/**
-	 * Class used to implement the Pixelgrade Profile widget.
+	 * Class used to implement the Pixelgrade Feature widget.
 	 *
 	 * @see Pixelgrade_Widget_Fields
 	 * @see WP_Widget
 	 */
-	class Pixelgrade_ProfileWidget extends Pixelgrade_WidgetFields {
+	class Pixelgrade_FeatureWidget extends Pixelgrade_WidgetFields {
 
 		// These are the widget args
 		public $args = array(
@@ -29,7 +29,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 		);
 
 		/**
-		 * Sets up a new Profile widget instance.
+		 * Sets up a new Feature widget instance.
 		 *
 		 * @access public
 		 */
@@ -46,20 +46,10 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 				'fields'          => array(
 
 					// Content Section
-					'title'         => array(
-						'type'            => 'textarea',
-						'label'           => esc_html__( 'Headline:', '__theme_txtd' ),
-						'rows'            => 3,
-						'default'         => 'Howdy! I\'m %first_name%, a millennial traveler looking to see the world and help others do the same.',
-						'section'         => 'content',
-						// This will be applied before rendering the widget output
-						'filter_callback' => 'pixelgrade_parse_content_tags',
-						'priority'        => 20,
-					),
-					'subtitle'      => array(
+					'title'      => array(
 						'type'     => 'text',
-						'label'    => esc_html__( 'Secondary Headline:', '__theme_txtd' ),
-						'default'  => esc_html__( 'Welcome to My Blog', '__theme_txtd' ),
+						'label'    => esc_html__( 'Headline:', '__theme_txtd' ),
+						'default'  => esc_html__( 'Explore Amazing Places', '__theme_txtd' ),
 						'section'  => 'content',
 						'priority' => 30,
 					),
@@ -74,7 +64,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 					'button_text'   => array(
 						'type'     => 'text',
 						'label'    => esc_html__( 'Button Text:', '__theme_txtd' ),
-						'default'  => esc_html__( 'Subscribe', '__theme_txtd' ),
+						'default'  => esc_html__( 'Explore', '__theme_txtd' ),
 						'section'  => 'content',
 						'priority' => 50,
 					),
@@ -85,7 +75,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 						'section'  => 'content',
 						'priority' => 60,
 					),
-					'profile_image' => array(
+					'feature_image' => array(
 						'type'     => 'image',
 						'label'    => esc_html__( 'Image:', '__theme_txtd' ),
 						'default'  => 0, // This is the attachment ID
@@ -94,13 +84,13 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 					),
 				),
 			    'posts'    => array(
-				    'classes'   => array( 'c-profile' ),
+				    'classes'   => array( 'c-feature' ),
 				    // You can have multiple templates here (array of arrays) and we will use the first one that passes processing and is found
 				    // @see Pixelgrade_Config::evaluateTemplateParts()
 				    'templates' => array(
 					    'component_slug'    => Pixelgrade_Blog::COMPONENT_SLUG,
 					    'slug'              => 'content-widget',
-					    'name'              => 'profile',
+					    'name'              => 'feature',
 					    'lookup_parts_root' => true,
 				    ),
 			    ),
@@ -108,19 +98,19 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 
             // Set up the widget options
             $widget_ops = array(
-                'classname'                   => 'widget_profile',
+                'classname'                   => 'widget_feature',
                 'description'                 => esc_html__( 'Say something about you, in style.', '__theme_txtd' ),
                 'customize_selective_refresh' => true,
             );
 
 			// Initialize the widget
-			parent::__construct( 'pixelgrade-profile',
-				apply_filters( 'pixelgrade_profile_widget_name', esc_html__( '&#32; Pixelgrade: Profile', '__theme_txtd' ) ),
+			parent::__construct( 'pixelgrade-feature',
+				apply_filters( 'pixelgrade_feature_widget_name', esc_html__( '&#32; Pixelgrade: Feature (x4)', '__theme_txtd' ) ),
 				$widget_ops,
                 $config );
 
 			// Set up an alternate widget options name
-			$this->alt_option_name = 'widget_profile';
+			$this->alt_option_name = 'widget_feature';
 		}
 
 		/**
@@ -174,10 +164,10 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 				}
 
 				// Allow others (maybe other widgets that extend this) to change the classes
-				$classes = apply_filters( 'pixelgrade_profile_widget_classes', $classes, $instance );
+				$classes = apply_filters( 'pixelgrade_feature_widget_classes', $classes, $instance );
 
 				// Allow others (maybe other widgets that extend this) to change the attributes
-				$attributes = apply_filters( 'pixelgrade_profile_widget_attributes', array(), $instance );
+				$attributes = apply_filters( 'pixelgrade_feature_widget_attributes', array(), $instance );
 
 				/*
 				 * Start outputting the widget markup
@@ -187,7 +177,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 				/**
 				 * Fires at the beginning of the widget, after the title.
 				 */
-				do_action( 'pixelgrade_profile_widget_start', $instance, $args ); ?>
+				do_action( 'pixelgrade_feature_widget_start', $instance, $args ); ?>
 
 				<div <?php pixelgrade_css_class( $classes ); ?> <?php pixelgrade_element_attributes( $attributes ); ?>>
 
@@ -199,9 +189,9 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 
 				<?php
 				/**
-				 * Fires at the end of the Promo Box widget.
+				 * Fires at the end of the Feature widget.
 				 */
-				do_action( 'pixelgrade_profile_widget_end', $instance, $args );
+				do_action( 'pixelgrade_feature_widget_end', $instance, $args );
 
 				echo $args['after_widget'];
 			} else {
