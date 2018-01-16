@@ -49,6 +49,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 					'title'         => array(
 						'type'            => 'textarea',
 						'label'           => esc_html__( 'Headline:', '__theme_txtd' ),
+						'rows'            => 3,
 						'default'         => 'Howdy! I\'m %first_name%, a millennial traveler looking to see the world and help others do the same.',
 						'section'         => 'content',
 						// This will be applied before rendering the widget output
@@ -65,6 +66,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 					'description'   => array(
 						'type'     => 'textarea',
 						'label'    => esc_html__( 'Description:', '__theme_txtd' ),
+						'rows'     => 5,
 						'default'  => 'I recently quit my corporate job to travel full time and I will be sharing the experience along the way. Are you ready to achieve your travel goals? Join me and follow my adventures!',
 						'section'  => 'content',
 						'priority' => 40,
