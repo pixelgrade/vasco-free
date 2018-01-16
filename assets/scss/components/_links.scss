@@ -1,0 +1,14 @@
+
+@at-root {
+  .u-underlined-links {
+    #{$content-wrapper-selector} {
+      a {
+        text-shadow: -1px -1px white, -1px 1px white, 1px -1px white, 1px 1px white,
+                     -2px 0 white, 2px 0 white;
+        text-decoration: underline;
+        background-size: 1px 1em;
+        display: inline;
+      }
+    }
+  }
+}

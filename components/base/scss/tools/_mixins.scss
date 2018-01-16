@@ -105,26 +105,32 @@
 
   @if $spacing-top != false {
     @if $spacing-top == 0 {
-      padding-top: 0;
+      margin-top: 0;
     } @else {
       &:not(:first-child) {
-        @include spacing(padding-top, $spacing-top);
+
+        @if $cap-height {
+          @include spacing(margin-top, $spacing-top, 0.5em * ($line-height - $cap-height));
+        } @else {
+          @include spacing(margin-top, $spacing-top);
+        }
       }
     }
   }
 
   @if $spacing-bottom != false {
     @if $spacing-bottom == 0 {
-      padding-bottom: 0;
+      margin-bottom: 0;
     } @else {
       &:not(:last-child) {
-        @include spacing(padding-bottom, $spacing-bottom);
+
+        @if $cap-height {
+          @include spacing(margin-bottom, $spacing-bottom, 0.5em * ($line-height - $cap-height));
+        } @else {
+          @include spacing(margin-bottom, $spacing-bottom);
+        }
       }
     }
-  }
-
-  @if $cap-height != false {
-    @include baseline($line-height, $cap-height);
   }
 }
 

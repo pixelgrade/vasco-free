@@ -20,12 +20,13 @@ add_filter( 'pixelgrade_customify_buttons_section_options', 'bobo_change_customi
 add_filter( 'pixelgrade_footer_customify_section_options', 'bobo_change_customify_footer_section_options', 20, 2 );
 add_filter( 'pixelgrade_customify_blog_grid_section_options', 'bobo_change_customify_blog_grid_section', 20, 2 );
 
-define( 'VARIATION_TEXT_COLOR', '#333131' );
-define( 'VARIATION_ACCENT_COLOR', '#ff6000' );
+define( 'VARIATION_TEXT_COLOR', '#2B3D39' );
+define( 'VARIATION_ACCENT_COLOR', '#DE2D16' );
 
-define( 'VARIATION_SERIF_FONT', 'Charter' );
-define( 'VARIATION_SANS_SERIF_FONT', 'HK Grotesk' );
-define( 'VARIATION_SITE_TITLE_FONT', 'Caudex' );
+define( 'VARIATION_BODY_FONT', 'Lora' );
+define( 'VARIATION_HEADINGS_FONT', 'YoungSerif' );
+define( 'VARIATION_HEADINGS_FONT_ALT', 'HK Grotesk' );
+define( 'VARIATION_LOGO_FONT', 'Bebas Neue' );
 
 function bobo_change_customify_general_section( $general_section, $options ) {
 
@@ -59,7 +60,7 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 		'main_content' => array(
 			'options' => array(
 				'main_content_content_width'            => array(
-					'default' => 885,
+					'default' => 720,
 				),
 				'main_content_border_width'             => array(
 					'default' => 0,
@@ -86,10 +87,10 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 					'default' => VARIATION_TEXT_COLOR,
 				),
 				'main_content_heading_4_color'          => array(
-					'default' => VARIATION_TEXT_COLOR,
+					'default' => VARIATION_ACCENT_COLOR,
 				),
 				'main_content_heading_5_color'          => array(
-					'default' => VARIATION_TEXT_COLOR,
+					'default' => VARIATION_ACCENT_COLOR,
 				),
 				'main_content_heading_6_color'          => array(
 					'default' => VARIATION_ACCENT_COLOR,
@@ -97,16 +98,15 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 
 				// [Sub Section] Backgrounds
 				'main_content_content_background_color' => array(
-					'default' => '#FFFCFC',
+					'default' => '#F5F6F1',
 				),
 
 				// [Section] FONTS
 				'main_content_page_title_font'          => array(
 					'default' => array(
-						'font-family'    => VARIATION_SANS_SERIF_FONT,
-						'font-weight'    => '700',
-						'font-size'      => 50,
-						'line-height'    => 1.2,
+						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-size'      => 72,
+						'line-height'    => 1.11,
 						'letter-spacing' => 0,
 						'text-transform' => 'none',
 					),
@@ -114,10 +114,21 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 
 				'main_content_body_text_font' => array(
 					'default' => array(
-						'font-family'    => VARIATION_SERIF_FONT,
-						'font-weight'    => '400',
+						'font-family'    => VARIATION_BODY_FONT,
+						'font-weight'    => 'regular',
 						'font-size'      => 17,
-						'line-height'    => 1.6,
+						'line-height'    => 1.647,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+
+				'main_content_paragraph_text_font' => array(
+					'default' => array(
+						'font-family'    => VARIATION_BODY_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 18,
+						'line-height'    => 1.66,
 						'letter-spacing' => 0,
 						'text-transform' => 'none',
 					),
@@ -125,10 +136,10 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 
 				'main_content_quote_block_font' => array(
 					'default' => array(
-						'font-family'    => VARIATION_SANS_SERIF_FONT,
-						'font-weight'    => '700',
-						'font-size'      => 50,
-						'line-height'    => 1.2,
+						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 40,
+						'line-height'    => 1.5,
 						'letter-spacing' => 0,
 						'text-transform' => 'none',
 					),
@@ -137,10 +148,10 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 				// [Sub Section] Headings Fonts
 				'main_content_heading_1_font'   => array(
 					'default' => array(
-						'font-family'    => VARIATION_SANS_SERIF_FONT,
-						'font-weight'    => '700',
-						'font-size'      => 36,
-						'line-height'    => 1.1,
+						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 48,
+						'line-height'    => 1.167,
 						'letter-spacing' => 0,
 						'text-transform' => 'none',
 					),
@@ -148,10 +159,10 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 
 				'main_content_heading_2_font' => array(
 					'default' => array(
-						'font-family'    => VARIATION_SANS_SERIF_FONT,
-						'font-weight'    => '700',
-						'font-size'      => 26,
-						'line-height'    => 1.,
+						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 40,
+						'line-height'    => 1.1,
 						'letter-spacing' => 0,
 						'text-transform' => 'none',
 					),
@@ -159,10 +170,10 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 
 				'main_content_heading_3_font' => array(
 					'default' => array(
-						'font-family'    => VARIATION_SANS_SERIF_FONT,
-						'font-weight'    => '700',
-						'font-size'      => 21,
-						'line-height'    => 1.2,
+						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 24,
+						'line-height'    => 1.417,
 						'letter-spacing' => 0,
 						'text-transform' => 'none',
 					),
@@ -170,10 +181,10 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 
 				'main_content_heading_4_font' => array(
 					'default' => array(
-						'font-family'    => VARIATION_SANS_SERIF_FONT,
+						'font-family'    => VARIATION_HEADINGS_FONT_ALT,
 						'font-weight'    => '500',
-						'font-size'      => 16,
-						'line-height'    => 1.2,
+						'font-size'      => 19,
+						'line-height'    => 1.21,
 						'letter-spacing' => 0,
 						'text-transform' => 'none',
 					),
@@ -182,22 +193,22 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 				'main_content_heading_5_font' => array(
 					'selector' => '.entry-content h5, .h5, h5, .header-meta, .nav-links__label',
 					'default' => array(
-						'font-family'    => VARIATION_SANS_SERIF_FONT,
+						'font-family'    => VARIATION_HEADINGS_FONT_ALT,
 						'font-weight'    => '700',
 						'font-size'      => 14,
-						'line-height'    => 1.2,
-						'letter-spacing' => 0.15,
+						'line-height'    => 1.07,
+						'letter-spacing' => 0.07,
 						'text-transform' => 'uppercase',
 					),
 				),
 
 				'main_content_heading_6_font' => array(
 					'default' => array(
-						'font-family'    => VARIATION_SANS_SERIF_FONT,
-						'font-weight'    => '500',
-						'font-size'      => 13,
-						'line-height'    => 1.2,
-						'letter-spacing' => 0.15,
+						'font-family'    => VARIATION_HEADINGS_FONT_ALT,
+						'font-weight'    => '700',
+						'font-size'      => 12,
+						'line-height'    => 1.25,
+						'letter-spacing' => 0.08,
 						'text-transform' => 'uppercase',
 					),
 				),

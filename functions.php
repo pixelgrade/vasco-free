@@ -162,6 +162,15 @@ function bobo_scripts() {
 	$theme           = wp_get_theme();
 	$main_style_deps = array();
 
+	/* Default Self-hosted Fonts should be loaded when Customify is off */
+	if ( ! class_exists( 'PixCustomifyPlugin' ) ) {
+		wp_enqueue_style( 'bobo-fonts-youngserif', bobo_youngserif_font_url() );
+		$main_style_deps[] = 'bobo-fonts-youngserif';
+
+		wp_enqueue_style( 'bobo-fonts-hkgrotesk', bobo_hkgrotesk_font_url() );
+		$main_style_deps[] = 'bobo-fonts-hkgrotesk';
+	}
+
 	/* The main theme stylesheet */
 	if ( ! is_rtl() ) {
 		wp_enqueue_style( 'bobo-style', get_stylesheet_uri(), $main_style_deps, $theme->get( 'Version' ) );

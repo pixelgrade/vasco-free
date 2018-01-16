@@ -1,0 +1,17 @@
+hr {
+    width: 4px;
+    height: 4px;
+    border-top: 0;
+    margin: 100px auto;
+    border-radius: 50%;
+    box-shadow: black -8px 0, black -24px 0, black 8px 0, black 24px 0;
+
+    &:not(:first-child) {
+        @include spacing(margin-top, 2rem);
+    }
+
+    &:not(:last-child) {
+        padding-bottom: 0;
+        @include spacing(margin-bottom, 3rem);
+    }
+}
