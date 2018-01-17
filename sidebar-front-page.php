@@ -13,6 +13,6 @@ if ( ! is_active_sidebar( 'front-page-1' ) ) {
 }
 ?>
 
-<div class="widget-area  widget-area--main  widget-area--front-page-1  o-layout__main">
+<div class="widget-area  widget-area--main  widget-area--front-page-1">
 	<?php dynamic_sidebar( 'front-page-1' ); ?>
 </div><!-- .o-layout__main -->
