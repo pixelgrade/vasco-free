@@ -85,7 +85,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 						'section'  => 'content',
 						'priority' => 60,
 					),
-					'profile_image' => array(
+					'image' => array(
 						'type'     => 'image',
 						'label'    => esc_html__( 'Image:', '__theme_txtd' ),
 						'default'  => 0, // This is the attachment ID
@@ -109,7 +109,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
             // Set up the widget options
             $widget_ops = array(
                 'classname'                   => 'widget_profile',
-                'description'                 => esc_html__( 'Say something about you, in style.', '__theme_txtd' ),
+                'description'                 => esc_html__( 'Use this block to display a summary of who you are and what is your blog about.', '__theme_txtd' ),
                 'customize_selective_refresh' => true,
             );
 
@@ -120,7 +120,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
                 $config );
 
 			// Set up an alternate widget options name
-			$this->alt_option_name = 'widget_profile';
+			$this->alt_option_name = 'widget_pixelgrade_profile';
 		}
 
 		/**
@@ -130,7 +130,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 		 *
 		 * @param array $args Display arguments including 'before_title', 'after_title',
 		 *                        'before_widget', and 'after_widget'.
-		 * @param array $instance Settings for the current Featured Posts widget instance.
+		 * @param array $instance Settings for the current widget instance.
 		 */
 		public function widget( $args, $instance ) {
 			// There is no point in doing anything of we don't have a template part to display with.
@@ -162,7 +162,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 				 *
 				 * @var string $title
 				 *
-				 * @param string $title The widget title. Default 'Pages'.
+				 * @param string $title The widget title.
 				 * @param array $instance An array of the widget's settings.
 				 * @param mixed $id_base The widget ID.
 				 */
@@ -173,11 +173,31 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 					$classes = array_merge( $classes, (array) $this->config['posts']['classes'] );
 				}
 
-				// Allow others (maybe other widgets that extend this) to change the classes
-				$classes = apply_filters( 'pixelgrade_profile_widget_classes', $classes, $instance );
+				/**
+				 * Filter the widget wrapper classes.
+				 *
+				 * Allow others (maybe other widgets that extend this) to change the classes.
+				 *
+				 * @var array $classes
+				 *
+				 * @param array $classes The widget wrapper classes.
+				 * @param array $instance An array of the widget's settings.
+				 * @param mixed $id_base The widget ID.
+				 */
+				$classes = apply_filters( 'pixelgrade_profile_widget_classes', $classes, $instance, $this->id_base );
 
-				// Allow others (maybe other widgets that extend this) to change the attributes
-				$attributes = apply_filters( 'pixelgrade_profile_widget_attributes', array(), $instance );
+				/**
+				 * Filter the widget wrapper attributes.
+				 *
+				 * Allow others (maybe other widgets that extend this) to change the attributes.
+				 *
+				 * @var array $attributes
+				 *
+				 * @param array $attributes The widget wrapper attributes.
+				 * @param array $instance An array of the widget's settings.
+				 * @param mixed $id_base The widget ID.
+				 */
+				$attributes = apply_filters( 'pixelgrade_profile_widget_attributes', array(), $instance, $this->id_base );
 
 				/*
 				 * Start outputting the widget markup
@@ -185,9 +205,14 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 				echo $args['before_widget'];
 
 				/**
-				 * Fires at the beginning of the widget, after the title.
+				 * Fires at the beginning of the widget.
+				 *
+				 * @param array $args     Display arguments including 'before_title', 'after_title',
+				 *                        'before_widget', and 'after_widget'.
+				 * @param array $instance An array of the widget's settings.
+				 * @param mixed $id_base The widget ID.
 				 */
-				do_action( 'pixelgrade_profile_widget_start', $instance, $args ); ?>
+				do_action( 'pixelgrade_profile_widget_start', $args, $instance, $this->id_base ); ?>
 
 				<div <?php pixelgrade_css_class( $classes ); ?> <?php pixelgrade_element_attributes( $attributes ); ?>>
 
@@ -199,9 +224,14 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 
 				<?php
 				/**
-				 * Fires at the end of the Promo Box widget.
+				 * Fires at the end of the widget.
+				 *
+				 * @param array $args     Display arguments including 'before_title', 'after_title',
+				 *                        'before_widget', and 'after_widget'.
+				 * @param array $instance An array of the widget's settings.
+				 * @param mixed $id_base The widget ID.
 				 */
-				do_action( 'pixelgrade_profile_widget_end', $instance, $args );
+				do_action( 'pixelgrade_profile_widget_end', $args, $instance, $this->id_base );
 
 				echo $args['after_widget'];
 			} else {
