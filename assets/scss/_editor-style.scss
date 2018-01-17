@@ -6,6 +6,7 @@
 
 $editor-style: true;
 $content-wrapper-selector: '.mce-content-body';
+$content-selector: '.mce-content-body';
 
 @import "../../components/base/scss/editor-style";
 @import "../../components/featured-image/scss/editor-style";
@@ -18,4 +19,11 @@ $content-wrapper-selector: '.mce-content-body';
 ._hero_content_description {
     color: white;
     padding-top: 50px;
+}
+
+.gallery-icon,
+.gallery-icon + .wp-caption-text {
+  width: auto;
+  float: none;
+  font-weight: inherit;
 }

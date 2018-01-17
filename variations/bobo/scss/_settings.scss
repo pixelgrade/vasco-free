@@ -298,3 +298,18 @@ $arrow-caret-svg: 'assets/images/arrow-caret.svg';
 $select-arrow-svg: 'assets/images/select-arrow.svg';
 $checkbox-svg: 'assets/images/checkbox.svg';
 $search-svg: 'assets/images/icon-search.svg';
+
+
+
+// ----------------------------------------
+// MEDIA
+// ----------------------------------------
+$wp-align-caption-font: (
+  font-size: 17px,
+  font-family: $theme-headings-font-family-alt,
+  spacing-top: 1rem,
+);
+
+$gallery-spacing: 4rem;
+$wp-align-image-padding: 4rem;
+$wp-align-wrapped-image-padding: 4rem;

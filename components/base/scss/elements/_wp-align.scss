@@ -1,8 +1,10 @@
 $wp-align-image-padding: 4rem !default;
 $wp-align-wrapped-image-padding: 3rem !default;
 
-$wp-align-caption-spacing: 1rem !default;
-$wp-align-caption-font-size: 14px !default;
+$wp-align-caption-font: (
+  font-size: 14px,
+  spacing-top: 1rem
+) !default;
 
 p {
 	.alignleft {
@@ -107,10 +109,7 @@ figure {
 }
 
 .wp-caption-text {
-  @include leading-map((
-    font-size: $wp-align-caption-font-size,
-    spacing-top: $wp-align-caption-spacing
-  ));
+  @include leading-map($wp-align-caption-font);
 }
 
 
