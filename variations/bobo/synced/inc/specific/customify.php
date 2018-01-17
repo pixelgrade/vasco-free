@@ -32,8 +32,7 @@ function bobo_change_customify_general_section( $general_section, $options ) {
 
 	$modified_config = array(
 		'general' => array(
-			'options' => array(
-			),
+			'options' => array(),
 		),
 	);
 
@@ -70,6 +69,16 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 				),
 				'main_content_body_text_color'          => array(
 					'default' => VARIATION_TEXT_COLOR,
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => 'body',
+						),
+						array(
+							'property' => 'background-color',
+							'selector' => '.entry-content .dropcap',
+						),
+					),
 				),
 				'main_content_body_link_color'          => array(
 					'default' => VARIATION_TEXT_COLOR,
@@ -99,6 +108,21 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 				// [Sub Section] Backgrounds
 				'main_content_content_background_color' => array(
 					'default' => '#F5F6F1',
+					'css'     => array(
+						array(
+							'property' => 'background-color',
+							'selector' => '.u-content-background, .mce-content-body',
+						),
+						array(
+							'property' => 'color',
+							'selector' => '.entry-content .dropcap',
+						),
+						array(
+							'property' => 'text-shadow',
+							'selector' => '.u-underlined-links .entry-content a',
+							'callback_filter' => 'bobo_link_text_shadow_cb'
+						),
+					),
 				),
 
 				// [Section] FONTS
@@ -192,7 +216,7 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 
 				'main_content_heading_5_font' => array(
 					'selector' => '.entry-content h5, .h5, h5, .header-meta, .nav-links__label',
-					'default' => array(
+					'default'  => array(
 						'font-family'    => VARIATION_HEADINGS_FONT_ALT,
 						'font-weight'    => '700',
 						'font-size'      => 14,
@@ -252,9 +276,9 @@ function bobo_change_customify_buttons( $section_options, $options ) {
 		// Main Content
 		'buttons' => array(
 			'options' => array(
-				'buttons_color' => array(
+				'buttons_color'      => array(
 					'default' => VARIATION_ACCENT_COLOR,
-					'css' => array(
+					'css'     => array(
 						array(
 							'property' => 'background-color',
 							'selector' => $button_selector,
@@ -263,14 +287,14 @@ function bobo_change_customify_buttons( $section_options, $options ) {
 				),
 				'buttons_text_color' => array(
 					'default' => '#FFFFFF',
-					'css' => array(
+					'css'     => array(
 						array(
 							'property' => 'color',
 							'selector' => $button_selector,
 						),
 					),
 				),
-				'buttons_font' => array(
+				'buttons_font'       => array(
 					'selector' => $button_selector,
 					'default'  => array(
 						'font-family'    => VARIATION_SANS_SERIF_FONT,
@@ -348,7 +372,7 @@ function bobo_change_customify_blog_grid_section( $section_options, $options ) {
 						'text-transform' => 'uppercase',
 					),
 				),
-				'blog_item_excerpt_font' => array(
+				'blog_item_excerpt_font'         => array(
 					'default' => array(
 						'font-family'    => VARIATION_SERIF_FONT,
 						'font-weight'    => '400',
@@ -387,20 +411,20 @@ function bobo_change_customify_header_section_options( $section_options, $option
 				'header_navigation_links_spacing' => array(
 					'default' => 56,
 				),
-				'header_width' => array(
+				'header_width'                    => array(
 					'default' => 'container',
 				),
 				// [Section] Colors
-				'header_navigation_links_color'    => array(
+				'header_navigation_links_color'   => array(
 					'default' => '#323232',
 				),
-				'header_links_active_color'        => array(
+				'header_links_active_color'       => array(
 					'default' => VARIATION_ACCENT_COLOR,
 				),
-				'header_background'                => array(
+				'header_background'               => array(
 					'default' => '#fff4e8',
 				),
-				'header_site_title_font'           => array(
+				'header_site_title_font'          => array(
 					'fields'  => array(
 						'font-size' => array(
 							'max' => 150,
@@ -415,7 +439,7 @@ function bobo_change_customify_header_section_options( $section_options, $option
 						'text-transform' => 'none',
 					),
 				),
-				'header_navigation_font'           => array(
+				'header_navigation_font'          => array(
 					'default' => array(
 						'font-family'    => VARIATION_SANS_SERIF_FONT,
 						'font-weight'    => '500',
@@ -455,7 +479,7 @@ function bobo_change_customify_footer_section_options( $section_options, $option
 				),
 				'footer_bottom_spacing'  => array(
 					'default' => 56,
-					'css'         => array(
+					'css'     => array(
 						// Component
 						array(
 							'property'        => 'padding-bottom',
@@ -465,8 +489,8 @@ function bobo_change_customify_footer_section_options( $section_options, $option
 						),
 						// Custom for Julia/Felt
 						array(
-							'property' => 'padding-top',
-							'selector' => '.c-footer__zone--bottom:not(:first-child)',
+							'property'        => 'padding-top',
+							'selector'        => '.c-footer__zone--bottom:not(:first-child)',
 							'unit'            => 'px',
 							'callback_filter' => 'typeline_spacing_cb',
 						),
@@ -484,8 +508,8 @@ function bobo_change_customify_footer_section_options( $section_options, $option
 						),
 						// Custom for Julia/Felt
 						array(
-							'property' => 'margin-top',
-							'selector' => '.c-footer__zone:not(:empty)+.c-footer__zone',
+							'property'        => 'margin-top',
+							'selector'        => '.c-footer__zone:not(:empty)+.c-footer__zone',
 							'unit'            => 'px',
 							'callback_filter' => 'typeline_spacing_cb',
 						),
@@ -501,7 +525,7 @@ function bobo_change_customify_footer_section_options( $section_options, $option
 						),
 					),
 				),
-				'footer_links_color' => array(
+				'footer_links_color'     => array(
 					'default' => '#FFFFFF'
 				),
 				'footer_background'      => array(
@@ -547,3 +571,57 @@ function bobo_single_header_width( $value, $selector, $property, $unit ) {
 
 	return $output;
 }
+
+if ( ! function_exists( 'bobo_link_text_shadow_cb_customizer_preview' ) ) :
+
+	function bobo_link_text_shadow_cb( $value, $selector, $property, $unit ) {
+		$output = '';
+
+		$output .= $selector . ' {' . PHP_EOL .
+		           $property . ': -1px -1px ' . $value . ', -1px 1px ' . $value . ', 1px -1px ' . $value . ', 1px 1px ' . $value . ',-2px 0 ' . $value . ', 2px 0 ' . $value . ';' . PHP_EOL .
+		           '}' . PHP_EOL;
+
+		return $output;
+	}
+
+endif;
+
+if ( ! function_exists( 'bobo_link_text_shadow_cb_customizer_preview' ) ) :
+	/**
+	 * Outputs the inline JS code used in the Customizer for the aspect ratio live preview.
+	 */
+	function bobo_link_text_shadow_cb_customizer_preview() {
+
+		$js = "
+			function bobo_link_text_shadow_cb( value, selector, property, unit ) {
+			
+			    var css = '',
+			        style = document.getElementById('bobo_link_text_shadow_cb_style_tag'),
+			        head = document.head || document.getElementsByTagName('head')[0];
+			
+			    css += selector + ' {' +
+			        property + ': -1px -1px ' + value + ', -1px 1px ' + value + ', 1px -1px ' + value + ', 1px 1px ' + value + ',-2px 0 ' + value + ', 2px 0 ' + value + ';'
+			        '}';
+			
+			    if ( style !== null ) {
+			        style.innerHTML = css;
+			    } else {
+			        style = document.createElement('style');
+			        style.setAttribute('id', 'bobo_link_text_shadow_cb_style_tag');
+			
+			        style.type = 'text/css';
+			        if ( style.styleSheet ) {
+			            style.styleSheet.cssText = css;
+			        } else {
+			            style.appendChild(document.createTextNode(css));
+			        }
+			
+			        head.appendChild(style);
+			    }
+			}" . PHP_EOL;
+
+		wp_add_inline_script( 'customify-previewer-scripts', $js );
+	}
+endif;
+
+add_action( 'customize_preview_init', 'bobo_link_text_shadow_cb_customizer_preview', 20 );
