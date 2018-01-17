@@ -59,6 +59,10 @@ function bobo_custom_widgets_init() {
 	require_once pixelgrade_get_parent_theme_file_path( 'inc/widgets/class-CalloutBoxWidget.php' );
 	register_widget( 'Pixelgrade_CalloutBoxWidget' );
 
+	// The Categories Widget
+	require_once pixelgrade_get_parent_theme_file_path( 'inc/widgets/class-CategoriesWidget.php' );
+	register_widget( 'Pixelgrade_CategoriesWidget' );
+
 	// The Promo Box Widget
 	require_once pixelgrade_get_parent_theme_file_path( 'inc/widgets/class-PromoBoxWidget.php' );
 	register_widget( 'Pixelgrade_PromoBoxWidget' );

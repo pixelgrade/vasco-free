@@ -196,7 +196,7 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 				 *
 				 * @var string $title
 				 *
-				 * @param string $title The widget title. Default 'Pages'.
+				 * @param string $title The widget title.
 				 * @param array $instance An array of the widget's settings.
 				 * @param mixed $id_base The widget ID.
 				 */
@@ -220,11 +220,31 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 					$classes[] = 'c-promo--reversed';
 				}
 
-				// Allow others (maybe other widgets that extend this) to change the classes
-				$classes = apply_filters( 'pixelgrade_promo_box_widget_classes', $classes, $instance );
+				/**
+				 * Filter the widget wrapper classes.
+				 *
+				 * Allow others (maybe other widgets that extend this) to change the classes.
+				 *
+				 * @var array $classes
+				 *
+				 * @param array $classes The widget wrapper classes.
+				 * @param array $instance An array of the widget's settings.
+				 * @param mixed $id_base The widget ID.
+				 */
+				$classes = apply_filters( 'pixelgrade_promo_box_widget_classes', $classes, $instance, $this->id_base );
 
-				// Allow others (maybe other widgets that extend this) to change the attributes
-				$attributes = apply_filters( 'pixelgrade_promo_box_widget_attributes', array(), $instance );
+				/**
+				 * Filter the widget wrapper attributes.
+				 *
+				 * Allow others (maybe other widgets that extend this) to change the attributes.
+				 *
+				 * @var array $attributes
+				 *
+				 * @param array $attributes The widget wrapper attributes.
+				 * @param array $instance An array of the widget's settings.
+				 * @param mixed $id_base The widget ID.
+				 */
+				$attributes = apply_filters( 'pixelgrade_promo_box_widget_attributes', array(), $instance, $this->id_base );
 
 				/*
 				 * Start outputting the widget markup
@@ -232,9 +252,14 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 				echo $args['before_widget'];
 
 				/**
-				 * Fires at the beginning of the Promo Box widget, after the title.
+				 * Fires at the beginning of the widget.
+				 *
+				 * @param array $args     Display arguments including 'before_title', 'after_title',
+				 *                        'before_widget', and 'after_widget'.
+				 * @param array $instance An array of the widget's settings.
+				 * @param mixed $id_base The widget ID.
 				 */
-				do_action( 'pixelgrade_promo_box_widget_start', $instance, $args ); ?>
+				do_action( 'pixelgrade_feature_widget_start', $args, $instance, $this->id_base ); ?>
 
 				<div <?php pixelgrade_css_class( $classes ); ?> <?php pixelgrade_element_attributes( $attributes ); ?>>
 
@@ -246,9 +271,14 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 
 				<?php
 				/**
-				 * Fires at the end of the Promo Box widget.
+				 * Fires at the end of the widget.
+				 *
+				 * @param array $args     Display arguments including 'before_title', 'after_title',
+				 *                        'before_widget', and 'after_widget'.
+				 * @param array $instance An array of the widget's settings.
+				 * @param mixed $id_base The widget ID.
 				 */
-				do_action( 'pixelgrade_promo_box_widget_end', $instance, $args );
+				do_action( 'pixelgrade_categories_widget_end', $args, $instance, $this->id_base );
 
 				echo $args['after_widget'];
 			} else {
