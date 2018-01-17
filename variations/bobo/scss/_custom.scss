@@ -11,6 +11,15 @@
   .wp-caption-text {
     border-left: 1px solid currentColor;
     padding-left: 1em;
+
+    .credit {
+      display: block;
+      @include leading-map(map-merge($h5, (
+        spacing-top: 0.75rem,
+        spacing-bottom: false
+      )));
+      opacity: 0.6;
+    }
   }
 
   @at-root .u-underlined-links .wp-caption-text a {
