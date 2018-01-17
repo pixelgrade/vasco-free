@@ -21,8 +21,8 @@ function bobo_widget_areas_init() {
 		'description'   => esc_html__( 'Add widgets here.', '__theme_txtd' ),
 		'before_widget' => '<section id="%1$s" class="widget widget--full %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget__title h3"><span>',
-		'after_title'   => '</span></h2>',
+		'before_title'  => '<h2 class="widget__title h3">',
+		'after_title'   => '</h2>',
 	) );
 }
 add_action( 'widgets_init', 'bobo_widget_areas_init', 10 );

@@ -2,6 +2,7 @@
 /**
  * Template part for displaying the Categories widget.
  *
+ * @global array $args The widget display options.
  * @global array $queried_categories The queried categories.
  * @global string $title The title text.
  * @global string $source The categories source: 'all' or 'selected_categories'.
@@ -20,37 +21,44 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! empty( $queried_categories ) || ! is_wp_error( $queried_categories ) ) { ?>
-	<ul>
-		<?php
-		/** @var WP_Term $category */
-		foreach ( $queried_categories as $category ) {
-			/** This filter is documented in wp-includes/category-template.php */
-			$cat_name = apply_filters(
-				'list_cats',
-				esc_attr( $category->name ),
-				$category
-			);
 
-			$classes = 'cat-item cat-item-' . $category->term_id;
+	<?php if ( ! empty( $title ) ) {
+		echo $args['before_title'] . $title . $args['after_title'];
+	} ?>
 
-			/* Assemble the category output */
-			$output = '<li class="' . esc_attr( $classes ) . '">' . PHP_EOL;
-			// The category link
-			$output .= '<a class="cat-link" href="' . esc_url( get_term_link( $category ) ) . '" >';
-			// The category count
-			if ( $show_count ) {
-				$output .= '<span class="cat-link-count">' . $category->count . '</span>';
-			}
-			// The category name
-			$output .= '<span class="cat-link-name">' . $cat_name . '</span>';
-			$output .= '</a>' . PHP_EOL;
-			$output .= '</li>' . PHP_EOL;
+	<div class="c-categories__content">
+		<ul>
+			<?php
+			/** @var WP_Term $category */
+			foreach ( $queried_categories as $category ) {
+				/** This filter is documented in wp-includes/category-template.php */
+				$cat_name = apply_filters(
+					'list_cats',
+					esc_attr( $category->name ),
+					$category
+				);
 
-			/**
-			 * Filters the HTML output of a category in the Categories widget
-			 */
-			echo apply_filters( 'pixelgrade_category_widget', $output, $args );
-		} ?>
-	</ul>
+				$classes = 'cat-item cat-item-' . $category->term_id;
+
+				/* Assemble the category output */
+				$output = '<li class="' . esc_attr( $classes ) . '">' . PHP_EOL;
+				// The category link
+				$output .= '<a class="cat-link" href="' . esc_url( get_term_link( $category ) ) . '" >';
+				// The category count
+				if ( $show_count ) {
+					$output .= '<span class="cat-link-count">' . $category->count . '</span>';
+				}
+				// The category name
+				$output .= '<span class="cat-link-name">' . $cat_name . '</span>';
+				$output .= '</a>' . PHP_EOL;
+				$output .= '</li>' . PHP_EOL;
+
+				/**
+				 * Filters the HTML output of a category in the Categories widget
+				 */
+				echo apply_filters( 'pixelgrade_category_widget', $output, $args );
+			} ?>
+		</ul>
+	</div>
 <?php
 }

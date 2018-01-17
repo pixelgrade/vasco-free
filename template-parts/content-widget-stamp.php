@@ -2,6 +2,7 @@
 /**
  * Template part for displaying the Stamp widget.
  *
+ * @global array $args The widget display options.
  * @global string $box_style The box style to use: 'dark' or 'light'.
  *
  * @package Bobo

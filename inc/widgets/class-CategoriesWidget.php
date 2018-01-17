@@ -125,7 +125,7 @@ if ( ! class_exists( 'Pixelgrade_CategoriesWidget' ) ) :
 					),
 				    'show_count' => array(
 					    'type'     => 'checkbox',
-					    'label'    => esc_html__( 'Show Count', '__theme_txtd' ),
+					    'label'    => esc_html__( 'Show Post Count', '__theme_txtd' ),
 					    'desc'     => esc_html__( '', '__theme_txtd' ),
 					    'default'  => true,
 					    'section' => 'default',

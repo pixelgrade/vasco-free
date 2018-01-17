@@ -2,6 +2,8 @@
 /**
  * Template part for displaying the Profile widget.
  *
+ * @global array $args The widget display options.
+ * @global array $args The widget display options.
  * @global string $title The title text.
  * @global string $subtitle The subtitle text.
  * @global string $description The description text.

@@ -20,14 +20,6 @@ if ( ! class_exists( 'Pixelgrade_FeatureWidget' ) ) :
 	 */
 	class Pixelgrade_FeatureWidget extends Pixelgrade_WidgetFields {
 
-		// These are the widget args
-		public $args = array(
-			'before_title'  => '<h4 class="widgettitle">',
-			'after_title'   => '</h4>',
-			'before_widget' => '<div class="widget-wrap">',
-			'after_widget'  => '</div></div>'
-		);
-
 		/**
 		 * Sets up a new Feature widget instance.
 		 *

@@ -20,14 +20,6 @@ if ( ! class_exists( 'Pixelgrade_StampWidget' ) ) :
 	 */
 	class Pixelgrade_StampWidget extends Pixelgrade_WidgetFields {
 
-		// These are the widget args
-		public $args = array(
-			'before_title'  => '<h4 class="widgettitle">',
-			'after_title'   => '</h4>',
-			'before_widget' => '<div class="widget-wrap">',
-			'after_widget'  => '</div></div>'
-		);
-
 		/**
 		 * Sets up a new Feature widget instance.
 		 *
@@ -120,17 +112,6 @@ if ( ! class_exists( 'Pixelgrade_StampWidget' ) ) :
 						$$k = $v;
 					}
 				}
-
-				/**
-				 * Filters the widget title.
-				 *
-				 * @var string $title
-				 *
-				 * @param string $title The widget title.
-				 * @param array $instance An array of the widget's settings.
-				 * @param mixed $id_base The widget ID.
-				 */
-				$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 
 				$classes = array();
 				if ( ! empty( $this->config['posts']['classes'] ) ) {
