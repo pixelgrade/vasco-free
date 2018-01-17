@@ -5,8 +5,8 @@
 @import "typeline-config-editor";
 
 $editor-style: true;
-$content-wrapper-selector: '.mce-content-body';
-$content-selector: '.mce-content-body';
+$content-wrapper-selector: 'html';
+$content-selector: '.mce-content-body > *';
 
 @import "../../components/base/scss/editor-style";
 @import "../../components/featured-image/scss/editor-style";
@@ -15,6 +15,14 @@ $content-selector: '.mce-content-body';
 @import "../../components/header/scss/editor-style";
 @import "../../components/hero/scss/editor-style";
 @import "../../components/multipage/scss/editor-style";
+
+@import '../../assets/scss/components/blockquote';
+@import '../../assets/scss/components/table';
+@import '../../assets/scss/components/dropcap';
+@import '../../assets/scss/components/hr';
+@import '../../assets/scss/components/intro';
+@import '../../assets/scss/components/links';
+@import '../../assets/scss/components/lists';
 
 ._hero_content_description {
     color: white;

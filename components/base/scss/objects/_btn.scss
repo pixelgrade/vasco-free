@@ -62,7 +62,6 @@ $btn-font: () !default;
   background-color: $btn-background;
 
   box-shadow: none;
-  text-shadow: none;
   -webkit-font-smoothing: initial;
 
   transition: $btn-transition;
@@ -71,6 +70,7 @@ $btn-font: () !default;
   &,
   body & {
     text-decoration: none;
+    text-shadow: none;
   }
 
   &:hover,
