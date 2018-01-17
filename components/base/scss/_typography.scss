@@ -14,7 +14,7 @@ p,
 ul, ol, dl,
 hr,
 table,
-.two-column {
+.twocolumn {
 
   &:not(:first-child) {
     @include spacing(margin-top, 0, 0.5em * (map-get($body-font, line-height) - map-get($body-font, cap-height)));
