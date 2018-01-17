@@ -51,7 +51,7 @@ $typeline-config: (
     @return $computedValue * $sign / $ratio;
 }
 
-@mixin typeline($property, $values, $config, $offset: false) {
+@mixin typeline($property, $values, $config) {
 	$points: map-get($config, points);
 	$breakpoints: map-get($config, breakpoints);
 
@@ -61,11 +61,6 @@ $typeline-config: (
     @if unitless($value / 1rem) {
       $value: $value * $baseline-unit / 1rem;
     }
-
-    @if $offset {
-      $value: calc( #{$value} - #{$offset} );
-    }
-
     $newValues: append( $newValues, $value, space );
   }
 
@@ -79,12 +74,6 @@ $typeline-config: (
           $value: $value * $baseline-unit / 1rem;
         }
         $newVal: getComputedValue($points, $breakpoints, $value, $breakpoint);
-
-
-        @if $offset {
-          $newVal: calc( #{$newVal} - #{$offset} );
-        }
-
         $newValues: append( $newValues, $newVal, space );
       }
       #{$property}: $newValues;
@@ -93,7 +82,7 @@ $typeline-config: (
 }
 
 @mixin spacing($property, $value, $offset: false) {
-	@include typeline($property, $value, map-get($typeline-config, spacings), $offset);
+	@include typeline($property, $value, map-get($typeline-config, spacings));
 }
 
 @mixin fontsize($value) {

@@ -16,12 +16,8 @@ hr,
 table,
 .twocolumn {
 
-  &:not(:first-child) {
-    @include spacing(margin-top, 0, 0.5em * (map-get($body-font, line-height) - map-get($body-font, cap-height)));
-  }
-
   &:not(:last-child) {
-    @include spacing(margin-bottom, $typography-spacing, 0.5em * (map-get($body-font, line-height) - map-get($body-font, cap-height)));
+    @include spacing(margin-bottom, $typography-spacing);
   }
 }
 
