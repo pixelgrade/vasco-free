@@ -1,0 +1,10 @@
+ul, ol, dl {
+
+  &:not(:first-child) {
+    @include spacing(margin-top, 1.5rem);
+  }
+
+  &:not(:last-child) {
+    @include spacing(margin-bottom, 4rem);
+  }
+}

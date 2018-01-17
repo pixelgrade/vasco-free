@@ -1,0 +1,29 @@
+$blockquote-spacing: 5rem !default;
+
+blockquote {
+    text-align: center;
+
+    &:not(:first-child) {
+        @include spacing(margin-top, $blockquote-spacing - $typography-spacing);
+    }
+
+    &:not(:last-child) {
+        @include spacing(margin-bottom, $blockquote-spacing);
+    }
+
+    cite {
+        color: $theme-accent-color;
+
+        &:before {
+            content: "";
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            @include spacing(height, 2rem);
+            @include spacing(margin-bottom, 2rem);
+            width: 2px;
+
+            background-color: currentColor;
+        }
+    }
+}

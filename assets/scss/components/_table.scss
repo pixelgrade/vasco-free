@@ -1,0 +1,20 @@
+table {
+
+    caption {
+        @include leading-map($h6);
+        color: #999999;
+    }
+
+    th {
+        @include leading-map(map-merge($h5,(
+            cap-height: false,
+            spacing-top: false,
+            spacing-bottom: false,
+        )));
+        color: $h5-color;
+    }
+
+    tr {
+        border: 0;
+    }
+}
