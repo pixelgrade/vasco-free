@@ -5,9 +5,11 @@
     )));
     float: left;
 
-    padding-right: 0;
-    margin: 0 0.1em -0.1em -0.05em;
-    text-shadow: 3px 3px 0 rgba(56, 60, 80, 0.22);
+    padding: 8px 6px 2px 6px;
+    margin: 0.1em 0.15em -0.1em 0em;
+
+    color: white;
+    background: $theme-text-color;
 
     &[class]:before,
     &[class]:after {
@@ -15,7 +17,7 @@
     }
 
     &[class] {
-        @include fontsize(95px);
+        @include fontsize(65px);
         line-height: 1;
     }
 }
