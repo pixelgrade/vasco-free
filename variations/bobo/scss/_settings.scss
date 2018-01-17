@@ -58,7 +58,6 @@ $logo-font: (
   line-height: 1,
   font-weight: 700,
   text-transform: none,
-  cap-height: 0.74
 );
 
 $header-font: (
@@ -106,16 +105,14 @@ $page-title-font: (
   font-family: $theme-headings-font-family,
   font-size: 72px,
   line-height: (80/72),
-  cap-height: 0.75,
-  spacing-top: 4rem,
-  spacing-bottom: 2.5rem
+  spacing-top: 2.5rem,
+  spacing-bottom: 1rem
 );
 
 $body-font: (
   font-family: $theme-body-font-family,
   font-size: 18px,
   line-height: (30/18),
-  cap-height: 0.75,
 );
 
 $blockquote-font: (
@@ -160,27 +157,24 @@ $h1: (
   font-family: $theme-headings-font-family,
   font-size: 48px,
   line-height: (56/48),
-  spacing-top: 4rem,
-  spacing-bottom: 2.5rem,
-  cap-height: 0.8
+  spacing-top: 2.786rem,
+  spacing-bottom: 1.286rem,
 );
 
 $h2: (
   font-family: $theme-headings-font-family,
   font-size: 40px,
   line-height: (44/40),
-  spacing-top: 4rem,
-  spacing-bottom: 2.5rem,
-  cap-height: 0.8
+  spacing-top: 3rem,
+  spacing-bottom: 1.5rem,
 );
 
 $h3: (
   font-family: $theme-headings-font-family,
   font-size: 24px,
   line-height: (34/24),
-  spacing-top: 4rem,
-  spacing-bottom: 2.5rem,
-  cap-height: 0.8
+  spacing-top: 3rem,
+  spacing-bottom: 1.5rem,
 );
 
 $h4: (
@@ -188,9 +182,8 @@ $h4: (
   font-size: 19px,
   line-height: (23/19),
   font-weight: 500,
-  spacing-top: 4rem,
-  spacing-bottom: 2.5rem,
-  cap-height: 0.7
+  spacing-top: 3.5rem,
+  spacing-bottom: 2rem,
 );
 
 $h5: (
@@ -200,9 +193,8 @@ $h5: (
   font-weight: bold,
   letter-spacing: (1em/14),
   text-transform: uppercase,
-  spacing-top: 4rem,
-  spacing-bottom: 2rem,
-  cap-height: 0.7
+  spacing-top: 3.642rem,
+  spacing-bottom: 1.642rem,
 );
 
 $h6: (
@@ -212,14 +204,11 @@ $h6: (
   font-weight: bold,
   letter-spacing: (1em/12),
   text-transform: uppercase,
-  spacing-top: 4rem,
-  spacing-bottom: 1rem,
-  cap-height: 0.7
+  spacing-top: 3.786rem,
+  spacing-bottom: 0.786rem,
 );
 
-$cite-font: map-merge($h4, (
-  cap-height: false,
-));
+$cite-font: $h4;
 
 $typography-table-border-width: 0;
 $typography-table-cell-padding: 1rem;
