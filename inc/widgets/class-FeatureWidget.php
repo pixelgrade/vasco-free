@@ -51,7 +51,7 @@ if ( ! class_exists( 'Pixelgrade_FeatureWidget' ) ) :
 						'label'    => esc_html__( 'Headline:', '__theme_txtd' ),
 						'default'  => esc_html__( 'Explore Amazing Places', '__theme_txtd' ),
 						'section'  => 'content',
-						'priority' => 30,
+						'priority' => 10,
 					),
 					'description'   => array(
 						'type'     => 'textarea',
@@ -59,28 +59,28 @@ if ( ! class_exists( 'Pixelgrade_FeatureWidget' ) ) :
 						'rows'     => 5,
 						'default'  => 'I recently quit my corporate job to travel full time and I will be sharing the experience along the way. Are you ready to achieve your travel goals? Join me and follow my adventures!',
 						'section'  => 'content',
-						'priority' => 40,
+						'priority' => 20,
 					),
 					'button_text'   => array(
 						'type'     => 'text',
 						'label'    => esc_html__( 'Button Text:', '__theme_txtd' ),
 						'default'  => esc_html__( 'Explore', '__theme_txtd' ),
 						'section'  => 'content',
-						'priority' => 50,
+						'priority' => 30,
 					),
 					'button_url'    => array(
 						'type'     => 'text',
 						'label'    => esc_html__( 'Button Link URL:', '__theme_txtd' ),
 						'default'  => esc_html__( '#', '__theme_txtd' ),
 						'section'  => 'content',
-						'priority' => 60,
+						'priority' => 40,
 					),
-					'feature_image' => array(
+					'image' => array(
 						'type'     => 'image',
 						'label'    => esc_html__( 'Image:', '__theme_txtd' ),
 						'default'  => 0, // This is the attachment ID
 						'section'  => 'content',
-						'priority' => 70,
+						'priority' => 50,
 					),
 				),
 			    'posts'    => array(
@@ -120,7 +120,7 @@ if ( ! class_exists( 'Pixelgrade_FeatureWidget' ) ) :
 		 *
 		 * @param array $args Display arguments including 'before_title', 'after_title',
 		 *                        'before_widget', and 'after_widget'.
-		 * @param array $instance Settings for the current Featured Posts widget instance.
+		 * @param array $instance Settings for the current widget instance.
 		 */
 		public function widget( $args, $instance ) {
 			// There is no point in doing anything of we don't have a template part to display with.

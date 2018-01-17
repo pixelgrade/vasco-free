@@ -68,7 +68,7 @@ if ( ! class_exists( 'Pixelgrade_LocationWidget' ) ) :
 					    'section'  => 'content',
 					    'priority' => 40,
 				    ),
-				    'location_image'       => array(
+				    'image'       => array(
 					    'type'     => 'image',
 					    'label'    => esc_html__( 'Image:', '__theme_txtd' ),
 					    'default'  => 0, // This is the attachment ID
@@ -182,7 +182,7 @@ if ( ! class_exists( 'Pixelgrade_LocationWidget' ) ) :
 
 				<?php
 				/**
-				 * Fires at the end of the Promo Box widget.
+				 * Fires at the end of the Location widget.
 				 */
 				do_action( 'pixelgrade_location_widget_end', $instance, $args );
 

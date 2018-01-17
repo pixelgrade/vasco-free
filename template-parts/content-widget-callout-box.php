@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying the Feature widget.
+ * Template part for displaying the Callout Box widget.
  *
  * @global string $title The title text.
  * @global string $description The description text.

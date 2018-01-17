@@ -7,7 +7,7 @@
  * @global string $description The description text.
  * @global string $button_text The button text.
  * @global string $button_url The button link URL.
- * @global int $profile_image The profile image attachment ID.
+ * @global int $image The profile image attachment ID.
  *
  * @package Bobo
  * @since 1.0.0
@@ -45,8 +45,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php } ?>
 
-<?php if ( ! empty ( $profile_image ) ) { ?>
+<?php if ( ! empty ( $image ) ) { ?>
 	<div class="c-profile__media">
-		<?php echo wp_get_attachment_image( $profile_image, 'full' ); ?>
+		<?php echo wp_get_attachment_image( $image, 'full' ); ?>
 	</div>
 <?php } ?>

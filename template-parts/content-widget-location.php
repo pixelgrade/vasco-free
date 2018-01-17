@@ -5,7 +5,7 @@
  * @global string $title The title text.
  * @global string $subtitle The subtitle text.
  * @global string $location_url The location link URL.
- * @global int $location_image The location image attachment ID.
+ * @global int $image The location image attachment ID.
  *
  * @package Bobo
  * @since 1.0.0
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<?php if ( ! empty( $title ) || ! empty( $description ) || ! empty( $location_image ) ) {
+<?php if ( ! empty( $title ) || ! empty( $description ) || ! empty( $image ) ) {
 	if ( ! empty( $location_url ) ) { ?>
 		<a href="<?php echo $location_url; ?>" class="c-location__link">
 	<?php } ?>
@@ -34,9 +34,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		</div>
 
-		<?php if ( ! empty ( $location_image ) ) { ?>
+		<?php if ( ! empty ( $image ) ) { ?>
 			<div class="c-location__media">
-				<?php echo wp_get_attachment_image( $location_image, 'full' ); ?>
+				<?php echo wp_get_attachment_image( $image, 'full' ); ?>
 			</div>
 		<?php } ?>
 
