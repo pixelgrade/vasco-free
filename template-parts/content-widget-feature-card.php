@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying the Feature widget.
+ * Template part for displaying the Feature Card widget.
  *
  * @global array $args The widget display options.
  * @global string $title The title text.

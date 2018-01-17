@@ -52,8 +52,8 @@ function bobo_custom_widgets_init() {
 	register_widget( 'Pixelgrade_LocationWidget' );
 
 	// The Feature Widget
-	require_once pixelgrade_get_parent_theme_file_path( 'inc/widgets/class-FeatureWidget.php' );
-	register_widget( 'Pixelgrade_FeatureWidget' );
+	require_once pixelgrade_get_parent_theme_file_path( 'inc/widgets/class-FeatureCardWidget.php' );
+	register_widget( 'Pixelgrade_FeatureCardWidget' );
 
 	// The Callout Box Widget
 	require_once pixelgrade_get_parent_theme_file_path( 'inc/widgets/class-CalloutBoxWidget.php' );

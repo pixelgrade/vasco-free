@@ -12,7 +12,6 @@
  * @since 1.0.0
  */
 
-// @todo standardize naming here
 add_filter( 'pixelgrade_customify_general_section_options', 'bobo_change_customify_general_section', 20, 2 );
 add_filter( 'pixelgrade_header_customify_section_options', 'bobo_change_customify_header_section_options', 20, 2 );
 add_filter( 'pixelgrade_customify_main_content_section_options', 'bobo_change_customify_main_content', 20, 2 );

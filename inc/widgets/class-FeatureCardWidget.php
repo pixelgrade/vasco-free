@@ -1,6 +1,6 @@
 <?php
 /**
- * The Feature Widget class
+ * The Feature Card Widget class
  *
  * @package Bobo
  * @since 1.0.0
@@ -10,18 +10,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! class_exists( 'Pixelgrade_FeatureWidget' ) ) :
+if ( ! class_exists( 'Pixelgrade_FeatureCardWidget' ) ) :
 
 	/**
-	 * Class used to implement the Pixelgrade Feature widget.
+	 * Class used to implement the Pixelgrade Feature Card widget.
 	 *
 	 * @see Pixelgrade_Widget_Fields
 	 * @see WP_Widget
 	 */
-	class Pixelgrade_FeatureWidget extends Pixelgrade_WidgetFields {
+	class Pixelgrade_FeatureCardWidget extends Pixelgrade_WidgetFields {
 
 		/**
-		 * Sets up a new Feature widget instance.
+		 * Sets up a new Feature Card widget instance.
 		 *
 		 * @access public
 		 */
@@ -76,13 +76,13 @@ if ( ! class_exists( 'Pixelgrade_FeatureWidget' ) ) :
 					),
 				),
 			    'posts'    => array(
-				    'classes'   => array( 'c-feature' ),
+				    'classes'   => array( 'c-feature-card' ),
 				    // You can have multiple templates here (array of arrays) and we will use the first one that passes processing and is found
 				    // @see Pixelgrade_Config::evaluateTemplateParts()
 				    'templates' => array(
 					    'component_slug'    => Pixelgrade_Blog::COMPONENT_SLUG,
 					    'slug'              => 'content-widget',
-					    'name'              => 'feature',
+					    'name'              => 'feature-card',
 					    'lookup_parts_root' => true,
 				    ),
 			    ),
@@ -90,19 +90,19 @@ if ( ! class_exists( 'Pixelgrade_FeatureWidget' ) ) :
 
             // Set up the widget options
             $widget_ops = array(
-                'classname'                   => 'widget_feature',
+                'classname'                   => 'widget_feature_card',
                 'description'                 => esc_html__( 'Use it to highlight a specific section of your website like a category, a key page or even an external link. Nest them together by placing multiple widgets one after another.', '__theme_txtd' ),
                 'customize_selective_refresh' => true,
             );
 
 			// Initialize the widget
-			parent::__construct( 'pixelgrade-feature',
-				apply_filters( 'pixelgrade_feature_widget_name', esc_html__( '&#32; Pixelgrade: Feature (x4)', '__theme_txtd' ) ),
+			parent::__construct( 'pixelgrade-feature-card',
+				apply_filters( 'pixelgrade_feature_card_widget_name', esc_html__( '&#32; Pixelgrade: Feature Card', '__theme_txtd' ) ),
 				$widget_ops,
                 $config );
 
 			// Set up an alternate widget options name
-			$this->alt_option_name = 'widget_pixelgrade_feature';
+			$this->alt_option_name = 'widget_pixelgrade_feature_card';
 		}
 
 		/**
@@ -166,7 +166,7 @@ if ( ! class_exists( 'Pixelgrade_FeatureWidget' ) ) :
 				 * @param array $instance An array of the widget's settings.
 				 * @param mixed $id_base The widget ID.
 				 */
-				$classes = apply_filters( 'pixelgrade_feature_widget_classes', $classes, $instance, $this->id_base );
+				$classes = apply_filters( 'pixelgrade_feature_card_widget_classes', $classes, $instance, $this->id_base );
 
 				/**
 				 * Filter the widget wrapper attributes.
@@ -179,7 +179,7 @@ if ( ! class_exists( 'Pixelgrade_FeatureWidget' ) ) :
 				 * @param array $instance An array of the widget's settings.
 				 * @param mixed $id_base The widget ID.
 				 */
-				$attributes = apply_filters( 'pixelgrade_feature_widget_attributes', array(), $instance, $this->id_base );
+				$attributes = apply_filters( 'pixelgrade_feature_card_widget_attributes', array(), $instance, $this->id_base );
 
 				/*
 				 * Start outputting the widget markup
@@ -194,7 +194,7 @@ if ( ! class_exists( 'Pixelgrade_FeatureWidget' ) ) :
 				 * @param array $instance An array of the widget's settings.
 				 * @param mixed $id_base The widget ID.
 				 */
-				do_action( 'pixelgrade_feature_widget_start', $args, $instance, $this->id_base ); ?>
+				do_action( 'pixelgrade_feature_card_widget_start', $args, $instance, $this->id_base ); ?>
 
 				<div <?php pixelgrade_css_class( $classes ); ?> <?php pixelgrade_element_attributes( $attributes ); ?>>
 
@@ -213,7 +213,7 @@ if ( ! class_exists( 'Pixelgrade_FeatureWidget' ) ) :
 				 * @param array $instance An array of the widget's settings.
 				 * @param mixed $id_base The widget ID.
 				 */
-				do_action( 'pixelgrade_feature_widget_end', $args, $instance, $this->id_base );
+				do_action( 'pixelgrade_feature_card_widget_end', $args, $instance, $this->id_base );
 
 				echo $args['after_widget'];
 			} else {
