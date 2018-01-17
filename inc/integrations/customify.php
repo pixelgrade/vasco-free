@@ -303,10 +303,10 @@ function bobo_customify_header_section( $section_options, $options ) {
 		'header_section' => array(
 			'options' => array(
 				'header_logo_height'              => array(
-					'default' => 140,
+					'default' => 30,
 				),
 				'header_height'                   => array(
-					'default' => 53,
+					'default' => 87,
 				),
 				'header_navigation_links_spacing' => array(
 					'default' => 56,

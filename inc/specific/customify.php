@@ -97,6 +97,12 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 				),
 				'main_content_heading_4_color'          => array(
 					'default' => VARIATION_ACCENT_COLOR,
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.entry-content h4, .h4, h4, .single .entry-header .cats',
+						),
+					),
 				),
 				'main_content_heading_5_color'          => array(
 					'default' => VARIATION_ACCENT_COLOR,
@@ -433,7 +439,7 @@ function bobo_change_customify_header_section_options( $section_options, $option
 					'default' => array(
 						'font-family'    => VARIATION_SITE_TITLE_FONT,
 						'font-weight'    => '700',
-						'font-size'      => 100,
+						'font-size'      => 30,
 						'line-height'    => 1,
 						'letter-spacing' => 0,
 						'text-transform' => 'none',

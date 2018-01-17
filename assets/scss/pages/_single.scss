@@ -1,0 +1,59 @@
+
+.header-dropcap {
+  display: none;
+}
+
+.single {
+
+  .entry-header {
+    text-align: center;
+
+    > * {
+      @include spacing(margin-top, 3rem);
+    }
+
+    > .header-meta {
+      @include spacing(margin-top, 4rem);
+    }
+
+    .cats {
+      justify-content: center;
+      @include leading-map($h4);
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+
+    .byline {
+      display: none;
+    }
+
+    .posted-on {
+      display: block;
+      position: relative;
+
+      a {
+        @include btn;
+
+        position: absolute;
+        top: 0;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  .entry-thumbnail {
+    @include spacing(margin-bottom, 2.5rem);
+
+    img {
+      max-width: 100%;
+      max-height: 80vh;
+      width: auto;
+      height: auto;
+    }
+  }
+}

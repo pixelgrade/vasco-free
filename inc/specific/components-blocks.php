@@ -16,89 +16,19 @@
  */
 function bobo_register_blog_blocks( $component_slug, $component_config ) {
 
-	Pixelgrade_BlocksManager()->registerBlock( 'blog/single-portrait', array(
-		'blocks' => array(
-			'blog/entry-thumbnail',
-			'sidebar' => array(
-				'extend'   => 'blog/side',
-				'wrappers' => array(
-					'side' => array(
-						'extend_classes' => 'widget-area--post',
-					),
-				),
-				'blocks'   => array( 'blog/sidebar' ),
-			),
-			'layout' => array(
-				'wrappers' => array(
-					'main' => array(
-						'classes' => 'single-main clearfix',
-					),
-				),
-				'blocks'   => array(
-					'blog/entry-content',
-					'blog/entry-footer',
-				),
-			),
-		),
-	) );
-
-	Pixelgrade_BlocksManager()->registerBlock( 'blog/single-landscape', array(
-		'blocks' => array(
-			'sidebar' => array(
-				'extend'   => 'blog/side',
-				'wrappers' => array(
-					'side' => array(
-						'extend_classes' => 'widget-area--post',
-					),
-				),
-				'blocks'   => array( 'blog/sidebar' ),
-			),
-			'blog/entry-thumbnail',
-			'blog/entry-content',
-			'blog/entry-footer',
-		),
-	) );
-
-	// Overwrite the Blog Component 'blog/single' block to take advantage of thumbnail aspect ratio logic.
 	Pixelgrade_BlocksManager()->registerBlock( 'blog/single', array(
 		'extend' => 'blog/default',
 		'blocks' => array(
-			'header' => array(
-				'extend'   => 'blog/container',
-				'wrappers' => array(
-					array(
-						'priority' => 100,
-						'classes'  => 'u-header-background'
-					),
-				),
-				'blocks'   => array(
-					'blog/entry-header-single',
-				),
-			),
-			'layout' => array(
+			'container' => array(
 				'extend' => 'blog/container',
 				'blocks' => array(
-					'image-portrait'  => array(
-						'extend' => 'blog/single-portrait',
-						'checks' => array(
-							'callback' => 'pixelgrade_has_portrait_thumbnail',
-						),
-					),
-					'image-landscape' => array(
-						'extend' => 'blog/single-landscape',
-						'checks' => array(
-							'callback' => 'pixelgrade_has_landscape_thumbnail',
-						),
-					),
-					'image-none'      => array(
-						'extend' => 'blog/single-landscape',
-						'checks' => array(
-							'callback' => 'pixelgrade_has_no_thumbnail',
-						),
-					),
+					'blog/entry-header-single',
+					'blog/entry-thumbnail',
+					'blog/entry-content',
+					'blog/entry-footer',
+					'blog/related-posts',
 				),
 			),
-			'blog/related-posts',
 		),
 	) );
 
