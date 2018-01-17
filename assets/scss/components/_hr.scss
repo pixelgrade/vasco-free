@@ -4,7 +4,7 @@ hr {
     border-top: 0;
     margin: 100px auto;
     border-radius: 50%;
-    box-shadow: $theme-text-color -8px 0, $theme-text-color -24px 0, $theme-text-color 8px 0, $theme-text-color 24px 0;
+    box-shadow: currentColor -8px 0, currentColor -24px 0, currentColor 8px 0, currentColor 24px 0;
 
     &:not(:first-child) {
         @include spacing(margin-top, 3.25rem);
