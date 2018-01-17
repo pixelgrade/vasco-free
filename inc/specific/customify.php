@@ -45,12 +45,12 @@ function bobo_change_customify_general_section( $general_section, $options ) {
 }
 
 /**
- * Main Content Section
+ * Modify the Customify config for the Main Content Section - it comes from the Blog Component
  *
  * @param array $section_options The specific Customify config to be filtered
  * @param array $options The whole Customify config
  *
- * @return array $section_options The modified specific config
+ * @return array The modified specific config
  */
 function bobo_change_customify_main_content( $section_options, $options ) {
 	// First setup the default values
@@ -224,12 +224,12 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 }
 
 /**
- * Buttons Section
+ * Modify the Customify config for the Buttons Section
  *
- * @param array $main_content_section The specific Customify config to be filtered
+ * @param array $section_options The specific Customify config to be filtered
  * @param array $options The whole Customify config
  *
- * @return array $main_content_section The modified specific config
+ * @return array The modified specific config
  */
 function bobo_change_customify_buttons( $section_options, $options ) {
 
@@ -298,7 +298,7 @@ function bobo_change_customify_buttons( $section_options, $options ) {
  * @param array $section_options The specific Customify config to be filtered
  * @param array $options The whole Customify config
  *
- * @return array $blog_grid_section The modified specific config
+ * @return array The modified specific config
  */
 function bobo_change_customify_blog_grid_section( $section_options, $options ) {
 	// First setup the default values
@@ -373,9 +373,10 @@ function bobo_change_customify_blog_grid_section( $section_options, $options ) {
 /**
  * Modify the Customify config for the Header Component
  *
- * @param array $section_options
+ * @param array $section_options The specific Customify config to be filtered
+ * @param array $options The whole Customify config
  *
- * @return array
+ * @return array The modified specific config
  */
 function bobo_change_customify_header_section_options( $section_options, $options ) {
 
@@ -437,9 +438,10 @@ function bobo_change_customify_header_section_options( $section_options, $option
 /**
  * Modify the Customify config for the Footer Component
  *
- * @param array $section_options
+ * @param array $section_options The specific Customify config to be filtered
+ * @param array $options The whole Customify config
  *
- * @return array
+ * @return array The modified specific config
  */
 function bobo_change_customify_footer_section_options( $section_options, $options ) {
 	// First setup the default values
