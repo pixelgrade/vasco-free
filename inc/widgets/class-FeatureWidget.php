@@ -1,6 +1,6 @@
 <?php
 /**
- * The Location Widget class
+ * The Feature Widget class
  *
  * @package Bobo
  * @since 1.0.0
@@ -10,15 +10,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! class_exists( 'Pixelgrade_LocationWidget' ) ) :
+if ( ! class_exists( 'Pixelgrade_FeatureWidget' ) ) :
 
 	/**
-	 * Class used to implement the Pixelgrade Location widget.
+	 * Class used to implement the Pixelgrade Feature widget.
 	 *
 	 * @see Pixelgrade_Widget_Fields
 	 * @see WP_Widget
 	 */
-	class Pixelgrade_LocationWidget extends Pixelgrade_WidgetFields {
+	class Pixelgrade_FeatureWidget extends Pixelgrade_WidgetFields {
 
 		// These are the widget args
 		public $args = array(
@@ -29,61 +29,68 @@ if ( ! class_exists( 'Pixelgrade_LocationWidget' ) ) :
 		);
 
 		/**
-		 * Sets up a new Location widget instance.
+		 * Sets up a new Feature widget instance.
 		 *
 		 * @access public
 		 */
 		public function __construct() {
 			// Set up the widget config
 			$config = array(
-			    'fields_sections' => array(
-                    'content' => array(
-                        'title' => esc_html__( 'Content', '__theme_txtd' ),
-                        'default_state' => 'open',
-                        'priority' => 10,
-                    ),
-                ),
-			    'fields' => array(
+				'fields_sections' => array(
+					'content' => array(
+						'title'         => esc_html__( 'Content', '__theme_txtd' ),
+						'default_state' => 'open',
+						'priority'      => 10,
+					),
+				),
+				'fields'          => array(
 
-				    // Content Section
-				    'subtitle'          => array(
-					    'type'     => 'text',
-					    'label'    => esc_html__( 'Subtitle:', '__theme_txtd' ),
-					    'default'  => esc_html__('I\'m currently in:', '__theme_txtd' ),
-					    'section'  => 'content',
-					    'priority' => 20,
-				    ),
-				    'title'             => array(
-					    'type'     => 'text',
-					    'label'    => esc_html__( 'Location:', '__theme_txtd' ),
-					    'default'  => 'New South Whales, Australia',
-					    'section'  => 'content',
-					    'filter_callback' => 'pixelgrade_parse_content_tags', // This will be applied before rendering the widget output
-					    'priority' => 30,
-				    ),
-				    'location_url'           => array(
-					    'type'     => 'text',
-					    'label'    => esc_html__( 'Location Link URL:', '__theme_txtd' ),
-					    'default'  => esc_html__('#', '__theme_txtd' ),
-					    'section'  => 'content',
-					    'priority' => 40,
-				    ),
-				    'image'       => array(
-					    'type'     => 'image',
-					    'label'    => esc_html__( 'Image:', '__theme_txtd' ),
-					    'default'  => 0, // This is the attachment ID
-					    'section'  => 'content',
-					    'priority' => 50,
-				    ),
-			    ),
+					// Content Section
+					'title'      => array(
+						'type'     => 'text',
+						'label'    => esc_html__( 'Headline:', '__theme_txtd' ),
+						'default'  => esc_html__( 'Explore Amazing Places', '__theme_txtd' ),
+						'section'  => 'content',
+						'priority' => 10,
+					),
+					'description'   => array(
+						'type'     => 'textarea',
+						'label'    => esc_html__( 'Description:', '__theme_txtd' ),
+						'rows'     => 5,
+						'default'  => 'I recently quit my corporate job to travel full time and I will be sharing the experience along the way. Are you ready to achieve your travel goals? Join me and follow my adventures!',
+						'section'  => 'content',
+						'priority' => 20,
+					),
+					'button_text'   => array(
+						'type'     => 'text',
+						'label'    => esc_html__( 'Button Text:', '__theme_txtd' ),
+						'default'  => esc_html__( 'Explore', '__theme_txtd' ),
+						'section'  => 'content',
+						'priority' => 30,
+					),
+					'button_url'    => array(
+						'type'     => 'text',
+						'label'    => esc_html__( 'Button Link URL:', '__theme_txtd' ),
+						'default'  => esc_html__( '#', '__theme_txtd' ),
+						'section'  => 'content',
+						'priority' => 40,
+					),
+					'image' => array(
+						'type'     => 'image',
+						'label'    => esc_html__( 'Image:', '__theme_txtd' ),
+						'default'  => 0, // This is the attachment ID
+						'section'  => 'content',
+						'priority' => 50,
+					),
+				),
 			    'posts'    => array(
-				    'classes'   => array( 'c-location' ),
+				    'classes'   => array( 'c-feature' ),
 				    // You can have multiple templates here (array of arrays) and we will use the first one that passes processing and is found
 				    // @see Pixelgrade_Config::evaluateTemplateParts()
 				    'templates' => array(
 					    'component_slug'    => Pixelgrade_Blog::COMPONENT_SLUG,
 					    'slug'              => 'content-widget',
-					    'name'              => 'location',
+					    'name'              => 'feature',
 					    'lookup_parts_root' => true,
 				    ),
 			    ),
@@ -91,19 +98,19 @@ if ( ! class_exists( 'Pixelgrade_LocationWidget' ) ) :
 
             // Set up the widget options
             $widget_ops = array(
-                'classname'                   => 'widget_location',
-                'description'                 => esc_html__( 'Say something about you, in style.', '__theme_txtd' ),
+                'classname'                   => 'widget_feature',
+                'description'                 => esc_html__( 'Use it to highlight a specific section of your website like a category, a key page or even an external link. Nest them together by placing multiple widgets one after another.', '__theme_txtd' ),
                 'customize_selective_refresh' => true,
             );
 
 			// Initialize the widget
-			parent::__construct( 'pixelgrade-location',
-				apply_filters( 'pixelgrade_location_widget_name', esc_html__( '&#32; Pixelgrade: Location', '__theme_txtd' ) ),
+			parent::__construct( 'pixelgrade-feature',
+				apply_filters( 'pixelgrade_feature_widget_name', esc_html__( '&#32; Pixelgrade: Feature (x4)', '__theme_txtd' ) ),
 				$widget_ops,
                 $config );
 
 			// Set up an alternate widget options name
-			$this->alt_option_name = 'widget_pixelgrade_location';
+			$this->alt_option_name = 'widget_pixelgrade_feature';
 		}
 
 		/**
@@ -113,7 +120,7 @@ if ( ! class_exists( 'Pixelgrade_LocationWidget' ) ) :
 		 *
 		 * @param array $args Display arguments including 'before_title', 'after_title',
 		 *                        'before_widget', and 'after_widget'.
-		 * @param array $instance Settings for the current Featured Posts widget instance.
+		 * @param array $instance Settings for the current widget instance.
 		 */
 		public function widget( $args, $instance ) {
 			// There is no point in doing anything of we don't have a template part to display with.
@@ -167,7 +174,7 @@ if ( ! class_exists( 'Pixelgrade_LocationWidget' ) ) :
 				 * @param array $instance An array of the widget's settings.
 				 * @param mixed $id_base The widget ID.
 				 */
-				$classes = apply_filters( 'pixelgrade_location_widget_classes', $classes, $instance, $this->id_base );
+				$classes = apply_filters( 'pixelgrade_feature_widget_classes', $classes, $instance, $this->id_base );
 
 				/**
 				 * Filter the widget wrapper attributes.
@@ -180,7 +187,7 @@ if ( ! class_exists( 'Pixelgrade_LocationWidget' ) ) :
 				 * @param array $instance An array of the widget's settings.
 				 * @param mixed $id_base The widget ID.
 				 */
-				$attributes = apply_filters( 'pixelgrade_location_widget_attributes', array(), $instance, $this->id_base );
+				$attributes = apply_filters( 'pixelgrade_feature_widget_attributes', array(), $instance, $this->id_base );
 
 				/*
 				 * Start outputting the widget markup
@@ -195,7 +202,7 @@ if ( ! class_exists( 'Pixelgrade_LocationWidget' ) ) :
 				 * @param array $instance An array of the widget's settings.
 				 * @param mixed $id_base The widget ID.
 				 */
-				do_action( 'pixelgrade_location_widget_start', $args, $instance, $this->id_base ); ?>
+				do_action( 'pixelgrade_feature_widget_start', $args, $instance, $this->id_base ); ?>
 
 				<div <?php pixelgrade_css_class( $classes ); ?> <?php pixelgrade_element_attributes( $attributes ); ?>>
 
@@ -214,7 +221,7 @@ if ( ! class_exists( 'Pixelgrade_LocationWidget' ) ) :
 				 * @param array $instance An array of the widget's settings.
 				 * @param mixed $id_base The widget ID.
 				 */
-				do_action( 'pixelgrade_location_widget_end', $args, $instance, $this->id_base );
+				do_action( 'pixelgrade_feature_widget_end', $args, $instance, $this->id_base );
 
 				echo $args['after_widget'];
 			} else {

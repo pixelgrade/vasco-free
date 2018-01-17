@@ -71,7 +71,9 @@ function bobo_register_blog_blocks( $component_slug, $component_config ) {
 						'classes'  => 'u-header-background'
 					),
 				),
-				'blocks'   => array( 'blog/entry-header-single' ),
+				'blocks'   => array(
+					'blog/entry-header-single',
+				),
 			),
 			'layout' => array(
 				'extend' => 'blog/container',
@@ -110,7 +112,7 @@ function bobo_register_blog_blocks( $component_slug, $component_config ) {
 						'extend' => 'blog/layout',
 						'wrappers' => array(
 							'layout' => array(
-								'extend_classes' => 'o-layout--blog'
+								'extend_classes' => 'o-layout--blog',
 							),
 						),
 						'blocks' => array(
@@ -124,12 +126,8 @@ function bobo_register_blog_blocks( $component_slug, $component_config ) {
 							),
 							'side' => array(
 								'extend' => 'blog/side',
-								'blocks' => array( 'blog/sidebar' ),
-								'checks' => array(
-									array(
-										'callback' => '__return_true',
-										'args'     => array(),
-									),
+								'blocks' => array(
+									'blog/sidebar',
 								),
 							),
 						),
@@ -140,21 +138,15 @@ function bobo_register_blog_blocks( $component_slug, $component_config ) {
 	) );
 
 	Pixelgrade_BlocksManager()->registerBlock( 'blog/front-page', array(
-		'extend' => 'blog/page',
+		'extend' => 'blog/default',
 		'blocks' => array(
 			'content' => array(
 				'extend' => 'blog/container',
 				'blocks' => array(
 					'layout' => array(
 						'extend' => 'blog/layout',
-						'wrappers' => array(
-							'layout' => array(
-								'extend_classes' => 'o-layout--blog'
-							),
-						),
 						'blocks' => array(
 							'main' => array(
-								'extend' => 'blog/main',
 								'blocks' => array(
 									'front-page-sidebar' => array(
 										'type'     => 'callback',
