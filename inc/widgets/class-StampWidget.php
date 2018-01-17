@@ -1,6 +1,6 @@
 <?php
 /**
- * The Callout Box Widget class
+ * The Stamp Widget class
  *
  * @package Bobo
  * @since 1.0.0
@@ -10,15 +10,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! class_exists( 'Pixelgrade_CalloutBoxWidget' ) ) :
+if ( ! class_exists( 'Pixelgrade_StampWidget' ) ) :
 
 	/**
-	 * Class used to implement the Pixelgrade Callout Box widget.
+	 * Class used to implement the Pixelgrade Stamp widget.
 	 *
 	 * @see Pixelgrade_Widget_Fields
 	 * @see WP_Widget
 	 */
-	class Pixelgrade_CalloutBoxWidget extends Pixelgrade_WidgetFields {
+	class Pixelgrade_StampWidget extends Pixelgrade_WidgetFields {
 
 		// These are the widget args
 		public $args = array(
@@ -29,7 +29,7 @@ if ( ! class_exists( 'Pixelgrade_CalloutBoxWidget' ) ) :
 		);
 
 		/**
-		 * Sets up a new Callout Box widget instance.
+		 * Sets up a new Feature widget instance.
 		 *
 		 * @access public
 		 */
@@ -37,60 +37,34 @@ if ( ! class_exists( 'Pixelgrade_CalloutBoxWidget' ) ) :
 			// Set up the widget config
 			$config = array(
 				'fields_sections' => array(
-					'content' => array(
-						'title'         => esc_html__( 'Content', '__theme_txtd' ),
+					'display' => array(
+						'title'         => esc_html__( 'Display', '__theme_txtd' ),
 						'default_state' => 'open',
 						'priority'      => 10,
 					),
 				),
 				'fields'          => array(
-
-					// Content Section
-					'title'      => array(
-						'type'     => 'text',
-						'label'    => esc_html__( 'Headline:', '__theme_txtd' ),
-						'default'  => esc_html__( 'Travel with Me', '__theme_txtd' ),
-						'section'  => 'content',
+					// Display Section
+					'box_style'            => array(
+						'type'     => 'select',
+						'label'    => esc_html__( 'Box Style:', '__theme_txtd' ),
+						'options'  => array(
+							'light' => esc_html__( 'Light', '__theme_txtd' ),
+							'dark'  => esc_html__( 'Dark', '__theme_txtd' ),
+						),
+						'default'  => 'dark',
+						'section'  => 'display',
 						'priority' => 10,
-					),
-					'description'   => array(
-						'type'     => 'textarea',
-						'label'    => esc_html__( 'Description:', '__theme_txtd' ),
-						'rows'     => 5,
-						'default'  => 'If you are planning to visit Australia, or if you are an Aussie like us and want to explore more of it, we can help.',
-						'section'  => 'content',
-						'priority' => 20,
-					),
-					'button_text'   => array(
-						'type'     => 'text',
-						'label'    => esc_html__( 'Button Text:', '__theme_txtd' ),
-						'default'  => esc_html__( 'Discover', '__theme_txtd' ),
-						'section'  => 'content',
-						'priority' => 30,
-					),
-					'button_url'    => array(
-						'type'     => 'text',
-						'label'    => esc_html__( 'Button Link URL:', '__theme_txtd' ),
-						'default'  => esc_html__( '#', '__theme_txtd' ),
-						'section'  => 'content',
-						'priority' => 40,
-					),
-					'image' => array(
-						'type'     => 'image',
-						'label'    => esc_html__( 'Image:', '__theme_txtd' ),
-						'default'  => 0, // This is the attachment ID
-						'section'  => 'content',
-						'priority' => 50,
 					),
 				),
 			    'posts'    => array(
-				    'classes'   => array( 'c-callout-box' ),
+				    'classes'   => array( 'c-stamp' ),
 				    // You can have multiple templates here (array of arrays) and we will use the first one that passes processing and is found
 				    // @see Pixelgrade_Config::evaluateTemplateParts()
 				    'templates' => array(
 					    'component_slug'    => Pixelgrade_Blog::COMPONENT_SLUG,
 					    'slug'              => 'content-widget',
-					    'name'              => 'callout-box',
+					    'name'              => 'stamp',
 					    'lookup_parts_root' => true,
 				    ),
 			    ),
@@ -98,19 +72,19 @@ if ( ! class_exists( 'Pixelgrade_CalloutBoxWidget' ) ) :
 
             // Set up the widget options
             $widget_ops = array(
-                'classname'                   => 'widget_callout_box',
-                'description'                 => esc_html__( 'Say something about you, in style.', '__theme_txtd' ),
+                'classname'                   => 'widget_stamp',
+                'description'                 => esc_html__( 'Put your stamp on it.', '__theme_txtd' ),
                 'customize_selective_refresh' => true,
             );
 
 			// Initialize the widget
-			parent::__construct( 'pixelgrade-callout_box',
-				apply_filters( 'pixelgrade_callout_box_widget_name', esc_html__( '&#32; Pixelgrade: Callout Box', '__theme_txtd' ) ),
+			parent::__construct( 'pixelgrade-stamp',
+				apply_filters( 'pixelgrade_stamp_widget_name', esc_html__( '&#32; Pixelgrade: Stamp', '__theme_txtd' ) ),
 				$widget_ops,
                 $config );
 
 			// Set up an alternate widget options name
-			$this->alt_option_name = 'widget_pixelgrade_callout_box';
+			$this->alt_option_name = 'widget_pixelgrade_stamp';
 		}
 
 		/**
@@ -174,7 +148,7 @@ if ( ! class_exists( 'Pixelgrade_CalloutBoxWidget' ) ) :
 				 * @param array $instance An array of the widget's settings.
 				 * @param mixed $id_base The widget ID.
 				 */
-				$classes = apply_filters( 'pixelgrade_callout_box_widget_classes', $classes, $instance, $this->id_base );
+				$classes = apply_filters( 'pixelgrade_stamp_widget_classes', $classes, $instance, $this->id_base );
 
 				/**
 				 * Filter the widget wrapper attributes.
@@ -187,7 +161,7 @@ if ( ! class_exists( 'Pixelgrade_CalloutBoxWidget' ) ) :
 				 * @param array $instance An array of the widget's settings.
 				 * @param mixed $id_base The widget ID.
 				 */
-				$attributes = apply_filters( 'pixelgrade_callout_box_widget_attributes', array(), $instance, $this->id_base );
+				$attributes = apply_filters( 'pixelgrade_stamp_widget_attributes', array(), $instance, $this->id_base );
 
 				/*
 				 * Start outputting the widget markup
@@ -202,7 +176,7 @@ if ( ! class_exists( 'Pixelgrade_CalloutBoxWidget' ) ) :
 				 * @param array $instance An array of the widget's settings.
 				 * @param mixed $id_base The widget ID.
 				 */
-				do_action( 'pixelgrade_callout_box_widget_start', $args, $instance, $this->id_base ); ?>
+				do_action( 'pixelgrade_stamp_widget_start', $args, $instance, $this->id_base ); ?>
 
 				<div <?php pixelgrade_css_class( $classes ); ?> <?php pixelgrade_element_attributes( $attributes ); ?>>
 
@@ -221,7 +195,7 @@ if ( ! class_exists( 'Pixelgrade_CalloutBoxWidget' ) ) :
 				 * @param array $instance An array of the widget's settings.
 				 * @param mixed $id_base The widget ID.
 				 */
-				do_action( 'pixelgrade_callout_box_widget_end', $args, $instance, $this->id_base );
+				do_action( 'pixelgrade_stamp_widget_end', $args, $instance, $this->id_base );
 
 				echo $args['after_widget'];
 			} else {

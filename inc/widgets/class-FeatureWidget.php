@@ -99,7 +99,7 @@ if ( ! class_exists( 'Pixelgrade_FeatureWidget' ) ) :
             // Set up the widget options
             $widget_ops = array(
                 'classname'                   => 'widget_feature',
-                'description'                 => esc_html__( 'Say something about you, in style.', '__theme_txtd' ),
+                'description'                 => esc_html__( 'Use it to highlight a specific section of your website like a category, a key page or even an external link. Nest them together by placing multiple widgets one after another.', '__theme_txtd' ),
                 'customize_selective_refresh' => true,
             );
 
@@ -110,7 +110,7 @@ if ( ! class_exists( 'Pixelgrade_FeatureWidget' ) ) :
                 $config );
 
 			// Set up an alternate widget options name
-			$this->alt_option_name = 'widget_feature';
+			$this->alt_option_name = 'widget_pixelgrade_feature';
 		}
 
 		/**
@@ -221,7 +221,7 @@ if ( ! class_exists( 'Pixelgrade_FeatureWidget' ) ) :
 				 * @param array $instance An array of the widget's settings.
 				 * @param mixed $id_base The widget ID.
 				 */
-				do_action( 'pixelgrade_categories_widget_end', $args, $instance, $this->id_base );
+				do_action( 'pixelgrade_feature_widget_end', $args, $instance, $this->id_base );
 
 				echo $args['after_widget'];
 			} else {

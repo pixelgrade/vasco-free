@@ -103,7 +103,7 @@ if ( ! class_exists( 'Pixelgrade_LocationWidget' ) ) :
                 $config );
 
 			// Set up an alternate widget options name
-			$this->alt_option_name = 'widget_location';
+			$this->alt_option_name = 'widget_pixelgrade_location';
 		}
 
 		/**
@@ -195,7 +195,7 @@ if ( ! class_exists( 'Pixelgrade_LocationWidget' ) ) :
 				 * @param array $instance An array of the widget's settings.
 				 * @param mixed $id_base The widget ID.
 				 */
-				do_action( 'pixelgrade_feature_widget_start', $args, $instance, $this->id_base ); ?>
+				do_action( 'pixelgrade_location_widget_start', $args, $instance, $this->id_base ); ?>
 
 				<div <?php pixelgrade_css_class( $classes ); ?> <?php pixelgrade_element_attributes( $attributes ); ?>>
 
@@ -214,7 +214,7 @@ if ( ! class_exists( 'Pixelgrade_LocationWidget' ) ) :
 				 * @param array $instance An array of the widget's settings.
 				 * @param mixed $id_base The widget ID.
 				 */
-				do_action( 'pixelgrade_categories_widget_end', $args, $instance, $this->id_base );
+				do_action( 'pixelgrade_location_widget_end', $args, $instance, $this->id_base );
 
 				echo $args['after_widget'];
 			} else {

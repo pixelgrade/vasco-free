@@ -109,7 +109,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
             // Set up the widget options
             $widget_ops = array(
                 'classname'                   => 'widget_profile',
-                'description'                 => esc_html__( 'Say something about you, in style.', '__theme_txtd' ),
+                'description'                 => esc_html__( 'Use this block to display a summary of who you are and what is your blog about.', '__theme_txtd' ),
                 'customize_selective_refresh' => true,
             );
 
@@ -120,7 +120,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
                 $config );
 
 			// Set up an alternate widget options name
-			$this->alt_option_name = 'widget_profile';
+			$this->alt_option_name = 'widget_pixelgrade_profile';
 		}
 
 		/**
@@ -212,7 +212,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 				 * @param array $instance An array of the widget's settings.
 				 * @param mixed $id_base The widget ID.
 				 */
-				do_action( 'pixelgrade_feature_widget_start', $args, $instance, $this->id_base ); ?>
+				do_action( 'pixelgrade_profile_widget_start', $args, $instance, $this->id_base ); ?>
 
 				<div <?php pixelgrade_css_class( $classes ); ?> <?php pixelgrade_element_attributes( $attributes ); ?>>
 
@@ -231,7 +231,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 				 * @param array $instance An array of the widget's settings.
 				 * @param mixed $id_base The widget ID.
 				 */
-				do_action( 'pixelgrade_categories_widget_end', $args, $instance, $this->id_base );
+				do_action( 'pixelgrade_profile_widget_end', $args, $instance, $this->id_base );
 
 				echo $args['after_widget'];
 			} else {

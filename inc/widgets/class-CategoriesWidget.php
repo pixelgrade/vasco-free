@@ -152,7 +152,7 @@ if ( ! class_exists( 'Pixelgrade_CategoriesWidget' ) ) :
 			);
 
 			parent::__construct( 'pixelgrade-categories',
-				apply_filters( 'pixelgrade_widget_name', esc_html__( '&#32; Pixelgrade: Categories', '__theme_txtd' ) ),
+				apply_filters( 'pixelgrade_categories_widget_name', esc_html__( '&#32; Pixelgrade: Categories', '__theme_txtd' ) ),
 				$widget_ops,
                 $config );
 
@@ -246,7 +246,7 @@ if ( ! class_exists( 'Pixelgrade_CategoriesWidget' ) ) :
 				 * @param array $instance An array of the widget's settings.
 				 * @param mixed $id_base The widget ID.
 				 */
-				$query_args = apply_filters( 'pixelgrade_category_widget_query_args', $query_args, $instance, $this->id_base );
+				$query_args = apply_filters( 'pixelgrade_categories_widget_query_args', $query_args, $instance, $this->id_base );
 
 				/**
 				 * Filter the queried categories used for the category widget.
@@ -258,7 +258,7 @@ if ( ! class_exists( 'Pixelgrade_CategoriesWidget' ) ) :
 				 * @param array $instance An array of the widget's settings.
 				 * @param mixed $id_base The widget ID.
 				 */
-				$queried_categories = apply_filters( 'pixelgrade_category_widget_queried_categories', get_categories( $query_args ), $query_args, $instance, $this->id_base );
+				$queried_categories = apply_filters( 'pixelgrade_categories_widget_queried_categories', get_categories( $query_args ), $query_args, $instance, $this->id_base );
 
 				/**
 				 * Filters the widget title.
@@ -287,7 +287,7 @@ if ( ! class_exists( 'Pixelgrade_CategoriesWidget' ) ) :
 				 * @param array $instance An array of the widget's settings.
 				 * @param mixed $id_base The widget ID.
 				 */
-				$classes = apply_filters( 'pixelgrade_callout_box_widget_classes', $classes, $instance, $this->id_base );
+				$classes = apply_filters( 'pixelgrade_categories_widget_classes', $classes, $instance, $this->id_base );
 
 				/**
 				 * Filter the widget wrapper attributes.
@@ -300,7 +300,7 @@ if ( ! class_exists( 'Pixelgrade_CategoriesWidget' ) ) :
 				 * @param array $instance An array of the widget's settings.
 				 * @param mixed $id_base The widget ID.
 				 */
-				$attributes = apply_filters( 'pixelgrade_callout_box_widget_attributes', array(), $instance, $this->id_base );
+				$attributes = apply_filters( 'pixelgrade_categories_widget_attributes', array(), $instance, $this->id_base );
 
 				/*
 				 * Start outputting the widget markup
@@ -315,7 +315,7 @@ if ( ! class_exists( 'Pixelgrade_CategoriesWidget' ) ) :
 				 * @param array $instance An array of the widget's settings.
 				 * @param mixed $id_base The widget ID.
 				 */
-				do_action( 'pixelgrade_feature_widget_start', $args, $instance, $this->id_base ); ?>
+				do_action( 'pixelgrade_categories_widget_start', $args, $instance, $this->id_base ); ?>
 
 				<div <?php pixelgrade_css_class( $classes ); ?> <?php pixelgrade_element_attributes( $attributes ); ?>>
 
@@ -343,6 +343,15 @@ if ( ! class_exists( 'Pixelgrade_CategoriesWidget' ) ) :
 			}
 		}
 
+		/**
+		 * Get the categories to be used for a options.
+		 *
+		 * @param string $field_name
+		 * @param array $field_config
+		 * @param array $instance
+		 *
+		 * @return array
+		 */
 		public function categoriesForOptions( $field_name, $field_config, $instance ) {
 			$query_args   = array(
 				'taxonomy' => 'category',

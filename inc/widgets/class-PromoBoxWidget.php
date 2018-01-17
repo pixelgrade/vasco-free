@@ -81,21 +81,21 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 				    'headline'             => array(
 					    'type'     => 'textarea',
 					    'label'    => esc_html__( 'Headline:', '__theme_txtd' ),
-					    'default'  => 'What is a high converting headline worth to you?',
+					    'default'  => 'Discover life on the go!',
 					    'section'  => 'content',
 					    'priority' => 20,
 				    ),
 				    'description'          => array(
 					    'type'     => 'textarea',
 					    'label'    => esc_html__( 'Description:', '__theme_txtd' ),
-					    'default'  => 'This is a Promo Box Widget where you can personalize your own advertisment area, with your content, images and call to actions. You can promote your product or link to another website of yours.',
+					    'default'  => 'Hello again, I\'m Jake! I spent six years living on suitcases, working remotely and fulfilling traveling dreams. You will find here my subjective guides and travel experience. We begin?',
 					    'section'  => 'content',
 					    'priority' => 30,
 				    ),
 				    'button_text'          => array(
 					    'type'     => 'text',
 					    'label'    => esc_html__( 'Button Text:', '__theme_txtd' ),
-					    'default'  => esc_html__('Get started now', '__theme_txtd' ),
+					    'default'  => esc_html__('First Time On the Blog? Start Here ', '__theme_txtd' ),
 					    'section'  => 'content',
 					    'priority' => 40,
 				    ),
@@ -146,7 +146,7 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
             // Set up the widget options
             $widget_ops = array(
                 'classname'                   => 'widget_promo_box',
-                'description'                 => esc_html__( 'Do you promo, in style.', '__theme_txtd' ),
+                'description'                 => esc_html__( 'Use it to encourage your visitors to take an action related to an opportunity that you offer (e.g. a Get Started page).', '__theme_txtd' ),
                 'customize_selective_refresh' => true,
             );
 
@@ -157,7 +157,7 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
                 $config );
 
 			// Set up an alternate widget options name
-			$this->alt_option_name = 'widget_promo_box';
+			$this->alt_option_name = 'widget_pixelgrade_promo_box';
 		}
 
 		/**
@@ -259,7 +259,7 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 				 * @param array $instance An array of the widget's settings.
 				 * @param mixed $id_base The widget ID.
 				 */
-				do_action( 'pixelgrade_feature_widget_start', $args, $instance, $this->id_base ); ?>
+				do_action( 'pixelgrade_promo_box_widget_start', $args, $instance, $this->id_base ); ?>
 
 				<div <?php pixelgrade_css_class( $classes ); ?> <?php pixelgrade_element_attributes( $attributes ); ?>>
 
@@ -278,7 +278,7 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 				 * @param array $instance An array of the widget's settings.
 				 * @param mixed $id_base The widget ID.
 				 */
-				do_action( 'pixelgrade_categories_widget_end', $args, $instance, $this->id_base );
+				do_action( 'pixelgrade_promo_box_widget_end', $args, $instance, $this->id_base );
 
 				echo $args['after_widget'];
 			} else {
