@@ -5,7 +5,7 @@
 @import "typeline-config-editor";
 
 $editor-style: true;
-$content-selector: '.mce-content-body';
+$content-wrapper-selector: '.mce-content-body';
 
 @import "../../components/base/scss/editor-style";
 @import "../../components/featured-image/scss/editor-style";

@@ -178,7 +178,7 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 					'default' => 'solid'
 				),
 				'buttons_shape' => array(
-					'default' => 'square'
+					'default' => 'rounded'
 				),
 			)
 		),
@@ -397,3 +397,20 @@ function bobo_customify_footer_section( $section_options, $options ) {
 
 	return $section_options;
 }
+
+function bobo_add_customify_theme_fonts( $fonts ) {
+	$fonts['YoungSerif'] = array(
+		'family'   => 'YoungSerif',
+		'src'      => get_template_directory_uri() . '/assets/fonts/youngserif/stylesheet.css',
+		'variants' => array( 'regular' )
+	);
+
+	$fonts['HK Grotesk'] = array(
+		'family'   => 'HK Grotesk',
+		'src'      => get_template_directory_uri() . '/assets/fonts/hkgrotesk/stylesheet.css',
+		'variants' => array( '300', '400', '500', '700' )
+	);
+
+	return $fonts;
+}
+add_filter( 'customify_theme_fonts', 'bobo_add_customify_theme_fonts' );

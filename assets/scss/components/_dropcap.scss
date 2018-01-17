@@ -1,0 +1,23 @@
+.dropcap {
+    @include leading-map(map-merge($page-title-font, (
+        spacing-top: false,
+        spacing-bottom: false
+    )));
+    float: left;
+
+    padding: 8px 6px 2px 6px;
+    margin: 0.1em 0.15em -0.1em 0em;
+
+    color: $theme-background-color;
+    background: $theme-text-color;
+
+    &[class]:before,
+    &[class]:after {
+        content: none;
+    }
+
+    &[class] {
+        @include fontsize(65px);
+        line-height: 1;
+    }
+}

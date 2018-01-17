@@ -2,8 +2,8 @@
   "name": "bobo",
   "main": "webpack.config.js",
   "scripts": {
-    "bobo:prod": "webpack --env.variation=bobo && npm run rtl  && gulp zip --variation bobo",
-    "bobo:dev": "concurrently --kill-others \"npm run bobo\" \"npm run watch\"",
+    "bobo:prod": "webpack --env.variation=bobo && npm run rtl && gulp zip --variation bobo",
+    "bobo:dev": "concurrently --kill-others \"npm run bobo\" \"npm run watch\" \"gulp watch-variation --variation bobo\"",
     "bobo": "webpack --watch --env.variation=bobo",
     "rtl": "./node_modules/.bin/rtlcss style.css rtl.css",
     "watch": "npm-watch"
