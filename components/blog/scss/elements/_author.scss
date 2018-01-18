@@ -4,9 +4,9 @@
 
 .c-author {
 	display: flex;
+  align-items: flex-start;
 
 	&.has-description {
-
 		@include below(small) {
 			flex-wrap: wrap;
 

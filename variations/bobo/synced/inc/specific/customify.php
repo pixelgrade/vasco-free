@@ -124,7 +124,7 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 						),
 						array(
 							'property' => 'text-shadow',
-							'selector' => '.u-underlined-links .entry-content a',
+							'selector' => '.u-underlined-links a',
 							'callback_filter' => 'bobo_link_text_shadow_cb'
 						),
 					),

@@ -24,3 +24,51 @@
 .u-underlined-links .wp-caption-text a {
   color: inherit;
 }
+
+@mixin accent-image-filter {
+  position: relative;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &:before {
+    background-color: #000;
+    z-index: 10;
+    mix-blend-mode: color;
+  }
+
+  &:after {
+    background-color: $theme-accent-color;
+    z-index: 10;
+    mix-blend-mode: hard-light;
+    mix-blend-mode: overlay;
+  }
+}
+
+.comment-list[class] {
+  @include spacing(margin, 4rem 0);
+}
+
+.accent-image-filter {
+  @include accent-image-filter;
+}
+
+.bypostauthor {
+  .comment__avatar {
+    @extend .accent-image-filter;
+  }
+}
+
+.nav-title {
+  @include leading-map(map-merge($h4,(
+    spacing-top: 0,
+    spacing-bottom: 0
+  )));
+}

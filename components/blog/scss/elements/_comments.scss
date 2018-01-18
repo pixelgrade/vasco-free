@@ -21,6 +21,16 @@
   }
 }
 
+.comment-list {
+
+  &, ul, ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+}
+
 .comment-list,
 .comment-respond {
   @include spacing(margin-top, 3rem);
@@ -32,6 +42,7 @@
 
 .comment__wrapper {
   display: flex;
+  align-items: flex-start;
 }
 
 .comment__body {
@@ -44,9 +55,11 @@
 .comment__avatar {
   flex: 0 0 auto;
   @include spacing(margin-right, 2rem);
+  border-radius: 50%;
+  overflow: hidden;
 
   .avatar {
-    border-radius: 50%;
+    display: block;
     margin: 0;
   }
 }

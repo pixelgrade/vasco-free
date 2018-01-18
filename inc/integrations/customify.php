@@ -136,6 +136,12 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 				),
 				'main_content_heading_5_color'          => array(
 					'default' => '#383c50',
+					'css' => array(
+						array(
+							'selector' => '.nav-links__label',
+							'property' => 'color'
+						),
+					),
 				),
 				'main_content_heading_6_color'          => array(
 					'default' => '#383c50',

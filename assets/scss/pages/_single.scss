@@ -2,6 +2,7 @@
 .header-dropcap {
   display: none;
 }
+
 @mixin taxonomy {
   @include button;
   padding: 0.35em 0.75em 0.15em;
@@ -83,6 +84,10 @@
       margin: auto;
     }
   }
+
+  .entry-aside > * {
+    @include spacing(margin, 3rem 0);
+  }
 }
 
 .entry-content {
@@ -117,9 +122,11 @@
   border-bottom: 2px solid currentColor;
 }
 
-.c-author__avatar img {
+.c-author__avatar {
+  @extend .accent-image-filter;
   display: block;
   border-radius: 4px;
+  overflow: hidden;
 }
 
 .c-author__name:not(:last-child) {
@@ -138,7 +145,7 @@
 }
 
 .nav-links {
-  @include spacing(margin, 2rem 0);
+  @include spacing(margin-bottom, 2rem);
 }
 
 .nav-title[class] {
