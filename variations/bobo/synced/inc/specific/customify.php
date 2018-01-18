@@ -296,7 +296,7 @@ function bobo_change_customify_buttons( $section_options, $options ) {
 				'buttons_font'       => array(
 					'selector' => $button_selector,
 					'default'  => array(
-						'font-family'    => VARIATION_SANS_SERIF_FONT,
+						'font-family'    => VARIATION_HEADINGS_FONT_ALT,
 						'font-weight'    => '500',
 						'font-size'      => 16,
 						'line-height'    => 1.2,
@@ -353,7 +353,7 @@ function bobo_change_customify_blog_grid_section( $section_options, $options ) {
 				// [Section] FONTS
 				'blog_item_title_font'           => array(
 					'default' => array(
-						'font-family'    => VARIATION_SANS_SERIF_FONT,
+						'font-family'    => VARIATION_HEADINGS_FONT,
 						'font-weight'    => '700',
 						'font-size'      => 21,
 						'line-height'    => 1.3,
@@ -363,7 +363,7 @@ function bobo_change_customify_blog_grid_section( $section_options, $options ) {
 				),
 				'blog_item_meta_font'            => array(
 					'default' => array(
-						'font-family'    => VARIATION_SANS_SERIF_FONT,
+						'font-family'    => VARIATION_LOGO_FONT,
 						'font-weight'    => '500',
 						'font-size'      => 13,
 						'line-height'    => 1.1,
@@ -440,7 +440,7 @@ function bobo_change_customify_header_section_options( $section_options, $option
 				),
 				'header_navigation_font'          => array(
 					'default' => array(
-						'font-family'    => VARIATION_SANS_SERIF_FONT,
+						'font-family'    => VARIATION_HEADINGS_FONT_ALT,
 						'font-weight'    => '500',
 						'font-size'      => 16,
 						'line-height'    => 1,

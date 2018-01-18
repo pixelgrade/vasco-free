@@ -1,20 +1,33 @@
 table {
 
-    caption {
-        @include leading-map($h6);
-        color: #999999;
-    }
+  caption {
+    @include leading-map($h6);
+    color: #999999;
+  }
 
-    th {
-        @include leading-map(map-merge($h5,(
-            cap-height: false,
-            spacing-top: false,
-            spacing-bottom: false,
-        )));
-        color: $h5-color;
-    }
+  th {
+    @include leading-map(map-merge($h5, (
+      cap-height: false,
+      spacing-top: false,
+      spacing-bottom: false,
+    )));
+    color: $h5-color;
+  }
 
-    tr {
-        border: 0;
+  tr {
+    border: 0;
+  }
+
+  > tr:nth-child(even),
+  tbody > tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  th,
+  td {
+    &:first-child,
+    &:last-child {
+      @include spacing(padding, $typography-table-cell-padding);
     }
+  }
 }
