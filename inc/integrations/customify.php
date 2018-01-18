@@ -156,6 +156,42 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 	// Thus overwriting what we have changed
 	$section_options = Pixelgrade_Config::merge( $section_options, $new_section_options );
 
+	$section_options['main_content']['options'] = Pixelgrade_Array::insertAfterKey( $section_options['main_content']['options'], 'main_content_quote_block_font', array(
+		'main_content_badge_font' => array(
+			'type'        => 'font',
+			'label'       => esc_html__( 'Badge Font', '__components_txtd' ),
+			'desc'        => '',
+			'selector'    => '.single .entry-header .posted-on a, .entry-content .cats[class] > a',
+			'callback'    => 'typeline_font_cb',
+
+			'default' => array(
+				'font-family'    => VARIATION_SITE_TITLE_FONT,
+				'font-weight'    => 'regular',
+				'font-size'      => 19,
+				'line-height'    => 1.21,
+				'letter-spacing' => 0,
+				'text-transform' => 'none',
+			),
+
+			// Sub Fields Configuration (optional)
+			'fields'      => array(
+				'font-size'       => array(                           // Set custom values for a range slider
+					'min'  => 8,
+					'max'  => 90,
+					'step' => 1,
+					'unit' => 'px',
+				),
+				'line-height'     => array( 0, 2, 0.1, '' ),
+				// Short-hand version
+				'letter-spacing'  => array( - 1, 2, 0.01, 'em' ),
+				'text-align'      => false,
+				// Disable sub-field (False by default)
+				'text-transform'  => true,
+				'text-decoration' => false,
+			),
+		),
+	) );
+
 	return $section_options;
 }
 
