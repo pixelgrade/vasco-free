@@ -225,7 +225,7 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 						'font-family'    => VARIATION_HEADINGS_FONT_ALT,
 						'font-weight'    => '700',
 						'font-size'      => 14,
-						'line-height'    => 1.07,
+						'line-height'    => 1.25,
 						'letter-spacing' => 0.07,
 						'text-transform' => 'uppercase',
 					),

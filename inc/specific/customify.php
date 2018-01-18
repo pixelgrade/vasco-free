@@ -12,7 +12,6 @@
  * @since 1.0.0
  */
 
-// @todo standardize naming here
 add_filter( 'pixelgrade_customify_general_section_options', 'bobo_change_customify_general_section', 20, 2 );
 add_filter( 'pixelgrade_header_customify_section_options', 'bobo_change_customify_header_section_options', 20, 2 );
 add_filter( 'pixelgrade_customify_main_content_section_options', 'bobo_change_customify_main_content', 20, 2 );
@@ -226,7 +225,7 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 						'font-family'    => VARIATION_HEADINGS_FONT_ALT,
 						'font-weight'    => '700',
 						'font-size'      => 14,
-						'line-height'    => 1.07,
+						'line-height'    => 1.25,
 						'letter-spacing' => 0.07,
 						'text-transform' => 'uppercase',
 					),

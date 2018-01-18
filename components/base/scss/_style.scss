@@ -30,10 +30,8 @@ a {
   }
 }
 
-#{$content-class} {
-	@import "typography";
-  @import "elements/wp-align";
-}
+@import "typography";
+@import "elements/wp-align";
 
 @import "objects/all";
 
