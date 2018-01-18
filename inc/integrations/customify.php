@@ -146,7 +146,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 
 				// [Sub Section] Backgrounds
 				'main_content_content_background_color' => array(
-					'default' => '#F7F6F5',
+					'default' => '#F5F6F1',
 				),
 			)
 		),
