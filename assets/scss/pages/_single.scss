@@ -2,7 +2,21 @@
 .header-dropcap {
   display: none;
 }
+@mixin taxonomy {
+  @include button;
+  padding: 0.25em 0.75em;
 
+  @include leading-map(map-merge($h4, (
+    spacing-top: 0,
+    spacing-bottom: 0
+  )));
+
+  background-color: $body-text-color;
+  color: #FFF;
+
+  text-decoration: none;
+  text-shadow: none;
+}
 .single {
 
   .entry-header {
@@ -10,11 +24,12 @@
 
     > * {
       @include spacing(margin-top, 3rem);
+      @include spacing(margin-bottom, 3rem);
     }
 
-    > .header-meta {
-      @include spacing(margin-top, 4rem);
-    }
+    //> .header-meta {
+    //  @include spacing(margin-top, 4rem);
+    //}
 
     .cats {
       justify-content: center;
@@ -35,7 +50,7 @@
       position: relative;
 
       a {
-        @include btn;
+        @include taxonomy;
 
         position: absolute;
         top: 0;
@@ -43,17 +58,94 @@
 
         transform: translate(-50%, -50%);
       }
+
+      time + time {
+        margin-left: 1em;
+        opacity: 0.5;
+      }
     }
+  }
+
+  &.entry-image--none .entry-header .posted-on a {
+    position: static;
+    transform: none;
   }
 
   .entry-thumbnail {
     @include spacing(margin-bottom, 2.5rem);
 
     img {
+      display: block;
       max-width: 100%;
       max-height: 80vh;
       width: auto;
       height: auto;
+      margin: auto;
     }
   }
+}
+
+.entry-content {
+
+  .cats[class][class] a {
+    @include spacing(margin-right, 1rem);
+  }
+
+  .cats__title {
+    display: none;
+  }
+
+  .cats,
+  .tags {
+    @include spacing(margin-top, 2rem);
+  }
+
+  .sharedaddy {
+    @include spacing(margin-top, 2.5rem);
+  }
+}
+
+.meta__item--button {
+  @include taxonomy;
+}
+
+.c-author {
+  @include spacing(padding-top, 3rem);
+  @include spacing(margin-top, 3rem);
+  @include spacing(padding-bottom, 3rem);
+  border-top: 1px solid currentColor;
+  border-bottom: 2px solid currentColor;
+}
+
+.c-author__avatar img {
+  display: block;
+  border-radius: 4px;
+}
+
+.c-author__name:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.c-author__description {
+  @include fontsize(15px);
+}
+
+.c-author__footer {
+  @include leading-map(map-merge($h6,(
+    spacing-top: 1rem,
+    spacing-bottom: 0
+  )));
+}
+
+.nav-links {
+  @include spacing(margin, 2rem 0);
+}
+
+.nav-title[class] {
+  margin-top: 0;
+}
+
+.nav-previous,
+.nav-next {
+  @include spacing(margin, 2rem 0);
 }

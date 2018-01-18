@@ -272,10 +272,7 @@ function bobo_change_customify_buttons( $section_options, $options ) {
 		input[type=button],
 		input[type=submit],
 		.widget_pages,
-		div.jetpack-recipe .jetpack-recipe-print[class] a,
-		.featured-posts__more,
-		.entry-content .cats[class] > a,
-		.meta__item--button';
+		.featured-posts__more';
 
 	$new_section_options = array(
 

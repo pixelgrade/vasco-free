@@ -36,8 +36,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <footer class="entry-footer  u-content-width">
 	<div class="entry-footer__wrapper">
-		<?php pixelgrade_entry_footer(); ?>
 		<?php pixelgrade_the_post_navigation(); ?>
+		<?php pixelgrade_entry_footer(); ?>
 	</div><!-- .entry-footer__wrapper -->
 </footer><!-- .entry-footer -->
 

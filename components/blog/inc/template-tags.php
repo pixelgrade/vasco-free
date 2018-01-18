@@ -405,7 +405,7 @@ if ( ! function_exists( 'pixelgrade_get_the_author_info_box' ) ) {
 			$author_details .= '<p class="c-author__description" itemprop="description">' . nl2br( $user_description ) . '</p>';
 		}
 
-		$author_details .= '<footer class="c-author__footer  h6">';
+		$author_details .= '<footer class="c-author__footer">';
 
 		$author_details .= pixelgrade_get_author_bio_links( $post->ID );
 
