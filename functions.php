@@ -170,6 +170,9 @@ function bobo_scripts() {
 
 		wp_enqueue_style( 'bobo-fonts-hkgrotesk', bobo_hkgrotesk_font_url() );
 		$main_style_deps[] = 'bobo-fonts-hkgrotesk';
+
+		wp_enqueue_style( 'bobo-fonts-bebasneue', bobo_bebasneue_font_url() );
+		$main_style_deps[] = 'bobo-fonts-bebasneue';
 	}
 
 	/* The main theme stylesheet */

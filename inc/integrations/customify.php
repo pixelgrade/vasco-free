@@ -411,6 +411,12 @@ function bobo_add_customify_theme_fonts( $fonts ) {
 		'variants' => array( '300', '400', '500', '700' )
 	);
 
+	$fonts['Bebas Neue'] = array(
+		'family'   => 'Bebas Neue',
+		'src'      => get_template_directory_uri() . '/assets/fonts/bebasneue/stylesheet.css',
+		'variants' => array( 'regular' )
+	);
+
 	return $fonts;
 }
 add_filter( 'customify_theme_fonts', 'bobo_add_customify_theme_fonts' );

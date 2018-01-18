@@ -4,7 +4,7 @@
 }
 @mixin taxonomy {
   @include button;
-  padding: 0.25em 0.75em;
+  padding: 0.35em 0.75em 0.15em;
 
   @include leading-map(map-merge($h4, (
     spacing-top: 0,

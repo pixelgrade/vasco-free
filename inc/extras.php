@@ -41,3 +41,24 @@ function bobo_hkgrotesk_font_url() {
 
 	return '';
 }
+
+/**
+ * Generate the Bebas Neue font URL
+ *
+ * @since Bobo 1.0
+ *
+ * @return string
+ */
+function bobo_bebasneue_font_url() {
+
+	/* Translators: If there are characters in your language that are not
+	* supported by Bebas Neue, translate this to 'off'. Do not translate
+	* into your own language.
+	*/
+	$bebasneue = esc_html_x( 'on', 'Bebas Neue font: on or off', '__theme_txtd' );
+	if ( 'off' !== $bebasneue ) {
+		return get_template_directory_uri() . '/assets/fonts/bebasneue/stylesheet.css';
+	}
+
+	return '';
+}

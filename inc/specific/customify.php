@@ -26,7 +26,7 @@ define( 'VARIATION_ACCENT_COLOR', '#DE2D16' );
 define( 'VARIATION_BODY_FONT', 'Lora' );
 define( 'VARIATION_HEADINGS_FONT', 'YoungSerif' );
 define( 'VARIATION_HEADINGS_FONT_ALT', 'HK Grotesk' );
-define( 'VARIATION_LOGO_FONT', 'Bebas Neue' );
+define( 'VARIATION_SITE_TITLE_FONT', 'Bebas Neue' );
 
 function bobo_change_customify_general_section( $general_section, $options ) {
 
@@ -172,6 +172,40 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 						'line-height'    => 1.5,
 						'letter-spacing' => 0,
 						'text-transform' => 'none',
+					),
+				),
+
+				'main_content_badge_font' => array(
+					'type'        => 'font',
+					'label'       => esc_html__( 'Badge Font', '__components_txtd' ),
+					'desc'        => '',
+					'selector'    => '.single .entry-header .posted-on a, .entry-content .cats[class] > a',
+					'callback'    => 'typeline_font_cb',
+
+					'default' => array(
+						'font-family'    => VARIATION_SITE_TITLE_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 19,
+						'line-height'    => 1.21,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+
+					// Sub Fields Configuration (optional)
+					'fields'      => array(
+						'font-size'       => array(                           // Set custom values for a range slider
+							'min'  => 8,
+							'max'  => 90,
+							'step' => 1,
+							'unit' => 'px',
+						),
+						'line-height'     => array( 0, 2, 0.1, '' ),
+						// Short-hand version
+						'letter-spacing'  => array( - 1, 2, 0.01, 'em' ),
+						'text-align'      => false,
+						// Disable sub-field (False by default)
+						'text-transform'  => true,
+						'text-decoration' => false,
 					),
 				),
 
@@ -367,8 +401,8 @@ function bobo_change_customify_blog_grid_section( $section_options, $options ) {
 				),
 				'blog_item_meta_font'            => array(
 					'default' => array(
-						'font-family'    => VARIATION_LOGO_FONT,
-						'font-weight'    => '500',
+						'font-family'    => VARIATION_SITE_TITLE_FONT,
+						'font-weight'    => 'regular',
 						'font-size'      => 13,
 						'line-height'    => 1.1,
 						'letter-spacing' => 0.1,
@@ -414,9 +448,6 @@ function bobo_change_customify_header_section_options( $section_options, $option
 				'header_navigation_links_spacing' => array(
 					'default' => 56,
 				),
-				'header_width'                    => array(
-					'default' => 'container',
-				),
 				// [Section] Colors
 				'header_navigation_links_color'   => array(
 					'default' => '#323232',
@@ -425,7 +456,7 @@ function bobo_change_customify_header_section_options( $section_options, $option
 					'default' => VARIATION_ACCENT_COLOR,
 				),
 				'header_background'               => array(
-					'default' => '#fff4e8',
+					'default' => '#F5F6F1',
 				),
 				'header_site_title_font'          => array(
 					'fields'  => array(
@@ -435,7 +466,7 @@ function bobo_change_customify_header_section_options( $section_options, $option
 					),
 					'default' => array(
 						'font-family'    => VARIATION_SITE_TITLE_FONT,
-						'font-weight'    => '700',
+						'font-weight'    => 'regular',
 						'font-size'      => 30,
 						'line-height'    => 1,
 						'letter-spacing' => 0,
