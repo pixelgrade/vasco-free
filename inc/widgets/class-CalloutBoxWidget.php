@@ -44,6 +44,7 @@ if ( ! class_exists( 'Pixelgrade_CalloutBoxWidget' ) ) :
 						'default'  => esc_html__( 'Travel with Me', '__theme_txtd' ),
 						'section'  => 'content',
 						'priority' => 10,
+//						'sanitize_callback' => array( $this, 'sanitize_textarea' ), // Use this if you want to allow HTML tags like strong,b,em,u,a
 					),
 					'description'   => array(
 						'type'     => 'textarea',
