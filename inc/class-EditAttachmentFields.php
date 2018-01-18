@@ -1,387 +1,236 @@
 <?php
 /**
- * VideoPress edit attachment screen
- *
- * @since 4.1
+ * Add fields to the edit attachment screen
  */
-class VideoPress_Edit_Attachment {
+class Pixelgrade_EditAttachmentFields extends Pixelgrade_Singleton {
 
 	/**
-	 * Singleton method to initialize the object only once.
-	 *
-	 * @return VideoPress_Edit_Attachment
-	 */
-	public static function init() {
-		static $instance = null;
-
-		if ( ! $instance ) {
-			$instance = new VideoPress_Edit_Attachment();
-		}
-
-		return $instance;
-	}
-
-	/**
-	 * VideoPress_Edit_Attachment constructor.
+	 * The constructor.
 	 *
 	 * Adds in appropriate actions for attachment fields editor, meta boxes and saving.
-	 */
-	public function __construct() {
-		add_filter( 'attachment_fields_to_edit', array( $this, 'fields_to_edit' ), 10, 2 );
-		add_filter( 'attachment_fields_to_save', array( $this, 'save_fields' ), 10, 2 );
-		add_filter( 'wp_ajax_save-attachment', array( $this, 'save_fields' ), -1 );
-		add_filter( 'wp_ajax_save-attachment-compat', array( $this, 'save_fields' ), -1 );
-
-		add_action( 'add_meta_boxes', array( $this, 'configure_meta_boxes' ), 10, 2 );
-	}
-
-	/**
-	 * @param string  $post_type
-	 * @param object  $post
-	 */
-	public function configure_meta_boxes( $post_type = 'unknown', $post = NULL ) {
-		if ( NULL == $post ) {
-			$post = (object) array ( 'ID' => 0 );
-		}
-
-		if ( 'attachment' != $post_type ) {
-			return;
-		}
-
-		// If this has not been processed by videopress, we can skip the rest.
-		if ( ! is_videopress_attachment( $post->ID ) ) {
-			return;
-		}
-
-		add_meta_box( 'videopress-media-info', __( 'VideoPress Information', 'jetpack' ), array( $this, 'videopress_information_box' ), 'attachment', 'side', 'core' );
-	}
-
-	/**
-	 * @param array $post
-	 * @param array|null $attachment
 	 *
-	 * @return array
+	 * @param string $version The current class version.
+	 * @param array $args Optional. Various arguments for the initialization.
 	 */
-	public function save_fields( $post, $attachment = null ) {
-		if ( $attachment === null && isset( $_POST['attachment'] ) ) {
-			$attachment = $_POST['attachment'];
-		}
+	public function __construct( $version = '1.0.0', $args = array() ) {
+		// Allow others to make changes to the arguments.
+		$args = apply_filters( 'pixelgrade_edit_attachment_fields_init_args', $args );
 
-		if ( ! isset( $attachment['is_videopress_attachment'] ) || $attachment['is_videopress_attachment'] !== 'yes' ) {
-			return $post;
-		}
-
-		$post_id = absint( $post['ID'] );
-
-		$meta = wp_get_attachment_metadata( $post_id );
-
-		// If this has not been processed by videopress, we can skip the rest.
-		if ( ! is_videopress_attachment( $post['ID'] ) ) {
-			return $post;
-		}
-
-		$values = array();
-
-		// Add the video title & description in, so that we save it properly.
-		if ( isset( $_POST['post_title'] ) ) {
-			$values['title'] = trim( strip_tags( $_POST['post_title'] ) );
-		}
-
-		if ( isset( $_POST['post_excerpt'] ) ) {
-			$values['description'] = trim( strip_tags( $_POST['post_excerpt'] ) );
-		}
-
-		if ( isset( $attachment['rating'] ) ) {
-			$rating = $attachment['rating'];
-
-			if ( ! empty( $rating ) && in_array( $rating, array( 'G', 'PG-13', 'R-17', 'X-18' ) ) ) {
-				$values['rating'] = $rating;
-			}
-		}
-
-		// We set a default here, as if it isn't selected, then we'll turn it off.
-		$values['display_embed'] = 0;
-		if ( isset( $attachment['display_embed'] ) ) {
-			$display_embed = $attachment['display_embed'];
-
-			$values['display_embed'] = 'on' === $display_embed  ? 1 : 0;
-		}
-
-		$args = array(
-			'method'  => 'POST',
-		);
-
-        $guid = get_post_meta( $post_id, 'videopress_guid', true );
-
-		$endpoint = "videos/{$guid}";
-		$result = Jetpack_Client::wpcom_json_api_request_as_blog( $endpoint, Jetpack_Client::WPCOM_JSON_API_VERSION, $args, $values );
-
-		if ( is_wp_error( $result ) ) {
-			$post['errors']['videopress']['errors'][] = __( 'There was an issue saving your updates to the VideoPress service. Please try again later.', 'jetpack' );
-			return $post;
-		}
-
-		if ( isset( $values['display_embed'] ) ) {
-			$meta['videopress']['display_embed'] = $values['display_embed'];
-		}
-
-		if ( isset( $values['rating'] ) ) {
-			$meta['videopress']['rating'] = $values['rating'];
-		}
-
-		wp_update_attachment_metadata( $post_id, $meta );
-
-		$response = json_decode( $result['body'], true );
-
-		if ( 'true' !== $response ) {
-			return $post;
-		}
-
-		return $post;
+		// Get going with the initialization
+		$this->init( $args );
 	}
-
 
 	/**
-	 * Get the upload api path.
+	 * Initialize the fields.
 	 *
-	 * @param string $guid
-	 * @return string
+	 * @param array $args Optional
+	 *
+	 * @return void
 	 */
-	public function make_video_api_path( $guid ) {
-		return sprintf(
-			'%s://%s/rest/v%s/videos/%s',
-			'https',
-			'public-api.wordpress.com', //JETPACK__WPCOM_JSON_API_HOST,
-			Jetpack_Client::WPCOM_JSON_API_VERSION,
-			$guid
-		);
+	public function init( $args = array() ) {
+//		add_action( 'admin_enqueue_scripts', array( $this, 'adminEnqueueScripts' ) );
+
+		add_action( 'wp_enqueue_media', array( $this, 'addMediaTemplatesFields' ) );
+
+		add_filter( 'attachment_fields_to_edit', array( $this, 'fieldsToEdit' ), 10, 2 );
+		add_filter( 'attachment_fields_to_save', array( $this, 'saveFields' ), 10, 2 );
+		add_filter( 'wp_ajax_save-attachment', array( $this, 'saveFields' ), -1 );
+		add_filter( 'wp_ajax_save-attachment-compat', array( $this, 'saveFields' ), -1 );
+
+
+//		add_action( 'add_meta_boxes', array( $this, 'configure_meta_boxes' ), 10, 2 );
 	}
 
+	/**
+	 * Add our fields to the media templates.
+	 */
+	function addMediaTemplatesFields() {
+		// We will remove the default hook
+		remove_action( 'admin_footer', 'wp_print_media_templates' );
+
+		// We will add our our hook where we will catch the output of wp_print_media_templates and modify it
+		add_action( 'admin_footer', array( $this, 'insertFieldsIntoMediaTemplates' ) );
+
+		// Print the scripts responsible for handling changes in the media views
+		add_action( 'admin_footer', array( $this, 'printMediaViewScripts' ), 11 );
+	}
+
+	/**
+	 * Insert our fields in the media templates.
+	 */
+	function insertFieldsIntoMediaTemplates() {
+		ob_start();
+		wp_print_media_templates();
+		$tpl = ob_get_clean();
+		// To future-proof a bit, search first for the template and then for the section.
+		if ( ( $idx = strpos( $tpl, 'tmpl-image-details' ) ) !== false
+		     && ( $before_idx = strpos( $tpl, '<label class="setting alt-text">', $idx ) ) !== false ) {
+			ob_start();
+			?>
+			<label class="setting pixelgrade-credits credits">
+				<span>Credits</span>
+				<input type="text" data-setting="credits" value="{{ data.model.my_setting }}" />
+			</label>
+			<?php
+			$my_section = ob_get_clean();
+			$tpl = substr_replace( $tpl, $my_section, $before_idx, 0 );
+		}
+		echo $tpl;
+	}
+
+	/**
+	 * Print the JS that handles the interaction between the editor and the WP Media modal.
+	 *
+	 * Inspired by wpeditimage TinyMCE plugin updateImage()
+	 * wp-includes/js/tinymce/plugins/wpeditimage/plugin.js
+	 */
+	function printMediaViewScripts() {
+		?>
+		<script type="text/javascript">
+			jQuery(function ($) {
+				if (wp && wp.media && wp.media.events) {
+					wp.media.events.on( 'editor:image-edit', function (data) {
+						data.metadata.credits = data.editor.dom.getAttrib( data.image, 'data-credits' );
+					} );
+					wp.media.events.on( 'editor:image-update', function (data) {
+						var imageNode, captionNode, wrap, wrapNode, credits, dl, dd, width, height, id, attrs, align, className, html, parent;
+
+						// Update the credits in the data attribute - this will be the source of truth
+						// The rest is just for editor preview
+						data.editor.dom.setAttrib( data.image, 'data-credits', data.metadata.credits );
+
+						width = data.metadata.width;
+						height = data.metadata.height;
+
+						if ( data.metadata.size === 'custom' ) {
+							width = data.metadata.customWidth;
+							height = data.metadata.customHeight;
+						}
+
+						if ( data.image.parentNode && data.image.parentNode.nodeName === 'A' && ! hasTextContent( data.image.parentNode ) ) {
+							imageNode = data.image.parentNode;
+						} else {
+							imageNode = data.image;
+						}
+
+						wrapNode = data.editor.dom.getParent( imageNode, '.mceTemp' );
+						captionNode = data.editor.dom.getParent( imageNode, 'dl.wp-caption' );
+
+						// We already have the caption wrappers
+						if ( captionNode ) {
+							// First determine if we already have the temporary credits markup
+							dd = data.editor.dom.select('.wp-credits-dd', captionNode);
+							if (dd.length) {
+								if ( data.metadata.credits ) {
+									dom.setHTML(dd[0], data.metadata.credits);
+								} else {
+									// We have no credits text - remove the element
+									data.editor.dom.remove( dd[0] );
+								}
+							} else if ( data.metadata.credits ) {
+								// We need to create a <dd>, but only if we have some credits text
+								dd = data.editor.dom.create('dd', {'class': 'wp-credits-dd'}, data.metadata.credits);
+								captionNode.append( dd );
+							}
+						} else {
+							if ( data.metadata.credits ) {
+								// Create the caption node
+
+								// First recreate the logic from the wpeditimage TinyMCE plugin updateImage()
+								id = data.metadata.attachment_id ? 'attachment_' + data.metadata.attachment_id : null;
+								align = 'align' + (data.metadata.align || 'none');
+								className = 'wp-caption ' + align;
+
+								if (data.metadata.captionClassName) {
+									className += ' ' + data.metadata.captionClassName.replace(/[<>&]+/g, '');
+								}
+								if (!data.editor.getParam('wpeditimage_html5_captions')) {
+									width = parseInt(width, 10);
+									width += 10;
+								}
+
+								html = '<dt class="wp-caption-dt"></dt><dd class="wp-caption-dd"></dd><dd class="wp-credits-dd">' + data.metadata.credits + '</dd>';
+								dl = data.editor.dom.create('dl', {
+									'id': id,
+									'class': className,
+									'style': 'width: ' + width + 'px'
+								}, html);
+
+								// We don't have a caption but somehow we have a wrapper - use it
+								if (wrapNode) {
+									wrapNode.append(dl);
+								} else {
+									// we need to create the TinyMCE temp node
+									wrap = data.editor.dom.create('div', {'class': 'mceTemp'});
+									wrap.append(dl);
+
+									if (parent = data.editor.dom.getParent(imageNode, 'p')) {
+										parent.parentNode.insertBefore(wrap, parent);
+									} else {
+										imageNode.parentNode.insertBefore(wrap, imageNode);
+									}
+
+									data.editor.$(wrap).find('dt.wp-caption-dt').append(imageNode);
+
+									if (parent && data.editor.dom.isEmpty(parent)) {
+										data.editor.dom.remove(parent);
+									}
+								}
+							}
+						}
+
+						data.editor.nodeChanged();
+					} );
+				}
+			});
+		</script>
+		<?php
+	}
 
 	/**
 	 * Creates an array of video fields to edit based on transcoded videos.
 	 *
-	 * @param array $fields video fields of interest
-	 * @param stdClass $post post object
-	 * @return array modified version of video fields for administrative interface display
+	 * @param array $fields Attachment fields.
+	 * @param stdClass $post The post object.
+	 *
+	 * @return array Modified attachment fields.
 	 */
-	public function fields_to_edit( $fields, $post ) {
+	public function fieldsToEdit( $fields, $post ) {
 		$post_id = absint( $post->ID );
 
-		$meta = wp_get_attachment_metadata( $post_id );
-
-		// If this has not been processed by videopress, we can skip the rest.
-		if ( ! is_videopress_attachment( $post_id ) || ! isset( $meta['videopress'] ) ) {
-			return $fields;
-		}
-
-		$info = (object) $meta['videopress'];
-        $file_statuses = isset( $meta['file_statuses'] ) ? $meta['file_statuses'] : array();
-
-        $guid = get_post_meta( $post_id, 'videopress_guid', true );
-
-		unset( $fields['url'] );
-		unset( $fields['post_content'] );
-
-		if ( isset( $file_statuses['ogg'] ) && 'done' ===  $file_statuses['ogg'] ) {
-			$v_name  = preg_replace( '/\.\w+/', '', basename( $info->path ) );
-			$video_name = $v_name . '_fmt1.ogv';
-			$ogg_url  = videopress_cdn_file_url( $guid, $video_name );
-
-			$fields['video-ogg'] = array(
-				'label' => __( 'Ogg File URL', 'jetpack' ),
-				'input' => 'html',
-				'html'  => "<input type='text' class='urlfield' readonly='readonly' name='attachments[$post_id][oggurl]' value='" . esc_url( $ogg_url, array( 'http', 'https' ) ) . "' />",
-				'helps' => __( 'Location of the Ogg video file.', 'jetpack' ),
+		if ( ! isset( $fields['credits'] ) ) {
+			$fields['credits'] = array(
+				'label' => __('Credits', '__theme_txtd' ),
+				'input' => 'text',
+				'value' => get_post_meta( $post_id, '_credits', true ),
 			);
 		}
-
-		$fields['post_title']['helps'] = __( 'Title will appear on the first frame of your video', 'jetpack' );
-
-		$fields['post_excerpt']['label'] = _x( 'Description', 'A header for the short description display', 'jetpack' );
-		$fields['post_excerpt']['input'] = 'textarea';
-		$fields['post_excerpt']['value'] = $info->description;
-
-		$fields['is_videopress_attachment'] = array(
-			'input' => 'hidden',
-			'value' => 'yes',
-		);
-
-		$fields['videopress_shortcode'] = array(
-			'label'         => _x( 'Shortcode', 'A header for the shortcode display', 'jetpack' ),
-			'input'         => 'html',
-			'html'          => "<input type=\"text\" name=\"videopress_shortcode\" value=\"[videopress {$guid}]\" readonly=\"readonly\"/>",
-			'show_in_modal' => true,
-			'show_in_edit'  => false,
-		);
-
-		$fields['display_embed'] = array(
-			'label' => _x( 'Share', 'A header for the video sharing options area', 'jetpack' ),
-			'input' => 'html',
-			'html'  => $this->display_embed_choice( $info )
-		);
-
-		$fields['video-rating'] = array(
-			'label' => _x( 'Rating', 'A header for the video rating area', 'jetpack' ),
-			'input' => 'html',
-			'html'  => $this->display_rating( $info )
-		);
 
 		return $fields;
 	}
 
 	/**
-	 * @param stdClass $post
-	 */
-	public function videopress_information_box( $post ) {
-		$post_id = absint( $post->ID );
-
-		$meta = wp_get_attachment_metadata( $post_id );
-        $guid = get_post_meta( $post_id, 'videopress_guid', true );
-
-		// If this has not been processed by videopress, we can skip the rest.
-		if ( ! is_videopress_attachment( $post_id ) ) {
-			return;
-		}
-
-		$info = (object) $meta['videopress'];
-
-		$status = videopress_get_transcoding_status( $post_id );
-
-		$formats = array(
-			'std_mp4' => 'Standard MP4',
-			'std_ogg' => 'OGG Vorbis',
-			'dvd_mp4' => 'DVD',
-			'hd_mp4'  => 'High Definition',
-		);
-
-		$embed = "[videopress {$guid}]";
-
-		$shortcode = '<input type="text" id="plugin-embed" readonly="readonly" style="width:180px;" value="' . esc_attr( $embed ) . '" onclick="this.focus();this.select();" />';
-
-		$trans_status = '';
-		$all_trans_done = true;
-		foreach ( $formats as $status_key => $name ) {
-			if ( 'DONE' !== $status[ $status_key ] ) {
-				$all_trans_done = false;
-			}
-
-			$trans_status .= '- <strong>' . $name . ":</strong> <span id=\"status_$status_key\">" . ( 'DONE' === $status[ $status_key ]  ? 'Done' : 'Processing' ) . '</span><br>';
-		}
-
-		$nonce = wp_create_nonce( 'videopress-update-transcoding-status' );
-
-		$url = 'empty';
-		if ( ! empty( $guid ) ) {
-			$url = videopress_build_url( $guid );
-			$url = "<a href=\"{$url}\">{$url}</a>";
-		}
-
-		$poster = '<em>Still Processing</em>';
-		if ( ! empty( $info->poster ) ) {
-			$poster = "<br><img src=\"{$info->poster}\" width=\"175px\">";
-		}
-
-		$status_update = '';
-		if ( ! $all_trans_done ) {
-			$status_update = ' (<a href="javascript:;" id="videopress-update-transcoding-status">update</a>)';
-		}
-
-		$html = <<< HTML
-
-<div class="misc-pub-section misc-pub-shortcode">
-	<strong>Shortcode</strong><br>
-	{$shortcode}
-</div> 
-<div class="misc-pub-section misc-pub-url">
-	<strong>Url</strong>
-	{$url}
-</div> 
-<div class="misc-pub-section misc-pub-poster">
-	<strong>Poster</strong>
-	{$poster}
-</div>
-<div class="misc-pub-section misc-pub-status">
-	<strong>Transcoding Status$status_update:</strong>
-	<div id="videopress-transcoding-status">{$trans_status}</div>
-</div>
-
-
-
-<script>
-	jQuery( function($) {
-		$( '#videopress-update-transcoding-status' ).on( "click", function() {
-			jQuery.ajax( {
-				type: 'post',
-				url: 'admin-ajax.php',
-				data: { 
-					action: 'videopress-update-transcoding-status',
-					post_id: '{$post_id}',
-					_ajax_nonce: '{$nonce}' 
-				},
-				complete: function( response ) {
-					if ( 200 === response.status ) {
-						var statuses = response.responseJSON.data.status;
-
-						for (var key in statuses) {
-							$('#status_' + key).text( 'DONE' === statuses[key] ? 'Done' : 'Processing' );
-						}
-					}
-				}
-			});
-		} );
-	} );
-</script>
-HTML;
-
-		echo $html;
-	}
-
-	/**
-	 * Build HTML to display a form checkbox for embedcode display preference
+	 * Save our custom attachment fields as attachment meta.
 	 *
-	 * @param object $info database row from the videos table
-	 * @return string input element of type checkbox set to checked state based on stored embed preference
-	 */
-	protected function display_embed_choice( $info ) {
-		$id = "attachments-{$info->post_id}-displayembed";
-		$out  = "<label for='$id'><input type='checkbox' name='attachments[{$info->post_id}][display_embed]' id='$id'";
-		if ( $info->display_embed )
-			$out .= ' checked="checked"';
-		$out .= " />" . __( 'Display share menu and allow viewers to embed or download this video', 'jetpack' ) . '</label>';
-		return $out;
-	}
-
-	/**
-	 * Build HTML to display a form input radio button for video ratings
+	 * @param array $post
+	 * @param array|null $attachment
 	 *
-	 * @param object $info database row from the videos table
-	 * @return string input elements of type radio with existing stored value selected
+	 * @return array
 	 */
-	protected function display_rating( $info ) {
-		$out = '';
-
-		$ratings = array(
-			'G'     => 'G',
-			'PG-13' => 'PG-13',
-			'R-17'  => 'R',
-			'X-18'  => 'X',
-		);
-
-		foreach( $ratings as $r => $label ) {
-			$id = "attachments-{$info->post_id}-rating-$r";
-			$out .= "<label for=\"$id\"><input type=\"radio\" name=\"attachments[{$info->post_id}][rating]\" id=\"$id\" value=\"$r\"";
-			if ( $info->rating == $r ) {
-				$out .= ' checked="checked"';
-			}
-
-			$out .= " />$label</label>";
-			unset( $id );
+	public function saveFields( $post, $attachment = null ) {
+		if ( $attachment === null && isset( $_POST['attachment'] ) ) {
+			$attachment = $_POST['attachment'];
 		}
 
-		return $out;
+		$post_id = absint( $post['ID'] );
+
+		if ( isset( $attachment['credits'] ) ) {
+			update_post_meta( $post_id, '_credits', sanitize_textarea_field( $attachment['credits'] ) );
+		}
+
+		return $post;
 	}
 }
 
-// Let's start this thing up.
-VideoPress_Edit_Attachment::init();
+// Fire it up
+add_action( 'init', array( 'Pixelgrade_EditAttachmentFields', 'instance' ) );
