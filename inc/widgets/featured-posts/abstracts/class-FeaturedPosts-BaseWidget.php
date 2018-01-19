@@ -436,6 +436,17 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 					// Allow others (maybe other widgets that extend this) to change the attributes
 					$attributes = apply_filters( 'pixelgrade_featured_posts_widget_attributes' . $this->id, array(), $instance, $posts );
 
+					/**
+					 * Fires before the widget markup, including the <section>.
+					 *
+					 * This is a dynamic action specific to each widget instance.
+					 *
+					 * @param array $args     Display arguments including 'before_title', 'after_title',
+					 *                        'before_widget', and 'after_widget'.
+					 * @param array $instance An array of the widget's settings.
+					 */
+					do_action( 'pixelgrade_widget_before_' . $this->id, $args, $instance );
+
 					echo $args['before_widget'];
 
 					if ( ! empty( $title ) ) {
@@ -524,6 +535,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 					} ?>
 
 					<?php
+
 					/**
 					 * Fires at the end of the Featured Posts widget.
 					 */
@@ -536,6 +548,17 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 					do_action( 'pixelgrade_featured_posts_widget_end' . $this->id, $instance, $args );
 
 					echo $args['after_widget'];
+
+					/**
+					 * Fires after the widget markup, including the closing </section>.
+					 *
+					 * This is a dynamic action specific to each widget instance.
+					 *
+					 * @param array $args     Display arguments including 'before_title', 'after_title',
+					 *                        'before_widget', and 'after_widget'.
+					 * @param array $instance An array of the widget's settings.
+					 */
+					do_action( 'pixelgrade_widget_after_' . $this->id, $args, $instance );
 
 					// Reset the global $the_post as this query will have stomped on it
 					wp_reset_postdata();
