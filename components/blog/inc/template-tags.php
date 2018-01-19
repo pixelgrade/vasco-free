@@ -695,7 +695,7 @@ if ( ! function_exists( 'pixelgrade_shape_comment' ) ) {
 							<?php endif; ?>
 						</header><!-- .comment-meta -->
 
-						<div class="comment__content entry-content">
+						<div class="comment__content">
 							<?php comment_text(); ?>
 						</div><!-- .comment-content -->
 

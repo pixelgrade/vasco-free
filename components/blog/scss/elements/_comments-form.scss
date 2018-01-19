@@ -9,24 +9,14 @@
 		flex: 0 0 100%;
 	}
 
-  > :not(:first-child) {
-    @include spacing(margin-top, 2rem);
-  }
-
-	> :last-child,
-	> p:last-of-type {
-		margin-bottom: 0;
-	}
+	//> :last-child,
+	//> p:last-of-type {
+	//	margin-bottom: 0;
+	//}
 
 	label {
 		display: block;
-		@include leading-map($h6);
-		@include spacing(padding-bottom, 1rem);
 	}
-}
-
-.comment-reply-title {
-	@include spacing(padding-bottom, 1rem);
 }
 
 .comment-form-author,

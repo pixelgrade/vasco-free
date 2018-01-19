@@ -41,7 +41,7 @@ $logo-mobile-height: 30px;
 $header-height: 87px;
 $header-mobile-height: 60px;
 $header-links-spacing: 56px;
-$header-sides-spacing: 30px;
+$header-sides-spacing: 42px;
 // ----------------------------------------
 // Colors
 // ----------------------------------------
@@ -78,10 +78,10 @@ $header-font: (
 // Layout
 // ----------------------------------------
 $content-container-width: 1300px;
-$content-sides-spacing: 70px;
+$content-sides-spacing: 42px;
 $content-vertical-spacing: 0;
 $content-width: 720px;
-$content-border-width: 10px;
+$content-border-width: 0;
 $content-border-color: transparent;
 // ----------------------------------------
 // Colors
@@ -238,7 +238,7 @@ $card-letter-font: (
 // Layout
 // ----------------------------------------
 $blog-grid-width: 1300px;
-$blog-sides-spacing: 70px;
+$blog-sides-spacing: 42px;
 $blog-grid-layout: packed;
 $blog-grid-packed-ratio: 2.275;
 $blog-grid-aspect-ratio: 3/4;
@@ -309,6 +309,8 @@ $wp-align-caption-font: (
   font-family: $theme-headings-font-family-alt,
   spacing-top: 1rem,
 );
+
+$input-border-radius: 4px;
 
 $gallery-spacing: 4rem;
 

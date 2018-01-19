@@ -61,13 +61,16 @@ $btn-font: () !default;
   color: $btn-color;
   background-color: $btn-background;
 
-  box-shadow: none;
-  text-shadow: none;
-  text-decoration: none;
   -webkit-font-smoothing: initial;
 
   transition: $btn-transition;
   transition-property: color, background-color, opacity;
+
+  .u-underlined-links & {
+    box-shadow: none;
+    text-shadow: none;
+    text-decoration: none;
+  }
 
   &:hover,
   &:active,

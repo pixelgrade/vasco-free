@@ -12,18 +12,7 @@ blockquote {
     }
 
     cite {
-        color: $theme-accent-color;
-
-        &:before {
-            content: "";
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            @include spacing(height, 2rem);
-            @include spacing(margin-bottom, 2rem);
-            width: 2px;
-
-            background-color: currentColor;
-        }
+      color: $theme-accent-color;
+      @include vertical-separator;
     }
 }

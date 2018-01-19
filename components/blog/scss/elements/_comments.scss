@@ -54,7 +54,6 @@
 
 .comment__avatar {
   flex: 0 0 auto;
-  @include spacing(margin-right, 2rem);
   border-radius: 50%;
   overflow: hidden;
 
@@ -68,10 +67,6 @@
   display: inline-block;
   margin-left: 5px;
 
-  font-size: 0.8em;
-  font-weight: normal;
-  opacity: 0.5;
-
   a {
     text-decoration: none;
     color: inherit;
@@ -80,23 +75,7 @@
 
 .reply a {
   @include spacing(margin-bottom, 1rem);
-  font-size: 12px;
-  font-weight: normal;
-
   display: block;
-
-  text-transform: uppercase;
-  text-decoration: none;
-  letter-spacing: 0.1em;
-
-  color: $color-dark;
-
-  opacity: 0.5;
-
-  &:hover {
-    opacity: 1;
-    color: initial;
-  }
 }
 
 .pingback,

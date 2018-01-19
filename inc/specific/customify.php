@@ -376,7 +376,7 @@ function bobo_change_customify_blog_grid_section( $section_options, $options ) {
 				),
 				'blog_item_excerpt_font'         => array(
 					'default' => array(
-						'font-family'    => VARIATION_SERIF_FONT,
+						'font-family'    => VARIATION_BODY_FONT,
 						'font-weight'    => '400',
 						'font-size'      => 16,
 						'line-height'    => 1.5,

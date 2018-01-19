@@ -89,7 +89,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 					'default' => 1300,
 				),
 				'main_content_container_sides_spacing'  => array(
-					'default' => 60,
+					'default' => 42,
 				),
 				'main_content_container_padding'        => array(
 					'default' => 0,
@@ -98,7 +98,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 					'default' => 720,
 				),
 				'main_content_border_width'             => array(
-					'default' => 10,
+					'default' => 0,
 				),
 				'main_content_border_color'             => array(
 					'default' => '#F7F6F5',
@@ -252,7 +252,7 @@ function bobo_customify_blog_grid_section( $section_options, $options ) {
 					'default' => 1300,
 				),
 				'blog_container_sides_spacing'       => array(
-					'default' => 60,
+					'default' => 42,
 				),
 				'blog_grid_layout'                   => array(
 					'default' => 'regular',
@@ -360,7 +360,7 @@ function bobo_customify_header_section( $section_options, $options ) {
 					'default' => 'full',
 				),
 				'header_sides_spacing'            => array(
-					'default' => 30,
+					'default' => 42,
 				),
 				'header_navigation_links_color'   => array(
 					'default' => '#252525',
