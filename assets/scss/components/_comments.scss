@@ -1,0 +1,81 @@
+.comment-list[class] {
+  @include spacing(margin, 4rem 0);
+}
+
+.comment__author {
+  @include leading-map(map-merge($h4, (
+    spacing-bottom: false
+  )));
+}
+
+.comment__metadata,
+.comment-reply-title,
+.edit-link,
+.reply,
+.logged-in-as {
+  a {
+    @include leading-map($h6);
+    text-decoration: none;
+    text-shadow: none;
+    opacity: 0.6;
+  }
+}
+
+.c-comments-toggle__label {
+  @include btn;
+  display: block;
+  background-color: $theme-text-color;
+}
+
+.comment__content {
+  @include leading-map((
+    font-size: 15px,
+    line-height: (25/15)
+  ));
+}
+
+.comment-reply-title[class] {
+  @include spacing(margin-bottom, 0.5rem);
+}
+
+.comment-reply-title {
+  small {
+    font: inherit;
+
+  }
+}
+
+.comment-form label {
+  @include leading-map(map-merge($h4, (
+    spacing-bottom: 0.5rem
+  )));
+}
+
+.comment__avatar {
+  margin-right: 20px;
+
+  @include below(lap) {
+    max-width: 32px;
+  }
+}
+
+@include below(lap) {
+  .comment .children {
+    margin-left: 20px;
+  }
+
+  .comment .children .children {
+    margin-left: 0;
+  }
+
+}
+
+.bypostauthor {
+  .comment__avatar {
+    @extend .accent-image-filter;
+  }
+
+  .comment__author {
+    color: $theme-accent-color;
+  }
+}

@@ -116,7 +116,7 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'background-color',
-							'selector' => '.u-content-background, .mce-content-body',
+							'selector' => '.u-content-background, .mce-content-body, .related-posts-title span',
 						),
 						array(
 							'property' => 'color',

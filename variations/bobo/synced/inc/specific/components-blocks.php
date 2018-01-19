@@ -16,6 +16,15 @@
  */
 function bobo_register_blog_blocks( $component_slug, $component_config ) {
 
+	Pixelgrade_BlocksManager()->registerBlock( 'blog/content-widget-stamp', array(
+		'type'      => 'template_part',
+		'templates' => array(
+			array(
+				'slug' => 'content-widget-stamp',
+			),
+		),
+	) );
+
 	Pixelgrade_BlocksManager()->registerBlock( 'blog/single', array(
 		'extend' => 'blog/default',
 		'blocks' => array(
@@ -25,9 +34,20 @@ function bobo_register_blog_blocks( $component_slug, $component_config ) {
 					'blog/entry-header-single',
 					'blog/entry-thumbnail',
 					'blog/entry-content',
+					'sidebar-below-post' => array(
+						'blocks' => array(
+							'blog/sidebar-below-post',
+						),
+						'wrappers' => array(
+							array(
+								'classes' => 'entry-aside u-content-width'
+							),
+						),
+					),
 					'blog/entry-footer',
 				),
 			),
+//			'blog/content-widget-stamp',
 			'blog/related-posts',
 		),
 	) );

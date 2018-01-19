@@ -64,9 +64,9 @@ if ( $query->have_posts() ) {
 	remove_filter( 'the_excerpt', 'sharing_display', 19 );
 	?>
 
-	<div id="related-posts-container" class="related-posts-container">
-		<div class="u-container-sides-spacing">
-			<div class="o-wrapper u-container-width">
+	<div class="u-container-sides-spacing">
+		<div class="o-wrapper u-container-width">
+			<div id="related-posts-container" class="related-posts-container">
 				<?php pixelgrade_the_jetpack_related_posts_headline( esc_html__( 'Related Posts', '__components_txtd' ) ); ?>
 				<div class="c-gallery  o-grid--3col-@desk  o-grid--3col-@lap  o-grid--col-@small">
 					<?php

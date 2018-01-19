@@ -1,0 +1,34 @@
+.related-posts-container {
+  border-bottom: 2px solid currentColor;
+  @include spacing(margin-bottom, 4rem);
+}
+
+.related-posts-title {
+  position: relative;
+  text-align: center;
+
+  &:not(:last-child) {
+    @include spacing(margin-bottom, 2.5rem);
+  }
+
+  span {
+    position: relative;
+    display: inline-block;
+    @include spacing(padding-left, 1rem);
+    @include spacing(padding-right, 1rem);
+    background: $theme-background-color;
+  }
+
+  &:before {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background-color: currentColor;
+  }
+}

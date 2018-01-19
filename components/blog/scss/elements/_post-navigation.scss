@@ -46,14 +46,6 @@ $post-navigation-spacing: 4rem !default;
 			width: 10em;
 		}
 
-    > :not(:last-child) {
-      @include spacing(margin-bottom, $post-navigation-spacing);
-
-      @include above(lap) {
-        margin-bottom: 0;
-      }
-    }
-
 		a:after {
 			content: "";
 			position: absolute;

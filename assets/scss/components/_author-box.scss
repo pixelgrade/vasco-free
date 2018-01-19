@@ -1,0 +1,39 @@
+.c-author {
+  @include spacing(padding-top, 3rem);
+  @include spacing(margin-top, 3rem);
+  @include spacing(padding-bottom, 3rem);
+  border-top: 1px solid currentColor;
+  border-bottom: 2px solid currentColor;
+}
+
+.c-author__avatar {
+  @extend .accent-image-filter;
+  display: block;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.c-author__name:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.c-author__description {
+  @include fontsize(15px);
+}
+
+.c-author__footer {
+  @include leading-map(map-merge($h6,(
+    spacing-top: 1rem,
+    spacing-bottom: 0
+  )));
+}
+
+.c-author__links {
+  a {
+    color: $theme-accent-color;
+
+    .u-underlined-links & {
+      text-decoration: none;
+    }
+  }
+}
