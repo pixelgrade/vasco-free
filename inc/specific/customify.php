@@ -12,7 +12,6 @@
  * @since 1.0.0
  */
 
-// @todo standardize naming here
 add_filter( 'pixelgrade_customify_general_section_options', 'bobo_change_customify_general_section', 20, 2 );
 add_filter( 'pixelgrade_header_customify_section_options', 'bobo_change_customify_header_section_options', 20, 2 );
 add_filter( 'pixelgrade_customify_main_content_section_options', 'bobo_change_customify_main_content', 20, 2 );
@@ -26,7 +25,7 @@ define( 'VARIATION_ACCENT_COLOR', '#DE2D16' );
 define( 'VARIATION_BODY_FONT', 'Lora' );
 define( 'VARIATION_HEADINGS_FONT', 'YoungSerif' );
 define( 'VARIATION_HEADINGS_FONT_ALT', 'HK Grotesk' );
-define( 'VARIATION_LOGO_FONT', 'Bebas Neue' );
+define( 'VARIATION_SITE_TITLE_FONT', 'Bebas Neue' );
 
 function bobo_change_customify_general_section( $general_section, $options ) {
 
@@ -76,7 +75,7 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 						),
 						array(
 							'property' => 'background-color',
-							'selector' => '.entry-content .dropcap',
+							'selector' => '.entry-content .dropcap, .single .entry-header .posted-on a, .entry-content .cats[class] > a',
 						),
 					),
 				),
@@ -97,6 +96,12 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 				),
 				'main_content_heading_4_color'          => array(
 					'default' => VARIATION_ACCENT_COLOR,
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.entry-content h4, .h4, h4, .single .entry-header .cats',
+						),
+					),
 				),
 				'main_content_heading_5_color'          => array(
 					'default' => VARIATION_ACCENT_COLOR,
@@ -115,11 +120,11 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 						),
 						array(
 							'property' => 'color',
-							'selector' => '.entry-content .dropcap',
+							'selector' => '.entry-content .dropcap, .single .entry-header .posted-on a, .entry-content .cats[class] > a',
 						),
 						array(
 							'property' => 'text-shadow',
-							'selector' => '.u-underlined-links .entry-content a',
+							'selector' => '.u-underlined-links a',
 							'callback_filter' => 'bobo_link_text_shadow_cb'
 						),
 					),
@@ -220,7 +225,7 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 						'font-family'    => VARIATION_HEADINGS_FONT_ALT,
 						'font-weight'    => '700',
 						'font-size'      => 14,
-						'line-height'    => 1.07,
+						'line-height'    => 1.25,
 						'letter-spacing' => 0.07,
 						'text-transform' => 'uppercase',
 					),
@@ -266,10 +271,7 @@ function bobo_change_customify_buttons( $section_options, $options ) {
 		input[type=button],
 		input[type=submit],
 		.widget_pages,
-		div.jetpack-recipe .jetpack-recipe-print[class] a,
-		.featured-posts__more,
-		.entry-content .cats[class] > a,
-		.meta__item--button';
+		.featured-posts__more';
 
 	$new_section_options = array(
 
@@ -364,8 +366,8 @@ function bobo_change_customify_blog_grid_section( $section_options, $options ) {
 				),
 				'blog_item_meta_font'            => array(
 					'default' => array(
-						'font-family'    => VARIATION_LOGO_FONT,
-						'font-weight'    => '500',
+						'font-family'    => VARIATION_SITE_TITLE_FONT,
+						'font-weight'    => 'regular',
 						'font-size'      => 13,
 						'line-height'    => 1.1,
 						'letter-spacing' => 0.1,
@@ -374,7 +376,7 @@ function bobo_change_customify_blog_grid_section( $section_options, $options ) {
 				),
 				'blog_item_excerpt_font'         => array(
 					'default' => array(
-						'font-family'    => VARIATION_SERIF_FONT,
+						'font-family'    => VARIATION_BODY_FONT,
 						'font-weight'    => '400',
 						'font-size'      => 16,
 						'line-height'    => 1.5,
@@ -411,9 +413,6 @@ function bobo_change_customify_header_section_options( $section_options, $option
 				'header_navigation_links_spacing' => array(
 					'default' => 56,
 				),
-				'header_width'                    => array(
-					'default' => 'container',
-				),
 				// [Section] Colors
 				'header_navigation_links_color'   => array(
 					'default' => '#323232',
@@ -422,7 +421,7 @@ function bobo_change_customify_header_section_options( $section_options, $option
 					'default' => VARIATION_ACCENT_COLOR,
 				),
 				'header_background'               => array(
-					'default' => '#fff4e8',
+					'default' => '#F5F6F1',
 				),
 				'header_site_title_font'          => array(
 					'fields'  => array(
@@ -432,8 +431,8 @@ function bobo_change_customify_header_section_options( $section_options, $option
 					),
 					'default' => array(
 						'font-family'    => VARIATION_SITE_TITLE_FONT,
-						'font-weight'    => '700',
-						'font-size'      => 100,
+						'font-weight'    => 'regular',
+						'font-size'      => 30,
 						'line-height'    => 1,
 						'letter-spacing' => 0,
 						'text-transform' => 'none',
