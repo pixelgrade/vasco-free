@@ -62,15 +62,10 @@ $btn-font: () !default;
   background-color: $btn-background;
 
   -webkit-font-smoothing: initial;
+  text-decoration: none;
 
   transition: $btn-transition;
   transition-property: color, background-color, opacity;
-
-  .u-underlined-links & {
-    box-shadow: none;
-    text-shadow: none;
-    text-decoration: none;
-  }
 
   &:hover,
   &:active,
@@ -241,7 +236,6 @@ input[type=submit] {
     @include btn;
 
     .u-underlined-links & {
-      text-shadow: none;
       text-decoration: none;
     }
   }
