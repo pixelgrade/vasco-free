@@ -87,5 +87,4 @@ $meta-tags-items-font: () !default;
 
 .entry-header .cats {
   @extend .meta;
-  @include leading-map($meta-category-items-font);
 }

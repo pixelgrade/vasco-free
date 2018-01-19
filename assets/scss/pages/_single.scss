@@ -25,7 +25,6 @@
 
     > * {
       @include spacing(margin-top, 3rem);
-      @include spacing(margin-bottom, 3rem);
     }
 
     .cats {
@@ -58,24 +57,28 @@
 
       a {
         @include taxonomy;
-
-        position: absolute;
-        top: 0;
-        left: 50%;
-
-        transform: translate(-50%, -50%);
+        @include spacing(margin-top, -1rem);
+        transform: translate(0, 50%);
       }
 
       time + time {
-        margin-left: 1em;
-        opacity: 0.5;
+        //margin-left: 1em;
+        //opacity: 0.5;
+        display: none;
       }
     }
   }
 
-  &.entry-image--none .entry-header .posted-on a {
-    position: static;
-    transform: none;
+  &.entry-image--none {
+    .posted-on a {
+      transform: none;
+      margin-top: 0;
+    }
+
+    .header-meta {
+      position: static;
+        @include spacing(margin-bottom, 2rem);
+    }
   }
 
   .entry-thumbnail {
@@ -98,15 +101,22 @@
 
 .entry-content {
 
-  .cats[class][class] a {
-    @include spacing(margin-right, 1rem);
+  .cats[class][class] {
+
+    a {
+      @include spacing(margin-top, 1rem);
+      @include spacing(margin-right, 1rem);
+    }
   }
 
   .cats__title {
     display: none;
   }
 
-  .cats,
+  .cats {
+    @include spacing(margin-top, -1rem);
+  }
+
   .tags {
     @include spacing(margin-top, 2rem);
   }

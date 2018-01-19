@@ -52,7 +52,7 @@
   @include leading-map((
     font-size: 15px,
     line-height: (25/15)
-  ))
+  ));
 }
 
 .comment-reply-title[class] {
@@ -60,7 +60,6 @@
 }
 
 .comment-reply-title {
-
   small {
     font: inherit;
 
@@ -86,7 +85,6 @@
 }
 
 @include below(lap) {
-
   .comment .children {
     margin-left: 20px;
   }
@@ -98,7 +96,6 @@
 }
 
 .bypostauthor {
-
   .comment__avatar {
     @extend .accent-image-filter;
   }
