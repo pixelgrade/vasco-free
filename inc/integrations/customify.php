@@ -167,7 +167,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 			'type'        => 'font',
 			'label'       => esc_html__( 'Badge Font', '__components_txtd' ),
 			'desc'        => '',
-			'selector'    => '.single .entry-header .posted-on a, .entry-content .cats[class] > a',
+			'selector'    => '.single .header-meta, .entry-content .cats[class] > a',
 			'callback'    => 'typeline_font_cb',
 
 			'default' => array(

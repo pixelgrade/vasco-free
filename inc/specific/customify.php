@@ -75,7 +75,7 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 						),
 						array(
 							'property' => 'background-color',
-							'selector' => '.entry-content .dropcap, .single .entry-header .posted-on a, .entry-content .cats[class] > a',
+							'selector' => '.entry-content .dropcap, .single .header-meta, .entry-content .cats[class] > a',
 						),
 					),
 				),
@@ -120,7 +120,7 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 						),
 						array(
 							'property' => 'color',
-							'selector' => '.entry-content .dropcap, .single .entry-header .posted-on a, .entry-content .cats[class] > a',
+							'selector' => '.entry-content .dropcap, .single .header-meta, .entry-content .cats[class] > a',
 						),
 					),
 				),
