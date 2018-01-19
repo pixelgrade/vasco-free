@@ -68,7 +68,7 @@ class Pixelgrade_EditAttachmentFields extends Pixelgrade_Singleton {
 			return $match[0];
 		}
 
-		return '<figure class="wp-caption">' . $match[1] . '<figcaption class="wp-credits-text">' . $match[2] . '</figcaption></figure>';
+		return '<figure class="wp-caption">' . $match[1] . '<figcaption class="wp-caption-text"><span class="credits">' . $match[2] . '</span></figcaption></figure>';
 	}
 
 	/**
