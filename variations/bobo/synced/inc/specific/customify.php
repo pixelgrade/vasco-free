@@ -122,11 +122,6 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 							'property' => 'color',
 							'selector' => '.entry-content .dropcap, .single .entry-header .posted-on a, .entry-content .cats[class] > a',
 						),
-						array(
-							'property' => 'text-shadow',
-							'selector' => '.u-underlined-links a',
-							'callback_filter' => 'bobo_link_text_shadow_cb'
-						),
 					),
 				),
 
@@ -570,57 +565,3 @@ function bobo_single_header_width( $value, $selector, $property, $unit ) {
 
 	return $output;
 }
-
-if ( ! function_exists( 'bobo_link_text_shadow_cb_customizer_preview' ) ) :
-
-	function bobo_link_text_shadow_cb( $value, $selector, $property, $unit ) {
-		$output = '';
-
-		$output .= $selector . ' {' . PHP_EOL .
-		           $property . ': -1px -1px ' . $value . ', -1px 1px ' . $value . ', 1px -1px ' . $value . ', 1px 1px ' . $value . ',-2px 0 ' . $value . ', 2px 0 ' . $value . ';' . PHP_EOL .
-		           '}' . PHP_EOL;
-
-		return $output;
-	}
-
-endif;
-
-if ( ! function_exists( 'bobo_link_text_shadow_cb_customizer_preview' ) ) :
-	/**
-	 * Outputs the inline JS code used in the Customizer for the aspect ratio live preview.
-	 */
-	function bobo_link_text_shadow_cb_customizer_preview() {
-
-		$js = "
-			function bobo_link_text_shadow_cb( value, selector, property, unit ) {
-			
-			    var css = '',
-			        style = document.getElementById('bobo_link_text_shadow_cb_style_tag'),
-			        head = document.head || document.getElementsByTagName('head')[0];
-			
-			    css += selector + ' {' +
-			        property + ': -1px -1px ' + value + ', -1px 1px ' + value + ', 1px -1px ' + value + ', 1px 1px ' + value + ',-2px 0 ' + value + ', 2px 0 ' + value + ';'
-			        '}';
-			
-			    if ( style !== null ) {
-			        style.innerHTML = css;
-			    } else {
-			        style = document.createElement('style');
-			        style.setAttribute('id', 'bobo_link_text_shadow_cb_style_tag');
-			
-			        style.type = 'text/css';
-			        if ( style.styleSheet ) {
-			            style.styleSheet.cssText = css;
-			        } else {
-			            style.appendChild(document.createTextNode(css));
-			        }
-			
-			        head.appendChild(style);
-			    }
-			}" . PHP_EOL;
-
-		wp_add_inline_script( 'customify-previewer-scripts', $js );
-	}
-endif;
-
-add_action( 'customize_preview_init', 'bobo_link_text_shadow_cb_customizer_preview', 20 );
