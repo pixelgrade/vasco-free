@@ -31,20 +31,50 @@ class Pixelgrade_EditAttachmentFields extends Pixelgrade_Singleton {
 //		add_action( 'admin_enqueue_scripts', array( $this, 'adminEnqueueScripts' ) );
 
 		add_action( 'wp_enqueue_media', array( $this, 'addMediaTemplatesFields' ) );
+		add_filter( 'media_send_to_editor', array( $this, 'filterMediaSendToEditor' ), 10, 3 );
 
 		add_filter( 'attachment_fields_to_edit', array( $this, 'fieldsToEdit' ), 10, 2 );
 		add_filter( 'attachment_fields_to_save', array( $this, 'saveFields' ), 10, 2 );
 		add_filter( 'wp_ajax_save-attachment', array( $this, 'saveFields' ), -1 );
 		add_filter( 'wp_ajax_save-attachment-compat', array( $this, 'saveFields' ), -1 );
 
+		add_filter( 'the_content', array( $this, 'addCreditsToContentMedia' ), 100, 1 );
 
 //		add_action( 'add_meta_boxes', array( $this, 'configure_meta_boxes' ), 10, 2 );
+	}
+
+	public function addCreditsToContentMedia( $content) {
+		// Add the credits to all images wrapped in <figure> - those that have captions
+		$content = preg_replace(
+			'/(<figure[^>]*>\s*<\s*img(?:.+?(?=data-credits))\s*data-credits="([^"]*)"[^>]*>)(<figcaption class="wp-caption-text">)(.+?(?=<\/figcaption>))(<\/figcaption><\/figure>)/miu',
+			'$1$3$4<span class="credits">$2</span>$5',
+			$content
+		);
+
+		// Now we need to handle the images that have credits but don't have a caption
+		$content = preg_replace_callback(
+			'/<figure[^>]*>.*<\/figure>|((?:<a[^>]*>\s*)?<img(?:.+?(?=data-credits))\s*data-credits="([^"]*)"[^>]*>(?:\s*<\/a>)?)/miu',
+			// in the callback function, if Group 1 (the image) or Group 2 (the data-credits attribute) is empty,
+			// set the replacement to the whole match,
+			// i.e. don't replace
+			array( $this, 'wrapImagesCallback' ),
+			$content );
+
+		return $content;
+	}
+
+	public function wrapImagesCallback( $match ) {
+		if ( empty( $match[1] ) || empty( $match[2] ) ) {
+			return $match[0];
+		}
+
+		return '<figure class="wp-caption">' . $match[1] . '<figcaption class="wp-credits-text">' . $match[2] . '</figcaption></figure>';
 	}
 
 	/**
 	 * Add our fields to the media templates.
 	 */
-	function addMediaTemplatesFields() {
+	public function addMediaTemplatesFields() {
 		// We will remove the default hook
 		remove_action( 'admin_footer', 'wp_print_media_templates' );
 
@@ -58,7 +88,7 @@ class Pixelgrade_EditAttachmentFields extends Pixelgrade_Singleton {
 	/**
 	 * Insert our fields in the media templates.
 	 */
-	function insertFieldsIntoMediaTemplates() {
+	public function insertFieldsIntoMediaTemplates() {
 		ob_start();
 		wp_print_media_templates();
 		$tpl = ob_get_clean();
@@ -69,7 +99,7 @@ class Pixelgrade_EditAttachmentFields extends Pixelgrade_Singleton {
 			?>
 			<label class="setting pixelgrade-credits credits">
 				<span>Credits</span>
-				<input type="text" data-setting="credits" value="{{ data.model.my_setting }}" />
+				<input type="text" data-setting="credits" value="{{ data.model.credits }}" />
 			</label>
 			<?php
 			$my_section = ob_get_clean();
@@ -84,7 +114,7 @@ class Pixelgrade_EditAttachmentFields extends Pixelgrade_Singleton {
 	 * Inspired by wpeditimage TinyMCE plugin updateImage()
 	 * wp-includes/js/tinymce/plugins/wpeditimage/plugin.js
 	 */
-	function printMediaViewScripts() {
+	public function printMediaViewScripts() {
 		?>
 		<script type="text/javascript">
 			jQuery(function ($) {
@@ -99,92 +129,107 @@ class Pixelgrade_EditAttachmentFields extends Pixelgrade_Singleton {
 						// The rest is just for editor preview
 						data.editor.dom.setAttrib( data.image, 'data-credits', data.metadata.credits );
 
-						width = data.metadata.width;
-						height = data.metadata.height;
-
-						if ( data.metadata.size === 'custom' ) {
-							width = data.metadata.customWidth;
-							height = data.metadata.customHeight;
-						}
-
-						if ( data.image.parentNode && data.image.parentNode.nodeName === 'A' && ! hasTextContent( data.image.parentNode ) ) {
-							imageNode = data.image.parentNode;
-						} else {
-							imageNode = data.image;
-						}
-
-						wrapNode = data.editor.dom.getParent( imageNode, '.mceTemp' );
-						captionNode = data.editor.dom.getParent( imageNode, 'dl.wp-caption' );
-
-						// We already have the caption wrappers
-						if ( captionNode ) {
-							// First determine if we already have the temporary credits markup
-							dd = data.editor.dom.select('.wp-credits-dd', captionNode);
-							if (dd.length) {
-								if ( data.metadata.credits ) {
-									dom.setHTML(dd[0], data.metadata.credits);
-								} else {
-									// We have no credits text - remove the element
-									data.editor.dom.remove( dd[0] );
-								}
-							} else if ( data.metadata.credits ) {
-								// We need to create a <dd>, but only if we have some credits text
-								dd = data.editor.dom.create('dd', {'class': 'wp-credits-dd'}, data.metadata.credits);
-								captionNode.append( dd );
-							}
-						} else {
-							if ( data.metadata.credits ) {
-								// Create the caption node
-
-								// First recreate the logic from the wpeditimage TinyMCE plugin updateImage()
-								id = data.metadata.attachment_id ? 'attachment_' + data.metadata.attachment_id : null;
-								align = 'align' + (data.metadata.align || 'none');
-								className = 'wp-caption ' + align;
-
-								if (data.metadata.captionClassName) {
-									className += ' ' + data.metadata.captionClassName.replace(/[<>&]+/g, '');
-								}
-								if (!data.editor.getParam('wpeditimage_html5_captions')) {
-									width = parseInt(width, 10);
-									width += 10;
-								}
-
-								html = '<dt class="wp-caption-dt"></dt><dd class="wp-caption-dd"></dd><dd class="wp-credits-dd">' + data.metadata.credits + '</dd>';
-								dl = data.editor.dom.create('dl', {
-									'id': id,
-									'class': className,
-									'style': 'width: ' + width + 'px'
-								}, html);
-
-								// We don't have a caption but somehow we have a wrapper - use it
-								if (wrapNode) {
-									wrapNode.append(dl);
-								} else {
-									// we need to create the TinyMCE temp node
-									wrap = data.editor.dom.create('div', {'class': 'mceTemp'});
-									wrap.append(dl);
-
-									if (parent = data.editor.dom.getParent(imageNode, 'p')) {
-										parent.parentNode.insertBefore(wrap, parent);
-									} else {
-										imageNode.parentNode.insertBefore(wrap, imageNode);
-									}
-
-									data.editor.$(wrap).find('dt.wp-caption-dt').append(imageNode);
-
-									if (parent && data.editor.dom.isEmpty(parent)) {
-										data.editor.dom.remove(parent);
-									}
-								}
-							}
-						}
-
-						data.editor.nodeChanged();
+						// width = data.metadata.width;
+						// height = data.metadata.height;
+						//
+						// if ( data.metadata.size === 'custom' ) {
+						// 	width = data.metadata.customWidth;
+						// 	height = data.metadata.customHeight;
+						// }
+						//
+						// if ( data.image.parentNode && data.image.parentNode.nodeName === 'A' && ! hasTextContent( data.image.parentNode ) ) {
+						// 	imageNode = data.image.parentNode;
+						// } else {
+						// 	imageNode = data.image;
+						// }
+						//
+						// wrapNode = data.editor.dom.getParent( imageNode, '.mceTemp' );
+						// captionNode = data.editor.dom.getParent( imageNode, 'dl.wp-caption' );
+						//
+						// // We already have the caption wrappers
+						// if ( captionNode ) {
+						// 	// First determine if we already have the temporary credits markup
+						// 	dd = data.editor.dom.select('.wp-credits-dd', captionNode);
+						// 	if (dd.length) {
+						// 		if ( data.metadata.credits ) {
+						// 			dom.setHTML(dd[0], data.metadata.credits);
+						// 		} else {
+						// 			// We have no credits text - remove the element
+						// 			data.editor.dom.remove( dd[0] );
+						// 		}
+						// 	} else if ( data.metadata.credits ) {
+						// 		// We need to create a <dd>, but only if we have some credits text
+						// 		dd = data.editor.dom.create('dd', {'class': 'wp-credits-dd'}, data.metadata.credits);
+						// 		captionNode.append( dd );
+						// 	}
+						// } else {
+						// 	if ( data.metadata.credits ) {
+						// 		// Create the caption node
+						//
+						// 		// First recreate the logic from the wpeditimage TinyMCE plugin updateImage()
+						// 		id = data.metadata.attachment_id ? 'attachment_' + data.metadata.attachment_id : null;
+						// 		align = 'align' + (data.metadata.align || 'none');
+						// 		className = 'wp-caption ' + align;
+						//
+						// 		if (data.metadata.captionClassName) {
+						// 			className += ' ' + data.metadata.captionClassName.replace(/[<>&]+/g, '');
+						// 		}
+						// 		if (!data.editor.getParam('wpeditimage_html5_captions')) {
+						// 			width = parseInt(width, 10);
+						// 			width += 10;
+						// 		}
+						//
+						// 		html = '<dt class="wp-caption-dt"></dt><dd class="wp-caption-dd"></dd><dd class="wp-credits-dd">' + data.metadata.credits + '</dd>';
+						// 		dl = data.editor.dom.create('dl', {
+						// 			'id': id,
+						// 			'class': className,
+						// 			'style': 'width: ' + width + 'px'
+						// 		}, html);
+						//
+						// 		// We don't have a caption but somehow we have a wrapper - use it
+						// 		if (wrapNode) {
+						// 			wrapNode.append(dl);
+						// 		} else {
+						// 			// we need to create the TinyMCE temp node
+						// 			wrap = data.editor.dom.create('div', {'class': 'mceTemp'});
+						// 			wrap.append(dl);
+						//
+						// 			if (parent = data.editor.dom.getParent(imageNode, 'p')) {
+						// 				parent.parentNode.insertBefore(wrap, parent);
+						// 			} else {
+						// 				imageNode.parentNode.insertBefore(wrap, imageNode);
+						// 			}
+						//
+						// 			data.editor.$(wrap).find('dt.wp-caption-dt').append(imageNode);
+						//
+						// 			if (parent && data.editor.dom.isEmpty(parent)) {
+						// 				data.editor.dom.remove(parent);
+						// 			}
+						// 		}
+						// 	}
+						// }
+						//
+						// data.editor.nodeChanged();
 					} );
 				}
 			});
 		</script>
 		<?php
+	}
+
+	/**
+	 * Add our credits data attribute to the editor inserted media.
+	 *
+	 * @param string $html
+	 * @param int $id
+	 * @param $attachment
+	 *
+	 * @return string
+	 */
+	public function filterMediaSendToEditor( $html, $id, $attachment ) {
+		$html = preg_replace( '/<\s*img\s*(.+?(?=\/>|>))/ms', '<img $1 data-credits="' . get_post_meta( $id, '_credits', true ) . '"', $html );
+
+		return $html;
 	}
 
 	/**
