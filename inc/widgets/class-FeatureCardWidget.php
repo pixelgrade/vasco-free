@@ -181,6 +181,17 @@ if ( ! class_exists( 'Pixelgrade_FeatureCardWidget' ) ) :
 				 */
 				$attributes = apply_filters( 'pixelgrade_feature_card_widget_attributes', array(), $instance, $this->id_base );
 
+				/**
+				 * Fires before the widget markup, including the <section>.
+				 *
+				 * This is a dynamic action specific to each widget instance.
+				 *
+				 * @param array $args     Display arguments including 'before_title', 'after_title',
+				 *                        'before_widget', and 'after_widget'.
+				 * @param array $instance An array of the widget's settings.
+				 */
+				do_action( 'pixelgrade_widget_before_' . $this->id, $args, $instance );
+
 				/*
 				 * Start outputting the widget markup
 				 */
@@ -205,6 +216,7 @@ if ( ! class_exists( 'Pixelgrade_FeatureCardWidget' ) ) :
 				</div>
 
 				<?php
+
 				/**
 				 * Fires at the end of the widget.
 				 *
@@ -216,6 +228,17 @@ if ( ! class_exists( 'Pixelgrade_FeatureCardWidget' ) ) :
 				do_action( 'pixelgrade_feature_card_widget_end', $args, $instance, $this->id_base );
 
 				echo $args['after_widget'];
+
+				/**
+				 * Fires after the widget markup, including the closing </section>.
+				 *
+				 * This is a dynamic action specific to each widget instance.
+				 *
+				 * @param array $args     Display arguments including 'before_title', 'after_title',
+				 *                        'before_widget', and 'after_widget'.
+				 * @param array $instance An array of the widget's settings.
+				 */
+				do_action( 'pixelgrade_widget_after_' . $this->id, $args, $instance );
 			} else {
 				// Let the developers know that something is amiss
 				_doing_it_wrong( __METHOD__, sprintf( 'Couldn\'t find a template part to use for displaying widget posts in the %s widget!', $this->name ), null );
