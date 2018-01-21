@@ -33,7 +33,7 @@ function bobo_jetpack_setup() {
 		'author-bio'         => true, // display or not the author bio by default: true or false.
 		'masonry'            => '.c-gallery--masonry', // a CSS selector matching the elements that triggers a masonry refresh if the theme is using a masonry layout.
 		'post-details'       => array(
-			'stylesheet'      => 'boilerplate-style', // name of the theme's stylesheet.
+			'stylesheet'      => 'bobo-style', // name of the theme's stylesheet.
 			'date'            => '.single-post .posted-on', // a CSS selector matching the elements that display the post date.
 			'categories'      => '.single-post .cats', // a CSS selector matching the elements that display the post categories.
 			'tags'            => '.single-post .tags', // a CSS selector matching the elements that display the post tags.
@@ -152,3 +152,24 @@ function bobo_add_jetpack_sharing() {
 	}
 }
 add_action( 'pixelgrade_featured_posts_widget_end', 'bobo_add_jetpack_sharing', 10 );
+
+/* ===================
+ * Jetpack Content Options
+ * =================== */
+/**
+ * Change the default values for the Customizer settings of the Jetpack Content Options.
+ *
+ * @param array $args Array of properties for the new WP_Customize_Setting.
+ * @param string $id   Customize Setting ID.
+ *
+ * @return array
+ */
+function bobo_change_jetpack_content_options_defaults( $args, $id ) {
+	// Change the Display Author setting to be false (unchecked) by default
+	if ( 'jetpack_content_post_details_author' === $id ) {
+		$args['default'] = 0;
+	}
+
+	return $args;
+}
+add_filter( 'customize_dynamic_setting_args', 'bobo_change_jetpack_content_options_defaults', 10, 2 );
