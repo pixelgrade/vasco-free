@@ -369,6 +369,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 				$this->sidebarNotSupportedMessage( $args, $instance );
 				return;
 			}
+
 			// There is no point in doing anything of we don't have a template part to display with.
 			// So first try and find a template part to use
 			$found_template = false;
@@ -846,7 +847,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 		 * @return bool
 		 */
 		public function sanitizeTag( $value, $field_name, $field_config ) {
-			// Get all the tagss shown in the dropdown
+			// Get all the tags shown in the dropdown
 			$tags = get_terms( 'post_tag', array(
 				'hide_empty'        => 0,
 				'exclude'           => '',
@@ -865,74 +866,6 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 
 			// All is good
 			return $value;
-		}
-
-		/**
-		 * Determine if the widget should be shown in the current sidebar.
-		 *
-		 * @param array $args The widget arguments.
-		 * @param array $instance The widget instance data.
-		 *
-		 * @return bool
-		 */
-		public function showInSidebar( $args, $instance ) {
-			// If there is no config, show it
-			if ( empty( $this->config['sidebars_not_supported'] ) ) {
-				return true;
-			}
-
-			// Standardize it to an array
-			if ( is_string( $this->config['sidebars_not_supported'] ) ) {
-				$this->config['sidebars_not_supported'] = array( $this->config['sidebars_not_supported'] );
-			}
-
-			// The current sidebar is in the $args 'id'; we need to search it among our not supported sidebars
-			if ( false !== array_search( $args['id'], $this->config['sidebars_not_supported'] ) ) {
-				return false;
-			}
-
-			// If we've gotten thus far, display the widget
-			return true;
-		}
-
-		/**
-		 * Display the message regarding the widget being displayed in a not supported sidebar.
-		 *
-		 * @param array $args The widget arguments.
-		 * @param array $instance The widget instance data.
-		 */
-		public function sidebarNotSupportedMessage( $args, $instance ) {
-			$title = '';
-			if ( ! empty( $instance['title'] ) ) {
-				$title = $instance['title'];
-			}
-
-			/**
-			 * Filters the widget title.
-			 *
-			 * @var string $title
-			 *
-			 * @param string $title The widget title. Default 'Pages'.
-			 * @param array $instance An array of the widget's settings.
-			 * @param mixed $id_base The widget ID.
-			 */
-			$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
-
-			echo $args['before_widget'];
-
-			if ( ! empty( $title ) ) {
-				echo $args['before_title'] . $title . $args['after_title'];
-			} ?>
-
-			<div class="c-alert  c-alert--danger">
-				<h4 class="c-alert__title"><?php esc_html_e( '🤦 Widget Not Supported Here', '__theme_txtd' ); ?></h4>
-				<div class="c-alert__body">
-					<p><?php printf( esc_html__('Oops! The %s is not supported in this area, but don\'t panic. You can try to move it to another section or just replace it.', '__theme_txtd' ), '<em>' . $args['widget_name'] . '</em>' ); ?></p>
-				</div>
-			</div>
-
-			<?php
-			echo $args['after_widget'];
 		}
 	}
 
