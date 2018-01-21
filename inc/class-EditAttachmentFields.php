@@ -129,6 +129,8 @@ class Pixelgrade_EditAttachmentFields extends Pixelgrade_Singleton {
 						// The rest is just for editor preview
 						data.editor.dom.setAttrib( data.image, 'data-credits', data.metadata.credits );
 
+						// @todo For now we won't output the credits in the Visual Editor preview. The code bellow is a start to do that but it lacks the handling of switching between visual and text mode.
+
 						// width = data.metadata.width;
 						// height = data.metadata.height;
 						//
