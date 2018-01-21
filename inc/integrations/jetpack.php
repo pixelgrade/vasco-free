@@ -167,7 +167,7 @@ add_action( 'pixelgrade_featured_posts_widget_end', 'bobo_add_jetpack_sharing', 
 function bobo_change_jetpack_content_options_defaults( $args, $id ) {
 	// Change the Display Author setting to be false (unchecked) by default
 	if ( 'jetpack_content_post_details_author' === $id ) {
-		$args['default'] = false;
+		$args['default'] = 0;
 	}
 
 	return $args;
