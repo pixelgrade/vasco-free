@@ -2,13 +2,11 @@
 /**
  * Template part for displaying the Promo Box widget.
  *
- * @global int $featured_image The featured image attachment ID.
- * @global string $headline The headline text.
+ * @global int $image The image attachment ID.
+ * @global string $title The headline text.
  * @global string $description The description text.
  * @global string $button_text The button text.
  * @global string $button_url The button link URL.
- * @global string $box_style The box style (currently either 'light' or 'dark').
- * @global bool $switch_content_order Whether to switch the content order.
  *
  * @package Bobo
  * @since 1.0.0
@@ -20,16 +18,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<?php if ( ! empty( $headline ) || ! empty( $description ) || ( ! empty( $button_text ) && ! empty( $button_url ) ) ) { ?>
+<?php if ( ! empty( $title ) || ! empty( $description ) || ( ! empty( $button_text ) && ! empty( $button_url ) ) ) { ?>
 
 	<div class="c-promo__content">
 
 		<?php if ( ! empty( $title ) ) { ?>
-			<div class="c-promo__subtitle h6"><?php echo $title; ?></div>
-		<?php } ?>
-
-		<?php if ( ! empty( $headline ) ) { ?>
-			<div class="c-promo__title"><div><?php echo $headline ?></div></div>
+			<div class="c-promo__title"><div><?php echo $title ?></div></div>
 		<?php } ?>
 
 		<?php if ( ! empty( $description ) ) { ?>
@@ -46,8 +40,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php } ?>
 
-<?php if ( ! empty ( $featured_image ) ) { ?>
+<?php if ( ! empty ( $image ) ) { ?>
 	<div class="c-promo__media">
-		<?php echo wp_get_attachment_image( $featured_image, 'full' ); ?>
+		<?php echo wp_get_attachment_image( $image, 'full' ); ?>
 	</div>
 <?php } ?>
