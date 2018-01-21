@@ -35,8 +35,8 @@ class Pixelgrade_EditAttachmentFields extends Pixelgrade_Singleton {
 
 		add_filter( 'attachment_fields_to_edit', array( $this, 'fieldsToEdit' ), 10, 2 );
 		add_filter( 'attachment_fields_to_save', array( $this, 'saveFields' ), 10, 2 );
-		add_filter( 'wp_ajax_save-attachment', array( $this, 'saveFields' ), -1 );
-		add_filter( 'wp_ajax_save-attachment-compat', array( $this, 'saveFields' ), -1 );
+		add_action( 'wp_ajax_save-attachment', array( $this, 'saveFieldsAjax' ), -1 );
+		add_action( 'wp_ajax_save-attachment-compat', array( $this, 'saveFieldsAjaxCompat' ), -1 );
 
 		add_filter( 'the_content', array( $this, 'addCreditsToContentMedia' ), 100, 1 );
 
@@ -257,7 +257,7 @@ class Pixelgrade_EditAttachmentFields extends Pixelgrade_Singleton {
 	}
 
 	/**
-	 * Save our custom attachment fields as attachment meta.
+	 * Save our custom attachment fields as attachment meta when editing the media.
 	 *
 	 * @param array $post
 	 * @param array|null $attachment
@@ -272,10 +272,70 @@ class Pixelgrade_EditAttachmentFields extends Pixelgrade_Singleton {
 		$post_id = absint( $post['ID'] );
 
 		if ( isset( $attachment['credits'] ) ) {
-			update_post_meta( $post_id, '_credits', sanitize_textarea_field( $attachment['credits'] ) );
+			update_post_meta( $post_id, '_credits', $attachment['credits'] );
 		}
 
 		return $post;
+	}
+
+	/**
+	 * Save our custom attachment compat fields as attachment meta on AJAX fields call.
+	 */
+	public function saveFieldsAjax() {
+		if ( ! isset( $_REQUEST['id'] ) || ! isset( $_REQUEST['changes'] ) ) {
+			return;
+		}
+
+		if ( ! $id = absint( $_REQUEST['id'] ) ) {
+			return;
+		}
+
+		check_ajax_referer( 'update-post_' . $id, 'nonce' );
+
+		if ( ! current_user_can( 'edit_post', $id ) ) {
+			wp_send_json_error();
+		}
+
+		$changes = $_REQUEST['changes'];
+		$post    = get_post( $id, ARRAY_A );
+
+		if ( 'attachment' != $post['post_type'] ) {
+			return;
+		}
+
+		if ( isset( $changes['credits'] ) ) {
+			update_post_meta( $id, '_credits', $changes['credits'] );
+		}
+	}
+
+	/**
+	 * Save our custom attachment compat fields as attachment meta on AJAX compat fields call.
+	 */
+	public function saveFieldsAjaxCompat() {
+		if ( ! isset( $_REQUEST['id'] ) || ! $id = absint( $_REQUEST['id'] ) ) {
+			return;
+		}
+
+		if ( empty( $_REQUEST['attachments'] ) || empty( $_REQUEST['attachments'][ $id ] ) ) {
+			return;
+		}
+		$attachment_data = $_REQUEST['attachments'][ $id ];
+
+		check_ajax_referer( 'update-post_' . $id, 'nonce' );
+
+		if ( ! current_user_can( 'edit_post', $id ) ) {
+			return;
+		}
+
+		$post = get_post( $id, ARRAY_A );
+
+		if ( 'attachment' != $post['post_type'] ) {
+			return;
+		}
+
+		if ( isset( $attachment_data['credits'] ) ) {
+			update_post_meta( $id, '_credits', $attachment_data['credits'] );
+		}
 	}
 }
 
