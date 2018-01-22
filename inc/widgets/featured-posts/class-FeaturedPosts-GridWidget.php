@@ -10,11 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-// Make sure the base widget class is loaded
-if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) {
-	require_once pixelgrade_get_theme_file_path( 'inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php' );
-}
-
 if ( ! class_exists( 'Pixelgrade_FeaturedPosts_GridWidget' ) ) :
 
 	/**

@@ -71,3 +71,44 @@ function bobo_bebasneue_font_url() {
 
 	return '';
 }
+
+/**
+ * Display the hidden "Styles" drop-down in the Advanced editor bar.
+ *
+ * @see https://codex.wordpress.org/TinyMCE_Custom_Styles
+ *
+ * @param array $buttons The buttons in the advanced buttons bar (the second bar) of the TinyMCE editor.
+ *
+ * @return array
+ */
+function bobo_mce_editor_buttons( $buttons ) {
+	// Add the styleselect entry at the beginning of the array
+	array_unshift( $buttons, 'styleselect' );
+
+	return $buttons;
+}
+add_filter( 'mce_buttons_2', 'bobo_mce_editor_buttons', 10, 1 );
+
+/**
+ * Add styles/classes to the "Styles" drop-down.
+ *
+ * @see https://codex.wordpress.org/TinyMCE_Custom_Styles
+ *
+ * @param array $settings The settings for TinyMCE before initialization.
+ *
+ * @return array
+ */
+function bobo_mce_before_init( $settings ) {
+
+	$style_formats = array(
+		array( 'title' => esc_html__( 'Display', '__theme_txtd' ), 'block' => 'h1', 'classes' => 'h0' ),
+		array( 'title' => esc_html__( 'Intro Text', '__theme_txtd' ), 'selector' => 'p', 'classes' => 'intro' ),
+		array( 'title' => esc_html__( 'Dropcap', '__theme_txtd' ), 'inline' => 'span', 'classes' => 'dropcap' ),
+		array( 'title' => esc_html__( 'Button', '__theme_txtd' ), 'selector' => 'a', 'classes' => 'button' ),
+	);
+
+	$settings['style_formats'] = json_encode( $style_formats );
+
+	return $settings;
+}
+add_filter( 'tiny_mce_before_init', 'bobo_mce_before_init', 10, 1 );

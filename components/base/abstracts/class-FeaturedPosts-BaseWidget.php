@@ -1,11 +1,13 @@
 <?php
 /**
- * The Featured Posts Base Widget class
+ * The Featured Posts Base Widget abstract class.
  * Extend this class and make it your own.
  * You can use it as it is but it will work as the Featured Posts - Grid widget.
  *
- * @package Bobo
- * @since 1.0.0
+ * @see 	    https://pixelgrade.com
+ * @author 		Pixelgrade
+ * @package 	Components/Base
+ * @version     1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -22,7 +24,13 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 	 */
 	abstract class Pixelgrade_FeaturedPosts_BaseWidget extends Pixelgrade_WidgetFields {
 
-		// These are the widget args
+		/**
+		 * These are the widget args
+		 *
+		 * @access public
+		 *
+		 * @var array
+		 */
 		public $args = array(
 			'before_title'  => '<h4 class="widgettitle">',
 			'after_title'   => '</h4>',
@@ -30,8 +38,15 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 			'after_widget'  => '</div></div>'
 		);
 
-		// This is an array that will hold all the posts that have been shown thus far and need to be excluded from subsequent widgets
-		// Only widgets that have the "Prevent duplicate posts" option active
+		/**
+		 * This is an array that will hold all the posts that have been shown thus far
+		 * and need to be excluded from subsequent Featured Posts widgets.
+		 * Only widgets that have the "Prevent duplicate posts" option active add posts to this array.
+		 *
+		 * @access public
+		 *
+		 * @var array
+		 */
 		public static $exclude_posts = array();
 
 		/**
@@ -100,7 +115,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 						'label'      => esc_html__( 'Category:', '__theme_txtd' ),
 						'callback'   => array( $this, 'categoriesDropdown' ),
 						'sanitize_callback' => array( $this, 'sanitizeCategory' ), // We need to do custom sanitization for custom generated selects.
-						'default'    => - 1,
+						'default'    => 0,
 						'display_on' => array(
 							'display' => true,
 							'on'      => array(
@@ -116,7 +131,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 						'label'      => esc_html__( 'Tag:', '__theme_txtd' ),
 						'callback'   => array( $this, 'tagsDropdown' ),
 						'sanitize_callback' => array( $this, 'sanitizeTag' ), // We need to do custom sanitization for custom generated selects.
-						'default'    => - 1,
+						'default'    => 0,
 						'display_on' => array(
 							'display' => true,
 							'on'      => array(
@@ -313,7 +328,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 			$widget_ops = wp_parse_args( $widget_ops, array(
 				'classname'                   => 'widget_featured_posts',
 				'description'                 => esc_html__( 'Your featured posts.', '__theme_txtd' ),
-				'customize_selective_refresh' => true,
+				'customize_selective_refresh' => false,
 			) );
 
 			// The default widget name - as it will be shown in the WordPress admin
@@ -521,14 +536,24 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 								$view_more_link = get_post_type_archive_link( 'post' );
 								break;
 							case 'category':
-								$view_more_link = get_term_link( $instance['source_category'], 'category' );
+								if ( empty( $instance['source_category'] ) || -1 == $instance['source_category'] ) {
+									// link to the posts home page
+									$view_more_link = get_post_type_archive_link( 'post' );
+								} else {
+									$view_more_link = get_term_link( $instance['source_category'], 'category' );
+								}
 								break;
 							case 'tag':
-								$view_more_link = get_term_link( $instance['source_tag'], 'post_tag' );
+								if ( empty( $instance['source_tag'] ) || -1 == $instance['source_tag'] ) {
+									// link to the posts home page
+									$view_more_link = get_post_type_archive_link( 'post' );
+								} else {
+									$view_more_link = get_term_link( $instance['source_tag'], 'post_tag' );
+								}
 								break;
 						}
 
-						if ( ! empty( $view_more_link ) ) {
+						if ( ! empty( $view_more_link ) && ! is_wp_error( $view_more_link ) ) {
 							echo '<div class="featured-posts__footer">' . PHP_EOL .
 							     '<a class="featured-posts__more" href="' . esc_url( $view_more_link ) . '">' . $view_more_label . '</a>' . PHP_EOL .
 							     '</div>';
@@ -603,8 +628,9 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 
 			if ( ! $this->isFieldDisabled( 'source' ) ) {
 				if ( ! $this->isFieldDisabled( 'source_category' )
-				     && 'category' == $instance['source']
-				     && ! empty( $instance['source_category'] ) ) {
+				     && 'category' === $instance['source']
+				     && ! empty( $instance['source_category'] )
+					 && -1 != $instance['source_category'] ) {
 					$query_args['tax_query'] = array(
 						array(
 							'taxonomy' => 'category',
@@ -613,8 +639,9 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_BaseWidget' ) ) :
 						),
 					);
 				} elseif ( ! $this->isFieldDisabled( 'source_tag' )
-				           && 'tag' == $instance['source']
-				           && ! empty( $instance['source_tag'] ) ) {
+				           && 'tag' === $instance['source']
+				           && ! empty( $instance['source_tag'] )
+				           && -1 != $instance['source_tag'] ) {
 					$query_args['tax_query'] = array(
 						array(
 							'taxonomy' => 'post_tag',
