@@ -48,9 +48,13 @@
   }
 
   .header-meta {
-    @include taxonomy;
     display: inline-flex;
-    transform: translate(0, 50%);
+    margin-top: 0;
+
+    .byline, .posted-on {
+      @include taxonomy;
+      transform: translate(0, 50%);
+    }
 
     > * + * {
       margin-left: 0.5em;
@@ -124,4 +128,8 @@
 
 .meta__item--button {
   @include taxonomy;
+}
+
+[style*="rect(1px"] {
+  display: none;
 }

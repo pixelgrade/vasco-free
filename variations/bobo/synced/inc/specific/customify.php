@@ -75,7 +75,11 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 						),
 						array(
 							'property' => 'background-color',
-							'selector' => '.entry-content .dropcap, .single .header-meta, .entry-content .cats[class] > a',
+							'selector' => '
+								.entry-content .dropcap, 
+								.entry-content .cats[class] > a,
+								.single .header-meta .byline, 
+								.single .header-meta .posted-on',
 						),
 					),
 				),
@@ -120,7 +124,11 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 						),
 						array(
 							'property' => 'color',
-							'selector' => '.entry-content .dropcap, .single .header-meta, .entry-content .cats[class] > a',
+							'selector' => '
+								.entry-content .dropcap, 
+								.single .header-meta .byline, 
+								.single .header-meta .posted-on,
+								.entry-content .cats[class] > a',
 						),
 					),
 				),
@@ -215,7 +223,9 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 				),
 
 				'main_content_heading_5_font' => array(
-					'selector' => '.entry-content h5, .h5, h5, .header-meta, .nav-links__label',
+					'selector' => '
+						.entry-content h5, .h5, h5, 
+						.nav-links__label',
 					'default'  => array(
 						'font-family'    => VARIATION_HEADINGS_FONT_ALT,
 						'font-weight'    => '700',

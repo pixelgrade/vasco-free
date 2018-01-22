@@ -31,7 +31,16 @@ function bobo_register_blog_blocks( $component_slug, $component_config ) {
 			'container' => array(
 				'extend' => 'blog/container',
 				'blocks' => array(
-					'blog/entry-header-single',
+					'entry-header-single' => array(
+						'wrappers' => array(
+							array(
+								'classes' => 'u-content-width'
+							),
+						),
+						'blocks' => array(
+							'blog/entry-header-single',
+						),
+					),
 					'blog/entry-thumbnail',
 					'blog/entry-content',
 					'sidebar-below-post' => array(
