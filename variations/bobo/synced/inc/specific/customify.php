@@ -577,3 +577,87 @@ function bobo_single_header_width( $value, $selector, $property, $unit ) {
 
 	return $output;
 }
+
+function bobo_add_blobs_options( $options ) {
+
+	$blobs_section = array(
+		// Buttons
+		'blobs' => array(
+			'title'   => esc_html__( 'Blobs', '__components_txtd' ),
+			'options' => array(
+				'show_blobs'           => array(
+					'type'    => 'checkbox',
+					'label'   => esc_html__( 'Show Blobs', '__components_txtd' ),
+					'default' => true, // this should be set by the theme (previously regular)
+				),
+				'blob_main_color'      => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Blobs Main Color', '__components_txtd' ),
+					'live'    => true,
+					'default' => '#DE2D16',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.blob__part--1',
+						),
+					),
+				),
+				'blob_secondary_color' => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Blobs Secondary Color', '__components_txtd' ),
+					'live'    => true,
+					'default' => '#FFDCCE',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.blob__part--2',
+						),
+					),
+				),
+				'blob_tertiary_color'  => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Blobs Tertiary Color', '__components_txtd' ),
+					'live'    => true,
+					'default' => '#171512',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.blob__part--3',
+						),
+					),
+				),
+			),
+		),
+	);
+
+	// Allow others to make changes
+	$modified_config = apply_filters( 'pixelgrade_customify_blobs_section_options', $blobs_section, $options );
+
+	// Validate the config
+	// We will trigger _doing_it_wrong() errors, but in production we will let it pass.
+	if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
+		Pixelgrade_Config::validateCustomizerSectionConfig( $modified_config, $blobs_section );
+	}
+
+	// Validate the default values
+	// When we have defined in the original config 'default' => null, this means the theme (or someone) must define the value via the filter above.
+	// We will trigger _doing_it_wrong() errors, but in production we will let it pass.
+	if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
+		Pixelgrade_Config::validateCustomizerSectionConfigDefaults( $modified_config, $blobs_section, 'pixelgrade_customify_blobs_section_options' );
+	}
+
+	// Assign the modified config
+	$blobs_section = $modified_config;
+
+	// Make sure we are in good working order
+	if ( empty( $options['sections'] ) ) {
+		$options['sections'] = array();
+	}
+
+	// Append the blog grid section
+	$options['sections'] = $options['sections'] + $blobs_section;
+
+	return $options;
+}
+
+add_filter( 'customify_filter_fields', 'bobo_add_blobs_options', 50, 1 );

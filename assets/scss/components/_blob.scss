@@ -1,0 +1,32 @@
+.blob {
+}
+
+.blob__part {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.blob__part--2 {
+  transform: translate3d(10%,20%,0);
+}
+
+.blob__part--3 {
+  transform: translate3d(20%,-10%,0);
+}
+
+.entry-thumbnail {
+  position: relative;
+
+  > * {
+    position: relative;
+    z-index: 5;
+  }
+
+  > .blob {
+    position: absolute;
+    top: 0;
+    left: -200px;
+    z-index: 4;
+  }
+}
