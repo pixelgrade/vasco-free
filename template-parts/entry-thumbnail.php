@@ -27,8 +27,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php if ( has_post_thumbnail() ) { ?>
 
 	<div class="entry-thumbnail">
-		<div><?php the_post_thumbnail( 'single-' . pixelgrade_get_post_thumbnail_aspect_ratio_class() ); ?></div>
-		<?php get_template_part( 'template-parts/content-blob' ); ?>
+		<div class="blob-container">
+			<?php the_post_thumbnail( 'single-' . pixelgrade_get_post_thumbnail_aspect_ratio_class() ); ?>
+			<?php get_template_part( 'template-parts/content-blob' ); ?>
+		</div>
 	</div>
 
 <?php } ?>
