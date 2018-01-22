@@ -79,7 +79,8 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 								.entry-content .dropcap, 
 								.entry-content .cats[class] > a,
 								.single .header-meta .byline, 
-								.single .header-meta .posted-on',
+								.single .header-meta .posted-on,
+								.comment-form .form-submit .submit',
 						),
 					),
 				),
@@ -128,7 +129,8 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 								.entry-content .dropcap, 
 								.single .header-meta .byline, 
 								.single .header-meta .posted-on,
-								.entry-content .cats[class] > a',
+								.entry-content .cats[class] > a,
+								.comment-form .form-submit .submit',
 						),
 					),
 				),
@@ -306,8 +308,8 @@ function bobo_change_customify_buttons( $section_options, $options ) {
 					'default'  => array(
 						'font-family'    => VARIATION_HEADINGS_FONT_ALT,
 						'font-weight'    => '500',
-						'font-size'      => 16,
-						'line-height'    => 1.2,
+						'font-size'      => 17,
+						'line-height'    => 1.94,
 						'letter-spacing' => 0,
 					),
 				),
@@ -340,13 +342,13 @@ function bobo_change_customify_blog_grid_section( $section_options, $options ) {
 			'options' => array(
 				// [Section] Layout
 				'blog_items_aspect_ratio'        => array(
-					'default' => 120,
+					'default' => 50,
 				),
 				'blog_items_vertical_spacing'    => array(
-					'default' => 40,
+					'default' => 32,
 				),
 				'blog_items_horizontal_spacing'  => array(
-					'default' => 40,
+					'default' => 32,
 				),
 				// [Section] COLORS
 				'blog_item_title_color'          => array(
@@ -372,7 +374,7 @@ function bobo_change_customify_blog_grid_section( $section_options, $options ) {
 				'blog_item_meta_font'            => array(
 					'default' => array(
 						'font-family'    => VARIATION_SITE_TITLE_FONT,
-						'font-weight'    => 'regular',
+						'font-weight'    => '400',
 						'font-size'      => 13,
 						'line-height'    => 1.1,
 						'letter-spacing' => 0.1,
@@ -436,7 +438,7 @@ function bobo_change_customify_header_section_options( $section_options, $option
 					),
 					'default' => array(
 						'font-family'    => VARIATION_SITE_TITLE_FONT,
-						'font-weight'    => 'regular',
+						'font-weight'    => '400',
 						'font-size'      => 30,
 						'line-height'    => 1,
 						'letter-spacing' => 0,

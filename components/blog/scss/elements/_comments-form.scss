@@ -52,12 +52,6 @@
 .comment-form .form-submit {
 	order: 10;
 	text-align: right;
-
-	.submit {
-		@include button;
-		@include button-directional;
-		@include button-directional--right;
-	}
 }
 
 .comment-form-subscriptions {

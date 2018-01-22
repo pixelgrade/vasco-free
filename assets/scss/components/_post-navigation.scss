@@ -26,3 +26,8 @@
 .nav-next {
 
 }
+
+.post-navigation .nav-title {
+  transition: none;
+  will-change: unset;
+}

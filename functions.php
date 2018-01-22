@@ -145,10 +145,10 @@ function bobo_content_width() {
 add_action( 'after_setup_theme', 'bobo_content_width', 0 );
 
 function bobo_custom_tiled_gallery_width() {
-	$width = pixelgrade_option( 'main_content_container_width', 1300 );
+	$width = pixelgrade_option( 'main_content_container_width', 1240 );
 
 	if ( is_active_sidebar( 'sidebar-1' ) ) {
-		$width = pixelgrade_option( 'main_content_container_width', 1300 ) - 300 - 56;
+		$width = pixelgrade_option( 'main_content_container_width', 1240 ) - 300 - 56;
 	}
 
 	return $width;

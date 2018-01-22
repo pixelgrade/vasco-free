@@ -86,7 +86,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 		'main_content' => array(
 			'options' => array(
 				'main_content_container_width'          => array(
-					'default' => 1300,
+					'default' => 1240,
 				),
 				'main_content_container_sides_spacing'  => array(
 					'default' => 42,
@@ -175,10 +175,10 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 
 			'default' => array(
 				'font-family'    => VARIATION_SITE_TITLE_FONT,
-				'font-weight'    => 'regular',
+				'font-weight'    => '400',
 				'font-size'      => 19,
 				'line-height'    => 1.21,
-				'letter-spacing' => 0,
+				'letter-spacing' => 0.052,
 				'text-transform' => 'none',
 			),
 
@@ -192,7 +192,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 				),
 				'line-height'     => array( 0, 2, 0.1, '' ),
 				// Short-hand version
-				'letter-spacing'  => array( - 1, 2, 0.01, 'em' ),
+				'letter-spacing'  => array( -1, 2, 0.01, 'em' ),
 				'text-align'      => false,
 				// Disable sub-field (False by default)
 				'text-transform'  => true,
@@ -252,7 +252,7 @@ function bobo_customify_blog_grid_section( $section_options, $options ) {
 		'blog_grid' => array(
 			'options' => array(
 				'blog_grid_width'                    => array(
-					'default' => 1300,
+					'default' => 1240,
 				),
 				'blog_container_sides_spacing'       => array(
 					'default' => 42,
@@ -459,7 +459,7 @@ function bobo_add_customify_theme_fonts( $fonts ) {
 	$fonts['Bebas Neue'] = array(
 		'family'   => 'Bebas Neue',
 		'src'      => get_template_directory_uri() . '/assets/fonts/bebasneue/stylesheet.css',
-		'variants' => array( 'regular' )
+		'variants' => array( '100', '200', '300', '400', '700' )
 	);
 
 	return $fonts;

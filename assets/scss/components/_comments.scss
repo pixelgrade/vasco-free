@@ -6,6 +6,10 @@
   @include leading-map(map-merge($h4, (
     spacing-bottom: false
   )));
+
+  .u-underlined-links & a {
+    text-decoration: none;
+  }
 }
 
 .comment__metadata,
@@ -47,11 +51,6 @@
   }
 }
 
-.comment-form label {
-  @include leading-map(map-merge($h4, (
-    spacing-bottom: 0.5rem
-  )));
-}
 
 .comment__avatar {
   margin-right: 20px;
@@ -70,6 +69,31 @@
     margin-left: 0;
   }
 
+}
+
+
+.comment-form {
+  label {
+    @include leading-map(map-merge($h4, (
+      spacing-top: false,
+      spacing-bottom: 0.5rem
+    )));
+  }
+
+  @include above(lap) {
+
+    .comment-form-subscriptions {
+      flex-basis: 60%;
+    }
+
+    .form-submit {
+      flex-basis: 35%;
+
+      .submit {
+        width: 100%;
+      }
+    }
+  }
 }
 
 .bypostauthor {

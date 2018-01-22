@@ -1,4 +1,5 @@
 import * as Masonry from 'masonry-layout';
+import $ from 'jquery';
 import { BaseTheme, JQueryExtended } from '../../../components/base/ts/BaseTheme';
 import { Helper } from '../../../components/base/ts/services/Helper';
 
@@ -41,6 +42,13 @@ export class Bobo extends BaseTheme {
 
     this.handleGalleries( $container );
     this.eventHandlers( $container );
+
+    const $commentForm = $container.find( '.comment-form' );
+
+    if ( $commentForm.length ) {
+      const $commentFormFooter = $( '<div class="comment-form-subscriptions"></div>' ).appendTo( $commentForm );
+      $commentForm.find( '.comment-subscription-form' ).appendTo( $commentFormFooter );
+    }
   }
 
   public handleGalleries( $container: JQuery = Helper.$body ) {

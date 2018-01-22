@@ -50,18 +50,10 @@
   .header-meta {
     display: inline-flex;
     margin-top: 0;
+    transform: translate(0, 50%);
 
     .byline, .posted-on {
       @include taxonomy;
-      transform: translate(0, 50%);
-    }
-
-    > * + * {
-      margin-left: 0.5em;
-    }
-
-    .byline[style*="rect(1px"] + * {
-      margin-left: 0;
     }
 
     a {
@@ -71,13 +63,14 @@
   }
 
   &.entry-image--none {
-    .header-meta a {
-      transform: none;
-      margin-top: 0;
-    }
 
     .header-meta {
-      @include spacing(margin-bottom, 2rem);
+      transform: none;
+      @include spacing(margin-top, 1rem);
+    }
+
+    .entry-header {
+      @include spacing(margin-bottom, 6rem);
     }
   }
 
