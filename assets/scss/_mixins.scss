@@ -1,0 +1,57 @@
+@mixin taxonomy {
+  @include button;
+  padding: 0.25em 0.75em 0.25em;
+
+  @include leading-map(map-merge($h4, (
+    spacing-top: 0,
+    spacing-bottom: 0
+  )));
+
+  background-color: $body-text-color;
+  color: #FFF;
+
+  text-decoration: none;
+  text-shadow: none;
+}
+
+@mixin vertical-separator {
+
+  &:before {
+    content: "";
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 2rem;
+    @include spacing(margin-bottom, 2rem);
+    width: 2px;
+
+    background-color: currentColor;
+  }
+}
+
+@mixin accent-image-filter {
+  position: relative;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &:before {
+    background-color: #000;
+    z-index: 10;
+    mix-blend-mode: color;
+  }
+
+  &:after {
+    background-color: $theme-accent-color;
+    z-index: 10;
+    mix-blend-mode: hard-light;
+    mix-blend-mode: overlay;
+  }
+}

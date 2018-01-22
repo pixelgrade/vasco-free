@@ -145,10 +145,10 @@ function bobo_content_width() {
 add_action( 'after_setup_theme', 'bobo_content_width', 0 );
 
 function bobo_custom_tiled_gallery_width() {
-	$width = pixelgrade_option( 'main_content_container_width', 1300 );
+	$width = pixelgrade_option( 'main_content_container_width', 1240 );
 
 	if ( is_active_sidebar( 'sidebar-1' ) ) {
-		$width = pixelgrade_option( 'main_content_container_width', 1300 ) - 300 - 56;
+		$width = pixelgrade_option( 'main_content_container_width', 1240 ) - 300 - 56;
 	}
 
 	return $width;
@@ -170,6 +170,9 @@ function bobo_scripts() {
 
 		wp_enqueue_style( 'bobo-fonts-hkgrotesk', bobo_hkgrotesk_font_url() );
 		$main_style_deps[] = 'bobo-fonts-hkgrotesk';
+
+		wp_enqueue_style( 'bobo-fonts-bebasneue', bobo_bebasneue_font_url() );
+		$main_style_deps[] = 'bobo-fonts-bebasneue';
 	}
 
 	/* The main theme stylesheet */

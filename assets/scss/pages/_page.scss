@@ -1,0 +1,11 @@
+.page {
+
+  .entry-header {
+    text-align: center;
+
+    .entry-title {
+      @include spacing(margin-top, 5rem);
+      @include spacing(margin-bottom, 5rem);
+    }
+  }
+}

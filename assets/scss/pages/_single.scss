@@ -1,0 +1,128 @@
+
+.header-dropcap {
+  display: none;
+}
+
+.single {
+
+  .entry-header {
+    text-align: center;
+
+    > * {
+      @include spacing(margin-top, 3rem);
+    }
+
+    .cats {
+      justify-content: center;
+      @include leading-map($h4);
+
+      a {
+        @include vertical-separator;
+        color: inherit;
+        text-decoration: none;
+
+        &:before {
+          width: 3px;
+          height: 3rem;
+
+          @include above(lap) {
+            content: none;
+          }
+        }
+      }
+    }
+
+    .posted-on {
+      display: block;
+
+      a {
+        @include spacing(margin-top, -1rem);
+      }
+
+      time + time {
+        //margin-left: 1em;
+        //opacity: 0.5;
+        display: none;
+      }
+    }
+  }
+
+  .header-meta {
+    display: inline-flex;
+    margin-top: 0;
+    transform: translate(0, 50%);
+
+    .byline, .posted-on {
+      @include taxonomy;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  &.entry-image--none {
+
+    .header-meta {
+      transform: none;
+      @include spacing(margin-top, 1rem);
+    }
+
+    .entry-header {
+      @include spacing(margin-bottom, 6rem);
+    }
+  }
+
+  .entry-thumbnail {
+    @include spacing(margin-bottom, 2.5rem);
+
+    img {
+      display: block;
+      max-width: 100%;
+      max-height: 80vh;
+      width: auto;
+      height: auto;
+      margin: auto;
+    }
+  }
+
+  .entry-aside > * {
+    @include spacing(margin, 3rem 0);
+  }
+}
+
+.entry-content {
+
+  .cats[class][class] {
+
+    a {
+      @include spacing(margin-top, 1rem);
+      @include spacing(margin-right, 1rem);
+    }
+  }
+
+  .cats__title {
+    display: none;
+  }
+
+  .cats {
+    @include spacing(margin-top, -1rem);
+  }
+
+  .tags {
+    @include spacing(margin-top, 2rem);
+  }
+
+  .sharedaddy {
+    @include spacing(margin-top, 2.5rem);
+  }
+}
+
+.meta__item--button {
+  @include taxonomy;
+}
+
+[style*="rect(1px"] {
+  display: none;
+}

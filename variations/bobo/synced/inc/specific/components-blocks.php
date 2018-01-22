@@ -16,124 +16,48 @@
  */
 function bobo_register_blog_blocks( $component_slug, $component_config ) {
 
-	Pixelgrade_BlocksManager()->registerBlock( 'blog/single-portrait', array(
-		'blocks' => array(
-			'blog/entry-thumbnail',
-			'sidebar' => array(
-				'extend'   => 'blog/side',
-				'wrappers' => array(
-					'side' => array(
-						'extend_classes' => 'widget-area--post',
-					),
-				),
-				'blocks'   => array( 'blog/sidebar' ),
-			),
-			'layout' => array(
-				'wrappers' => array(
-					'main' => array(
-						'classes' => 'single-main clearfix',
-					),
-				),
-				'blocks'   => array(
-					'blog/entry-content',
-					'blog/entry-footer',
-				),
+	Pixelgrade_BlocksManager()->registerBlock( 'blog/content-widget-stamp', array(
+		'type'      => 'template_part',
+		'templates' => array(
+			array(
+				'slug' => 'content-widget-stamp',
 			),
 		),
 	) );
 
-	Pixelgrade_BlocksManager()->registerBlock( 'blog/single-landscape', array(
-		'blocks' => array(
-			'sidebar' => array(
-				'extend'   => 'blog/side',
-				'wrappers' => array(
-					'side' => array(
-						'extend_classes' => 'widget-area--post',
-					),
-				),
-				'blocks'   => array( 'blog/sidebar' ),
-			),
-			'blog/entry-thumbnail',
-			'blog/entry-content',
-			'blog/entry-footer',
-		),
-	) );
-
-	// Overwrite the Blog Component 'blog/single' block to take advantage of thumbnail aspect ratio logic.
 	Pixelgrade_BlocksManager()->registerBlock( 'blog/single', array(
 		'extend' => 'blog/default',
 		'blocks' => array(
-			'header' => array(
-				'extend'   => 'blog/container',
-				'wrappers' => array(
-					array(
-						'priority' => 100,
-						'classes'  => 'u-header-background'
-					),
-				),
-				'blocks'   => array(
-					'blog/entry-header-single',
-				),
-			),
-			'layout' => array(
+			'container' => array(
 				'extend' => 'blog/container',
 				'blocks' => array(
-					'image-portrait'  => array(
-						'extend' => 'blog/single-portrait',
-						'checks' => array(
-							'callback' => 'pixelgrade_has_portrait_thumbnail',
-						),
-					),
-					'image-landscape' => array(
-						'extend' => 'blog/single-landscape',
-						'checks' => array(
-							'callback' => 'pixelgrade_has_landscape_thumbnail',
-						),
-					),
-					'image-none'      => array(
-						'extend' => 'blog/single-landscape',
-						'checks' => array(
-							'callback' => 'pixelgrade_has_no_thumbnail',
-						),
-					),
-				),
-			),
-			'blog/related-posts',
-		),
-	) );
-
-	Pixelgrade_BlocksManager()->registerBlock( 'blog/page', array(
-		'extend' => 'blog/default',
-		'blocks' => array(
-			'content' => array(
-				'extend' => 'blog/container',
-				'blocks' => array(
-					'layout' => array(
-						'extend' => 'blog/layout',
+					'entry-header-single' => array(
 						'wrappers' => array(
-							'layout' => array(
-								'extend_classes' => 'o-layout--blog',
+							array(
+								'classes' => 'u-content-width'
 							),
 						),
 						'blocks' => array(
-							'main' => array(
-								'extend' => 'blog/main',
-								'blocks' => array(
-									'blog/entry-header-page',
-									'blog/entry-content',
-									'blog/entry-footer',
-								),
-							),
-							'side' => array(
-								'extend' => 'blog/side',
-								'blocks' => array(
-									'blog/sidebar',
-								),
+							'blog/entry-header-single',
+						),
+					),
+					'blog/entry-thumbnail',
+					'blog/entry-content',
+					'sidebar-below-post' => array(
+						'blocks' => array(
+							'blog/sidebar-below-post',
+						),
+						'wrappers' => array(
+							array(
+								'classes' => 'entry-aside u-content-width'
 							),
 						),
 					),
+					'blog/entry-footer',
 				),
 			),
+//			'blog/content-widget-stamp',
+			'blog/related-posts',
 		),
 	) );
 

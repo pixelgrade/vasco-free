@@ -1,6 +1,7 @@
 
 // CONFIGURATION
 // ----------------------------------------
+@import 'mixins';
 
 @import 'typeline-config';
 
@@ -38,8 +39,32 @@ $content-class: '.entry-content';
 @import '../../components/base/scss/plugins/ninja-forms';
 @import '../../components/base/scss/plugins/wpforms';
 @import '../../components/base/scss/plugins/jetpack-forms';
-
 @import '../../components/base/scss/plugins/jetpack-infinite-scroll';
 @import '../../components/base/scss/plugins/jetpack-sharing';
 @import '../../components/base/scss/plugins/jetpack-related-posts';
 @import '../../components/base/scss/plugins/jetpack-social-navigation';
+
+// BOBO STYLING
+@import '../../assets/scss/components/author-box';
+@import '../../assets/scss/components/blockquote';
+@import '../../assets/scss/components/comments';
+@import '../../assets/scss/components/dropcap';
+@import '../../assets/scss/components/hr';
+@import '../../assets/scss/components/intro';
+@import '../../assets/scss/components/links';
+@import '../../assets/scss/components/lists';
+@import '../../assets/scss/components/post-navigation';
+@import '../../assets/scss/components/related-posts';
+@import '../../assets/scss/components/table';
+@import '../../assets/scss/components/wp-caption';
+
+.accent-image-filter {
+  @include accent-image-filter;
+}
+
+.edit-link {
+  display: none;
+}
+
+@import "pages/single";
+@import "pages/page";

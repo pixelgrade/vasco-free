@@ -1,0 +1,33 @@
+.nav-links {
+  > * {
+    @include spacing(margin-top, 3rem);
+    @include spacing(margin-bottom, 3rem);
+  }
+
+  > :not(:first-child) {
+    @include below(lap) {
+      margin-top: 0;
+    }
+  }
+}
+
+.nav-title {
+  @include leading-map(map-merge($h4,(
+    spacing-top: 0,
+    spacing-bottom: 0
+  )));
+}
+
+.nav-title[class] {
+  margin-top: 0;
+}
+
+.nav-previous,
+.nav-next {
+
+}
+
+.post-navigation .nav-title {
+  transition: none;
+  will-change: unset;
+}

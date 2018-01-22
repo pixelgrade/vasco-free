@@ -1,13 +1,7 @@
 
-@at-root {
-  .u-underlined-links {
-    #{$content-wrapper-selector} {
-      a {
-        text-shadow: -1px -1px $content-background-color, -1px 1px $content-background-color, 1px -1px $content-background-color, 1px 1px $content-background-color,
-                     -2px 0 $content-background-color, 2px 0 $content-background-color;
-        text-decoration: underline;
-        display: inline;
-      }
-    }
+.u-underlined-links {
+  a {
+    text-decoration: underline;
+    text-decoration-skip: ink;
   }
 }
