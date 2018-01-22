@@ -25,16 +25,6 @@ function bobo_register_blog_blocks( $component_slug, $component_config ) {
 		),
 	) );
 
-	Pixelgrade_BlocksManager()->registerBlock( 'blog/entry-thumbnail', array(
-		'type'      => 'template_part',
-		'templates' => array(
-			array(
-				'slug' => 'entry-thumbnail',
-				'name' => 'single',
-			),
-		),
-	) );
-
 	Pixelgrade_BlocksManager()->registerBlock( 'blog/single', array(
 		'extend' => 'blog/default',
 		'blocks' => array(
