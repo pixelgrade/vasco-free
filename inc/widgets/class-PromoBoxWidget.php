@@ -29,48 +29,16 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 			// Set up the widget config
 			$config = array(
 			    'fields_sections' => array(
-			        'default' => array(
-			            'title' => '',
-			            'priority' => 1, // This section should really be the first as it is not part of the accordion
-                    ),
                     'content' => array(
                         'title' => esc_html__( 'Content', '__theme_txtd' ),
                         'default_state' => 'open',
                         'priority' => 10,
                     ),
-                    'layout' => array(
-                        'title' => esc_html__( 'Layout', '__theme_txtd' ),
-                        'priority' => 20,
-                    ),
-                    'display' => array(
-                        'title' => esc_html__( 'Display', '__theme_txtd' ),
-                        'priority' => 30,
-                    ),
-                    'others' => array(
-                        'title' => esc_html__( 'Others', '__theme_txtd' ),
-                        'priority' => 40,
-                    ),
                 ),
 			    'fields' => array(
 
-				    // Title Section
-				    'title'                => array(
-					    'type'     => 'text',
-					    'label'    => esc_html__( 'Section Title:', '__theme_txtd' ),
-					    'default'  => esc_html__( 'My Promo Box', '__theme_txtd' ),
-					    'section'  => 'default',
-					    'priority' => 10,
-				    ),
-
 				    // Content Section
-				    'featured_image'       => array(
-					    'type'     => 'image',
-					    'label'    => esc_html__( 'Featured Image:', '__theme_txtd' ),
-					    'default'  => 0, // This is the attachment ID
-					    'section'  => 'content',
-					    'priority' => 10,
-				    ),
-				    'headline'             => array(
+				    'title'             => array(
 					    'type'     => 'textarea',
 					    'label'    => esc_html__( 'Headline:', '__theme_txtd' ),
 					    'default'  => 'Discover life on the go!',
@@ -98,29 +66,13 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 					    'section'  => 'content',
 					    'priority' => 50,
 				    ),
-
-
-				    // Display Section
-				    'box_style'            => array(
-					    'type'     => 'radio_group',
-					    'label'    => esc_html__( 'Box Style:', '__theme_txtd' ),
-					    'options'  => array(
-						    'light' => esc_html__( 'Light', '__theme_txtd' ),
-						    'dark'  => esc_html__( 'Dark', '__theme_txtd' ),
-					    ),
-					    'default'  => 'dark',
-					    'section'  => 'display',
-					    'priority' => 10,
+				    'image'       => array(
+					    'type'     => 'image',
+					    'label'    => esc_html__( 'Image:', '__theme_txtd' ),
+					    'default'  => 0, // This is the attachment ID
+					    'section'  => 'content',
+					    'priority' => 60,
 				    ),
-				    'switch_content_order' => array(
-					    'type'     => 'checkbox',
-					    'label'    => esc_html__( 'Switch Content Order', '__theme_txtd' ),
-					    'default'  => false,
-					    'section'  => 'display',
-					    'priority' => 20,
-				    ),
-
-				    // Others Section
 			    ),
 			    'posts'    => array(
 				    'classes'   => array( 'c-promo' ),
@@ -162,6 +114,12 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 		 * @param array $instance Settings for the current Featured Posts widget instance.
 		 */
 		public function widget( $args, $instance ) {
+			// First, process the sidebars that are not supported by the current widget instance, if any.
+			if ( false === $this->showInSidebar( $args, $instance ) ) {
+				$this->sidebarNotSupportedMessage( $args, $instance );
+				return;
+			}
+
 			// There is no point in doing anything of we don't have a template part to display with.
 			// So first try and find a template part to use
 			$found_template = false;
@@ -197,19 +155,6 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 				$classes = array();
 				if ( ! empty( $this->config['posts']['classes'] ) ) {
 					$classes = array_merge( $classes, (array) $this->config['posts']['classes'] );
-				}
-
-				// Add our dynamic classes
-				if ( isset( $box_style ) ) {
-					$classes[] = 'c-promo--' . $box_style;
-					// We also want to add our class to the widget top wrapper
-					preg_match('/class="([^"]*)"/', $args['before_widget'], $matches);
-					if ( ! empty( $matches[1] ) ) {
-						$args['before_widget'] = str_replace( $matches[1], $matches[1] . ' widget_promo_box--' . $box_style, $args['before_widget'] );
-					}
-				}
-				if ( ! empty( $switch_content_order ) ) {
-					$classes[] = 'c-promo--reversed';
 				}
 
 				/**
