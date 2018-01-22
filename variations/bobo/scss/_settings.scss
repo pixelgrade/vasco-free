@@ -289,9 +289,9 @@ $footer-bottom-spacing: 8rem;
 // ----------------------------------------
 // Colors
 // ----------------------------------------
-$footer-text-color: #757575;
-$footer-links-color: #000;
-$footer-background-color: #FFF;
+$footer-text-color: $theme-text-color;
+$footer-links-color: $theme-text-color;
+$footer-background-color: $theme-background-color;
 // ----------------------------------------
 
 $arrow-caret-svg: 'assets/images/arrow-caret.svg';

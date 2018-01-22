@@ -14,7 +14,6 @@
  *
  * @see        https://pixelgrade.com
  * @author     Pixelgrade
- * @package    Components/Footer
  * @version    1.1.0
  */
 
@@ -34,7 +33,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		do_action( 'pixelgrade_footer_before_content', 'footer' );
 		?>
 
-        <?php pixelgrade_get_component_template_part( Pixelgrade_Footer::COMPONENT_SLUG, 'content-footer' ); ?>
+		<?php pixelgrade_get_component_template_part( Pixelgrade_Footer::COMPONENT_SLUG, 'content-footer' ); ?>
+		<?php get_template_part( 'template-parts/content-blob-footer' ); ?>
 
 		<?php
 		/**

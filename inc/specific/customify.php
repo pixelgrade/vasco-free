@@ -523,7 +523,7 @@ function bobo_change_customify_footer_section_options( $section_options, $option
 				),
 				// [Section] COLORS
 				'footer_body_text_color' => array(
-					'default' => '#FFFFFF',
+					'default' => '#2B3D39',
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -532,10 +532,10 @@ function bobo_change_customify_footer_section_options( $section_options, $option
 					),
 				),
 				'footer_links_color'     => array(
-					'default' => '#FFFFFF'
+					'default' => '#2B3D39'
 				),
 				'footer_background'      => array(
-					'default' => '#1C1C1C',
+					'default' => '#F5F6F1',
 					'css'     => array(
 						array(
 							'property' => 'background-color',
