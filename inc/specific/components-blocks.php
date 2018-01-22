@@ -51,11 +51,7 @@ function bobo_register_blog_blocks( $component_slug, $component_config ) {
 							'blog/entry-header-single',
 						),
 					),
-					'entry-thumbnail' => array(
-						'blocks' => array(
-							'blog/entry-thumbnail',
-						),
-					),
+					'blog/entry-thumbnail',
 					'blog/entry-content',
 					'sidebar-below-post' => array(
 						'blocks' => array(
