@@ -53,7 +53,7 @@ function bobo_change_customify_general_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.blob__part--1',
+							'selector' => '.blob--color-1',
 						),
 					),
 				),
@@ -65,7 +65,7 @@ function bobo_change_customify_general_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.blob__part--2',
+							'selector' => '.blob--color-2',
 						),
 					),
 				),
@@ -77,7 +77,7 @@ function bobo_change_customify_general_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.blob__part--3',
+							'selector' => '.blob--color-3',
 						),
 					),
 				),

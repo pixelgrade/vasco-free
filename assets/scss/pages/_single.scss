@@ -5,6 +5,12 @@
 
 .single {
 
+  .entry-header,
+  .entry-content {
+    position: relative;
+    z-index: 20;
+  }
+
   .entry-header {
     text-align: center;
 
@@ -40,8 +46,6 @@
       }
 
       time + time {
-        //margin-left: 1em;
-        //opacity: 0.5;
         display: none;
       }
     }
@@ -78,6 +82,8 @@
   }
 
   .entry-thumbnail {
+    display: flex;
+    justify-content: center;
     @include spacing(margin-bottom, 2.5rem);
 
     img {
