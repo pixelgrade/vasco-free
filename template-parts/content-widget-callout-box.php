@@ -22,6 +22,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php if ( ! empty( $title ) || ! empty( $description ) || ( ! empty( $button_text ) && ! empty( $button_url ) ) ) { ?>
 
 	<div class="c-feature__content">
+
+		<?php if ( pixelgrade_option( 'show_stamps' ) ) {
+			get_template_part( 'content-stamp' );
+		} ?>
+
 		<?php if ( ! empty( $title ) ) { ?>
 			<div class="c-feature__title"><?php echo $title ?></div>
 		<?php } ?>

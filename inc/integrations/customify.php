@@ -163,13 +163,13 @@ function bobo_customify_general_section( $section_options, $options ) {
 					'active_callback' => 'bobo_stamp_icon_control_show',
 				),
 				'stamp_dark_image'  => array(
-					'type'            => 'image',
+					'type'            => 'media',
 					'label'           => esc_html__( 'Dark Stamp Image', '__theme_txtd' ),
 					'desc'            => '',
 					'active_callback' => 'bobo_stamp_dark_image_control_show',
 				),
 				'stamp_light_image' => array(
-					'type'            => 'image',
+					'type'            => 'media',
 					'label'           => esc_html__( 'Light Stamp Image', '__theme_txtd' ),
 					'desc'            => '',
 					'active_callback' => 'bobo_stamp_light_image_control_show',
