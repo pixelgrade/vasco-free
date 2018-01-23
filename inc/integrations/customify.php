@@ -9,20 +9,13 @@
 /**
  * Hook into the Customify's fields and settings.
  *
- * The config can turn to be complex so is better to visit:
+ * The config can turn to be complex so is best to visit:
  * https://github.com/pixelgrade/customify
  *
- * @param $options array - Contains the plugin's options array right before they are used, so edit with care
+ * @param array $options Contains the plugin's options array right before they are used, so edit with care
  *
- * @return mixed The return of options is required, if you don't need options return an empty array
- *
+ * @return array The returned options are required, if you don't need options return an empty array
  */
-
-/* =============
- * For customizing the components Customify options you need to use the /inc/components.php file.
- * Also there you will find the example code for making changes.
- * ============= */
-
 add_filter( 'customify_filter_fields', 'bobo_add_customify_options', 11, 1 );
 
 // Modify Customify Config
@@ -90,7 +83,7 @@ function bobo_customify_general_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.blob__part--1',
+							'selector' => '.blob--color-1',
 						),
 					),
 				),
@@ -102,7 +95,7 @@ function bobo_customify_general_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.blob__part--2',
+							'selector' => '.blob--color-2',
 						),
 					),
 				),
@@ -114,7 +107,7 @@ function bobo_customify_general_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.blob__part--3',
+							'selector' => '.blob--color-3',
 						),
 					),
 				),
@@ -125,51 +118,60 @@ function bobo_customify_general_section( $section_options, $options ) {
 					// @todo Adjust the section icon
 					'html' => '<span id="section-title-general-stamps" class="separator section label large">&#x1f4d0; ' . esc_html__( 'Stamps', '__theme_txtd' ) . '</span>',
 				),
-				'show_stamps'           => array(
+				'show_stamps'       => array(
 					'type'    => 'checkbox',
 					'label'   => esc_html__( 'Show Stamps', '__theme_txtd' ),
 					'default' => true,
 				),
-				'stamp_style'             => array(
+				'stamp_style'       => array(
 					'type'    => 'radio',
 					'label'   => esc_html__( 'Stamp Style', '__theme_txtd' ),
 					'desc'    => esc_html__( 'Set how the stamp is defined.', '__theme_txtd' ),
 					'default' => 'auto',
 					'choices' => array(
 						'auto'   => esc_html__( 'Auto-Generated', '__theme_txtd' ),
-						'custom'   => esc_html__( 'Custom Image', '__theme_txtd' ),
+						'custom' => esc_html__( 'Custom Image', '__theme_txtd' ),
 					),
 				),
-				'stamp_text'               => array(
+				'stamp_text'        => array(
 					'type'              => 'text',
 					'label'             => esc_html__( 'Stamp Text', '__theme_txtd' ),
 					'desc'              => esc_html__( 'Set the text that will appear around the stamp.', '__theme_txtd' ),
 					'default'           => '%site_title%',
 					'sanitize_callback' => 'wp_kses_post',
-					'live'              => array( '.c-stamp__text' ), //@todo Adjust this class according to the stamp markup
-					'active_callback' => 'bobo_stamp_text_control_show',
+					//@todo Adjust this class according to the stamp markup
+					'live'              => array( '.c-stamp__text' ),
+					'active_callback'   => 'bobo_stamp_text_control_show',
 				),
-				'stamp_icon'                => array(
-					'type'    => 'select',
-					'label'   => esc_html__( 'Stamp Icon', '__theme_txtd' ),
-					'desc'    => esc_html__( 'Select an icon to be placed in the middle of the stamp.', '__theme_txtd' ),
-					'default' => 'star',
-					'choices' => array(
-						'star' => esc_html__( 'Star', '__theme_txtd' ),
-						'row'     => esc_html__( 'Row', '__theme_txtd' ),
+				'stamp_icon'        => array(
+					'type'            => 'select',
+					'label'           => esc_html__( 'Stamp Icon', '__theme_txtd' ),
+					'desc'            => esc_html__( 'Select an icon to be placed in the middle of the stamp.', '__theme_txtd' ),
+					'default'         => 'star',
+					'choices'         => array(
+						'backpack' => esc_html__( 'Backpack', '__theme_txtd' ),
+						'bike'     => esc_html__( 'Bike', '__theme_txtd' ),
+						'cabin'    => esc_html__( 'Cabin', '__theme_txtd' ),
+						'campfire' => esc_html__( 'Campfire', '__theme_txtd' ),
+						'compass'  => esc_html__( 'Compass', '__theme_txtd' ),
+						'mountain' => esc_html__( 'Mountain', '__theme_txtd' ),
+						'radio'    => esc_html__( 'Radio', '__theme_txtd' ),
+						'star'     => esc_html__( 'Star', '__theme_txtd' ),
+						'tent'     => esc_html__( 'Tent', '__theme_txtd' ),
+						'torch'    => esc_html__( 'Torch', '__theme_txtd' ),
 					),
 					'active_callback' => 'bobo_stamp_icon_control_show',
 				),
-				'stamp_dark_image'                => array(
-					'type'    => 'image',
-					'label'   => esc_html__( 'Dark Stamp Image', '__theme_txtd' ),
-					'desc'    => '',
+				'stamp_dark_image'  => array(
+					'type'            => 'image',
+					'label'           => esc_html__( 'Dark Stamp Image', '__theme_txtd' ),
+					'desc'            => '',
 					'active_callback' => 'bobo_stamp_dark_image_control_show',
 				),
-				'stamp_light_image'                => array(
-					'type'    => 'image',
-					'label'   => esc_html__( 'Light Stamp Image', '__theme_txtd' ),
-					'desc'    => '',
+				'stamp_light_image' => array(
+					'type'            => 'image',
+					'label'           => esc_html__( 'Light Stamp Image', '__theme_txtd' ),
+					'desc'            => '',
 					'active_callback' => 'bobo_stamp_light_image_control_show',
 				),
 			),
@@ -687,9 +689,35 @@ function bobo_customify_header_section( $section_options, $options ) {
 				),
 				'header_height'                   => array(
 					'default' => 87,
+					'css' => array(
+						array(
+							'property' => 'min-height',
+							'selector' => '.u-header-height .c-navbar .sub-menu',
+							'unit'     => 'px',
+						),
+						array(
+							'property' => 'padding-top',
+							'selector' => '.u-header-height-padding-top',
+							'unit'     => 'px',
+						),
+					),
 				),
 				'header_navigation_links_spacing' => array(
-					'default' => 56,
+					'default' => 28,
+					'css' => array(
+						array(
+							'property'        => 'padding-left',
+							'selector'        => '.c-navbar a',
+							'unit'            => 'px',
+							'callback_filter' => 'typeline_spacing_cb',
+						),
+						array(
+							'property'        => 'padding-right',
+							'selector'        => '.c-navbar a',
+							'unit'            => 'px',
+							'callback_filter' => 'typeline_spacing_cb',
+						),
+					),
 				),
 				'header_position'                 => array(
 					'default' => 'sticky',
