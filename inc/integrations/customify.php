@@ -9,20 +9,13 @@
 /**
  * Hook into the Customify's fields and settings.
  *
- * The config can turn to be complex so is better to visit:
+ * The config can turn to be complex so is best to visit:
  * https://github.com/pixelgrade/customify
  *
- * @param $options array - Contains the plugin's options array right before they are used, so edit with care
+ * @param array $options Contains the plugin's options array right before they are used, so edit with care
  *
- * @return mixed The return of options is required, if you don't need options return an empty array
- *
+ * @return array The returned options are required, if you don't need options return an empty array
  */
-
-/* =============
- * For customizing the components Customify options you need to use the /inc/components.php file.
- * Also there you will find the example code for making changes.
- * ============= */
-
 add_filter( 'customify_filter_fields', 'bobo_add_customify_options', 11, 1 );
 
 // Modify Customify Config
