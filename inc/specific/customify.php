@@ -27,19 +27,69 @@ define( 'VARIATION_HEADINGS_FONT', 'YoungSerif' );
 define( 'VARIATION_HEADINGS_FONT_ALT', 'HK Grotesk' );
 define( 'VARIATION_SITE_TITLE_FONT', 'Bebas Neue' );
 
-function bobo_change_customify_general_section( $general_section, $options ) {
+/**
+ * Modify the Customify config for the General Section - it comes from the Blog Component
+ *
+ * @param array $section_options The specific Customify config to be filtered
+ * @param array $options The whole Customify config
+ *
+ * @return array The modified specific config
+ */
+function bobo_change_customify_general_section( $section_options, $options ) {
 
 	$modified_config = array(
 		'general' => array(
-			'options' => array(),
+			'options' => array(
+				'show_blobs'           => array(
+					'type'    => 'checkbox',
+					'label'   => esc_html__( 'Show Blobs', '__theme_txtd' ),
+					'default' => true, // this should be set by the theme (previously regular)
+				),
+				'blob_main_color'      => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Blobs Main Color', '__theme_txtd' ),
+					'live'    => true,
+					'default' => '#DE2D16',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.blob__part--1',
+						),
+					),
+				),
+				'blob_secondary_color' => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Blobs Secondary Color', '__theme_txtd' ),
+					'live'    => true,
+					'default' => '#FFDCCE',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.blob__part--2',
+						),
+					),
+				),
+				'blob_tertiary_color'  => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Blobs Tertiary Color', '__theme_txtd' ),
+					'live'    => true,
+					'default' => '#171512',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.blob__part--3',
+						),
+					),
+				),
+			),
 		),
 	);
 
 	// Now we merge the modified config with the original one
 	// Thus overwriting what we have changed
-	$general_section = Pixelgrade_Config::merge( $general_section, $modified_config );
+	$section_options = Pixelgrade_Config::merge( $section_options, $modified_config );
 
-	return $general_section;
+	return $section_options;
 }
 
 /**
@@ -523,7 +573,7 @@ function bobo_change_customify_footer_section_options( $section_options, $option
 				),
 				// [Section] COLORS
 				'footer_body_text_color' => array(
-					'default' => '#FFFFFF',
+					'default' => '#2B3D39',
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -532,10 +582,10 @@ function bobo_change_customify_footer_section_options( $section_options, $option
 					),
 				),
 				'footer_links_color'     => array(
-					'default' => '#FFFFFF'
+					'default' => '#2B3D39'
 				),
 				'footer_background'      => array(
-					'default' => '#1C1C1C',
+					'default' => '#F5F6F1',
 					'css'     => array(
 						array(
 							'property' => 'background-color',

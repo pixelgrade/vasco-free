@@ -112,3 +112,14 @@ function bobo_mce_before_init( $settings ) {
 	return $settings;
 }
 add_filter( 'tiny_mce_before_init', 'bobo_mce_before_init', 10, 1 );
+
+/**
+ * Display blobs for the footer.
+ */
+function bobo_add_blobs_to_footer() {
+	// Show the blobs only if allowed to by the user
+	if ( pixelgrade_option( 'show_blobs', false ) ) {
+		get_template_part( 'template-parts/content-blob-footer' );
+	}
+}
+add_action( 'pixelgrade_footer_after_content', 'bobo_add_blobs_to_footer', 10 );

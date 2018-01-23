@@ -48,6 +48,9 @@
   }
 
   .header-meta {
+    position: relative;
+    z-index: 10;
+
     display: inline-flex;
     margin-top: 0;
     transform: translate(0, 50%);
