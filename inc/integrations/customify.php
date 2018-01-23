@@ -56,6 +56,114 @@ function bobo_customify_general_section( $section_options, $options ) {
 		// General
 		'general' => array(
 			'options' => array(
+				'general_options_customizer_tabs'      => array(
+					'type' => 'html',
+					'html' => '<nav class="section-navigation  js-section-navigation">
+							<a href="#section-title-general-blobs">' . esc_html__( 'Blobs', '__theme_txtd' ) . '</a>
+							<a href="#section-title-general-stamps">' . esc_html__( 'Stamps', '__theme_txtd' ) . '</a>
+							</nav>',
+				),
+				// [Section] Blobs
+				'general_title_blobs_section'         => array(
+					'type' => 'html',
+					// @todo Adjust the section icon
+					'html' => '<span id="section-title-general-blobs" class="separator section label large">&#x1f4d0; ' . esc_html__( 'Blobs', '__theme_txtd' ) . '</span>',
+				),
+				'show_blobs'           => array(
+					'type'    => 'checkbox',
+					'label'   => esc_html__( 'Show Blobs', '__theme_txtd' ),
+					'default' => true,
+				),
+				'blob_main_color'      => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Blobs Main Color', '__theme_txtd' ),
+					'live'    => true,
+					'default' => '#DE2D16',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.blob__part--1',
+						),
+					),
+				),
+				'blob_secondary_color' => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Blobs Secondary Color', '__theme_txtd' ),
+					'live'    => true,
+					'default' => '#FFDCCE',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.blob__part--2',
+						),
+					),
+				),
+				'blob_tertiary_color'  => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Blobs Tertiary Color', '__theme_txtd' ),
+					'live'    => true,
+					'default' => '#171512',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.blob__part--3',
+						),
+					),
+				),
+
+				// [Section] Stamps
+				'general_title_stamps_section'         => array(
+					'type' => 'html',
+					// @todo Adjust the section icon
+					'html' => '<span id="section-title-general-stamps" class="separator section label large">&#x1f4d0; ' . esc_html__( 'Stamps', '__theme_txtd' ) . '</span>',
+				),
+				'show_stamps'           => array(
+					'type'    => 'checkbox',
+					'label'   => esc_html__( 'Show Stamps', '__theme_txtd' ),
+					'default' => true,
+				),
+				'stamp_style'             => array(
+					'type'    => 'radio',
+					'label'   => esc_html__( 'Stamp Style', '__theme_txtd' ),
+					'desc'    => esc_html__( 'Set how the stamp is defined.', '__theme_txtd' ),
+					'default' => 'auto',
+					'choices' => array(
+						'auto'   => esc_html__( 'Auto-Generated', '__theme_txtd' ),
+						'custom'   => esc_html__( 'Custom Image', '__theme_txtd' ),
+					),
+				),
+				'stamp_text'               => array(
+					'type'              => 'text',
+					'label'             => esc_html__( 'Stamp Text', '__theme_txtd' ),
+					'desc'              => esc_html__( 'Set the text that will appear around the stamp.', '__theme_txtd' ),
+					'default'           => '%site_title%',
+					'sanitize_callback' => 'wp_kses_post',
+					'live'              => array( '.c-stamp__text' ), //@todo Adjust this class according to the stamp markup
+					'active_callback' => 'bobo_stamp_text_control_show',
+				),
+				'stamp_icon'                => array(
+					'type'    => 'select',
+					'label'   => esc_html__( 'Stamp Icon', '__theme_txtd' ),
+					'desc'    => esc_html__( 'Select an icon to be placed in the middle of the stamp.', '__theme_txtd' ),
+					'default' => 'star',
+					'choices' => array(
+						'star' => esc_html__( 'Star', '__theme_txtd' ),
+						'row'     => esc_html__( 'Row', '__theme_txtd' ),
+					),
+					'active_callback' => 'bobo_stamp_icon_control_show',
+				),
+				'stamp_dark_image'                => array(
+					'type'    => 'image',
+					'label'   => esc_html__( 'Dark Stamp Image', '__theme_txtd' ),
+					'desc'    => '',
+					'active_callback' => 'bobo_stamp_dark_image_control_show',
+				),
+				'stamp_light_image'                => array(
+					'type'    => 'image',
+					'label'   => esc_html__( 'Light Stamp Image', '__theme_txtd' ),
+					'desc'    => '',
+					'active_callback' => 'bobo_stamp_light_image_control_show',
+				),
 			),
 		),
 	);
@@ -165,7 +273,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 	$section_options['main_content']['options'] = Pixelgrade_Array::insertAfterKey( $section_options['main_content']['options'], 'main_content_quote_block_font', array(
 		'main_content_badge_font' => array(
 			'type'        => 'font',
-			'label'       => esc_html__( 'Badge Font', '__components_txtd' ),
+			'label'       => esc_html__( 'Badge Font', '__theme_txtd' ),
 			'desc'        => '',
 			'selector'    => '
 				.single .header-meta .byline, 
@@ -443,6 +551,13 @@ function bobo_customify_footer_section( $section_options, $options ) {
 	return $section_options;
 }
 
+/**
+ * Add out custom self-hosted fonts to the Customizer font control options.
+ *
+ * @param array $fonts
+ *
+ * @return array
+ */
 function bobo_add_customify_theme_fonts( $fonts ) {
 	$fonts['YoungSerif'] = array(
 		'family'   => 'YoungSerif',
@@ -465,3 +580,59 @@ function bobo_add_customify_theme_fonts( $fonts ) {
 	return $fonts;
 }
 add_filter( 'customify_theme_fonts', 'bobo_add_customify_theme_fonts' );
+
+/* ===============================
+ * STAMP CONTROLS CONDITIONALS
+ * =============================== */
+
+/**
+ * Decides when to show the stamp text control in the Customizer.
+ *
+ * @return bool
+ */
+function bobo_stamp_text_control_show() {
+	if ( 'auto' !== pixelgrade_option( 'stamp_style' ) ) {
+		return false;
+	}
+
+	return true;
+}
+
+/**
+ * Decides when to show the stamp icon control in the Customizer.
+ *
+ * @return bool
+ */
+function bobo_stamp_icon_control_show() {
+	if ( 'auto' !== pixelgrade_option( 'stamp_style' ) ) {
+		return false;
+	}
+
+	return true;
+}
+
+/**
+ * Decides when to show the stamp dark image control in the Customizer.
+ *
+ * @return bool
+ */
+function bobo_stamp_dark_image_control_show() {
+	if ( 'custom' !== pixelgrade_option( 'stamp_style' ) ) {
+		return false;
+	}
+
+	return true;
+}
+
+/**
+ * Decides when to show the stamp light image control in the Customizer.
+ *
+ * @return bool
+ */
+function bobo_stamp_light_image_control_show() {
+	if ( 'custom' !== pixelgrade_option( 'stamp_style' ) ) {
+		return false;
+	}
+
+	return true;
+}

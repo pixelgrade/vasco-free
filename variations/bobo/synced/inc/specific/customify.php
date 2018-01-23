@@ -40,47 +40,6 @@ function bobo_change_customify_general_section( $section_options, $options ) {
 	$modified_config = array(
 		'general' => array(
 			'options' => array(
-				'show_blobs'           => array(
-					'type'    => 'checkbox',
-					'label'   => esc_html__( 'Show Blobs', '__theme_txtd' ),
-					'default' => true, // this should be set by the theme (previously regular)
-				),
-				'blob_main_color'      => array(
-					'type'    => 'color',
-					'label'   => esc_html__( 'Blobs Main Color', '__theme_txtd' ),
-					'live'    => true,
-					'default' => '#DE2D16',
-					'css'     => array(
-						array(
-							'property' => 'color',
-							'selector' => '.blob__part--1',
-						),
-					),
-				),
-				'blob_secondary_color' => array(
-					'type'    => 'color',
-					'label'   => esc_html__( 'Blobs Secondary Color', '__theme_txtd' ),
-					'live'    => true,
-					'default' => '#FFDCCE',
-					'css'     => array(
-						array(
-							'property' => 'color',
-							'selector' => '.blob__part--2',
-						),
-					),
-				),
-				'blob_tertiary_color'  => array(
-					'type'    => 'color',
-					'label'   => esc_html__( 'Blobs Tertiary Color', '__theme_txtd' ),
-					'live'    => true,
-					'default' => '#171512',
-					'css'     => array(
-						array(
-							'property' => 'color',
-							'selector' => '.blob__part--3',
-						),
-					),
-				),
 			),
 		),
 	);
@@ -107,12 +66,6 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 		// Main Content
 		'main_content' => array(
 			'options' => array(
-				'main_content_content_width'            => array(
-					'default' => 720,
-				),
-				'main_content_border_width'             => array(
-					'default' => 0,
-				),
 				'main_content_page_title_color'         => array(
 					'default' => VARIATION_TEXT_COLOR,
 				),
