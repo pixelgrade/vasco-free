@@ -1,6 +1,5 @@
 
-.c-navbar a,
-.c-navbar[class] .sub-menu {
+.c-navbar a {
   @include spacing(padding, 1rem);
 }
 

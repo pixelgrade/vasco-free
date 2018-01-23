@@ -692,7 +692,7 @@ function bobo_customify_header_section( $section_options, $options ) {
 					'css' => array(
 						array(
 							'property' => 'min-height',
-							'selector' => '.u-header-height .c-navbar .sub-menu',
+							'selector' => '.u-header-height, .c-navbar .sub-menu',
 							'unit'     => 'px',
 						),
 						array(
