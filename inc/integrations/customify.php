@@ -33,6 +33,14 @@ add_filter( 'pixelgrade_customify_buttons_section_options', 'bobo_customify_butt
 add_filter( 'pixelgrade_footer_customify_section_options', 'bobo_customify_footer_section', 10, 2 );
 add_filter( 'pixelgrade_customify_blog_grid_section_options', 'bobo_customify_blog_grid_section', 10, 2 );
 
+define( 'VARIATION_TEXT_COLOR', '#2B3D39' );
+define( 'VARIATION_ACCENT_COLOR', '#DE2D16' );
+
+define( 'VARIATION_BODY_FONT', 'Lora' );
+define( 'VARIATION_HEADINGS_FONT', 'YoungSerif' );
+define( 'VARIATION_HEADINGS_FONT_ALT', 'HK Grotesk' );
+define( 'VARIATION_SITE_TITLE_FONT', 'Bebas Neue' );
+
 function bobo_add_customify_options( $options ) {
 	$options['opt-name'] = 'bobo_options';
 
@@ -188,7 +196,7 @@ function bobo_customify_general_section( $section_options, $options ) {
  */
 function bobo_customify_main_content_section( $section_options, $options ) {
 
-	$new_section_options = array(
+	$modified_config = array(
 
 		// Main Content
 		'main_content' => array(
@@ -214,16 +222,31 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 
 				// [Section] COLORS
 				'main_content_page_title_color'         => array(
-					'default' => '#222222',
+					'default' => VARIATION_TEXT_COLOR,
 				),
 				'main_content_body_text_color'          => array(
-					'default' => '#383c50',
+					'default' => VARIATION_TEXT_COLOR,
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => 'body',
+						),
+						array(
+							'property' => 'background-color',
+							'selector' => '
+								.entry-content .dropcap, 
+								.entry-content .cats[class] > a,
+								.single .header-meta .byline, 
+								.single .header-meta .posted-on,
+								.comment-form .form-submit .submit',
+						),
+					),
 				),
 				'main_content_body_link_color'          => array(
-					'default' => '#383c50',
+					'default' => VARIATION_TEXT_COLOR,
 				),
 				'main_content_body_link_active_color'   => array(
-					'default' => '#222222',
+					'default' => VARIATION_ACCENT_COLOR,
 				),
 				'main_content_underlined_body_links'    => array(
 					'default' => 1,
@@ -231,19 +254,25 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 
 				// [Sub Section] Headings Color
 				'main_content_heading_1_color'          => array(
-					'default' => '#383c50',
+					'default' => VARIATION_TEXT_COLOR,
 				),
 				'main_content_heading_2_color'          => array(
-					'default' => '#383c50',
+					'default' => VARIATION_TEXT_COLOR,
 				),
 				'main_content_heading_3_color'          => array(
-					'default' => '#383c50',
+					'default' => VARIATION_TEXT_COLOR,
 				),
 				'main_content_heading_4_color'          => array(
-					'default' => '#383c50',
+					'default' => VARIATION_ACCENT_COLOR,
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.entry-content h4, .h4, h4, .single .entry-header .cats',
+						),
+					),
 				),
 				'main_content_heading_5_color'          => array(
-					'default' => '#383c50',
+					'default' => VARIATION_ACCENT_COLOR,
 					'css' => array(
 						array(
 							'selector' => '.nav-links__label',
@@ -252,15 +281,142 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 					),
 				),
 				'main_content_heading_6_color'          => array(
-					'default' => '#383c50',
-				),
-				'main_content_page_title_font' => array(
-					'selector' => '.single .entry-title, .page .entry-title, .h0[class]'
+					'default' => VARIATION_ACCENT_COLOR,
 				),
 
 				// [Sub Section] Backgrounds
 				'main_content_content_background_color' => array(
 					'default' => '#F5F6F1',
+					'css'     => array(
+						array(
+							'property' => 'background-color',
+							'selector' => '.u-content-background, .mce-content-body, .related-posts-title span',
+						),
+						array(
+							'property' => 'color',
+							'selector' => '
+								.entry-content .dropcap, 
+								.single .header-meta .byline, 
+								.single .header-meta .posted-on,
+								.entry-content .cats[class] > a,
+								.comment-form .form-submit .submit',
+						),
+					),
+				),
+
+				// [Section] FONTS
+				'main_content_page_title_font'          => array(
+					'selector' => '.single .entry-title, .page .entry-title, .h0[class]',
+					'default' => array(
+						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-size'      => 72,
+						'line-height'    => 1.11,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+
+				'main_content_body_text_font' => array(
+					'default' => array(
+						'font-family'    => VARIATION_BODY_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 17,
+						'line-height'    => 1.647,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+
+				'main_content_paragraph_text_font' => array(
+					'default' => array(
+						'font-family'    => VARIATION_BODY_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 18,
+						'line-height'    => 1.66,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+
+				'main_content_quote_block_font' => array(
+					'default' => array(
+						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 40,
+						'line-height'    => 1.5,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+
+				// [Sub Section] Headings Fonts
+				'main_content_heading_1_font'   => array(
+					'default' => array(
+						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 48,
+						'line-height'    => 1.167,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+
+				'main_content_heading_2_font' => array(
+					'default' => array(
+						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 40,
+						'line-height'    => 1.1,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+
+				'main_content_heading_3_font' => array(
+					'default' => array(
+						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 24,
+						'line-height'    => 1.417,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+
+				'main_content_heading_4_font' => array(
+					'default' => array(
+						'font-family'    => VARIATION_HEADINGS_FONT_ALT,
+						'font-weight'    => '500',
+						'font-size'      => 19,
+						'line-height'    => 1.21,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+
+				'main_content_heading_5_font' => array(
+					'selector' => '
+						.entry-content h5, .h5, h5, 
+						.nav-links__label',
+					'default'  => array(
+						'font-family'    => VARIATION_HEADINGS_FONT_ALT,
+						'font-weight'    => '700',
+						'font-size'      => 14,
+						'line-height'    => 1.25,
+						'letter-spacing' => 0.07,
+						'text-transform' => 'uppercase',
+					),
+				),
+
+				'main_content_heading_6_font' => array(
+					'default' => array(
+						'font-family'    => VARIATION_HEADINGS_FONT_ALT,
+						'font-weight'    => '700',
+						'font-size'      => 12,
+						'line-height'    => 1.25,
+						'letter-spacing' => 0.08,
+						'text-transform' => 'uppercase',
+					),
 				),
 			)
 		),
@@ -268,7 +424,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 
 	// Now we merge the modified config with the original one
 	// Thus overwriting what we have changed
-	$section_options = Pixelgrade_Config::merge( $section_options, $new_section_options );
+	$section_options = Pixelgrade_Config::merge( $section_options, $modified_config );
 
 	$section_options['main_content']['options'] = Pixelgrade_Array::insertAfterKey( $section_options['main_content']['options'], 'main_content_quote_block_font', array(
 		'main_content_badge_font' => array(
@@ -321,17 +477,55 @@ function bobo_customify_main_content_section( $section_options, $options ) {
  * @return array $main_content_section The modified specific config
  */
 function bobo_customify_buttons_section( $section_options, $options ) {
+	$button_selector = '
+		.c-btn,
+		.c-card__action,
+		button[type=button],
+		button[type=reset],
+		button[type=submit],
+		input[type=button],
+		input[type=submit],
+		.widget_pages,
+		.featured-posts__more';
 
-	$new_section_options = array(
+	$modified_config = array(
 
 		// Main Content
 		'buttons' => array(
 			'options' => array(
 				'buttons_style' => array(
-					'default' => 'solid'
+					'default' => 'solid',
 				),
 				'buttons_shape' => array(
-					'default' => 'rounded'
+					'default' => 'rounded',
+				),
+				'buttons_color'      => array(
+					'default' => VARIATION_ACCENT_COLOR,
+					'css'     => array(
+						array(
+							'property' => 'background-color',
+							'selector' => $button_selector,
+						),
+					),
+				),
+				'buttons_text_color' => array(
+					'default' => '#FFFFFF',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => $button_selector,
+						),
+					),
+				),
+				'buttons_font'       => array(
+					'selector' => $button_selector,
+					'default'  => array(
+						'font-family'    => VARIATION_HEADINGS_FONT_ALT,
+						'font-weight'    => '500',
+						'font-size'      => 17,
+						'line-height'    => 1.94,
+						'letter-spacing' => 0,
+					),
 				),
 			)
 		),
@@ -339,7 +533,7 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 
 	// Now we merge the modified config with the original one
 	// Thus overwriting what we have changed
-	$section_options = Pixelgrade_Config::merge( $section_options, $new_section_options );
+	$section_options = Pixelgrade_Config::merge( $section_options, $modified_config );
 
 	return $section_options;
 }
@@ -355,30 +549,32 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 function bobo_customify_blog_grid_section( $section_options, $options ) {
 	// First setup the default values
 	// These should always come from the theme, not relying on the component's defaults
-	$new_section_options = array(
+	$modified_config = array(
 		// Blog Grid
 		'blog_grid' => array(
 			'options' => array(
+				// [Section] Layout
 				'blog_grid_width'                    => array(
 					'default' => 1240,
 				),
 				'blog_container_sides_spacing'       => array(
 					'default' => 42,
 				),
+				// [Sub Section] Items Grid
 				'blog_grid_layout'                   => array(
 					'default' => 'regular',
 				),
 				'blog_items_aspect_ratio'            => array(
-					'default' => 133,
+					'default' => 50,
 				),
 				'blog_items_per_row'                 => array(
 					'default' => 3,
 				),
 				'blog_items_vertical_spacing'        => array(
-					'default' => 42,
+					'default' => 32,
 				),
 				'blog_items_horizontal_spacing'      => array(
-					'default' => 42,
+					'default' => 32,
 				),
 				// [Sub Section] Items Title
 				'blog_items_title_position'          => array(
@@ -405,31 +601,61 @@ function bobo_customify_blog_grid_section( $section_options, $options ) {
 				'blog_items_secondary_meta'          => array(
 					'default' => 'date',
 				),
+
+				// [Section] COLORS
 				'blog_item_title_color'              => array(
-					'default' => '#383c50',
+					'default' => '#333131',
 				),
 				'blog_item_meta_primary_color'       => array(
-					'default' => '#383c50',
+					'default' => VARIATION_ACCENT_COLOR,
 				),
 				'blog_item_meta_secondary_color'     => array(
-					'default' => '#383c50',
+					'default' => VARIATION_ACCENT_COLOR,
 				),
 				'blog_item_thumbnail_background'     => array(
 					'default' => '#000000',
 				),
 				'blog_item_excerpt_color'              => array(
-					'default' => '#383c50',
+					'default' => VARIATION_ACCENT_COLOR,
 				),
 
 				// [Sub Section] Thumbnail Hover
 				'blog_item_thumbnail_hover_opacity'  => array(
 					'default' => 1,
 				),
-				'blog_item_title_font' => array(
+
+				// [Section] FONTS
+				'blog_item_title_font'           => array(
 					'selector' => '.c-card__title, .c-card__letter',
+					'default' => array(
+						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-weight'    => '700',
+						'font-size'      => 21,
+						'line-height'    => 1.3,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
 				),
-				'blog_item_meta_font' => array(
+				'blog_item_meta_font'            => array(
 					'selector' => '.c-meta__primary, .c-meta__secondary',
+					'default' => array(
+						'font-family'    => VARIATION_SITE_TITLE_FONT,
+						'font-weight'    => '400',
+						'font-size'      => 13,
+						'line-height'    => 1.1,
+						'letter-spacing' => 0.1,
+						'text-transform' => 'uppercase',
+					),
+				),
+				'blog_item_excerpt_font'         => array(
+					'default' => array(
+						'font-family'    => VARIATION_BODY_FONT,
+						'font-weight'    => '400',
+						'font-size'      => 16,
+						'line-height'    => 1.5,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
 				),
 			),
 		),
@@ -437,7 +663,7 @@ function bobo_customify_blog_grid_section( $section_options, $options ) {
 
 	// Now we merge the modified config with the original one
 	// Thus overwriting what we have changed
-	$section_options = Pixelgrade_Config::merge( $section_options, $new_section_options );
+	$section_options = Pixelgrade_Config::merge( $section_options, $modified_config );
 
 	return $section_options;
 }
@@ -452,9 +678,10 @@ function bobo_customify_blog_grid_section( $section_options, $options ) {
  */
 function bobo_customify_header_section( $section_options, $options ) {
 
-	$new_section_options = array(
+	$modified_config = array(
 		'header_section' => array(
 			'options' => array(
+				// [Section] Layout
 				'header_logo_height'              => array(
 					'default' => 30,
 				),
@@ -473,17 +700,46 @@ function bobo_customify_header_section( $section_options, $options ) {
 				'header_sides_spacing'            => array(
 					'default' => 42,
 				),
+
+				// [Section] COLORS
 				'header_navigation_links_color'   => array(
-					'default' => '#252525',
+					'default' => '#323232',
 				),
 				'header_links_active_color'       => array(
-					'default' => '#161616',
+					'default' => VARIATION_ACCENT_COLOR,
 				),
 				'header_links_active_style'       => array(
 					'default' => 'active',
 				),
 				'header_background'               => array(
-					'default' => '#E7F2F8',
+					'default' => '#F5F6F1',
+				),
+
+				// [Section] FONTS
+				'header_site_title_font'          => array(
+					'fields'  => array(
+						'font-size' => array(
+							'max' => 150,
+						),
+					),
+					'default' => array(
+						'font-family'    => VARIATION_SITE_TITLE_FONT,
+						'font-weight'    => '400',
+						'font-size'      => 30,
+						'line-height'    => 1,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'header_navigation_font'          => array(
+					'default' => array(
+						'font-family'    => VARIATION_HEADINGS_FONT_ALT,
+						'font-weight'    => '500',
+						'font-size'      => 16,
+						'line-height'    => 1,
+						'letter-spacing' => 0,
+						'text-transform' => 'none'
+					),
 				),
 			),
 		),
@@ -491,7 +747,7 @@ function bobo_customify_header_section( $section_options, $options ) {
 
 	// Now we merge the modified config with the original one
 	// Thus overwriting what we have changed
-	$section_options = Pixelgrade_Config::merge( $section_options, $new_section_options );
+	$section_options = Pixelgrade_Config::merge( $section_options, $modified_config );
 
 	return $section_options;
 }
@@ -507,7 +763,7 @@ function bobo_customify_header_section( $section_options, $options ) {
 function bobo_customify_footer_section( $section_options, $options ) {
 	// First setup the default values
 	// These should always come from the theme, not relying on the component's defaults
-	$new_section_options = array(
+	$modified_config = array(
 		// Footer
 		'footer_section' => array(
 			'options' => array(
@@ -515,11 +771,43 @@ function bobo_customify_footer_section( $section_options, $options ) {
 				'copyright_text'               => array(
 					'default' => esc_html__( '&copy; %year% %site-title%.', '__theme_txtd' ),
 				),
-				'footer_top_spacing'           => array(
-					'default' => 112,
+				'footer_top_spacing'     => array(
+					'default' => 80,
+					'css'     => array(
+						// Component
+						array(
+							'property'        => 'padding-top',
+							'selector'        => '.u-footer-top-spacing',
+							'unit'            => 'px',
+							'callback_filter' => 'typeline_spacing_cb',
+						),
+						// Custom for Julia/Felt
+						array(
+							'property'        => 'margin-top',
+							'selector'        => '.c-footer__zone:not(:empty)+.c-footer__zone',
+							'unit'            => 'px',
+							'callback_filter' => 'typeline_spacing_cb',
+						),
+					),
 				),
-				'footer_bottom_spacing'        => array(
-					'default' => 112,
+				'footer_bottom_spacing'  => array(
+					'default' => 56,
+					'css'     => array(
+						// Component
+						array(
+							'property'        => 'padding-bottom',
+							'selector'        => '.u-footer-bottom-spacing',
+							'unit'            => 'px',
+							'callback_filter' => 'typeline_spacing_cb',
+						),
+						// Custom for Bobo
+						array(
+							'property'        => 'padding-top',
+							'selector'        => '.c-footer__zone--bottom:not(:first-child)',
+							'unit'            => 'px',
+							'callback_filter' => 'typeline_spacing_cb',
+						),
+					),
 				),
 				'footer_hide_back_to_top_link' => array(
 					'default' => false,
@@ -528,17 +816,30 @@ function bobo_customify_footer_section( $section_options, $options ) {
 					'default' => false,
 				),
 				'footer_layout'                => array(
-					'default' => 'stacked',
+					'default' => 'row',
 				),
+
 				// [Section] COLORS
 				'footer_body_text_color'       => array(
-					'default' => '#383c50',
+					'default' => '#2B3D39',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.c-footer, .widget.dark'
+						),
+					),
 				),
 				'footer_links_color'           => array(
-					'default' => '#161616',
+					'default' => '#2B3D39',
 				),
 				'footer_background'            => array(
-					'default' => '#f7f6f5',
+					'default' => '#F5F6F1',
+					'css'     => array(
+						array(
+							'property' => 'background-color',
+							'selector' => '.u-footer-background, .widget.dark',
+						),
+					),
 				),
 			),
 		),
@@ -546,7 +847,7 @@ function bobo_customify_footer_section( $section_options, $options ) {
 
 	// Now we merge the modified config with the original one
 	// Thus overwriting what we have changed
-	$section_options = Pixelgrade_Config::merge( $section_options, $new_section_options );
+	$section_options = Pixelgrade_Config::merge( $section_options, $modified_config );
 
 	return $section_options;
 }

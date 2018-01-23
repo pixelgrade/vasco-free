@@ -8,16 +8,16 @@
  *
  * Development notice: This file is synced from the variations directory! Do not edit in the `inc` directory!
  *
- * @package Bobo
+ * @package Temp
  * @since 1.0.0
  */
 
-add_filter( 'pixelgrade_customify_general_section_options', 'bobo_change_customify_general_section', 20, 2 );
-add_filter( 'pixelgrade_header_customify_section_options', 'bobo_change_customify_header_section_options', 20, 2 );
-add_filter( 'pixelgrade_customify_main_content_section_options', 'bobo_change_customify_main_content', 20, 2 );
-add_filter( 'pixelgrade_customify_buttons_section_options', 'bobo_change_customify_buttons', 20, 2 );
-add_filter( 'pixelgrade_footer_customify_section_options', 'bobo_change_customify_footer_section_options', 20, 2 );
-add_filter( 'pixelgrade_customify_blog_grid_section_options', 'bobo_change_customify_blog_grid_section', 20, 2 );
+add_filter( 'pixelgrade_customify_general_section_options', 'temp_change_customify_general_section', 20, 2 );
+add_filter( 'pixelgrade_header_customify_section_options', 'temp_change_customify_header_section_options', 20, 2 );
+add_filter( 'pixelgrade_customify_main_content_section_options', 'temp_change_customify_main_content', 20, 2 );
+add_filter( 'pixelgrade_customify_buttons_section_options', 'temp_change_customify_buttons', 20, 2 );
+add_filter( 'pixelgrade_footer_customify_section_options', 'temp_change_customify_footer_section_options', 20, 2 );
+add_filter( 'pixelgrade_customify_blog_grid_section_options', 'temp_change_customify_blog_grid_section', 20, 2 );
 
 define( 'VARIATION_TEXT_COLOR', '#2B3D39' );
 define( 'VARIATION_ACCENT_COLOR', '#DE2D16' );
@@ -35,7 +35,7 @@ define( 'VARIATION_SITE_TITLE_FONT', 'Bebas Neue' );
  *
  * @return array The modified specific config
  */
-function bobo_change_customify_general_section( $section_options, $options ) {
+function temp_change_customify_general_section( $section_options, $options ) {
 
 	$modified_config = array(
 		'general' => array(
@@ -59,16 +59,13 @@ function bobo_change_customify_general_section( $section_options, $options ) {
  *
  * @return array The modified specific config
  */
-function bobo_change_customify_main_content( $section_options, $options ) {
+function temp_change_customify_main_content( $section_options, $options ) {
 	// First setup the default values
 	// These should always come from the theme, not relying on the component's defaults
-	$new_section_options = array(
+	$modified_config = array(
 		// Main Content
 		'main_content' => array(
 			'options' => array(
-				'main_content_page_title_color'         => array(
-					'default' => VARIATION_TEXT_COLOR,
-				),
 				'main_content_body_text_color'          => array(
 					'default' => VARIATION_TEXT_COLOR,
 					'css'     => array(
@@ -257,7 +254,7 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 
 	// Now we merge the modified config with the original one
 	// Thus overwriting what we have changed
-	$section_options = Pixelgrade_Config::merge( $section_options, $new_section_options );
+	$section_options = Pixelgrade_Config::merge( $section_options, $modified_config );
 
 	return $section_options;
 }
@@ -270,7 +267,7 @@ function bobo_change_customify_main_content( $section_options, $options ) {
  *
  * @return array The modified specific config
  */
-function bobo_change_customify_buttons( $section_options, $options ) {
+function temp_change_customify_buttons( $section_options, $options ) {
 
 	$button_selector = '
 		.c-btn,
@@ -283,7 +280,7 @@ function bobo_change_customify_buttons( $section_options, $options ) {
 		.widget_pages,
 		.featured-posts__more';
 
-	$new_section_options = array(
+	$modified_config = array(
 
 		// Main Content
 		'buttons' => array(
@@ -322,7 +319,7 @@ function bobo_change_customify_buttons( $section_options, $options ) {
 
 	// Now we merge the modified config with the original one
 	// Thus overwriting what we have changed
-	$section_options = Pixelgrade_Config::merge( $section_options, $new_section_options );
+	$section_options = Pixelgrade_Config::merge( $section_options, $modified_config );
 
 	return $section_options;
 }
@@ -336,10 +333,10 @@ function bobo_change_customify_buttons( $section_options, $options ) {
  *
  * @return array The modified specific config
  */
-function bobo_change_customify_blog_grid_section( $section_options, $options ) {
+function temp_change_customify_blog_grid_section( $section_options, $options ) {
 	// First setup the default values
 	// These should always come from the theme, not relying on the component's defaults
-	$new_section_options = array(
+	$modified_config = array(
 		// Blog Grid
 		'blog_grid' => array(
 			'options' => array(
@@ -400,7 +397,7 @@ function bobo_change_customify_blog_grid_section( $section_options, $options ) {
 
 	// Now we merge the modified config with the original one
 	// Thus overwriting what we have changed
-	$section_options = Pixelgrade_Config::merge( $section_options, $new_section_options );
+	$section_options = Pixelgrade_Config::merge( $section_options, $modified_config );
 
 	return $section_options;
 }
@@ -414,9 +411,9 @@ function bobo_change_customify_blog_grid_section( $section_options, $options ) {
  *
  * @return array The modified specific config
  */
-function bobo_change_customify_header_section_options( $section_options, $options ) {
+function temp_change_customify_header_section_options( $section_options, $options ) {
 
-	$new_section_options = array(
+	$modified_config = array(
 		'header_section' => array(
 			'options' => array(
 				// [Section] Layout
@@ -462,7 +459,7 @@ function bobo_change_customify_header_section_options( $section_options, $option
 		),
 	);
 
-	$section_options = Pixelgrade_Config::merge( $section_options, $new_section_options );
+	$section_options = Pixelgrade_Config::merge( $section_options, $modified_config );
 
 	return $section_options;
 }
@@ -476,15 +473,31 @@ function bobo_change_customify_header_section_options( $section_options, $option
  *
  * @return array The modified specific config
  */
-function bobo_change_customify_footer_section_options( $section_options, $options ) {
+function temp_change_customify_footer_section_options( $section_options, $options ) {
 	// First setup the default values
 	// These should always come from the theme, not relying on the component's defaults
-	$new_section_options = array(
+	$modified_config = array(
 		// Footer
 		'footer_section' => array(
 			'options' => array(
-				'footer_layout'          => array(
-					'default' => 'row',
+				'footer_top_spacing'     => array(
+					'default' => 80,
+					'css'     => array(
+						// Component
+						array(
+							'property'        => 'padding-top',
+							'selector'        => '.u-footer-top-spacing',
+							'unit'            => 'px',
+							'callback_filter' => 'typeline_spacing_cb',
+						),
+						// Custom for Julia/Felt
+						array(
+							'property'        => 'margin-top',
+							'selector'        => '.c-footer__zone:not(:empty)+.c-footer__zone',
+							'unit'            => 'px',
+							'callback_filter' => 'typeline_spacing_cb',
+						),
+					),
 				),
 				'footer_bottom_spacing'  => array(
 					'default' => 56,
@@ -500,25 +513,6 @@ function bobo_change_customify_footer_section_options( $section_options, $option
 						array(
 							'property'        => 'padding-top',
 							'selector'        => '.c-footer__zone--bottom:not(:first-child)',
-							'unit'            => 'px',
-							'callback_filter' => 'typeline_spacing_cb',
-						),
-					),
-				),
-				'footer_top_spacing'     => array(
-					'default' => 80,
-					'css'     => array(
-						// Component
-						array(
-							'property'        => 'padding-top',
-							'selector'        => '.u-footer-top-spacing',
-							'unit'            => 'px',
-							'callback_filter' => 'typeline_spacing_cb',
-						),
-						// Custom for Julia/Felt
-						array(
-							'property'        => 'margin-top',
-							'selector'        => '.c-footer__zone:not(:empty)+.c-footer__zone',
 							'unit'            => 'px',
 							'callback_filter' => 'typeline_spacing_cb',
 						),
@@ -552,7 +546,7 @@ function bobo_change_customify_footer_section_options( $section_options, $option
 
 	// Now we merge the modified config with the original one
 	// Thus overwriting what we have changed
-	$section_options = Pixelgrade_Config::merge( $section_options, $new_section_options );
+	$section_options = Pixelgrade_Config::merge( $section_options, $modified_config );
 
 	return $section_options;
 }
@@ -560,7 +554,7 @@ function bobo_change_customify_footer_section_options( $section_options, $option
 // Custom single post header width for the case in which there is no sidebar.
 // In this case, the header's width is container-width + sidebar-width (300)
 // @todo Are these needed in the BOILERPLATE and is their place here?
-function bobo_container_width_single_header( $value, $selector, $property, $unit ) {
+function temp_container_width_single_header( $value, $selector, $property, $unit ) {
 	$output = '';
 	$value  = $value - 300;
 
@@ -571,7 +565,7 @@ function bobo_container_width_single_header( $value, $selector, $property, $unit
 	return $output;
 }
 
-function bobo_single_header_width( $value, $selector, $property, $unit ) {
+function temp_single_header_width( $value, $selector, $property, $unit ) {
 	$output = '';
 
 	$output .= $selector . ' {' . PHP_EOL .
