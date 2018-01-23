@@ -33,13 +33,13 @@ add_filter( 'pixelgrade_customify_buttons_section_options', 'bobo_customify_butt
 add_filter( 'pixelgrade_footer_customify_section_options', 'bobo_customify_footer_section', 10, 2 );
 add_filter( 'pixelgrade_customify_blog_grid_section_options', 'bobo_customify_blog_grid_section', 10, 2 );
 
-define( 'VARIATION_TEXT_COLOR', '#2B3D39' );
-define( 'VARIATION_ACCENT_COLOR', '#DE2D16' );
+define( 'THEME_TEXT_COLOR', '#2B3D39' );
+define( 'THEME_ACCENT_COLOR', '#DE2D16' );
 
-define( 'VARIATION_BODY_FONT', 'Lora' );
-define( 'VARIATION_HEADINGS_FONT', 'YoungSerif' );
-define( 'VARIATION_HEADINGS_FONT_ALT', 'HK Grotesk' );
-define( 'VARIATION_SITE_TITLE_FONT', 'Bebas Neue' );
+define( 'THEME_BODY_FONT', 'Lora' );
+define( 'THEME_HEADINGS_FONT', 'YoungSerif' );
+define( 'THEME_HEADINGS_FONT_ALT', 'HK Grotesk' );
+define( 'THEME_SITE_TITLE_FONT', 'Bebas Neue' );
 
 function bobo_add_customify_options( $options ) {
 	$options['opt-name'] = 'bobo_options';
@@ -222,10 +222,10 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 
 				// [Section] COLORS
 				'main_content_page_title_color'         => array(
-					'default' => VARIATION_TEXT_COLOR,
+					'default' => THEME_TEXT_COLOR,
 				),
 				'main_content_body_text_color'          => array(
-					'default' => VARIATION_TEXT_COLOR,
+					'default' => THEME_TEXT_COLOR,
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -243,10 +243,10 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 					),
 				),
 				'main_content_body_link_color'          => array(
-					'default' => VARIATION_TEXT_COLOR,
+					'default' => THEME_TEXT_COLOR,
 				),
 				'main_content_body_link_active_color'   => array(
-					'default' => VARIATION_ACCENT_COLOR,
+					'default' => THEME_ACCENT_COLOR,
 				),
 				'main_content_underlined_body_links'    => array(
 					'default' => 1,
@@ -254,16 +254,16 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 
 				// [Sub Section] Headings Color
 				'main_content_heading_1_color'          => array(
-					'default' => VARIATION_TEXT_COLOR,
+					'default' => THEME_TEXT_COLOR,
 				),
 				'main_content_heading_2_color'          => array(
-					'default' => VARIATION_TEXT_COLOR,
+					'default' => THEME_TEXT_COLOR,
 				),
 				'main_content_heading_3_color'          => array(
-					'default' => VARIATION_TEXT_COLOR,
+					'default' => THEME_TEXT_COLOR,
 				),
 				'main_content_heading_4_color'          => array(
-					'default' => VARIATION_ACCENT_COLOR,
+					'default' => THEME_ACCENT_COLOR,
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -272,7 +272,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 					),
 				),
 				'main_content_heading_5_color'          => array(
-					'default' => VARIATION_ACCENT_COLOR,
+					'default' => THEME_ACCENT_COLOR,
 					'css' => array(
 						array(
 							'selector' => '.nav-links__label',
@@ -281,7 +281,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 					),
 				),
 				'main_content_heading_6_color'          => array(
-					'default' => VARIATION_ACCENT_COLOR,
+					'default' => THEME_ACCENT_COLOR,
 				),
 
 				// [Sub Section] Backgrounds
@@ -308,7 +308,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 				'main_content_page_title_font'          => array(
 					'selector' => '.single .entry-title, .page .entry-title, .h0[class]',
 					'default' => array(
-						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-family'    => THEME_HEADINGS_FONT,
 						'font-size'      => 72,
 						'line-height'    => 1.11,
 						'letter-spacing' => 0,
@@ -318,7 +318,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 
 				'main_content_body_text_font' => array(
 					'default' => array(
-						'font-family'    => VARIATION_BODY_FONT,
+						'font-family'    => THEME_BODY_FONT,
 						'font-weight'    => 'regular',
 						'font-size'      => 17,
 						'line-height'    => 1.647,
@@ -329,7 +329,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 
 				'main_content_paragraph_text_font' => array(
 					'default' => array(
-						'font-family'    => VARIATION_BODY_FONT,
+						'font-family'    => THEME_BODY_FONT,
 						'font-weight'    => 'regular',
 						'font-size'      => 18,
 						'line-height'    => 1.66,
@@ -340,7 +340,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 
 				'main_content_quote_block_font' => array(
 					'default' => array(
-						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-family'    => THEME_HEADINGS_FONT,
 						'font-weight'    => 'regular',
 						'font-size'      => 40,
 						'line-height'    => 1.5,
@@ -352,7 +352,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 				// [Sub Section] Headings Fonts
 				'main_content_heading_1_font'   => array(
 					'default' => array(
-						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-family'    => THEME_HEADINGS_FONT,
 						'font-weight'    => 'regular',
 						'font-size'      => 48,
 						'line-height'    => 1.167,
@@ -363,7 +363,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 
 				'main_content_heading_2_font' => array(
 					'default' => array(
-						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-family'    => THEME_HEADINGS_FONT,
 						'font-weight'    => 'regular',
 						'font-size'      => 40,
 						'line-height'    => 1.1,
@@ -374,7 +374,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 
 				'main_content_heading_3_font' => array(
 					'default' => array(
-						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-family'    => THEME_HEADINGS_FONT,
 						'font-weight'    => 'regular',
 						'font-size'      => 24,
 						'line-height'    => 1.417,
@@ -385,7 +385,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 
 				'main_content_heading_4_font' => array(
 					'default' => array(
-						'font-family'    => VARIATION_HEADINGS_FONT_ALT,
+						'font-family'    => THEME_HEADINGS_FONT_ALT,
 						'font-weight'    => '500',
 						'font-size'      => 19,
 						'line-height'    => 1.21,
@@ -399,7 +399,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 						.entry-content h5, .h5, h5, 
 						.nav-links__label',
 					'default'  => array(
-						'font-family'    => VARIATION_HEADINGS_FONT_ALT,
+						'font-family'    => THEME_HEADINGS_FONT_ALT,
 						'font-weight'    => '700',
 						'font-size'      => 14,
 						'line-height'    => 1.25,
@@ -410,7 +410,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 
 				'main_content_heading_6_font' => array(
 					'default' => array(
-						'font-family'    => VARIATION_HEADINGS_FONT_ALT,
+						'font-family'    => THEME_HEADINGS_FONT_ALT,
 						'font-weight'    => '700',
 						'font-size'      => 12,
 						'line-height'    => 1.25,
@@ -438,7 +438,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 			'callback'    => 'typeline_font_cb',
 
 			'default' => array(
-				'font-family'    => VARIATION_SITE_TITLE_FONT,
+				'font-family'    => THEME_SITE_TITLE_FONT,
 				'font-weight'    => '400',
 				'font-size'      => 19,
 				'line-height'    => 1.21,
@@ -500,7 +500,7 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 					'default' => 'rounded',
 				),
 				'buttons_color'      => array(
-					'default' => VARIATION_ACCENT_COLOR,
+					'default' => THEME_ACCENT_COLOR,
 					'css'     => array(
 						array(
 							'property' => 'background-color',
@@ -520,7 +520,7 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 				'buttons_font'       => array(
 					'selector' => $button_selector,
 					'default'  => array(
-						'font-family'    => VARIATION_HEADINGS_FONT_ALT,
+						'font-family'    => THEME_HEADINGS_FONT_ALT,
 						'font-weight'    => '500',
 						'font-size'      => 17,
 						'line-height'    => 1.94,
@@ -607,16 +607,16 @@ function bobo_customify_blog_grid_section( $section_options, $options ) {
 					'default' => '#333131',
 				),
 				'blog_item_meta_primary_color'       => array(
-					'default' => VARIATION_ACCENT_COLOR,
+					'default' => THEME_ACCENT_COLOR,
 				),
 				'blog_item_meta_secondary_color'     => array(
-					'default' => VARIATION_ACCENT_COLOR,
+					'default' => THEME_ACCENT_COLOR,
 				),
 				'blog_item_thumbnail_background'     => array(
 					'default' => '#000000',
 				),
 				'blog_item_excerpt_color'              => array(
-					'default' => VARIATION_ACCENT_COLOR,
+					'default' => THEME_ACCENT_COLOR,
 				),
 
 				// [Sub Section] Thumbnail Hover
@@ -628,7 +628,7 @@ function bobo_customify_blog_grid_section( $section_options, $options ) {
 				'blog_item_title_font'           => array(
 					'selector' => '.c-card__title, .c-card__letter',
 					'default' => array(
-						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-family'    => THEME_HEADINGS_FONT,
 						'font-weight'    => '700',
 						'font-size'      => 21,
 						'line-height'    => 1.3,
@@ -639,7 +639,7 @@ function bobo_customify_blog_grid_section( $section_options, $options ) {
 				'blog_item_meta_font'            => array(
 					'selector' => '.c-meta__primary, .c-meta__secondary',
 					'default' => array(
-						'font-family'    => VARIATION_SITE_TITLE_FONT,
+						'font-family'    => THEME_SITE_TITLE_FONT,
 						'font-weight'    => '400',
 						'font-size'      => 13,
 						'line-height'    => 1.1,
@@ -649,7 +649,7 @@ function bobo_customify_blog_grid_section( $section_options, $options ) {
 				),
 				'blog_item_excerpt_font'         => array(
 					'default' => array(
-						'font-family'    => VARIATION_BODY_FONT,
+						'font-family'    => THEME_BODY_FONT,
 						'font-weight'    => '400',
 						'font-size'      => 16,
 						'line-height'    => 1.5,
@@ -706,7 +706,7 @@ function bobo_customify_header_section( $section_options, $options ) {
 					'default' => '#323232',
 				),
 				'header_links_active_color'       => array(
-					'default' => VARIATION_ACCENT_COLOR,
+					'default' => THEME_ACCENT_COLOR,
 				),
 				'header_links_active_style'       => array(
 					'default' => 'active',
@@ -723,7 +723,7 @@ function bobo_customify_header_section( $section_options, $options ) {
 						),
 					),
 					'default' => array(
-						'font-family'    => VARIATION_SITE_TITLE_FONT,
+						'font-family'    => THEME_SITE_TITLE_FONT,
 						'font-weight'    => '400',
 						'font-size'      => 30,
 						'line-height'    => 1,
@@ -733,7 +733,7 @@ function bobo_customify_header_section( $section_options, $options ) {
 				),
 				'header_navigation_font'          => array(
 					'default' => array(
-						'font-family'    => VARIATION_HEADINGS_FONT_ALT,
+						'font-family'    => THEME_HEADINGS_FONT_ALT,
 						'font-weight'    => '500',
 						'font-size'      => 16,
 						'line-height'    => 1,
