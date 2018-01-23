@@ -40,6 +40,8 @@ function bobo_change_customify_general_section( $section_options, $options ) {
 	$modified_config = array(
 		'general' => array(
 			'options' => array(
+<<<<<<< HEAD
+=======
 				'show_blobs'           => array(
 					'type'    => 'checkbox',
 					'label'   => esc_html__( 'Show Blobs', '__theme_txtd' ),
@@ -53,7 +55,7 @@ function bobo_change_customify_general_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.blob__part--1',
+							'selector' => '.blob--color-1',
 						),
 					),
 				),
@@ -65,7 +67,7 @@ function bobo_change_customify_general_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.blob__part--2',
+							'selector' => '.blob--color-2',
 						),
 					),
 				),
@@ -77,10 +79,11 @@ function bobo_change_customify_general_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.blob__part--3',
+							'selector' => '.blob--color-3',
 						),
 					),
 				),
+>>>>>>> f2e292e2046ac0ef1cfda0c8e14f0c83293997e4
 			),
 		),
 	);
@@ -107,12 +110,6 @@ function bobo_change_customify_main_content( $section_options, $options ) {
 		// Main Content
 		'main_content' => array(
 			'options' => array(
-				'main_content_content_width'            => array(
-					'default' => 720,
-				),
-				'main_content_border_width'             => array(
-					'default' => 0,
-				),
 				'main_content_page_title_color'         => array(
 					'default' => VARIATION_TEXT_COLOR,
 				),

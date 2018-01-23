@@ -40,6 +40,50 @@ function bobo_change_customify_general_section( $section_options, $options ) {
 	$modified_config = array(
 		'general' => array(
 			'options' => array(
+<<<<<<< HEAD
+=======
+				'show_blobs'           => array(
+					'type'    => 'checkbox',
+					'label'   => esc_html__( 'Show Blobs', '__theme_txtd' ),
+					'default' => true, // this should be set by the theme (previously regular)
+				),
+				'blob_main_color'      => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Blobs Main Color', '__theme_txtd' ),
+					'live'    => true,
+					'default' => '#DE2D16',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.blob--color-1',
+						),
+					),
+				),
+				'blob_secondary_color' => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Blobs Secondary Color', '__theme_txtd' ),
+					'live'    => true,
+					'default' => '#FFDCCE',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.blob--color-2',
+						),
+					),
+				),
+				'blob_tertiary_color'  => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Blobs Tertiary Color', '__theme_txtd' ),
+					'live'    => true,
+					'default' => '#171512',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.blob--color-3',
+						),
+					),
+				),
+>>>>>>> f2e292e2046ac0ef1cfda0c8e14f0c83293997e4
 			),
 		),
 	);

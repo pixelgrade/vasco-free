@@ -1,57 +1,43 @@
-.blob {
-  svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-}
-
-
-.blob__part {
+.blobs,
+.blobs .blob,
+.blobs svg {
   position: absolute;
   top: 0;
   left: 0;
+
+  display: block;
   width: 100%;
   height: 100%;
 }
 
-.blob__part--1 {
-  height: 80%;
-  transform: translate3d(10%,-4%,0);
+.blobs {
+  pointer-events: none;
 }
 
-.blob__part--2 {
-  height: 80%;
-  transform: translate3d(10%,40%,0);
-}
+.blobs--thumbnail {
 
-.blob__part--3 {
-  height: 70%;
-  transform: translate3d(17%,-13%,0);
+  .blob:nth-child(1) {
+    height: 80%;
+    transform: translate3d(-40%,-4%,0);
+  }
+
+  .blob:nth-child(2) {
+    height: 80%;
+    transform: translate3d(-40%,40%,0);
+  }
+
+  .blob:nth-child(3) {
+    height: 70%;
+    transform: translate3d(-33%,-13%,0);
+  }
 }
 
 .blob-container {
   position: relative;
 
-  > .blob {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 5;
-
-    width: 100%;
-    height: 100%;
-
-    transform: translate3d(-50%,0,0)
-  }
-
   > img {
     position: relative;
-    z-index: 7;
+    z-index: 10;
   }
 }
 
@@ -59,40 +45,42 @@
   position: relative;
   overflow: hidden;
 
-  .blob__part {
+  .c-footer {
+    position: relative;
+    z-index: 100;
+  }
+}
+
+.blobs--footer {
+  .blob {
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
     height: 100%;
   }
-}
 
-.blob--footer-left,
-.blob--footer-right {
-  position: absolute;
-  bottom: 0;
 
-  width: 100%;
-  height: 100%;
-}
-
-.blob--footer-left {
-  left: 0;
-
-  .blob__part {
-    transform: translate3d(-50vw,0,0);
+  .blob:nth-child(1) {
+    left: 0;
+    transform: translate3d(-40vw,40%,0) rotate(-220deg);
+    height: 150%;
   }
 
-  .blob__part--2 {
-    transform: translate3d(-40vw,50%, 0);
-  }
-}
-
-.blob--footer-right {
-  right: 0;
-
-  .blob__part {
-    transform: translate3d(50vw,0,0);
+  .blob:nth-child(2) {
+    left: 0;
+    transform: translate3d(-56vw,-10%,0) rotateY(150deg) rotate(56deg);
+    height: 180%;
+    z-index: 10;
   }
 
-  .blob__part--2 {
-    transform: translate3d(40vw,50%, 0);
+  .blob:nth-child(3) {
+    right: 0;
+    transform: translate3d(44vw,85%,0) rotate(-30deg);
+  }
+
+  .blob:nth-child(4) {
+    right: 0;
+    transform: translate3d(52vw,50%,0) rotate(-50deg);
   }
 }

@@ -12,14 +12,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<div class="blob">
-	<div class="blob__part  blob__part--1">
+<div class="blobs  blobs--thumbnail">
+	<div class="blob  blob--color-1">
 		<?php get_template_part( 'template-parts/svg/content-blob-1' ); ?>
 	</div>
-	<div class="blob__part  blob__part--2">
+	<div class="blob  blob--color-2">
 		<?php get_template_part( 'template-parts/svg/content-blob-2' ); ?>
 	</div>
-	<div class="blob__part  blob__part--3">
+	<div class="blob  blob--color-3">
 		<?php get_template_part( 'template-parts/svg/content-blob-3' ); ?>
 	</div>
 </div>
