@@ -70,3 +70,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 </header><!-- #masthead .site-header -->
 
 <?php get_template_part( 'template-parts/toolbar' ); ?>
+<?php get_template_part( 'template-parts/search-overlay' ); ?>
