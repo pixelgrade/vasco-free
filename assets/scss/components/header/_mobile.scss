@@ -1,0 +1,100 @@
+.u-header-height[class],
+.c-navbar .sub-menu[class] {
+  min-height: 0;
+}
+
+.c-navbar[class] {
+  a {
+    padding: 0;
+  }
+
+  ul {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  li {
+    font-size: 19px;
+  }
+
+  li + li {
+    margin-top: 17px;
+  }
+
+  li li {
+    font-size: 16px;
+    margin-top: 21px;
+  }
+
+  li.hover > ul {
+    display: block;
+  }
+}
+
+// social icons are displayed inline so those list items don't need vertical spacing
+.jetpack-social-navigation[class] .menu li {
+  margin-top: 0;
+}
+
+.c-navbar__content {
+  position: fixed;
+  z-index: 9100;
+
+  &:before {
+    content: "";
+    display: block;
+    top: $header-mobile-height;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid rgba(0,0,0,0.1);
+  }
+}
+
+.c-navbar__label {
+  z-index: 9200;
+}
+
+.c-navbar__label-icon + .c-navbar__label-text {
+  margin-left: 10px;
+}
+
+.c-navbar__zone {
+  margin-top: 21px;
+  margin-bottom: 21px;
+}
+
+.c-navbar__zone--left {
+  display: none;
+}
+
+.c-navbar__zone--right {
+  margin-top: auto;
+}
+
+.jetpack-social-navigation {
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding-top: 20px;
+}
+
+.c-navbar:after {
+  content: "";
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9000;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: #000;
+  opacity: 0;
+  pointer-events: none;
+  transition: $transition--default;
+  transition-property: opacity;
+
+  .nav--is-open & {
+    opacity: .3;
+    pointer-events: auto;
+  }
+}

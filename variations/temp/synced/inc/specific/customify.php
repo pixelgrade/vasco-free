@@ -427,9 +427,6 @@ function temp_change_customify_header_section_options( $section_options, $option
 				'header_links_active_color'       => array(
 					'default' => VARIATION_TEXT_COLOR,
 				),
-				'header_background'               => array(
-					'default' => '#F5F6F1',
-				),
 				'header_site_title_font'          => array(
 					'fields'  => array(
 						'font-size' => array(

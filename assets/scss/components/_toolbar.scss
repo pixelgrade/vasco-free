@@ -30,13 +30,20 @@ $toolbar-width: 62px !default;
       }
     }
   }
+
+  @include below(lap) {
+    display: none;
+  }
 }
 
 .search-trigger {
   cursor: pointer;
 }
 
-.has-toolbar,
-.has-toolbar .site-header {
-  padding-right: $toolbar-width;
+@include above(lap) {
+
+  .has-toolbar,
+  .has-toolbar .site-header {
+    padding-right: $toolbar-width;
+  }
 }

@@ -3,9 +3,11 @@ import $ from 'jquery';
 import { BaseTheme, JQueryExtended } from '../../../components/base/ts/BaseTheme';
 import { Helper } from '../../../components/base/ts/services/Helper';
 import { SearchOverlay } from '../../../components/base/ts/components/SearchOverlay';
+import { Header } from '../../../components/header/ts/Header';
 
 export class Bobo extends BaseTheme {
   public SearchOverlay: SearchOverlay;
+  public Header: Header;
 
   constructor() {
     super();
@@ -19,7 +21,10 @@ export class Bobo extends BaseTheme {
 
   public onLoadAction() {
     super.onLoadAction();
+
+    this.Header = new Header();
     this.SearchOverlay = new SearchOverlay();
+
     this.adjustLayout();
   }
 
