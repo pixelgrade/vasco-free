@@ -2,8 +2,10 @@ import * as Masonry from 'masonry-layout';
 import $ from 'jquery';
 import { BaseTheme, JQueryExtended } from '../../../components/base/ts/BaseTheme';
 import { Helper } from '../../../components/base/ts/services/Helper';
+import { SearchOverlay } from '../../../components/base/ts/components/SearchOverlay';
 
 export class Bobo extends BaseTheme {
+  public SearchOverlay: SearchOverlay;
 
   constructor() {
     super();
@@ -17,7 +19,7 @@ export class Bobo extends BaseTheme {
 
   public onLoadAction() {
     super.onLoadAction();
-
+    this.SearchOverlay = new SearchOverlay();
     this.adjustLayout();
   }
 

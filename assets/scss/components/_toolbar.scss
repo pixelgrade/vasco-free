@@ -1,3 +1,5 @@
+$toolbar-width: 62px !default;
+
 .c-toolbar {
   position: fixed;
   top: 0;
@@ -5,7 +7,7 @@
   bottom: 0;
   z-index: 9000;
 
-  width: 62px;
+  width: $toolbar-width;
   border-left: 1px solid rgba(0,0,0,0.1);
   padding: 1.5rem 0;
 
@@ -32,4 +34,9 @@
 
 .search-trigger {
   cursor: pointer;
+}
+
+.has-toolbar,
+.has-toolbar .site-header {
+  padding-right: $toolbar-width;
 }

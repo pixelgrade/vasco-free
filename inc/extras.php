@@ -123,3 +123,17 @@ function bobo_add_blobs_to_footer() {
 	}
 }
 add_action( 'pixelgrade_footer_after_content', 'bobo_add_blobs_to_footer', 10 );
+
+/**
+ * Adds custom classes to the array of body classes.
+ *
+ * @param array $classes Classes for the body element.
+ * @return array
+ */
+function bobo_body_classes( $classes ) {
+
+	$classes[] = 'has-toolbar';
+
+	return $classes;
+}
+add_filter( 'body_class', 'bobo_body_classes' );
