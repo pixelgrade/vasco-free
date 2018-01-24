@@ -44,4 +44,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="c-promo__media">
 		<?php echo wp_get_attachment_image( $image, 'full' ); ?>
 	</div>
+
+	<?php if ( pixelgrade_option( 'show_stamps' ) ) {
+		get_template_part( 'content-stamp' );
+	} ?>
+
 <?php } ?>
