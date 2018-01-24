@@ -763,8 +763,8 @@ function bobo_customify_header_section( $section_options, $options ) {
 					'default' => array(
 						'font-family'    => THEME_HEADINGS_FONT_ALT,
 						'font-weight'    => '500',
-						'font-size'      => 16,
-						'line-height'    => 1,
+						'font-size'      => 17,
+						'line-height'    => 1.5,
 						'letter-spacing' => 0,
 						'text-transform' => 'none'
 					),
