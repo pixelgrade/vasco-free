@@ -788,6 +788,15 @@ var Header = function (_BaseComponent) {
         _this.areMobileBindingsDone = false;
         _this.subscriptionActive = true;
         _this.preventOneSelector = 'a.prevent-one';
+        __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone').each(function (i, obj) {
+            var $obj = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
+            if ($obj.find('.c-branding').length) {
+                $obj.addClass('c-navbar__zone--branding');
+            }
+            if ($obj.find('.jetpack-social-navigation').length) {
+                $obj.addClass('c-navbar__zone--social');
+            }
+        });
         __WEBPACK_IMPORTED_MODULE_1_imagesloaded__(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar .c-logo'), function () {
             _this.bindEvents();
             _this.eventHandlers();
@@ -864,7 +873,7 @@ var Header = function (_BaseComponent) {
             $branding.clone().addClass('c-branding--mobile');
             $branding.find('img').removeClass('is--loading');
             // Create the mobile site header
-            var $siteHeaderMobile = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('<div class="site-header-mobile  u-header-sides-spacing"></div>').appendTo('.c-navbar');
+            var $siteHeaderMobile = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('<div class="site-header-mobile  u-header-sides-spacing"></div>');
             // Append the social menu
             var $searchTrigger = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.js-mobile-search-trigger').clone().show();
             $siteHeaderMobile.append($branding);

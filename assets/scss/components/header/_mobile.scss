@@ -39,6 +39,7 @@
 .c-navbar__content {
   position: fixed;
   z-index: 9100;
+  padding-bottom: 21px;
 
   &:before {
     content: "";
@@ -61,18 +62,20 @@
 
 .c-navbar__zone {
   margin-top: 21px;
-  margin-bottom: 21px;
 }
 
-.c-navbar__zone--left {
+.c-navbar__zone--branding {
   display: none;
 }
 
-.c-navbar__zone--right {
-  margin-top: auto;
+.c-navbar__zone--social {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .jetpack-social-navigation {
+  margin-top: auto;
   border-top: 1px solid rgba(0,0,0,0.1);
   padding-top: 20px;
 }
