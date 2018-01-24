@@ -422,10 +422,10 @@ function temp_change_customify_header_section_options( $section_options, $option
 				),
 				// [Section] Colors
 				'header_navigation_links_color'   => array(
-					'default' => '#323232',
+					'default' => VARIATION_TEXT_COLOR,
 				),
 				'header_links_active_color'       => array(
-					'default' => VARIATION_ACCENT_COLOR,
+					'default' => VARIATION_TEXT_COLOR,
 				),
 				'header_background'               => array(
 					'default' => '#F5F6F1',
