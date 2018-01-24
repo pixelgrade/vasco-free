@@ -861,17 +861,15 @@ var Header = function (_BaseComponent) {
             }
             // Append the branding
             var $branding = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-branding');
-            var $navbarZone = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone--right');
-            $branding.clone().addClass('c-branding--mobile').appendTo('.c-navbar');
+            $branding.clone().addClass('c-branding--mobile');
             $branding.find('img').removeClass('is--loading');
             // Create the mobile site header
-            var $siteHeaderMobile = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('<div class="site-header-mobile u-container-sides-spacing"></div>').appendTo('.c-navbar');
+            var $siteHeaderMobile = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('<div class="site-header-mobile  u-header-sides-spacing"></div>').appendTo('.c-navbar');
             // Append the social menu
-            var $socialMenu = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone--left .jetpack-social-navigation').clone();
-            var $searchTrigger = $socialMenu.find('.js-search-trigger').parent().clone();
-            $navbarZone.append($socialMenu);
-            $navbarZone.find('.js-search-trigger').parent().remove();
-            $siteHeaderMobile.append($socialMenu.empty().append($searchTrigger));
+            var $searchTrigger = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.js-mobile-search-trigger').clone().show();
+            $siteHeaderMobile.append($branding);
+            $siteHeaderMobile.append($searchTrigger);
+            $siteHeaderMobile.appendTo('.c-navbar');
             // Handle sub menus:
             // Make sure there are no open menu items
             __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.menu-item-has-children').removeClass('hover');

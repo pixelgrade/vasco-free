@@ -47,6 +47,7 @@
     left: 0;
     width: 100%;
     border-top: 1px solid rgba(0,0,0,0.1);
+    margin-top: -1px;
   }
 }
 
@@ -96,5 +97,30 @@
   .nav--is-open & {
     opacity: .3;
     pointer-events: auto;
+  }
+}
+
+.site-header-mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $header-mobile-height;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+
+  .js-search-trigger {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 27px;
+    height: $header-mobile-height;
+
+    background: transparent url( $search-svg ) center center no-repeat;
+    background-size: contain;
   }
 }

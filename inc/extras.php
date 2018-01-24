@@ -137,3 +137,8 @@ function bobo_body_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'bobo_body_classes' );
+
+function bobo_output_footer_search_trigger() {
+	echo '<div class="js-search-trigger  js-mobile-search-trigger"></div>';
+}
+add_action( 'pixelgrade_footer_after_content', 'bobo_output_footer_search_trigger' );

@@ -740,6 +740,12 @@ function bobo_customify_header_section( $section_options, $options ) {
 							'unit'            => 'px',
 							'callback_filter' => 'typeline_spacing_cb',
 						),
+						array(
+							'property'        => 'right',
+							'selector'        => '.site-header-mobile .js-search-trigger',
+							'unit'            => 'px',
+							'callback_filter' => 'typeline_spacing_cb',
+						),
 					),
 				),
 
