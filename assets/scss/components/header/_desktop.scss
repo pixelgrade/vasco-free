@@ -94,11 +94,19 @@
   }
 }
 
-.header {
+.c-navbar__zone--left .header {
   margin-right: auto;
 
   a[rel="home"] {
     padding-left: 0;
+  }
+}
+
+.c-navbar__zone--right .header {
+  margin-left: auto;
+
+  a[rel="home"] {
+    padding-right: 0;
   }
 }
 
