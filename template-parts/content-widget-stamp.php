@@ -15,5 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<!--Markup to be determined-->
-<p>This is just a placeholder markup for the stamp widget. We have a <strong><?php echo $box_style; ?></strong> stamp</p>
+<?php if ( pixelgrade_option( 'show_stamps' ) ) {
+	get_template_part( 'content-stamp' );
+} ?>

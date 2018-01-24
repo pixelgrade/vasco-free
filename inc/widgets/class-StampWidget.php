@@ -54,9 +54,7 @@ if ( ! class_exists( 'Pixelgrade_StampWidget' ) ) :
 				    // You can have multiple templates here (array of arrays) and we will use the first one that passes processing and is found
 				    // @see Pixelgrade_Config::evaluateTemplateParts()
 				    'templates' => array(
-					    'component_slug'    => Pixelgrade_Blog::COMPONENT_SLUG,
-					    'slug'              => 'content-widget',
-					    'name'              => 'stamp',
+					    'slug'              => 'content-stamp',
 					    'lookup_parts_root' => true,
 				    ),
 			    ),
@@ -122,6 +120,16 @@ if ( ! class_exists( 'Pixelgrade_StampWidget' ) ) :
 				$classes = array();
 				if ( ! empty( $this->config['posts']['classes'] ) ) {
 					$classes = array_merge( $classes, (array) $this->config['posts']['classes'] );
+				}
+
+				// Add our dynamic classes
+				if ( isset( $box_style ) ) {
+					$classes[] = 'c-stamp--' . $box_style;
+					// We also want to add our class to the widget top wrapper
+					preg_match('/class="([^"]*)"/', $args['before_widget'], $matches);
+					if ( ! empty( $matches[1] ) ) {
+						$args['before_widget'] = str_replace( $matches[1], $matches[1] . ' widget_stamp--' . $box_style, $args['before_widget'] );
+					}
 				}
 
 				/**
