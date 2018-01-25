@@ -1,10 +1,14 @@
-<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-		<g transform="translate(-1377, -34)" fill="currentColor">
-			<g transform="translate(1377, 33)">
-				<rect transform="translate(13, 13.866667) rotate(-315) translate(-13, -13.866667) " x="-3.46666667" y="12.1333333" width="32.9333333" height="3.46666667"></rect>
-				<rect transform="translate(13, 13.866667) rotate(-45) translate(-13, -13.866667) " x="-3.46666667" y="12.1333333" width="32.9333333" height="3.46666667"></rect>
-			</g>
-		</g>
-	</g>
-</svg>
+<?php
+/**
+ * Template part for displaying the close icon inline svg.
+ *
+ * @package Bobo
+ * @since 1.0.0
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+?>
+<svg width="26" height="26" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor" fill-rule="evenodd"><path d="M2.582-.003l23.287 23.287-2.451 2.452L.13 2.448z"/><path d="M.13 23.285L23.417-.002l2.452 2.451L2.582 25.736z"/></g></svg>
