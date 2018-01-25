@@ -137,3 +137,8 @@ function bobo_body_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'bobo_body_classes' );
+
+function bobo_output_toolbar() {
+	get_template_part( 'template-parts/toolbar' );
+}
+add_action( 'pixelgrade_after_header', 'bobo_output_toolbar', 10 );
