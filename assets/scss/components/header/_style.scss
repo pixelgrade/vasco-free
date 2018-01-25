@@ -1,0 +1,15 @@
+@import '../../../../components/header/scss/elements/burger';
+@import '../../../../components/header/scss/elements/branding';
+@import '../../../../components/header/scss/elements/site-header';
+
+@include below(lap) {
+  @import '../../../../components/header/scss/elements/navbar-mobile';
+}
+
+@include above(lap) {
+  @import '../../../../components/header/scss/elements/navbar-desktop';
+}
+
+@import '../../../../components/header/scss/customify';
+
+@import 'desktop';

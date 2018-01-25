@@ -83,7 +83,7 @@ function bobo_customify_general_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.blob__part--1',
+							'selector' => '.blob--color-1',
 						),
 					),
 				),
@@ -95,7 +95,7 @@ function bobo_customify_general_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.blob__part--2',
+							'selector' => '.blob--color-2',
 						),
 					),
 				),
@@ -107,7 +107,7 @@ function bobo_customify_general_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.blob__part--3',
+							'selector' => '.blob--color-3',
 						),
 					),
 				),
@@ -689,9 +689,35 @@ function bobo_customify_header_section( $section_options, $options ) {
 				),
 				'header_height'                   => array(
 					'default' => 87,
+					'css' => array(
+						array(
+							'property' => 'min-height',
+							'selector' => '.u-header-height, .c-navbar .sub-menu',
+							'unit'     => 'px',
+						),
+						array(
+							'property' => 'padding-top',
+							'selector' => '.u-header-height-padding-top',
+							'unit'     => 'px',
+						),
+					),
 				),
 				'header_navigation_links_spacing' => array(
-					'default' => 56,
+					'default' => 28,
+					'css' => array(
+						array(
+							'property'        => 'padding-left',
+							'selector'        => '.c-navbar a',
+							'unit'            => 'px',
+							'callback_filter' => 'typeline_spacing_cb',
+						),
+						array(
+							'property'        => 'padding-right',
+							'selector'        => '.c-navbar a',
+							'unit'            => 'px',
+							'callback_filter' => 'typeline_spacing_cb',
+						),
+					),
 				),
 				'header_position'                 => array(
 					'default' => 'sticky',
@@ -737,8 +763,8 @@ function bobo_customify_header_section( $section_options, $options ) {
 					'default' => array(
 						'font-family'    => THEME_HEADINGS_FONT_ALT,
 						'font-weight'    => '500',
-						'font-size'      => 16,
-						'line-height'    => 1,
+						'font-size'      => 17,
+						'line-height'    => 1.5,
 						'letter-spacing' => 0,
 						'text-transform' => 'none'
 					),

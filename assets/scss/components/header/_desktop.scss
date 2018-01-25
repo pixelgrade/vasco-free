@@ -1,0 +1,132 @@
+
+.c-navbar a {
+  @include spacing(padding, 1rem);
+}
+
+.c-navbar[class] {
+  position: relative;
+  align-items: stretch;
+
+  ul {
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  li {
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+
+  li[class*="children"] {
+    position: static;
+
+    > a:after {
+      content: "";
+
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+
+      margin-left: .5em;
+      border: 1px solid transparent;
+      border-right-color: currentColor;
+      border-bottom-color: currentColor;
+      transform: rotate(45deg);
+    }
+
+    &:hover > {
+
+      > a:after {
+        transform: translateY(50%) rotate(-135deg);
+      }
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  }
+
+  .u-underlined-links & a {
+    text-decoration: none;
+  }
+
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    padding-left: 0;
+
+    a {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    > li > a {
+      position: relative;
+    }
+
+    > li > a:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: currentColor;
+      transform-origin: 50% 0;
+      transition: $transition--default;
+      transition-property: transform;
+      transform: scaleY(0);
+    }
+
+    > li:hover > a:before {
+      transform: scaleY(1);
+    }
+  }
+
+  .sub-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    display: none;
+
+    width: 100%;
+    padding-left: 0;
+
+    background-color: #FFF;
+    box-shadow: 0 4px 4px 0 rgba(42,54,52,0.1), 0 8px 8px 0 rgba(42,54,52,0.1), 0 16px 16px 0 rgba(42,54,52,0.1), 0 16px 32px 0 rgba(42,54,52,0.1), 0 32px 64px 0 rgba(42,54,52,0.1), 0 64px 128px 0 rgba(42,54,52,0.1);
+  }
+}
+
+.c-navbar__zone {
+  justify-content: center;
+
+  &,
+  nav,
+  .menu {
+    height: 100%;
+  }
+}
+
+.header {
+  margin-right: auto;
+
+  a[rel="home"] {
+    padding-left: 0;
+  }
+}
+
+.c-branding {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  a {
+    flex-shrink: 0;
+  }
+}
