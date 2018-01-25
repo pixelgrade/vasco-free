@@ -138,6 +138,9 @@ function bobo_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'bobo_body_classes' );
 
+/**
+ * Output mobile search trigger icon
+ */
 function bobo_output_footer_search_trigger() {
 	echo '<div class="js-search-trigger  js-mobile-search-trigger"></div>';
 }
@@ -162,6 +165,9 @@ function bobo_customize_header_config( $config ) {
 }
 add_filter( 'pixelgrade_header_config', 'bobo_customize_header_config', 10, 1 );
 
+/**
+ * Output side toolbar
+ */
 function bobo_output_toolbar() {
 	get_template_part( 'template-parts/toolbar' );
 }

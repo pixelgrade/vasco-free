@@ -801,6 +801,7 @@ var Header = function (_BaseComponent) {
             _this.bindEvents();
             _this.eventHandlers();
             _this.updateOnResize();
+            _this.toggleNavStateClass();
         });
         return _this;
     }
@@ -914,13 +915,18 @@ var Header = function (_BaseComponent) {
             $button.parent().addClass(hoverClass);
         }
     }, {
+        key: 'toggleNavStateClass',
+        value: function toggleNavStateClass() {
+            var isMenuOpen = this.$menuToggle.prop('checked');
+            this.$body.toggleClass('nav--is-open', isMenuOpen);
+            return isMenuOpen;
+        }
+    }, {
         key: 'onMenuToggleChange',
         value: function onMenuToggleChange(e) {
             var _this3 = this;
 
-            var isMenuOpen = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(e.currentTarget).prop('checked');
-            this.$body.toggleClass('nav--is-open', isMenuOpen);
-            if (!isMenuOpen) {
+            if (!this.toggleNavStateClass()) {
                 setTimeout(function () {
                     // Close the open submenus in the mobile menu overlay
                     _this3.$mainMenuItems.removeClass('hover');
