@@ -87,6 +87,12 @@
 .c-navbar__zone {
   justify-content: center;
 
+  // remove sides spacings set up for mobile
+  &[class] {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   &,
   nav,
   .menu {
@@ -96,18 +102,10 @@
 
 .c-navbar__zone--left .header {
   margin-right: auto;
-
-  a[rel="home"] {
-    padding-left: 0;
-  }
 }
 
 .c-navbar__zone--right .header {
   margin-left: auto;
-
-  a[rel="home"] {
-    padding-right: 0;
-  }
 }
 
 .c-branding {

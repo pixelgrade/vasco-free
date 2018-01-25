@@ -398,7 +398,8 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 
 				'main_content_heading_5_font' => array(
 					'selector' => '
-						.entry-content h5, .h5, h5, 
+						.entry-content h5, .h5, h5,
+						.site-description, 
 						.nav-links__label',
 					'default'  => array(
 						'font-family'    => THEME_HEADINGS_FONT_ALT,
@@ -685,13 +686,13 @@ function bobo_customify_header_section( $section_options, $options ) {
 			'options' => array(
 				// [Section] Layout
 				'header_logo_height'              => array(
-					'default' => 30,
+					'default' => 40,
 				),
 				'header_height'                   => array(
 					'default' => 87,
 					'css'     => array(
 						array(
-							'property' => 'min-height',
+							'property' => 'height',
 							'selector' => '.u-header-height, .c-navbar .sub-menu',
 							'unit'     => 'px',
 						),

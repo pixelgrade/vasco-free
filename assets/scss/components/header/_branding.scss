@@ -1,0 +1,48 @@
+
+// reset padding inherited from navigation item spacing
+.c-branding[class] a {
+  padding: 0;
+}
+
+.c-branding[class] {
+  text-align: center;
+
+  @include above(lap) {
+    margin-left: -1rem;
+
+    a, .site-description {
+      padding-left: 1rem;
+    }
+  }
+}
+
+.site-description[class] {
+  opacity: 0.5;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 500;
+
+  @include leading-map(map-merge($h5, (
+    spacing-top: false,
+    spacing-bottom: false,
+  )));
+
+  @include below(lap) {
+    display: none;
+  }
+}
+
+.c-logo {
+
+  a {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  // hide site title on mobile when there is a logo set up
+  @include below(lap) {
+    + a {
+      display: none;
+    }
+  }
+}

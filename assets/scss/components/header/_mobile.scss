@@ -47,6 +47,14 @@
   }
 }
 
+.u-header-height[class] {
+  height: $header-mobile-height;
+}
+
+.c-navbar .sub-menu[class] {
+  height: auto;
+}
+
 // social icons are displayed inline so those list items don't need vertical spacing
 .jetpack-social-navigation[class] .menu li {
   margin-top: 0;

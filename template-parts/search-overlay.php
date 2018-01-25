@@ -12,10 +12,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<div class="search-trigger  js-search-trigger">
-	<?php get_template_part( 'template-parts/svg/search-blob' ); ?>
-</div>
-
 <div class="c-search-overlay  u-content-background">
 	<div class="c-search-overlay__content">
 		<?php get_search_form(); ?>
