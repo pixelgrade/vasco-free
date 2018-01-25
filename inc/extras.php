@@ -138,6 +138,36 @@ function bobo_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'bobo_body_classes' );
 
+/**
+ * Output mobile search trigger icon
+ */
+function bobo_output_footer_search_trigger() {
+	echo '<div class="js-search-trigger  js-mobile-search-trigger"></div>';
+}
+add_action( 'pixelgrade_footer_after_content', 'bobo_output_footer_search_trigger' );
+
+/**
+ * Customize the Header component config.
+ *
+ * @param array $config
+ *
+ * @return array
+ */
+function bobo_customize_header_config( $config ) {
+	// Don't output empty markup
+	$config['zones']['left']['display_blank'] = false;
+	$config['zones']['right']['display_blank'] = false;
+
+	// The Social Menu should be in the left zone
+	unset($config['menu_locations']['jetpack-social-menu']);
+
+	return $config;
+}
+add_filter( 'pixelgrade_header_config', 'bobo_customize_header_config', 10, 1 );
+
+/**
+ * Output side toolbar
+ */
 function bobo_output_toolbar() {
 	get_template_part( 'template-parts/toolbar' );
 }

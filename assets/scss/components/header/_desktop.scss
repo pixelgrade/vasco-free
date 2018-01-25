@@ -1,4 +1,3 @@
-
 .c-navbar a {
   @include spacing(padding, 1rem);
 }
@@ -20,25 +19,7 @@
   li[class*="children"] {
     position: static;
 
-    > a:after {
-      content: "";
-
-      display: inline-block;
-      width: 7px;
-      height: 7px;
-
-      margin-left: .5em;
-      border: 1px solid transparent;
-      border-right-color: currentColor;
-      border-bottom-color: currentColor;
-      transform: rotate(45deg);
-    }
-
     &:hover > {
-
-      > a:after {
-        transform: translateY(50%) rotate(-135deg);
-      }
 
       ul {
         display: flex;
@@ -113,11 +94,19 @@
   }
 }
 
-.header {
+.c-navbar__zone--left .header {
   margin-right: auto;
 
   a[rel="home"] {
     padding-left: 0;
+  }
+}
+
+.c-navbar__zone--right .header {
+  margin-left: auto;
+
+  a[rel="home"] {
+    padding-right: 0;
   }
 }
 
@@ -129,4 +118,9 @@
   a {
     flex-shrink: 0;
   }
+}
+
+.c-navbar__zone {
+  padding-left: 0;
+  padding-right: 0;
 }

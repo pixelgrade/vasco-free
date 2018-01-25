@@ -4,12 +4,52 @@
 
 @include below(lap) {
   @import '../../../../components/header/scss/elements/navbar-mobile';
+  @import 'mobile';
 }
 
 @include above(lap) {
   @import '../../../../components/header/scss/elements/navbar-desktop';
+  @import 'desktop';
 }
 
 @import '../../../../components/header/scss/customify';
 
-@import 'desktop';
+.c-navbar__checkbox {
+  display: none;
+}
+
+.u-underlined-links .c-navbar a {
+  text-decoration: none;
+}
+
+.u-underlined-header-links .c-navbar a:hover {
+  text-decoration: underline;
+}
+
+.c-navbar {
+
+  li[class*="children"] {
+    position: static;
+
+    > a:after {
+      content: "";
+
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+
+      margin-left: .5em;
+      border: 1px solid transparent;
+      border-right-color: currentColor;
+      border-bottom-color: currentColor;
+      transform: rotate(45deg);
+    }
+
+    &:hover > {
+
+      > a:after {
+        transform: translateY(50%) rotate(-135deg);
+      }
+    }
+  }
+}
