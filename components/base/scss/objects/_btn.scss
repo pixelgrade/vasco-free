@@ -8,9 +8,12 @@
 
 // Predefine the variables below in order to alter and enable specific features.
 $btn-padding: 0.75em 1.75em !default;
-$btn-background: #222222 !default;
-$btn-hover-background: #000000 !default;
-$btn-color: #FFFFFF !default;
+$btn-background: #222 !default;
+$btn-hover-background: #000 !default;
+$btn-color: #FFF !default;
+$btn-default-background: #111 !default;
+$btn-hover-background: #000 !default;
+$btn-default-color: #FFF !default;
 
 $btn-border-width: 0 !default;
 $btn-border-style: solid !default;
@@ -207,6 +210,11 @@ $btn-font: () !default;
 
 .c-btn {
   @include btn;
+
+  &--default {
+    background-color: $btn-default-background !important;
+    color: $btn-default-color !important;
+  }
 }
 
 .c-btn-directional {

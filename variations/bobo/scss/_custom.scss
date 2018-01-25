@@ -1,1 +1,50 @@
+@mixin custom-btn-overwrite {
+  transition: $transition--default;
 
+  &:focus,
+  &:active,
+  &:hover {
+    opacity: 1;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+    transform: scale(1.05);
+    transform-origin: center;
+  }
+}
+
+/* stylelint-disable */
+button[type=button],
+button[type=reset],
+button[type=submit],
+input[type=button],
+input[type=submit],
+  /* stylelint-enable */
+.c-btn--default {
+  @include custom-btn-overwrite;
+}
+
+select {
+  background-size: 13px 7px;
+}
+
+div.wpforms-container[class] {
+  .wpforms-form {
+    input[type="radio"] {
+      &:checked {
+        border-color: $checkbox-color;
+      }
+    }
+
+    input[type="checkbox"] {
+      &:checked {
+        border-color: $checkbox-color;
+        background: $checkbox-background-color url('#{$checkbox-svg}') center center no-repeat;
+        background-size: 100% 100%;
+      }
+    }
+
+    .wpforms-submit {
+      @include btn;
+      @include custom-btn-overwrite;
+    }
+  }
+}
