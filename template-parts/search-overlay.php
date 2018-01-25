@@ -5,7 +5,16 @@
  * @package Bobo
  * @since 1.0.0
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 ?>
+
+<div class="search-trigger  js-search-trigger">
+	<?php get_template_part( 'template-parts/svg/search-blob' ); ?>
+</div>
 
 <div class="c-search-overlay  u-content-background">
 	<div class="c-search-overlay__content">

@@ -269,7 +269,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.entry-content h4, .h4, h4, .single .entry-header .cats',
+							'selector' => 'h4, .h4, .single .entry-header .cats',
 						),
 					),
 				),

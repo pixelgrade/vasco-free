@@ -161,3 +161,8 @@ function bobo_customize_header_config( $config ) {
 	return $config;
 }
 add_filter( 'pixelgrade_header_config', 'bobo_customize_header_config', 10, 1 );
+
+function bobo_output_toolbar() {
+	get_template_part( 'template-parts/toolbar' );
+}
+add_action( 'pixelgrade_after_header', 'bobo_output_toolbar', 10 );
