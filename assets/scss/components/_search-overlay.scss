@@ -13,8 +13,6 @@
   justify-content: center;
   align-items: center;
 
-  background-color: #F7F6F5;
-
   opacity: 0;
   pointer-events: none;
   transition: opacity $transition--macro ease-in-out;
@@ -33,11 +31,33 @@
     top: 0;
     right: 0;
 
-    padding: 2rem;
+    height: $header-mobile-height;
     cursor: pointer;
+
+    svg {
+      display: block;
+    }
+
+    &[class] {
+      @include above(lap) {
+        top: 1rem;
+        padding-left: 0;
+        padding-right: 0;
+        width: $toolbar-width;
+
+        svg {
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    }
   }
 
   .search-field {
+    @include leading-map(map-merge($h3, (
+      spacing-top: false,
+      spacing-bottom: false,
+    )));
     padding: 0;
     border: 0;
 

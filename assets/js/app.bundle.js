@@ -886,8 +886,6 @@ var Header = function (_BaseComponent) {
             __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.menu-item-has-children > a').each(function (index, element) {
                 __WEBPACK_IMPORTED_MODULE_0_jquery___default()(element).addClass('prevent-one');
             });
-            // Replace the label text and make it visible
-            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__label-text ').html(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.js-menu-mobile-label').html()).removeClass('screen-reader-text');
             this.isMobileHeaderInitialised = true;
         }
     }, {

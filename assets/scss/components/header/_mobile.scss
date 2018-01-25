@@ -5,7 +5,7 @@
 
 .c-navbar[class] {
   a {
-    padding: 0;
+    padding: 8px 0;
   }
 
   ul {
@@ -17,17 +17,33 @@
     font-size: 19px;
   }
 
-  li + li {
-    margin-top: 17px;
-  }
-
   li li {
     font-size: 16px;
-    margin-top: 21px;
+    margin-top: 4px;
   }
 
   li.hover > ul {
     display: block;
+  }
+
+  .sub-menu {
+    margin-top: -10px;
+
+    a {
+      display: flex;
+      align-items: baseline;
+      opacity: 0.7;
+    }
+  }
+
+  li[class*="children"] > a:after {
+    position: static;
+    transform: translateY(-40%) rotate(45deg)
+  }
+
+  li[class*="children"]:hover > a:after {
+    position: static;
+    transform: translateY(20%) rotate(-135deg);
   }
 }
 
