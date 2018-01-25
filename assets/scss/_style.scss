@@ -45,21 +45,22 @@ $content-class: '.entry-content';
 @import '../../components/base/scss/plugins/jetpack-social-navigation';
 
 // BOBO STYLING
-@import '../../assets/scss/components/author-box';
-@import '../../assets/scss/components/blob';
-@import '../../assets/scss/components/blockquote';
-@import '../../assets/scss/components/comments';
-@import '../../assets/scss/components/dropcap';
-@import '../../assets/scss/components/hr';
-@import '../../assets/scss/components/intro';
-@import '../../assets/scss/components/links';
-@import '../../assets/scss/components/lists';
-@import '../../assets/scss/components/post-navigation';
-@import '../../assets/scss/components/related-posts';
-@import '../../assets/scss/components/table';
-@import '../../assets/scss/components/toolbar';
-@import '../../assets/scss/components/search-overlay';
-@import '../../assets/scss/components/wp-caption';
+@import 'components/author-box';
+@import 'components/blob';
+@import 'components/blockquote';
+@import 'components/comments';
+@import 'components/dropcap';
+@import 'components/hr';
+@import 'components/intro';
+@import 'components/links';
+@import 'components/lists';
+@import 'components/post-navigation';
+@import 'components/related-posts';
+@import 'components/table';
+@import 'components/toolbar';
+@import 'components/search-overlay';
+@import 'components/widgets';
+@import 'components/wp-caption';
 
 .accent-image-filter {
   @include accent-image-filter;

@@ -1,0 +1,51 @@
+.widget + .widget {
+  @include spacing(margin-top, 2.5rem);
+}
+
+// List Widgets
+%widget--list {
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+// Links Widgets
+%widget--links {
+  @extend %widget--list;
+
+  a {
+    color: $theme-accent-color;
+  }
+}
+.widget_archive,
+.widget_categories,
+.widget_meta,
+.widget_recent_comments,
+.widget_recent_entries,
+.widget_rss {
+  @extend %widget--list;
+}
+
+// increase selector specificity to overwrite footer links color
+body {
+
+  .widget_pages,
+  .widget_nav_menu {
+    @extend %widget--links;
+  }
+}
+
+// Widget Area Specific Rules
+.widget-area--main {
+  text-align: center;
+}

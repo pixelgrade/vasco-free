@@ -487,7 +487,6 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 		button[type=submit],
 		input[type=button],
 		input[type=submit],
-		.widget_pages,
 		.featured-posts__more';
 
 	$modified_config = array(
