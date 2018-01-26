@@ -876,9 +876,9 @@ var Header = function (_BaseComponent) {
             // Create the mobile site header
             var $siteHeaderMobile = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('<div class="site-header-mobile  u-header-sides-spacing"></div>');
             // Append the social menu
-            var $searchTrigger = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.js-mobile-search-trigger').clone().show();
-            $siteHeaderMobile.append($branding);
-            $siteHeaderMobile.append($searchTrigger);
+            var $searchTrigger = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.js-mobile-search-trigger');
+            $siteHeaderMobile.append($branding.clone());
+            $siteHeaderMobile.append($searchTrigger.clone().show());
             $siteHeaderMobile.appendTo('.c-navbar');
             // Handle sub menus:
             // Make sure there are no open menu items
