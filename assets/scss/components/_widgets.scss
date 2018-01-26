@@ -90,7 +90,9 @@
     }
 
     cite {
-
+      display: block;
+      @include spacing(margin-top, 0.5rem);
+      opacity: 0.5;
     }
   }
 }
