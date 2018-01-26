@@ -16,16 +16,16 @@
   }
 }
 
+.site-title {
+  text-decoration: underline;
+}
+
 .site-description[class] {
   opacity: 0.5;
   text-transform: none;
   letter-spacing: 0;
   font-weight: 500;
-
-  @include leading-map(map-merge($h5, (
-    spacing-top: false,
-    spacing-bottom: false,
-  )));
+  font-family: map-get($h5, font-family);
 
   @include below(lap) {
     display: none;

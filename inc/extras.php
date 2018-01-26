@@ -154,12 +154,7 @@ add_action( 'pixelgrade_footer_after_content', 'bobo_output_footer_search_trigge
  * @return array
  */
 function bobo_customize_header_config( $config ) {
-	// Don't output empty markup
-	$config['zones']['left']['display_blank'] = false;
-	$config['zones']['right']['display_blank'] = false;
-
-	// The Social Menu should be in the left zone
-	unset($config['menu_locations']['jetpack-social-menu']);
+	unset( $config['menu_locations']['jetpack-social-menu'] );
 
 	return $config;
 }

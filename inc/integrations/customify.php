@@ -930,7 +930,7 @@ function bobo_add_customify_theme_fonts( $fonts ) {
 	$fonts['Bebas Neue'] = array(
 		'family'   => 'Bebas Neue',
 		'src'      => get_template_directory_uri() . '/assets/fonts/bebasneue/stylesheet.css',
-		'variants' => array( '100', '200', '300', '400', '700' )
+		'variants' => array( '700' )
 	);
 
 	return $fonts;
