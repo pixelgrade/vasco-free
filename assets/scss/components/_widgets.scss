@@ -139,6 +139,16 @@
   }
 }
 
+.widget_media_gallery {
+  [class*="gallery-columns-"] {
+    align-items: center;
+
+    .widget-area--main & {
+      justify-content: center;
+    }
+  }
+}
+
 // increase selector specificity to overwrite footer links color
 body {
 
