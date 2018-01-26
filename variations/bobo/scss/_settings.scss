@@ -252,11 +252,13 @@ $blog-excerpt-visibility: true;
 // ----------------------------------------
 // Colors
 // ----------------------------------------
-$blog-card-title-color: #000;
-$blog-primary-meta-color: #3B3B3B;
+$blog-card-title-color: #2B3D39;
+$blog-primary-meta-color: #DE2D16;
 $blog-secondary-meta-color: #828282;
 $blog-thumbnail-background: $theme-accent-color;
 $blog-thumbnail-background-opacity: 0.5;
+
+$blog-secondary-meta-color: #FFF !default;
 // ----------------------------------------
 // Fonts
 // ----------------------------------------
