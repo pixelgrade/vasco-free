@@ -54,13 +54,16 @@
   }
 
   .search-field {
-    @include leading-map(map-merge($h3, (
+
+    @include leading-map(map-merge($page-title-font, (
       spacing-top: false,
       spacing-bottom: false,
     )));
+
     padding: 0;
     border: 0;
 
+    color: $page-title-color;
     background-color: transparent;
   }
 
@@ -81,7 +84,7 @@
       font-size: 20px;
     }
 
-    .search-field {
+    .search-field[class] {
       font-size: 100px;
     }
   }

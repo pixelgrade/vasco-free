@@ -308,7 +308,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 
 				// [Section] FONTS
 				'main_content_page_title_font'          => array(
-					'selector' => '.single .entry-title, .page .entry-title, .h0[class]',
+					'selector' => '.single .entry-title, .page .entry-title, .h0[class], .c-search-overlay .search-field',
 					'default'  => array(
 						'font-family'    => THEME_HEADINGS_FONT,
 						'font-size'      => 72,
