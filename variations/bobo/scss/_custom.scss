@@ -1,12 +1,13 @@
 @mixin custom-btn-overwrite {
   transition: $transition--default;
+  cursor: pointer;
 
   &:focus,
   &:active,
   &:hover {
     opacity: 1;
     box-shadow: 0 4px 4px 0 rgba(42, 54, 52, 0.1), 0 8px 8px 0 rgba(42, 54, 52, 0.1), 0 16px 16px 0 rgba(42, 54, 52, 0.1), 0 16px 32px 0 rgba(42, 54, 52, 0.1), 0 32px 64px 0 rgba(42, 54, 52, 0.1), 0 64px 128px 0 rgba(42, 54, 52, 0.1);
-    transform: scale(1.05);
+    transform: scale(1.03);
     transform-origin: center;
   }
 }
@@ -176,6 +177,21 @@ div.wpforms-container[class] {
     pointer-events: none;
   }
 
+  @include below(lap) {
+    @include spacing('margin-bottom', 3rem);
+
+    .c-meta__primary,
+    .c-card__action,
+    .c-card__thumbnail-background:before {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .c-card__action:before {
+      width: 2em;
+    }
+  }
+
   &:hover {
     .c-meta__primary,
     .c-card__action,
@@ -215,6 +231,7 @@ div.wpforms-container[class] {
 .error-404 {
   padding-top: 50px;
   text-align: center;
+  @include spacing(margin-bottom, 11rem);
 
   .page-title {
     //font-size: 72px;
@@ -235,6 +252,10 @@ div.wpforms-container[class] {
     display: flex;
     width: 50%;
 
+    @include below(lap) {
+      width: 100%;
+    }
+
     .search-field {
       flex: 1;
       width: auto;
@@ -244,6 +265,8 @@ div.wpforms-container[class] {
     .search-submit {
       max-width: 192px;
       flex: 1;
+
+      @include btn--default;
     }
   }
 }
@@ -272,11 +295,16 @@ body #infinite-handle span {
   border-width: 0;
 }
 
-.page-numbers:not(ul),
+.page-numbers:not(ul):not(.dots),
 body #infinite-handle span button,
 body #infinite-handle span button:hover,
 body #infinite-handle span button:focus {
   @include btn;
+  @include custom-btn-overwrite;
+}
+
+.page-numbers.dots {
+  padding: 0 10px;
 }
 
 .navigation.pagination {
@@ -290,6 +318,11 @@ ul.page-numbers {
   list-style: none;
   padding-left: 0;
   @include spacing(margin-top, 3.5rem);
+  @include spacing(margin-bottom, 11rem);
+}
+
+.infinite-scroll .content-area {
+  @include spacing(margin-bottom, 11rem);
 }
 
 .page-numbers__left,
@@ -307,6 +340,10 @@ ul.page-numbers {
   flex: 3;
   justify-content: center;
   align-items: center;
+
+  @include below(lap) {
+    display: none;
+  }
 
   .page-numbers:not(.current) {
     background: transparent;
