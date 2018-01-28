@@ -1,1 +1,44 @@
+$dimension: 180px;
+$inner-dimension: 120px;
+$image-dimension: 100px;
 
+.c-stamp {
+  width: $dimension;
+  height: $dimension;
+  border: solid 2px;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  text-transform: uppercase;
+  font-family: $theme-headings-font-family-alt;
+
+  &.c-stamp--light {
+    color: $color-white;
+    border-color: $color-white;
+
+    &:before {
+      border-color: $color-white;
+    }
+  }
+
+  &:before {
+    border: solid 2px;
+    border-radius: 50%;
+    content: '';
+    position: absolute;
+    width: $inner-dimension;
+    height: $inner-dimension;
+    top: ($dimension - $inner-dimension) / 2;
+    left: ($dimension - $inner-dimension) / 2;
+  }
+}
+
+.c-stamp__image {
+  position: absolute;
+  width: $image-dimension;
+  height: $image-dimension;
+  top: ($dimension - $image-dimension) / 2;
+  left: ($dimension - $image-dimension) / 2;
+}

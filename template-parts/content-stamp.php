@@ -24,8 +24,9 @@ if ( 'auto' === pixelgrade_option( 'stamp_style' ) ) {
 	$stamp_icon = pixelgrade_option( 'stamp_icon' );
 	?>
 
-	<div class="px-stamp px-stamp--auto">
-		<span class="px-stamp__text"><?php echo $stamp_text; ?></span><img class="px-stamp__image" src="<?php echo esc_url( get_theme_file_uri( 'assets/icons/' . $stamp_icon . '.svg' ) ); ?>" />
+	<div class="c-stamp c-stamp--auto">
+		<?php echo $stamp_text; ?>
+		<img class="c-stamp__image" src="<?php echo esc_url( get_theme_file_uri( 'assets/icons/' . $stamp_icon . '.svg' ) ); ?>" />
 	</div>
 
 <?php
@@ -35,7 +36,7 @@ if ( 'auto' === pixelgrade_option( 'stamp_style' ) ) {
 
 	if ( ! empty( $stamp_dark_image_id ) || ! empty( $stamp_light_image_id ) ) { ?>
 
-		<div class="px-stamp px-stamp--custom">
+		<div class="c-stamp c-stamp--custom">
 
 			<?php
 			if ( ! empty( $stamp_dark_image_id ) ) {
