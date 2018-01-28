@@ -520,7 +520,14 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 					),
 				),
 				'buttons_font'       => array(
-					'selector' => $button_selector,
+					'selector' => $button_selector.', .contact-form>div>.grunion-field-label:not(.checkbox):not(.radio),
+						.nf-form-cont .label-above .nf-field-label label,
+						.nf-form-cont .list-checkbox-wrap .nf-field-element li label, .nf-form-cont .list-radio-wrap .nf-field-element li label,
+						div.wpforms-container[class] .wpforms-form .wpforms-field-label,
+						div.wpforms-container[class] .wpforms-form input, div.wpforms-container[class] .wpforms-form select, div.wpforms-container[class] .wpforms-form textarea,
+						input[type=date], input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=url],
+						textarea,
+						div.wpforms-container-full .wpforms-form .wpforms-field-label-inline',
 					'default'  => array(
 						'font-family'    => THEME_HEADINGS_FONT_ALT,
 						'font-weight'    => '500',

@@ -208,12 +208,16 @@ $btn-font: () !default;
   }
 }
 
+@mixin btn--default {
+  background-color: $btn-default-background !important;
+  color: $btn-default-color !important;
+}
+
 .c-btn {
   @include btn;
 
   &--default {
-    background-color: $btn-default-background !important;
-    color: $btn-default-color !important;
+    @include btn--default;
   }
 }
 
@@ -236,16 +240,20 @@ $btn-font: () !default;
 // Helper Classes for Humans & Nature
 // <a class="button">		Regular Button 		</a>
 // <a class="button arrow">	Button with Arrow 	</a>
+// <a class="button default">	Button with Default Styling 	</a>
 
 a,
 input[type=submit] {
-
   &.button {
     @include btn;
 
     .u-underlined-links & {
       text-decoration: none;
     }
+  }
+
+  &.default {
+    @include btn--default;
   }
 
   &.full {

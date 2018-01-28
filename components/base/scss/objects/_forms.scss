@@ -78,6 +78,11 @@ $legend-font: (
     box-shadow: none;
     border-color: $input-focus-border-color;
   }
+
+  &[disabled] {
+    border-color: $input-disabled-border-color;
+    background-color: $input-disabled-background-color;
+  }
 }
 
 
