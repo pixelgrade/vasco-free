@@ -54,11 +54,9 @@ do_action( 'pixelgrade_before_loop_entry', $location );
 			do_action( 'pixelgrade_after_entry_start', $location );
 			?>
 
-			<?php if ( $primary_meta_output ) { ?>
-				<div class="c-card__meta c-meta">
-					<div class="c-meta__primary"> <?php echo $primary_meta_output; ?> </div>
-				</div>
-			<?php } ?>
+			<div class="c-card__meta c-meta">
+				<div class="c-meta__primary"> <?php if ( $primary_meta_output ) { echo $primary_meta_output; } ?> </div>
+			</div>
 
 
 			<?php if ( pixelgrade_display_featured_images() ) { ?>
@@ -66,10 +64,7 @@ do_action( 'pixelgrade_before_loop_entry', $location );
 					<div class="c-card__frame">
 						<?php if ( has_post_thumbnail() ) {
 							the_post_thumbnail();
-						}
-
-						echo '<span class="c-card__letter">' . mb_substr( get_the_title(), 0, 1 ) . '</span>';
-						?>
+						} ?>
 					</div>
 
 					<?php if ( $secondary_meta_output ) { ?>

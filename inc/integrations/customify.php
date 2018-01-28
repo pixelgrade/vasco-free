@@ -240,7 +240,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 								.entry-content .cats[class] > a,
 								.single .header-meta .byline, 
 								.single .header-meta .posted-on,
-								.archive .c-meta__secondary .posted-on,
+								.c-card .posted-on,
 								.comment-form .form-submit .submit',
 						),
 					),
@@ -301,7 +301,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 								.entry-content .dropcap, 
 								.single .header-meta .byline, 
 								.single .header-meta .posted-on,
-								.archive .c-meta__secondary .posted-on,
+								.c-card .posted-on,
 								.entry-content .cats[class] > a,
 								.comment-form .form-submit .submit',
 						),
@@ -313,6 +313,9 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 					'selector' => '
 						.single .entry-title,
 						.page .entry-title,
+						.archive .entry-title,
+						.search .entry-title,
+						.no-results .page-title,
 						.h0[class],
 						.c-search-overlay .search-field',
 					'default'  => array(
@@ -443,7 +446,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 			'selector' => '
 				.single .header-meta .byline, 
 				.single .header-meta .posted-on,  
-				.archive .c-meta__secondary .posted-on,
+				.c-card .posted-on,
 				.entry-content .cats[class] > a',
 			'callback' => 'typeline_font_cb',
 
@@ -495,9 +498,15 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 		input[type=button],
 		input[type=submit],
 		.widget_pages,
+		ul.page-numbers .next,
+		ul.page-numbers .prev,
+		.page-numbers.current,
+		body #infinite-handle span button,
+		body #infinite-handle span button:hover,
+		body #infinite-handle span button:focus,
 		.featured-posts__more';
 
-	$button_selector_all = $button_selector.'.c-card__action';
+	$button_selector_all = $button_selector.', .c-card__action';
 
 	$modified_config = array(
 
@@ -515,7 +524,7 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.c-card__action,',
+							'selector' => '.c-card__action',
 						),
 						array(
 							'property' => 'background-color',
@@ -529,10 +538,6 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 						array(
 							'property' => 'color',
 							'selector' => $button_selector,
-						),
-						array(
-							'property' => 'background-color',
-							'selector' => '.c-card__action,',
 						)
 					),
 				),
@@ -630,7 +635,7 @@ function bobo_customify_blog_grid_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.c-gallery--blog .c-card__thumbnail-background:before, .c-gallery--blog .c-meta__primary',
+							'selector' => '.c-gallery--blog .c-card__thumbnail-background:before, .c-gallery--blog .c-meta__primary, .archive-title__pre-title',
 						),
 					),
 				),
@@ -662,7 +667,7 @@ function bobo_customify_blog_grid_section( $section_options, $options ) {
 					),
 				),
 				'blog_item_meta_font'                => array(
-					'selector' => '.c-meta__primary',
+					'selector' => '.c-meta__primary, .archive-title__pre-title',
 					'default'  => array(
 						'font-family'    => THEME_HEADINGS_FONT_ALT,
 						'font-weight'    => '500',

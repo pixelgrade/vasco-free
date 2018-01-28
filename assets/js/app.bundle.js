@@ -422,6 +422,7 @@ var Bobo = function (_BaseTheme) {
             _get(Bobo.prototype.__proto__ || Object.getPrototypeOf(Bobo.prototype), 'onLoadAction', this).call(this);
             this.Header = new __WEBPACK_IMPORTED_MODULE_5__components_header_ts_Header__["a" /* Header */]();
             this.SearchOverlay = new __WEBPACK_IMPORTED_MODULE_4__components_base_ts_components_SearchOverlay__["a" /* SearchOverlay */]();
+            this.addNavigationClasses();
             this.adjustLayout();
         }
     }, {
@@ -466,6 +467,28 @@ var Bobo = function (_BaseTheme) {
     }, {
         key: 'adjustLayout',
         value: function adjustLayout() {}
+    }, {
+        key: 'addNavigationClasses',
+        value: function addNavigationClasses() {
+            var $pagination = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('ul.page-numbers');
+            var $paginationItems = $pagination.find('li');
+            $pagination.append('<div class="page-numbers__left"></div>');
+            $pagination.append('<div class="page-numbers__middle"></div>');
+            $pagination.append('<div class="page-numbers__right"></div>');
+            $paginationItems.each(function (index, element) {
+                var $element = __WEBPACK_IMPORTED_MODULE_1_jquery___default()(element);
+                if ($element.find('.prev').length) {
+                    $pagination.find('.page-numbers__left').append($element);
+                }
+                if ($element.find('.next').length) {
+                    $pagination.find('.page-numbers__right').append($element);
+                }
+                if (!$element.find('.next').length && !$element.find('.prev').length) {
+                    $pagination.find('.page-numbers__middle').append($element);
+                }
+            });
+            $pagination.css('opacity', 1);
+        }
     }]);
 
     return Bobo;

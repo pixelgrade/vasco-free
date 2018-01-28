@@ -24,6 +24,7 @@ export class Bobo extends BaseTheme {
 
     this.Header = new Header();
     this.SearchOverlay = new SearchOverlay();
+    this.addNavigationClasses();
 
     this.adjustLayout();
   }
@@ -65,6 +66,29 @@ export class Bobo extends BaseTheme {
   }
 
   private adjustLayout() {
+  }
+
+  private addNavigationClasses() {
+    const $pagination = $('ul.page-numbers');
+    const $paginationItems = $pagination.find('li');
+
+    $pagination.append('<div class="page-numbers__left"></div>');
+    $pagination.append('<div class="page-numbers__middle"></div>');
+    $pagination.append('<div class="page-numbers__right"></div>');
+
+    $paginationItems.each((index, element) => {
+      const $element = $(element);
+      if ($element.find('.prev').length) {
+        $pagination.find('.page-numbers__left').append($element);
+      }
+      if ($element.find('.next').length) {
+        $pagination.find('.page-numbers__right').append($element);
+      }
+      if (!$element.find('.next').length && !$element.find('.prev').length) {
+        $pagination.find('.page-numbers__middle').append($element);
+      }
+    });
+    $pagination.css( 'opacity', 1 );
   }
 
 }
