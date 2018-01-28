@@ -41,6 +41,7 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 				    'title'             => array(
 					    'type'     => 'textarea',
 					    'label'    => esc_html__( 'Headline:', '__theme_txtd' ),
+					    'rows'     => 3,
 					    'default'  => 'Discover life on the go!',
 					    'section'  => 'content',
 					    'priority' => 20,

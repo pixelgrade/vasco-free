@@ -297,6 +297,8 @@ new __WEBPACK_IMPORTED_MODULE_0__Bobo__["a" /* Bobo */]();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jquery__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_base_ts_BaseTheme__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_base_ts_services_Helper__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_base_ts_components_SearchOverlay__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_header_ts_Header__ = __webpack_require__(28);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
@@ -306,6 +308,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
 
 
 
@@ -332,6 +336,8 @@ var Bobo = function (_BaseTheme) {
         key: 'onLoadAction',
         value: function onLoadAction() {
             _get(Bobo.prototype.__proto__ || Object.getPrototypeOf(Bobo.prototype), 'onLoadAction', this).call(this);
+            this.Header = new __WEBPACK_IMPORTED_MODULE_5__components_header_ts_Header__["a" /* Header */]();
+            this.SearchOverlay = new __WEBPACK_IMPORTED_MODULE_4__components_base_ts_components_SearchOverlay__["a" /* SearchOverlay */]();
             this.adjustLayout();
         }
     }, {
@@ -618,6 +624,320 @@ var GlobalService = function () {
 
     return GlobalService;
 }();
+
+/***/ }),
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */,
+/* 24 */,
+/* 25 */,
+/* 26 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchOverlay; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rx_dom__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rx_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rx_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_DefaultComponent__ = __webpack_require__(27);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+var activeClass = 'show-search-overlay';
+var openClass = '.js-search-trigger';
+var closeClass = '.js-search-close';
+var escKeyCode = 27;
+var SearchOverlay = function (_BaseComponent) {
+    _inherits(SearchOverlay, _BaseComponent);
+
+    function SearchOverlay() {
+        _classCallCheck(this, SearchOverlay);
+
+        var _this = _possibleConstructorReturn(this, (SearchOverlay.__proto__ || Object.getPrototypeOf(SearchOverlay)).call(this));
+
+        _this.$body = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('body');
+        _this.$document = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(document);
+        _this.$searchField = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-search-overlay').find('.search-field');
+        _this.subscriptionActive = true;
+        _this.keyupSubscriptionActive = true;
+        _this.bindEvents();
+        return _this;
+    }
+
+    _createClass(SearchOverlay, [{
+        key: 'destroy',
+        value: function destroy() {
+            this.subscriptionActive = false;
+            this.keyupSubscriptionActive = false;
+            this.$document.off('click.SearchOverlay');
+        }
+    }, {
+        key: 'bindEvents',
+        value: function bindEvents() {
+            var _this2 = this;
+
+            this.$document.on('click.SearchOverlay', openClass, this.open.bind(this));
+            this.closeSub = __WEBPACK_IMPORTED_MODULE_1_rx_dom__["DOM"].click(document.querySelector(closeClass));
+            this.keyupSub = __WEBPACK_IMPORTED_MODULE_1_rx_dom__["DOM"].keyup(document.querySelector('body'));
+            this.closeSub.takeWhile(function () {
+                return _this2.subscriptionActive;
+            }).subscribe(this.close.bind(this));
+        }
+    }, {
+        key: 'createKeyupSubscription',
+        value: function createKeyupSubscription() {
+            var _this3 = this;
+
+            this.keyupSubscriptionActive = true;
+            this.keyupSub.takeWhile(function () {
+                return _this3.keyupSubscriptionActive;
+            }).subscribe(this.closeOnEsc.bind(this));
+        }
+    }, {
+        key: 'open',
+        value: function open() {
+            this.$searchField.focus();
+            this.$body.addClass(activeClass);
+            this.createKeyupSubscription();
+        }
+    }, {
+        key: 'close',
+        value: function close() {
+            this.$body.removeClass(activeClass);
+            this.$searchField.blur();
+            this.keyupSubscriptionActive = false;
+        }
+    }, {
+        key: 'closeOnEsc',
+        value: function closeOnEsc(e) {
+            if (e.keyCode === escKeyCode) {
+                this.close();
+            }
+        }
+    }]);
+
+    return SearchOverlay;
+}(__WEBPACK_IMPORTED_MODULE_2__models_DefaultComponent__["a" /* BaseComponent */]);
+
+/***/ }),
+/* 27 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BaseComponent; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var BaseComponent = function BaseComponent() {
+    _classCallCheck(this, BaseComponent);
+};
+
+/***/ }),
+/* 28 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Header; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_imagesloaded__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_imagesloaded___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_imagesloaded__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jquery_hoverintent__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jquery_hoverintent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_jquery_hoverintent__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__base_ts_models_DefaultComponent__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__base_ts_services_Helper__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__base_ts_services_window_service__ = __webpack_require__(16);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+var Header = function (_BaseComponent) {
+    _inherits(Header, _BaseComponent);
+
+    function Header() {
+        _classCallCheck(this, Header);
+
+        var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this));
+
+        _this.$body = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('body');
+        _this.$document = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(document);
+        _this.$mainMenu = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.menu--primary');
+        _this.$mainMenuItems = _this.$mainMenu.find('li');
+        _this.$menuToggle = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#menu-toggle');
+        _this.isMobileHeaderInitialised = false;
+        _this.isDesktopHeaderInitialised = false;
+        _this.areMobileBindingsDone = false;
+        _this.subscriptionActive = true;
+        _this.preventOneSelector = 'a.prevent-one';
+        __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone').each(function (i, obj) {
+            var $obj = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
+            if ($obj.find('.c-branding').length) {
+                $obj.addClass('c-navbar__zone--branding');
+            }
+            if ($obj.find('.jetpack-social-navigation').length) {
+                $obj.addClass('c-navbar__zone--social');
+            }
+        });
+        __WEBPACK_IMPORTED_MODULE_1_imagesloaded__(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar .c-logo'), function () {
+            _this.bindEvents();
+            _this.eventHandlers();
+            _this.updateOnResize();
+            _this.toggleNavStateClass();
+        });
+        return _this;
+    }
+
+    _createClass(Header, [{
+        key: 'destroy',
+        value: function destroy() {
+            this.subscriptionActive = false;
+        }
+    }, {
+        key: 'bindEvents',
+        value: function bindEvents() {
+            var _this2 = this;
+
+            this.$menuToggle.on('change', this.onMenuToggleChange.bind(this));
+            this.$mainMenuItems.hoverIntent({
+                out: function out(e) {
+                    return _this2.toggleSubMenu(e, false);
+                },
+                over: function over(e) {
+                    return _this2.toggleSubMenu(e, true);
+                },
+                timeout: 300
+            });
+            __WEBPACK_IMPORTED_MODULE_5__base_ts_services_window_service__["a" /* WindowService */].onResize().takeWhile(function () {
+                return _this2.subscriptionActive;
+            }).subscribe(function () {
+                _this2.updateOnResize();
+            });
+        }
+    }, {
+        key: 'eventHandlers',
+        value: function eventHandlers() {
+            if (__WEBPACK_IMPORTED_MODULE_4__base_ts_services_Helper__["a" /* Helper */].below('lap') && !this.areMobileBindingsDone) {
+                this.$document.on('click', this.preventOneSelector, this.onMobileMenuExpand.bind(this));
+                this.areMobileBindingsDone = true;
+            }
+            if (__WEBPACK_IMPORTED_MODULE_4__base_ts_services_Helper__["a" /* Helper */].above('lap') && this.areMobileBindingsDone) {
+                this.$document.off('click', this.preventOneSelector, this.onMobileMenuExpand.bind(this));
+                this.areMobileBindingsDone = false;
+            }
+        }
+    }, {
+        key: 'updateOnResize',
+        value: function updateOnResize() {
+            this.eventHandlers();
+            if (__WEBPACK_IMPORTED_MODULE_4__base_ts_services_Helper__["a" /* Helper */].below('lap')) {
+                this.prepareMobileMenuMarkup();
+            } else {
+                this.prepareDesktopMenuMarkup();
+            }
+        }
+    }, {
+        key: 'prepareDesktopMenuMarkup',
+        value: function prepareDesktopMenuMarkup() {
+            if (this.isDesktopHeaderInitialised) {
+                return;
+            }
+            this.isDesktopHeaderInitialised = true;
+        }
+    }, {
+        key: 'prepareMobileMenuMarkup',
+        value: function prepareMobileMenuMarkup() {
+            // If if has not been done yet, prepare the mark-up for the mobile navigation
+            if (this.isMobileHeaderInitialised) {
+                return;
+            }
+            // Append the branding
+            var $branding = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-branding');
+            $branding.clone().addClass('c-branding--mobile');
+            $branding.find('img').removeClass('is--loading');
+            // Create the mobile site header
+            var $siteHeaderMobile = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('<div class="site-header-mobile  u-header-sides-spacing"></div>');
+            // Append the social menu
+            var $searchTrigger = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.js-mobile-search-trigger');
+            $siteHeaderMobile.append($branding.clone());
+            $siteHeaderMobile.append($searchTrigger.clone().show());
+            $siteHeaderMobile.appendTo('.c-navbar');
+            // Handle sub menus:
+            // Make sure there are no open menu items
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.menu-item-has-children').removeClass('hover');
+            // Add a class so we know the items to handle
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.menu-item-has-children > a').each(function (index, element) {
+                __WEBPACK_IMPORTED_MODULE_0_jquery___default()(element).addClass('prevent-one');
+            });
+            this.isMobileHeaderInitialised = true;
+        }
+    }, {
+        key: 'toggleSubMenu',
+        value: function toggleSubMenu(e, toggle) {
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()(e.currentTarget).toggleClass('hover', toggle);
+        }
+    }, {
+        key: 'onMobileMenuExpand',
+        value: function onMobileMenuExpand(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var $button = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(e.currentTarget);
+            var activeClass = 'active';
+            var hoverClass = 'hover';
+            if ($button.hasClass(activeClass)) {
+                window.location.href = $button.attr('href');
+                return;
+            }
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()(this.preventOneSelector).removeClass(activeClass);
+            $button.addClass(activeClass);
+            // When a parent menu item is activated,
+            // close other menu items on the same level
+            $button.parent().siblings().removeClass(hoverClass);
+            // Open the sub menu of this parent item
+            $button.parent().addClass(hoverClass);
+        }
+    }, {
+        key: 'toggleNavStateClass',
+        value: function toggleNavStateClass() {
+            var isMenuOpen = this.$menuToggle.prop('checked');
+            this.$body.toggleClass('nav--is-open', isMenuOpen);
+            return isMenuOpen;
+        }
+    }, {
+        key: 'onMenuToggleChange',
+        value: function onMenuToggleChange(e) {
+            var _this3 = this;
+
+            if (!this.toggleNavStateClass()) {
+                setTimeout(function () {
+                    // Close the open submenus in the mobile menu overlay
+                    _this3.$mainMenuItems.removeClass('hover');
+                    _this3.$mainMenuItems.find('a').removeClass('active');
+                }, 300);
+            }
+        }
+    }]);
+
+    return Header;
+}(__WEBPACK_IMPORTED_MODULE_3__base_ts_models_DefaultComponent__["a" /* BaseComponent */]);
 
 /***/ })
 ],[8]);

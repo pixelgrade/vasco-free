@@ -1,0 +1,157 @@
+.u-header-height[class],
+.c-navbar .sub-menu[class] {
+  min-height: 0;
+}
+
+.c-navbar[class] {
+  a {
+    padding: 8px 0;
+  }
+
+  ul {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  li {
+    font-size: 19px;
+  }
+
+  li li {
+    font-size: 16px;
+    margin-top: 4px;
+  }
+
+  li.hover > ul {
+    display: block;
+  }
+
+  .sub-menu {
+    margin-top: -10px;
+
+    a {
+      display: flex;
+      align-items: baseline;
+      opacity: 0.7;
+    }
+  }
+
+  li[class*="children"] > a:after {
+    position: static;
+    transform: translateY(-40%) rotate(45deg)
+  }
+
+  li[class*="children"]:hover > a:after {
+    position: static;
+    transform: translateY(20%) rotate(-135deg);
+  }
+}
+
+.u-header-height[class] {
+  height: $header-mobile-height;
+}
+
+.c-navbar .sub-menu[class] {
+  height: auto;
+}
+
+// social icons are displayed inline so those list items don't need vertical spacing
+.jetpack-social-navigation[class] .menu li {
+  margin-top: 0;
+}
+
+.c-navbar__content {
+  position: fixed;
+  z-index: 9100;
+  padding-bottom: 21px;
+
+  &:before {
+    content: "";
+    display: block;
+    top: $header-mobile-height;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    margin-top: -1px;
+  }
+}
+
+.c-navbar__label {
+  z-index: 9200;
+}
+
+.c-navbar__label-icon + .c-navbar__label-text {
+  margin-left: 10px;
+}
+
+.c-navbar__zone {
+  margin-top: 21px;
+}
+
+.c-navbar__zone--branding {
+  display: none;
+}
+
+.c-navbar__zone--social {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.jetpack-social-navigation {
+  margin-top: auto;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding-top: 20px;
+}
+
+.c-navbar:after {
+  content: "";
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9000;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: #000;
+  opacity: 0;
+  pointer-events: none;
+  transition: $transition--default;
+  transition-property: opacity;
+
+  .nav--is-open & {
+    opacity: .3;
+    pointer-events: auto;
+  }
+}
+
+.site-header-mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $header-mobile-height;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+
+  .js-search-trigger {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 27px;
+    height: $header-mobile-height;
+
+    background: transparent url( $search-svg ) center center no-repeat;
+    background-size: contain;
+  }
+
+  @include above(lap) {
+    display: none;
+  }
+}

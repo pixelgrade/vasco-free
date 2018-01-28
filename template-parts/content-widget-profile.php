@@ -53,7 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div>
 
 	<?php if ( pixelgrade_option( 'show_stamps' ) ) {
-		get_template_part( 'content-stamp' );
+		get_template_part( 'template-parts/content-stamp' );
 	} ?>
 
 <?php } ?>
