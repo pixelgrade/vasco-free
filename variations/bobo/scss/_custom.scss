@@ -1,3 +1,96 @@
+@mixin custom-btn-overwrite {
+  transition: $transition--default;
+
+  &:focus,
+  &:active,
+  &:hover {
+    opacity: 1;
+    box-shadow: 0 4px 4px 0 rgba(42, 54, 52, 0.1), 0 8px 8px 0 rgba(42, 54, 52, 0.1), 0 16px 16px 0 rgba(42, 54, 52, 0.1), 0 16px 32px 0 rgba(42, 54, 52, 0.1), 0 32px 64px 0 rgba(42, 54, 52, 0.1), 0 64px 128px 0 rgba(42, 54, 52, 0.1);
+    transform: scale(1.05);
+    transform-origin: center;
+  }
+}
+
+@include placeholder() {
+  color: $placeholder-color;
+  opacity: 0.5;
+  font-weight: map-get($input-font, font-weight);
+  font-style: normal;
+}
+
+/* stylelint-disable */
+button[type=button],
+button[type=reset],
+button[type=submit],
+input[type=button],
+input[type=submit],
+input[type=submit],
+  /* stylelint-enable */
+.c-btn--default {
+  @include custom-btn-overwrite;
+}
+
+select {
+  background-size: 13px 7px;
+}
+
+input[type="radio"] {
+  &:checked {
+    border-color: $checkbox-color;
+
+    &[disabled] {
+      background-color: $color-white;
+      border-color: $input-disabled-background-color;
+    }
+  }
+}
+
+input[type="checkbox"] {
+  &:checked {
+    border-color: $checkbox-color;
+    background: $checkbox-background-color url('#{$checkbox-svg}') center center no-repeat;
+    background-size: 100% 100%;
+
+    &[disabled] {
+      border-color: $input-disabled-background-color;
+      background: $input-disabled-background-color url('#{$checkbox-svg}') center center no-repeat;
+    }
+  }
+}
+
+div.wpforms-container[class] {
+  .wpforms-form {
+    input[type="radio"] {
+      &:checked {
+        border-color: $checkbox-color;
+
+        &[disabled] {
+          background-color: $color-white;
+          border-color: $input-disabled-background-color;
+        }
+      }
+    }
+
+    input[type="checkbox"] {
+      &:checked {
+        border-color: $checkbox-color;
+        background: $checkbox-background-color url('#{$checkbox-svg}') center center no-repeat;
+        background-size: 100% 100%;
+
+        &[disabled] {
+          border-color: $input-disabled-background-color;
+          background: $input-disabled-background-color url('#{$checkbox-svg}') center center no-repeat;
+        }
+      }
+    }
+
+    .wpforms-submit {
+      @include btn;
+      @include custom-btn-overwrite;
+    }
+  }
+}
+
 .c-meta {
   ul {
     padding-left: 0;

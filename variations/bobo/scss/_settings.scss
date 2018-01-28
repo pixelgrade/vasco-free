@@ -297,9 +297,9 @@ $footer-links-color: $theme-text-color;
 $footer-background-color: $theme-background-color;
 // ----------------------------------------
 
-$arrow-caret-svg: 'assets/images/arrow-caret.svg';
-$select-arrow-svg: 'assets/images/select-arrow.svg';
-$checkbox-svg: 'assets/images/checkbox.svg';
+$arrow-caret-svg: 'assets/images/arrow-down.svg';
+$select-arrow-svg: 'assets/images/arrow-down.svg';
+$checkbox-svg: 'assets/images/icon-check.svg';
 $search-svg: 'assets/images/icon-search.svg';
 
 
@@ -322,3 +322,15 @@ $wp-align-image-horizontal-padding: 4rem;
 
 $wp-align-wrapped-image-vertical-padding: 2.5rem;
 $wp-align-wrapped-image-horizontal-padding: 3rem;
+
+// ----------------------------------------
+// FORMS
+// ----------------------------------------
+$checkbox-color: $theme-accent-color;
+$checkbox-background-color: $theme-accent-color;
+$checkbox-width: 1.7rem;
+$checkbox-height: 1.7rem;
+$input-focus-border-color: #ADADAD;
+$btn-default-background: #202423;
+$input-disabled-background-color: #E0E0E0;
+$input-disabled-border-color: #C7C7C7;
