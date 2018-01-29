@@ -14,15 +14,6 @@ $image-dimension: 100px;
   text-transform: uppercase;
   font-family: $theme-headings-font-family-alt;
 
-  &.c-stamp--light {
-    color: $color-white;
-    border-color: $color-white;
-
-    &:before {
-      border-color: $color-white;
-    }
-  }
-
   &:before {
     border: solid 2px;
     border-radius: 50%;
@@ -33,6 +24,19 @@ $image-dimension: 100px;
     top: ($dimension - $inner-dimension) / 2;
     left: ($dimension - $inner-dimension) / 2;
   }
+}
+
+.c-stamp--light {
+  color: $color-white;
+  border-color: $color-white;
+
+  &:before {
+    border-color: $color-white;
+  }
+}
+
+.c-stamp__container.is-light .c-stamp {
+  @extend .c-stamp--light;
 }
 
 .c-stamp__image {
