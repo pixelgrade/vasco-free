@@ -1,0 +1,191 @@
+.widget + .widget {
+  @include spacing(margin-top, 2.5rem);
+}
+
+%widget-with-list {
+
+  li:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+
+    ul {
+      @include spacing(margin-top, 10px);
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+// List Widgets
+%widget--list {
+  @extend %widget-with-list;
+
+  font-size: (18em/17);
+  line-height: (26/18);
+
+  a:hover {
+    color: inherit;
+  }
+}
+
+// Links Widgets
+%widget--links {
+  @extend %widget-with-list;
+
+  font-size: (19em/17);
+  line-height: (26/19);
+
+  a {
+    color: $theme-accent-color;
+  }
+}
+.widget_archive,
+.widget_categories,
+.widget_meta,
+.widget_recent_comments,
+.widget_recent_entries,
+.widget_rss {
+  @extend %widget--list;
+}
+
+.widget_rss {
+
+  li:not(:last-child) {
+    @include spacing(margin-bottom, 2rem);
+  }
+
+  li {
+
+    .rsswidget {
+      display: block;
+
+      @include leading-map(map-merge($h4, (
+        spacing-top: false,
+        spacing-bottom: 0.5rem,
+      )));
+    }
+
+    .rss-date {
+      display: block;
+      opacity: 0.5;
+
+      @include leading-map(map-merge($h5, (
+        spacing-top: false,
+        spacing-bottom: 1rem,
+      )));
+    }
+
+    .rssSummary {
+
+    }
+
+    cite {
+      display: block;
+      @include spacing(margin-top, 0.5rem);
+      opacity: 0.5;
+    }
+  }
+}
+
+.widget_recent_comments {
+
+  .comment-author-link {
+    font-style: italic;
+  }
+
+  .recentcomments > a {
+    text-decoration: underline;
+  }
+}
+
+.widget_tag_cloud {
+
+  a {
+    margin-right: 0.5em;
+    line-height: 2.25rem;
+
+    font-style: italic;
+    text-transform: lowercase;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.widget_calendar {
+
+  table {
+
+    caption {
+      margin-bottom: 0;
+      text-align: left;
+    }
+
+    tbody tr {
+      background: transparent;
+    }
+
+    th {
+      line-height: 1.93;
+    }
+
+    td, th {
+      @include spacing(padding, 0 0.5rem);
+    }
+
+    [id="today"] {
+      text-decoration: underline;
+      font-weight: 700;
+    }
+  }
+}
+
+.widget_media_gallery {
+  [class*="gallery-columns-"] {
+    align-items: center;
+
+    .widget-area--main & {
+      justify-content: center;
+    }
+  }
+}
+
+// increase selector specificity to overwrite footer links color
+body {
+
+  .widget_pages,
+  .widget_nav_menu {
+    @extend %widget--links;
+  }
+}
+
+// Widget Area Specific Rules
+.widget-area--main {
+  text-align: center;
+
+  .widget_calendar {
+
+    table {
+      width: auto;
+      margin-left: auto;
+      margin-right: auto;
+
+      th,
+      caption {
+        text-align: center;
+      }
+    }
+  }
+}

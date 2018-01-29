@@ -167,3 +167,80 @@ function bobo_output_toolbar() {
 	get_template_part( 'template-parts/toolbar' );
 }
 add_action( 'pixelgrade_after_header', 'bobo_output_toolbar', 10 );
+
+/**
+ * Create the output needed for the comments_category post meta and add it to the array.
+ *
+ * @param array $meta
+ * @param string $key
+ *
+ * @return array
+ */
+function bobo_handle_comments_category_post_meta( $meta, $key ) {
+	// We will only add the comments_category meta if it is actually needed, to keep things speedy.
+	// We do the work if the exact key has been requested, or if all of the keys has been requested.
+	if ( 'comments_category' === $key || false === $key ) {
+		$comments_meta = '';
+		$category_meta = '';
+
+		// We only want the comments number
+		if ( comments_open() ) {
+			$comments_meta = get_comments_number(); // get_comments_number returns only a numeric value
+		}
+
+		// If we already have the category meta, we will use it
+		if ( ! empty( $meta['category'] ) ) {
+			$category_meta = $meta['category'];
+		} else {
+			if ( is_page() ) {
+				// If we are on a page then we only want the main category
+				$main_category = pixelgrade_get_main_category_link();
+				if ( ! empty( $main_category ) ) {
+					$category_meta .= '<span class="screen-reader-text">' . esc_html__( 'Main Category', '__components_txtd' ) . '</span><ul>' . PHP_EOL;
+					$category_meta .= '<li>' . $main_category . '</li>' . PHP_EOL;
+					$category_meta .= '</ul>' . PHP_EOL;
+				}
+			} else {
+				// On archives we want to show all the categories, not just the main one
+				$categories = get_the_terms( get_the_ID(), 'category' );
+				if ( ! is_wp_error( $categories ) && ! empty( $categories ) ) {
+					$category_meta .= '<span class="screen-reader-text">' . esc_html__( 'Categories', '__components_txtd' ) . '</span><ul>' . PHP_EOL;
+					foreach ( $categories as $this_category ) {
+						$category_meta .= '<li><a href="' . esc_url( get_category_link( $this_category ) ) . '" rel="category">' . $this_category->name . '</a></li>' . PHP_EOL;
+					};
+					$category_meta .= '</ul>' . PHP_EOL;
+				}
+			}
+		}
+
+		$meta['comments_category'] = '';
+		if ( ! empty( $comments_meta ) ) {
+			$meta['comments_category'] .= '<span class="comments">' . $comments_meta . '</span>';
+		}
+
+		if ( ! empty( $category_meta ) ) {
+			$meta['comments_category'] .= $category_meta;
+		}
+	}
+
+	return $meta;
+}
+add_filter( 'pixelgrade_get_post_meta', 'bobo_handle_comments_category_post_meta', 10, 2 );
+
+/**
+ * Change the Tag Cloud's Font Sizes.
+ *
+ * @since 1.0.0
+ *
+ * @param array $args
+ *
+ * @return array
+ */
+function bobo_change_tag_cloud_font_sizes( array $args ) {
+	$args['smallest'] = '1.25';
+	$args['largest'] = '2';
+	$args['unit'] = 'rem';
+
+	return $args;
+}
+add_filter( 'widget_tag_cloud_args', 'bobo_change_tag_cloud_font_sizes');
