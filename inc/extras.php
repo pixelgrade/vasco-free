@@ -167,3 +167,21 @@ function bobo_output_toolbar() {
 	get_template_part( 'template-parts/toolbar' );
 }
 add_action( 'pixelgrade_after_header', 'bobo_output_toolbar', 10 );
+
+/**
+ * Change the Tag Cloud's Font Sizes.
+ *
+ * @since 1.0.0
+ *
+ * @param array $args
+ *
+ * @return array
+ */
+function bobo_change_tag_cloud_font_sizes( array $args ) {
+	$args['smallest'] = '1.25';
+	$args['largest'] = '2';
+	$args['unit'] = 'rem';
+
+	return $args;
+}
+add_filter( 'widget_tag_cloud_args', 'bobo_change_tag_cloud_font_sizes');
