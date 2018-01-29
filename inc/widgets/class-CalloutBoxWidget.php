@@ -39,8 +39,9 @@ if ( ! class_exists( 'Pixelgrade_CalloutBoxWidget' ) ) :
 
 					// Content Section
 					'title'      => array(
-						'type'     => 'text',
+						'type'     => 'textarea',
 						'label'    => esc_html__( 'Headline:', '__theme_txtd' ),
+						'rows'     => 3,
 						'default'  => esc_html__( 'Travel with Me', '__theme_txtd' ),
 						'section'  => 'content',
 						'priority' => 10,
@@ -49,7 +50,6 @@ if ( ! class_exists( 'Pixelgrade_CalloutBoxWidget' ) ) :
 					'description'   => array(
 						'type'     => 'textarea',
 						'label'    => esc_html__( 'Description:', '__theme_txtd' ),
-						'rows'     => 5,
 						'default'  => 'If you are planning to visit Australia, or if you are an Aussie like us and want to explore more of it, we can help.',
 						'section'  => 'content',
 						'priority' => 20,
