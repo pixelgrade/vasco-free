@@ -16,11 +16,33 @@
   }
 }
 
+@mixin input-paddings {
+  padding: 8px 19px 10px;
+}
+
+@mixin label-spacings {
+  padding-bottom: 0;
+  @include spacing(margin-bottom, 5px);
+}
+
 @include placeholder() {
   color: $placeholder-color;
   opacity: 0.5;
   font-weight: map-get($input-font, font-weight);
   font-style: normal;
+}
+
+input[type=date],
+input[type=email],
+input[type=number],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=text],
+input[type=url],
+select,
+textarea {
+  @include input-paddings;
 }
 
 /* stylelint-disable */
@@ -63,8 +85,34 @@ input[type="checkbox"] {
   }
 }
 
+.label-above .nf-field-label[class] {
+  @include label-spacings;
+}
+
+.contact-form>div>.grunion-field-label:not(.checkbox):not(.radio),
+.nf-form-cont .label-above .nf-field-label label {
+  text-transform: none;
+  @include label-spacings;
+}
+
+.nf-form-cont .list-checkbox-wrap .nf-field-element li, .nf-form-cont .list-radio-wrap .nf-field-element li {
+  align-items: center;
+  margin-bottom: 0 !important;
+}
+
 div.wpforms-container[class] {
   .wpforms-form {
+    .wpforms-field-label {
+      text-transform: none;
+      @include label-spacings;
+    }
+
+    input,
+    select,
+    textarea {
+      @include input-paddings;
+    }
+
     input[type="radio"] {
       &:checked {
         border-color: $checkbox-color;
