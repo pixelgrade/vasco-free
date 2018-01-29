@@ -527,6 +527,7 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 						div.wpforms-container[class] .wpforms-form input, div.wpforms-container[class] .wpforms-form select, div.wpforms-container[class] .wpforms-form textarea,
 						input[type=date], input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=url],
 						textarea,
+						select,
 						div.wpforms-container-full .wpforms-form .wpforms-field-label-inline',
 					'default'  => array(
 						'font-family'    => THEME_HEADINGS_FONT_ALT,
