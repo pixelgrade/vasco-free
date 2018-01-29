@@ -497,6 +497,7 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 		button[type=submit],
 		input[type=button],
 		input[type=submit],
+		.featured-posts__more,
 		.widget_pages,
 		.page-numbers:not(ul):not(.dots),
 		body #infinite-handle span button,
@@ -640,7 +641,7 @@ function bobo_customify_blog_grid_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.c-gallery--blog .c-card__thumbnail-background:before, .c-gallery--blog .c-meta__primary, .archive-title__pre-title',
+							'selector' => '.c-card__thumbnail-background:before, .c-gallery--blog .c-meta__primary, .archive-title__pre-title',
 						),
 					),
 				),

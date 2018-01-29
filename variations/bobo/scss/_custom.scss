@@ -2,6 +2,10 @@
   transition: $transition--default;
   cursor: pointer;
 
+  .u-underlined-links & {
+    text-decoration: none;
+  }
+
   &:focus,
   &:active,
   &:hover {
@@ -353,4 +357,46 @@ ul.page-numbers {
 
 .search-form {
   display: flex;
+}
+
+.c-card__frame {
+
+  .aspect-ratio-portrait & {
+    padding-top: percentage(4/3);
+  }
+
+  .aspect-ratio-square & {
+    padding-top: 100%;
+  }
+
+  .aspect-ratio-landscape & {
+    padding-top: percentage(3/4);
+  }
+
+  .aspect-ratio-original & {
+    padding-top: 0;
+
+    img.is-loaded {
+      position: relative;
+    }
+  }
+}
+
+.widget__title {
+  text-align: center;
+
+  .widget & {
+    @include spacing(margin-bottom, 2.5rem);
+  }
+}
+
+.featured-posts__footer {
+  text-align: center;
+  @include spacing(padding-top, 3rem);
+  @include spacing(padding-bottom, 6rem);
+}
+
+.featured-posts__more {
+  @include btn;
+  @include custom-btn-overwrite;
 }

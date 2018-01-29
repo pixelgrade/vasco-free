@@ -167,3 +167,25 @@ function bobo_output_toolbar() {
 	get_template_part( 'template-parts/toolbar' );
 }
 add_action( 'pixelgrade_after_header', 'bobo_output_toolbar', 10 );
+
+/**
+ * Filter the Featured Posts widget wrapper classes.
+ *
+ * @param array $classes
+ *
+ * @return array Array of classes
+ */
+function bobo_featured_posts_widget_classes( $classes = array() ) {
+	$widget_classes = array();
+
+	$widget_classes[] = 'c-gallery';
+	$widget_classes = array_merge( $widget_classes, pixelgrade_get_blog_grid_layout_class() );
+	$widget_classes = array_merge( $widget_classes, pixelgrade_get_blog_grid_alignment_class() );
+
+	$classes = array_merge( $classes, $widget_classes );
+	$classes = str_replace( 'c-gallery--packed', 'c-gallery--regular', $classes );
+	$classes[] = 'c-gallery--widget';
+
+	return $classes;
+}
+add_filter( 'pixelgrade_featured_posts_widget_classes', 'bobo_featured_posts_widget_classes', 10, 1 );
