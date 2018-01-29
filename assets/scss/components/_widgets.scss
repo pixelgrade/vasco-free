@@ -97,21 +97,32 @@
   }
 }
 
-//.widget_tag_cloud {
-//
-//  a {
-//    margin-right: 0.5em;
-//
-//    font-size: inherit !important;
-//    font-style: italic;
-//    text-transform: lowercase;
-//    text-decoration: none;
-//
-//    &:hover {
-//      text-decoration: underline;
-//    }
-//  }
-//}
+.widget_recent_comments {
+
+  .comment-author-link {
+    font-style: italic;
+  }
+
+  .recentcomments > a {
+    text-decoration: underline;
+  }
+}
+
+.widget_tag_cloud {
+
+  a {
+    margin-right: 0.5em;
+    line-height: 2.25rem;
+
+    font-style: italic;
+    text-transform: lowercase;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
 
 .widget_calendar {
 
