@@ -627,6 +627,10 @@ function bobo_customify_blog_grid_section( $section_options, $options ) {
 				// [Sub Section] Items Meta
 				'blog_items_primary_meta'            => array(
 					'default' => 'category',
+					'choices' => array(
+						// Add a new option
+						'comments_category' => esc_html__( 'Comments + Category', '__components_txtd' ),
+					),
 				),
 				'blog_items_secondary_meta'          => array(
 					'default' => 'date',
