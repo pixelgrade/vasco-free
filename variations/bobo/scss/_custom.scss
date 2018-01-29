@@ -13,8 +13,11 @@ $image-dimension: 100px;
   align-items: flex-end;
   text-transform: uppercase;
   font-family: $theme-headings-font-family-alt;
+  color: $color-white;
+  border-color: $color-white;
 
   &:before {
+    border-color: $color-black;
     border: solid 2px;
     border-radius: 50%;
     content: '';
@@ -24,19 +27,27 @@ $image-dimension: 100px;
     top: ($dimension - $inner-dimension) / 2;
     left: ($dimension - $inner-dimension) / 2;
   }
+
+  .c-stamp__image {
+    filter: invert(1);
+  }
 }
 
-.c-stamp--light {
-  color: $color-white;
-  border-color: $color-white;
+%c-stamp--light {
+  color: $color-black;
+  border-color: $color-black;
 
   &:before {
-    border-color: $color-white;
+    border-color: $color-black;
+  }
+
+  .c-stamp__image {
+    filter: invert(0);
   }
 }
 
 .c-stamp__container.is-light .c-stamp {
-  @extend .c-stamp--light;
+  @extend %c-stamp--light;
 }
 
 .c-stamp__image {
