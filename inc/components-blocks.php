@@ -16,11 +16,11 @@
  */
 function bobo_register_blog_blocks( $component_slug, $component_config ) {
 
-	Pixelgrade_BlocksManager()->registerBlock( 'blog/content-widget-stamp', array(
+	Pixelgrade_BlocksManager()->registerBlock( 'blog/content-stamp', array(
 		'type'      => 'template_part',
 		'templates' => array(
 			array(
-				'slug' => 'content-widget-stamp',
+				'slug' => 'content-stamp',
 			),
 		),
 	) );
@@ -56,7 +56,7 @@ function bobo_register_blog_blocks( $component_slug, $component_config ) {
 					'blog/entry-footer',
 				),
 			),
-//			'blog/content-widget-stamp',
+			'blog/content-stamp',
 			'blog/related-posts',
 		),
 	) );

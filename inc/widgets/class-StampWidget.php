@@ -50,7 +50,7 @@ if ( ! class_exists( 'Pixelgrade_StampWidget' ) ) :
 					),
 				),
 			    'posts'    => array(
-				    'classes'   => array( 'c-stamp' ),
+				    'classes'   => array( 'c-stamp__container' ),
 				    // You can have multiple templates here (array of arrays) and we will use the first one that passes processing and is found
 				    // @see Pixelgrade_Config::evaluateTemplateParts()
 				    'templates' => array(
@@ -124,7 +124,7 @@ if ( ! class_exists( 'Pixelgrade_StampWidget' ) ) :
 
 				// Add our dynamic classes
 				if ( isset( $box_style ) ) {
-					$classes[] = 'c-stamp--' . $box_style;
+					$classes[] = 'is-' . $box_style;
 					// We also want to add our class to the widget top wrapper
 					preg_match('/class="([^"]*)"/', $args['before_widget'], $matches);
 					if ( ! empty( $matches[1] ) ) {
