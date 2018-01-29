@@ -181,6 +181,24 @@ div.wpforms-container[class] {
     pointer-events: none;
   }
 
+  .c-meta__primary {
+    .comments {
+      display: inline-block;
+      background-color: $theme-accent-color;
+      color: $color-white;
+      padding: 2px 7px;
+      margin-right: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 16px;
+      vertical-align: middle;
+      margin-top: -3px;
+    }
+    ul {
+      display: inline-block;
+    }
+  }
+
   @include below(lap) {
     @include spacing('margin-bottom', 3rem);
 
