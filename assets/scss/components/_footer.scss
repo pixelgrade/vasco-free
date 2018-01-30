@@ -1,0 +1,21 @@
+
+.c-footer__zone--bottom {
+
+  .menu {
+    padding-left: 0;
+
+    li:not(:first-child):before {
+      content: '\2022';
+      width: 1em;
+      text-align: center;
+      display: inline-block;
+
+      padding-left: 0.7em;
+      padding-right: 1.25em;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
