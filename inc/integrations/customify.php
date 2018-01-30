@@ -139,8 +139,6 @@ function bobo_customify_general_section( $section_options, $options ) {
 					'desc'              => esc_html__( 'Set the text that will appear around the stamp.', '__theme_txtd' ),
 					'default'           => '%site_title%',
 					'sanitize_callback' => 'wp_kses_post',
-					//@todo Adjust this class according to the stamp markup
-//					'live'              => array( '.c-stamp__text' ),
 					'active_callback'   => 'bobo_stamp_text_control_show',
 				),
 				'stamp_icon'                      => array(
