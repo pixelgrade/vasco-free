@@ -2,6 +2,10 @@
 .c-footer__zone--bottom {
 
   .menu {
+    @include leading-map(map-merge($h5,(
+      spacing-top: false,
+      spacing-bottom: false
+    )));
     padding-left: 0;
 
     li:not(:first-child):before {
@@ -18,4 +22,16 @@
       text-decoration: none;
     }
   }
+}
+
+.c-footer__copyright-text {
+  font-weight: bold;
+
+  span {
+    font-weight: normal;
+  }
+}
+
+.c-footer__zone--bottom * + .c-footer__copyright-text {
+
 }
