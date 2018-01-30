@@ -1,0 +1,5 @@
+@font-face {
+    font-family: 'Dry Brush';
+    src: url('drybrush.woff2') format('woff2'),
+         url('drybrush.woff') format('woff');
+}
