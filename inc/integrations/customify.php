@@ -769,7 +769,7 @@ function bobo_customify_header_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'background-color',
-							'selector' => '.u-header-background, .c-navbar__content',
+							'selector' => '.u-header-background',
 						),
 					),
 				),

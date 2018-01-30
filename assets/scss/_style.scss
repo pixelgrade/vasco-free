@@ -73,5 +73,11 @@ $content-class: '.entry-content';
   display: none;
 }
 
+.c-navbar__content[class] {
+  @include above(lap) {
+    background: transparent;
+  }
+}
+
 @import "pages/single";
 @import "pages/page";
