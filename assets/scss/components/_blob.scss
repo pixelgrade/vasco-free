@@ -6,6 +6,18 @@
   pointer-events: none;
 }
 
+.blobs--thumbnail {
+  
+  &, .blob, svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+  }
+}
+
 .blob--color-1 {
   color: #DE2D16;
 }
