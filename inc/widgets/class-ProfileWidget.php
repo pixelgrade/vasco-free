@@ -96,6 +96,11 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 					    'lookup_parts_root' => true,
 				    ),
 			    ),
+				'sidebars_not_supported' => array(
+					'sidebar-1',
+					'sidebar-2',
+					'sidebar-footer',
+				),
 			);
 
             // Set up the widget options

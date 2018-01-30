@@ -45,6 +45,7 @@ $content-class: '.entry-content';
 @import '../../components/base/scss/plugins/jetpack-social-navigation';
 
 // BOBO STYLING
+@import 'components/alert';
 @import 'components/author-box';
 @import 'components/blob';
 @import 'components/blockquote';
@@ -70,6 +71,12 @@ $content-class: '.entry-content';
 
 .edit-link {
   display: none;
+}
+
+.hidden-mobile {
+  @include below(lap) {
+    display: none;
+  }
 }
 
 @import "pages/single";
