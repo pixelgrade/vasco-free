@@ -140,7 +140,7 @@ function bobo_customify_general_section( $section_options, $options ) {
 					'default'           => '%site_title%',
 					'sanitize_callback' => 'wp_kses_post',
 					//@todo Adjust this class according to the stamp markup
-					'live'              => array( '.c-stamp__text' ),
+//					'live'              => array( '.c-stamp__text' ),
 					'active_callback'   => 'bobo_stamp_text_control_show',
 				),
 				'stamp_icon'                      => array(

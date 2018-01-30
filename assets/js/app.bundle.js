@@ -477,10 +477,11 @@ var Bobo = function (_BaseTheme) {
             var circleType = null;
             $stamps.each(function (index, element) {
                 var $element = __WEBPACK_IMPORTED_MODULE_1_jquery___default()(element);
-                var $image = __WEBPACK_IMPORTED_MODULE_1_jquery___default()(element).find('.c-stamp__image');
-                circleType = new __WEBPACK_IMPORTED_MODULE_2_circletype___default.a(element);
+                var $text = $element.find('.c-stamp__text').first();
+                // const $image = $element.find('.c-stamp__image').first();
+                circleType = new __WEBPACK_IMPORTED_MODULE_2_circletype___default.a($text[0]);
                 circleType.radius(88).dir(-1);
-                $element.append($image);
+                // $text.append($image);
             });
         }
     }]);

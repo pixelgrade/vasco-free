@@ -75,10 +75,11 @@ export class Bobo extends BaseTheme {
 
     $stamps.each((index, element) => {
       const $element = $(element);
-      const $image = $(element).find('.c-stamp__image');
-      circleType = new CircleType(element);
+      const $text = $element.find('.c-stamp__text').first();
+
+      circleType = new CircleType($text[0]);
       circleType.radius(88).dir(-1);
-      $element.append($image);
+
     });
   }
 
