@@ -858,6 +858,9 @@ function bobo_customify_footer_section( $section_options, $options ) {
 				'footer_hide_credits'          => array(
 					'default' => false,
 				),
+				'footer_layout'                => array(
+					'default' => 'stacked',
+				),
 
 				// [Section] COLORS
 				'footer_body_text_color'       => array(

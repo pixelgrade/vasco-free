@@ -60,13 +60,12 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 30rem;
+  @include spacing(height, 30rem);
 
   .blob {
     position: absolute;
     bottom: 0;
   }
-
 
   .blob:nth-child(1) {
     left: 0;
