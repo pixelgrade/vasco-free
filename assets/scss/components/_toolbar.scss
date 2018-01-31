@@ -8,7 +8,6 @@ $toolbar-width: 62px !default;
   z-index: 9000;
 
   width: $toolbar-width;
-  border-left: 1px solid rgba(0,0,0,0.1);
   padding: 1.5rem 0;
 
   display: flex;
@@ -33,6 +32,17 @@ $toolbar-width: 62px !default;
 
   @include below(lap) {
     display: none;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 1px;
+    background: rgba(0,0,0,0.1);
   }
 }
 

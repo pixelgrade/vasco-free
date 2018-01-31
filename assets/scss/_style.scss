@@ -73,5 +73,23 @@ $content-class: '.entry-content';
   display: none;
 }
 
+.site-header,
+.c-toolbar {
+  border-top: 0 solid transparent;
+}
+
+@if ( $content-border-width != 0 ) {
+
+  .site-header,
+  .c-toolbar {
+    border-top-width: $content-border-width;
+  }
+
+  .site-header,
+  .c-toolbar {
+    border-top-color: $content-border-color;
+  }
+}
+
 @import "pages/single";
 @import "pages/page";

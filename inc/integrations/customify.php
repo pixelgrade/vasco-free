@@ -215,9 +215,46 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 				),
 				'main_content_border_width'             => array(
 					'default' => 0,
+					'css'         => array(
+						array(
+							'property' => 'border-width',
+							'selector' => 'html',
+							'unit'     => 'px',
+						),
+						array(
+							'property' => 'border-top-width',
+							'selector' => '.site-header, .c-toolbar',
+							'unit'     => 'px',
+						),
+						array(
+							'property' => 'right',
+							'selector' => '.site-header, .c-toolbar',
+							'unit'     => 'px',
+						),
+						array(
+							'property' => 'bottom',
+							'selector' => '.c-toolbar',
+							'unit'     => 'px',
+						),
+						array(
+							'property' => 'left',
+							'selector' => '.site-header',
+							'unit'     => 'px',
+						),
+					),
 				),
 				'main_content_border_color'             => array(
 					'default' => '#F7F6F5',
+					'css' => array(
+						array(
+							'property' => 'border-color',
+							'selector' => 'html',
+						),
+						array(
+							'property' => 'border-top-color',
+							'selector' => '.site-header, .c-toolbar',
+						),
+					),
 				),
 
 				// [Section] COLORS
