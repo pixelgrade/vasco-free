@@ -1,5 +1,6 @@
 import * as Masonry from 'masonry-layout';
 import $ from 'jquery';
+import CircleType from 'circletype';
 import { BaseTheme, JQueryExtended } from '../../../components/base/ts/BaseTheme';
 import { Helper } from '../../../components/base/ts/services/Helper';
 import { SearchOverlay } from '../../../components/base/ts/components/SearchOverlay';
@@ -26,6 +27,7 @@ export class Bobo extends BaseTheme {
     this.SearchOverlay = new SearchOverlay();
 
     this.adjustLayout();
+    this.initStamp();
   }
 
   public onResizeAction() {
@@ -65,6 +67,20 @@ export class Bobo extends BaseTheme {
   }
 
   private adjustLayout() {
+  }
+
+  private initStamp() {
+    const $stamps = $('.c-stamp');
+    let circleType = null;
+
+    $stamps.each((index, element) => {
+      const $element = $(element);
+      const $text = $element.find('.c-stamp__text').first();
+
+      circleType = new CircleType($text[0]);
+      circleType.radius(88).dir(-1);
+
+    });
   }
 
 }
