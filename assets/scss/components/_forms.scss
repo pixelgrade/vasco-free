@@ -1,0 +1,145 @@
+@mixin custom-btn-overwrite {
+  transition: $transition--default;
+  cursor: pointer;
+
+  .u-underlined-links & {
+    text-decoration: none;
+  }
+
+  &:focus,
+  &:active,
+  &:hover {
+    opacity: 1;
+    box-shadow: 0 4px 4px 0 rgba(42, 54, 52, 0.1), 0 8px 8px 0 rgba(42, 54, 52, 0.1), 0 16px 16px 0 rgba(42, 54, 52, 0.1), 0 16px 32px 0 rgba(42, 54, 52, 0.1), 0 32px 64px 0 rgba(42, 54, 52, 0.1), 0 64px 128px 0 rgba(42, 54, 52, 0.1);
+    transform: scale(1.03);
+    transform-origin: center;
+  }
+}
+
+@mixin input-paddings {
+  padding: 8px 19px 10px;
+}
+
+@mixin label-spacings {
+  padding-bottom: 0;
+  @include spacing(margin-bottom, 5px);
+}
+
+@include placeholder() {
+  color: $placeholder-color;
+  opacity: 0.5;
+  font-weight: map-get($input-font, font-weight);
+  font-style: normal;
+}
+
+input[type=date],
+input[type=email],
+input[type=number],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=text],
+input[type=url],
+select,
+textarea {
+  @include input-paddings;
+}
+
+/* stylelint-disable */
+button[type=button],
+button[type=reset],
+button[type=submit],
+input[type=button],
+input[type=submit],
+input[type=submit],
+  /* stylelint-enable */
+.c-btn--default {
+  @include custom-btn-overwrite;
+}
+
+select {
+  background-size: 13px 7px;
+}
+
+input[type="radio"] {
+  &:checked {
+    border-color: $checkbox-color;
+
+    &[disabled] {
+      background-color: $color-white;
+      border-color: $input-disabled-background-color;
+    }
+  }
+}
+
+input[type="checkbox"] {
+  &:checked {
+    border-color: $checkbox-color;
+    background: $checkbox-background-color url('#{$checkbox-svg}') center center no-repeat;
+    background-size: 100% 100%;
+
+    &[disabled] {
+      border-color: $input-disabled-background-color;
+      background: $input-disabled-background-color url('#{$checkbox-svg}') center center no-repeat;
+    }
+  }
+}
+
+.label-above .nf-field-label[class] {
+  @include label-spacings;
+}
+
+.contact-form>div>.grunion-field-label:not(.checkbox):not(.radio),
+.nf-form-cont .label-above .nf-field-label label {
+  text-transform: none;
+  @include label-spacings;
+}
+
+.nf-form-cont .list-checkbox-wrap .nf-field-element li, .nf-form-cont .list-radio-wrap .nf-field-element li {
+  align-items: center;
+  margin-bottom: 0 !important;
+}
+
+div.wpforms-container[class] {
+  .wpforms-form {
+    .wpforms-field-label {
+      text-transform: none;
+      @include label-spacings;
+    }
+
+    input,
+    select,
+    textarea {
+      @include input-paddings;
+    }
+
+    input[type="radio"] {
+      &:checked {
+        border-color: $checkbox-color;
+
+        &[disabled] {
+          background-color: $color-white;
+          border-color: $input-disabled-background-color;
+        }
+      }
+    }
+
+    input[type="checkbox"] {
+      &:checked {
+        border-color: $checkbox-color;
+        background: $checkbox-background-color url('#{$checkbox-svg}') center center no-repeat;
+        background-size: 100% 100%;
+
+        &[disabled] {
+          border-color: $input-disabled-background-color;
+          background: $input-disabled-background-color url('#{$checkbox-svg}') center center no-repeat;
+        }
+      }
+    }
+
+    .wpforms-submit {
+      @include btn;
+      @include custom-btn-overwrite;
+    }
+  }
+}
