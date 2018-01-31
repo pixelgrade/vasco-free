@@ -104,9 +104,16 @@ $blob-color-3: #171512;
   }
 
   @include below(lap) {
-    .blob:nth-child(1),
-    .blob:nth-child(3) {
-      display: none;
-    }
+    .blob:nth-child(1) { transform: translate(-50%,56%) scale(0.7) rotate(160deg);}
+    .blob:nth-child(2) { transform: translate(-50%,40%) scale(.5,.7) rotate(32deg);}
+    .blob:nth-child(3) { transform: translate(50%,50%) scale(.5) rotate(10deg);}
+    .blob:nth-child(4) { transform: translate(65%,32%) scale(.5,0.6) rotate(-40deg);}
+  }
+
+  @include below(small) {
+    .blob:nth-child(1) { transform: translate(-50%,60%) scale(.5) rotate(160deg);}
+    .blob:nth-child(2) { transform: translate(-50%,50%) scale(.5,.7) rotate(32deg);}
+    .blob:nth-child(3) { transform: translate(51%,60%) scale(.5) rotate(20deg);}
+    .blob:nth-child(4) { transform: translate(64%,42%) scale(.5,.6) rotate(-40deg);}
   }
 }
