@@ -122,7 +122,7 @@ function bobo_add_blobs_to_footer() {
 		get_template_part( 'template-parts/content-blob-footer' );
 	}
 }
-add_action( 'pixelgrade_footer_after_content', 'bobo_add_blobs_to_footer', 10 );
+add_action( 'pixelgrade_footer_before_content', 'bobo_add_blobs_to_footer', 10 );
 
 /**
  * Adds custom classes to the array of body classes.
