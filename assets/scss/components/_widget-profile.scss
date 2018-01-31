@@ -54,8 +54,6 @@
     top: 0;
     right: 0;
     z-index: 30;
-
-    transform: translate(50%, -30%);
   }
 
   .blobs {
@@ -69,16 +67,26 @@
   }
 }
 
+$desk-stamp-size: 160px;
+$lap-stamp-size: 110px;
+$mobile-stamp-size: 124px;
+
 .c-profile__content + .c-profile__media {
   @include spacing(margin-bottom, 3rem);
-  @include spacing(padding-right, 8rem);
+  padding-right: 8rem;
 
   .c-stamp {
-    @include spacing(right, 8rem);
+    transform: translate(50%, -30%) scale(#{$desk-stamp-size / $stamp-dimension});
+    right: 8rem;
   }
 
   @include below(desk) {
-    @include spacing(padding-right, 4rem);
+    padding-right: 4rem;
+
+    .c-stamp {
+      transform: translate(30%, -30%) scale(#{$lap-stamp-size / $stamp-dimension});
+      right: 4rem;
+    }
   }
 
   @include above(lap) {
@@ -89,6 +97,7 @@
     padding-right: 0;
 
     .c-stamp {
+      transform: translate(20%, -20%) scale(#{$mobile-stamp-size / $stamp-dimension});
       right: 0;
     }
   }
