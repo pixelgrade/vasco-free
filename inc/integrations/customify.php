@@ -215,9 +215,46 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 				),
 				'main_content_border_width'             => array(
 					'default' => 0,
+					'css'         => array(
+						array(
+							'property' => 'border-width',
+							'selector' => 'html',
+							'unit'     => 'px',
+						),
+						array(
+							'property' => 'border-top-width',
+							'selector' => '.site-header, .c-toolbar',
+							'unit'     => 'px',
+						),
+						array(
+							'property' => 'right',
+							'selector' => '.site-header, .c-toolbar',
+							'unit'     => 'px',
+						),
+						array(
+							'property' => 'bottom',
+							'selector' => '.c-toolbar',
+							'unit'     => 'px',
+						),
+						array(
+							'property' => 'left',
+							'selector' => '.site-header',
+							'unit'     => 'px',
+						),
+					),
 				),
 				'main_content_border_color'             => array(
 					'default' => '#F7F6F5',
+					'css' => array(
+						array(
+							'property' => 'border-color',
+							'selector' => 'html',
+						),
+						array(
+							'property' => 'border-top-color',
+							'selector' => '.site-header, .c-toolbar',
+						),
+					),
 				),
 
 				// [Section] COLORS
@@ -407,7 +444,8 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 					'selector' => '
 						.entry-content h5, .h5, h5,
 						.site-description, 
-						.nav-links__label',
+						.nav-links__label,
+						.c-footer__zone--bottom .menu',
 					'default'  => array(
 						'font-family'    => THEME_HEADINGS_FONT_ALT,
 						'font-weight'    => '700',
@@ -539,12 +577,23 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 					),
 				),
 				'buttons_font'       => array(
-					'selector' => $button_selector_all.', .contact-form>div>.grunion-field-label:not(.checkbox):not(.radio),
+					'selector' => $button_selector . ', 
+						.contact-form>div>.grunion-field-label:not(.checkbox):not(.radio),
 						.nf-form-cont .label-above .nf-field-label label,
-						.nf-form-cont .list-checkbox-wrap .nf-field-element li label, .nf-form-cont .list-radio-wrap .nf-field-element li label,
+						.nf-form-cont .list-checkbox-wrap .nf-field-element li label, 
+						.nf-form-cont .list-radio-wrap .nf-field-element li label,
 						div.wpforms-container[class] .wpforms-form .wpforms-field-label,
-						div.wpforms-container[class] .wpforms-form input, div.wpforms-container[class] .wpforms-form select, div.wpforms-container[class] .wpforms-form textarea,
-						input[type=date], input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=url],
+						div.wpforms-container[class] .wpforms-form input, 
+						div.wpforms-container[class] .wpforms-form select, 
+						div.wpforms-container[class] .wpforms-form textarea,
+						input[type=date], 
+						input[type=email], 
+						input[type=number], 
+						input[type=password], 
+						input[type=search], 
+						input[type=tel], 
+						input[type=text], 
+						input[type=url],
 						textarea,
 						select,
 						div.wpforms-container-full .wpforms-form .wpforms-field-label-inline',
@@ -799,7 +848,7 @@ function bobo_customify_header_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'background-color',
-							'selector' => '.u-header-background, .c-navbar__content',
+							'selector' => '.u-header-background',
 						),
 					),
 				),
@@ -862,25 +911,9 @@ function bobo_customify_footer_section( $section_options, $options ) {
 				),
 				'footer_top_spacing'           => array(
 					'default' => 80,
-					'css'     => array(
-						// Component
-						array(
-							'property'        => 'padding-top',
-							'selector'        => '.u-footer-top-spacing',
-							'unit'            => 'px',
-							'callback_filter' => 'typeline_spacing_cb',
-						),
-						// Custom for Julia/Felt
-						array(
-							'property'        => 'margin-top',
-							'selector'        => '.c-footer__zone:not(:empty)+.c-footer__zone',
-							'unit'            => 'px',
-							'callback_filter' => 'typeline_spacing_cb',
-						),
-					),
 				),
 				'footer_bottom_spacing'        => array(
-					'default' => 56,
+					'default' => 98,
 					'css'     => array(
 						// Component
 						array(
@@ -905,7 +938,7 @@ function bobo_customify_footer_section( $section_options, $options ) {
 					'default' => false,
 				),
 				'footer_layout'                => array(
-					'default' => 'row',
+					'default' => 'stacked',
 				),
 
 				// [Section] COLORS

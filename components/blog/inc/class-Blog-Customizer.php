@@ -330,53 +330,8 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 						),
 						'css'         => array(
 							array(
-								'property' => 'margin',
-								'selector' => 'body',
-								'unit'     => 'px',
-							),
-							array(
 								'property' => 'border-width',
-								'selector' => '.c-border',
-								'unit'     => 'px',
-							),
-							array(
-								'property' => 'margin-top',
-								'selector' => '.has-border:not(.u-static-header) .c-navbar, .c-navbar__label',
-								'unit'     => 'px',
-							),
-							array(
-								'property' => 'margin-left',
-								'selector' => '.c-navbar__label',
-								'unit'     => 'px',
-							),
-							array(
-								'property' => 'border-top-width',
-								'selector' => '.c-navbar__container',
-								'unit'     => 'px',
-							),
-							array(
-								'property' => 'border-left-width',
-								'selector' => '.c-navbar__container',
-								'unit'     => 'px',
-							),
-							array(
-								'property' => 'border-right-width',
-								'selector' => '.c-navbar__container',
-								'unit'     => 'px',
-							),
-							array(
-								'property' => 'bottom',
-								'selector' => '.c-slider__bullets',
-								'unit'     => 'px',
-							),
-							array(
-								'property' => 'margin-top',
-								'selector' => '.c-overlay__close',
-								'unit'     => 'px',
-							),
-							array(
-								'property' => 'margin-right',
-								'selector' => '.c-overlay__close',
+								'selector' => 'html',
 								'unit'     => 'px',
 							),
 						),
@@ -389,7 +344,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 						'css'     => array(
 							array(
 								'property' => 'border-color',
-								'selector' => '.c-border',
+								'selector' => 'html, .u-site-header-sticky .site-header',
 							),
 						),
 					),
@@ -1053,7 +1008,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 							array(
 								'property' => 'background-color',
 								'selector' => '
-									.c-btn,
+									.c-btn[class],
 									button[type=button],
 									button[type=reset],
 									button[type=submit],
@@ -1063,7 +1018,7 @@ class Pixelgrade_Blog_Customizer extends Pixelgrade_Singleton {
 							array(
 								'property' => 'color',
 								'selector' => '
-									.u-buttons-outline .c-btn,
+									.u-buttons-outline .c-btn[class],
 									.u-buttons-outline button[type=button], 
 									.u-buttons-outline button[type=reset], 
 									.u-buttons-outline button[type=submit], 

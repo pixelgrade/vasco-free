@@ -1,7 +1,8 @@
 
-.u-underlined-links {
-  a {
+a {
+  text-decoration: none;
+
+  .u-underlined-links & {
     text-decoration: underline;
-    text-decoration-skip: ink;
   }
 }

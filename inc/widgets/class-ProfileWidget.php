@@ -86,7 +86,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 					),
 				),
 			    'posts'    => array(
-				    'classes'   => array( 'c-profile' ),
+				    'classes'   => array(),
 				    // You can have multiple templates here (array of arrays) and we will use the first one that passes processing and is found
 				    // @see Pixelgrade_Config::evaluateTemplateParts()
 				    'templates' => array(
@@ -96,6 +96,11 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 					    'lookup_parts_root' => true,
 				    ),
 			    ),
+				'sidebars_not_supported' => array(
+					'sidebar-1',
+					'sidebar-2',
+					'sidebar-footer',
+				),
 			);
 
             // Set up the widget options

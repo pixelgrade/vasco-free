@@ -177,6 +177,9 @@ function bobo_scripts() {
 		$main_style_deps[] = 'bobo-fonts-bebasneue';
 	}
 
+	wp_enqueue_style( 'bobo-fonts-drybrush', bobo_drybrush_font_url() );
+	$main_style_deps[] = 'bobo-fonts-drybrush';
+
 	/* The main theme stylesheet */
 	if ( ! is_rtl() ) {
 		wp_enqueue_style( 'bobo-style', get_stylesheet_uri(), $main_style_deps, $theme->get( 'Version' ) );
