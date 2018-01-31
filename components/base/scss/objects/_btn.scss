@@ -219,7 +219,7 @@ $btn-font: () !default;
   color: $btn-default-color !important;
 }
 
-.c-btn {
+.c-btn[class] {
   @include btn;
 
   &--default {

@@ -435,7 +435,8 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 					'selector' => '
 						.entry-content h5, .h5, h5,
 						.site-description, 
-						.nav-links__label',
+						.nav-links__label,
+						.c-footer__zone--bottom .menu',
 					'default'  => array(
 						'font-family'    => THEME_HEADINGS_FONT_ALT,
 						'font-weight'    => '700',
@@ -822,7 +823,7 @@ function bobo_customify_header_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'background-color',
-							'selector' => '.u-header-background, .c-navbar__content',
+							'selector' => '.u-header-background',
 						),
 					),
 				),
@@ -885,25 +886,9 @@ function bobo_customify_footer_section( $section_options, $options ) {
 				),
 				'footer_top_spacing'           => array(
 					'default' => 80,
-					'css'     => array(
-						// Component
-						array(
-							'property'        => 'padding-top',
-							'selector'        => '.u-footer-top-spacing',
-							'unit'            => 'px',
-							'callback_filter' => 'typeline_spacing_cb',
-						),
-						// Custom for Julia/Felt
-						array(
-							'property'        => 'margin-top',
-							'selector'        => '.c-footer__zone:not(:empty)+.c-footer__zone',
-							'unit'            => 'px',
-							'callback_filter' => 'typeline_spacing_cb',
-						),
-					),
 				),
 				'footer_bottom_spacing'        => array(
-					'default' => 56,
+					'default' => 98,
 					'css'     => array(
 						// Component
 						array(
@@ -928,7 +913,7 @@ function bobo_customify_footer_section( $section_options, $options ) {
 					'default' => false,
 				),
 				'footer_layout'                => array(
-					'default' => 'row',
+					'default' => 'stacked',
 				),
 
 				// [Section] COLORS

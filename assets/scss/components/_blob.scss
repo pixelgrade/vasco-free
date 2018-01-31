@@ -1,29 +1,37 @@
-.blobs,
-.blobs .blob,
-.blobs svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-
+.blobs {
   display: block;
   width: 100%;
   height: 100%;
-}
 
-.blobs {
   pointer-events: none;
 }
 
+.blobs--thumbnail {
+
+  &, .blob, svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+  }
+}
+
+$blob-color-1: #DE2D16;
+$blob-color-2: #FFDCCE;
+$blob-color-3: #171512;
+
 .blob--color-1 {
-  color: #DE2D16;
+  color: $blob-color-1;
 }
 
 .blob--color-2 {
-  color: #FFDCCE;
+  color: $blob-color-2;
 }
 
 .blob--color-3 {
-  color: #171512;
+  color: $blob-color-3;
 }
 
 .blobs--thumbnail {
@@ -55,44 +63,51 @@
 
 .site-footer {
   position: relative;
-  overflow: hidden;
-
-  .c-footer {
-    position: relative;
-    z-index: 100;
-  }
 }
 
 .blobs--footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  @include spacing(height, 30rem);
+
   .blob {
     position: absolute;
     bottom: 0;
-
-    width: 100%;
-    height: 100%;
   }
-
 
   .blob:nth-child(1) {
     left: 0;
-    transform: translate3d(-40vw,40%,0) rotate(-220deg);
-    height: 150%;
+    transform: translate(-30%,56%) scale(1.4,1.1) rotate(-210deg);
   }
 
   .blob:nth-child(2) {
     left: 0;
-    transform: translate3d(-56vw,-10%,0) rotateY(150deg) rotate(56deg);
-    height: 180%;
-    z-index: 10;
+    transform: translate(-37%,30%) scale(0.5,1.4) rotate(55deg);
   }
 
   .blob:nth-child(3) {
     right: 0;
-    transform: translate3d(44vw,85%,0) rotate(-30deg);
+    transform: translate(40%,80%) scale(1.4,1.3) rotate(-30deg);
   }
 
   .blob:nth-child(4) {
     right: 0;
-    transform: translate3d(52vw,50%,0) rotate(-50deg);
+    transform: translate(60%,30%) scale(0.9,0.9) rotate(-50deg);
+  }
+
+  @include below(lap) {
+    .blob:nth-child(1) { transform: translate(-50%,56%) scale(0.7) rotate(160deg);}
+    .blob:nth-child(2) { transform: translate(-50%,40%) scale(.5,.7) rotate(32deg);}
+    .blob:nth-child(3) { transform: translate(50%,50%) scale(.5) rotate(10deg);}
+    .blob:nth-child(4) { transform: translate(65%,32%) scale(.5,0.6) rotate(-40deg);}
+  }
+
+  @include below(small) {
+    .blob:nth-child(1) { transform: translate(-50%,60%) scale(.5) rotate(160deg);}
+    .blob:nth-child(2) { transform: translate(-50%,50%) scale(.5,.7) rotate(32deg);}
+    .blob:nth-child(3) { transform: translate(51%,60%) scale(.5) rotate(20deg);}
+    .blob:nth-child(4) { transform: translate(64%,42%) scale(.5,.6) rotate(-40deg);}
   }
 }
