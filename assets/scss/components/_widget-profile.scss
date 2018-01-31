@@ -23,7 +23,7 @@
   opacity: 0.1;
   transform: translate(-50%, -50%);
 
-  @include below(lap) {
+  @include below(pad) {
     display: none;
   }
 }
@@ -68,7 +68,7 @@
 }
 
 $desk-stamp-size: 160px;
-$lap-stamp-size: 110px;
+$pad-stamp-size: 110px;
 $mobile-stamp-size: 124px;
 
 .c-profile__content + .c-profile__media {
@@ -84,16 +84,16 @@ $mobile-stamp-size: 124px;
     padding-right: 4rem;
 
     .c-stamp {
-      transform: translate(30%, -30%) scale(#{$lap-stamp-size / $stamp-dimension});
+      transform: translate(30%, -30%) scale(#{$pad-stamp-size / $stamp-dimension});
       right: 4rem;
     }
   }
 
-  @include above(lap) {
+  @include above(pad) {
     margin-bottom: 0;
   }
 
-  @include below(lap) {
+  @include below(pad) {
     padding-right: 0;
 
     .c-stamp {
@@ -103,7 +103,7 @@ $mobile-stamp-size: 124px;
   }
 }
 
-@include below(lap) {
+@include below(pad) {
   .c-profile {
     flex-direction: column-reverse;
   }
