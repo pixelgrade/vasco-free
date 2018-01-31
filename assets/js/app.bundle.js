@@ -468,8 +468,20 @@ var Bobo = function (_BaseTheme) {
             });
         }
     }, {
+        key: 'profileWidget',
+        value: function profileWidget() {
+            var $widgets = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.c-profile');
+            $widgets.each(function (i, obj) {
+                var $widget = __WEBPACK_IMPORTED_MODULE_1_jquery___default()(obj);
+                var widgetHeight = $widget.outerHeight();
+                $widget.find('.c-profile__dropcap').css('fontSize', widgetHeight * 0.8);
+            });
+        }
+    }, {
         key: 'adjustLayout',
-        value: function adjustLayout() {}
+        value: function adjustLayout() {
+            this.profileWidget();
+        }
     }, {
         key: 'initStamp',
         value: function initStamp() {

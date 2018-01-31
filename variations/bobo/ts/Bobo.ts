@@ -66,7 +66,19 @@ export class Bobo extends BaseTheme {
     });
   }
 
+  private profileWidget() {
+    const $widgets = $( '.c-profile' );
+
+    $widgets.each((i, obj) => {
+      const $widget = $(obj);
+      const widgetHeight = $widget.outerHeight();
+
+      $widget.find( '.c-profile__dropcap' ).css( 'fontSize', widgetHeight * 0.8 );
+    });
+  }
+
   private adjustLayout() {
+    this.profileWidget();
   }
 
   private initStamp() {

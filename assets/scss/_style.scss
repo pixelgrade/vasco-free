@@ -45,6 +45,7 @@ $content-class: '.entry-content';
 @import '../../components/base/scss/plugins/jetpack-social-navigation';
 
 // BOBO STYLING
+@import 'components/alert';
 @import 'components/author-box';
 @import 'components/blob';
 @import 'components/blockquote';
@@ -62,6 +63,7 @@ $content-class: '.entry-content';
 @import 'components/search-form';
 @import 'components/search-overlay';
 @import 'components/stamp';
+@import 'components/widget-profile';
 @import 'components/widgets';
 @import 'components/wp-caption';
 
@@ -71,6 +73,12 @@ $content-class: '.entry-content';
 
 .edit-link {
   display: none;
+}
+
+.hidden-mobile {
+  @include below(lap) {
+    display: none;
+  }
 }
 
 .site-header,
