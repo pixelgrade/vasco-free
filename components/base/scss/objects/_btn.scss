@@ -205,7 +205,7 @@ $btn-font: () !default;
   }
 }
 
-.c-btn {
+.c-btn[class] {
   @include btn;
 }
 
