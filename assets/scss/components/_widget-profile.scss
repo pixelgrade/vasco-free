@@ -4,6 +4,9 @@
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
+
+  @include spacing(padding-top, 8rem);
+  @include spacing(padding-bottom, 8rem);
 }
 
 .c-profile__dropcap {

@@ -41,7 +41,6 @@
     "css-loader": "0.27.3",
     "del": "*",
     "extract-text-webpack-plugin": "2.1.0",
-    "fittext": "^1.0.1",
     "gulp": "*",
     "gulp-autoprefixer": "*",
     "gulp-concat": "*",
