@@ -79,5 +79,9 @@ $content-class: '.entry-content';
   }
 }
 
+.site-content {
+  overflow: hidden;
+}
+
 @import "pages/single";
 @import "pages/page";
