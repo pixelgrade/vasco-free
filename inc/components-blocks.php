@@ -23,6 +23,12 @@ function bobo_register_blog_blocks( $component_slug, $component_config ) {
 				'slug' => 'content-stamp',
 			),
 		),
+		'checks' => array(
+			array(
+				'callback' => 'pixelgrade_option',
+				'args' => array( 'show_stamps' )
+			),
+		),
 	) );
 
 	Pixelgrade_BlocksManager()->registerBlock( 'blog/single', array(

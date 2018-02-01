@@ -1,31 +1,59 @@
 $stamp-dimension: 180px;
 $stamp-inner-dimension: 120px;
-$stamp-image-dimension: 100px;
+$stamp-image-dimension: 70px;
 
 .c-stamp {
+  &--rotated {
+    transform: rotate(35deg);
+  }
+
+  &.c-stamp--custom {
+    opacity: 0.9;
+    align-items: center;
+    justify-content: center;
+
+    .c-stamp__image--light {
+      display: none;
+    }
+    .c-stamp__image--dark {
+      display: block;
+    }
+  }
+
+  &.c-stamp--auto {
+    border: solid 1px;
+    border-radius: 50%;
+    opacity: 0;
+
+    &:before {
+      border: solid 1px;
+      border-radius: 50%;
+      content: '';
+      position: absolute;
+      width: $stamp-inner-dimension;
+      height: $stamp-inner-dimension;
+      top: ($stamp-dimension - $stamp-inner-dimension) / 2;
+      left: ($stamp-dimension - $stamp-inner-dimension) / 2;
+    }
+  }
+
   width: $stamp-dimension;
   height: $stamp-dimension;
-  border: solid 2px;
-  border-radius: 50%;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-end;
   text-transform: uppercase;
   font-family: $theme-headings-font-family-alt;
+  transition: $transition--default;
+}
+
+%c-stamp--dark {
   color: $color-white;
   border-color: $color-white;
 
   &:before {
-    border-color: $color-black;
-    border: solid 2px;
-    border-radius: 50%;
-    content: '';
-    position: absolute;
-    width: $stamp-inner-dimension;
-    height: $stamp-inner-dimension;
-    top: ($stamp-dimension - $stamp-inner-dimension) / 2;
-    left: ($stamp-dimension - $stamp-inner-dimension) / 2;
+    border-color: $color-white;
   }
 
   .c-stamp__image {
@@ -33,27 +61,51 @@ $stamp-image-dimension: 100px;
   }
 }
 
-%c-stamp--light {
-  color: $color-black;
-  border-color: $color-black;
-
-  &:before {
-    border-color: $color-black;
-  }
-
-  .c-stamp__image {
-    filter: invert(0);
-  }
+.c-stamp__container.is-dark .c-stamp.c-stamp--auto {
+  @extend %c-stamp--dark;
 }
 
-.c-stamp__container.is-light .c-stamp {
-  @extend %c-stamp--light;
+.c-stamp--custom .c-stamp__image,
+.single .entry-thumbnail .c-stamp--custom .c-stamp__image {
+  max-width: $stamp-dimension;
+  max-height: $stamp-dimension;
 }
 
-.c-stamp__image {
+.c-stamp--auto .c-stamp__image,
+.single .entry-thumbnail .c-stamp--auto .c-stamp__image {
   position: absolute;
   width: $stamp-image-dimension;
   height: $stamp-image-dimension;
   top: ($stamp-dimension - $stamp-image-dimension) / 2;
   left: ($stamp-dimension - $stamp-image-dimension) / 2;
+}
+
+.blob-container {
+  position: relative;
+
+  .c-stamp {
+    position: absolute;
+    right: 30px;
+    top: -$stamp-dimension / 2;
+    z-index: 15;
+  }
+}
+
+.c-stamp__container {
+  &.is-light {
+    .c-stamp__image--light {
+      display: none;
+    }
+    .c-stamp__image--dark {
+      display: block;
+    }
+  }
+  &.is-dark {
+    .c-stamp__image--light {
+      display: block;
+    }
+    .c-stamp__image--dark {
+      display: none;
+    }
+  }
 }

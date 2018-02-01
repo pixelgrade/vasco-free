@@ -106,16 +106,20 @@ export class Bobo extends BaseTheme {
   }
 
   private initStamp() {
-    const $stamps = $('.c-stamp');
+    const $stamps = $('.c-stamp.c-stamp--auto');
     let circleType = null;
 
     $stamps.each((index, element) => {
       const $element = $(element);
       const $text = $element.find('.c-stamp__text').first();
-
       circleType = new CircleType($text[0]);
       circleType.radius(88).dir(-1);
-
+      if ($element.parent().hasClass('blob-container')) {
+        $element.addClass('c-stamp--rotated');
+      }
+      setTimeout(() => {
+        $element.css('opacity', 0.9);
+      }, 200);
     });
   }
 

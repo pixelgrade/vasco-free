@@ -508,13 +508,19 @@ var Bobo = function (_BaseTheme) {
     }, {
         key: 'initStamp',
         value: function initStamp() {
-            var $stamps = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.c-stamp');
+            var $stamps = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.c-stamp.c-stamp--auto');
             var circleType = null;
             $stamps.each(function (index, element) {
                 var $element = __WEBPACK_IMPORTED_MODULE_1_jquery___default()(element);
                 var $text = $element.find('.c-stamp__text').first();
                 circleType = new __WEBPACK_IMPORTED_MODULE_2_circletype___default.a($text[0]);
                 circleType.radius(88).dir(-1);
+                if ($element.parent().hasClass('blob-container')) {
+                    $element.addClass('c-stamp--rotated');
+                }
+                setTimeout(function () {
+                    $element.css('opacity', 0.9);
+                }, 200);
             });
         }
     }]);

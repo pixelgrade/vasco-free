@@ -40,10 +40,10 @@ if ( 'auto' === pixelgrade_option( 'stamp_style' ) ) {
 
 			<?php
 			if ( ! empty( $stamp_dark_image_id ) ) {
-				echo wp_get_attachment_image( $stamp_dark_image_id, 'bobo-stamp-image', false, array( 'class' => 'px-stamp__image px-stamp__image--dark' ) );
+				echo wp_get_attachment_image( $stamp_dark_image_id, 'bobo-stamp-image', false, array( 'class' => 'c-stamp__image c-stamp__image--dark' ) );
 			}
 			if ( ! empty( $stamp_light_image_id ) ) {
-				echo wp_get_attachment_image( $stamp_light_image_id, 'bobo-stamp-image', false, array( 'class' => 'px-stamp__image px-stamp__image--light' ) );
+				echo wp_get_attachment_image( $stamp_light_image_id, 'bobo-stamp-image', false, array( 'class' => 'c-stamp__image c-stamp__image--light' ) );
 			} ?>
 
 		</div>
