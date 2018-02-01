@@ -65,6 +65,7 @@ do_action( 'pixelgrade_before_loop_entry', $location );
 						<?php if ( has_post_thumbnail() ) {
 							the_post_thumbnail();
 						} ?>
+						<div class="c-card__badge"></div>
 					</div>
 
 					<?php if ( $secondary_meta_output ) { ?>
@@ -94,7 +95,6 @@ do_action( 'pixelgrade_before_loop_entry', $location );
 			</div>
 
 			<a class="c-card__link" href="<?php the_permalink(); ?>"></a>
-			<div class="c-card__badge"></div>
 
 			<?php
 			/**

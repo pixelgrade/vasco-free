@@ -385,6 +385,7 @@ new __WEBPACK_IMPORTED_MODULE_0__Bobo__["a" /* Bobo */]();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_base_ts_services_Helper__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_base_ts_components_SearchOverlay__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_header_ts_Header__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_base_ts_components_Gallery__ = __webpack_require__(32);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
@@ -394,6 +395,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -458,13 +460,16 @@ var Bobo = function (_BaseTheme) {
                 var $commentFormFooter = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('<div class="comment-form-subscriptions"></div>').appendTo($commentForm);
                 $commentForm.find('.comment-subscription-form').appendTo($commentFormFooter);
             }
+            $container.find('.c-gallery').not('.c-gallery--widget').each(function (index, element) {
+                new __WEBPACK_IMPORTED_MODULE_7__components_base_ts_components_Gallery__["a" /* Gallery */](__WEBPACK_IMPORTED_MODULE_1_jquery___default()(element));
+            });
         }
     }, {
         key: 'handleGalleries',
         value: function handleGalleries() {
             var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : __WEBPACK_IMPORTED_MODULE_4__components_base_ts_services_Helper__["a" /* Helper */].$body;
 
-            $container.find('.u-gallery-type--masonry').each(function (index, element) {
+            $container.find('.js-masonry, .u-gallery-type--masonry').each(function (index, element) {
                 new __WEBPACK_IMPORTED_MODULE_0_masonry_layout__(element, { transitionDuration: 0 });
             });
         }
@@ -990,6 +995,99 @@ var Header = function (_BaseComponent) {
 
     return Header;
 }(__WEBPACK_IMPORTED_MODULE_3__base_ts_models_DefaultComponent__["a" /* BaseComponent */]);
+
+/***/ }),
+/* 24 */,
+/* 25 */,
+/* 26 */,
+/* 27 */,
+/* 28 */,
+/* 29 */,
+/* 30 */,
+/* 31 */,
+/* 32 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Gallery; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_masonry_layout__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_masonry_layout___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_masonry_layout__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_DefaultComponent__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_window_service__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_global_service__ = __webpack_require__(21);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+var Gallery = function (_BaseComponent) {
+    _inherits(Gallery, _BaseComponent);
+
+    function Gallery(element) {
+        _classCallCheck(this, Gallery);
+
+        var _this = _possibleConstructorReturn(this, (Gallery.__proto__ || Object.getPrototypeOf(Gallery)).call(this));
+
+        _this.subscriptionActive = true;
+        _this.masonryGallerySelector = '.c-gallery--packed, .c-gallery--masonry';
+        _this.element = element;
+        if (_this.element.is(_this.masonryGallerySelector)) {
+            _this.layout();
+        }
+        __WEBPACK_IMPORTED_MODULE_2__services_window_service__["a" /* WindowService */].onResize().debounce(300).takeWhile(function () {
+            return _this.subscriptionActive;
+        }).subscribe(function () {
+            if (_this.element.is(_this.masonryGallerySelector)) {
+                _this.layout();
+            }
+        });
+        __WEBPACK_IMPORTED_MODULE_3__services_global_service__["a" /* GlobalService */].onCustomizerChange().debounce(300).takeWhile(function () {
+            return _this.subscriptionActive;
+        }).subscribe(function () {
+            if (_this.element.is(_this.masonryGallerySelector)) {
+                _this.layout();
+            }
+        });
+        return _this;
+    }
+
+    _createClass(Gallery, [{
+        key: 'bindEvents',
+        value: function bindEvents() {}
+    }, {
+        key: 'destroy',
+        value: function destroy() {
+            this.subscriptionActive = false;
+        }
+    }, {
+        key: 'layout',
+        value: function layout() {
+            var $items = this.element.children();
+            var minColumnWidth = void 0;
+            if (!$items.length) {
+                return;
+            }
+            minColumnWidth = this.element.children().get(0).getBoundingClientRect().width;
+            $items.each(function (index, element) {
+                var width = element.getBoundingClientRect().width;
+                minColumnWidth = width < minColumnWidth ? width : minColumnWidth;
+            });
+            new __WEBPACK_IMPORTED_MODULE_0_masonry_layout__(this.element.get(0), {
+                columnWidth: minColumnWidth,
+                transitionDuration: 0
+            });
+        }
+    }]);
+
+    return Gallery;
+}(__WEBPACK_IMPORTED_MODULE_1__models_DefaultComponent__["a" /* BaseComponent */]);
 
 /***/ })
 ],[10]);
