@@ -63,7 +63,7 @@ if ( ! class_exists( 'Pixelgrade_StampWidget' ) ) :
             // Set up the widget options
             $widget_ops = array(
                 'classname'                   => 'widget_stamp',
-                'description'                 => esc_html__( 'Put your stamp on it.', '__theme_txtd' ),
+                'description'                 => esc_html__( 'Use this area to create a branding tweak that people will remember in the long run because it says something about your personality.', '__theme_txtd' ),
                 'customize_selective_refresh' => true,
             );
 
