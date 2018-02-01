@@ -21,7 +21,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
+<div class="c-profile">
+
 <?php if ( ! empty( $title ) || ! empty( $description ) || ( ! empty( $button_text ) && ! empty( $button_url ) ) ) { ?>
+
+	<?php if ( ! empty( $title ) ) { ?>
+		<div class="c-profile__dropcap"><?php echo substr( $title, 0, 1 ); ?></div>
+	<?php } ?>
 
 	<div class="c-profile__content">
 
@@ -30,17 +36,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php } ?>
 
 		<?php if ( ! empty( $title ) ) { ?>
-			<div class="c-profile__title"><?php echo $title ?></div>
+			<div class="c-profile__title h2"><?php echo $title ?></div>
 		<?php } ?>
 
 		<?php if ( ! empty( $description ) ) { ?>
-			<div class="c-profile__description"><?php echo $description; ?></div>
+			<p class="c-profile__description"><?php echo $description; ?></p>
 		<?php } ?>
 
 		<?php if ( ! empty( $button_text ) && ! empty( $button_url ) ) { ?>
-			<div class="c-profile__action">
-				<a href="<?php echo $button_url; ?>" class="c-profile__btn c-btn"><?php echo $button_text; ?></a>
-			</div>
+			<a href="<?php echo $button_url; ?>" class="c-profile__btn c-btn"><?php echo $button_text; ?></a>
 		<?php } ?>
 
 	</div>
@@ -48,12 +52,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php } ?>
 
 <?php if ( ! empty ( $image ) ) { ?>
+
 	<div class="c-profile__media">
 		<?php echo wp_get_attachment_image( $image, 'full' ); ?>
+
+		<?php if ( pixelgrade_option( 'show_stamps' ) ) {
+			get_template_part( 'template-parts/content-stamp' );
+		} ?>
+
+		<?php if ( pixelgrade_option( 'show_blobs' ) ) {
+			get_template_part( 'template-parts/content-blob' );
+		} ?>
 	</div>
 
-	<?php if ( pixelgrade_option( 'show_stamps' ) ) {
-		get_template_part( 'template-parts/content-stamp' );
-	} ?>
-
 <?php } ?>
+</div>

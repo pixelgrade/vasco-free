@@ -50,6 +50,27 @@ function bobo_hkgrotesk_font_url() {
 	return '';
 }
 
+/**
+ * Generate the Dry Brush font URL
+ *
+ * @since Bobo 1.0
+ *
+ * @return string
+ */
+function bobo_drybrush_font_url() {
+
+	/* Translators: If there are characters in your language that are not
+	* supported by HK Grotesk, translate this to 'off'. Do not translate
+	* into your own language.
+	*/
+	$drybrush = esc_html_x( 'on', 'HK Grotesk font: on or off', '__theme_txtd' );
+	if ( 'off' !== $drybrush ) {
+		return get_template_directory_uri() . '/assets/fonts/drybrush/stylesheet.css';
+	}
+
+	return '';
+}
+
 
 /**
  * Generate the Bebas Neue font URL
@@ -122,7 +143,7 @@ function bobo_add_blobs_to_footer() {
 		get_template_part( 'template-parts/content-blob-footer' );
 	}
 }
-add_action( 'pixelgrade_footer_after_content', 'bobo_add_blobs_to_footer', 10 );
+add_action( 'pixelgrade_footer_before_content', 'bobo_add_blobs_to_footer', 10 );
 
 /**
  * Adds custom classes to the array of body classes.

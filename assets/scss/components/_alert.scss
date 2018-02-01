@@ -1,0 +1,12 @@
+$alert-placeholder-background:   #E03A3A   !default;
+$alert-placeholder-color:        #FFF      !default;
+
+.c-alert {
+  @include spacing(padding, 2rem 2.5rem);
+  color: $alert-placeholder-color;
+  background-color: $alert-placeholder-background;
+}
+
+.c-alert__title {
+  color: inherit;
+}

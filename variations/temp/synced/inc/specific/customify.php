@@ -270,8 +270,8 @@ function temp_change_customify_main_content( $section_options, $options ) {
 function temp_change_customify_buttons( $section_options, $options ) {
 
 	$button_selector = '
-		.c-btn,
-		.c-card__action,
+		.c-btn[class],
+		.c-card__action[class],
 		button[type=button],
 		button[type=reset],
 		button[type=submit],
