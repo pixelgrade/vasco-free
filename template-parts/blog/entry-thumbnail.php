@@ -32,6 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		if ( $show_blobs ) { ?>
 		<div class="blob-container">
+			<?php pixelgrade_render_block( 'blog/content-stamp' ); ?>
 		<?php } ?>
 
 			<?php the_post_thumbnail( 'single-' . pixelgrade_get_post_thumbnail_aspect_ratio_class() ); ?>
