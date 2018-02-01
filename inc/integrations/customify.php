@@ -266,7 +266,11 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => 'body',
+							'selector' => 'body,
+								.u-buttons-outline .comment-form .form-submit .submit,
+								.c-comments-toggle__label,
+								.c-btn--default,
+								.button.default',
 						),
 						array(
 							'property' => 'background-color',
@@ -276,7 +280,13 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 								.single .header-meta .byline, 
 								.single .header-meta .posted-on,
 								.c-card .posted-on,
-								.comment-form .form-submit .submit',
+								.u-buttons-solid .comment-form .form-submit .submit',
+						),
+						array(
+							'property' => 'border-color',
+							'selector' => '
+								.u-buttons-outline .comment-form .form-submit .submit,
+								.c-comments-toggle__label',
 						),
 					),
 				),
@@ -339,7 +349,10 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 								.c-card .posted-on,
 								.entry-content .cats[class] > a,
 								.comment-form .form-submit .submit,
-								.c-meta__primary .comments',
+								.c-meta__primary .comments,
+								.c-btn--default,
+								.button.default,
+								.c-comments-toggle__label',
 						),
 					),
 				),
@@ -529,6 +542,8 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 function bobo_customify_buttons_section( $section_options, $options ) {
 	$button_selector = '
 		.c-btn,
+		.c-btn:hover,
+		.c-btn:active,
 		button[type=button],
 		button[type=reset],
 		button[type=submit],

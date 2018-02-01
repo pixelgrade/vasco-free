@@ -111,5 +111,15 @@ $content-class: '.entry-content';
   }
 }
 
+.c-comments-toggle__label,
+.c-btn,
+button[type=button],
+button[type=reset],
+button[type=submit],
+input[type=button],
+input[type=submit]{
+  @include custom-btn-overwrite;
+}
+
 @import "pages/single";
 @import "pages/page";

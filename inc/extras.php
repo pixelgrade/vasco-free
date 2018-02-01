@@ -282,6 +282,7 @@ function bobo_featured_posts_widget_classes( $classes = array() ) {
 
 	$classes = array_merge( $classes, $widget_classes );
 	$classes = str_replace( 'c-gallery--packed', 'c-gallery--regular', $classes );
+	$classes = str_replace( 'c-gallery--masonry', 'c-gallery--regular  c-gallery--cropped', $classes );
 	$classes[] = 'c-gallery--widget';
 
 	return $classes;
