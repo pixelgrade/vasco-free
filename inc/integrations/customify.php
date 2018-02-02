@@ -275,6 +275,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 								.entry-content .cats[class] > a,
 								.single .header-meta .byline, 
 								.single .header-meta .posted-on,
+								.c-card .posted-on,
 								.comment-form .form-submit .submit',
 						),
 					),
@@ -335,6 +336,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 								.entry-content .dropcap, 
 								.single .header-meta .byline, 
 								.single .header-meta .posted-on,
+								.c-card .posted-on,
 								.entry-content .cats[class] > a,
 								.comment-form .form-submit .submit',
 						),
@@ -343,7 +345,14 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 
 				// [Section] FONTS
 				'main_content_page_title_font'          => array(
-					'selector' => '.single .entry-title, .page .entry-title, .h0[class], .c-search-overlay .search-field',
+					'selector' => '
+						.single .entry-title,
+						.page .entry-title,
+						.archive .entry-title,
+						.search .entry-title,
+						.no-results .page-title,
+						.h0[class],
+						.c-search-overlay .search-field',
 					'default'  => array(
 						'font-family'    => THEME_HEADINGS_FONT,
 						'font-size'      => 72,
@@ -472,13 +481,14 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 			'desc'     => '',
 			'selector' => '
 				.single .header-meta .byline, 
-				.single .header-meta .posted-on, 
+				.single .header-meta .posted-on,  
+				.c-card .posted-on,
 				.entry-content .cats[class] > a',
 			'callback' => 'typeline_font_cb',
 
 			'default' => array(
 				'font-family'    => THEME_SITE_TITLE_FONT,
-				'font-weight'    => '400',
+				'font-weight'    => '700',
 				'font-size'      => 19,
 				'line-height'    => 1.21,
 				'letter-spacing' => 0.052,
@@ -518,13 +528,20 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 function bobo_customify_buttons_section( $section_options, $options ) {
 	$button_selector = '
 		.c-btn,
-		.c-card__action,
 		button[type=button],
 		button[type=reset],
 		button[type=submit],
 		input[type=button],
 		input[type=submit],
+		.featured-posts__more,
+		.widget_pages,
+		.page-numbers:not(ul):not(.dots),
+		body #infinite-handle span button,
+		body #infinite-handle span button:hover,
+		body #infinite-handle span button:focus,
 		.featured-posts__more';
+
+	$button_selector_all = $button_selector.', .c-card__action';
 
 	$modified_config = array(
 
@@ -541,6 +558,10 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 					'default' => THEME_ACCENT_COLOR,
 					'css'     => array(
 						array(
+							'property' => 'color',
+							'selector' => '.c-card__action',
+						),
+						array(
 							'property' => 'background-color',
 							'selector' => $button_selector,
 						),
@@ -552,7 +573,7 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 						array(
 							'property' => 'color',
 							'selector' => $button_selector,
-						),
+						)
 					),
 				),
 				'buttons_font'       => array(
@@ -628,7 +649,7 @@ function bobo_customify_blog_grid_section( $section_options, $options ) {
 					'default' => 3,
 				),
 				'blog_items_vertical_spacing'        => array(
-					'default' => 32,
+					'default' => 0,
 				),
 				'blog_items_horizontal_spacing'      => array(
 					'default' => 32,
@@ -665,19 +686,25 @@ function bobo_customify_blog_grid_section( $section_options, $options ) {
 
 				// [Section] COLORS
 				'blog_item_title_color'              => array(
-					'default' => '#333131',
+					'default' => THEME_TEXT_COLOR,
 				),
 				'blog_item_meta_primary_color'       => array(
 					'default' => THEME_ACCENT_COLOR,
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.c-card__thumbnail-background:before, .c-gallery--blog .c-meta__primary, .archive-title__pre-title',
+						),
+					),
 				),
 				'blog_item_meta_secondary_color'     => array(
-					'default' => THEME_ACCENT_COLOR,
+					'default' => '#FFFFFF',
 				),
 				'blog_item_thumbnail_background'     => array(
 					'default' => '#000000',
 				),
 				'blog_item_excerpt_color'            => array(
-					'default' => THEME_ACCENT_COLOR,
+					'default' => THEME_TEXT_COLOR,
 				),
 
 				// [Sub Section] Thumbnail Hover
@@ -698,14 +725,12 @@ function bobo_customify_blog_grid_section( $section_options, $options ) {
 					),
 				),
 				'blog_item_meta_font'                => array(
-					'selector' => '.c-meta__primary, .c-meta__secondary',
+					'selector' => '.c-meta__primary, .archive-title__pre-title',
 					'default'  => array(
-						'font-family'    => THEME_SITE_TITLE_FONT,
-						'font-weight'    => '400',
-						'font-size'      => 13,
-						'line-height'    => 1.1,
-						'letter-spacing' => 0.1,
-						'text-transform' => 'uppercase',
+						'font-family'    => THEME_HEADINGS_FONT_ALT,
+						'font-weight'    => '500',
+						'font-size'      => 19,
+						'line-height'    => 1.1
 					),
 				),
 				'blog_item_excerpt_font'             => array(

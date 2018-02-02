@@ -265,3 +265,31 @@ function bobo_change_tag_cloud_font_sizes( array $args ) {
 	return $args;
 }
 add_filter( 'widget_tag_cloud_args', 'bobo_change_tag_cloud_font_sizes');
+
+/**
+ * Filter the Featured Posts widget wrapper classes.
+ *
+ * This function is used to make the Grid Posts Widget card inherit properties from the options in the Blog Grid
+ * section from the Customizer.
+ *
+ * We have to avoid using the packed and masonry layout so we don't ignore the columns and aspect ratio options
+ * of the widget
+ *
+ * @param array $classes
+ *
+ * @return array Array of classes
+ */
+function bobo_featured_posts_widget_classes( $classes = array() ) {
+	$widget_classes = array();
+
+	$widget_classes[] = 'c-gallery';
+	$widget_classes = array_merge( $widget_classes, pixelgrade_get_blog_grid_layout_class() );
+	$widget_classes = array_merge( $widget_classes, pixelgrade_get_blog_grid_alignment_class() );
+
+	$classes = array_merge( $classes, $widget_classes );
+	$classes = str_replace( 'c-gallery--packed', 'c-gallery--regular', $classes );
+	$classes[] = 'c-gallery--widget';
+
+	return $classes;
+}
+add_filter( 'pixelgrade_featured_posts_widget_classes', 'bobo_featured_posts_widget_classes', 10, 1 );

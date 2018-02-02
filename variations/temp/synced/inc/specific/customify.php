@@ -80,6 +80,7 @@ function temp_change_customify_main_content( $section_options, $options ) {
 								.entry-content .cats[class] > a,
 								.single .header-meta .byline, 
 								.single .header-meta .posted-on,
+								.archive .c-meta__secondary .posted-on,
 								.comment-form .form-submit .submit',
 						),
 					),
@@ -129,6 +130,7 @@ function temp_change_customify_main_content( $section_options, $options ) {
 								.entry-content .dropcap, 
 								.single .header-meta .byline, 
 								.single .header-meta .posted-on,
+								.archive .c-meta__secondary .posted-on,
 								.entry-content .cats[class] > a,
 								.comment-form .form-submit .submit',
 						),
@@ -351,7 +353,7 @@ function temp_change_customify_blog_grid_section( $section_options, $options ) {
 				),
 				// [Section] COLORS
 				'blog_item_title_color'          => array(
-					'default' => '#333131',
+					'default' => VARIATION_TEXT_COLOR,
 				),
 				'blog_item_meta_primary_color'   => array(
 					'default' => VARIATION_ACCENT_COLOR,
@@ -371,13 +373,12 @@ function temp_change_customify_blog_grid_section( $section_options, $options ) {
 					),
 				),
 				'blog_item_meta_font'            => array(
+					'selector' => '.c-meta__primary',
 					'default' => array(
-						'font-family'    => VARIATION_SITE_TITLE_FONT,
-						'font-weight'    => '400',
-						'font-size'      => 13,
-						'line-height'    => 1.1,
-						'letter-spacing' => 0.1,
-						'text-transform' => 'uppercase',
+						'font-family'    => VARIATION_HEADINGS_FONT_ALT,
+						'font-weight'    => '500',
+						'font-size'      => 19,
+						'line-height'    => 1.1
 					),
 				),
 				'blog_item_excerpt_font'         => array(
