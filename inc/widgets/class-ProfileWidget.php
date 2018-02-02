@@ -42,7 +42,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 						'type'            => 'textarea',
 						'label'           => esc_html__( 'Headline:', '__theme_txtd' ),
 						'rows'            => 3,
-						'default'         => 'Howdy! I\'m %first_name%, a millennial traveler looking to see the world and help others do the same.',
+						'default'         => esc_html__( 'Howdy! I\'m %first_name%, a millennial traveler eager to wander the world and inspire others do the same.', '__theme_txtd' ),
 						'section'         => 'content',
 						// This will be applied before rendering the widget output
 						'filter_callback' => 'pixelgrade_parse_content_tags',
@@ -51,7 +51,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 					'subtitle'      => array(
 						'type'     => 'text',
 						'label'    => esc_html__( 'Secondary Headline:', '__theme_txtd' ),
-						'default'  => esc_html__( 'Welcome to My Blog', '__theme_txtd' ),
+						'default'  => esc_html__( 'Happy to have you here', '__theme_txtd' ),
 						'section'  => 'content',
 						'priority' => 30,
 					),
@@ -59,14 +59,14 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 						'type'     => 'textarea',
 						'label'    => esc_html__( 'Description:', '__theme_txtd' ),
 						'rows'     => 5,
-						'default'  => 'I recently quit my corporate job to travel full time and I will be sharing the experience along the way. Are you ready to achieve your travel goals? Join me and follow my adventures!',
+						'default'  => esc_html__( 'I just quit my demanding job to travel full time around the world and share authentic stories. If you want to achieve your travel goals this is the right place to be. Enjoy the ride!', '__theme_txtd' ),
 						'section'  => 'content',
 						'priority' => 40,
 					),
 					'button_text'   => array(
 						'type'     => 'text',
 						'label'    => esc_html__( 'Button Text:', '__theme_txtd' ),
-						'default'  => esc_html__( 'Subscribe', '__theme_txtd' ),
+						'default'  => esc_html__( 'Find out my story', '__theme_txtd' ),
 						'section'  => 'content',
 						'priority' => 50,
 					),
@@ -106,7 +106,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
             // Set up the widget options
             $widget_ops = array(
                 'classname'                   => 'widget_profile',
-                'description'                 => esc_html__( 'Use this block to display a summary of who you are and what is your blog about.', '__theme_txtd' ),
+                'description'                 => esc_html__( 'Use this area to showcase a summary of who you are and what\'s your blog about.', '__theme_txtd' ),
                 'customize_selective_refresh' => true,
             );
 

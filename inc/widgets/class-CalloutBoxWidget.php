@@ -42,7 +42,7 @@ if ( ! class_exists( 'Pixelgrade_CalloutBoxWidget' ) ) :
 						'type'     => 'textarea',
 						'label'    => esc_html__( 'Headline:', '__theme_txtd' ),
 						'rows'     => 3,
-						'default'  => esc_html__( 'Travel with Me', '__theme_txtd' ),
+						'default'  => esc_html__( 'Join my adventures', '__theme_txtd' ),
 						'section'  => 'content',
 						'priority' => 10,
 //						'sanitize_callback' => array( $this, 'sanitize_textarea' ), // Use this if you want to allow HTML tags like strong,b,em,u,a
@@ -50,14 +50,14 @@ if ( ! class_exists( 'Pixelgrade_CalloutBoxWidget' ) ) :
 					'description'   => array(
 						'type'     => 'textarea',
 						'label'    => esc_html__( 'Description:', '__theme_txtd' ),
-						'default'  => 'If you are planning to visit Australia, or if you are an Aussie like us and want to explore more of it, we can help.',
+						'default'  => esc_html__( 'You have plans to visit Australia? I can help you make the most out of your journey.', '__theme_txtd' ),
 						'section'  => 'content',
 						'priority' => 20,
 					),
 					'button_text'   => array(
 						'type'     => 'text',
 						'label'    => esc_html__( 'Button Text:', '__theme_txtd' ),
-						'default'  => esc_html__( 'Discover', '__theme_txtd' ),
+						'default'  => esc_html__( 'Ask for help', '__theme_txtd' ),
 						'section'  => 'content',
 						'priority' => 30,
 					),
@@ -92,7 +92,7 @@ if ( ! class_exists( 'Pixelgrade_CalloutBoxWidget' ) ) :
             // Set up the widget options
             $widget_ops = array(
                 'classname'                   => 'widget_callout_box',
-                'description'                 => esc_html__( 'Say something about you, in style.', '__theme_txtd' ),
+                'description'                 => esc_html__( 'Use this area to reinforce a particular call to action that you consider important.', '__theme_txtd' ),
                 'customize_selective_refresh' => true,
             );
 

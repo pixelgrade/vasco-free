@@ -41,7 +41,7 @@ if ( ! class_exists( 'Pixelgrade_FeatureCardWidget' ) ) :
 					'title'      => array(
 						'type'     => 'text',
 						'label'    => esc_html__( 'Headline:', '__theme_txtd' ),
-						'default'  => esc_html__( 'Explore Amazing Places', '__theme_txtd' ),
+						'default'  => esc_html__( 'Discover Mindblowing Places', '__theme_txtd' ),
 						'section'  => 'content',
 						'priority' => 10,
 					),
@@ -56,7 +56,7 @@ if ( ! class_exists( 'Pixelgrade_FeatureCardWidget' ) ) :
 					'button_text'   => array(
 						'type'     => 'text',
 						'label'    => esc_html__( 'Button Text:', '__theme_txtd' ),
-						'default'  => esc_html__( 'Explore', '__theme_txtd' ),
+						'default'  => esc_html__( 'Discover them all', '__theme_txtd' ),
 						'section'  => 'content',
 						'priority' => 30,
 					),
@@ -91,7 +91,7 @@ if ( ! class_exists( 'Pixelgrade_FeatureCardWidget' ) ) :
             // Set up the widget options
             $widget_ops = array(
                 'classname'                   => 'widget_feature_card',
-                'description'                 => esc_html__( 'Use it to highlight a specific section of your website like a category, a key page or even an external link. Nest them together by placing multiple widgets one after another.', '__theme_txtd' ),
+                'description'                 => esc_html__( 'Use this area to highlight a specific section of your website (such as: a category, a key page or an external link). Bring them together by placing widgets one right after the other.', '__theme_txtd' ),
                 'customize_selective_refresh' => true,
             );
 

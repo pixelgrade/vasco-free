@@ -41,7 +41,7 @@ if ( ! class_exists( 'Pixelgrade_LocationWidget' ) ) :
 				    'subtitle'          => array(
 					    'type'     => 'text',
 					    'label'    => esc_html__( 'Subtitle:', '__theme_txtd' ),
-					    'default'  => esc_html__('I\'m currently in:', '__theme_txtd' ),
+					    'default'  => esc_html__('I\'m currently having fun in:', '__theme_txtd' ),
 					    'section'  => 'content',
 					    'priority' => 20,
 				    ),
@@ -84,7 +84,7 @@ if ( ! class_exists( 'Pixelgrade_LocationWidget' ) ) :
             // Set up the widget options
             $widget_ops = array(
                 'classname'                   => 'widget_location',
-                'description'                 => esc_html__( 'Say something about you, in style.', '__theme_txtd' ),
+                'description'                 => esc_html__( 'Use this area to display your current location to keep your visistors up-to-date and create a sense of belonging.', '__theme_txtd' ),
                 'customize_selective_refresh' => true,
             );
 
