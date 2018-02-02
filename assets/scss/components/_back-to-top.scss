@@ -1,16 +1,12 @@
 .back-to-top {
   position: fixed;
-  right: 21px;
+  right: 0;
   top: 50%;
   z-index: 9000;
 
-  width: 0;
-  height: 0;
-  margin-top: -7px;
-
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-bottom: 15px solid rgba(0, 0, 0, 0.12);
+  width: 62px;
+  height: 62px;
+  margin-top: -31px;
 
   font-size: 0;
   opacity: 0;
@@ -19,13 +15,33 @@
   transform: translateZ(0);
   backface-visibility: hidden;
 
+  &:before {
+    content: "";
+    display: block;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 15px solid currentColor;
+
+    margin-top: -7px;
+    margin-left: -9px;
+  }
+
   @include below(lap) {
     opacity: 0 !important;
     pointer-events: none !important;
   }
 
   &.is-visible {
-    opacity: 1;
+    opacity: 0.2;
     pointer-events: auto;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
