@@ -269,6 +269,12 @@ add_filter( 'widget_tag_cloud_args', 'bobo_change_tag_cloud_font_sizes');
 /**
  * Filter the Featured Posts widget wrapper classes.
  *
+ * This function is used to make the Grid Posts Widget card inherit properties from the options in the Blog Grid
+ * section from the Customizer.
+ *
+ * We have to avoid using the packed and masonry layout so we don't ignore the columns and aspect ratio options
+ * of the widget
+ *
  * @param array $classes
  *
  * @return array Array of classes
