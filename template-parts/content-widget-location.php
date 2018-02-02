@@ -18,19 +18,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<?php if ( ! empty( $title ) || ! empty( $description ) || ! empty( $image ) ) {
-	if ( ! empty( $location_url ) ) { ?>
-		<a href="<?php echo $location_url; ?>" class="c-location__link">
-	<?php } ?>
+<?php if ( ! empty( $title ) || ! empty( $description ) || ! empty( $image ) ) { ?>
+
+	<div class="c-location">
 
 		<div class="c-location__content">
 
-			<?php if ( ! empty( $subtitle ) ) { ?>
-				<h4 class="c-location__subtitle h4"><?php echo $subtitle; ?></h4>
-			<?php } ?>
+			<div class="c-location__icon">
+				<?php get_template_part( 'template-parts/svg/icon-location' ); ?>
+			</div>
 
-			<?php if ( ! empty( $title ) ) { ?>
-				<h2 class="c-location__title h2"><?php echo $title ?></h2>
+			<?php if ( ! empty( $subtitle ) || ! empty( $title ) ) { ?>
+				<div class="c-location__text">
+					<?php if ( ! empty( $subtitle ) ) { ?>
+						<h4 class="c-location__subtitle h4"><?php echo $subtitle; ?></h4>
+					<?php } ?>
+
+					<?php if ( ! empty( $title ) ) { ?>
+						<h2 class="c-location__title h2"><?php echo $title ?></h2>
+					<?php } ?>
+				</div>
 			<?php } ?>
 
 		</div>
@@ -41,7 +48,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 		<?php } ?>
 
-	<?php if ( ! empty( $location_url ) ) { ?>
-		</a><!-- .c-location__link -->
-	<?php }
-} ?>
+		<?php if ( ! empty( $location_url ) ) { ?>
+			<a href="<?php echo $location_url; ?>" class="c-location__link"></a><!-- .c-location__link -->
+		<?php } ?>
+
+	</div>
+
+<?php } ?>

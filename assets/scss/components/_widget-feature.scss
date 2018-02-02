@@ -1,30 +1,13 @@
 .c-feature {
-  position: relative;
-  overflow: hidden;
-  border-radius: 4px;
+  @extend %overlay-card__container;
 }
 
 .c-feature__content {
-  position: relative;
-  z-index: 100;
-  color: #FFF;
-
-  @include spacing(padding, 3.5rem);
+  @extend %overlay-card__content;
 }
 
 .c-feature__media {
-  @extend .accent-image-filter;
-
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-
-  img {
-    display: block;
-    @include image-fill;
-  }
+  @extend %overlay-card__media;
 }
 
 .c-feature__title,

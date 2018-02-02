@@ -1,0 +1,27 @@
+%overlay-card__container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+%overlay-card__content {
+  position: relative;
+  z-index: 100;
+  color: #FFF;
+  padding: 3rem;
+}
+
+%overlay-card__media {
+  @extend .accent-image-filter;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  img {
+    display: block;
+    @include image-fill;
+  }
+}

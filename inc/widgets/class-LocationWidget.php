@@ -69,7 +69,7 @@ if ( ! class_exists( 'Pixelgrade_LocationWidget' ) ) :
 				    ),
 			    ),
 			    'posts'    => array(
-				    'classes'   => array( 'c-location' ),
+				    'classes'   => array(),
 				    // You can have multiple templates here (array of arrays) and we will use the first one that passes processing and is found
 				    // @see Pixelgrade_Config::evaluateTemplateParts()
 				    'templates' => array(

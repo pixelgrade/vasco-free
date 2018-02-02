@@ -1,0 +1,71 @@
+.c-location {
+  @extend %overlay-card__container;
+}
+
+.c-location__content {
+  @extend %overlay-card__content;
+  text-align: center;
+}
+
+.c-location__media {
+  @extend %overlay-card__media;
+}
+
+[class].c-location__title,
+[class].c-location__subtitle {
+  color: inherit;
+}
+
+.c-location__subtitle {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.c-location__title:not(:first-child) {
+  margin-top: 0.5rem;
+}
+
+.c-location__subtitle:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.c-location__link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 200;
+}
+
+@include above(small) {
+
+  .widget-area--main {
+
+    .c-location__subtitle {
+      margin-top: 0;
+    }
+
+    .c-location__content {
+      display: flex;
+      align-items: center;
+      text-align: left;
+    }
+
+    .c-location__icon {
+      margin-right: 2rem;
+    }
+  }
+}
+
+.widget-area--side {
+
+  .c-location__content {
+    padding: 3rem 2rem;
+  }
+
+  .c-location__title {
+    font-size: 24px;
+  }
+
+}
