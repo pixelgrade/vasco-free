@@ -28,16 +28,16 @@ if ( ! class_exists( 'Pixelgrade_CategoriesWidget' ) ) :
 			
 			// Set up the widget config
 			$config = array(
-			    'fields_sections' => array(
-			        'default' => array(
-			            'title' => '',
-			            'priority' => 1, // This section should really be the first as it is not part of the accordion
-                    ),
-                ),
+				'fields_sections' => array(
+					'default' => array(
+						'title'    => '',
+						'priority' => 1, // This section should really be the first as it is not part of the accordion
+					),
+				),
 			    'fields' => array(
 
 				    // Title Section
-				    'title'                => array(
+				    'title' => array(
 					    'type'     => 'text',
 					    'label'    => esc_html__( 'Title:', '__theme_txtd' ),
 					    'default'  => esc_html__( 'Categories', '__theme_txtd' ),
@@ -45,18 +45,18 @@ if ( ! class_exists( 'Pixelgrade_CategoriesWidget' ) ) :
 					    'priority' => 10,
 				    ),
 
-				    'source'                  => array(
-						'type'     => 'radio_group',
-						'label'    => esc_html__( 'Display:', '__theme_txtd' ),
-						'options'  => array(
-							'all'   => esc_html__( 'All Categories', '__theme_txtd' ),
-							'selected_categories' => esc_html__( 'Selected Categories', '__theme_txtd' ),
-						),
-						'default'  => 'all',
-						'section' => 'default',
-						'priority' => 10,
-					),
-				    'selected_categories'                => array(
+				    'source'              => array(
+					    'type'     => 'radio_group',
+					    'label'    => esc_html__( 'Display:', '__theme_txtd' ),
+					    'options'  => array(
+						    'all'                 => esc_html__( 'All Categories', '__theme_txtd' ),
+						    'selected_categories' => esc_html__( 'Selected Categories', '__theme_txtd' ),
+					    ),
+					    'default'  => 'all',
+					    'section'  => 'default',
+					    'priority' => 10,
+				    ),
+				    'selected_categories' => array(
 					    'type'       => 'select2',
 					    'label'      => esc_html__( 'Categories:', '__theme_txtd' ),
 					    'desc'       => esc_html__( 'Choose what categories should be shown and in what order.', '__theme_txtd' ),
@@ -70,65 +70,65 @@ if ( ! class_exists( 'Pixelgrade_CategoriesWidget' ) ) :
 							    'value' => 'selected_categories',
 						    ),
 					    ),
-					    'section' => 'default',
+					    'section'    => 'default',
 					    'priority'   => 40,
 				    ),
-				    'orderby' => array(
-						'type'       => 'select',
-						'label'      => esc_html__( 'Order by:', '__theme_txtd' ),
-						'options'    => array(
-							'count' => esc_html__( 'Posts Count', '__theme_txtd' ),
-							'name'    => esc_html__( 'Name', '__theme_txtd' ),
-						),
-						'default'    => 'posts',
-						'display_on' => array(
-							'display' => true,
-							'on'      => array(
-								'field' => 'source',
-								'value' => 'all',
-							),
-						),
-						'section'    => 'default',
-						'priority'   => 50,
-					),
-				    'number'  => array(
-						'type'              => 'number',
-						'label'             => esc_html__( 'Number of items:', '__theme_txtd' ),
-						'sanitize_callback' => array( $this, 'sanitize_positive_int' ),
-						'min'        => 1,
-						'step'       => 1,
-						'default'           => 5,
-						'display_on'        => array(
-							'display' => true,
-							'on'      => array(
-								'field' => 'source',
-								'value' => 'all',
-							),
-						),
-						'section'           => 'default',
-						'priority'          => 60,
-					),
-				    'show_subcategories' => array(
-						'type'     => 'checkbox',
-						'label'    => esc_html__( 'Show Sub-categories', '__theme_txtd' ),
-						'desc'     => esc_html__( '', '__theme_txtd' ),
-						'default'  => true,
-						'display_on'        => array(
-							'display' => true,
-							'on'      => array(
-								'field' => 'source',
-								'value' => 'all',
-							),
-						),
-						'section' => 'default',
-						'priority' => 70,
-					),
-				    'show_count' => array(
+				    'orderby'             => array(
+					    'type'       => 'select',
+					    'label'      => esc_html__( 'Order by:', '__theme_txtd' ),
+					    'options'    => array(
+						    'count' => esc_html__( 'Posts Count', '__theme_txtd' ),
+						    'name'  => esc_html__( 'Name', '__theme_txtd' ),
+					    ),
+					    'default'    => 'posts',
+					    'display_on' => array(
+						    'display' => true,
+						    'on'      => array(
+							    'field' => 'source',
+							    'value' => 'all',
+						    ),
+					    ),
+					    'section'    => 'default',
+					    'priority'   => 50,
+				    ),
+				    'number'              => array(
+					    'type'              => 'number',
+					    'label'             => esc_html__( 'Number of items:', '__theme_txtd' ),
+					    'sanitize_callback' => array( $this, 'sanitize_positive_int' ),
+					    'min'               => 1,
+					    'step'              => 1,
+					    'default'           => 5,
+					    'display_on'        => array(
+						    'display' => true,
+						    'on'      => array(
+							    'field' => 'source',
+							    'value' => 'all',
+						    ),
+					    ),
+					    'section'           => 'default',
+					    'priority'          => 60,
+				    ),
+				    'show_subcategories'  => array(
+					    'type'       => 'checkbox',
+					    'label'      => esc_html__( 'Show Sub-categories', '__theme_txtd' ),
+					    'desc'       => esc_html__( '', '__theme_txtd' ),
+					    'default'    => true,
+					    'display_on' => array(
+						    'display' => true,
+						    'on'      => array(
+							    'field' => 'source',
+							    'value' => 'all',
+						    ),
+					    ),
+					    'section'    => 'default',
+					    'priority'   => 70,
+				    ),
+				    'show_count'          => array(
 					    'type'     => 'checkbox',
 					    'label'    => esc_html__( 'Show Post Count', '__theme_txtd' ),
 					    'desc'     => esc_html__( '', '__theme_txtd' ),
 					    'default'  => true,
-					    'section' => 'default',
+					    'section'  => 'default',
 					    'priority' => 80,
 				    ),
 			    ),
