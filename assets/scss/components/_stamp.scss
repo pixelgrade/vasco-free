@@ -109,3 +109,12 @@ $stamp-image-dimension: 70px;
     }
   }
 }
+
+.c-stamp__wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include spacing(margin-top, 6rem);
+  @include spacing(margin-bottom, 6rem);
+}

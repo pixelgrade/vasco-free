@@ -42,21 +42,21 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 					    'type'     => 'textarea',
 					    'label'    => esc_html__( 'Headline:', '__theme_txtd' ),
 					    'rows'     => 3,
-					    'default'  => 'Discover life on the go!',
+					    'default'  => esc_html__( 'Get familiar with the wanderlust', '__theme_txtd' ),
 					    'section'  => 'content',
 					    'priority' => 20,
 				    ),
 				    'description'          => array(
 					    'type'     => 'textarea',
 					    'label'    => esc_html__( 'Description:', '__theme_txtd' ),
-					    'default'  => 'Hello again, I\'m Jake! I spent six years living on suitcases, working remotely and fulfilling traveling dreams. You will find here my subjective guides and travel experience. We begin?',
+					    'default'  => esc_html__( 'Hey, traveller lover! I\'m Jake and for the last couple of years I\'ve been living on the go. It was a blast and I\'ve learned so much along the way. So I put together some guides about my experiences that I hope you\'ll enjoy. Ready for a sneak peekf?', '__theme_txtd' ),
 					    'section'  => 'content',
 					    'priority' => 30,
 				    ),
 				    'button_text'          => array(
 					    'type'     => 'text',
 					    'label'    => esc_html__( 'Button Text:', '__theme_txtd' ),
-					    'default'  => esc_html__('First Time On the Blog? Start Here ', '__theme_txtd' ),
+					    'default'  => esc_html__('It\'s your first glance? Don\'t be shy, start here', '__theme_txtd' ),
 					    'section'  => 'content',
 					    'priority' => 40,
 				    ),
@@ -91,7 +91,7 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
             // Set up the widget options
             $widget_ops = array(
                 'classname'                   => 'widget_promo_box',
-                'description'                 => esc_html__( 'Use it to encourage your visitors to take an action related to an opportunity that you offer (e.g. a Get Started page).', '__theme_txtd' ),
+                'description'                 => esc_html__( 'Use this area to reinforce a particular call to action that you consider important.', '__theme_txtd' ),
                 'customize_selective_refresh' => true,
             );
 

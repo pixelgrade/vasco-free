@@ -59,10 +59,19 @@ function bobo_register_blog_blocks( $component_slug, $component_config ) {
 							),
 						),
 					),
-					'blog/entry-footer',
+					'blog/entry-footer'
 				),
 			),
-			'blog/content-stamp',
+			'stamp' => array(
+				'wrappers' => array(
+					array(
+						'classes' => 'c-stamp__wrapper'
+					),
+				),
+				'blocks' => array(
+					'blog/content-stamp',
+				),
+			),
 			'blog/related-posts',
 		),
 	) );
