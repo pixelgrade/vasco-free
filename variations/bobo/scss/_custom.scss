@@ -77,9 +77,12 @@
 
 }
 
-.c-card {
-  .posted-on {
-    @include taxonomy;
+.c-meta__secondary[class] {
+  @include taxonomy;
+
+  a {
+    color: inherit;
+    text-decoration: none;
   }
 }
 

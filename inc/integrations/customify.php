@@ -275,7 +275,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 								.entry-content .cats[class] > a,
 								.single .header-meta .byline, 
 								.single .header-meta .posted-on,
-								.c-card .posted-on,
+								.c-meta__secondary,
 								.comment-form .form-submit .submit',
 						),
 					),
@@ -336,7 +336,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 								.entry-content .dropcap, 
 								.single .header-meta .byline, 
 								.single .header-meta .posted-on,
-								.c-card .posted-on,
+								.c-meta__secondary,
 								.entry-content .cats[class] > a,
 								.comment-form .form-submit .submit,
 								.c-meta__primary .comments',
@@ -483,7 +483,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 			'selector' => '
 				.single .header-meta .byline, 
 				.single .header-meta .posted-on,  
-				.c-card .posted-on,
+				.c-meta__secondary[class],
 				.entry-content .cats[class] > a',
 			'callback' => 'typeline_font_cb',
 
