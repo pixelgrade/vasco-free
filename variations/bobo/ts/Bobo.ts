@@ -5,6 +5,7 @@ import { BaseTheme, JQueryExtended } from '../../../components/base/ts/BaseTheme
 import { Helper } from '../../../components/base/ts/services/Helper';
 import { SearchOverlay } from '../../../components/base/ts/components/SearchOverlay';
 import { Header } from '../../../components/header/ts/Header';
+import { Gallery } from '../../../components/base/ts/components/Gallery';
 
 export class Bobo extends BaseTheme {
   public SearchOverlay: SearchOverlay;
@@ -59,10 +60,14 @@ export class Bobo extends BaseTheme {
       const $commentFormFooter = $( '<div class="comment-form-subscriptions"></div>' ).appendTo( $commentForm );
       $commentForm.find( '.comment-subscription-form' ).appendTo( $commentFormFooter );
     }
+
+    $container.find( '.c-gallery' ).not( '.c-gallery--widget' ).each((index, element) => {
+      new Gallery( $( element ) );
+    });
   }
 
   public handleGalleries( $container: JQuery = Helper.$body ) {
-    $container.find( '.u-gallery-type--masonry' ).each( (index, element) => {
+    $container.find( '.js-masonry, .u-gallery-type--masonry' ).each( (index, element) => {
       new Masonry( element, { transitionDuration: 0 } );
     });
   }

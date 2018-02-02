@@ -275,7 +275,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 								.entry-content .cats[class] > a,
 								.single .header-meta .byline, 
 								.single .header-meta .posted-on,
-								.c-card .posted-on,
+								.c-meta__secondary,
 								.comment-form .form-submit .submit',
 						),
 					),
@@ -336,9 +336,10 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 								.entry-content .dropcap, 
 								.single .header-meta .byline, 
 								.single .header-meta .posted-on,
-								.c-card .posted-on,
+								.c-meta__secondary,
 								.entry-content .cats[class] > a,
-								.comment-form .form-submit .submit',
+								.comment-form .form-submit .submit,
+								.c-meta__primary .comments',
 						),
 					),
 				),
@@ -482,7 +483,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 			'selector' => '
 				.single .header-meta .byline, 
 				.single .header-meta .posted-on,  
-				.c-card .posted-on,
+				.c-meta__secondary[class],
 				.entry-content .cats[class] > a',
 			'callback' => 'typeline_font_cb',
 
@@ -541,8 +542,6 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 		body #infinite-handle span button:focus,
 		.featured-posts__more';
 
-	$button_selector_all = $button_selector.', .c-card__action';
-
 	$modified_config = array(
 
 		// Main Content
@@ -557,10 +556,6 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 				'buttons_color'      => array(
 					'default' => THEME_ACCENT_COLOR,
 					'css'     => array(
-						array(
-							'property' => 'color',
-							'selector' => '.c-card__action',
-						),
 						array(
 							'property' => 'background-color',
 							'selector' => $button_selector,
@@ -644,6 +639,14 @@ function bobo_customify_blog_grid_section( $section_options, $options ) {
 				),
 				'blog_items_aspect_ratio'            => array(
 					'default' => 50,
+					'css'         => array(
+						array(
+							'property'        => 'dummy',
+							'selector'        => '.c-card__frame',
+							'callback_filter' => 'pixelgrade_aspect_ratio_cb',
+							'unit'            => '%',
+						),
+					),
 				),
 				'blog_items_per_row'                 => array(
 					'default' => 3,
@@ -674,7 +677,7 @@ function bobo_customify_blog_grid_section( $section_options, $options ) {
 				),
 				// [Sub Section] Items Meta
 				'blog_items_primary_meta'            => array(
-					'default' => 'category',
+					'default' => 'comments_category',
 					'choices' => array(
 						// Add a new option
 						'comments_category' => esc_html__( 'Comments + Category', '__components_txtd' ),
@@ -687,29 +690,59 @@ function bobo_customify_blog_grid_section( $section_options, $options ) {
 				// [Section] COLORS
 				'blog_item_title_color'              => array(
 					'default' => THEME_TEXT_COLOR,
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.c-card__title',
+						),
+					),
 				),
 				'blog_item_meta_primary_color'       => array(
 					'default' => THEME_ACCENT_COLOR,
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.c-card__thumbnail-background:before, .c-gallery--blog .c-meta__primary, .archive-title__pre-title',
+							'selector' => '
+							.c-card__thumbnail-background:before, 
+							.c-meta__primary,
+							.c-card__action, 
+							.archive-title__pre-title',
+						),
+						array(
+							'property' => 'background-color',
+							'selector' => '.c-meta__primary .comments',
 						),
 					),
 				),
-				'blog_item_meta_secondary_color'     => array(
-					'default' => '#FFFFFF',
-				),
 				'blog_item_thumbnail_background'     => array(
 					'default' => '#000000',
+					'css'     => array(
+						array(
+							'property' => 'background-color',
+							'selector' => '.c-card__thumbnail-background',
+						),
+					),
 				),
 				'blog_item_excerpt_color'            => array(
 					'default' => THEME_TEXT_COLOR,
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.c-card__excerpt, .c-gallery--title-overlay .c-card__action',
+						),
+					),
 				),
 
 				// [Sub Section] Thumbnail Hover
 				'blog_item_thumbnail_hover_opacity'  => array(
 					'default' => 1,
+					'css'         => array(
+						array(
+							'property' => 'opacity',
+							'selector' => '.c-card:hover .c-card__frame',
+							'unit'     => '',
+						),
+					),
 				),
 
 				// [Section] FONTS
@@ -750,6 +783,8 @@ function bobo_customify_blog_grid_section( $section_options, $options ) {
 	// Now we merge the modified config with the original one
 	// Thus overwriting what we have changed
 	$section_options = Pixelgrade_Config::merge( $section_options, $modified_config );
+
+	unset( $section_options['blog_grid']['options']['blog_item_meta_secondary_color'] );
 
 	return $section_options;
 }

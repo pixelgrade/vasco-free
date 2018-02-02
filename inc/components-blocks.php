@@ -26,7 +26,7 @@ function bobo_register_blog_blocks( $component_slug, $component_config ) {
 		'checks' => array(
 			array(
 				'callback' => 'pixelgrade_option',
-				'args' => array( 'show_stamps' )
+				'args' => array( 'show_stamps' ),
 			),
 		),
 	) );
