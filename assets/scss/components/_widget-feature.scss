@@ -27,6 +27,23 @@
   }
 }
 
+.c-feature__title,
+.c-feature__description,
+.c-feature__action {
+  opacity: 0;
+  transition: $transition--default;
+}
+
+.c-feature:hover {
+
+  .c-feature__description,
+  .c-feature__action,
+  .c-feature__title {
+    transform: none !important;
+    opacity: 1;
+  }
+}
+
 .c-feature__title[class],
 .u-buttons-outline .c-feature__btn[class] {
   color: inherit;

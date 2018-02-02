@@ -474,6 +474,33 @@ var Bobo = function (_BaseTheme) {
             });
         }
     }, {
+        key: 'prepareFeatureHover',
+        value: function prepareFeatureHover() {
+            __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.c-feature').each(function (i, obj) {
+                var $obj = __WEBPACK_IMPORTED_MODULE_1_jquery___default()(obj);
+                var objOffset = $obj.offset();
+                var objHeight = $obj.outerHeight();
+                var $title = $obj.find('.c-feature__title').css({
+                    transform: '',
+                    transition: 'none'
+                });
+                var titleOffset = $title.offset();
+                var titleHeight = $title.outerHeight();
+                var distanceTop = objOffset.top - titleOffset.top;
+                var distanceBottom = titleOffset.top + titleHeight - (objOffset.top + objHeight);
+                var $target = $obj.find('.c-feature__title, .c-feature__description, .c-feature__action');
+                var transformString = 'translate3d(0,' + (distanceTop / 2 - distanceBottom / 2) + 'px ,0)';
+                $target.css({
+                    transform: transformString,
+                    transition: 'none'
+                });
+                $title.css('opacity', 1);
+                requestAnimationFrame(function () {
+                    $target.css('transition', '');
+                });
+            });
+        }
+    }, {
         key: 'profileWidget',
         value: function profileWidget() {
             var $widgets = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.c-profile');
@@ -487,6 +514,7 @@ var Bobo = function (_BaseTheme) {
         key: 'adjustLayout',
         value: function adjustLayout() {
             this.profileWidget();
+            this.prepareFeatureHover();
         }
     }, {
         key: 'addNavigationClasses',

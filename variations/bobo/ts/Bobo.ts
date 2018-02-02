@@ -72,6 +72,34 @@ export class Bobo extends BaseTheme {
     });
   }
 
+  private prepareFeatureHover() {
+    $( '.c-feature' ).each((i, obj) => {
+      const $obj = $(obj);
+      const objOffset = $obj.offset();
+      const objHeight = $obj.outerHeight();
+      const $title = $obj.find( '.c-feature__title' ).css( {
+        transform: '',
+        transition: 'none'
+      } );
+      const titleOffset = $title.offset();
+      const titleHeight = $title.outerHeight();
+      const distanceTop = objOffset.top - titleOffset.top;
+      const distanceBottom = titleOffset.top + titleHeight - ( objOffset.top + objHeight );
+      const $target = $obj.find( '.c-feature__title, .c-feature__description, .c-feature__action' );
+      const transformString = 'translate3d(0,' + ( distanceTop / 2 - distanceBottom / 2 ) + 'px ,0)';
+
+      $target.css({
+        transform: transformString,
+        transition: 'none'
+      });
+
+      $title.css( 'opacity', 1 );
+      requestAnimationFrame(() => {
+        $target.css('transition', '');
+      });
+    });
+  }
+
   private profileWidget() {
     const $widgets = $( '.c-profile' );
 
@@ -85,6 +113,7 @@ export class Bobo extends BaseTheme {
 
   private adjustLayout() {
     this.profileWidget();
+    this.prepareFeatureHover();
   }
 
   private addNavigationClasses() {
