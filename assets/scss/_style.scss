@@ -111,6 +111,11 @@ $content-class: '.entry-content';
   }
 }
 
+.wp-caption.alignleft,
+.wp-caption.alignright {
+  width: 50%;
+}
+
 .c-comments-toggle__label,
 .c-btn,
 button[type=button],

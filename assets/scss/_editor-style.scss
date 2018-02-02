@@ -7,7 +7,7 @@
 
 $editor-style: true;
 $content-wrapper-selector: 'html';
-$content-selector: '.mce-content-body > *';
+$content-selector: '.mce-content-body > :not(.mceTemp)';
 
 @import "../../components/base/scss/editor-style";
 @import "../../components/featured-image/scss/editor-style";
@@ -25,9 +25,45 @@ $content-selector: '.mce-content-body > *';
 @import '../../assets/scss/components/links';
 @import '../../assets/scss/components/lists';
 
+.mce-content-body {
+  border: 0 solid transparent;
+}
+
 ._hero_content_description {
     color: white;
     padding-top: 50px;
+}
+
+.alignleft,
+.alignright {
+  max-width: 45%;
+}
+
+.alignleft {
+  @include spacing(margin-right, 4rem);
+}
+
+.alignright {
+  @include spacing(margin-left, 4rem);
+}
+
+.wpview,
+.wp-caption {
+  @include spacing(margin-bottom, $typography-spacing);
+}
+
+.wp-caption-dt,
+.wp-caption-dd {
+  float: none;
+  width: auto;
+  font-weight: inherit;
+}
+
+.wp-caption-dd {
+  border-left: 1px solid currentColor;
+  padding-left: 1em;
+  padding-top: 0;
+  margin-top: 1em;
 }
 
 .gallery-icon,
