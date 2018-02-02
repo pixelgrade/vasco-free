@@ -51,7 +51,8 @@
   &:after {
     background-color: $theme-accent-color;
     z-index: 10;
-    mix-blend-mode: hard-light;
-    mix-blend-mode: overlay;
+    //mix-blend-mode: hard-light;
+    //mix-blend-mode: overlay;
+    mix-blend-mode: multiply;
   }
 }

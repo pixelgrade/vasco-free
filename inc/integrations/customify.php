@@ -270,7 +270,9 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 								.u-buttons-outline .comment-form .form-submit .submit,
 								.c-comments-toggle__label,
 								.c-btn--default,
-								.button.default',
+								.button.default,
+								.u-buttons-solid .c-feature__btn,
+								.u-buttons-solid .c-feature__btn:hover',
 						),
 						array(
 							'property' => 'background-color',
