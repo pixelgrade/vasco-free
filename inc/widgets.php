@@ -159,19 +159,16 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 		     'pixelgrade-feature-card' === bobo_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 			// We have at least 2 consecutive Feature Card widgets - we have work to do
 
-			// We will output a wrapper before the first feature card widget
-			// @todo Set the class or classes here
-			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'wrapper-nesting1', $widget_id );
-			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
-
 			// Increase the index to point to the second widget in the group
 			$idx++;
+			$widget_count = 2;
 
 			// Now we need to see if we have 3 consecutive feature card widgets
 			if ( isset( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
 			     'pixelgrade-feature-card' === bobo_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 				// Increase the index to point to the third widget
 				$idx++;
+				$widget_count = 3;
 			}
 
 			// Now we need to see if we have 4 consecutive feature card widgets
@@ -179,7 +176,12 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 			     'pixelgrade-feature-card' === bobo_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 				// Increase the index to point to the fourth widget
 				$idx++;
+				$widget_count = 4;
 			}
+
+			// We will output a wrapper before the first feature card widget
+			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'feature-group-' . $widget_count, $widget_id );
+			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
 			// Output the closing wrapper tag after the last Feature Card widget in the group
 			$closing_filter = new Bobo_AddWidgetIdWrapperClosingTag( $front_page_sidebar_widgets[ $idx ] );

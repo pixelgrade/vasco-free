@@ -19,33 +19,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<div class="c-feature">
+<?php if ( ! empty( $title ) || ! empty( $description ) || ( ! empty( $button_text ) && ! empty( $button_url ) ) ) { ?>
 
-	<?php if ( ! empty( $title ) || ! empty( $description ) || ( ! empty( $button_text ) && ! empty( $button_url ) ) ) { ?>
+	<div class="c-feature__content">
+		<?php if ( ! empty( $title ) ) { ?>
+			<div class="c-feature__title h3"><?php echo $title ?></div>
+		<?php } ?>
 
-		<div class="c-feature__content">
-			<?php if ( ! empty( $title ) ) { ?>
-				<div class="c-feature__title h3"><?php echo $title ?></div>
-			<?php } ?>
+		<?php if ( ! empty( $description ) ) { ?>
+			<div class="c-feature__description"><?php echo $description; ?></div>
+		<?php } ?>
 
-			<?php if ( ! empty( $description ) ) { ?>
-				<div class="c-feature__description"><?php echo $description; ?></div>
-			<?php } ?>
+		<?php if ( ! empty( $button_text ) && ! empty( $button_url ) ) { ?>
+			<div class="c-feature__action">
+				<a href="<?php echo $button_url; ?>" class="c-feature__btn c-btn"><?php echo $button_text; ?></a>
+			</div>
+		<?php } ?>
 
-			<?php if ( ! empty( $button_text ) && ! empty( $button_url ) ) { ?>
-				<div class="c-feature__action">
-					<a href="<?php echo $button_url; ?>" class="c-feature__btn c-btn"><?php echo $button_text; ?></a>
-				</div>
-			<?php } ?>
+	</div>
 
-		</div>
+<?php } ?>
 
-	<?php } ?>
-
-	<?php if ( ! empty ( $image ) ) { ?>
-		<div class="c-feature__media">
-			<?php echo wp_get_attachment_image( $image, 'full' ); ?>
-		</div>
-	<?php } ?>
-
+<div class="c-feature__media">
+	<?php if ( ! empty ( $image ) ) {
+		echo wp_get_attachment_image( $image, 'full' );
+	} ?>
 </div>

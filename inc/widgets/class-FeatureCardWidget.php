@@ -76,7 +76,7 @@ if ( ! class_exists( 'Pixelgrade_FeatureCardWidget' ) ) :
 					),
 				),
 			    'posts'    => array(
-				    'classes'   => array(),
+				    'classes'   => array( 'c-feature'),
 				    // You can have multiple templates here (array of arrays) and we will use the first one that passes processing and is found
 				    // @see Pixelgrade_Config::evaluateTemplateParts()
 				    'templates' => array(

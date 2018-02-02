@@ -1,4 +1,4 @@
-.widget + .widget {
+.widget-area > * + * {
   @include spacing(margin-top, 2.5rem);
 }
 
