@@ -267,29 +267,29 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 						array(
 							'property' => 'color',
 							'selector' => 'body,
+								.u-buttons-outline .button.default,
 								.u-buttons-outline .comment-form .form-submit .submit,
-								.c-comments-toggle__label,
-								.c-btn--default,
-								.button.default,
-								.u-buttons-solid .c-feature__btn,
-								.u-buttons-solid .c-feature__btn:hover',
+								.u-buttons-outline .c-btn--default,
+								.u-buttons-outline .c-comments-toggle__label,
+								.u-buttons-outline .c-feature__btn,
+								.u-buttons-outline .c-feature__btn:hover',
 						),
 						array(
 							'property' => 'background-color',
 							'selector' => '
-								.entry-content .dropcap, 
+								.entry-content .dropcap,
 								.entry-content .cats[class] > a,
 								.single .header-meta .byline, 
 								.single .header-meta .posted-on,
 								.c-meta__secondary,
+								.widget_wpcom_social_media_icons_widget[class] ul li,
+
+								.u-buttons-solid .button.default,
 								.u-buttons-solid .comment-form .form-submit .submit,
-								.widget_wpcom_social_media_icons_widget[class] ul li',
-						),
-						array(
-							'property' => 'border-color',
-							'selector' => '
-								.u-buttons-outline .comment-form .form-submit .submit,
-								.c-comments-toggle__label',
+								.u-buttons-solid .c-btn--default,
+								.u-buttons-solid .c-comments-toggle__label,
+								.u-buttons-solid .c-feature__btn,
+								.u-buttons-solid .c-feature__btn:hover',
 						),
 					),
 				),
@@ -361,16 +361,19 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 						array(
 							'property' => 'color',
 							'selector' => '
+								.u-buttons-solid .button.default,
+								.u-buttons-solid .comment-form .form-submit .submit,
+								.u-buttons-solid .c-btn--default,
+								.u-buttons-solid .c-comments-toggle__label,
+								.u-buttons-solid .c-feature__btn,
+								.u-buttons-solid .c-feature__btn:hover,
+								
 								.entry-content .dropcap, 
 								.single .header-meta .byline, 
 								.single .header-meta .posted-on,
 								.c-meta__secondary,
 								.entry-content .cats[class] > a,
-								.comment-form .form-submit .submit,
-								.c-meta__primary .comments,
-								.c-btn--default,
-								.button.default,
-								.c-comments-toggle__label',
+								.c-meta__primary .comments',
 						),
 					),
 				),
@@ -570,24 +573,35 @@ function bobo_customify_main_content_section( $section_options, $options ) {
  * @return array $main_content_section The modified specific config
  */
 function bobo_customify_buttons_section( $section_options, $options ) {
-	$button_selector = '
-		.c-btn,
-		.c-btn:hover,
-		.c-btn:active,
-		button[type=button],
-		button[type=reset],
-		button[type=submit],
-		input[type=button],
-		input[type=submit],
-		.featured-posts__more,
-		.widget_pages,
-		ul.page-numbers .page-numbers.prev,
-		ul.page-numbers .page-numbers.next,
-		ul.page-numbers .page-numbers.current,
-		body #infinite-handle span button,
-		body #infinite-handle span button:hover,
-		body #infinite-handle span button:focus,
-		.featured-posts__more';
+
+	$buttons = array(
+		'.c-btn',
+		'.button',
+		'button[type=button]',
+		'button[type=reset]',
+		'button[type=submit]',
+		'input[type=button]',
+		'input[type=submit]',
+		'.featured-posts__more',
+		'.page-numbers.prev',
+		'.page-numbers.next',
+		'.page-numbers.current',
+		'#infinite-handle[id] span button',
+		'div.wpforms-container[class] .wpforms-form .wpforms-submit',
+	);
+
+	function bobo_prefix_solid_buttons( $value ) {
+		return '.u-buttons-solid ' . $value;
+	}
+
+	function bobo_prefix_outline_buttons( $value ) {
+		return '.u-buttons-outline ' . $value;
+	}
+
+
+	$buttons_default = implode( ',', $buttons );
+	$buttons_solid = implode( ',', array_map( 'bobo_prefix_solid_buttons', $buttons ) );
+	$buttons_outline = implode( ',', array_map( 'bobo_prefix_outline_buttons', $buttons ) );
 
 	$modified_config = array(
 
@@ -605,7 +619,11 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'background-color',
-							'selector' => $button_selector,
+							'selector' => $buttons_solid,
+						),
+						array(
+							'property' => 'color',
+							'selector' => $buttons_outline,
 						),
 					),
 				),
@@ -614,20 +632,16 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => $button_selector,
+							'selector' => $buttons_solid,
 						)
 					),
 				),
 				'buttons_font'       => array(
-					'selector' => $button_selector . ', 
-						.contact-form>div>.grunion-field-label:not(.checkbox):not(.radio),
+					'selector' => $buttons_default . ', 
+						.contact-form > div > .grunion-field-label:not(.checkbox):not(.radio),
 						.nf-form-cont .label-above .nf-field-label label,
 						.nf-form-cont .list-checkbox-wrap .nf-field-element li label, 
 						.nf-form-cont .list-radio-wrap .nf-field-element li label,
-						div.wpforms-container[class] .wpforms-form .wpforms-field-label,
-						div.wpforms-container[class] .wpforms-form input, 
-						div.wpforms-container[class] .wpforms-form select, 
-						div.wpforms-container[class] .wpforms-form textarea,
 						input[type=date], 
 						input[type=email], 
 						input[type=number], 
@@ -638,7 +652,10 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 						input[type=url],
 						textarea,
 						select,
-						div.wpforms-container-full .wpforms-form .wpforms-field-label-inline',
+						div.wpforms-container[class] .wpforms-form .wpforms-field-label,
+						div.wpforms-container[class] .wpforms-form input, 
+						div.wpforms-container[class] .wpforms-form select, 
+						div.wpforms-container[class] .wpforms-form textarea',
 					'default'  => array(
 						'font-family'    => THEME_HEADINGS_FONT_ALT,
 						'font-weight'    => '500',
