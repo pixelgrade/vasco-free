@@ -61,7 +61,8 @@ $stamp-image-dimension: 70px;
   }
 }
 
-.c-stamp__container.is-dark .c-stamp.c-stamp--auto {
+.c-stamp__container.is-dark .c-stamp.c-stamp--auto,
+.widget_callout_box .c-stamp.c-stamp--auto {
   @extend %c-stamp--dark;
 }
 

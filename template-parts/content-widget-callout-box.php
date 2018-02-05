@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php if ( ! empty( $button_text ) && ! empty( $button_url ) ) { ?>
 			<div class="c-feature__action">
-				<a href="<?php echo $button_url; ?>" class="c-feature__btn c-btn"><?php echo $button_text; ?></a>
+				<a href="<?php echo $button_url; ?>" class="c-feature__btn c-btn c-btn--default"><?php echo $button_text; ?></a>
 			</div>
 		<?php } ?>
 
