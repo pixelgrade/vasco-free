@@ -246,18 +246,56 @@
   @include spacing(margin-bottom, 2.5rem);
 }
 
+.infinite-scroll #infinite-handle,
+.infinite-scroll .infinite-loader {
+  border-top: solid 3px $theme-text-color;
+  width: calc(100% - 32px);
+  left: 32px !important;
+  transform: translatex(0);
+  text-align: center;
+  @include spacing(padding-top, 3rem);
+}
+
+body .infinite-loader .spinner {
+  left: 50% !important;
+  top: 3rem !important;
+}
+
 body #infinite-handle span {
   padding: 0;
   background: transparent;
   border-width: 0;
 }
 
-.page-numbers:not(ul):not(.dots),
+.page-numbers.next,
+.page-numbers.prev,
 body #infinite-handle span button,
 body #infinite-handle span button:hover,
 body #infinite-handle span button:focus {
   @include btn;
   @include custom-btn-overwrite;
+}
+
+.page-numbers.current {
+  @include btn;
+}
+
+.page-numbers:not(ul):not(.current):not(.next):not(.prev) {
+  @include btn;
+  background-color: transparent;
+  color: $theme-text-color;
+
+  &:hover {
+    color: $theme-accent-color;
+  }
+
+  &.dots {
+    cursor: default;
+
+    &:hover {
+      color: $theme-text-color;
+    }
+  }
 }
 
 .page-numbers.dots {
@@ -300,11 +338,6 @@ ul.page-numbers {
 
   @include below(lap) {
     display: none;
-  }
-
-  .page-numbers:not(.current) {
-    background: transparent;
-    color: $theme-text-color;
   }
 }
 
