@@ -446,6 +446,10 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 				),
 
 				'main_content_heading_4_font' => array(
+					'selector' => '
+						.c-card__action,
+						h4,
+						.h4',
 					'default' => array(
 						'font-family'    => THEME_HEADINGS_FONT_ALT,
 						'font-weight'    => '500',

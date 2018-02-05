@@ -1,6 +1,6 @@
 .c-meta {
-
-  &, ul {
+  &,
+  ul {
     margin: 0;
   }
 
@@ -16,7 +16,6 @@
   }
 
   .c-meta__primary {
-    padding-left: 7px;
     @include spacing(margin-bottom, 0.7rem);
     min-height: 23px;
   }
@@ -38,7 +37,6 @@
 }
 
 .c-gallery--masonry .c-gallery__item--no-image {
-
   .c-card__aside {
     background: none;
 
@@ -57,11 +55,11 @@
 }
 
 .c-meta__primary {
-
   .comments {
     display: inline-block;
-    padding: 0.2em 0.4em 0.1em 0.55em;
+    padding: 0.05em 0.5em 0.2em;
     margin-right: 0.5em;
+    vertical-align: middle;
 
     font-size: 0.737em;
     font-weight: bolder;
@@ -122,12 +120,12 @@
     border-top: 2px solid;
     width: 0;
     margin-right: 0.5em;
+    margin-top: 4px;
     transition: $transition--default;
   }
 }
 
 .c-card {
-
   .c-meta__primary,
   .c-card__action,
   .c-card__thumbnail-background:before {
@@ -315,7 +313,6 @@ ul.page-numbers {
 }
 
 .c-card__frame {
-
   .aspect-ratio-portrait & {
     padding-top: percentage(4/3);
   }
