@@ -228,7 +228,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 						),
 						array(
 							'property' => 'right',
-							'selector' => '.site-header, .c-toolbar',
+							'selector' => '.site-header, .c-toolbar, .back-to-top',
 							'unit'     => 'px',
 						),
 						array(
@@ -337,7 +337,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 					'default' => THEME_ACCENT_COLOR,
 					'css'     => array(
 						array(
-							'selector' => '.nav-links__label',
+							'selector' => 'h5, .h5, .nav-links__label',
 							'property' => 'color'
 						),
 					),
