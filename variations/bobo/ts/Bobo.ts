@@ -147,7 +147,7 @@ export class Bobo extends BaseTheme {
       const $element = $(element);
       const $text = $element.find('.c-stamp__text').first();
       circleType = new CircleType($text[0]);
-      circleType.radius(88).dir(-1);
+      circleType.radius(87).dir(-1);
       if ($element.parent().hasClass('blob-container')) {
         $element.addClass('c-stamp--rotated');
       }

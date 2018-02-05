@@ -81,7 +81,7 @@ if ( ! function_exists( 'bobo_setup' ) ) {
 		// Used for hero image
 		add_image_size( 'bobo-hero-image', 2700, 9999, false );
 		// Used for stamp image
-		add_image_size( 'bobo-stamp-image', 300, 300, true );
+		add_image_size( 'bobo-stamp-image', 300, 300, false );
 
 		/*
 		 * Add theme support for site logo
