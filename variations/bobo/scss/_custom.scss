@@ -364,3 +364,13 @@ ul.page-numbers {
   @include custom-btn-overwrite;
 }
 
+.c-gallery--title-above {
+
+  .c-card {
+    flex-direction: column;
+  }
+
+  .c-card__title {
+    @include spacing(margin-top, 0.25rem);
+  }
+}

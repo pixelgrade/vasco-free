@@ -58,6 +58,11 @@ do_action( 'pixelgrade_before_loop_entry', $location );
 				<div class="c-meta__primary"> <?php if ( $primary_meta_output ) { echo $primary_meta_output; } ?> </div>
 			</div>
 
+			<?php if ( pixelgrade_option( 'blog_items_title_position' ) === 'above' && pixelgrade_option( 'blog_grid_layout' ) !== 'packed' ) { ?>
+				<?php if ( pixelgrade_option( 'blog_items_title_visibility', true ) && get_the_title() ) { ?>
+					<h2 class="c-card__title"><span><?php the_title(); ?></span></h2>
+				<?php } ?>
+			<?php } ?>
 
 			<?php if ( pixelgrade_display_featured_images() ) { ?>
 				<div class="c-card__aside c-card__thumbnail-background">
@@ -80,11 +85,13 @@ do_action( 'pixelgrade_before_loop_entry', $location );
 
 			<div class="c-card__content">
 
-				<?php if ( pixelgrade_option( 'blog_items_title_visibility', true ) && get_the_title() ) { ?>
-					<h2 class="c-card__title"><span><?php the_title(); ?></span></h2>
-				<?php }
+				<?php if ( pixelgrade_option( 'blog_items_title_position' ) !== 'above' || pixelgrade_option( 'blog_grid_layout' ) === 'packed' ) { ?>
+					<?php if ( pixelgrade_option( 'blog_items_title_visibility', true ) && get_the_title() ) { ?>
+						<h2 class="c-card__title"><span><?php the_title(); ?></span></h2>
+					<?php } ?>
+				<?php } ?>
 
-				if ( pixelgrade_option( 'blog_items_excerpt_visibility', true ) || ! empty( $show_excerpt ) ) { ?>
+				<?php if ( pixelgrade_option( 'blog_items_excerpt_visibility', true ) || ! empty( $show_excerpt ) ) { ?>
 					<div class="c-card__excerpt"><?php the_excerpt(); ?></div>
 				<?php } ?>
 
