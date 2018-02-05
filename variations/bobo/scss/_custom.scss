@@ -57,7 +57,7 @@
 .c-meta__primary {
   .comments {
     display: inline-block;
-    padding: 0.05em 0.5em 0.2em;
+    padding: 0.1em 0.47em 0.25em;
     margin-right: 0.5em;
     vertical-align: middle;
 
@@ -118,7 +118,7 @@
     display: block;
     content: '';
     border-top: 2px solid;
-    width: 0;
+    width: 2em;
     margin-right: 0.5em;
     margin-top: 4px;
     transition: $transition--default;
@@ -130,7 +130,7 @@
   .c-card__action,
   .c-card__thumbnail-background:before {
     transition: $transition--default;
-    opacity: 0;
+    opacity: 1;
     pointer-events: none;
   }
 

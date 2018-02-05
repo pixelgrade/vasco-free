@@ -636,6 +636,7 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 						input[type=tel], 
 						input[type=text], 
 						input[type=url],
+						.c-card__action,
 						textarea,
 						select,
 						div.wpforms-container-full .wpforms-form .wpforms-field-label-inline',
