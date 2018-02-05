@@ -1,12 +1,4 @@
 .widget_promo_box {
-  @include below(small) {
-
-  }
-
-  @include above(small) {
-
-  }
-
   .c-promo {
     display: flex;
     background-color: $color-gray-10;
@@ -14,15 +6,17 @@
     @include spacing(padding-right, 3.5rem);
 
     @include below(small) {
-      @include spacing(padding-top, 8rem);
-      @include spacing(padding-bottom, 3rem);
+      padding-top: 8rem;
+      padding-bottom: 3rem;
       flex-direction: column;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
     }
 
     @include above(small) {
       position: relative;
       border-radius: 4px;
-      @include spacing(padding-top, 4.5rem);
+      padding-top: 4.5rem;
 
       &:before {
         content: '';
@@ -44,7 +38,7 @@
 
     @include below(small) {
       max-width: 100%;
-      @include spacing(margin-bottom, 2rem);
+      margin-bottom: 2rem;
 
       .c-stamp {
         top: -$stamp-dimension / 2;
@@ -62,8 +56,6 @@
     }
 
     @include above(small) {
-      max-width: 30%;
-      min-width: 30%;
       margin-bottom: 0;
 
       .c-stamp {
@@ -80,9 +72,10 @@
 
   .c-promo__content {
     text-align: left;
+    @include spacing(padding-left, 4rem);
 
-    @include above(small) {
-      @include spacing(padding-left, 4rem);
+    @include below(small) {
+      padding-left: 0;
     }
   }
 
@@ -93,6 +86,6 @@
 
   .c-promo__description {
     color: $color-white;
-    @include spacing(margin-bottom, 2rem);
+    margin-bottom: 2rem;
   }
 }

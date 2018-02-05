@@ -5,16 +5,22 @@
     @include below(small) {
       flex-direction: column;
       align-items: center;
+
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
     }
   }
 
   .c-feature__media {
     order: -1;
     margin-bottom: 0;
-    border-radius: 4px;
 
-    img {
+    @include above(small) {
       border-radius: 4px;
+
+      img {
+        border-radius: 4px;
+      }
     }
   }
 
@@ -29,24 +35,22 @@
     flex-direction: column;
     align-items: center;
     position: relative;
+    border-radius: 4px;
     @include spacing(margin-bottom, 6rem);
-    @include spacing(padding-left, 4rem);
-    @include spacing(padding-right, 4rem);
-    @include spacing(padding-top, 4rem);
+    @include spacing(padding, 4rem 4rem 0 4rem);
 
     @include above(small) {
       margin-left: -20%;
       max-width: 40%;
-      border-radius: 4px;
-      @include spacing(padding-top, 4rem);
-      @include spacing(margin-top, 2rem);
+      padding-top: 4rem;
+      margin-top: 2rem;
     }
 
     @include below(small) {
       max-width: 90%;
-      @include spacing(padding-top, 3rem);
-      @include spacing(padding-bottom, 3rem);
-      @include spacing(margin-top, -2rem);
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+      margin-top: -2rem;
     }
   }
 

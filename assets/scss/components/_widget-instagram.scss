@@ -4,7 +4,7 @@
   @include grid-spacing(20px);
   padding-left: 0;
 
-  &>li {
+  > li {
     width: percentage(1/4);
     margin-bottom: 0;
 
