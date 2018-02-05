@@ -1,47 +1,49 @@
-.c-feature {
-  @extend %overlay-card__container;
-}
-
-.c-feature__content {
-  @extend %overlay-card__content;
-}
-
-.c-feature__media {
-  @extend %overlay-card__media;
-}
-
-.c-feature__title,
-.c-feature__description,
-.c-feature__action {
-  opacity: 0;
-  transition: $transition--default;
-}
-
-.c-feature:hover {
-
-  .c-feature__description,
-  .c-feature__action,
-  .c-feature__title {
-    transform: none !important;
-    opacity: 1;
+.widget_feature_card {
+  .c-feature {
+    @extend %overlay-card__container;
   }
-}
 
-.c-feature__title[class],
-.u-buttons-outline .c-feature__btn[class] {
-  color: inherit;
-}
+  .c-feature__content {
+    @extend %overlay-card__content;
+  }
 
-.u-buttons-solid .c-feature__btn,
-.u-buttons-solid .c-feature__btn:hover {
-  background-color: #FFF;
-  color: $theme-text-color;
-}
+  .c-feature__media {
+    @extend %overlay-card__media;
+  }
 
-.c-feature__title[class]:not(:last-child) {
-  @include spacing(margin-bottom, 0.5rem);
-}
+  .c-feature__title,
+  .c-feature__description,
+  .c-feature__action {
+    opacity: 0;
+    transition: $transition--default;
+  }
 
-.c-feature__description:not(:last-child) {
-  @include spacing(margin-bottom, 1rem);
+  .c-feature:hover {
+
+    .c-feature__description,
+    .c-feature__action,
+    .c-feature__title {
+      transform: none !important;
+      opacity: 1;
+    }
+  }
+
+  .c-feature__title[class],
+  .u-buttons-outline .c-feature__btn[class] {
+    color: inherit;
+  }
+
+  .u-buttons-solid .c-feature__btn,
+  .u-buttons-solid .c-feature__btn:hover {
+    background-color: #FFF;
+    color: $theme-text-color;
+  }
+
+  .c-feature__title[class]:not(:last-child) {
+    @include spacing(margin-bottom, 0.5rem);
+  }
+
+  .c-feature__description:not(:last-child) {
+    @include spacing(margin-bottom, 1rem);
+  }
 }

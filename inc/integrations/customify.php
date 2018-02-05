@@ -282,7 +282,8 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 								.single .header-meta .byline, 
 								.single .header-meta .posted-on,
 								.c-meta__secondary,
-								.u-buttons-solid .comment-form .form-submit .submit',
+								.u-buttons-solid .comment-form .form-submit .submit,
+								.widget_wpcom_social_media_icons_widget[class] ul li',
 						),
 						array(
 							'property' => 'border-color',
@@ -297,6 +298,21 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 				),
 				'main_content_body_link_active_color'   => array(
 					'default' => THEME_ACCENT_COLOR,
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => 'a:hover, a:active',
+						),
+						array(
+							'property' => 'background-color',
+							'selector' => '
+								.widget_callout_box .c-feature__content,
+								.widget_categories .cat-item a:hover .cat-link-count,
+								.widget_categories .cat-item a:active .cat-link-count,
+								.widget_wpcom_social_media_icons_widget[class] ul li:hover,
+								.widget_wpcom_social_media_icons_widget[class] ul li:active',
+						),
+					),
 				),
 				'main_content_underlined_body_links'    => array(
 					'default' => 1,
@@ -424,6 +440,10 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 				),
 
 				'main_content_heading_2_font' => array(
+					'selector' => '
+							.widget_promo_box .c-promo__title,
+							 h2,
+							 .h2',
 					'default' => array(
 						'font-family'    => THEME_HEADINGS_FONT,
 						'font-weight'    => 'regular',
@@ -435,6 +455,10 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 				),
 
 				'main_content_heading_3_font' => array(
+					'selector' => '
+						.widget_callout_box .c-feature__title,
+						 h3,
+						 .h3',
 					'default' => array(
 						'font-family'    => THEME_HEADINGS_FONT,
 						'font-weight'    => 'regular',
@@ -446,6 +470,10 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 				),
 
 				'main_content_heading_4_font' => array(
+					'selector' => '
+						.widget_categories .cat-link,
+						 h4,
+						 .h4',
 					'default' => array(
 						'font-family'    => THEME_HEADINGS_FONT_ALT,
 						'font-weight'    => '500',

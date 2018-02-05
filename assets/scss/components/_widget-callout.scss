@@ -1,0 +1,73 @@
+.widget_callout_box {
+  .c-callout-box {
+    display: flex;
+
+    @include below(small) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .c-feature__media {
+    order: -1;
+    margin-bottom: 0;
+    border-radius: 4px;
+
+    img {
+      border-radius: 4px;
+    }
+  }
+
+  .c-stamp {
+    transform: scale(0.8);
+  }
+
+  .c-feature__content {
+    background-color: $theme-accent-color;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    @include spacing(margin-bottom, 6rem);
+    @include spacing(padding-left, 4rem);
+    @include spacing(padding-right, 4rem);
+    @include spacing(padding-top, 4rem);
+
+    @include above(small) {
+      margin-left: -20%;
+      max-width: 40%;
+      border-radius: 4px;
+      @include spacing(padding-top, 4rem);
+      @include spacing(margin-top, 2rem);
+    }
+
+    @include below(small) {
+      max-width: 90%;
+      @include spacing(padding-top, 3rem);
+      @include spacing(padding-bottom, 3rem);
+      @include spacing(margin-top, -2rem);
+    }
+  }
+
+  .c-feature__title {
+    @include leading-map($h3);
+    color: $color-white;
+  }
+
+  .c-feature__description {
+    color: $color-white;
+    @include spacing(margin-bottom, 2rem);
+  }
+
+  .c-feature__action {
+    @include above(small) {
+      position: absolute;
+      bottom: -28px;
+    }
+
+    @include below(small) {
+
+    }
+  }
+}
