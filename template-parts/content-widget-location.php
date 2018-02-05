@@ -42,11 +42,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		</div>
 
-		<?php if ( ! empty ( $image ) ) { ?>
-			<div class="c-location__media">
-				<?php echo wp_get_attachment_image( $image, 'full' ); ?>
-			</div>
-		<?php } ?>
+		<div class="c-location__media">
+			<?php if ( ! empty ( $image ) ) {
+				echo wp_get_attachment_image( $image, 'full' );
+			} ?>
+		</div>
 
 		<?php if ( ! empty( $location_url ) ) { ?>
 			<a href="<?php echo $location_url; ?>" class="c-location__link"></a><!-- .c-location__link -->
