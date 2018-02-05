@@ -42,10 +42,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php } ?>
 
-	<?php if ( ! empty ( $image ) ) { ?>
-		<div class="c-feature__media">
-			<?php echo wp_get_attachment_image( $image, 'full' ); ?>
-		</div>
-	<?php } ?>
+	<div class="c-feature__media">
+		<?php if ( ! empty ( $image ) ) {
+			echo wp_get_attachment_image( $image, 'full' );
+		} ?>
+	</div>
 
 </div>
