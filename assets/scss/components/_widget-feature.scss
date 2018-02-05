@@ -32,8 +32,8 @@
   color: inherit;
 }
 
-.u-buttons-solid .c-feature__btn,
-.u-buttons-solid .c-feature__btn:hover {
+.u-buttons-solid .c-feature__btn[class],
+.u-buttons-solid .c-feature__btn[class]:hover {
   background-color: #FFF;
   color: $theme-text-color;
 }
