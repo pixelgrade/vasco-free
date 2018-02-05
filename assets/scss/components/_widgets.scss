@@ -200,8 +200,9 @@ body {
     justify-content: center;
 
     li {
-      width: 30px;
-      height: 30px;
+      width: 44px;
+      height: 44px;
+      @include spacing(margin, 0 1rem);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -215,7 +216,7 @@ body {
   }
 
   a {
-    font-size: 18px;
+    font-size: 24px;
     color: $theme-background-color;
     display: inline-block;
   }
