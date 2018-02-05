@@ -1,6 +1,7 @@
 $stamp-dimension: 180px;
 $stamp-inner-dimension: 120px;
 $stamp-image-dimension: 70px;
+$stamp-border-width: 2px;
 
 .c-stamp {
   &--rotated {
@@ -21,19 +22,21 @@ $stamp-image-dimension: 70px;
   }
 
   &.c-stamp--auto {
-    border: solid 1px;
+    border: solid $stamp-border-width;
     border-radius: 50%;
     opacity: 0;
+    font-weight: 500;
+    letter-spacing: 1.5px;
 
     &:before {
-      border: solid 1px;
+      border: solid $stamp-border-width;
       border-radius: 50%;
       content: '';
       position: absolute;
       width: $stamp-inner-dimension;
       height: $stamp-inner-dimension;
-      top: ($stamp-dimension - $stamp-inner-dimension) / 2;
-      left: ($stamp-dimension - $stamp-inner-dimension) / 2;
+      top: ($stamp-dimension - $stamp-inner-dimension) / 2 - $stamp-border-width;
+      left: ($stamp-dimension - $stamp-inner-dimension) / 2 - $stamp-border-width;
     }
   }
 
@@ -93,6 +96,11 @@ $stamp-image-dimension: 70px;
 }
 
 .c-stamp__container {
+  @include spacing(padding, 2rem 0);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+
   &.is-light {
     .c-stamp__image--light {
       display: none;
@@ -101,7 +109,10 @@ $stamp-image-dimension: 70px;
       display: block;
     }
   }
+
   &.is-dark {
+    background-color: $color-gray-10;
+
     .c-stamp__image--light {
       display: block;
     }
