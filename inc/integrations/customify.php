@@ -472,8 +472,8 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 				'main_content_heading_4_font' => array(
 					'selector' => '
 						.widget_categories .cat-link,
-						 h4,
-						 .h4',
+						h4,
+						.h4',
 					'default' => array(
 						'font-family'    => THEME_HEADINGS_FONT_ALT,
 						'font-weight'    => '500',
@@ -581,7 +581,9 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 		input[type=submit],
 		.featured-posts__more,
 		.widget_pages,
-		.page-numbers:not(ul):not(.dots),
+		ul.page-numbers .page-numbers.prev,
+		ul.page-numbers .page-numbers.next,
+		ul.page-numbers .page-numbers.current,
 		body #infinite-handle span button,
 		body #infinite-handle span button:hover,
 		body #infinite-handle span button:focus,

@@ -77,10 +77,12 @@ $alert-placeholder-background: $theme-accent-color;
 @import 'components/widget-callout';
 @import 'components/widget-categories';
 @import 'components/widget-feature';
+@import 'components/widget-grid-posts';
 @import 'components/widget-instagram';
 @import 'components/widget-location';
 @import 'components/widget-profile';
 @import 'components/widget-promo';
+@import 'components/widget-search';
 @import 'components/wp-caption';
 
 .edit-link {
