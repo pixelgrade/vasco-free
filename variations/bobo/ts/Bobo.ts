@@ -23,6 +23,7 @@ export class Bobo extends BaseTheme {
       .takeWhile( () => this.subscriptionActive )
       .subscribe( () => {
         this.prepareFeatureHover();
+        this.initStamp();
       } );
   }
 

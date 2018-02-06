@@ -14,4 +14,11 @@
   .featured-posts--show-readmore .c-card__action {
     display: flex;
   }
+
+  .o-layout__side & {
+    .o-grid--3col-\@small > * {
+      width: 100%;
+      @include spacing(margin-top, 1rem);
+    }
+  }
 }
