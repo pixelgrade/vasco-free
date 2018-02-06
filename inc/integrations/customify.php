@@ -570,7 +570,7 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 
 	$buttons = array(
 		'.c-btn',
-		'.button',
+		'.button:not(.default)',
 		'button[type=button]',
 		'button[type=reset]',
 		'button[type=submit]',
@@ -588,6 +588,18 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 		return '.u-buttons-solid ' . $value;
 	}
 
+	function bobo_suffix_hover_buttons( $value ) {
+		return '.u-buttons-solid ' . $value . ':hover';
+	}
+
+	function bobo_suffix_active_buttons( $value ) {
+		return '.u-buttons-solid ' . $value . ':active';
+	}
+
+	function bobo_suffix_focus_buttons( $value ) {
+		return '.u-buttons-solid ' . $value . ':focus';
+	}
+
 	function bobo_prefix_outline_buttons( $value ) {
 		return '.u-buttons-outline ' . $value;
 	}
@@ -596,6 +608,14 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 	$buttons_default = implode( ',', $buttons );
 	$buttons_solid = implode( ',', array_map( 'bobo_prefix_solid_buttons', $buttons ) );
 	$buttons_outline = implode( ',', array_map( 'bobo_prefix_outline_buttons', $buttons ) );
+
+	$buttons_active = implode( ',', array(
+			implode( ',', $buttons ),
+			implode( ',', array_map( 'bobo_suffix_hover_buttons', $buttons ) ),
+			implode( ',', array_map( 'bobo_suffix_active_buttons', $buttons ) ),
+			implode( ',', array_map( 'bobo_suffix_focus_buttons', $buttons ) ),
+		)
+	);
 
 	$modified_config = array(
 
@@ -626,12 +646,13 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => $buttons_solid,
+							'selector' => $buttons_active,
 						)
 					),
 				),
 				'buttons_font'       => array(
-					'selector' => $buttons_default . ', 
+					'selector' => $buttons_default . ',
+						.button.default, 
 						.contact-form > div > .grunion-field-label:not(.checkbox):not(.radio),
 						.nf-form-cont .label-above .nf-field-label label,
 						.nf-form-cont .list-checkbox-wrap .nf-field-element li label, 
