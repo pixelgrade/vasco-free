@@ -6,6 +6,7 @@ import { Helper } from '../../../components/base/ts/services/Helper';
 import { SearchOverlay } from '../../../components/base/ts/components/SearchOverlay';
 import { Header } from '../../../components/header/ts/Header';
 import { Gallery } from '../../../components/base/ts/components/Gallery';
+import { GlobalService } from '../../../components/base/ts/services/global.service';
 
 export class Bobo extends BaseTheme {
   public SearchOverlay: SearchOverlay;
@@ -15,6 +16,14 @@ export class Bobo extends BaseTheme {
     super();
 
     this.handleContent();
+
+    GlobalService
+      .onCustomizerChange()
+      .debounce( 300 )
+      .takeWhile( () => this.subscriptionActive )
+      .subscribe( () => {
+        this.prepareFeatureHover();
+      } );
   }
 
   public bindEvents() {
