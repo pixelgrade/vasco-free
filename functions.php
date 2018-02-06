@@ -187,7 +187,7 @@ function bobo_scripts() {
 
 	/* Scripts */
 
-	//The main script
+	// The main script
 	wp_enqueue_script( 'bobo-commons-scripts', get_theme_file_uri( '/assets/js/commons.js' ), array( 'jquery' ), $theme->get( 'Version' ), true );
 	wp_enqueue_script( 'bobo-scripts', get_theme_file_uri( '/assets/js/app.bundle.js' ), array( 'bobo-commons-scripts' ), $theme->get( 'Version' ), true );
 

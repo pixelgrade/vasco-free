@@ -379,13 +379,25 @@ var GlobalService = function () {
     }
 
     _createClass(GlobalService, null, [{
-        key: 'onCustomizerChange',
-        value: function onCustomizerChange() {
+        key: 'onCustomizerRender',
+        value: function onCustomizerRender() {
             var exWindow = window;
             return __WEBPACK_IMPORTED_MODULE_0_rx_dom__["Observable"].create(function (observer) {
                 if (exWindow.wp && exWindow.wp.customize && exWindow.wp.customize.selectiveRefresh) {
                     exWindow.wp.customize.selectiveRefresh.bind('partial-content-rendered', function (placement) {
                         observer.onNext($(placement.container));
+                    });
+                }
+            });
+        }
+    }, {
+        key: 'onCustomizerChange',
+        value: function onCustomizerChange() {
+            var exWindow = window;
+            return __WEBPACK_IMPORTED_MODULE_0_rx_dom__["Observable"].create(function (observer) {
+                if (exWindow.wp && exWindow.wp.customize && exWindow.wp.customize.selectiveRefresh) {
+                    exWindow.wp.customize.bind('change', function (setting) {
+                        observer.onNext(setting);
                     });
                 }
             });
@@ -1073,16 +1085,17 @@ var Gallery = function (_BaseComponent) {
         __WEBPACK_IMPORTED_MODULE_2__services_window_service__["a" /* WindowService */].onResize().debounce(300).takeWhile(function () {
             return _this.subscriptionActive;
         }).subscribe(function () {
-            if (_this.element.is(_this.masonryGallerySelector)) {
-                _this.layout();
-            }
+            _this.layout();
+        });
+        __WEBPACK_IMPORTED_MODULE_3__services_global_service__["a" /* GlobalService */].onCustomizerRender().debounce(300).takeWhile(function () {
+            return _this.subscriptionActive;
+        }).subscribe(function () {
+            _this.layout();
         });
         __WEBPACK_IMPORTED_MODULE_3__services_global_service__["a" /* GlobalService */].onCustomizerChange().debounce(300).takeWhile(function () {
             return _this.subscriptionActive;
         }).subscribe(function () {
-            if (_this.element.is(_this.masonryGallerySelector)) {
-                _this.layout();
-            }
+            _this.layout();
         });
         return _this;
     }
@@ -1108,7 +1121,10 @@ var Gallery = function (_BaseComponent) {
                 var width = element.getBoundingClientRect().width;
                 minColumnWidth = width < minColumnWidth ? width : minColumnWidth;
             });
-            new __WEBPACK_IMPORTED_MODULE_0_masonry_layout__(this.element.get(0), {
+            if (this.masonry) {
+                this.masonry.destroy();
+            }
+            this.masonry = new __WEBPACK_IMPORTED_MODULE_0_masonry_layout__(this.element.get(0), {
                 columnWidth: minColumnWidth,
                 transitionDuration: 0
             });
