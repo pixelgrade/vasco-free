@@ -872,6 +872,7 @@ function bobo_customify_blog_grid_section( $section_options, $options ) {
 	$section_options = Pixelgrade_Config::merge( $section_options, $modified_config );
 
 	unset( $section_options['blog_grid']['options']['blog_item_meta_secondary_color'] );
+	unset( $section_options['blog_grid']['options']['blog_grid_layout']['choices']['packed'] );
 
 	return $section_options;
 }
