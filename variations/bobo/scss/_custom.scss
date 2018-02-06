@@ -118,7 +118,7 @@
     display: block;
     content: '';
     border-top: 2px solid;
-    width: 2em;
+    width: 0;
     margin-right: 0.5em;
     margin-top: 4px;
     transition: $transition--default;
@@ -130,7 +130,7 @@
   .c-card__action,
   .c-card__thumbnail-background:before {
     transition: $transition--default;
-    opacity: 1;
+    opacity: 0;
     pointer-events: none;
   }
 
