@@ -267,6 +267,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 						array(
 							'property' => 'color',
 							'selector' => 'body,
+								.c-stamp__container.is-light .c-stamp.c-stamp--auto,
 								.u-buttons-outline .button.default,
 								.u-buttons-outline .comment-form .form-submit .submit,
 								.u-buttons-outline .c-btn--default,
@@ -286,6 +287,12 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 								.u-buttons-solid .comment-form .form-submit .submit,
 								.u-buttons-solid .c-btn--default,
 								.u-buttons-solid .c-comments-toggle__label',
+						),
+						array(
+							'property' => 'border-color',
+							'selector' => '
+								.c-stamp__container.is-light .c-stamp.c-stamp--auto,
+								.c-stamp__container.is-light .c-stamp.c-stamp--auto:before',
 						),
 					),
 				),

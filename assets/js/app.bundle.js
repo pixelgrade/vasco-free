@@ -460,6 +460,7 @@ var Bobo = function (_BaseTheme) {
             return _this.subscriptionActive;
         }).subscribe(function () {
             _this.prepareFeatureHover();
+            _this.initStamp();
         });
         return _this;
     }
