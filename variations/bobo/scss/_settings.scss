@@ -19,6 +19,8 @@ $theme-logo-font-family: 'Bebas Neue', sans-serif;
 
 $content-selector: '.u-content-width > :not([class*="align"]):not([class*="gallery"])';
 
+$transition--ease-in-cubic: all 300ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
 // ----------------------------------------
 // BUTTONS
 // ========================================
