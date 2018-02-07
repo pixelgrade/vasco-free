@@ -121,7 +121,6 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 		     isset( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
 		     'mc4wp_form_widget' === bobo_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 			// We will output a wrapper before the stamp widget and one after the subscribe form widget
-			// @todo Set the class or classes here
 			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'stamp-newsletter-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
@@ -140,7 +139,6 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 		     isset( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
 		     'pixelgrade-stamp' === bobo_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 			// We will output a wrapper before the newsletter form widget.
-			// @todo Set the class or classes here
 			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'stamp-newsletter-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
@@ -196,13 +194,16 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 		     isset( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
 		     'null-instagram-feed' === bobo_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 			// We will output a wrapper before the Social Media Icons widget
-			// @todo Set the class or classes here
 			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'social-instagram-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
 			// And closing wrapper tag.
 			$closing_filter = new Bobo_AddWidgetIdWrapperClosingTag( $front_page_sidebar_widgets[ $idx + 1 ] );
 			add_filter( 'dynamic_sidebar_params', array( $closing_filter, 'filter' ), 10, 1 );
+
+			// We will also insert a link to the Instagram account configured in the Instagram widget, before the Social Media Icons widget content.
+			$social_media_icons_filter = new Bobo_AddInstagramBeforeSocialMediaIconsInGroup( $widget_id, $front_page_sidebar_widgets[ $idx + 1 ] );
+			add_filter( 'dynamic_sidebar_params', array( $social_media_icons_filter, 'filter' ), 10, 1 );
 
 			// Increase the index and continue
 			$idx++;
@@ -214,13 +215,16 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 		     isset( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
 		     'wpcom_social_media_icons_widget' === bobo_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 			// We will output a wrapper before the Social Media Icons widget
-			// @todo Set the class or classes here
 			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'social-instagram-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
 			// And the closing wrapper tag
 			$closing_filter = new Bobo_AddWidgetIdWrapperClosingTag( $front_page_sidebar_widgets[ $idx + 1 ] );
 			add_filter( 'dynamic_sidebar_params', array( $closing_filter, 'filter' ), 10, 1 );
+
+			// We will also insert a link to the Instagram account configured in the Instagram widget, before the Social Media Icons widget content.
+			$social_media_icons_filter = new Bobo_AddInstagramBeforeSocialMediaIconsInGroup( $front_page_sidebar_widgets[ $idx + 1 ], $widget_id );
+			add_filter( 'dynamic_sidebar_params', array( $social_media_icons_filter, 'filter' ), 10, 1 );
 
 			// Increase the index and continue
 			$idx++;
@@ -236,7 +240,6 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 		     bobo_text_widget_has_instagram_feed_shortcode( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 
 			// We will output a wrapper before the Social Media Icons widget
-			// @todo Set the class or classes here
 			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'social-instagram-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
@@ -256,7 +259,6 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 		     bobo_text_widget_has_instagram_feed_shortcode( $widget_id ) ) {
 
 			// We will output a wrapper before the text widget
-			// @todo Set the class or classes here
 			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'social-instagram-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
@@ -280,7 +282,18 @@ add_action( 'dynamic_sidebar_before', 'bobo_handle_front_page_widgets_nesting', 
  * @return bool|string
  */
 function bobo_get_widget_type_from_id( $widget_id ) {
-	return substr( $widget_id, 0, strrpos( $widget_id, '-') );
+	return substr( $widget_id, 0, strrpos( $widget_id, '-' ) );
+}
+
+/**
+ * Extract the widget instance number by removing the widget type in front from a widget id.
+ *
+ * @param $widget_id
+ *
+ * @return bool|string
+ */
+function bobo_get_widget_instance_number_from_id( $widget_id ) {
+	return substr( $widget_id, strrpos( $widget_id, '-' ) + 1 );
 }
 
 /**
@@ -367,6 +380,54 @@ class Bobo_AddWidgetIdWrapperClosingTag {
 		// Only add the closing tag for the target widget ID
 		if ( $params[0]['widget_id'] === $this->widget_id ) {
 			$params[0]['after_widget'] = $params[0]['after_widget'] . PHP_EOL . '</div><!-- close nesting wrapper -->' . PHP_EOL;
+
+			// A little bit of cleanup since this filter should only be applied once
+			remove_filter( 'dynamic_sidebar_params', array( $this, 'filter' ), 10 );
+		}
+
+		return $params;
+	}
+}
+
+/**
+ * Helper class to add the Instagram account before the Social Media Icons widget.
+ *
+ * We need to use a class so we can pass the $html and $widget_id variable to the filter function
+ */
+class Bobo_AddInstagramBeforeSocialMediaIconsInGroup {
+	private $social_media_icons_widget_id;
+	private $instagram_widget_id;
+
+	function __construct( $social_media_icons_widget_id, $instagram_widget_id ) {
+		$this->social_media_icons_widget_id = $social_media_icons_widget_id;
+		$this->instagram_widget_id = $instagram_widget_id;
+	}
+
+	public function filter( $params ) {
+		// Only add the closing tag for the target widget ID
+		if ( $params[0]['widget_id'] === $this->social_media_icons_widget_id ) {
+			// Get the data from the Instagram widget
+			$widget_type = bobo_get_widget_type_from_id( $this->instagram_widget_id );
+			$instance_number = bobo_get_widget_instance_number_from_id( $this->instagram_widget_id );
+			$instagram_widgets_data = get_option( 'widget_' . $widget_type );
+
+			if ( ! empty( $instagram_widgets_data[ $instance_number ]['username'] ) ) {
+				$username = $instagram_widgets_data[ $instance_number ]['username'];
+				switch ( substr( $username, 0, 1 ) ) {
+					case '#':
+						$url = '//instagram.com/explore/tags/' . str_replace( '#', '', $username );
+						break;
+
+					default:
+						$url = '//instagram.com/' . str_replace( '@', '', $username );
+						break;
+				}
+
+				// Construct the HTML for the Instagram link in the Social Media Icons widget.
+				$html = '<div class="instagram-link"><a href="' . esc_url( $url ) . '" rel="me" target="' . esc_attr( $instagram_widgets_data[ $instance_number ]['target'] ) . '" >' . esc_html( $username ) . '</a></div>';
+				$params[0]['before_widget'] = $params[0]['before_widget'] . PHP_EOL . $html . PHP_EOL;
+
+			}
 
 			// A little bit of cleanup since this filter should only be applied once
 			remove_filter( 'dynamic_sidebar_params', array( $this, 'filter' ), 10 );
