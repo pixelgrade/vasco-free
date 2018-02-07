@@ -6,10 +6,6 @@
     text-align: left;
   }
 
-  .widget {
-    border-radius: 4px;
-  }
-
   @include above(lap) {
     display: flex;
     align-items: stretch;
