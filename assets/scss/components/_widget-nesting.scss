@@ -227,7 +227,7 @@
   }
 
   .instagram-link,
-  .widget__title {
+  .widget_wpcom_social_media_icons_widget .widget__title {
     @include leading-map(map-merge($h6, (
       spacing-top: 0,
       spacing-bottom: 0

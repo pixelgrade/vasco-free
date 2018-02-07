@@ -4,6 +4,10 @@
   @include grid-spacing(1rem);
   padding-left: 0;
 
+  &:not(:last-child) {
+    @include spacing(margin-bottom, 2rem);
+  }
+
   > li {
     width: percentage(1/4);
     margin-bottom: 0;
