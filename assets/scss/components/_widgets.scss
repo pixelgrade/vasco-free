@@ -196,7 +196,7 @@ body {
     @include leading-map($h4);
   }
 
-  ul {
+  &[class] ul {
     padding: 0;
     margin-left: -1rem;
 

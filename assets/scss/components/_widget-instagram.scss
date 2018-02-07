@@ -43,11 +43,9 @@
 }
 
 [class*='-instagram-feed'] {
-  // @include spacing(margin-bottom, 3rem);
 
   p > a {
     @include btn;
     @include custom-btn-overwrite;
-    @include spacing(margin-bottom, 2rem);
   }
 }

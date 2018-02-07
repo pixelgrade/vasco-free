@@ -188,7 +188,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-
+    min-width: 20%;
     @include spacing(padding, 2rem);
 
     background-color: $color-gray-10;
