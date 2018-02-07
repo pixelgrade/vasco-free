@@ -169,6 +169,10 @@ input[type=submit]{
 
 .customize-partial-edit-shortcut[class] {
   z-index: 300;
+
+  &:first-child + * {
+    margin-top: 0;
+  }
 }
 
 @import "pages/not-found";

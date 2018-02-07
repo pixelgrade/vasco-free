@@ -1,8 +1,11 @@
 .instagram-pics {
   list-style: none;
-  @include grid;
-  @include grid-spacing(1rem);
   padding-left: 0;
+
+  &[class][class] {
+    @include grid;
+    @include grid-spacing(1rem);
+  }
 
   &:not(:last-child) {
     @include spacing(margin-bottom, 2rem);
