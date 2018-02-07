@@ -197,7 +197,7 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 		     'null-instagram-feed' === bobo_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 			// We will output a wrapper before the Social Media Icons widget
 			// @todo Set the class or classes here
-			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'wrapper-nesting1', $widget_id );
+			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'social-instagram-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
 			// And closing wrapper tag.
@@ -215,7 +215,7 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 		     'wpcom_social_media_icons_widget' === bobo_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 			// We will output a wrapper before the Social Media Icons widget
 			// @todo Set the class or classes here
-			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'wrapper-nesting1', $widget_id );
+			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'social-instagram-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
 			// And the closing wrapper tag
@@ -237,7 +237,7 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 
 			// We will output a wrapper before the Social Media Icons widget
 			// @todo Set the class or classes here
-			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'wrapper-nesting1', $widget_id );
+			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'social-instagram-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
 			// And closing wrapper tag.
@@ -257,7 +257,7 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 
 			// We will output a wrapper before the text widget
 			// @todo Set the class or classes here
-			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'wrapper-nesting1', $widget_id );
+			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'social-instagram-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
 			// And closing wrapper tag.

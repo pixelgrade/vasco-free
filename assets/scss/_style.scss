@@ -204,5 +204,29 @@ input[type=submit]{
   }
 }
 
+.social-instagram-group {
+  display: flex;
+  margin-left: -1rem;
+
+  .widget_wpcom_social_media_icons_widget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: $theme-text-color;
+    color: $content-background-color;
+    border-radius: 4px;
+
+    .widget__title {
+      color: inherit;
+    }
+  }
+
+  > * {
+    margin-left: 1rem;
+  }
+}
+
 @import "pages/single";
 @import "pages/page";
