@@ -116,7 +116,7 @@ export class Bobo extends BaseTheme {
       const $stampWidget = $obj.find( '.widget_stamp' ).css( 'width', '' );
 
       // requestAnimationFrame( () => {
-        $stampWidget.outerWidth( $stampWidget.outerHeight() );
+      $stampWidget.outerWidth( $stampWidget.outerHeight() );
       // });
     });
   }

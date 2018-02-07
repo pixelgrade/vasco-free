@@ -56,6 +56,7 @@ $alert-placeholder-background: $theme-accent-color;
 @import 'components/back-to-top';
 @import 'components/blob';
 @import 'components/blockquote';
+@import 'components/card';
 @import 'components/comments';
 @import 'components/dropcap';
 @import 'components/forms';
@@ -63,9 +64,11 @@ $alert-placeholder-background: $theme-accent-color;
 @import 'components/footer-sticky';
 @import 'components/hr';
 @import 'components/intro';
+@import 'components/infinite-scroll';
 @import 'components/links';
 @import 'components/lists';
 @import 'components/overlay-card';
+@import 'components/page-numbers';
 @import 'components/post-navigation';
 @import 'components/related-posts';
 @import 'components/table';
@@ -80,6 +83,7 @@ $alert-placeholder-background: $theme-accent-color;
 @import 'components/widget-grid-posts';
 @import 'components/widget-instagram';
 @import 'components/widget-location';
+@import 'components/widget-nesting';
 @import 'components/widget-newsletter';
 @import 'components/widget-profile';
 @import 'components/widget-promo';
@@ -139,47 +143,6 @@ input[type=submit]{
   @include custom-btn-overwrite;
 }
 
-.stamp-newsletter-group {
-
-  .widget_mc4wp_form_widget {
-    text-align: left;
-  }
-
-  .widget {
-    border-radius: 4px;
-  }
-
-  @include above(lap) {
-    display: flex;
-    align-items: stretch;
-    margin-left: -1rem;
-
-    .widget {
-      margin-top: 0;
-      margin-left: 1rem;
-    }
-
-    .c-stamp__container {
-      height: 100%;
-    }
-
-    .widget_stamp {
-      flex-shrink: 0;
-    }
-  }
-
-  @include below(lap) {
-
-    .widget + .widget {
-      margin-top: 1rem;
-    }
-
-    .widget_stamp {
-      width: auto !important;
-    }
-  }
-}
-
 .inline[class] {
 
   @include below(small) {
@@ -204,29 +167,6 @@ input[type=submit]{
   }
 }
 
-.social-instagram-group {
-  display: flex;
-  margin-left: -1rem;
-
-  .widget_wpcom_social_media_icons_widget {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    background: $theme-text-color;
-    color: $content-background-color;
-    border-radius: 4px;
-
-    .widget__title {
-      color: inherit;
-    }
-  }
-
-  > * {
-    margin-left: 1rem;
-  }
-}
-
-@import "pages/single";
+@import "pages/not-found";
 @import "pages/page";
+@import "pages/single";
