@@ -60,15 +60,20 @@ function bobo_customify_general_section( $section_options, $options ) {
 				'general_options_customizer_tabs' => array(
 					'type' => 'html',
 					'html' => '<nav class="section-navigation  js-section-navigation">
+							<a href="#section-title-general-colors">' . esc_html__( 'Colors', '__theme_txtd' ) . '</a>
 							<a href="#section-title-general-blobs">' . esc_html__( 'Blobs', '__theme_txtd' ) . '</a>
 							<a href="#section-title-general-stamps">' . esc_html__( 'Stamps', '__theme_txtd' ) . '</a>
 							</nav>',
+				),
+				'general_title_colors_section'     => array(
+					'type' => 'html',
+					'html' => '<span id="section-title-general-colors" class="separator section label large">&#x1f3a8; ' . esc_html__( 'Colors', '__theme_txtd' ) . '</span>',
 				),
 				'accent_color' => array(
 					'type'    => 'color',
 					'label'   => esc_html__( 'Accent Color', '__theme_txtd' ),
 					'live'    => true,
-					'default' => '#DE2D16',
+					'default' => THEME_ACCENT_COLOR,
 					'css'     => array(
 						array(
 							'property' => 'background-color',
@@ -106,7 +111,7 @@ function bobo_customify_general_section( $section_options, $options ) {
 				'general_title_blobs_section'     => array(
 					'type' => 'html',
 					// @todo Adjust the section icon
-					'html' => '<span id="section-title-general-blobs" class="separator section label large">&#x1f4d0; ' . esc_html__( 'Blobs', '__theme_txtd' ) . '</span>',
+					'html' => '<span id="section-title-general-blobs" class="separator section label large">&#x1f3a8; ' . esc_html__( 'Blobs', '__theme_txtd' ) . '</span>',
 				),
 				'show_blobs'                      => array(
 					'type'    => 'checkbox',
@@ -154,7 +159,7 @@ function bobo_customify_general_section( $section_options, $options ) {
 				'general_title_stamps_section'    => array(
 					'type' => 'html',
 					// @todo Adjust the section icon
-					'html' => '<span id="section-title-general-stamps" class="separator section label large">&#x1f4d0; ' . esc_html__( 'Stamps', '__theme_txtd' ) . '</span>',
+					'html' => '<span id="section-title-general-stamps" class="separator section label large">&#x1f3a8; ' . esc_html__( 'Stamps', '__theme_txtd' ) . '</span>',
 				),
 				'show_stamps'                     => array(
 					'type'    => 'checkbox',
