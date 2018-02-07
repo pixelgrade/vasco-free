@@ -424,8 +424,18 @@ class Bobo_AddInstagramBeforeSocialMediaIconsInGroup {
 				}
 
 				// Construct the HTML for the Instagram link in the Social Media Icons widget.
-				$html = '<div class="instagram-link"><a href="' . esc_url( $url ) . '" rel="me" target="' . esc_attr( $instagram_widgets_data[ $instance_number ]['target'] ) . '" >' . esc_html( $username ) . '</a></div>';
+				ob_start();
+				get_template_part( 'template-parts/svg/icon-instagram' );
+				$icon = ob_get_clean();
+				$html = '<div class="instagram-insert">' .
+							'<div class="instagram-icon">' . $icon .'</div>' .
+					        '<a class="instagram-link" href="' . esc_url( $url ) . '" rel="me" target="' . esc_attr( $instagram_widgets_data[ $instance_number ]['target'] ) . '" >' . esc_html( $username ) . '</a>' .
+				        '</div>' .
+				        '<div class="vertical-separator"></div>' .
+						'<div>';
+
 				$params[0]['before_widget'] = $params[0]['before_widget'] . PHP_EOL . $html . PHP_EOL;
+				$params[0]['after_widget'] = '</div>' . $params[0]['after_widget'];
 
 			}
 

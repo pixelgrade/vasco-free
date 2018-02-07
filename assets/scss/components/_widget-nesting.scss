@@ -166,25 +166,80 @@
 // Jetpack Social Icons + WP Instagram Widget
 
 .social-instagram-group {
-  display: flex;
-  margin-left: -1rem;
+
+  @include above(lap) {
+    display: flex;
+    margin-left: -1rem;
+
+    > * {
+      margin-left: 1rem;
+    }
+  }
+
+  @include below(lap) {
+
+    > * + * {
+      margin-top: 1rem;
+    }
+  }
 
   .widget_wpcom_social_media_icons_widget {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 
-    background: $theme-text-color;
+    @include spacing(padding, 2rem);
+
+    background-color: $color-gray-10;
     color: $content-background-color;
     border-radius: 4px;
+
+    > * {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
 
     .widget__title {
       color: inherit;
     }
+
+    ul li {
+      width: auto;
+      height: auto;
+      background: none !important;
+    }
   }
 
-  > * {
-    margin-left: 1rem;
+  .null-instagram-feed {
+    align-self: center;
+  }
+
+  .instagram-icon {
+    @include spacing(width, 2.25rem);
+    @include spacing(height, 2.25rem);
+    margin: 0 auto 0.5rem;
+  }
+
+  .instagram-link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .instagram-link,
+  .widget__title {
+    @include leading-map(map-merge($h6, (
+      spacing-top: 0,
+      spacing-bottom: 0
+    )));
+  }
+
+  .widget__title:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+
+  .vertical-separator:before {
+    @include spacing(height, 6.5rem);
+    background-color: $theme-accent-color;
   }
 }

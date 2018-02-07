@@ -22,11 +22,15 @@
     margin-left: auto;
     margin-right: auto;
     height: 2rem;
-    @include spacing(margin-bottom, 2rem);
+    //@include spacing(margin-bottom, 2rem);
     width: 2px;
 
     background-color: currentColor;
   }
+}
+
+.vertical-separator {
+  @include vertical-separator;
 }
 
 @mixin accent-image-filter {

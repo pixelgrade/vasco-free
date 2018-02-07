@@ -190,7 +190,7 @@ body {
   }
 }
 
-.widget_wpcom_social_media_icons_widget[class] {
+.widget_wpcom_social_media_icons_widget {
 
   .widget__title {
     @include leading-map($h4);
@@ -198,17 +198,20 @@ body {
 
   ul {
     padding: 0;
-    margin: 0;
+    margin-left: -1rem;
+
     display: flex;
     justify-content: center;
 
     li {
       width: 44px;
       height: 44px;
-      @include spacing(margin, 0 1rem);
+      margin: 0 0 0 1rem;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       border-radius: 50%;
       background-color: $theme-text-color;
       transition: $transition--ease-in-cubic;
@@ -218,11 +221,11 @@ body {
         background-color: $theme-accent-color;
       }
     }
-  }
 
-  a {
-    font-size: 24px;
-    color: $theme-background-color;
-    display: inline-block;
+    a {
+      @include fontsize(24px);
+      color: $theme-background-color;
+      display: inline-block;
+    }
   }
 }

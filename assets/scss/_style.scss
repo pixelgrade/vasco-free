@@ -1,8 +1,6 @@
 
 // CONFIGURATION
 // ----------------------------------------
-@import 'mixins';
-
 @import 'typeline-config';
 
 $content-class: '.entry-content';
@@ -33,6 +31,8 @@ $content-class: '.entry-content';
 
 // MULTIPAGE - default
 // PORTFOLIO - default
+
+@import 'mixins';
 
 @import '../../components/base/scss/plugins/gridable';
 @import '../../components/base/scss/plugins/cf7';
