@@ -91,7 +91,7 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 	global $wp_registered_sidebars, $wp_registered_widgets;
 
 	// We only want to deal with the front page widget area, and only in the frontend, not the admin area.
-	if ( is_admin() || 'front-page-1' !== $index ) {
+	if ( is_admin() || is_customize_preview() || 'front-page-1' !== $index ) {
 		return;
 	}
 
@@ -121,7 +121,7 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 		     isset( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
 		     'mc4wp_form_widget' === bobo_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 			// We will output a wrapper before the stamp widget and one after the subscribe form widget
-			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'stamp-newsletter-group', $widget_id );
+			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'widget-group stamp-newsletter-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
 			// And the closing wrapper tag
@@ -139,7 +139,7 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 		     isset( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
 		     'pixelgrade-stamp' === bobo_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 			// We will output a wrapper before the newsletter form widget.
-			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'stamp-newsletter-group', $widget_id );
+			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'widget-group stamp-newsletter-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
 			// And the closing wrapper tag.
@@ -178,7 +178,7 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 			}
 
 			// We will output a wrapper before the first feature card widget
-			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'feature-group-' . $widget_count, $widget_id );
+			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'widget-group feature-group-' . $widget_count, $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
 			// Output the closing wrapper tag after the last Feature Card widget in the group
@@ -194,7 +194,7 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 		     isset( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
 		     'null-instagram-feed' === bobo_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 			// We will output a wrapper before the Social Media Icons widget
-			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'social-instagram-group', $widget_id );
+			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'widget-group social-instagram-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
 			// And closing wrapper tag.
@@ -215,7 +215,7 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 		     isset( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
 		     'wpcom_social_media_icons_widget' === bobo_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 			// We will output a wrapper before the Social Media Icons widget
-			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'social-instagram-group', $widget_id );
+			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'widget-group social-instagram-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
 			// And the closing wrapper tag
@@ -240,7 +240,7 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 		     bobo_text_widget_has_instagram_feed_shortcode( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 
 			// We will output a wrapper before the Social Media Icons widget
-			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'social-instagram-group', $widget_id );
+			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'widget-group social-instagram-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
 			// And closing wrapper tag.
@@ -259,7 +259,7 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 		     bobo_text_widget_has_instagram_feed_shortcode( $widget_id ) ) {
 
 			// We will output a wrapper before the text widget
-			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'social-instagram-group', $widget_id );
+			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'widget-group social-instagram-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
 			// And closing wrapper tag.

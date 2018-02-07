@@ -468,6 +468,13 @@ var Bobo = function (_BaseTheme) {
         var _this = _possibleConstructorReturn(this, (Bobo.__proto__ || Object.getPrototypeOf(Bobo)).call(this));
 
         _this.handleContent();
+        _this.groupWidgets();
+        __WEBPACK_IMPORTED_MODULE_8__components_base_ts_services_global_service__["a" /* GlobalService */].onCustomizerRender().debounce(300).takeWhile(function () {
+            return _this.subscriptionActive;
+        }).subscribe(function () {
+            _this.groupWidgets();
+            _this.prepareFeatureHover();
+        });
         __WEBPACK_IMPORTED_MODULE_8__components_base_ts_services_global_service__["a" /* GlobalService */].onCustomizerChange().debounce(300).takeWhile(function () {
             return _this.subscriptionActive;
         }).subscribe(function () {
@@ -524,6 +531,62 @@ var Bobo = function (_BaseTheme) {
             $container.find('.c-gallery').not('.c-gallery--widget').each(function (index, element) {
                 new __WEBPACK_IMPORTED_MODULE_7__components_base_ts_components_Gallery__["a" /* Gallery */](__WEBPACK_IMPORTED_MODULE_1_jquery___default()(element));
             });
+        }
+    }, {
+        key: 'groupWidgets',
+        value: function groupWidgets() {
+            if (!__WEBPACK_IMPORTED_MODULE_1_jquery___default()('body.is-customizer-preview').length) {
+                return;
+            }
+            var $sidebar = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.widget-area--front-page-1');
+            var $widgets = $sidebar.find('.widget');
+            var featureWidgetSelector = '.widget_feature_card';
+            var stampWidgetSelector = '.widget_stamp';
+            var newsletterWidgetSelector = '.widget_mc4wp_form_widget';
+            var socialWidgetSelector = '.widget_wpcom_social_media_icons_widget';
+            var instagramWidgetSelector = '.null-instagram-feed';
+            var groupDefaultClass = 'widget-group';
+            $sidebar.children('.' + groupDefaultClass).children().unwrap();
+            // @todo check why there are still
+            $sidebar.children('.' + groupDefaultClass).remove();
+            for (var i = 0; i < $widgets.length; i++) {
+                var $widget = $widgets.eq(i);
+                var $second = $widget.next();
+                var $third = $second.next();
+                var $fourth = $third.next();
+                var $group = void 0;
+                var groupClass = void 0;
+                var offset = 0;
+                if ($widget.is(featureWidgetSelector) && $second.is(featureWidgetSelector)) {
+                    $group = $widget.add($second);
+                    groupClass = 'feature-group-2';
+                    offset = 1;
+                    if ($third.is(featureWidgetSelector)) {
+                        $group = $group.add($third);
+                        groupClass = 'feature-group-3';
+                        offset = 2;
+                        if ($fourth.is(featureWidgetSelector)) {
+                            $group = $group.add($fourth);
+                            groupClass = 'feature-group-4';
+                            offset = 3;
+                        }
+                    }
+                }
+                if ($widget.is(newsletterWidgetSelector) && $second.is(stampWidgetSelector) || $widget.is(stampWidgetSelector) && $second.is(newsletterWidgetSelector)) {
+                    $group = $widget.add($second);
+                    groupClass = 'stamp-newsletter-group';
+                    offset = 1;
+                }
+                if ($widget.is(socialWidgetSelector) && $second.is(instagramWidgetSelector) || $widget.is(instagramWidgetSelector) && $second.is(socialWidgetSelector)) {
+                    $group = $widget.add($second);
+                    groupClass = 'social-instagram-group';
+                    offset = 1;
+                }
+                if ($group) {
+                    $group.wrapAll('<div class="' + groupClass + ' ' + groupDefaultClass + '">');
+                }
+                i += offset;
+            }
         }
     }, {
         key: 'handleGalleries',

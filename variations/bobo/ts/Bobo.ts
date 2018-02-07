@@ -16,6 +16,16 @@ export class Bobo extends BaseTheme {
     super();
 
     this.handleContent();
+    this.groupWidgets();
+
+    GlobalService
+      .onCustomizerRender()
+      .debounce( 300 )
+      .takeWhile( () => this.subscriptionActive )
+      .subscribe( () => {
+        this.groupWidgets();
+        this.prepareFeatureHover();
+      } );
 
     GlobalService
       .onCustomizerChange()
@@ -74,6 +84,74 @@ export class Bobo extends BaseTheme {
     $container.find( '.c-gallery' ).not( '.c-gallery--widget' ).each((index, element) => {
       new Gallery( $( element ) );
     });
+  }
+
+  public groupWidgets() {
+
+    if ( ! $( 'body.is-customizer-preview' ).length ) {
+      return;
+    }
+
+    const $sidebar = $('.widget-area--front-page-1');
+    const $widgets = $sidebar.find('.widget');
+
+    const featureWidgetSelector = '.widget_feature_card';
+    const stampWidgetSelector = '.widget_stamp';
+    const newsletterWidgetSelector = '.widget_mc4wp_form_widget';
+    const socialWidgetSelector = '.widget_wpcom_social_media_icons_widget';
+    const instagramWidgetSelector = '.null-instagram-feed';
+    const groupDefaultClass = 'widget-group';
+
+    $sidebar.children( '.' + groupDefaultClass ).children().unwrap();
+    // @todo check why there are still
+    $sidebar.children( '.' + groupDefaultClass ).remove();
+
+    for ( let i = 0; i < $widgets.length; i++ ) {
+      const $widget = $widgets.eq(i);
+      const $second = $widget.next();
+      const $third = $second.next();
+      const $fourth = $third.next();
+
+      let $group;
+      let groupClass;
+      let offset = 0;
+
+      if ( $widget.is( featureWidgetSelector ) && $second.is( featureWidgetSelector ) ) {
+        $group = $widget.add( $second );
+        groupClass = 'feature-group-2';
+        offset = 1;
+        if ( $third.is( featureWidgetSelector ) ) {
+          $group = $group.add( $third );
+          groupClass = 'feature-group-3';
+          offset = 2;
+          if ( $fourth.is( featureWidgetSelector ) ) {
+            $group = $group.add( $fourth );
+            groupClass = 'feature-group-4';
+            offset = 3;
+          }
+        }
+      }
+
+      if ( $widget.is( newsletterWidgetSelector ) && $second.is( stampWidgetSelector ) ||
+        $widget.is( stampWidgetSelector ) && $second.is( newsletterWidgetSelector ) ) {
+        $group = $widget.add( $second );
+        groupClass = 'stamp-newsletter-group';
+        offset = 1;
+      }
+
+      if ( $widget.is( socialWidgetSelector ) && $second.is( instagramWidgetSelector ) ||
+        $widget.is( instagramWidgetSelector ) && $second.is( socialWidgetSelector ) ) {
+        $group = $widget.add( $second );
+        groupClass = 'social-instagram-group';
+        offset = 1;
+      }
+
+      if ( $group ) {
+        $group.wrapAll( '<div class="' + groupClass + ' ' + groupDefaultClass + '">' );
+      }
+
+      i += offset;
+    }
   }
 
   public handleGalleries( $container: JQuery = Helper.$body ) {
