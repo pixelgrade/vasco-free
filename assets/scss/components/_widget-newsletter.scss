@@ -1,0 +1,38 @@
+.widget_mc4wp_form_widget {
+  padding: 1rem;
+
+  background: $theme-accent-color;
+  color: $color-white;
+  text-align: left;
+
+  .widget__title {
+    color: inherit;
+    text-align: inherit;
+  }
+
+  &[class] input[type="submit"] {
+    @include btn--default;
+  }
+
+  @include above(pad) {
+    padding: 3rem;
+
+    input[type="email"] {
+      max-width: 25em;
+    }
+
+    &[class] input[type="submit"] {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+
+  @include above(desk) {
+    padding: 4rem 6rem;
+
+    &[class] input[type="submit"] {
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+  }
+}

@@ -81,7 +81,7 @@ if ( ! function_exists( 'bobo_setup' ) ) {
 		// Used for hero image
 		add_image_size( 'bobo-hero-image', 2700, 9999, false );
 		// Used for stamp image
-		add_image_size( 'bobo-stamp-image', 300, 300, true );
+		add_image_size( 'bobo-stamp-image', 300, 300, false );
 
 		/*
 		 * Add theme support for site logo
@@ -187,7 +187,7 @@ function bobo_scripts() {
 
 	/* Scripts */
 
-	//The main script
+	// The main script
 	wp_enqueue_script( 'bobo-commons-scripts', get_theme_file_uri( '/assets/js/commons.js' ), array( 'jquery' ), $theme->get( 'Version' ), true );
 	wp_enqueue_script( 'bobo-scripts', get_theme_file_uri( '/assets/js/app.bundle.js' ), array( 'bobo-commons-scripts' ), $theme->get( 'Version' ), true );
 

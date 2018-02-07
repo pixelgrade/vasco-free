@@ -90,8 +90,8 @@ add_action( 'widgets_init', 'bobo_custom_widgets_init', 10 );
 function bobo_handle_front_page_widgets_nesting( $index ) {
 	global $wp_registered_sidebars, $wp_registered_widgets;
 
-	// We only want to deal with the front page widget area
-	if ( 'front-page-1' !== $index ) {
+	// We only want to deal with the front page widget area, and only in the frontend, not the admin area.
+	if ( is_admin() || 'front-page-1' !== $index ) {
 		return;
 	}
 
@@ -122,7 +122,7 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 		     'mc4wp_form_widget' === bobo_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 			// We will output a wrapper before the stamp widget and one after the subscribe form widget
 			// @todo Set the class or classes here
-			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'wrapper-nesting1', $widget_id );
+			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'stamp-newsletter-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
 			// And the closing wrapper tag
@@ -141,7 +141,7 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 		     'pixelgrade-stamp' === bobo_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 			// We will output a wrapper before the newsletter form widget.
 			// @todo Set the class or classes here
-			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'wrapper-nesting1', $widget_id );
+			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'stamp-newsletter-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
 			// And the closing wrapper tag.

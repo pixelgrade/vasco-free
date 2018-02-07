@@ -1,6 +1,6 @@
 .c-meta {
-
-  &, ul {
+  &,
+  ul {
     margin: 0;
   }
 
@@ -16,7 +16,6 @@
   }
 
   .c-meta__primary {
-    padding-left: 7px;
     @include spacing(margin-bottom, 0.7rem);
     min-height: 23px;
   }
@@ -38,7 +37,6 @@
 }
 
 .c-gallery--masonry .c-gallery__item--no-image {
-
   .c-card__aside {
     background: none;
 
@@ -57,11 +55,11 @@
 }
 
 .c-meta__primary {
-
   .comments {
     display: inline-block;
-    padding: 0.2em 0.4em 0.1em 0.55em;
+    padding: 0.1em 0.47em 0.25em;
     margin-right: 0.5em;
+    vertical-align: middle;
 
     font-size: 0.737em;
     font-weight: bolder;
@@ -122,12 +120,12 @@
     border-top: 2px solid;
     width: 0;
     margin-right: 0.5em;
+    margin-top: 4px;
     transition: $transition--default;
   }
 }
 
 .c-card {
-
   .c-meta__primary,
   .c-card__action,
   .c-card__thumbnail-background:before {
@@ -248,18 +246,30 @@
   @include spacing(margin-bottom, 2.5rem);
 }
 
+.infinite-scroll #infinite-handle,
+.infinite-scroll .infinite-loader {
+  border-top: solid 3px $theme-text-color;
+  width: calc(100% - 32px);
+  left: 32px !important;
+  transform: translatex(0);
+  text-align: center;
+  @include spacing(padding-top, 3rem);
+}
+
+body .infinite-loader .spinner {
+  left: 50% !important;
+  top: 3rem !important;
+}
+
 body #infinite-handle span {
   padding: 0;
   background: transparent;
   border-width: 0;
 }
 
-.page-numbers:not(ul):not(.dots),
-body #infinite-handle span button,
-body #infinite-handle span button:hover,
-body #infinite-handle span button:focus {
-  @include btn;
-  @include custom-btn-overwrite;
+.page-numbers {
+  @include button;
+  @include button-box;
 }
 
 .page-numbers.dots {
@@ -286,7 +296,7 @@ ul.page-numbers {
 
 .page-numbers__left,
 .page-numbers__right {
-  flex: 1;
+  flex: 1 0 0;
 }
 
 .page-numbers__right {
@@ -296,17 +306,12 @@ ul.page-numbers {
 
 .page-numbers__middle {
   display: flex;
-  flex: 3;
+  flex: 1 1 0;
   justify-content: center;
   align-items: center;
 
   @include below(lap) {
     display: none;
-  }
-
-  .page-numbers:not(.current) {
-    background: transparent;
-    color: $theme-text-color;
   }
 }
 
@@ -315,7 +320,6 @@ ul.page-numbers {
 }
 
 .c-card__frame {
-
   .aspect-ratio-portrait & {
     padding-top: percentage(4/3);
   }
@@ -341,7 +345,7 @@ ul.page-numbers {
   text-align: center;
 
   .widget & {
-    @include spacing(margin-bottom, 2.5rem);
+    //@include spacing(margin-bottom, 2.5rem);
   }
 }
 
@@ -351,7 +355,22 @@ ul.page-numbers {
   @include spacing(padding-bottom, 6rem);
 }
 
-.featured-posts__more {
+.featured-posts__more,
+.page-numbers.next,
+.page-numbers.prev,
+.page-numbers.current,
+#infinite-handle[id] span button {
   @include btn;
   @include custom-btn-overwrite;
+}
+
+.c-gallery--title-above {
+
+  .c-card {
+    flex-direction: column;
+  }
+
+  .c-card__title {
+    @include spacing(margin-top, 0.25rem);
+  }
 }

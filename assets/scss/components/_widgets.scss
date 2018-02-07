@@ -1,5 +1,5 @@
 .widget-area > * + * {
-  @include spacing(margin-top, 2.5rem);
+  @include spacing(margin-top, 6rem);
 }
 
 %widget-with-list {
@@ -50,7 +50,6 @@
   }
 }
 .widget_archive,
-.widget_categories,
 .widget_meta,
 .widget_recent_comments,
 .widget_recent_entries,
@@ -173,6 +172,7 @@ body {
 
 // Widget Area Specific Rules
 .widget-area--main {
+  width: 100%;
   text-align: center;
 
   .widget_calendar {
@@ -187,5 +187,40 @@ body {
         text-align: center;
       }
     }
+  }
+}
+
+.widget_wpcom_social_media_icons_widget[class] {
+  .widget__title {
+    @include leading-map($h4);
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+
+    li {
+      width: 44px;
+      height: 44px;
+      @include spacing(margin, 0 1rem);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: $theme-text-color;
+      transition: $transition--ease-in-cubic;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $theme-accent-color;
+      }
+    }
+  }
+
+  a {
+    font-size: 24px;
+    color: $theme-background-color;
+    display: inline-block;
   }
 }

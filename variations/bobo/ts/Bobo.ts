@@ -6,6 +6,7 @@ import { Helper } from '../../../components/base/ts/services/Helper';
 import { SearchOverlay } from '../../../components/base/ts/components/SearchOverlay';
 import { Header } from '../../../components/header/ts/Header';
 import { Gallery } from '../../../components/base/ts/components/Gallery';
+import { GlobalService } from '../../../components/base/ts/services/global.service';
 
 export class Bobo extends BaseTheme {
   public SearchOverlay: SearchOverlay;
@@ -15,6 +16,15 @@ export class Bobo extends BaseTheme {
     super();
 
     this.handleContent();
+
+    GlobalService
+      .onCustomizerChange()
+      .debounce( 300 )
+      .takeWhile( () => this.subscriptionActive )
+      .subscribe( () => {
+        this.prepareFeatureHover();
+        this.initStamp();
+      } );
   }
 
   public bindEvents() {
@@ -100,6 +110,17 @@ export class Bobo extends BaseTheme {
     });
   }
 
+  private makeStampInGroupSquare() {
+    $( '.stamp-newsletter-group' ).each( (i, obj) => {
+      const $obj = $(obj);
+      const $stampWidget = $obj.find( '.widget_stamp' ).css( 'width', '' );
+
+      // requestAnimationFrame( () => {
+        $stampWidget.outerWidth( $stampWidget.outerHeight() );
+      // });
+    });
+  }
+
   private profileWidget() {
     const $widgets = $( '.c-profile' );
 
@@ -114,6 +135,7 @@ export class Bobo extends BaseTheme {
   private adjustLayout() {
     this.profileWidget();
     this.prepareFeatureHover();
+    this.makeStampInGroupSquare();
   }
 
   private addNavigationClasses() {
@@ -147,7 +169,7 @@ export class Bobo extends BaseTheme {
       const $element = $(element);
       const $text = $element.find('.c-stamp__text').first();
       circleType = new CircleType($text[0]);
-      circleType.radius(88).dir(-1);
+      circleType.radius(87).dir(-1);
       if ($element.parent().hasClass('blob-container')) {
         $element.addClass('c-stamp--rotated');
       }

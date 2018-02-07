@@ -1,0 +1,91 @@
+.widget_promo_box {
+  .c-promo {
+    display: flex;
+    background-color: $color-gray-10;
+    @include spacing(padding-left, 3.5rem);
+    @include spacing(padding-right, 3.5rem);
+
+    @include below(small) {
+      padding-top: 8rem;
+      padding-bottom: 3rem;
+      flex-direction: column;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+    }
+
+    @include above(small) {
+      position: relative;
+      border-radius: 4px;
+      padding-top: 4.5rem;
+
+      &:before {
+        content: '';
+        width: 100%;
+        height: 60px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: $theme-background-color;
+      }
+    }
+
+
+  }
+
+  .c-promo__media {
+    order: -1;
+    position: relative;
+
+    @include below(small) {
+      max-width: 100%;
+      margin-bottom: 2rem;
+
+      .c-stamp {
+        top: -$stamp-dimension / 2;
+        color: $color-white;
+        border-color: $color-white;
+
+        &:before {
+          border-color: $color-white;
+        }
+
+        .c-stamp__image {
+          filter: invert(1);
+        }
+      }
+    }
+
+    @include above(small) {
+      margin-bottom: 0;
+
+      .c-stamp {
+        bottom: -$stamp-dimension / 2;
+      }
+    }
+
+    .c-stamp {
+      position: absolute;
+      left: calc(50% - #{$stamp-dimension / 2});
+      transform: scale(0.8);
+    }
+  }
+
+  .c-promo__content {
+    text-align: left;
+    @include spacing(padding-left, 4rem);
+
+    @include below(small) {
+      padding-left: 0;
+    }
+  }
+
+  .c-promo__title {
+    @include leading-map($h2);
+    color: $color-white;
+  }
+
+  .c-promo__description {
+    color: $color-white;
+    margin-bottom: 2rem;
+  }
+}

@@ -43,10 +43,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php if ( ! empty ( $image ) ) { ?>
 	<div class="c-promo__media">
 		<?php echo wp_get_attachment_image( $image, 'full' ); ?>
-	</div>
 
-	<?php if ( pixelgrade_option( 'show_stamps' ) ) {
-		get_template_part( 'template-parts/content-stamp' );
-	} ?>
+		<?php if ( pixelgrade_option( 'show_stamps' ) ) {
+			get_template_part( 'template-parts/content-stamp' );
+		} ?>
+	</div>
 
 <?php } ?>

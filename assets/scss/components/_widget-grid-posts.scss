@@ -1,0 +1,24 @@
+.widget_featured_posts_grid {
+  .c-card__excerpt {
+    display: none;
+  }
+
+  .featured-posts--show-excerpt .c-card__excerpt {
+    display: block;
+  }
+
+  .c-card__action {
+    display: none;
+  }
+
+  .featured-posts--show-readmore .c-card__action {
+    display: flex;
+  }
+
+  .o-layout__side & {
+    .o-grid--3col-\@small > * {
+      width: 100%;
+      @include spacing(margin-top, 1rem);
+    }
+  }
+}

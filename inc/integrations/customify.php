@@ -228,7 +228,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 						),
 						array(
 							'property' => 'right',
-							'selector' => '.site-header, .c-toolbar',
+							'selector' => '.site-header, .c-toolbar, .back-to-top',
 							'unit'     => 'px',
 						),
 						array(
@@ -267,28 +267,32 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 						array(
 							'property' => 'color',
 							'selector' => 'body,
+								.c-stamp__container.is-light .c-stamp.c-stamp--auto,
+								.u-buttons-outline .button.default,
 								.u-buttons-outline .comment-form .form-submit .submit,
-								.c-comments-toggle__label,
-								.c-btn--default,
-								.button.default,
-								.u-buttons-solid .c-feature__btn,
-								.u-buttons-solid .c-feature__btn:hover',
+								.u-buttons-outline .c-btn--default,
+								.u-buttons-outline .c-comments-toggle__label',
 						),
 						array(
 							'property' => 'background-color',
 							'selector' => '
-								.entry-content .dropcap, 
+								.entry-content .dropcap,
 								.entry-content .cats[class] > a,
 								.single .header-meta .byline, 
 								.single .header-meta .posted-on,
 								.c-meta__secondary,
-								.u-buttons-solid .comment-form .form-submit .submit',
+								.widget_wpcom_social_media_icons_widget[class] ul li,
+
+								.u-buttons-solid .button.default,
+								.u-buttons-solid .comment-form .form-submit .submit,
+								.u-buttons-solid .c-btn--default,
+								.u-buttons-solid .c-comments-toggle__label',
 						),
 						array(
 							'property' => 'border-color',
 							'selector' => '
-								.u-buttons-outline .comment-form .form-submit .submit,
-								.c-comments-toggle__label',
+								.c-stamp__container.is-light .c-stamp.c-stamp--auto,
+								.c-stamp__container.is-light .c-stamp.c-stamp--auto:before',
 						),
 					),
 				),
@@ -297,6 +301,21 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 				),
 				'main_content_body_link_active_color'   => array(
 					'default' => THEME_ACCENT_COLOR,
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => 'a:hover, a:active',
+						),
+						array(
+							'property' => 'background-color',
+							'selector' => '
+								.widget_callout_box .c-feature__content,
+								.widget_categories .cat-item a:hover .cat-link-count,
+								.widget_categories .cat-item a:active .cat-link-count,
+								.widget_wpcom_social_media_icons_widget[class] ul li:hover,
+								.widget_wpcom_social_media_icons_widget[class] ul li:active',
+						),
+					),
 				),
 				'main_content_underlined_body_links'    => array(
 					'default' => 1,
@@ -325,7 +344,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 					'default' => THEME_ACCENT_COLOR,
 					'css'     => array(
 						array(
-							'selector' => '.nav-links__label',
+							'selector' => 'h5, .h5, .nav-links__label',
 							'property' => 'color'
 						),
 					),
@@ -345,16 +364,17 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 						array(
 							'property' => 'color',
 							'selector' => '
+								.u-buttons-solid .button.default,
+								.u-buttons-solid .comment-form .form-submit .submit,
+								.u-buttons-solid .c-btn--default,
+								.u-buttons-solid .c-comments-toggle__label,
+								
 								.entry-content .dropcap, 
 								.single .header-meta .byline, 
 								.single .header-meta .posted-on,
 								.c-meta__secondary,
 								.entry-content .cats[class] > a,
-								.comment-form .form-submit .submit,
-								.c-meta__primary .comments,
-								.c-btn--default,
-								.button.default,
-								.c-comments-toggle__label',
+								.c-meta__primary .comments',
 						),
 					),
 				),
@@ -424,6 +444,10 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 				),
 
 				'main_content_heading_2_font' => array(
+					'selector' => '
+							.widget_promo_box .c-promo__title,
+							 h2,
+							 .h2',
 					'default' => array(
 						'font-family'    => THEME_HEADINGS_FONT,
 						'font-weight'    => 'regular',
@@ -435,6 +459,10 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 				),
 
 				'main_content_heading_3_font' => array(
+					'selector' => '
+						.widget_callout_box .c-feature__title,
+						 h3,
+						 .h3',
 					'default' => array(
 						'font-family'    => THEME_HEADINGS_FONT,
 						'font-weight'    => 'regular',
@@ -446,6 +474,10 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 				),
 
 				'main_content_heading_4_font' => array(
+					'selector' => '
+						.widget_categories .cat-link,
+						h4,
+						.h4',
 					'default' => array(
 						'font-family'    => THEME_HEADINGS_FONT_ALT,
 						'font-weight'    => '500',
@@ -542,22 +574,55 @@ function bobo_customify_main_content_section( $section_options, $options ) {
  * @return array $main_content_section The modified specific config
  */
 function bobo_customify_buttons_section( $section_options, $options ) {
-	$button_selector = '
-		.c-btn,
-		.c-btn:hover,
-		.c-btn:active,
-		button[type=button],
-		button[type=reset],
-		button[type=submit],
-		input[type=button],
-		input[type=submit],
-		.featured-posts__more,
-		.widget_pages,
-		.page-numbers:not(ul):not(.dots),
-		body #infinite-handle span button,
-		body #infinite-handle span button:hover,
-		body #infinite-handle span button:focus,
-		.featured-posts__more';
+
+	$buttons = array(
+		'.c-btn',
+		'.button:not(.default)',
+		'button[type=button]',
+		'button[type=reset]',
+		'button[type=submit]',
+		'input[type=button]',
+		'input[type=submit]',
+		'.featured-posts__more',
+		'.page-numbers.prev',
+		'.page-numbers.next',
+		'.page-numbers.current',
+		'#infinite-handle[id] span button',
+		'div.wpforms-container[class] .wpforms-form .wpforms-submit',
+	);
+
+	function bobo_prefix_solid_buttons( $value ) {
+		return '.u-buttons-solid ' . $value;
+	}
+
+	function bobo_suffix_hover_buttons( $value ) {
+		return '.u-buttons-solid ' . $value . ':hover';
+	}
+
+	function bobo_suffix_active_buttons( $value ) {
+		return '.u-buttons-solid ' . $value . ':active';
+	}
+
+	function bobo_suffix_focus_buttons( $value ) {
+		return '.u-buttons-solid ' . $value . ':focus';
+	}
+
+	function bobo_prefix_outline_buttons( $value ) {
+		return '.u-buttons-outline ' . $value;
+	}
+
+
+	$buttons_default = implode( ',', $buttons );
+	$buttons_solid = implode( ',', array_map( 'bobo_prefix_solid_buttons', $buttons ) );
+	$buttons_outline = implode( ',', array_map( 'bobo_prefix_outline_buttons', $buttons ) );
+
+	$buttons_active = implode( ',', array(
+			implode( ',', $buttons ),
+			implode( ',', array_map( 'bobo_suffix_hover_buttons', $buttons ) ),
+			implode( ',', array_map( 'bobo_suffix_active_buttons', $buttons ) ),
+			implode( ',', array_map( 'bobo_suffix_focus_buttons', $buttons ) ),
+		)
+	);
 
 	$modified_config = array(
 
@@ -575,7 +640,11 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'background-color',
-							'selector' => $button_selector,
+							'selector' => $buttons_solid,
+						),
+						array(
+							'property' => 'color',
+							'selector' => $buttons_outline,
 						),
 					),
 				),
@@ -584,20 +653,17 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => $button_selector,
+							'selector' => $buttons_active,
 						)
 					),
 				),
 				'buttons_font'       => array(
-					'selector' => $button_selector . ', 
-						.contact-form>div>.grunion-field-label:not(.checkbox):not(.radio),
+					'selector' => $buttons_default . ',
+						.button.default, 
+						.contact-form > div > .grunion-field-label:not(.checkbox):not(.radio),
 						.nf-form-cont .label-above .nf-field-label label,
 						.nf-form-cont .list-checkbox-wrap .nf-field-element li label, 
 						.nf-form-cont .list-radio-wrap .nf-field-element li label,
-						div.wpforms-container[class] .wpforms-form .wpforms-field-label,
-						div.wpforms-container[class] .wpforms-form input, 
-						div.wpforms-container[class] .wpforms-form select, 
-						div.wpforms-container[class] .wpforms-form textarea,
 						input[type=date], 
 						input[type=email], 
 						input[type=number], 
@@ -606,9 +672,13 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 						input[type=tel], 
 						input[type=text], 
 						input[type=url],
+						.c-card__action,
 						textarea,
 						select,
-						div.wpforms-container-full .wpforms-form .wpforms-field-label-inline',
+						div.wpforms-container[class] .wpforms-form .wpforms-field-label,
+						div.wpforms-container[class] .wpforms-form input, 
+						div.wpforms-container[class] .wpforms-form select, 
+						div.wpforms-container[class] .wpforms-form textarea',
 					'default'  => array(
 						'font-family'    => THEME_HEADINGS_FONT_ALT,
 						'font-weight'    => '500',
@@ -802,6 +872,7 @@ function bobo_customify_blog_grid_section( $section_options, $options ) {
 	$section_options = Pixelgrade_Config::merge( $section_options, $modified_config );
 
 	unset( $section_options['blog_grid']['options']['blog_item_meta_secondary_color'] );
+	unset( $section_options['blog_grid']['options']['blog_grid_layout']['choices']['packed'] );
 
 	return $section_options;
 }

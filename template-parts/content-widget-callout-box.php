@@ -21,23 +21,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php if ( ! empty( $title ) || ! empty( $description ) || ( ! empty( $button_text ) && ! empty( $button_url ) ) ) { ?>
 
-	<div class="c-feature__content">
+	<div class="c-callout__content">
 
 		<?php if ( pixelgrade_option( 'show_stamps' ) ) {
 			get_template_part( 'template-parts/content-stamp' );
 		} ?>
 
 		<?php if ( ! empty( $title ) ) { ?>
-			<div class="c-feature__title"><?php echo $title ?></div>
+			<div class="c-callout__title"><?php echo $title ?></div>
 		<?php } ?>
 
 		<?php if ( ! empty( $description ) ) { ?>
-			<div class="c-feature__description"><?php echo $description; ?></div>
+			<div class="c-callout__description"><?php echo $description; ?></div>
 		<?php } ?>
 
 		<?php if ( ! empty( $button_text ) && ! empty( $button_url ) ) { ?>
-			<div class="c-feature__action">
-				<a href="<?php echo $button_url; ?>" class="c-feature__btn c-btn"><?php echo $button_text; ?></a>
+			<div class="c-callout__action">
+				<a href="<?php echo $button_url; ?>" class="c-callout__btn c-btn c-btn--default"><?php echo $button_text; ?></a>
 			</div>
 		<?php } ?>
 
@@ -46,7 +46,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php } ?>
 
 <?php if ( ! empty ( $image ) ) { ?>
-	<div class="c-feature__media">
+	<div class="c-callout__media">
 		<?php echo wp_get_attachment_image( $image, 'full' ); ?>
 	</div>
 <?php } ?>
