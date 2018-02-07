@@ -194,6 +194,7 @@ body {
 
   .widget__title {
     @include leading-map($h4);
+    color: inherit;
   }
 
   &[class] ul {

@@ -26,7 +26,9 @@ if ( 'auto' === pixelgrade_option( 'stamp_style' ) ) {
 
 	<div class="c-stamp c-stamp--auto">
 		<div class="c-stamp__text"><?php echo $stamp_text; ?></div>
-		<img class="c-stamp__image" src="<?php echo esc_url( get_theme_file_uri( 'assets/icons/' . $stamp_icon . '.svg' ) ); ?>" />
+		<div class="c-stamp__image">
+			<?php get_template_part( '/assets/icons/' . $stamp_icon ); ?>
+		</div>
 	</div>
 
 <?php

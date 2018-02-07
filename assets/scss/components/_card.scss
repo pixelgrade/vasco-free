@@ -34,6 +34,14 @@
   bottom: 0;
   @include spacing(padding, 0 1rem);
   transform: translate(0, 50%);
+
+  .c-gallery__item--no-image & {
+    position: static;
+    transform: none;
+    padding-left: 0;
+    padding-right: 0;
+    @include spacing(margin-bottom, 1rem);
+  }
 }
 
 .c-gallery--masonry .c-gallery__item--no-image {

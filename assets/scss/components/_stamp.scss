@@ -4,6 +4,7 @@ $stamp-image-dimension: 70px;
 $stamp-border-width: 2px;
 
 .c-stamp {
+
   &--rotated {
     transform: rotate(35deg);
   }
@@ -22,14 +23,14 @@ $stamp-border-width: 2px;
   }
 
   &.c-stamp--auto {
-    border: solid $stamp-border-width $theme-text-color;
+    border: solid $stamp-border-width currentColor;
     border-radius: 50%;
     opacity: 0;
     font-weight: 500;
     letter-spacing: 1.5px;
 
     &:before {
-      border: solid $stamp-border-width $theme-text-color;
+      border: solid $stamp-border-width currentColor;
       border-radius: 50%;
       content: '';
       position: absolute;
@@ -40,15 +41,20 @@ $stamp-border-width: 2px;
     }
   }
 
+  position: relative;
   width: $stamp-dimension;
   height: $stamp-dimension;
-  position: relative;
+
   display: flex;
   justify-content: center;
   align-items: flex-end;
+
+  @include leading-map(map-merge($h4, (
+    spacing-top: 0,
+    spacing-bottom: 0,
+  )));
   text-transform: uppercase;
-  color: $theme-text-color;
-  font-family: $theme-headings-font-family-alt;
+
   transition: $transition--default;
 }
 
@@ -58,10 +64,6 @@ $stamp-border-width: 2px;
 
   &:before {
     border-color: $color-white;
-  }
-
-  .c-stamp__image {
-    filter: invert(1);
   }
 }
 

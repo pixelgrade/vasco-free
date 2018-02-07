@@ -4,7 +4,7 @@
 
 .infinite-scroll #infinite-handle,
 .infinite-scroll .infinite-loader {
-  border-top: solid 3px $theme-text-color;
+  border-top: solid 3px currentColor;
   width: calc(100% - 32px);
   left: 32px !important;
   transform: translatex(0);

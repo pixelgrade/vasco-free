@@ -64,6 +64,44 @@ function bobo_customify_general_section( $section_options, $options ) {
 							<a href="#section-title-general-stamps">' . esc_html__( 'Stamps', '__theme_txtd' ) . '</a>
 							</nav>',
 				),
+				'accent_color' => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Accent Color', '__theme_txtd' ),
+					'live'    => true,
+					'default' => '#DE2D16',
+					'css'     => array(
+						array(
+							'property' => 'background-color',
+							'selector' => '
+								.widget_mc4wp_form_widget,
+								.accent-image-filter:after, 
+								.bypostauthor .comment__avatar:after, 
+								.c-author__avatar:after, 
+								.c-feature__media:after, 
+								.c-location__media:after, 
+								.instagram-pics>li a:after,
+								.social-instagram-group .vertical-separator:before,
+								.c-alert
+							',
+						),
+					),
+				),
+				'accent_dark_color' => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Accent Dark Color', '__theme_txtd' ),
+					'live'    => true,
+					'default' => '#202423',
+					'css'     => array(
+						array(
+							'property' => 'background-color',
+							'selector' => '
+								.c-stamp__container.is-dark,
+								.social-instagram-group .widget_wpcom_social_media_icons_widget,
+								.widget_mc4wp_form_widget[class] input[type=submit]
+							',
+						),
+					),
+				),
 				// [Section] Blobs
 				'general_title_blobs_section'     => array(
 					'type' => 'html',
@@ -271,7 +309,8 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 								.u-buttons-outline .button.default,
 								.u-buttons-outline .comment-form .form-submit .submit,
 								.u-buttons-outline .c-btn--default,
-								.u-buttons-outline .c-comments-toggle__label',
+								.u-buttons-outline .c-comments-toggle__label,
+								.c-search-overlay .search-field',
 						),
 						array(
 							'property' => 'background-color',
@@ -280,7 +319,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 								.entry-content .cats[class] > a,
 								.single .header-meta .byline, 
 								.single .header-meta .posted-on,
-								.c-meta__secondary,
+								.c-meta__secondary[class],
 								.widget_wpcom_social_media_icons_widget[class] ul li,
 
 								.u-buttons-solid .button.default,
@@ -367,12 +406,12 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 								.u-buttons-solid .button.default,
 								.u-buttons-solid .comment-form .form-submit .submit,
 								.u-buttons-solid .c-btn--default,
-								.u-buttons-solid .c-comments-toggle__label,
+								.u-buttons-solid .c-comments-toggle__label[class],
 								
 								.entry-content .dropcap, 
 								.single .header-meta .byline, 
 								.single .header-meta .posted-on,
-								.c-meta__secondary,
+								.c-meta__secondary[class],
 								.entry-content .cats[class] > a,
 								.c-meta__primary .comments',
 						),
@@ -475,9 +514,11 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 
 				'main_content_heading_4_font' => array(
 					'selector' => '
+						h4, .h4,
+						.wp-caption-text,
 						.widget_categories .cat-link,
-						h4,
-						.h4',
+						.widget_wpcom_social_media_icons_widget .widget__title,
+						.c-stamp',
 					'default' => array(
 						'font-family'    => THEME_HEADINGS_FONT_ALT,
 						'font-weight'    => '500',
@@ -490,7 +531,8 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 
 				'main_content_heading_5_font' => array(
 					'selector' => '
-						.entry-content h5, .h5, h5,
+						.h5, h5,
+						.wp-caption-text .credit,
 						.site-description, 
 						.nav-links__label,
 						.c-footer__zone--bottom .menu',
@@ -588,6 +630,7 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 		'.page-numbers.next',
 		'.page-numbers.current',
 		'#infinite-handle[id] span button',
+		'[class*=-instagram-feed] p > a',
 		'div.wpforms-container[class] .wpforms-form .wpforms-submit',
 	);
 
@@ -802,7 +845,7 @@ function bobo_customify_blog_grid_section( $section_options, $options ) {
 					),
 				),
 				'blog_item_thumbnail_background'     => array(
-					'default' => '#000000',
+					'default' => '#F5F6F1',
 					'css'     => array(
 						array(
 							'property' => 'background-color',

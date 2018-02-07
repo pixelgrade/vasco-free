@@ -2,6 +2,10 @@
   border-left: 1px solid currentColor;
   padding-left: 1em;
 
+  &[class] {
+    font-size: (17em/18);
+  }
+
   .credit {
     display: block;
     @include leading-map(map-merge($h5, (
