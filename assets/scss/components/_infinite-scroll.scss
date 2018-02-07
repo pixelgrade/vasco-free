@@ -1,0 +1,29 @@
+.infinite-scroll .content-area {
+  @include spacing(margin-bottom, 11rem);
+}
+
+.infinite-scroll #infinite-handle,
+.infinite-scroll .infinite-loader {
+  border-top: solid 3px $theme-text-color;
+  width: calc(100% - 32px);
+  left: 32px !important;
+  transform: translatex(0);
+  text-align: center;
+  @include spacing(padding-top, 3rem);
+}
+
+body .infinite-loader .spinner {
+  left: 50% !important;
+  top: 3rem !important;
+}
+
+body #infinite-handle span {
+  padding: 0;
+  background: transparent;
+  border-width: 0;
+}
+
+#infinite-handle[id] span button {
+  @include btn;
+  @include custom-btn-overwrite;
+}

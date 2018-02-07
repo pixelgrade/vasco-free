@@ -1,0 +1,43 @@
+.page-numbers {
+  @include button;
+  @include button-box;
+}
+
+.page-numbers.dots {
+  padding: 0 10px;
+}
+
+.navigation.pagination {
+  border-top: solid 3px $theme-text-color;
+  @include spacing(margin-top, 3rem);
+}
+
+ul.page-numbers {
+  opacity: 0;
+  justify-content: space-between;
+  list-style: none;
+  padding-left: 0;
+  @include spacing(margin-top, 3.5rem);
+  @include spacing(margin-bottom, 11rem);
+}
+
+.page-numbers__left,
+.page-numbers__right {
+  flex: 1 0 0;
+}
+
+.page-numbers__right {
+  justify-content: flex-end;
+  display: flex;
+}
+
+.page-numbers__middle {
+  display: flex;
+  flex: 1 1 0;
+  justify-content: center;
+  align-items: center;
+
+  @include below(lap) {
+    display: none;
+  }
+}
