@@ -294,3 +294,9 @@ function bobo_featured_posts_widget_classes( $classes = array() ) {
 	return $classes;
 }
 add_filter( 'pixelgrade_featured_posts_widget_classes', 'bobo_featured_posts_widget_classes', 10, 1 );
+
+function bobo_instagram_entry_template( $path ) {
+	return array( 'template-parts/wp-instagram-widget.php' );
+}
+add_filter( 'wpiw_template_part', 'bobo_instagram_entry_template', 10, 1 );
+
