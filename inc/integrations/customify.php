@@ -215,6 +215,56 @@ function bobo_customify_general_section( $section_options, $options ) {
 					'desc'            => '',
 					'active_callback' => 'bobo_stamp_light_image_control_show',
 				),
+
+				// [Section] Announcement Bar
+				'general_title_announcement_bar_section' => array(
+					'type' => 'html',
+					// @todo Adjust the section icon
+					'html' => '<span id="section-title-general-announcement_bar" class="separator section label large">&#x1f4d0; ' . esc_html__( 'Announcement Bar', '__theme_txtd' ) . '</span>',
+				),
+				'show_announcement_bar'                  => array(
+					'type'    => 'checkbox',
+					'label'   => esc_html__( 'Show Announcement Bar', '__theme_txtd' ),
+					'default' => true,
+				),
+				'announcement_bar_text'                  => array(
+					'type'              => 'textarea',
+					'label'             => esc_html__( 'Announcement Bar Text', '__theme_txtd' ),
+					'desc'              => esc_html__( 'Set the text that will appear in your Announcement Bar, on the top of your website.', '__theme_txtd' ),
+					'default'           => '<strong>Find me on Facebook!</strong> New photos and interesting facts every day.',
+					'sanitize_callback' => 'bobo_kses_anchor_content',
+				),
+				'announcement_bar_link'                  => array(
+					'type'              => 'text',
+					'label'             => esc_html__( 'Announcement Bar Link', '__theme_txtd' ),
+					'desc'              => esc_html__( 'The link will be applied on all the area of the Announcement Bar.', '__theme_txtd' ),
+					'default'           => 'https://facebook.com/pixelgrade',
+					'sanitize_callback' => 'esc_url_raw',
+				),
+				'announcement_bar_background_color'      => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Background Color', '__theme_txtd' ),
+					'live'    => true,
+					'default' => '#df2d16',
+					'css'     => array(
+						array(
+							'property' => 'background-color',
+							'selector' => '.c-announcement-bar',
+						),
+					),
+				),
+				'announcement_bar_text_color'            => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Text Color', '__theme_txtd' ),
+					'live'    => true,
+					'default' => '#f5f6f1',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.c-announcement-bar a',
+						),
+					),
+				),
 			),
 		),
 	);

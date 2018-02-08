@@ -338,3 +338,86 @@ function bobo_remove_emoji( $text ) {
 
 	return $clean_text;
 }
+
+/**
+ * Display the announcement bar.
+ */
+function bobo_announcement_bar() {
+	if ( pixelgrade_option( 'show_announcement_bar' ) ) {
+		get_template_part( 'template-parts/announcement-bar' );
+	}
+}
+add_action( 'pixelgrade_before_header', 'bobo_announcement_bar', 5 );
+
+function bobo_kses_anchor_content( $content ) {
+	$allowedtags = array(
+		'abbr' => array(
+			'title' => true,
+		),
+		'acronym' => array(
+			'title' => true,
+		),
+		'b' => array(),
+		'blockquote' => array(
+			'cite' => true,
+		),
+		'br' => array(),
+		'button' => array(
+			'disabled' => true,
+			'name' => true,
+			'type' => true,
+			'value' => true,
+		),
+		'cite' => array(),
+		'code' => array(),
+		'del' => array(
+			'datetime' => true,
+		),
+		'div' => array(
+			'align' => true,
+			'dir' => true,
+			'lang' => true,
+			'xml:lang' => true,
+		),
+		'em' => array(),
+		'h1' => array(
+			'align' => true,
+		),
+		'h2' => array(
+			'align' => true,
+		),
+		'h3' => array(
+			'align' => true,
+		),
+		'h4' => array(
+			'align' => true,
+		),
+		'h5' => array(
+			'align' => true,
+		),
+		'h6' => array(
+			'align' => true,
+		),
+		'hr' => array(
+			'align' => true,
+			'noshade' => true,
+			'size' => true,
+			'width' => true,
+		),
+		'i' => array(),
+		'p' => array(
+			'align' => true,
+			'dir' => true,
+			'lang' => true,
+			'xml:lang' => true,
+		),
+		'q' => array(
+			'cite' => true,
+		),
+		'small' => array(),
+		'strike' => array(),
+		'strong' => array(),
+	);
+
+	return wp_kses( $content, $allowedtags );
+}
