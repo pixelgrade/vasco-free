@@ -474,6 +474,7 @@ var Bobo = function (_BaseTheme) {
         }).subscribe(function () {
             _this.groupWidgets();
             _this.prepareFeatureHover();
+            _this.initStamp();
         });
         __WEBPACK_IMPORTED_MODULE_8__components_base_ts_services_global_service__["a" /* GlobalService */].onCustomizerChange().debounce(300).takeWhile(function () {
             return _this.subscriptionActive;

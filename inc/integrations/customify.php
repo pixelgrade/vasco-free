@@ -86,6 +86,7 @@ function bobo_customify_general_section( $section_options, $options ) {
 								.c-location__media:after, 
 								.instagram-pics>li a:after,
 								.social-instagram-group .vertical-separator:before,
+								.widget_callout_box .c-callout__content,
 								.c-alert
 							',
 						),
@@ -102,6 +103,7 @@ function bobo_customify_general_section( $section_options, $options ) {
 							'selector' => '
 								.c-stamp__container.is-dark,
 								.social-instagram-group .widget_wpcom_social_media_icons_widget,
+								.widget_promo_box .c-promo,
 								.widget_mc4wp_form_widget[class] input[type=submit]
 							',
 						),

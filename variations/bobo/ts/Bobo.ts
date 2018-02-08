@@ -25,6 +25,7 @@ export class Bobo extends BaseTheme {
       .subscribe( () => {
         this.groupWidgets();
         this.prepareFeatureHover();
+        this.initStamp();
       } );
 
     GlobalService
