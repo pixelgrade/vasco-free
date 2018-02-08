@@ -1,0 +1,23 @@
+#customize-theme-controls .select2-container .select2-selection--multiple {
+  padding-top: 4px;
+
+  .select2-selection__rendered {
+    display: flex;
+
+    .select2-search--inline {
+      flex: 1;
+
+      .select2-search__field[class] {
+        min-width: 100%;
+        border-width: 0;
+        margin-top: 3px !important;
+      }
+    }
+  }
+}
+
+.select2-container--default .select2-results__option[aria-selected=true][class] {
+  background: transparent;
+  opacity: 0.3;
+  pointer-events: none;
+}
