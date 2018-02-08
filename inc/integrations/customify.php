@@ -639,27 +639,6 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 		'div.wpforms-container[class] .wpforms-form .wpforms-submit',
 	);
 
-	function bobo_prefix_solid_buttons( $value ) {
-		return '.u-buttons-solid ' . $value;
-	}
-
-	function bobo_suffix_hover_buttons( $value ) {
-		return '.u-buttons-solid ' . $value . ':hover';
-	}
-
-	function bobo_suffix_active_buttons( $value ) {
-		return '.u-buttons-solid ' . $value . ':active';
-	}
-
-	function bobo_suffix_focus_buttons( $value ) {
-		return '.u-buttons-solid ' . $value . ':focus';
-	}
-
-	function bobo_prefix_outline_buttons( $value ) {
-		return '.u-buttons-outline ' . $value;
-	}
-
-
 	$buttons_default = implode( ',', $buttons );
 	$buttons_solid = implode( ',', array_map( 'bobo_prefix_solid_buttons', $buttons ) );
 	$buttons_outline = implode( ',', array_map( 'bobo_prefix_outline_buttons', $buttons ) );
@@ -744,6 +723,29 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 	$section_options = Pixelgrade_Config::merge( $section_options, $modified_config );
 
 	return $section_options;
+}
+
+/*
+ * Helper functions for the buttons section config.
+ */
+function bobo_prefix_solid_buttons( $value ) {
+	return '.u-buttons-solid ' . $value;
+}
+
+function bobo_suffix_hover_buttons( $value ) {
+	return '.u-buttons-solid ' . $value . ':hover';
+}
+
+function bobo_suffix_active_buttons( $value ) {
+	return '.u-buttons-solid ' . $value . ':active';
+}
+
+function bobo_suffix_focus_buttons( $value ) {
+	return '.u-buttons-solid ' . $value . ':focus';
+}
+
+function bobo_prefix_outline_buttons( $value ) {
+	return '.u-buttons-outline ' . $value;
 }
 
 /**
