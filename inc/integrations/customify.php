@@ -329,7 +329,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 
 								.u-buttons-solid .button.default,
 								.u-buttons-solid .comment-form .form-submit .submit,
-								.u-buttons-solid .c-btn--default,
+								.u-buttons-solid .c-btn--default[class],
 								.u-buttons-solid .c-comments-toggle__label',
 						),
 						array(
@@ -410,7 +410,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 							'selector' => '
 								.u-buttons-solid .button.default,
 								.u-buttons-solid .comment-form .form-submit .submit,
-								.u-buttons-solid .c-btn--default,
+								.u-buttons-solid .c-btn--default[class],
 								.u-buttons-solid .c-comments-toggle__label[class],
 								
 								.entry-content .dropcap, 
