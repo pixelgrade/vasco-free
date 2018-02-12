@@ -15,6 +15,25 @@
   .c-callout__media {
     order: -1;
     margin-bottom: 0;
+    position: relative;
+    display: flex;
+    flex: 4;
+
+    img {
+      @include image-fill;
+
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: none;
+    }
+
+    @include below(small) {
+      padding-top: 75%;
+      width: 100%;
+    }
 
     @include above(small) {
       border-radius: 4px;
@@ -29,20 +48,26 @@
     transform: scale(0.8);
   }
 
+  .c-callout__content + .c-callout__media {
+    @include above(small) {
+      margin-right: -15%;
+    }
+  }
+
   .c-callout__content {
     background-color: $theme-accent-color;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     display: flex;
+    flex: 1;
     flex-direction: column;
     align-items: center;
     position: relative;
+    z-index: 2;
     border-radius: 4px;
     @include spacing(margin-bottom, 6rem);
     @include spacing(padding, 4rem 4rem 0 4rem);
 
     @include above(small) {
-      margin-left: -20%;
-      max-width: 40%;
       padding-top: 4rem;
       margin-top: 2rem;
     }
@@ -63,6 +88,7 @@
   .c-callout__description {
     color: $color-white;
     @include spacing(margin-bottom, 2rem);
+    @include spacing(padding-bottom, 2rem);
   }
 
   .c-callout__action {

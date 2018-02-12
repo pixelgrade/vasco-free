@@ -295,10 +295,132 @@ function bobo_featured_posts_widget_classes( $classes = array() ) {
 }
 add_filter( 'pixelgrade_featured_posts_widget_classes', 'bobo_featured_posts_widget_classes', 10, 1 );
 
-function bobo_instagram_entry_template( $path ) {
-	return array( 'template-parts/wp-instagram-widget.php' );
+function bobo_remove_emoji( $text ) {
+
+	$clean_text = "";
+
+	// Match Emoticons
+	$regexEmoticons = '/[\x{1F600}-\x{1F64F}]/u';
+	$clean_text = preg_replace($regexEmoticons, '', $text);
+
+	// Match Miscellaneous Symbols and Pictographs
+	$regexSymbols = '/[\x{1F300}-\x{1F5FF}]/u';
+	$clean_text = preg_replace($regexSymbols, '', $clean_text);
+
+	// Match Transport And Map Symbols
+	$regexTransport = '/[\x{1F680}-\x{1F6FF}]/u';
+	$clean_text = preg_replace($regexTransport, '', $clean_text);
+
+	// Match Miscellaneous Symbols
+	$regexMisc = '/[\x{2600}-\x{26FF}]/u';
+	$clean_text = preg_replace($regexMisc, '', $clean_text);
+
+	// Match Dingbats
+	$regexDingbats = '/[\x{2700}-\x{27BF}]/u';
+	$clean_text = preg_replace($regexDingbats, '', $clean_text);
+
+	// Match Flags
+	$regexDingbats = '/[\x{1F1E6}-\x{1F1FF}]/u';
+	$clean_text = preg_replace($regexDingbats, '', $clean_text);
+
+	// Others
+	$regexDingbats = '/[\x{1F910}-\x{1F95E}]/u';
+	$clean_text = preg_replace($regexDingbats, '', $clean_text);
+
+	$regexDingbats = '/[\x{1F980}-\x{1F991}]/u';
+	$clean_text = preg_replace($regexDingbats, '', $clean_text);
+
+	$regexDingbats = '/[\x{1F9C0}]/u';
+	$clean_text = preg_replace($regexDingbats, '', $clean_text);
+
+	$regexDingbats = '/[\x{1F9F9}]/u';
+	$clean_text = preg_replace($regexDingbats, '', $clean_text);
+
+	return $clean_text;
 }
-add_filter( 'wpiw_template_part', 'bobo_instagram_entry_template', 10, 1 );
+
+/**
+ * Display the announcement bar.
+ */
+function bobo_announcement_bar() {
+	if ( pixelgrade_option( 'show_announcement_bar' ) ) {
+		get_template_part( 'template-parts/announcement-bar' );
+	}
+}
+add_action( 'pixelgrade_before_header', 'bobo_announcement_bar', 5 );
+
+function bobo_kses_anchor_content( $content ) {
+	$allowedtags = array(
+		'abbr' => array(
+			'title' => true,
+		),
+		'acronym' => array(
+			'title' => true,
+		),
+		'b' => array(),
+		'blockquote' => array(
+			'cite' => true,
+		),
+		'br' => array(),
+		'button' => array(
+			'disabled' => true,
+			'name' => true,
+			'type' => true,
+			'value' => true,
+		),
+		'cite' => array(),
+		'code' => array(),
+		'del' => array(
+			'datetime' => true,
+		),
+		'div' => array(
+			'align' => true,
+			'dir' => true,
+			'lang' => true,
+			'xml:lang' => true,
+		),
+		'em' => array(),
+		'h1' => array(
+			'align' => true,
+		),
+		'h2' => array(
+			'align' => true,
+		),
+		'h3' => array(
+			'align' => true,
+		),
+		'h4' => array(
+			'align' => true,
+		),
+		'h5' => array(
+			'align' => true,
+		),
+		'h6' => array(
+			'align' => true,
+		),
+		'hr' => array(
+			'align' => true,
+			'noshade' => true,
+			'size' => true,
+			'width' => true,
+		),
+		'i' => array(),
+		'p' => array(
+			'align' => true,
+			'dir' => true,
+			'lang' => true,
+			'xml:lang' => true,
+		),
+		'q' => array(
+			'cite' => true,
+		),
+		'small' => array(),
+		'strike' => array(),
+		'strong' => array(),
+	);
+
+	return wp_kses( $content, $allowedtags );
+}
 
 function bobo_blobs_seed_body_attirbute( $attributes ) {
 	$attributes['data-blobs-seed'] = pixelgrade_option( 'blobs_seed', 357 );

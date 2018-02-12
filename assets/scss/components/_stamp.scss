@@ -54,8 +54,12 @@ $stamp-border-width: 2px;
     spacing-bottom: 0,
   )));
   text-transform: uppercase;
-
   transition: $transition--default;
+}
+
+.c-stamp__text {
+  line-height: 1.7;
+  text-transform: uppercase;
 }
 
 %c-stamp--dark {

@@ -478,6 +478,7 @@ var Bobo = function (_BaseTheme) {
         }).subscribe(function () {
             _this.groupWidgets();
             _this.prepareFeatureHover();
+            _this.initStamp();
         });
         __WEBPACK_IMPORTED_MODULE_8__components_base_ts_services_global_service__["a" /* GlobalService */].onCustomizerChange().debounce(300).takeWhile(function () {
             return _this.subscriptionActive;
@@ -745,7 +746,7 @@ var Bobo = function (_BaseTheme) {
                 var $element = __WEBPACK_IMPORTED_MODULE_1_jquery___default()(element);
                 var $text = $element.find('.c-stamp__text').first();
                 circleType = new __WEBPACK_IMPORTED_MODULE_2_circletype___default.a($text[0]);
-                circleType.radius(87).dir(-1);
+                circleType.radius(89).dir(-1);
                 if ($element.parent().hasClass('blob-container')) {
                     $element.addClass('c-stamp--rotated');
                 }

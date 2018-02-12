@@ -86,6 +86,7 @@ function bobo_customify_general_section( $section_options, $options ) {
 								.c-location__media:after, 
 								.instagram-pics>li a:after,
 								.social-instagram-group .vertical-separator:before,
+								.widget_callout_box .c-callout__content,
 								.c-alert
 							',
 						),
@@ -102,6 +103,7 @@ function bobo_customify_general_section( $section_options, $options ) {
 							'selector' => '
 								.c-stamp__container.is-dark,
 								.social-instagram-group .widget_wpcom_social_media_icons_widget,
+								.widget_promo_box .c-promo,
 								.widget_mc4wp_form_widget[class] input[type=submit]
 							',
 						),
@@ -263,6 +265,56 @@ function bobo_customify_general_section( $section_options, $options ) {
 					'desc'            => '',
 					'active_callback' => 'bobo_stamp_light_image_control_show',
 				),
+
+				// [Section] Announcement Bar
+				'general_title_announcement_bar_section' => array(
+					'type' => 'html',
+					// @todo Adjust the section icon
+					'html' => '<span id="section-title-general-announcement_bar" class="separator section label large">&#x1f4d0; ' . esc_html__( 'Announcement Bar', '__theme_txtd' ) . '</span>',
+				),
+				'show_announcement_bar'                  => array(
+					'type'    => 'checkbox',
+					'label'   => esc_html__( 'Show Announcement Bar', '__theme_txtd' ),
+					'default' => true,
+				),
+				'announcement_bar_text'                  => array(
+					'type'              => 'textarea',
+					'label'             => esc_html__( 'Announcement Bar Text', '__theme_txtd' ),
+					'desc'              => esc_html__( 'Set the text that will appear in your Announcement Bar, on the top of your website.', '__theme_txtd' ),
+					'default'           => '<strong>Find me on Facebook!</strong> New photos and interesting facts every day.',
+					'sanitize_callback' => 'bobo_kses_anchor_content',
+				),
+				'announcement_bar_link'                  => array(
+					'type'              => 'text',
+					'label'             => esc_html__( 'Announcement Bar Link', '__theme_txtd' ),
+					'desc'              => esc_html__( 'The link will be applied on all the area of the Announcement Bar.', '__theme_txtd' ),
+					'default'           => 'https://facebook.com/pixelgrade',
+					'sanitize_callback' => 'esc_url_raw',
+				),
+				'announcement_bar_background_color'      => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Background Color', '__theme_txtd' ),
+					'live'    => true,
+					'default' => '#df2d16',
+					'css'     => array(
+						array(
+							'property' => 'background-color',
+							'selector' => '.c-announcement-bar',
+						),
+					),
+				),
+				'announcement_bar_text_color'            => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Text Color', '__theme_txtd' ),
+					'live'    => true,
+					'default' => '#f5f6f1',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.c-announcement-bar a',
+						),
+					),
+				),
 			),
 		),
 	);
@@ -377,7 +429,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 
 								.u-buttons-solid .button.default,
 								.u-buttons-solid .comment-form .form-submit .submit,
-								.u-buttons-solid .c-btn--default,
+								.u-buttons-solid .c-btn--default[class],
 								.u-buttons-solid .c-comments-toggle__label',
 						),
 						array(
@@ -458,7 +510,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 							'selector' => '
 								.u-buttons-solid .button.default,
 								.u-buttons-solid .comment-form .form-submit .submit,
-								.u-buttons-solid .c-btn--default,
+								.u-buttons-solid .c-btn--default[class],
 								.u-buttons-solid .c-comments-toggle__label[class],
 								
 								.entry-content .dropcap, 
@@ -687,27 +739,6 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 		'div.wpforms-container[class] .wpforms-form .wpforms-submit',
 	);
 
-	function bobo_prefix_solid_buttons( $value ) {
-		return '.u-buttons-solid ' . $value;
-	}
-
-	function bobo_suffix_hover_buttons( $value ) {
-		return '.u-buttons-solid ' . $value . ':hover';
-	}
-
-	function bobo_suffix_active_buttons( $value ) {
-		return '.u-buttons-solid ' . $value . ':active';
-	}
-
-	function bobo_suffix_focus_buttons( $value ) {
-		return '.u-buttons-solid ' . $value . ':focus';
-	}
-
-	function bobo_prefix_outline_buttons( $value ) {
-		return '.u-buttons-outline ' . $value;
-	}
-
-
 	$buttons_default = implode( ',', $buttons );
 	$buttons_solid = implode( ',', array_map( 'bobo_prefix_solid_buttons', $buttons ) );
 	$buttons_outline = implode( ',', array_map( 'bobo_prefix_outline_buttons', $buttons ) );
@@ -792,6 +823,29 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 	$section_options = Pixelgrade_Config::merge( $section_options, $modified_config );
 
 	return $section_options;
+}
+
+/*
+ * Helper functions for the buttons section config.
+ */
+function bobo_prefix_solid_buttons( $value ) {
+	return '.u-buttons-solid ' . $value;
+}
+
+function bobo_suffix_hover_buttons( $value ) {
+	return '.u-buttons-solid ' . $value . ':hover';
+}
+
+function bobo_suffix_active_buttons( $value ) {
+	return '.u-buttons-solid ' . $value . ':active';
+}
+
+function bobo_suffix_focus_buttons( $value ) {
+	return '.u-buttons-solid ' . $value . ':focus';
+}
+
+function bobo_prefix_outline_buttons( $value ) {
+	return '.u-buttons-outline ' . $value;
 }
 
 /**

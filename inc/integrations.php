@@ -23,3 +23,9 @@ require pixelgrade_get_parent_theme_file_path( '/inc/integrations/pixelgrade-car
  * https://jetpack.me/
  */
 require pixelgrade_get_parent_theme_file_path( '/inc/integrations/jetpack.php' );
+
+/**
+ * Load WP Instagram Widget compatibility file.
+ * https://wordpress.org/plugins/wp-instagram-widget/
+ */
+require pixelgrade_get_parent_theme_file_path( '/inc/integrations/wp-instagram-widget.php' );
