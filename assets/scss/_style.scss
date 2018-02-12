@@ -170,7 +170,7 @@ input[type=submit]{
 .customize-partial-edit-shortcut[class] {
   z-index: 300;
 
-  &:first-child + * {
+  &:first-child + :not(.instagram-pics) {
     margin-top: 0;
   }
 }
