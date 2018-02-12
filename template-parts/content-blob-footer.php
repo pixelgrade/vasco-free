@@ -13,16 +13,42 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <div class="blobs  blobs--footer">
-	<div class="blob  blob--color-3">
-		<?php get_template_part( 'template-parts/svg/content-blob-3' ); ?>
-	</div>
-	<div class="blob  blob--color-2">
-		<?php get_template_part( 'template-parts/svg/content-blob-2' ); ?>
-	</div>
-	<div class="blob  blob--color-3">
-		<?php get_template_part( 'template-parts/svg/content-blob-3' ); ?>
-	</div>
-	<div class="blob  blob--color-1">
-		<?php get_template_part( 'template-parts/svg/content-blob-3' ); ?>
-	</div>
+	<div class="blob  blob--shape-3  blob--color-3"></div>
+	<div class="blob  blob--shape-2  blob--color-2"></div>
+	<div class="blob  blob--shape-3  blob--color-3"></div>
+	<div class="blob  blob--shape-3  blob--color-1"></div>
 </div>
+
+<svg>
+	<defs>
+		<filter id="goo">
+			<?php
+			$blobs_smoothness = pixelgrade_option( 'blobs_smoothness', 10 );
+			?>
+			<feGaussianBlur in="SourceGraphic" stdDeviation="<?php echo $blobs_smoothness; ?>" result="blur"/>
+			<feColorMatrix
+				in="blur"
+				mode="matrix"
+				values="
+					1 0 0 0 0
+					0 1 0 0 0
+					0 0 1 0 0
+					0 0 0 <?php echo 1 + $blobs_smoothness . ' -' . $blobs_smoothness / 3; ?>"
+				result="goo"/>
+		</filter>
+		<?php if ( ! is_customize_preview() && $blobs_smoothness > 20 ): ?>
+			<filter id="goo2">
+				<feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+				<feColorMatrix
+					in="blur"
+					mode="matrix"
+					values="
+						1 0 0 0 0
+						0 1 0 0 0
+						0 0 1 0 0
+						0 0 0 10 -5"
+					result="goo"/>
+			</filter>
+		<?php endif ?>
+	</defs>
+</svg>

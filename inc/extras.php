@@ -300,3 +300,8 @@ function bobo_instagram_entry_template( $path ) {
 }
 add_filter( 'wpiw_template_part', 'bobo_instagram_entry_template', 10, 1 );
 
+function bobo_blobs_seed_body_attirbute( $attributes ) {
+	$attributes['data-blobs-seed'] = pixelgrade_option( 'blobs_seed', 357 );
+	return $attributes;
+}
+add_filter( 'pixelgrade_body_attributes', 'bobo_blobs_seed_body_attirbute' );

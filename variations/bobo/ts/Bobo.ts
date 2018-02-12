@@ -6,17 +6,21 @@ import { Helper } from '../../../components/base/ts/services/Helper';
 import { SearchOverlay } from '../../../components/base/ts/components/SearchOverlay';
 import { Header } from '../../../components/header/ts/Header';
 import { Gallery } from '../../../components/base/ts/components/Gallery';
-import { GlobalService } from '../../../components/base/ts/services/global.service';
+import { ExtendedWindow, GlobalService } from '../../../components/base/ts/services/global.service';
+import { Blob } from '../../../components/base/ts/components/blob';
 
 export class Bobo extends BaseTheme {
   public SearchOverlay: SearchOverlay;
   public Header: Header;
+
+  private blobs: Blob[] = [];
 
   constructor() {
     super();
 
     this.handleContent();
     this.groupWidgets();
+    this.generateBlobs();
 
     GlobalService
       .onCustomizerRender()
@@ -35,6 +39,41 @@ export class Bobo extends BaseTheme {
         this.prepareFeatureHover();
         this.initStamp();
       } );
+
+    GlobalService
+      .onCustomizerChange()
+      .takeWhile( () => this.subscriptionActive )
+      .subscribe( () => {
+        this.updateBlobParameters();
+      } );
+  }
+
+  public updateBlobParameters() {
+    const extWindow: ExtendedWindow = window;
+    const wp = extWindow.wp;
+    const $goo = $('#goo');
+
+    const complexity = 1 - parseInt( wp.customize( 'bobo_options[blobs_complexity]' )(), 10 ) / 100;
+    const smoothness = parseInt( wp.customize( 'bobo_options[blobs_smoothness]' )(), 10 );
+    const seed = parseInt( wp.customize( 'bobo_options[blobs_seed]' )(), 10 );
+
+    this.blobs.forEach( ( blob ) => {
+      if ( blob.getSeed() !== seed ) {
+        blob.setSides( Math.max( 5, Math.floor( Math.sqrt( seed ) ) ) );
+        blob.setSeed( seed );
+        blob.render();
+      }
+      blob.setComplexity( complexity );
+    });
+
+    requestAnimationFrame(() => {
+      const stdDeviation = Math.max(smoothness, 0);
+      const rgbaMatrix = '0 0 0 ' + (1 + smoothness) + ' -' + (smoothness / 3);
+
+      $goo.find( 'feGaussianBlur' ).attr( 'stdDeviation', stdDeviation );
+      $goo.find( 'feColorMatrix' )
+        .attr( 'values', '1 0 0 0 0  0 1 0 0 0  0 0 1 0 0 ' + rgbaMatrix );
+    });
   }
 
   public bindEvents() {
@@ -84,6 +123,39 @@ export class Bobo extends BaseTheme {
     $container.find( '.c-gallery' ).not( '.c-gallery--widget' ).each((index, element) => {
       new Gallery( $( element ) );
     });
+  }
+
+  public generateBlobs() {
+    const seed = parseInt( $( 'body' ).data( 'blobs-seed' ), 10 );
+    const sides = Math.max( 5, Math.floor( Math.sqrt( seed ) ) );
+
+    $( '.blob--shape-1' ).each( (i, obj) => {
+      const $obj = $(obj);
+      // const blob = new Blob(7, seed);
+      const blob = new Blob(sides, seed);
+
+      this.blobs.push( blob );
+      $obj.append( blob.getSvg() );
+    });
+
+    $( '.blob--shape-2' ).each( (i, obj) => {
+      const $obj = $(obj);
+      // const blob = new Blob(9, seed);
+      const blob = new Blob(sides, seed, 1);
+
+      this.blobs.push( blob );
+      $obj.append( blob.getSvg() );
+    });
+
+    $( '.blob--shape-3' ).each( (i, obj) => {
+      const $obj = $(obj);
+      // const blob = new Blob(12, seed);
+      const blob = new Blob(sides, seed, 2);
+
+      this.blobs.push( blob );
+      $obj.append( blob.getSvg() );
+    });
+
   }
 
   public groupWidgets() {

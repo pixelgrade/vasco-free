@@ -118,6 +118,54 @@ function bobo_customify_general_section( $section_options, $options ) {
 					'label'   => esc_html__( 'Show Blobs', '__theme_txtd' ),
 					'default' => true,
 				),
+				'blobs_seed' => array(
+					'type'        => 'range',
+					'label'       => esc_html__( 'Presets', '__components_txtd' ),
+					'desc'        => esc_html__( '', '__components_txtd' ),
+					'live'        => true,
+					'default'     => 10,
+					'input_attrs' => array(
+						'min'          => 0,
+						'max'          => 1000,
+						'step'         => 1,
+						'data-preview' => true,
+					),
+					'css' => array(
+
+					),
+				),
+				'blobs_complexity' => array(
+					'type'        => 'range',
+					'label'       => esc_html__( 'Complexity', '__components_txtd' ),
+					'desc'        => esc_html__( '', '__components_txtd' ),
+					'live'        => true,
+					'default'     => 90,
+					'input_attrs' => array(
+						'min'          => 0,
+						'max'          => 100,
+						'step'         => 1,
+						'data-preview' => true,
+					),
+					'css' => array(
+
+					),
+				),
+				'blobs_smoothness' => array(
+					'type'        => 'range',
+					'label'       => esc_html__( 'Smoothness', '__components_txtd' ),
+					'desc'        => esc_html__( '', '__components_txtd' ),
+					'live'        => true,
+					'default'     => 10,
+					'input_attrs' => array(
+						'min'          => 0,
+						'max'          => 100,
+						'step'         => 1,
+						'data-preview' => true,
+					),
+					'css' => array(
+
+					),
+				),
 				'blob_main_color'                 => array(
 					'type'    => 'color',
 					'label'   => esc_html__( 'Blobs Main Color', '__theme_txtd' ),
