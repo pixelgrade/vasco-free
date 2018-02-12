@@ -18,8 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	   target="<?php echo esc_attr( $target ); ?>"
 	   class="<?php echo esc_attr( $aclass ); ?>">
 		<img src="<?php echo esc_url( $item[ $size ] ) ?>"
-		     title="<?php echo esc_attr( bobo_remove_emoji( $item['description'] ) ); ?>"
-		     alt="<?php echo esc_attr( bobo_remove_emoji( $item['description'] ) ); ?>"
+		     title="<?php if ( ! is_customize_preview() ) { echo esc_attr( bobo_remove_emoji( $item['description'] ) ); } ?>"
+		     alt="<?php if ( ! is_customize_preview() ) { echo esc_attr( bobo_remove_emoji( $item['description'] ) ); } ?>"
 		     class="<?php echo esc_attr( $imgclass ) ?>"/>
 	</a>
 </li>
