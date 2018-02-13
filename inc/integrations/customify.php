@@ -122,8 +122,8 @@ function bobo_customify_general_section( $section_options, $options ) {
 				),
 				'blobs_seed' => array(
 					'type'        => 'range',
-					'label'       => esc_html__( 'Presets', '__components_txtd' ),
-					'desc'        => esc_html__( '', '__components_txtd' ),
+					'label'       => esc_html__( 'Presets', '__theme_txtd' ),
+					'desc'        => esc_html__( '', '__theme_txtd' ),
 					'live'        => true,
 					'default'     => 10,
 					'input_attrs' => array(
@@ -138,8 +138,8 @@ function bobo_customify_general_section( $section_options, $options ) {
 				),
 				'blobs_complexity' => array(
 					'type'        => 'range',
-					'label'       => esc_html__( 'Complexity', '__components_txtd' ),
-					'desc'        => esc_html__( '', '__components_txtd' ),
+					'label'       => esc_html__( 'Complexity', '__theme_txtd' ),
+					'desc'        => esc_html__( '', '__theme_txtd' ),
 					'live'        => true,
 					'default'     => 90,
 					'input_attrs' => array(
@@ -154,8 +154,8 @@ function bobo_customify_general_section( $section_options, $options ) {
 				),
 				'blobs_smoothness' => array(
 					'type'        => 'range',
-					'label'       => esc_html__( 'Smoothness', '__components_txtd' ),
-					'desc'        => esc_html__( '', '__components_txtd' ),
+					'label'       => esc_html__( 'Smoothness', '__theme_txtd' ),
+					'desc'        => esc_html__( '', '__theme_txtd' ),
 					'live'        => true,
 					'default'     => 10,
 					'input_attrs' => array(
@@ -922,7 +922,7 @@ function bobo_customify_blog_grid_section( $section_options, $options ) {
 					'default' => 'comments_category',
 					'choices' => array(
 						// Add a new option
-						'comments_category' => esc_html__( 'Comments + Category', '__components_txtd' ),
+						'comments_category' => esc_html__( 'Comments + Category', '__theme_txtd' ),
 					),
 				),
 				'blog_items_secondary_meta'          => array(
