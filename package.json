@@ -20,6 +20,7 @@
     "gsap": "1.20.3",
     "jquery": "3.2.1",
     "jquery-hoverintent": "1.9.0",
+    "js-cookie": "2.2.0",
     "masonry-layout": "4.2.0",
     "rx-dom": "7.0.3",
     "slick-carousel": "1.8.1",

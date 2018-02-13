@@ -415,6 +415,7 @@ function bobo_kses_anchor_content( $content ) {
 			'cite' => true,
 		),
 		'small' => array(),
+		'span'  => array(),
 		'strike' => array(),
 		'strong' => array(),
 	);

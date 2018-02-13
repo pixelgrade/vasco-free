@@ -311,7 +311,11 @@ function bobo_customify_general_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.c-announcement-bar a',
+							'selector' => '
+							    .c-announcement-bar .c-announcement-bar__close,
+							    .c-announcement-bar .c-announcement-bar__close:hover,
+							    .c-announcement-bar .c-announcement-bar__text:hover,
+							    .c-announcement-bar .c-announcement-bar__text',
 						),
 					),
 				),
@@ -622,6 +626,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
 						h4, .h4,
 						.wp-caption-text,
 						.widget_categories .cat-link,
+						.c-announcement-bar__text,
 						.widget_wpcom_social_media_icons_widget .widget__title,
 						.c-stamp',
 					'default' => array(

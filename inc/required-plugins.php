@@ -1,6 +1,6 @@
 <?php
 /**
- * Guides required or recommended plugins
+ * Bobo required or recommended plugins
  *
  * @package Bobo
  * @since 1.0.0

@@ -1,6 +1,7 @@
 import * as Masonry from 'masonry-layout';
 import $ from 'jquery';
 import CircleType from 'circletype';
+import Cookies from 'js-cookie';
 import { BaseTheme, JQueryExtended } from '../../../components/base/ts/BaseTheme';
 import { Helper } from '../../../components/base/ts/services/Helper';
 import { SearchOverlay } from '../../../components/base/ts/components/SearchOverlay';
@@ -12,6 +13,10 @@ import { Blob } from '../../../components/base/ts/components/blob';
 export class Bobo extends BaseTheme {
   public SearchOverlay: SearchOverlay;
   public Header: Header;
+  public $announcementBar: JQueryExtended;
+  public $siteHeader: JQueryExtended;
+  public $toolbar: JQueryExtended;
+  public $contentPaddingContainer: JQueryExtended;
 
   private blobs: Blob[] = [];
 
@@ -86,15 +91,22 @@ export class Bobo extends BaseTheme {
 
     this.Header = new Header();
     this.SearchOverlay = new SearchOverlay();
+    this.$announcementBar =  $('.c-announcement-bar');
+    this.$siteHeader =  $('.site-header');
+    this.$toolbar = $('.c-toolbar');
+    this.$contentPaddingContainer = $('.u-header-height-padding-top');
     this.addNavigationClasses();
 
     this.adjustLayout();
     this.initStamp();
+    this.initAnnouncementBar();
   }
 
   public onResizeAction() {
     super.onResizeAction();
     this.adjustLayout();
+    this.revertAnnouncementChanges();
+    this.initAnnouncementBar();
   }
 
   public onJetpackPostLoad() {
@@ -328,6 +340,39 @@ export class Bobo extends BaseTheme {
         $element.css('opacity', 0.9);
       }, 200);
     });
+  }
+
+  private initAnnouncementBar() {
+    const isDisabled = Cookies.get('announcementClosed') === 'true';
+
+    if ( !isDisabled ) {
+      const announcementBarHeight = this.$announcementBar.outerHeight();
+      this.modifyCss(this.$siteHeader, 'top', announcementBarHeight, '');
+      this.modifyCss(this.$toolbar, 'padding-top', announcementBarHeight, '+=');
+      this.modifyCss(this.$contentPaddingContainer, 'padding-top', announcementBarHeight, '+=');
+      this.$announcementBar.removeClass('c-announcement-bar--hidden');
+
+      $('.js-announcement-bar__close').on('click', this.onAnnouncementClose.bind(this));
+    }
+  }
+
+  private modifyCss( $element: JQueryExtended, property: string, value: number, sign: string, unit: string = 'px' ) {
+    $element.css( property,  `${sign}${value}${unit}`);
+  }
+
+  private revertAnnouncementChanges() {
+    this.$announcementBar.addClass('c-announcement-bar--hidden');
+    const announcementBarHeight = this.$announcementBar.outerHeight();
+
+    this.modifyCss(this.$siteHeader, 'top', announcementBarHeight, '-=');
+    this.modifyCss(this.$toolbar, 'padding-top', announcementBarHeight, '-=');
+    this.modifyCss(this.$contentPaddingContainer, 'padding-top', announcementBarHeight, '-=');
+  }
+
+  private onAnnouncementClose(event: JQueryEventObject) {
+    event.preventDefault();
+    this.revertAnnouncementChanges();
+    Cookies.set('announcementClosed', 'true', { expires: 1 });
   }
 
 }
