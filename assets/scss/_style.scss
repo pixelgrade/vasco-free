@@ -52,6 +52,7 @@ $alert-placeholder-background: $theme-accent-color;
 
 // BOBO STYLING
 @import 'components/alert';
+@import 'components/announcement';
 @import 'components/author-box';
 @import 'components/back-to-top';
 @import 'components/blob';
@@ -170,7 +171,7 @@ input[type=submit]{
 .customize-partial-edit-shortcut[class] {
   z-index: 300;
 
-  &:first-child + * {
+  &:first-child + :not(.instagram-pics) {
     margin-top: 0;
   }
 }
