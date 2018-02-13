@@ -154,7 +154,8 @@ gulp.task( 'build', 'Remove unneeded files and folders from the build folder', [
 		'.jshintignore',
 
 		'assets/scss',
-		'assets/js-old'
+		'assets/js-old',
+		'docs'
 
     ];
 
