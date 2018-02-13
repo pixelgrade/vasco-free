@@ -91,7 +91,7 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 	global $wp_registered_sidebars, $wp_registered_widgets;
 
 	// We only want to deal with the front page widget area, and only in the frontend, not the admin area.
-	if ( is_admin() || is_customize_preview() || 'front-page-1' !== $index ) {
+	if ( is_admin() || 'front-page-1' !== $index ) {
 		return;
 	}
 
