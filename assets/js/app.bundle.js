@@ -1,8 +1,20 @@
 webpackJsonp([0],[
 /* 0 */,
-/* 1 */,
+/* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BaseComponent; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var BaseComponent = function BaseComponent() {
+    _classCallCheck(this, BaseComponent);
+};
+
+/***/ }),
 /* 2 */,
-/* 3 */
+/* 3 */,
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -272,12 +284,12 @@ var Helper = function () {
 Helper.$body = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('body');
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WindowService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rx_dom__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rx_dom__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rx_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rx_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jquery__);
@@ -344,13 +356,14 @@ var WindowService = function () {
 WindowService.$window = __WEBPACK_IMPORTED_MODULE_1_jquery___default()(window);
 
 /***/ }),
-/* 5 */,
-/* 6 */
+/* 6 */,
+/* 7 */,
+/* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GlobalService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rx_dom__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rx_dom__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rx_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rx_dom__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -379,7 +392,7 @@ var GlobalService = function () {
         value: function onCustomizerChange() {
             var exWindow = window;
             return __WEBPACK_IMPORTED_MODULE_0_rx_dom__["Observable"].create(function (observer) {
-                if (exWindow.wp && exWindow.wp.customize && exWindow.wp.customize.selectiveRefresh) {
+                if (exWindow.wp && exWindow.wp.customize) {
                     exWindow.wp.customize.bind('change', function (setting) {
                         observer.onNext(setting);
                     });
@@ -397,19 +410,6 @@ var GlobalService = function () {
 }();
 
 /***/ }),
-/* 7 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BaseComponent; });
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var BaseComponent = function BaseComponent() {
-    _classCallCheck(this, BaseComponent);
-};
-
-/***/ }),
-/* 8 */,
 /* 9 */,
 /* 10 */,
 /* 11 */,
@@ -428,20 +428,20 @@ new __WEBPACK_IMPORTED_MODULE_0__Bobo__["a" /* Bobo */]();
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Bobo; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_masonry_layout__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_masonry_layout__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_masonry_layout___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_masonry_layout__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jquery__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_circletype__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_circletype___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_circletype__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_js_cookie__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_js_cookie___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_js_cookie__);
+throw new Error("Cannot find module \"js-cookie\"");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_base_ts_BaseTheme__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_base_ts_services_Helper__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_base_ts_services_Helper__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_base_ts_components_SearchOverlay__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_header_ts_Header__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_base_ts_components_Gallery__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_base_ts_services_global_service__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_base_ts_services_global_service__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_base_ts_components_blob__ = __webpack_require__(27);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
@@ -462,6 +462,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
 var Bobo = function (_BaseTheme) {
     _inherits(Bobo, _BaseTheme);
 
@@ -470,8 +471,10 @@ var Bobo = function (_BaseTheme) {
 
         var _this = _possibleConstructorReturn(this, (Bobo.__proto__ || Object.getPrototypeOf(Bobo)).call(this));
 
+        _this.blobs = [];
         _this.handleContent();
         _this.groupWidgets();
+        _this.generateBlobs();
         __WEBPACK_IMPORTED_MODULE_9__components_base_ts_services_global_service__["a" /* GlobalService */].onCustomizerRender().debounce(300).takeWhile(function () {
             return _this.subscriptionActive;
         }).subscribe(function () {
@@ -485,10 +488,39 @@ var Bobo = function (_BaseTheme) {
             _this.prepareFeatureHover();
             _this.initStamp();
         });
+        __WEBPACK_IMPORTED_MODULE_9__components_base_ts_services_global_service__["a" /* GlobalService */].onCustomizerChange().takeWhile(function () {
+            return _this.subscriptionActive;
+        }).subscribe(function () {
+            _this.updateBlobParameters();
+        });
         return _this;
     }
 
     _createClass(Bobo, [{
+        key: 'updateBlobParameters',
+        value: function updateBlobParameters() {
+            var extWindow = window;
+            var wp = extWindow.wp;
+            var $goo = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('#goo');
+            var complexity = 1 - parseInt(wp.customize('bobo_options[blobs_complexity]')(), 10) / 100;
+            var smoothness = parseInt(wp.customize('bobo_options[blobs_smoothness]')(), 10);
+            var seed = parseInt(wp.customize('bobo_options[blobs_seed]')(), 10);
+            this.blobs.forEach(function (blob) {
+                if (blob.getSeed() !== seed) {
+                    blob.setSides(Math.max(5, Math.floor(Math.sqrt(seed))));
+                    blob.setSeed(seed);
+                    blob.render();
+                }
+                blob.setComplexity(complexity);
+            });
+            requestAnimationFrame(function () {
+                var stdDeviation = Math.max(smoothness, 0);
+                var rgbaMatrix = '0 0 0 ' + (1 + smoothness) + ' -' + smoothness / 3;
+                $goo.find('feGaussianBlur').attr('stdDeviation', stdDeviation);
+                $goo.find('feColorMatrix').attr('values', '1 0 0 0 0  0 1 0 0 0  0 0 1 0 0 ' + rgbaMatrix);
+            });
+        }
+    }, {
         key: 'bindEvents',
         value: function bindEvents() {
             _get(Bobo.prototype.__proto__ || Object.getPrototypeOf(Bobo.prototype), 'bindEvents', this).call(this);
@@ -541,6 +573,35 @@ var Bobo = function (_BaseTheme) {
             }
             $container.find('.c-gallery').not('.c-gallery--widget').each(function (index, element) {
                 new __WEBPACK_IMPORTED_MODULE_8__components_base_ts_components_Gallery__["a" /* Gallery */](__WEBPACK_IMPORTED_MODULE_1_jquery___default()(element));
+            });
+        }
+    }, {
+        key: 'generateBlobs',
+        value: function generateBlobs() {
+            var _this2 = this;
+
+            var seed = parseInt(__WEBPACK_IMPORTED_MODULE_1_jquery___default()('body').data('blobs-seed'), 10);
+            var sides = Math.max(5, Math.floor(Math.sqrt(seed)));
+            __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.blob--shape-1').each(function (i, obj) {
+                var $obj = __WEBPACK_IMPORTED_MODULE_1_jquery___default()(obj);
+                // const blob = new Blob(7, seed);
+                var blob = new __WEBPACK_IMPORTED_MODULE_10__components_base_ts_components_blob__["a" /* Blob */](sides, seed);
+                _this2.blobs.push(blob);
+                $obj.append(blob.getSvg());
+            });
+            __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.blob--shape-2').each(function (i, obj) {
+                var $obj = __WEBPACK_IMPORTED_MODULE_1_jquery___default()(obj);
+                // const blob = new Blob(9, seed);
+                var blob = new __WEBPACK_IMPORTED_MODULE_10__components_base_ts_components_blob__["a" /* Blob */](sides, seed, 1);
+                _this2.blobs.push(blob);
+                $obj.append(blob.getSvg());
+            });
+            __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.blob--shape-3').each(function (i, obj) {
+                var $obj = __WEBPACK_IMPORTED_MODULE_1_jquery___default()(obj);
+                // const blob = new Blob(12, seed);
+                var blob = new __WEBPACK_IMPORTED_MODULE_10__components_base_ts_components_blob__["a" /* Blob */](sides, seed, 2);
+                _this2.blobs.push(blob);
+                $obj.append(blob.getSvg());
             });
         }
     }, {
@@ -757,9 +818,9 @@ var Bobo = function (_BaseTheme) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BaseTheme; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_Helper__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_window_service__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_global_service__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_Helper__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_window_service__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_global_service__ = __webpack_require__(8);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -878,9 +939,9 @@ var BaseTheme = function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchOverlay; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rx_dom__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rx_dom__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rx_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rx_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_DefaultComponent__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_DefaultComponent__ = __webpack_require__(1);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -980,9 +1041,9 @@ var SearchOverlay = function (_BaseComponent) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_imagesloaded___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_imagesloaded__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jquery_hoverintent__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jquery_hoverintent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_jquery_hoverintent__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__base_ts_models_DefaultComponent__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__base_ts_services_Helper__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__base_ts_services_window_service__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__base_ts_models_DefaultComponent__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__base_ts_services_Helper__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__base_ts_services_window_service__ = __webpack_require__(5);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1174,11 +1235,11 @@ var Header = function (_BaseComponent) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Gallery; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_masonry_layout__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_masonry_layout__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_masonry_layout___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_masonry_layout__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_DefaultComponent__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_window_service__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_global_service__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_DefaultComponent__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_window_service__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_global_service__ = __webpack_require__(8);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1256,6 +1317,156 @@ var Gallery = function (_BaseComponent) {
 
     return Gallery;
 }(__WEBPACK_IMPORTED_MODULE_1__models_DefaultComponent__["a" /* BaseComponent */]);
+
+/***/ }),
+/* 27 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Blob; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_animejs__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_animejs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_animejs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_DefaultComponent__ = __webpack_require__(1);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+var Blob = function (_BaseComponent) {
+    _inherits(Blob, _BaseComponent);
+
+    function Blob(sides, seed) {
+        var seedOffset = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+
+        _classCallCheck(this, Blob);
+
+        var _this = _possibleConstructorReturn(this, (Blob.__proto__ || Object.getPrototypeOf(Blob)).call(this));
+
+        _this.radius = 10;
+        _this.sides = sides;
+        _this.seed = seed + seedOffset;
+        _this.seedOffset = seedOffset;
+        _this.bindEvents();
+        _this.render();
+        return _this;
+    }
+
+    _createClass(Blob, [{
+        key: 'generateSvg',
+        value: function generateSvg() {
+            var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            var polygon = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+            svg.setAttribute('viewBox', '0 0 ' + 2 * this.radius + ' ' + 2 * this.radius);
+            svg.setAttribute('fill', 'currentColor');
+            polygon.setAttribute('points', this.generatePoints(true));
+            svg.appendChild(polygon);
+            this.timeline = __WEBPACK_IMPORTED_MODULE_1_animejs__({
+                autoplay: false,
+                duration: 1000,
+                easing: 'linear',
+                offset: 0,
+                points: this.generatePoints(),
+                targets: polygon
+            });
+            return svg;
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var $svg = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(this.generateSvg());
+            if (this.element) {
+                this.element.replaceWith($svg);
+            }
+            this.element = $svg;
+        }
+    }, {
+        key: 'getRatio',
+        value: function getRatio(seed, i) {
+            var pow = Math.pow(seed, i);
+            return (4 + 6 * this.getMagicDigit(pow) / 9) / 10;
+        }
+    }, {
+        key: 'setSeed',
+        value: function setSeed(seed) {
+            // const seeds = [17, 37, 65, 72, 91, 123, 245, 313, 381, 379];
+            // this.seed = seeds[seed - 1];
+            this.seed = seed + this.seedOffset;
+        }
+    }, {
+        key: 'getMagicDigit',
+        value: function getMagicDigit(n) {
+            var sum = 0;
+            while (n > 0 || sum > 9) {
+                if (n === 0) {
+                    n = sum;
+                    sum = 0;
+                }
+                sum += n % 10;
+                n = Math.floor(n / 10);
+            }
+            return sum;
+        }
+    }, {
+        key: 'setComplexity',
+        value: function setComplexity(complexity) {
+            this.timeline.seek(complexity * 1000);
+        }
+    }, {
+        key: 'setSides',
+        value: function setSides(sides) {
+            this.sides = sides;
+        }
+    }, {
+        key: 'generatePoints',
+        value: function generatePoints() {
+            var random = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+            var points = [];
+            for (var i = 1; i <= this.sides; i++) {
+                // generate a regular polygon
+                // we add pi/2 to the angle to have the tip of polygons with odd number of edges pointing upwards
+                var angle = 2 * Math.PI * i / this.sides - Math.PI / 2;
+                var x = this.radius * Math.cos(angle);
+                var y = this.radius * Math.sin(angle);
+                // default ratio is 0.7 because the random one varies between 0.4 and 1
+                var ratio = 0.7;
+                if (random) {
+                    // apply a "random" ratio to the coordinates to create an irregular shape
+                    ratio = this.getRatio(this.seed, i);
+                }
+                points.push(x * ratio + this.radius);
+                points.push(y * ratio + this.radius);
+            }
+            return points.join(' ');
+        }
+    }, {
+        key: 'getSvg',
+        value: function getSvg() {
+            return this.element;
+        }
+    }, {
+        key: 'getSeed',
+        value: function getSeed() {
+            return this.seed;
+        }
+    }, {
+        key: 'bindEvents',
+        value: function bindEvents() {}
+    }, {
+        key: 'destroy',
+        value: function destroy() {}
+    }]);
+
+    return Blob;
+}(__WEBPACK_IMPORTED_MODULE_2__models_DefaultComponent__["a" /* BaseComponent */]);
 
 /***/ })
 ],[12]);

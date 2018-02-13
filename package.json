@@ -27,6 +27,7 @@
     "sticky-sidebar": "^3.3.1"
   },
   "devDependencies": {
+    "animejs": "^2.2.0",
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
     "babel-loader": "7.1.2",

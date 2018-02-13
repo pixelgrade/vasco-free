@@ -422,3 +422,9 @@ function bobo_kses_anchor_content( $content ) {
 
 	return wp_kses( $content, $allowedtags );
 }
+
+function bobo_blobs_seed_body_attribute( $attributes ) {
+	$attributes['data-blobs-seed'] = pixelgrade_option( 'blobs_seed', 357 );
+	return $attributes;
+}
+add_filter( 'pixelgrade_body_attributes', 'bobo_blobs_seed_body_attribute' );
