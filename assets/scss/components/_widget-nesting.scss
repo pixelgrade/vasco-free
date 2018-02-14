@@ -163,6 +163,17 @@
 
 // Jetpack Social Icons + WP Instagram Widget
 
+.instagram-insert {
+  &,
+  & + .vertical-separator {
+    display: none;
+
+    .social-instagram-group & {
+      display: block;
+    }
+  }
+}
+
 .social-instagram-group {
 
   @include above(lap) {
