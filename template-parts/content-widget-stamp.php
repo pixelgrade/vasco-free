@@ -5,7 +5,7 @@
  * @global array $args The widget display options.
  * @global string $box_style The box style to use: 'dark' or 'light'.
  *
- * @package Bobo
+ * @package Vasco
  * @since 1.0.0
  */
 

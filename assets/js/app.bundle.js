@@ -418,16 +418,16 @@ var GlobalService = function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Bobo__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Vasco__ = __webpack_require__(13);
 
-new __WEBPACK_IMPORTED_MODULE_0__Bobo__["a" /* Bobo */]();
+new __WEBPACK_IMPORTED_MODULE_0__Vasco__["a" /* Vasco */]();
 
 /***/ }),
 /* 13 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Bobo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Vasco; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_masonry_layout__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_masonry_layout___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_masonry_layout__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery__ = __webpack_require__(0);
@@ -464,13 +464,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var Bobo = function (_BaseTheme) {
-    _inherits(Bobo, _BaseTheme);
+var Vasco = function (_BaseTheme) {
+    _inherits(Vasco, _BaseTheme);
 
-    function Bobo() {
-        _classCallCheck(this, Bobo);
+    function Vasco() {
+        _classCallCheck(this, Vasco);
 
-        var _this = _possibleConstructorReturn(this, (Bobo.__proto__ || Object.getPrototypeOf(Bobo)).call(this));
+        var _this = _possibleConstructorReturn(this, (Vasco.__proto__ || Object.getPrototypeOf(Vasco)).call(this));
 
         _this.blobs = [];
         _this.handleContent();
@@ -497,15 +497,15 @@ var Bobo = function (_BaseTheme) {
         return _this;
     }
 
-    _createClass(Bobo, [{
+    _createClass(Vasco, [{
         key: 'updateBlobParameters',
         value: function updateBlobParameters() {
             var extWindow = window;
             var wp = extWindow.wp;
             var $goo = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('#goo');
-            var complexity = 1 - parseInt(wp.customize('bobo_options[blobs_complexity]')(), 10) / 100;
-            var smoothness = parseInt(wp.customize('bobo_options[blobs_smoothness]')(), 10);
-            var seed = parseInt(wp.customize('bobo_options[blobs_seed]')(), 10);
+            var complexity = 1 - parseInt(wp.customize('vasco_options[blobs_complexity]')(), 10) / 100;
+            var smoothness = parseInt(wp.customize('vasco_options[blobs_smoothness]')(), 10);
+            var seed = parseInt(wp.customize('vasco_options[blobs_seed]')(), 10);
             this.blobs.forEach(function (blob) {
                 if (blob.getSeed() !== seed) {
                     blob.setSides(Math.max(5, Math.floor(Math.sqrt(seed))));
@@ -524,12 +524,12 @@ var Bobo = function (_BaseTheme) {
     }, {
         key: 'bindEvents',
         value: function bindEvents() {
-            _get(Bobo.prototype.__proto__ || Object.getPrototypeOf(Bobo.prototype), 'bindEvents', this).call(this);
+            _get(Vasco.prototype.__proto__ || Object.getPrototypeOf(Vasco.prototype), 'bindEvents', this).call(this);
         }
     }, {
         key: 'onLoadAction',
         value: function onLoadAction() {
-            _get(Bobo.prototype.__proto__ || Object.getPrototypeOf(Bobo.prototype), 'onLoadAction', this).call(this);
+            _get(Vasco.prototype.__proto__ || Object.getPrototypeOf(Vasco.prototype), 'onLoadAction', this).call(this);
             this.Header = new __WEBPACK_IMPORTED_MODULE_7__components_header_ts_Header__["a" /* Header */]();
             this.SearchOverlay = new __WEBPACK_IMPORTED_MODULE_6__components_base_ts_components_SearchOverlay__["a" /* SearchOverlay */]();
             this.$announcementBar = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.c-announcement-bar');
@@ -544,7 +544,7 @@ var Bobo = function (_BaseTheme) {
     }, {
         key: 'onResizeAction',
         value: function onResizeAction() {
-            _get(Bobo.prototype.__proto__ || Object.getPrototypeOf(Bobo.prototype), 'onResizeAction', this).call(this);
+            _get(Vasco.prototype.__proto__ || Object.getPrototypeOf(Vasco.prototype), 'onResizeAction', this).call(this);
             this.adjustLayout();
             this.revertAnnouncementChanges();
             this.initAnnouncementBar();
@@ -803,7 +803,7 @@ var Bobo = function (_BaseTheme) {
         }
     }]);
 
-    return Bobo;
+    return Vasco;
 }(__WEBPACK_IMPORTED_MODULE_4__components_base_ts_BaseTheme__["a" /* BaseTheme */]);
 
 /***/ }),

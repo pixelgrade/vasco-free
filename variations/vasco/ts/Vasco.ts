@@ -10,7 +10,7 @@ import { Gallery } from '../../../components/base/ts/components/Gallery';
 import { ExtendedWindow, GlobalService } from '../../../components/base/ts/services/global.service';
 import { Blob } from '../../../components/base/ts/components/blob';
 
-export class Bobo extends BaseTheme {
+export class Vasco extends BaseTheme {
   public SearchOverlay: SearchOverlay;
   public Header: Header;
   public $announcementBar: JQueryExtended;
@@ -59,9 +59,9 @@ export class Bobo extends BaseTheme {
     const wp = extWindow.wp;
     const $goo = $('#goo');
 
-    const complexity = 1 - parseInt( wp.customize( 'bobo_options[blobs_complexity]' )(), 10 ) / 100;
-    const smoothness = parseInt( wp.customize( 'bobo_options[blobs_smoothness]' )(), 10 );
-    const seed = parseInt( wp.customize( 'bobo_options[blobs_seed]' )(), 10 );
+    const complexity = 1 - parseInt( wp.customize( 'vasco_options[blobs_complexity]' )(), 10 ) / 100;
+    const smoothness = parseInt( wp.customize( 'vasco_options[blobs_smoothness]' )(), 10 );
+    const seed = parseInt( wp.customize( 'vasco_options[blobs_seed]' )(), 10 );
 
     this.blobs.forEach( ( blob ) => {
       if ( blob.getSeed() !== seed ) {

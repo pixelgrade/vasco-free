@@ -2,7 +2,7 @@
 /**
  * The Callout Box Widget class
  *
- * @package Bobo
+ * @package Vasco
  * @since 1.0.0
  */
 

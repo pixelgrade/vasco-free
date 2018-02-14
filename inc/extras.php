@@ -4,18 +4,18 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package Bobo
+ * @package Vasco
  * @since 1.0.0
  */
 
 /**
  * Generate the YoungSerif font URL
  *
- * @since Bobo 1.0
+ * @since Vasco 1.0
  *
  * @return string
  */
-function bobo_youngserif_font_url() {
+function vasco_youngserif_font_url() {
 
 	/* Translators: If there are characters in your language that are not
 	* supported by YoungSerif, translate this to 'off'. Do not translate
@@ -32,11 +32,11 @@ function bobo_youngserif_font_url() {
 /**
  * Generate the HK Grotesk font URL
  *
- * @since Bobo 1.0
+ * @since Vasco 1.0
  *
  * @return string
  */
-function bobo_hkgrotesk_font_url() {
+function vasco_hkgrotesk_font_url() {
 
 	/* Translators: If there are characters in your language that are not
 	* supported by HK Grotesk, translate this to 'off'. Do not translate
@@ -53,11 +53,11 @@ function bobo_hkgrotesk_font_url() {
 /**
  * Generate the Dry Brush font URL
  *
- * @since Bobo 1.0
+ * @since Vasco 1.0
  *
  * @return string
  */
-function bobo_drybrush_font_url() {
+function vasco_drybrush_font_url() {
 
 	/* Translators: If there are characters in your language that are not
 	* supported by HK Grotesk, translate this to 'off'. Do not translate
@@ -75,11 +75,11 @@ function bobo_drybrush_font_url() {
 /**
  * Generate the Bebas Neue font URL
  *
- * @since Bobo 1.0
+ * @since Vasco 1.0
  *
  * @return string
  */
-function bobo_bebasneue_font_url() {
+function vasco_bebasneue_font_url() {
 
 	/* Translators: If there are characters in your language that are not
 	* supported by Bebas Neue, translate this to 'off'. Do not translate
@@ -102,13 +102,13 @@ function bobo_bebasneue_font_url() {
  *
  * @return array
  */
-function bobo_mce_editor_buttons( $buttons ) {
+function vasco_mce_editor_buttons( $buttons ) {
 	// Add the styleselect entry at the beginning of the array
 	array_unshift( $buttons, 'styleselect' );
 
 	return $buttons;
 }
-add_filter( 'mce_buttons_2', 'bobo_mce_editor_buttons', 10, 1 );
+add_filter( 'mce_buttons_2', 'vasco_mce_editor_buttons', 10, 1 );
 
 /**
  * Add styles/classes to the "Styles" drop-down.
@@ -119,7 +119,7 @@ add_filter( 'mce_buttons_2', 'bobo_mce_editor_buttons', 10, 1 );
  *
  * @return array
  */
-function bobo_mce_before_init( $settings ) {
+function vasco_mce_before_init( $settings ) {
 
 	$style_formats = array(
 		array( 'title' => esc_html__( 'Display', '__theme_txtd' ), 'block' => 'h1', 'classes' => 'h0' ),
@@ -132,18 +132,18 @@ function bobo_mce_before_init( $settings ) {
 
 	return $settings;
 }
-add_filter( 'tiny_mce_before_init', 'bobo_mce_before_init', 10, 1 );
+add_filter( 'tiny_mce_before_init', 'vasco_mce_before_init', 10, 1 );
 
 /**
  * Display blobs for the footer.
  */
-function bobo_add_blobs_to_footer() {
+function vasco_add_blobs_to_footer() {
 	// Show the blobs only if allowed to by the user
 	if ( pixelgrade_option( 'show_blobs', false ) ) {
 		get_template_part( 'template-parts/content-blob-footer' );
 	}
 }
-add_action( 'pixelgrade_footer_before_content', 'bobo_add_blobs_to_footer', 10 );
+add_action( 'pixelgrade_footer_before_content', 'vasco_add_blobs_to_footer', 10 );
 
 /**
  * Adds custom classes to the array of body classes.
@@ -151,21 +151,21 @@ add_action( 'pixelgrade_footer_before_content', 'bobo_add_blobs_to_footer', 10 )
  * @param array $classes Classes for the body element.
  * @return array
  */
-function bobo_body_classes( $classes ) {
+function vasco_body_classes( $classes ) {
 
 	$classes[] = 'has-toolbar';
 
 	return $classes;
 }
-add_filter( 'body_class', 'bobo_body_classes' );
+add_filter( 'body_class', 'vasco_body_classes' );
 
 /**
  * Output mobile search trigger icon
  */
-function bobo_output_footer_search_trigger() {
+function vasco_output_footer_search_trigger() {
 	echo '<div class="js-search-trigger  js-mobile-search-trigger"></div>';
 }
-add_action( 'pixelgrade_footer_after_content', 'bobo_output_footer_search_trigger' );
+add_action( 'pixelgrade_footer_after_content', 'vasco_output_footer_search_trigger' );
 
 /**
  * Customize the Header component config.
@@ -174,20 +174,20 @@ add_action( 'pixelgrade_footer_after_content', 'bobo_output_footer_search_trigge
  *
  * @return array
  */
-function bobo_customize_header_config( $config ) {
+function vasco_customize_header_config( $config ) {
 	unset( $config['menu_locations']['jetpack-social-menu'] );
 
 	return $config;
 }
-add_filter( 'pixelgrade_header_config', 'bobo_customize_header_config', 10, 1 );
+add_filter( 'pixelgrade_header_config', 'vasco_customize_header_config', 10, 1 );
 
 /**
  * Output side toolbar
  */
-function bobo_output_toolbar() {
+function vasco_output_toolbar() {
 	get_template_part( 'template-parts/toolbar' );
 }
-add_action( 'pixelgrade_after_header', 'bobo_output_toolbar', 10 );
+add_action( 'pixelgrade_after_header', 'vasco_output_toolbar', 10 );
 
 /**
  * Create the output needed for the comments_category post meta and add it to the array.
@@ -197,7 +197,7 @@ add_action( 'pixelgrade_after_header', 'bobo_output_toolbar', 10 );
  *
  * @return array
  */
-function bobo_handle_comments_category_post_meta( $meta, $key ) {
+function vasco_handle_comments_category_post_meta( $meta, $key ) {
 	// We will only add the comments_category meta if it is actually needed, to keep things speedy.
 	// We do the work if the exact key has been requested, or if all of the keys has been requested.
 	if ( 'comments_category' === $key || false === $key ) {
@@ -246,7 +246,7 @@ function bobo_handle_comments_category_post_meta( $meta, $key ) {
 
 	return $meta;
 }
-add_filter( 'pixelgrade_get_post_meta', 'bobo_handle_comments_category_post_meta', 10, 2 );
+add_filter( 'pixelgrade_get_post_meta', 'vasco_handle_comments_category_post_meta', 10, 2 );
 
 /**
  * Change the Tag Cloud's Font Sizes.
@@ -257,14 +257,14 @@ add_filter( 'pixelgrade_get_post_meta', 'bobo_handle_comments_category_post_meta
  *
  * @return array
  */
-function bobo_change_tag_cloud_font_sizes( array $args ) {
+function vasco_change_tag_cloud_font_sizes( array $args ) {
 	$args['smallest'] = '1.25';
 	$args['largest'] = '2';
 	$args['unit'] = 'rem';
 
 	return $args;
 }
-add_filter( 'widget_tag_cloud_args', 'bobo_change_tag_cloud_font_sizes');
+add_filter( 'widget_tag_cloud_args', 'vasco_change_tag_cloud_font_sizes');
 
 /**
  * Filter the Featured Posts widget wrapper classes.
@@ -279,7 +279,7 @@ add_filter( 'widget_tag_cloud_args', 'bobo_change_tag_cloud_font_sizes');
  *
  * @return array Array of classes
  */
-function bobo_featured_posts_widget_classes( $classes = array() ) {
+function vasco_featured_posts_widget_classes( $classes = array() ) {
 	$widget_classes = array();
 
 	$widget_classes[] = 'c-gallery';
@@ -293,9 +293,9 @@ function bobo_featured_posts_widget_classes( $classes = array() ) {
 
 	return $classes;
 }
-add_filter( 'pixelgrade_featured_posts_widget_classes', 'bobo_featured_posts_widget_classes', 10, 1 );
+add_filter( 'pixelgrade_featured_posts_widget_classes', 'vasco_featured_posts_widget_classes', 10, 1 );
 
-function bobo_remove_emoji( $text ) {
+function vasco_remove_emoji( $text ) {
 
 	$clean_text = "";
 
@@ -342,14 +342,14 @@ function bobo_remove_emoji( $text ) {
 /**
  * Display the announcement bar.
  */
-function bobo_announcement_bar() {
+function vasco_announcement_bar() {
 	if ( pixelgrade_option( 'show_announcement_bar' ) ) {
 		get_template_part( 'template-parts/announcement-bar' );
 	}
 }
-add_action( 'pixelgrade_before_header', 'bobo_announcement_bar', 5 );
+add_action( 'pixelgrade_before_header', 'vasco_announcement_bar', 5 );
 
-function bobo_kses_anchor_content( $content ) {
+function vasco_kses_anchor_content( $content ) {
 	$allowedtags = array(
 		'abbr' => array(
 			'title' => true,
@@ -423,8 +423,8 @@ function bobo_kses_anchor_content( $content ) {
 	return wp_kses( $content, $allowedtags );
 }
 
-function bobo_blobs_seed_body_attribute( $attributes ) {
+function vasco_blobs_seed_body_attribute( $attributes ) {
 	$attributes['data-blobs-seed'] = pixelgrade_option( 'blobs_seed', 357 );
 	return $attributes;
 }
-add_filter( 'pixelgrade_body_attributes', 'bobo_blobs_seed_body_attribute' );
+add_filter( 'pixelgrade_body_attributes', 'vasco_blobs_seed_body_attribute' );

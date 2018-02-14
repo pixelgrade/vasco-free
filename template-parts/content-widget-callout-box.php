@@ -9,7 +9,7 @@
  * @global string $button_url The button link URL.
  * @global int $image The feature image attachment ID.
  *
- * @package Bobo
+ * @package Vasco
  * @since 1.0.0
  */
 

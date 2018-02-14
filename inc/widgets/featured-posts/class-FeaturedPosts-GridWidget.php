@@ -2,7 +2,7 @@
 /**
  * The Featured Posts - Grid Widget
  *
- * @package Bobo
+ * @package Vasco
  * @since 1.0.0
  */
 

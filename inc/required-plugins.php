@@ -1,14 +1,14 @@
 <?php
 /**
- * Bobo required or recommended plugins
+ * Vasco required or recommended plugins
  *
- * @package Bobo
+ * @package Vasco
  * @since 1.0.0
  */
 
 require_once pixelgrade_get_parent_theme_file_path( '/inc/required-plugins/class-tgm-plugin-activation.php' );
 
-function bobo_register_required_plugins() {
+function vasco_register_required_plugins() {
 
 	/**
 	 * Array of plugin arrays. Required keys are name and slug.
@@ -85,4 +85,4 @@ function bobo_register_required_plugins() {
 	tgmpa( $plugins, $config );
 
 }
-add_action( 'tgmpa_register', 'bobo_register_required_plugins', 999 );
+add_action( 'tgmpa_register', 'vasco_register_required_plugins', 999 );

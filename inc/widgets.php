@@ -2,7 +2,7 @@
 /**
  * Handles the definition of sidebars and the loading of various widgets
  *
- * @package Bobo
+ * @package Vasco
  * @since 1.0.0
  */
 
@@ -11,7 +11,7 @@
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function bobo_widget_areas_init() {
+function vasco_widget_areas_init() {
 	/**
 	 * The Front Page Widget Area
 	 */
@@ -25,12 +25,12 @@ function bobo_widget_areas_init() {
 		'after_title'   => '</h2>',
 	) );
 }
-add_action( 'widgets_init', 'bobo_widget_areas_init', 10 );
+add_action( 'widgets_init', 'vasco_widget_areas_init', 10 );
 
 /**
  * Register the our custom widgets for use in Appearance -> Widgets
  */
-function bobo_custom_widgets_init() {
+function vasco_custom_widgets_init() {
     /**
      * Load and register the custom Featured Posts Widgets
      */
@@ -71,7 +71,7 @@ function bobo_custom_widgets_init() {
 	require_once pixelgrade_get_parent_theme_file_path( 'inc/widgets/class-PromoBoxWidget.php' );
 	register_widget( 'Pixelgrade_PromoBoxWidget' );
 }
-add_action( 'widgets_init', 'bobo_custom_widgets_init', 10 );
+add_action( 'widgets_init', 'vasco_custom_widgets_init', 10 );
 
 /**
  * We will look at the entire front page widgets list and, if certain conditions are met,
@@ -87,7 +87,7 @@ add_action( 'widgets_init', 'bobo_custom_widgets_init', 10 );
  *
  * @param string $index The sidebar ID
  */
-function bobo_handle_front_page_widgets_nesting( $index ) {
+function vasco_handle_front_page_widgets_nesting( $index ) {
 	global $wp_registered_sidebars, $wp_registered_widgets;
 
 	// We only want to deal with the front page widget area, and only in the frontend, not the admin area.
@@ -109,7 +109,7 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 			continue;
 		}
 
-		$widget_type = bobo_get_widget_type_from_id( $widget_id );
+		$widget_type = vasco_get_widget_type_from_id( $widget_id );
 
 		// Bail if for some reason we couldn't extract a widget type from the ID (this would be weird indeed).
 		if ( empty( $widget_type ) ) {
@@ -119,13 +119,13 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 		// If we encounter a stamp widget, we need to see if there is a MailChimp newsletter widget after it - if there is we wrap both
 		if ( 'pixelgrade-stamp' === $widget_type &&
 		     isset( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
-		     'mc4wp_form_widget' === bobo_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
+		     'mc4wp_form_widget' === vasco_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 			// We will output a wrapper before the stamp widget and one after the subscribe form widget
-			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'widget-group stamp-newsletter-group', $widget_id );
+			$opening_filter = new Vasco_AddWidgetIdWrapperOpeningTag( 'widget-group stamp-newsletter-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
 			// And the closing wrapper tag
-			$closing_filter = new Bobo_AddWidgetIdWrapperClosingTag( $front_page_sidebar_widgets[ $idx + 1 ] );
+			$closing_filter = new Vasco_AddWidgetIdWrapperClosingTag( $front_page_sidebar_widgets[ $idx + 1 ] );
 			add_filter( 'dynamic_sidebar_params', array( $closing_filter, 'filter' ), 10, 1 );
 
 			// Increase the index and continue
@@ -137,13 +137,13 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 		// Now the other way around, first the newletter and then the stamp widget.
 		if ( 'mc4wp_form_widget' === $widget_type &&
 		     isset( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
-		     'pixelgrade-stamp' === bobo_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
+		     'pixelgrade-stamp' === vasco_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 			// We will output a wrapper before the newsletter form widget.
-			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'widget-group stamp-newsletter-group', $widget_id );
+			$opening_filter = new Vasco_AddWidgetIdWrapperOpeningTag( 'widget-group stamp-newsletter-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
 			// And the closing wrapper tag.
-			$closing_filter = new Bobo_AddWidgetIdWrapperClosingTag( $front_page_sidebar_widgets[ $idx + 1 ] );
+			$closing_filter = new Vasco_AddWidgetIdWrapperClosingTag( $front_page_sidebar_widgets[ $idx + 1 ] );
 			add_filter( 'dynamic_sidebar_params', array( $closing_filter, 'filter' ), 10, 1 );
 
 			// Increase the index and continue
@@ -154,7 +154,7 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 		// Now handle multiple feature card widgets (2, 3, or 4)
 		if ( 'pixelgrade-feature-card' === $widget_type &&
 		     isset( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
-		     'pixelgrade-feature-card' === bobo_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
+		     'pixelgrade-feature-card' === vasco_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 			// We have at least 2 consecutive Feature Card widgets - we have work to do
 
 			// Increase the index to point to the second widget in the group
@@ -163,7 +163,7 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 
 			// Now we need to see if we have 3 consecutive feature card widgets
 			if ( isset( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
-			     'pixelgrade-feature-card' === bobo_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
+			     'pixelgrade-feature-card' === vasco_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 				// Increase the index to point to the third widget
 				$idx++;
 				$widget_count = 3;
@@ -171,18 +171,18 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 
 			// Now we need to see if we have 4 consecutive feature card widgets
 			if ( isset( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
-			     'pixelgrade-feature-card' === bobo_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
+			     'pixelgrade-feature-card' === vasco_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 				// Increase the index to point to the fourth widget
 				$idx++;
 				$widget_count = 4;
 			}
 
 			// We will output a wrapper before the first feature card widget
-			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'widget-group feature-group-' . $widget_count, $widget_id );
+			$opening_filter = new Vasco_AddWidgetIdWrapperOpeningTag( 'widget-group feature-group-' . $widget_count, $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
 			// Output the closing wrapper tag after the last Feature Card widget in the group
-			$closing_filter = new Bobo_AddWidgetIdWrapperClosingTag( $front_page_sidebar_widgets[ $idx ] );
+			$closing_filter = new Vasco_AddWidgetIdWrapperClosingTag( $front_page_sidebar_widgets[ $idx ] );
 			add_filter( 'dynamic_sidebar_params', array( $closing_filter, 'filter' ), 10, 1 );
 
 			continue;
@@ -192,17 +192,17 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 		// If we encounter a Social Media Icons widget, we need to see if there is a Instagram widget after it - if there is we wrap both
 		if ( 'wpcom_social_media_icons_widget' === $widget_type &&
 		     isset( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
-		     'null-instagram-feed' === bobo_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
+		     'null-instagram-feed' === vasco_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 			// We will output a wrapper before the Social Media Icons widget
-			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'widget-group social-instagram-group', $widget_id );
+			$opening_filter = new Vasco_AddWidgetIdWrapperOpeningTag( 'widget-group social-instagram-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
 			// And closing wrapper tag.
-			$closing_filter = new Bobo_AddWidgetIdWrapperClosingTag( $front_page_sidebar_widgets[ $idx + 1 ] );
+			$closing_filter = new Vasco_AddWidgetIdWrapperClosingTag( $front_page_sidebar_widgets[ $idx + 1 ] );
 			add_filter( 'dynamic_sidebar_params', array( $closing_filter, 'filter' ), 10, 1 );
 
 			// We will also insert a link to the Instagram account configured in the Instagram widget, before the Social Media Icons widget content.
-			$social_media_icons_filter = new Bobo_AddInstagramBeforeSocialMediaIconsInGroup( $widget_id, $front_page_sidebar_widgets[ $idx + 1 ] );
+			$social_media_icons_filter = new Vasco_AddInstagramBeforeSocialMediaIconsInGroup( $widget_id, $front_page_sidebar_widgets[ $idx + 1 ] );
 			add_filter( 'dynamic_sidebar_params', array( $social_media_icons_filter, 'filter' ), 10, 1 );
 
 			// Increase the index and continue
@@ -213,17 +213,17 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 		// Now the other way around, first the Instagram widget and then the Social Media Icons widget.
 		if ( 'null-instagram-feed' === $widget_type &&
 		     isset( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
-		     'wpcom_social_media_icons_widget' === bobo_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
+		     'wpcom_social_media_icons_widget' === vasco_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 			// We will output a wrapper before the Social Media Icons widget
-			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'widget-group social-instagram-group', $widget_id );
+			$opening_filter = new Vasco_AddWidgetIdWrapperOpeningTag( 'widget-group social-instagram-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
 			// And the closing wrapper tag
-			$closing_filter = new Bobo_AddWidgetIdWrapperClosingTag( $front_page_sidebar_widgets[ $idx + 1 ] );
+			$closing_filter = new Vasco_AddWidgetIdWrapperClosingTag( $front_page_sidebar_widgets[ $idx + 1 ] );
 			add_filter( 'dynamic_sidebar_params', array( $closing_filter, 'filter' ), 10, 1 );
 
 			// We will also insert a link to the Instagram account configured in the Instagram widget, before the Social Media Icons widget content.
-			$social_media_icons_filter = new Bobo_AddInstagramBeforeSocialMediaIconsInGroup( $front_page_sidebar_widgets[ $idx + 1 ], $widget_id );
+			$social_media_icons_filter = new Vasco_AddInstagramBeforeSocialMediaIconsInGroup( $front_page_sidebar_widgets[ $idx + 1 ], $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $social_media_icons_filter, 'filter' ), 10, 1 );
 
 			// Increase the index and continue
@@ -236,15 +236,15 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 		// @see https://wordpress.org/plugins/instagram-feed/
 		if ( 'wpcom_social_media_icons_widget' === $widget_type &&
 		     isset( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
-		     'text' === bobo_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
-		     bobo_text_widget_has_instagram_feed_shortcode( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
+		     'text' === vasco_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
+		     vasco_text_widget_has_instagram_feed_shortcode( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 
 			// We will output a wrapper before the Social Media Icons widget
-			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'widget-group social-instagram-group', $widget_id );
+			$opening_filter = new Vasco_AddWidgetIdWrapperOpeningTag( 'widget-group social-instagram-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
 			// And closing wrapper tag.
-			$closing_filter = new Bobo_AddWidgetIdWrapperClosingTag( $front_page_sidebar_widgets[ $idx + 1 ] );
+			$closing_filter = new Vasco_AddWidgetIdWrapperClosingTag( $front_page_sidebar_widgets[ $idx + 1 ] );
 			add_filter( 'dynamic_sidebar_params', array( $closing_filter, 'filter' ), 10, 1 );
 
 			// Increase the index and continue
@@ -255,15 +255,15 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 		// Now the other way around
 		if ( 'text' === $widget_type &&
 		     isset( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
-		     'wpcom_social_media_icons_widget' === bobo_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
-		     bobo_text_widget_has_instagram_feed_shortcode( $widget_id ) ) {
+		     'wpcom_social_media_icons_widget' === vasco_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
+		     vasco_text_widget_has_instagram_feed_shortcode( $widget_id ) ) {
 
 			// We will output a wrapper before the text widget
-			$opening_filter = new Bobo_AddWidgetIdWrapperOpeningTag( 'widget-group social-instagram-group', $widget_id );
+			$opening_filter = new Vasco_AddWidgetIdWrapperOpeningTag( 'widget-group social-instagram-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
 
 			// And closing wrapper tag.
-			$closing_filter = new Bobo_AddWidgetIdWrapperClosingTag( $front_page_sidebar_widgets[ $idx + 1 ] );
+			$closing_filter = new Vasco_AddWidgetIdWrapperClosingTag( $front_page_sidebar_widgets[ $idx + 1 ] );
 			add_filter( 'dynamic_sidebar_params', array( $closing_filter, 'filter' ), 10, 1 );
 
 			// Increase the index and continue
@@ -272,7 +272,7 @@ function bobo_handle_front_page_widgets_nesting( $index ) {
 		}
 	}
 }
-add_action( 'dynamic_sidebar_before', 'bobo_handle_front_page_widgets_nesting', 10 );
+add_action( 'dynamic_sidebar_before', 'vasco_handle_front_page_widgets_nesting', 10 );
 
 /**
  * Extract the widget type by removing the instance number at the end.
@@ -281,7 +281,7 @@ add_action( 'dynamic_sidebar_before', 'bobo_handle_front_page_widgets_nesting', 
  *
  * @return bool|string
  */
-function bobo_get_widget_type_from_id( $widget_id ) {
+function vasco_get_widget_type_from_id( $widget_id ) {
 	return substr( $widget_id, 0, strrpos( $widget_id, '-' ) );
 }
 
@@ -292,7 +292,7 @@ function bobo_get_widget_type_from_id( $widget_id ) {
  *
  * @return bool|string
  */
-function bobo_get_widget_instance_number_from_id( $widget_id ) {
+function vasco_get_widget_instance_number_from_id( $widget_id ) {
 	return substr( $widget_id, strrpos( $widget_id, '-' ) + 1 );
 }
 
@@ -305,7 +305,7 @@ function bobo_get_widget_instance_number_from_id( $widget_id ) {
  *
  * @return bool
  */
-function bobo_text_widget_has_instagram_feed_shortcode( $widget_id ) {
+function vasco_text_widget_has_instagram_feed_shortcode( $widget_id ) {
 	global $wp_registered_widgets;
 
 	// Now we need to see if the shortcode is present in the text widget
@@ -342,7 +342,7 @@ function bobo_text_widget_has_instagram_feed_shortcode( $widget_id ) {
  *
  * We need to use a class so we can pass the $class and $widget_id variable to the filter function
  */
-class Bobo_AddWidgetIdWrapperOpeningTag {
+class Vasco_AddWidgetIdWrapperOpeningTag {
 	private $class;
 	private $widget_id;
 
@@ -369,7 +369,7 @@ class Bobo_AddWidgetIdWrapperOpeningTag {
  *
  * We need to use a class so we can pass the $widget_id variable to the filter function
  */
-class Bobo_AddWidgetIdWrapperClosingTag {
+class Vasco_AddWidgetIdWrapperClosingTag {
 	private $widget_id;
 
 	function __construct( $widget_id ) {
@@ -394,7 +394,7 @@ class Bobo_AddWidgetIdWrapperClosingTag {
  *
  * We need to use a class so we can pass the $html and $widget_id variable to the filter function
  */
-class Bobo_AddInstagramBeforeSocialMediaIconsInGroup {
+class Vasco_AddInstagramBeforeSocialMediaIconsInGroup {
 	private $social_media_icons_widget_id;
 	private $instagram_widget_id;
 
@@ -407,8 +407,8 @@ class Bobo_AddInstagramBeforeSocialMediaIconsInGroup {
 		// Only add the markup for the target widget ID
 		if ( $params[0]['widget_id'] === $this->social_media_icons_widget_id ) {
 			// Get the data from the Instagram widget
-			$widget_type = bobo_get_widget_type_from_id( $this->instagram_widget_id );
-			$instance_number = bobo_get_widget_instance_number_from_id( $this->instagram_widget_id );
+			$widget_type = vasco_get_widget_type_from_id( $this->instagram_widget_id );
+			$instance_number = vasco_get_widget_instance_number_from_id( $this->instagram_widget_id );
 			$instagram_widgets_data = get_option( 'widget_' . $widget_type );
 
 			if ( ! empty( $instagram_widgets_data[ $instance_number ]['username'] ) ) {

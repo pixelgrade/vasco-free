@@ -12,7 +12,7 @@
  * @global bool $show_subcategories Whether to show subcategories or not.
  * @global bool $show_count Whether to show categories count or not.
  *
- * @package Bobo
+ * @package Vasco
  * @since 1.0.0
  */
 

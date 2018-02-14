@@ -3,7 +3,7 @@
 
 # let's set some variables
 E_XCD=86       # Can't change directory?
-THEME_NAME=bobo
+THEME_NAME=vasco
 THEME_STAGGING_BRANCH=test
 DEMO_REPO=demos
 DEMO_BRANCH=test

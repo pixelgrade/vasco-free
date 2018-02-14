@@ -21,7 +21,7 @@ const extractPlugin = new ExtractTextPlugin({
 });
 module.exports = function (env, argv) {
 
-	const variation = env.variation || 'bobo';
+	const variation = env.variation || 'vasco';
 	const variationOptions = require('./variations/' + variation + '/webpack.defaults');
 
 	return {

@@ -8,7 +8,7 @@
  * @global string $location_url The location link URL.
  * @global int $image The location image attachment ID.
  *
- * @package Bobo
+ * @package Vasco
  * @since 1.0.0
  */
 

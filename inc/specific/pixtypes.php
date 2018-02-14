@@ -4,17 +4,17 @@
  *
  * Development notice: This file is synced from the variations directory! Do not edit in the `inc` directory!
  *
- * @package Bobo
+ * @package Vasco
  * @since 1.0.0
  */
 
 /**
  * Theme activation hook for PixTypes
  *
- * @package Bobo
- * @since Bobo 1.0.0
+ * @package Vasco
+ * @since Vasco 1.0.0
  */
-function bobo_prepare_theme_for_pixtypes() {
+function vasco_prepare_theme_for_pixtypes() {
 	// @todo We should give this up in the near future
 	/**
 	 * ACTIVATION SETTINGS
@@ -39,7 +39,7 @@ function bobo_prepare_theme_for_pixtypes() {
 		$types_options = array();
 	}
 	// Add our new settings specific for this theme
-	$types_options['bobo_pixtypes_theme'] = $pixtypes_conf_settings;
+	$types_options['vasco_pixtypes_theme'] = $pixtypes_conf_settings;
 
 	// Lets allow others have their take on the whole configuration just before the save (maybe components? :) )
 	$types_options = apply_filters( 'pixtypes_theme_activation_global_config', $types_options );
@@ -47,7 +47,7 @@ function bobo_prepare_theme_for_pixtypes() {
 	// Save them to the database
 	update_option( 'pixtypes_themes_settings', $types_options );
 }
-add_action( 'after_switch_theme', 'bobo_prepare_theme_for_pixtypes' );
+add_action( 'after_switch_theme', 'vasco_prepare_theme_for_pixtypes' );
 
 
 // PixTypes requires these things below for a pixelgrade theme
@@ -55,7 +55,7 @@ add_action( 'after_switch_theme', 'bobo_prepare_theme_for_pixtypes' );
 if ( ! class_exists( 'wpgrade' ) ) :
 	class wpgrade {
 		static function shortname() {
-			return 'bobo';
+			return 'vasco';
 		}
 
 		/** @var WP_Theme */
@@ -86,7 +86,7 @@ if ( ! class_exists( 'wpgrade' ) ) :
 	}
 
 	function wpgrade_callback_geting_active() {
-		bobo_prepare_theme_for_pixtypes();
+		vasco_prepare_theme_for_pixtypes();
 	}
 
 endif;

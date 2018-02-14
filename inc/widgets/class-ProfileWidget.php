@@ -2,7 +2,7 @@
 /**
  * The Profile Widget class
  *
- * @package Bobo
+ * @package Vasco
  * @since 1.0.0
  */
 

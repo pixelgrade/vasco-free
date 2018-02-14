@@ -1,8 +1,8 @@
 <?php
 /**
- * Bobo Customizer Options Config
+ * Vasco Customizer Options Config
  *
- * @package Bobo
+ * @package Vasco
  * @since 1.0.0
  */
 
@@ -16,15 +16,15 @@
  *
  * @return array The returned options are required, if you don't need options return an empty array
  */
-add_filter( 'customify_filter_fields', 'bobo_add_customify_options', 11, 1 );
+add_filter( 'customify_filter_fields', 'vasco_add_customify_options', 11, 1 );
 
 // Modify Customify Config
-add_filter( 'pixelgrade_customify_general_section_options', 'bobo_customify_general_section', 10, 2 );
-add_filter( 'pixelgrade_header_customify_section_options', 'bobo_customify_header_section', 10, 2 );
-add_filter( 'pixelgrade_customify_main_content_section_options', 'bobo_customify_main_content_section', 10, 2 );
-add_filter( 'pixelgrade_customify_buttons_section_options', 'bobo_customify_buttons_section', 10, 2 );
-add_filter( 'pixelgrade_footer_customify_section_options', 'bobo_customify_footer_section', 10, 2 );
-add_filter( 'pixelgrade_customify_blog_grid_section_options', 'bobo_customify_blog_grid_section', 10, 2 );
+add_filter( 'pixelgrade_customify_general_section_options', 'vasco_customify_general_section', 10, 2 );
+add_filter( 'pixelgrade_header_customify_section_options', 'vasco_customify_header_section', 10, 2 );
+add_filter( 'pixelgrade_customify_main_content_section_options', 'vasco_customify_main_content_section', 10, 2 );
+add_filter( 'pixelgrade_customify_buttons_section_options', 'vasco_customify_buttons_section', 10, 2 );
+add_filter( 'pixelgrade_footer_customify_section_options', 'vasco_customify_footer_section', 10, 2 );
+add_filter( 'pixelgrade_customify_blog_grid_section_options', 'vasco_customify_blog_grid_section', 10, 2 );
 
 define( 'THEME_TEXT_COLOR', '#2B3D39' );
 define( 'THEME_ACCENT_COLOR', '#DE2D16' );
@@ -34,8 +34,8 @@ define( 'THEME_HEADINGS_FONT', 'YoungSerif' );
 define( 'THEME_HEADINGS_FONT_ALT', 'HK Grotesk' );
 define( 'THEME_SITE_TITLE_FONT', 'Bebas Neue' );
 
-function bobo_add_customify_options( $options ) {
-	$options['opt-name'] = 'bobo_options';
+function vasco_add_customify_options( $options ) {
+	$options['opt-name'] = 'vasco_options';
 
 	//start with a clean slate - no Customify default sections
 	$options['sections'] = array();
@@ -51,7 +51,7 @@ function bobo_add_customify_options( $options ) {
  *
  * @return array $general_section The modified specific config
  */
-function bobo_customify_general_section( $section_options, $options ) {
+function vasco_customify_general_section( $section_options, $options ) {
 
 	$new_section_options = array(
 		// General
@@ -232,7 +232,7 @@ function bobo_customify_general_section( $section_options, $options ) {
 					'desc'              => esc_html__( 'Set the text that will appear around the stamp.', '__theme_txtd' ),
 					'default'           => '%site_title%',
 					'sanitize_callback' => 'wp_kses_post',
-					'active_callback'   => 'bobo_stamp_text_control_show',
+					'active_callback'   => 'vasco_stamp_text_control_show',
 				),
 				'stamp_icon'                      => array(
 					'type'            => 'select',
@@ -251,19 +251,19 @@ function bobo_customify_general_section( $section_options, $options ) {
 						'tent'     => esc_html__( 'Tent', '__theme_txtd' ),
 						'torch'    => esc_html__( 'Torch', '__theme_txtd' ),
 					),
-					'active_callback' => 'bobo_stamp_icon_control_show',
+					'active_callback' => 'vasco_stamp_icon_control_show',
 				),
 				'stamp_dark_image'                => array(
 					'type'            => 'media',
 					'label'           => esc_html__( 'Dark Stamp Image', '__theme_txtd' ),
 					'desc'            => '',
-					'active_callback' => 'bobo_stamp_dark_image_control_show',
+					'active_callback' => 'vasco_stamp_dark_image_control_show',
 				),
 				'stamp_light_image'               => array(
 					'type'            => 'media',
 					'label'           => esc_html__( 'Light Stamp Image', '__theme_txtd' ),
 					'desc'            => '',
-					'active_callback' => 'bobo_stamp_light_image_control_show',
+					'active_callback' => 'vasco_stamp_light_image_control_show',
 				),
 
 				// [Section] Announcement Bar
@@ -282,7 +282,7 @@ function bobo_customify_general_section( $section_options, $options ) {
 					'label'             => esc_html__( 'Announcement Bar Text', '__theme_txtd' ),
 					'desc'              => esc_html__( 'Set the text that will appear in your Announcement Bar, on the top of your website.', '__theme_txtd' ),
 					'default'           => '<strong>Find me on Facebook!</strong> New photos and interesting facts every day.',
-					'sanitize_callback' => 'bobo_kses_anchor_content',
+					'sanitize_callback' => 'vasco_kses_anchor_content',
 				),
 				'announcement_bar_link'                  => array(
 					'type'              => 'text',
@@ -341,7 +341,7 @@ function bobo_customify_general_section( $section_options, $options ) {
  *
  * @return array $main_content_section The modified specific config
  */
-function bobo_customify_main_content_section( $section_options, $options ) {
+function vasco_customify_main_content_section( $section_options, $options ) {
 
 	$modified_config = array(
 
@@ -725,7 +725,7 @@ function bobo_customify_main_content_section( $section_options, $options ) {
  *
  * @return array $main_content_section The modified specific config
  */
-function bobo_customify_buttons_section( $section_options, $options ) {
+function vasco_customify_buttons_section( $section_options, $options ) {
 
 	$buttons = array(
 		'.c-btn',
@@ -745,14 +745,14 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 	);
 
 	$buttons_default = implode( ',', $buttons );
-	$buttons_solid = implode( ',', array_map( 'bobo_prefix_solid_buttons', $buttons ) );
-	$buttons_outline = implode( ',', array_map( 'bobo_prefix_outline_buttons', $buttons ) );
+	$buttons_solid = implode( ',', array_map( 'vasco_prefix_solid_buttons', $buttons ) );
+	$buttons_outline = implode( ',', array_map( 'vasco_prefix_outline_buttons', $buttons ) );
 
 	$buttons_active = implode( ',', array(
 			implode( ',', $buttons ),
-			implode( ',', array_map( 'bobo_suffix_hover_buttons', $buttons ) ),
-			implode( ',', array_map( 'bobo_suffix_active_buttons', $buttons ) ),
-			implode( ',', array_map( 'bobo_suffix_focus_buttons', $buttons ) ),
+			implode( ',', array_map( 'vasco_suffix_hover_buttons', $buttons ) ),
+			implode( ',', array_map( 'vasco_suffix_active_buttons', $buttons ) ),
+			implode( ',', array_map( 'vasco_suffix_focus_buttons', $buttons ) ),
 		)
 	);
 
@@ -833,23 +833,23 @@ function bobo_customify_buttons_section( $section_options, $options ) {
 /*
  * Helper functions for the buttons section config.
  */
-function bobo_prefix_solid_buttons( $value ) {
+function vasco_prefix_solid_buttons( $value ) {
 	return '.u-buttons-solid ' . $value;
 }
 
-function bobo_suffix_hover_buttons( $value ) {
+function vasco_suffix_hover_buttons( $value ) {
 	return '.u-buttons-solid ' . $value . ':hover';
 }
 
-function bobo_suffix_active_buttons( $value ) {
+function vasco_suffix_active_buttons( $value ) {
 	return '.u-buttons-solid ' . $value . ':active';
 }
 
-function bobo_suffix_focus_buttons( $value ) {
+function vasco_suffix_focus_buttons( $value ) {
 	return '.u-buttons-solid ' . $value . ':focus';
 }
 
-function bobo_prefix_outline_buttons( $value ) {
+function vasco_prefix_outline_buttons( $value ) {
 	return '.u-buttons-outline ' . $value;
 }
 
@@ -861,7 +861,7 @@ function bobo_prefix_outline_buttons( $value ) {
  *
  * @return array $main_content_section The modified specific config
  */
-function bobo_customify_blog_grid_section( $section_options, $options ) {
+function vasco_customify_blog_grid_section( $section_options, $options ) {
 	// First setup the default values
 	// These should always come from the theme, not relying on the component's defaults
 	$modified_config = array(
@@ -1040,7 +1040,7 @@ function bobo_customify_blog_grid_section( $section_options, $options ) {
  *
  * @return array $main_content_section The modified specific config
  */
-function bobo_customify_header_section( $section_options, $options ) {
+function vasco_customify_header_section( $section_options, $options ) {
 
 	$modified_config = array(
 		'header_section' => array(
@@ -1176,7 +1176,7 @@ function bobo_customify_header_section( $section_options, $options ) {
  *
  * @return array $main_content_section The modified specific config
  */
-function bobo_customify_footer_section( $section_options, $options ) {
+function vasco_customify_footer_section( $section_options, $options ) {
 	// First setup the default values
 	// These should always come from the theme, not relying on the component's defaults
 	$modified_config = array(
@@ -1200,7 +1200,7 @@ function bobo_customify_footer_section( $section_options, $options ) {
 							'unit'            => 'px',
 							'callback_filter' => 'typeline_spacing_cb',
 						),
-						// Custom for Bobo
+						// Custom for Vasco
 						array(
 							'property'        => 'padding-top',
 							'selector'        => '.c-footer__zone--bottom:not(:first-child)',
@@ -1259,7 +1259,7 @@ function bobo_customify_footer_section( $section_options, $options ) {
  *
  * @return array
  */
-function bobo_add_customify_theme_fonts( $fonts ) {
+function vasco_add_customify_theme_fonts( $fonts ) {
 	$fonts['YoungSerif'] = array(
 		'family'   => 'YoungSerif',
 		'src'      => get_template_directory_uri() . '/assets/fonts/youngserif/stylesheet.css',
@@ -1281,7 +1281,7 @@ function bobo_add_customify_theme_fonts( $fonts ) {
 	return $fonts;
 }
 
-add_filter( 'customify_theme_fonts', 'bobo_add_customify_theme_fonts' );
+add_filter( 'customify_theme_fonts', 'vasco_add_customify_theme_fonts' );
 
 /* ===============================
  * STAMP CONTROLS CONDITIONALS
@@ -1292,7 +1292,7 @@ add_filter( 'customify_theme_fonts', 'bobo_add_customify_theme_fonts' );
  *
  * @return bool
  */
-function bobo_stamp_text_control_show() {
+function vasco_stamp_text_control_show() {
 	if ( 'auto' !== pixelgrade_option( 'stamp_style' ) ) {
 		return false;
 	}
@@ -1305,7 +1305,7 @@ function bobo_stamp_text_control_show() {
  *
  * @return bool
  */
-function bobo_stamp_icon_control_show() {
+function vasco_stamp_icon_control_show() {
 	if ( 'auto' !== pixelgrade_option( 'stamp_style' ) ) {
 		return false;
 	}
@@ -1318,7 +1318,7 @@ function bobo_stamp_icon_control_show() {
  *
  * @return bool
  */
-function bobo_stamp_dark_image_control_show() {
+function vasco_stamp_dark_image_control_show() {
 	if ( 'custom' !== pixelgrade_option( 'stamp_style' ) ) {
 		return false;
 	}
@@ -1331,7 +1331,7 @@ function bobo_stamp_dark_image_control_show() {
  *
  * @return bool
  */
-function bobo_stamp_light_image_control_show() {
+function vasco_stamp_light_image_control_show() {
 	if ( 'custom' !== pixelgrade_option( 'stamp_style' ) ) {
 		return false;
 	}

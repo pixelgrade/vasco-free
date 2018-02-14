@@ -2,7 +2,7 @@
 /**
  * Template part for displaying the entry thumbnail blobs.
  *
- * @package Bobo
+ * @package Vasco
  * @since 1.0.0
  */
 

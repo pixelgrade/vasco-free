@@ -1,10 +1,10 @@
 <?php
 /**
- * Bobo functions and definitions.
+ * Vasco functions and definitions.
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package Bobo
+ * @package Vasco
  * @since 1.0.0
  */
 
@@ -36,7 +36,7 @@ require_once trailingslashit( get_template_directory() ) . 'components/component
 Pixelgrade_Components_Autoload();
 
 
-if ( ! function_exists( 'bobo_setup' ) ) {
+if ( ! function_exists( 'vasco_setup' ) ) {
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -44,7 +44,7 @@ if ( ! function_exists( 'bobo_setup' ) ) {
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function bobo_setup() {
+	function vasco_setup() {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
@@ -75,13 +75,13 @@ if ( ! function_exists( 'bobo_setup' ) ) {
 		 * Add image sizes used by theme.
 		 */
 		// Used for blog archive(the height is flexible)
-		add_image_size( 'bobo-card-image', 450, 9999, false );
+		add_image_size( 'vasco-card-image', 450, 9999, false );
 		// Used for sliders(fixed height)
-		add_image_size( 'bobo-slide-image', 9999, 800, false );
+		add_image_size( 'vasco-slide-image', 9999, 800, false );
 		// Used for hero image
-		add_image_size( 'bobo-hero-image', 2700, 9999, false );
+		add_image_size( 'vasco-hero-image', 2700, 9999, false );
 		// Used for stamp image
-		add_image_size( 'bobo-stamp-image', 300, 300, false );
+		add_image_size( 'vasco-stamp-image', 300, 300, false );
 
 		/*
 		 * Add theme support for site logo
@@ -89,7 +89,7 @@ if ( ! function_exists( 'bobo_setup' ) ) {
 		 * First, it's the image size we want to use for the logo thumbnails
 		 * Second, the 2 classes we want to use for the "Display Header Text" Customizer logic
 		 */
-		add_theme_support( 'custom-logo', apply_filters( 'bobo_header_site_logo', array(
+		add_theme_support( 'custom-logo', apply_filters( 'vasco_header_site_logo', array(
 			'height'      => 600,
 			'width'       => 1360,
 			'flex-height' => true,
@@ -132,7 +132,7 @@ if ( ! function_exists( 'bobo_setup' ) ) {
 		add_theme_support( 'customize-selective-refresh-widgets' );
 	}
 }
-add_action( 'after_setup_theme', 'bobo_setup', 10 );
+add_action( 'after_setup_theme', 'vasco_setup', 10 );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -141,12 +141,12 @@ add_action( 'after_setup_theme', 'bobo_setup', 10 );
  *
  * @global int $content_width
  */
-function bobo_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'bobo_content_width', 720 );
+function vasco_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'vasco_content_width', 720 );
 }
-add_action( 'after_setup_theme', 'bobo_content_width', 0 );
+add_action( 'after_setup_theme', 'vasco_content_width', 0 );
 
-function bobo_custom_tiled_gallery_width() {
+function vasco_custom_tiled_gallery_width() {
 	$width = pixelgrade_option( 'main_content_container_width', 1240 );
 
 	if ( is_active_sidebar( 'sidebar-1' ) ) {
@@ -155,55 +155,55 @@ function bobo_custom_tiled_gallery_width() {
 
 	return $width;
 }
-add_filter( 'tiled_gallery_content_width', 'bobo_custom_tiled_gallery_width' );
+add_filter( 'tiled_gallery_content_width', 'vasco_custom_tiled_gallery_width' );
 
 /**
  * Enqueue scripts and styles.
  */
-function bobo_scripts() {
+function vasco_scripts() {
 	$theme           = wp_get_theme();
 	$main_style_deps = array();
 
 	// Default Self-hosted Fonts should be loaded when Customify is off
 	// When Customify is active, the CSS is added only if the font is used in any of the customizer font options
 	if ( ! class_exists( 'PixCustomifyPlugin' ) ) {
-		wp_enqueue_style( 'bobo-fonts-youngserif', bobo_youngserif_font_url() );
-		$main_style_deps[] = 'bobo-fonts-youngserif';
+		wp_enqueue_style( 'vasco-fonts-youngserif', vasco_youngserif_font_url() );
+		$main_style_deps[] = 'vasco-fonts-youngserif';
 
-		wp_enqueue_style( 'bobo-fonts-hkgrotesk', bobo_hkgrotesk_font_url() );
-		$main_style_deps[] = 'bobo-fonts-hkgrotesk';
+		wp_enqueue_style( 'vasco-fonts-hkgrotesk', vasco_hkgrotesk_font_url() );
+		$main_style_deps[] = 'vasco-fonts-hkgrotesk';
 
-		wp_enqueue_style( 'bobo-fonts-bebasneue', bobo_bebasneue_font_url() );
-		$main_style_deps[] = 'bobo-fonts-bebasneue';
+		wp_enqueue_style( 'vasco-fonts-bebasneue', vasco_bebasneue_font_url() );
+		$main_style_deps[] = 'vasco-fonts-bebasneue';
 	}
 
-	wp_enqueue_style( 'bobo-fonts-drybrush', bobo_drybrush_font_url() );
-	$main_style_deps[] = 'bobo-fonts-drybrush';
+	wp_enqueue_style( 'vasco-fonts-drybrush', vasco_drybrush_font_url() );
+	$main_style_deps[] = 'vasco-fonts-drybrush';
 
 	/* The main theme stylesheet */
 	if ( ! is_rtl() ) {
-		wp_enqueue_style( 'bobo-style', get_stylesheet_uri(), $main_style_deps, $theme->get( 'Version' ) );
+		wp_enqueue_style( 'vasco-style', get_stylesheet_uri(), $main_style_deps, $theme->get( 'Version' ) );
 	}
 
 	/* Scripts */
 
 	// The main script
-	wp_enqueue_script( 'bobo-commons-scripts', get_theme_file_uri( '/assets/js/commons.js' ), array( 'jquery' ), $theme->get( 'Version' ), true );
-	wp_enqueue_script( 'bobo-scripts', get_theme_file_uri( '/assets/js/app.bundle.js' ), array( 'bobo-commons-scripts' ), $theme->get( 'Version' ), true );
+	wp_enqueue_script( 'vasco-commons-scripts', get_theme_file_uri( '/assets/js/commons.js' ), array( 'jquery' ), $theme->get( 'Version' ), true );
+	wp_enqueue_script( 'vasco-scripts', get_theme_file_uri( '/assets/js/app.bundle.js' ), array( 'vasco-commons-scripts' ), $theme->get( 'Version' ), true );
 
 	$localization_array = array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
 	);
 
-	wp_localize_script( 'bobo-main-scripts', 'boboStrings', $localization_array );
+	wp_localize_script( 'vasco-main-scripts', 'vascoStrings', $localization_array );
 }
-add_action( 'wp_enqueue_scripts', 'bobo_scripts' );
+add_action( 'wp_enqueue_scripts', 'vasco_scripts' );
 
-function bobo_load_wp_admin_style() {
-	wp_register_style( 'bobo_wp_admin_css', get_template_directory_uri() . '/admin.css', false, '1.0.0' );
-	wp_enqueue_style( 'bobo_wp_admin_css' );
+function vasco_load_wp_admin_style() {
+	wp_register_style( 'vasco_wp_admin_css', get_template_directory_uri() . '/admin.css', false, '1.0.0' );
+	wp_enqueue_style( 'vasco_wp_admin_css' );
 }
-add_action( 'admin_enqueue_scripts', 'bobo_load_wp_admin_style' );
+add_action( 'admin_enqueue_scripts', 'vasco_load_wp_admin_style' );
 
 /*
  * ==================================================

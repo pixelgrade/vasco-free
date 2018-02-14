@@ -152,11 +152,24 @@ gulp.task( 'build', 'Remove unneeded files and folders from the build folder', [
 		'webpack.config.js',
 		'.jscsrc',
 		'.jshintignore',
+		'labels.json',
 
 		'assets/scss',
 		'assets/js-old',
-		'docs'
-
+		'docs',
+		'components/docs',
+		'components/.bin',
+		'components/.github',
+		'components/tests',
+		'components/.*',
+		'components/composer*',
+		'components/*.md',
+		'components/functions.php',
+		'components/phpcs*',
+		'components/phpdoc*',
+		'components/phpunit*',
+		'components/style.css',
+		'variations'
     ];
 
     files_to_remove.forEach( function( e, k ) {

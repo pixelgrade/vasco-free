@@ -15,7 +15,7 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @package    Bobo
+ * @package    Vasco
  * @since      1.0.0
  */
 

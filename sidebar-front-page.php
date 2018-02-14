@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Bobo
+ * @package Vasco
  * @since 1.0.0
  */
 

@@ -2,7 +2,7 @@
 /**
  * The template used for the Search Overlay
  *
- * @package Bobo
+ * @package Vasco
  * @since 1.0.0
  */
 

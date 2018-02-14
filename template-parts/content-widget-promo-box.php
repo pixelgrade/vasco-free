@@ -8,7 +8,7 @@
  * @global string $button_text The button text.
  * @global string $button_url The button link URL.
  *
- * @package Bobo
+ * @package Vasco
  * @since 1.0.0
  */
 

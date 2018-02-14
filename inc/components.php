@@ -4,11 +4,11 @@
  *
  * Development notice: This file is synced from the variations directory! Do not edit in the `inc` directory!
  *
- * @package Bobo
+ * @package Vasco
  * @since 1.0.0
  */
 
-function bobo_setup_components() {
+function vasco_setup_components() {
 	/*
 	 * Declare support for the Pixelgrade Components the theme uses.
 	 * Please note that some components will load regardless (like Base, Blog, Header, Footer).
@@ -20,4 +20,4 @@ function bobo_setup_components() {
 	add_theme_support( 'pixelgrade-footer-component' );
 	add_theme_support( 'pixelgrade-gallery-settings-component' );
 }
-add_action( 'after_setup_theme', 'bobo_setup_components', 10 );
+add_action( 'after_setup_theme', 'vasco_setup_components', 10 );

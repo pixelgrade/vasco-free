@@ -4,7 +4,7 @@
  *
  * @link https://jetpack.com/
  *
- * @package Bobo
+ * @package Vasco
  * @since 1.0.0
  */
 
@@ -14,11 +14,11 @@
  * See: https://jetpack.com/support/infinite-scroll/
  * See: https://jetpack.com/support/responsive-videos/
  */
-function bobo_jetpack_setup() {
+function vasco_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
 	add_theme_support( 'infinite-scroll', array(
 		'container' => 'posts-container',
-		'render'    => 'bobo_infinite_scroll_render',
+		'render'    => 'vasco_infinite_scroll_render',
 		'footer'    => 'page',
 		'footer_widgets' => is_active_sidebar( 'sidebar-footer' ) || has_nav_menu('footer' ),
 		'wrapper'   => false
@@ -33,7 +33,7 @@ function bobo_jetpack_setup() {
 		'author-bio'         => true, // display or not the author bio by default: true or false.
 		'masonry'            => '.c-gallery--masonry', // a CSS selector matching the elements that triggers a masonry refresh if the theme is using a masonry layout.
 		'post-details'       => array(
-			'stylesheet'      => 'bobo-style', // name of the theme's stylesheet.
+			'stylesheet'      => 'vasco-style', // name of the theme's stylesheet.
 			'date'            => '.single-post .posted-on', // a CSS selector matching the elements that display the post date.
 			'categories'      => '.single-post .cats', // a CSS selector matching the elements that display the post categories.
 			'tags'            => '.single-post .tags', // a CSS selector matching the elements that display the post tags.
@@ -64,12 +64,12 @@ function bobo_jetpack_setup() {
 	);
 	set_theme_mod( 'pixelgrade_jetpack_default_active_modules', $default_modules );
 }
-add_action( 'after_setup_theme', 'bobo_jetpack_setup' );
+add_action( 'after_setup_theme', 'vasco_jetpack_setup' );
 
 /**
  * Custom render function for Infinite Scroll.
  */
-function bobo_infinite_scroll_render() {
+function vasco_infinite_scroll_render() {
 	while ( have_posts() ) {
 		the_post();
 
@@ -90,7 +90,7 @@ function bobo_infinite_scroll_render() {
  *
  * @return array
  */
-function bobo_default_jetpack_sharing_services( $enabled ) {
+function vasco_default_jetpack_sharing_services( $enabled ) {
 	return array(
 		'visible' => array(
 			'facebook',
@@ -101,7 +101,7 @@ function bobo_default_jetpack_sharing_services( $enabled ) {
 		)
 	);
 }
-add_filter( 'sharing_default_services', 'bobo_default_jetpack_sharing_services', 10, 1 );
+add_filter( 'sharing_default_services', 'vasco_default_jetpack_sharing_services', 10, 1 );
 
 /**
  * Set up the default Jetpack Sharing (Sharedaddy) global options.
@@ -110,7 +110,7 @@ add_filter( 'sharing_default_services', 'bobo_default_jetpack_sharing_services',
  *
  * @return array
  */
-function bobo_default_jetpack_sharing_options( $default ) {
+function vasco_default_jetpack_sharing_options( $default ) {
 	$default = array(
 		'global' => array(
 			'button_style' => 'text',
@@ -126,12 +126,12 @@ function bobo_default_jetpack_sharing_options( $default ) {
 
 	return $default;
 }
-add_filter( 'pixelgrade_filter_jetpack_sharing_default_options', 'bobo_default_jetpack_sharing_options', 10, 1 );
+add_filter( 'pixelgrade_filter_jetpack_sharing_default_options', 'vasco_default_jetpack_sharing_options', 10, 1 );
 
 /**
  * Prevent sharing buttons when a Featured Posts widget starts.
  */
-function bobo_remove_jetpack_sharing() {
+function vasco_remove_jetpack_sharing() {
 	if ( has_filter( 'the_content', 'sharing_display' ) ) {
 		remove_filter( 'the_content', 'sharing_display', 19 );
 	}
@@ -140,18 +140,18 @@ function bobo_remove_jetpack_sharing() {
 		remove_filter( 'the_excerpt', 'sharing_display', 19 );
 	}
 }
-add_action( 'pixelgrade_featured_posts_widget_start', 'bobo_remove_jetpack_sharing', 10 );
+add_action( 'pixelgrade_featured_posts_widget_start', 'vasco_remove_jetpack_sharing', 10 );
 
 /**
  * Add sharing logic after a Featured Posts widget has rendered.
  */
-function bobo_add_jetpack_sharing() {
+function vasco_add_jetpack_sharing() {
 	if ( function_exists( 'sharing_display' ) ) {
 		add_filter( 'the_content', 'sharing_display', 19 );
 		add_filter( 'the_excerpt', 'sharing_display', 19 );
 	}
 }
-add_action( 'pixelgrade_featured_posts_widget_end', 'bobo_add_jetpack_sharing', 10 );
+add_action( 'pixelgrade_featured_posts_widget_end', 'vasco_add_jetpack_sharing', 10 );
 
 /* ===================
  * Jetpack Content Options
@@ -164,7 +164,7 @@ add_action( 'pixelgrade_featured_posts_widget_end', 'bobo_add_jetpack_sharing', 
  *
  * @return array
  */
-function bobo_change_jetpack_content_options_defaults( $args, $id ) {
+function vasco_change_jetpack_content_options_defaults( $args, $id ) {
 	// Change the Display Author setting to be false (unchecked) by default
 	if ( 'jetpack_content_post_details_author' === $id ) {
 		$args['default'] = 0;
@@ -172,4 +172,4 @@ function bobo_change_jetpack_content_options_defaults( $args, $id ) {
 
 	return $args;
 }
-add_filter( 'customize_dynamic_setting_args', 'bobo_change_jetpack_content_options_defaults', 10, 2 );
+add_filter( 'customize_dynamic_setting_args', 'vasco_change_jetpack_content_options_defaults', 10, 2 );

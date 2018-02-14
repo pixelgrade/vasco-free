@@ -1,6 +1,6 @@
 {
-  "theme_name": "bobo",
-  "main_branch": "bobo",
-  "text_domain": "bobo",
-  "baseurl": "demos.dev/bobo"
+  "theme_name": "vasco",
+  "main_branch": "vasco",
+  "text_domain": "vasco",
+  "baseurl": "demos.dev/vasco"
 }

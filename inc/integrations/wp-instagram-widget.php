@@ -4,7 +4,7 @@
  *
  * @link https://wordpress.org/plugins/wp-instagram-widget/
  *
- * @package Bobo
+ * @package Vasco
  * @since 1.0.0
  */
 
@@ -15,7 +15,7 @@
  *
  * @return string
  */
-function bobo_wp_instagram_widget_entry_template( $template_part ) {
+function vasco_wp_instagram_widget_entry_template( $template_part ) {
 	return 'template-parts/content-wp-instagram-widget-entry.php';
 }
-add_filter( 'wpiw_template_part', 'bobo_wp_instagram_widget_entry_template', 10, 1 );
+add_filter( 'wpiw_template_part', 'vasco_wp_instagram_widget_entry_template', 10, 1 );
