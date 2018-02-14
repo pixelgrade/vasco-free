@@ -404,7 +404,7 @@ class Bobo_AddInstagramBeforeSocialMediaIconsInGroup {
 	}
 
 	public function filter( $params ) {
-		// Only add the closing tag for the target widget ID
+		// Only add the markup for the target widget ID
 		if ( $params[0]['widget_id'] === $this->social_media_icons_widget_id ) {
 			// Get the data from the Instagram widget
 			$widget_type = bobo_get_widget_type_from_id( $this->instagram_widget_id );
