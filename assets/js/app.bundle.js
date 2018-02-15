@@ -769,11 +769,13 @@ var Vasco = function (_BaseTheme) {
         key: 'initAnnouncementBar',
         value: function initAnnouncementBar() {
             var isDisabled = __WEBPACK_IMPORTED_MODULE_3_js_cookie___default.a.get('announcementClosed') === 'true';
+            var adminBarHeight = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('#wpadminbar').outerHeight() || 0;
             if (!isDisabled) {
                 var announcementBarHeight = this.$announcementBar.outerHeight();
-                this.modifyCss(this.$siteHeader, 'top', announcementBarHeight, '');
+                this.modifyCss(this.$siteHeader, 'top', announcementBarHeight, '+=');
                 this.modifyCss(this.$toolbar, 'padding-top', announcementBarHeight, '+=');
                 this.modifyCss(this.$contentPaddingContainer, 'padding-top', announcementBarHeight, '+=');
+                this.modifyCss(this.$announcementBar, 'top', adminBarHeight, '+=');
                 this.$announcementBar.removeClass('c-announcement-bar--hidden');
                 __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.js-announcement-bar__close').on('click', this.onAnnouncementClose.bind(this));
             }

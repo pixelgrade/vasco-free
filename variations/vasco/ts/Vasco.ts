@@ -344,12 +344,14 @@ export class Vasco extends BaseTheme {
 
   private initAnnouncementBar() {
     const isDisabled = Cookies.get('announcementClosed') === 'true';
+    const adminBarHeight = $('#wpadminbar').outerHeight() || 0;
 
     if ( !isDisabled ) {
       const announcementBarHeight = this.$announcementBar.outerHeight();
-      this.modifyCss(this.$siteHeader, 'top', announcementBarHeight, '');
+      this.modifyCss(this.$siteHeader, 'top', announcementBarHeight, '+=');
       this.modifyCss(this.$toolbar, 'padding-top', announcementBarHeight, '+=');
       this.modifyCss(this.$contentPaddingContainer, 'padding-top', announcementBarHeight, '+=');
+      this.modifyCss(this.$announcementBar, 'top', adminBarHeight, '+=');
       this.$announcementBar.removeClass('c-announcement-bar--hidden');
 
       $('.js-announcement-bar__close').on('click', this.onAnnouncementClose.bind(this));
