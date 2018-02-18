@@ -105,6 +105,7 @@ $alert-placeholder-background: $theme-accent-color;
   overflow: hidden;
 }
 
+// Helper class to hide elements or pieces text on mobile
 .hidden-mobile {
   @include below(lap) {
     display: none;
