@@ -42,7 +42,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 						'type'            => 'textarea',
 						'label'           => esc_html__( 'Headline:', '__theme_txtd' ),
 						'rows'            => 3,
-						'default'         => esc_html__( 'Howdy! I\'m %first_name%, a millennial traveler eager to wander the world and inspire others do the same.', '__theme_txtd' ),
+						'default'         => esc_html__( 'Howdy! I\'m %first_name%, a millennial traveler<span class="hidden-mobile"> eager to wander the world and inspire others do the same</span>.', '__theme_txtd' ),
 						'section'         => 'content',
 						// This will be applied before rendering the widget output
 						'filter_callback' => 'pixelgrade_parse_content_tags',
@@ -59,7 +59,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 						'type'     => 'textarea',
 						'label'    => esc_html__( 'Description:', '__theme_txtd' ),
 						'rows'     => 5,
-						'default'  => esc_html__( 'I just quit my demanding job to travel full time around the world and share authentic stories. If you want to achieve your travel goals this is the right place to be. Enjoy the ride!', '__theme_txtd' ),
+						'default'  => esc_html__( 'I just quit my demanding job to travel full time around the world and share authentic stories.<span class="hidden-mobile">If you want to achieve your travel goals this is the right place to be. Enjoy the ride!</span>', '__theme_txtd' ),
 						'section'  => 'content',
 						'priority' => 40,
 					),
