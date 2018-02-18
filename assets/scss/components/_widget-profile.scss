@@ -35,6 +35,18 @@
 
   flex-basis: 50%;
   text-align: left;
+
+  .c-profile__subtitle {
+
+  }
+
+  .c-profile__title {
+
+  }
+
+  .c-profile__subtitle + .c-profile__title {
+    @include spacing(margin-top, 2rem);
+  }
 }
 
 .c-profile__media {
@@ -64,7 +76,8 @@
 
 @include below(desk) {
   .c-profile__description {
-    display: none;
+    // display: none; 
+    // This is not needed anymore as the description is shown all the time
   }
 }
 
@@ -110,12 +123,13 @@ $mobile-stamp-size: 124px;
   }
 
   .c-profile__description {
-    display: block;
+    // display: block; 
+    // Not needed anymore
   }
 }
 
 @include below(xsmall) {
   .c-profile__btn {
-    display: block;
+    display: block; // Make the button full width
   }
 }
