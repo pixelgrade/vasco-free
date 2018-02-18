@@ -464,6 +464,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+var ANNOUNCEMENT_COOKIE_NAME = 'announcementClosed';
 var Vasco = function (_BaseTheme) {
     _inherits(Vasco, _BaseTheme);
 
@@ -472,7 +473,11 @@ var Vasco = function (_BaseTheme) {
 
         var _this = _possibleConstructorReturn(this, (Vasco.__proto__ || Object.getPrototypeOf(Vasco)).call(this));
 
+        _this.isLoggedIn = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('body').hasClass('logged-in');
         _this.blobs = [];
+        if (_this.isLoggedIn) {
+            _this.clearAnnouncementCookie();
+        }
         _this.handleContent();
         _this.groupWidgets();
         _this.generateBlobs();
@@ -766,19 +771,25 @@ var Vasco = function (_BaseTheme) {
             });
         }
     }, {
+        key: 'clearAnnouncementCookie',
+        value: function clearAnnouncementCookie() {
+            __WEBPACK_IMPORTED_MODULE_3_js_cookie___default.a.remove(ANNOUNCEMENT_COOKIE_NAME);
+        }
+    }, {
         key: 'initAnnouncementBar',
         value: function initAnnouncementBar() {
             var isDisabled = __WEBPACK_IMPORTED_MODULE_3_js_cookie___default.a.get('announcementClosed') === 'true';
-            var adminBarHeight = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('#wpadminbar').outerHeight() || 0;
-            if (!isDisabled) {
-                var announcementBarHeight = this.$announcementBar.outerHeight();
-                this.modifyCss(this.$siteHeader, 'top', announcementBarHeight, '+=');
-                this.modifyCss(this.$toolbar, 'padding-top', announcementBarHeight, '+=');
-                this.modifyCss(this.$contentPaddingContainer, 'padding-top', announcementBarHeight, '+=');
-                this.modifyCss(this.$announcementBar, 'top', adminBarHeight, '+=');
-                this.$announcementBar.removeClass('c-announcement-bar--hidden');
-                __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.js-announcement-bar__close').on('click', this.onAnnouncementClose.bind(this));
+            if (isDisabled) {
+                return;
             }
+            var adminBarHeight = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('#wpadminbar').outerHeight() || 0;
+            var announcementBarHeight = this.$announcementBar.outerHeight();
+            this.modifyCss(this.$siteHeader, 'top', announcementBarHeight, '+=');
+            this.modifyCss(this.$toolbar, 'padding-top', announcementBarHeight, '+=');
+            this.modifyCss(this.$contentPaddingContainer, 'padding-top', announcementBarHeight, '+=');
+            this.modifyCss(this.$announcementBar, 'top', adminBarHeight, '+=');
+            this.$announcementBar.removeClass('c-announcement-bar--hidden');
+            __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.js-announcement-bar__close').on('click', this.onAnnouncementClose.bind(this));
         }
     }, {
         key: 'modifyCss',
@@ -801,7 +812,9 @@ var Vasco = function (_BaseTheme) {
         value: function onAnnouncementClose(event) {
             event.preventDefault();
             this.revertAnnouncementChanges();
-            __WEBPACK_IMPORTED_MODULE_3_js_cookie___default.a.set('announcementClosed', 'true', { expires: 1 });
+            if (!this.isLoggedIn) {
+                __WEBPACK_IMPORTED_MODULE_3_js_cookie___default.a.set(ANNOUNCEMENT_COOKIE_NAME, 'true', { expires: 1 });
+            }
         }
     }]);
 
