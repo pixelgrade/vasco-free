@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="c-profile__content">
 
 		<?php if ( ! empty( $subtitle ) ) { ?>
-			<div class="c-profile__subtitle h6"><?php echo $subtitle; ?></div>
+			<div class="c-profile__subtitle h5"><?php echo $subtitle; ?></div>
 		<?php } ?>
 
 		<?php if ( ! empty( $title ) ) { ?>
