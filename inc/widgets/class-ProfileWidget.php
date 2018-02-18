@@ -51,7 +51,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 					'subtitle'      => array(
 						'type'     => 'text',
 						'label'    => esc_html__( 'Secondary Headline:', '__theme_txtd' ),
-						'default'  => esc_html__( 'Happy to have you here', '__theme_txtd' ),
+						'default'  => esc_html__( 'Welcome to My Blog', '__theme_txtd' ),
 						'section'  => 'content',
 						'priority' => 30,
 					),
