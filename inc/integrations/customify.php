@@ -815,7 +815,7 @@ function vasco_customify_buttons_section( $section_options, $options ) {
 						'font-family'    => THEME_HEADINGS_FONT_ALT,
 						'font-weight'    => '500',
 						'font-size'      => 17,
-						'line-height'    => 1.94,
+						'line-height'    => 1.6,
 						'letter-spacing' => 0,
 					),
 				),
@@ -870,7 +870,7 @@ function vasco_customify_blog_grid_section( $section_options, $options ) {
 			'options' => array(
 				// [Section] Layout
 				'blog_grid_width'                    => array(
-					'default' => 1240,
+					'default' => 1200,
 				),
 				'blog_container_sides_spacing'       => array(
 					'default' => 42,
@@ -880,7 +880,7 @@ function vasco_customify_blog_grid_section( $section_options, $options ) {
 					'default' => 'regular',
 				),
 				'blog_items_aspect_ratio'            => array(
-					'default' => 50,
+					'default' => 40,
 					'css'         => array(
 						array(
 							'property'        => 'dummy',
@@ -993,8 +993,8 @@ function vasco_customify_blog_grid_section( $section_options, $options ) {
 					'default'  => array(
 						'font-family'    => THEME_HEADINGS_FONT,
 						'font-weight'    => '700',
-						'font-size'      => 21,
-						'line-height'    => 1.3,
+						'font-size'      => 24,
+						'line-height'    => 1.25,
 						'letter-spacing' => 0,
 						'text-transform' => 'none',
 					),
