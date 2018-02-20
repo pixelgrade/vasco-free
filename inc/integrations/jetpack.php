@@ -27,6 +27,9 @@ function vasco_jetpack_setup() {
 	// Add theme support for Responsive Videos.
 	add_theme_support( 'jetpack-responsive-videos' );
 
+	// Add theme support for Social Menu as we will be using it in the toolbar
+	add_theme_support( 'jetpack-social-menu' );
+
 	// Add support for content options, where it's appropriate
 	add_theme_support( 'jetpack-content-options', array(
 		'blog-display'       => false, // we only show the excerpt, not full post content on archives
