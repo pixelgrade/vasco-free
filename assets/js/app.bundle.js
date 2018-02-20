@@ -475,9 +475,16 @@ var Vasco = function (_BaseTheme) {
 
         _this.isLoggedIn = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('body').hasClass('logged-in');
         _this.blobs = [];
+        _this.$announcementBar = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.c-announcement-bar');
+        _this.$siteHeader = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.site-header');
+        _this.$toolbar = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.c-toolbar');
+        _this.$contentPaddingContainer = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.u-header-height-padding-top');
         if (_this.isLoggedIn) {
             _this.clearAnnouncementCookie();
         }
+        setTimeout(function () {
+            _this.initAnnouncementBar();
+        }, 50);
         _this.handleContent();
         _this.groupWidgets();
         _this.generateBlobs();
@@ -537,14 +544,9 @@ var Vasco = function (_BaseTheme) {
             _get(Vasco.prototype.__proto__ || Object.getPrototypeOf(Vasco.prototype), 'onLoadAction', this).call(this);
             this.Header = new __WEBPACK_IMPORTED_MODULE_7__components_header_ts_Header__["a" /* Header */]();
             this.SearchOverlay = new __WEBPACK_IMPORTED_MODULE_6__components_base_ts_components_SearchOverlay__["a" /* SearchOverlay */]();
-            this.$announcementBar = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.c-announcement-bar');
-            this.$siteHeader = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.site-header');
-            this.$toolbar = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.c-toolbar');
-            this.$contentPaddingContainer = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.u-header-height-padding-top');
             this.addNavigationClasses();
             this.adjustLayout();
             this.initStamp();
-            this.initAnnouncementBar();
         }
     }, {
         key: 'onResizeAction',
@@ -801,17 +803,27 @@ var Vasco = function (_BaseTheme) {
     }, {
         key: 'revertAnnouncementChanges',
         value: function revertAnnouncementChanges() {
+            var animated = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+            if (animated) {
+                this.$announcementBar.addClass('animated');
+                this.$siteHeader.addClass('animated');
+                this.$toolbar.addClass('animated');
+                this.$contentPaddingContainer.addClass('animated');
+            }
             this.$announcementBar.addClass('c-announcement-bar--hidden');
             var announcementBarHeight = this.$announcementBar.outerHeight();
+            var adminBarHeight = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('#wpadminbar').outerHeight() || 0;
             this.modifyCss(this.$siteHeader, 'top', announcementBarHeight, '-=');
             this.modifyCss(this.$toolbar, 'padding-top', announcementBarHeight, '-=');
             this.modifyCss(this.$contentPaddingContainer, 'padding-top', announcementBarHeight, '-=');
+            this.modifyCss(this.$announcementBar, 'top', adminBarHeight, '-=');
         }
     }, {
         key: 'onAnnouncementClose',
         value: function onAnnouncementClose(event) {
             event.preventDefault();
-            this.revertAnnouncementChanges();
+            this.revertAnnouncementChanges(true);
             if (!this.isLoggedIn) {
                 __WEBPACK_IMPORTED_MODULE_3_js_cookie___default.a.set(ANNOUNCEMENT_COOKIE_NAME, 'true', { expires: 1 });
             }
@@ -865,7 +877,7 @@ var BaseTheme = function () {
         value: function bindEvents() {
             __WEBPACK_IMPORTED_MODULE_3__services_global_service__["a" /* GlobalService */].onReady().take(1).subscribe(this.onReadyAction.bind(this));
             __WEBPACK_IMPORTED_MODULE_2__services_window_service__["a" /* WindowService */].onLoad().take(1).subscribe(this.onLoadAction.bind(this));
-            __WEBPACK_IMPORTED_MODULE_2__services_window_service__["a" /* WindowService */].onResize().debounce(300).subscribe(this.onResizeAction.bind(this));
+            __WEBPACK_IMPORTED_MODULE_2__services_window_service__["a" /* WindowService */].onResize().debounce(500).subscribe(this.onResizeAction.bind(this));
             __WEBPACK_IMPORTED_MODULE_2__services_window_service__["a" /* WindowService */].onScroll().subscribe(this.onScrollAction.bind(this));
             // Leave comments area visible by default and
             // show it only if the URL links to a comment

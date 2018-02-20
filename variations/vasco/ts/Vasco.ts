@@ -26,9 +26,16 @@ export class Vasco extends BaseTheme {
   constructor() {
     super();
 
+    this.$announcementBar =  $('.c-announcement-bar');
+    this.$siteHeader =  $('.site-header');
+    this.$toolbar = $('.c-toolbar');
+    this.$contentPaddingContainer = $('.u-header-height-padding-top');
     if ( this.isLoggedIn ) {
       this.clearAnnouncementCookie();
     }
+    setTimeout(() => {
+      this.initAnnouncementBar();
+    }, 50);
     this.handleContent();
     this.groupWidgets();
     this.generateBlobs();
@@ -97,15 +104,10 @@ export class Vasco extends BaseTheme {
 
     this.Header = new Header();
     this.SearchOverlay = new SearchOverlay();
-    this.$announcementBar =  $('.c-announcement-bar');
-    this.$siteHeader =  $('.site-header');
-    this.$toolbar = $('.c-toolbar');
-    this.$contentPaddingContainer = $('.u-header-height-padding-top');
     this.addNavigationClasses();
 
     this.adjustLayout();
     this.initStamp();
-    this.initAnnouncementBar();
   }
 
   public onResizeAction() {
@@ -372,18 +374,27 @@ export class Vasco extends BaseTheme {
     $element.css( property,  `${sign}${value}${unit}`);
   }
 
-  private revertAnnouncementChanges() {
+  private revertAnnouncementChanges(animated: boolean = false) {
+    if (animated) {
+      this.$announcementBar.addClass('animated');
+      this.$siteHeader.addClass('animated');
+      this.$toolbar.addClass('animated');
+      this.$contentPaddingContainer.addClass('animated');
+    }
+
     this.$announcementBar.addClass('c-announcement-bar--hidden');
     const announcementBarHeight = this.$announcementBar.outerHeight();
+    const adminBarHeight = $('#wpadminbar').outerHeight() || 0;
 
     this.modifyCss(this.$siteHeader, 'top', announcementBarHeight, '-=');
     this.modifyCss(this.$toolbar, 'padding-top', announcementBarHeight, '-=');
     this.modifyCss(this.$contentPaddingContainer, 'padding-top', announcementBarHeight, '-=');
+    this.modifyCss(this.$announcementBar, 'top', adminBarHeight, '-=');
   }
 
   private onAnnouncementClose(event: JQueryEventObject) {
     event.preventDefault();
-    this.revertAnnouncementChanges();
+    this.revertAnnouncementChanges(true);
     if ( !this.isLoggedIn ) {
       Cookies.set(ANNOUNCEMENT_COOKIE_NAME, 'true', { expires: 1 });
     }
