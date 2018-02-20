@@ -45,7 +45,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 						'default'         => esc_html__( 'Howdy! I\'m %first_name%, a millennial traveler<span class="hidden-mobile"> eager to wander the world and inspire others do the same</span>.', '__theme_txtd' ),
 						'section'         => 'content',
 						// This will be applied before rendering the widget output
-						'filter_callback' => 'pixelgrade_parse_content_tags',
+						'filter_callbacks' => 'pixelgrade_parse_content_tags',
 						'priority'        => 20,
 					),
 					'subtitle'      => array(
@@ -159,17 +159,6 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 						$$k = $v;
 					}
 				}
-
-				/**
-				 * Filters the widget title.
-				 *
-				 * @var string $title
-				 *
-				 * @param string $title The widget title.
-				 * @param array $instance An array of the widget's settings.
-				 * @param mixed $id_base The widget ID.
-				 */
-				$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 
 				$classes = array();
 				if ( ! empty( $this->config['posts']['classes'] ) ) {

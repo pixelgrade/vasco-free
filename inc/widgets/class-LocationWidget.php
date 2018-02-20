@@ -50,7 +50,8 @@ if ( ! class_exists( 'Pixelgrade_LocationWidget' ) ) :
 					    'label'    => esc_html__( 'Location:', '__theme_txtd' ),
 					    'default'  => 'New South Whales, Australia',
 					    'section'  => 'content',
-					    'filter_callback' => 'pixelgrade_parse_content_tags', // This will be applied before rendering the widget output
+					    // This will be applied before rendering the widget output
+					    'filter_callbacks' => 'pixelgrade_parse_content_tags',
 					    'priority' => 30,
 				    ),
 				    'location_url'           => array(
