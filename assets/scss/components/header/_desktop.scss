@@ -76,8 +76,24 @@
     padding-left: 0;
 
     background-color: #FFF;
-    box-shadow: 0 4px 4px 0 rgba(42,54,52,0.1), 0 8px 8px 0 rgba(42,54,52,0.1), 0 16px 16px 0 rgba(42,54,52,0.1), 0 16px 32px 0 rgba(42,54,52,0.1), 0 32px 64px 0 rgba(42,54,52,0.1), 0 64px 128px 0 rgba(42,54,52,0.1);
+    box-shadow:
+      0 4px 4px 0 rgba(42,54,52,0.1),
+      0 8px 8px 0 rgba(42,54,52,0.1),
+      0 16px 16px 0 rgba(42,54,52,0.1),
+      0 16px 32px 0 rgba(42,54,52,0.1),
+      0 32px 64px 0 rgba(42,54,52,0.1),
+      0 64px 128px 0 rgba(42,54,52,0.1);
   }
+}
+
+.c-navbar li {
+  transition: $transition--default;
+  transition-property: color;
+  transition-delay: 0.3s;
+}
+
+.c-navbar li:hover {
+  transition-delay: 0s;
 }
 
 .c-navbar__zone {
