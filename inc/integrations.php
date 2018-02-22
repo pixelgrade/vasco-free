@@ -29,3 +29,9 @@ require pixelgrade_get_parent_theme_file_path( '/inc/integrations/jetpack.php' )
  * https://wordpress.org/plugins/wp-instagram-widget/
  */
 require pixelgrade_get_parent_theme_file_path( '/inc/integrations/wp-instagram-widget.php' );
+
+/**
+ * Load Starter Content Exporter compatibility file.
+ * https://github.com/pixelgrade/starter_content_exporter
+ */
+require pixelgrade_get_parent_theme_file_path( '/inc/integrations/starter_content_exporter.php' );
