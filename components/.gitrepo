@@ -6,7 +6,7 @@
 [subrepo]
 	remote = https://github.com/pixelgrade/components.git
 	branch = master
-	commit = 5580c783b5f1ffdd951d970a4254d747ee9e9cd4
-	parent = d3d97fd685fa31a93ab578b0810b9eb4ed382656
+	commit = 605e28d9b445b69339963ad34bb7a4b0a9ff09a7
+	parent = a10009d7036491f3fda86c8da4ef83af946b6745
 	method = merge
 	cmdver = 0.4.0
