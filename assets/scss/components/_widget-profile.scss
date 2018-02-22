@@ -5,8 +5,9 @@
   flex-direction: row-reverse;
   align-items: center;
 
-  @include spacing(padding-top, 8rem);
-  @include spacing(padding-bottom, 8rem);
+  .widget-area--main &:first-child {
+    @include spacing(margin-top, 4rem);
+  }
 }
 
 .c-profile__dropcap {
