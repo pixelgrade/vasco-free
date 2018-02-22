@@ -1,7 +1,9 @@
 .site-header,
 .u-header-height-padding-top,
 .c-toolbar {
-  transition: $transition--ease-in-cubic;
+  &.animated {
+    transition: $transition--ease-in-cubic;
+  }
 }
 
 .c-announcement-bar {
@@ -11,22 +13,27 @@
   width: 100%;
   background-color: $theme-accent-color;
   z-index: 9001;
-  @include spacing(padding, 1rem 2rem);
+  @include spacing(padding, 0.75rem 2rem);
   display: flex;
   align-items: center;
   transform: translateY(0);
   will-change: transform;
-  transition: $transition--ease-in-cubic;
+  &.animated {
+    transition: $transition--ease-in-cubic;
+  }
 
   &.c-announcement-bar--hidden {
     transform: translateY(-100%);
+    opacity: 0;
   }
 }
 
-.c-announcement-bar__text {
+.c-announcement-bar__text[class] {
   flex: 1;
   text-align: center;
   transition: $transition--default;
+  font-size: 16px;
+  line-height: 19px;
 
   &:hover {
     opacity: 0.7;

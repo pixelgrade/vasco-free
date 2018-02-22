@@ -105,6 +105,7 @@ $alert-placeholder-background: $theme-accent-color;
   overflow: hidden;
 }
 
+// Helper class to hide elements or pieces text on mobile
 .hidden-mobile {
   @include below(lap) {
     display: none;
@@ -174,10 +175,6 @@ input[type=submit]{
   &:first-child + :not(.instagram-pics) {
     margin-top: 0;
   }
-}
-
-.single .entry-thumbnail img {
-  visibility: hidden;
 }
 
 .blob {

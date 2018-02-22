@@ -42,16 +42,16 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 						'type'            => 'textarea',
 						'label'           => esc_html__( 'Headline:', '__theme_txtd' ),
 						'rows'            => 3,
-						'default'         => esc_html__( 'Howdy! I\'m %first_name%, a millennial traveler eager to wander the world and inspire others do the same.', '__theme_txtd' ),
+						'default'         => esc_html__( 'Howdy! I\'m %first_name%, a millennial traveler<span class="hidden-mobile"> eager to wander the world and inspire others do the same</span>.', '__theme_txtd' ),
 						'section'         => 'content',
 						// This will be applied before rendering the widget output
-						'filter_callback' => 'pixelgrade_parse_content_tags',
+						'filter_callbacks' => 'pixelgrade_parse_content_tags',
 						'priority'        => 20,
 					),
 					'subtitle'      => array(
 						'type'     => 'text',
 						'label'    => esc_html__( 'Secondary Headline:', '__theme_txtd' ),
-						'default'  => esc_html__( 'Happy to have you here', '__theme_txtd' ),
+						'default'  => esc_html__( 'Welcome to My Blog', '__theme_txtd' ),
 						'section'  => 'content',
 						'priority' => 30,
 					),
@@ -59,7 +59,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 						'type'     => 'textarea',
 						'label'    => esc_html__( 'Description:', '__theme_txtd' ),
 						'rows'     => 5,
-						'default'  => esc_html__( 'I just quit my demanding job to travel full time around the world and share authentic stories. If you want to achieve your travel goals this is the right place to be. Enjoy the ride!', '__theme_txtd' ),
+						'default'  => esc_html__( 'I just quit my demanding job to travel full time around the world and share authentic stories.<span class="hidden-mobile">If you want to achieve your travel goals this is the right place to be. Enjoy the ride!</span>', '__theme_txtd' ),
 						'section'  => 'content',
 						'priority' => 40,
 					),
@@ -160,17 +160,6 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 					}
 				}
 
-				/**
-				 * Filters the widget title.
-				 *
-				 * @var string $title
-				 *
-				 * @param string $title The widget title.
-				 * @param array $instance An array of the widget's settings.
-				 * @param mixed $id_base The widget ID.
-				 */
-				$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
-
 				$classes = array();
 				if ( ! empty( $this->config['posts']['classes'] ) ) {
 					$classes = array_merge( $classes, (array) $this->config['posts']['classes'] );
@@ -264,6 +253,50 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 				// Let the developers know that something is amiss
 				_doing_it_wrong( __METHOD__, sprintf( 'Couldn\'t find a template part to use for displaying widget posts in the %s widget!', $this->name ), null );
 			}
+		}
+
+		/**
+		 * Handle various export logic specific to this widget's fields.
+		 *
+		 * @param array $widget_data The widget instance values.
+		 * @param string $widget_type The widget type.
+		 * @param array $matching_data The matching import/export data like old-new post IDs, old-new attachment IDs, etc.
+		 *
+		 * @return array The modified widget data.
+		 */
+		public function custom_export_logic( $widget_data, $widget_type, $matching_data ) {
+			// We need to replace the image attachment ID with the new one
+			if ( ! empty( $widget_data['image'] ) && ( ! empty( $matching_data['placeholders'] || ! empty( $matching_data['ignored_images'] ) ) ) ) {
+				$current_id = absint( $widget_data['image'] );
+				$new_id = false;
+
+				// Search through the placeholder attachments
+				foreach ( $matching_data['placeholders'] as $old_id => $new_attachment_details ) {
+					if ( $current_id === $old_id && ! empty( $new_attachment_details['id'] ) ) {
+						$new_id = $new_attachment_details['id'];
+						break;
+					}
+				}
+
+				if ( empty( $new_id ) ) {
+					// Search through the ignored attachments
+					foreach ( $matching_data['ignored_images'] as $old_id => $new_attachment_details ) {
+						if ( $current_id === $old_id && ! empty( $new_attachment_details['id'] ) ) {
+							$new_id = $new_attachment_details['id'];
+							break;
+						}
+					}
+				}
+
+				if ( ! empty( $new_id ) ) {
+					$widget_data['image'] = $new_id;
+				}
+			}
+
+			// To avoid troublesome button URLs, we will just empty it
+			$widget_data['button_url'] = '#';
+
+			return $widget_data;
 		}
 	}
 

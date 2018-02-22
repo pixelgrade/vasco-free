@@ -175,6 +175,7 @@ add_action( 'pixelgrade_footer_after_content', 'vasco_output_footer_search_trigg
  * @return array
  */
 function vasco_customize_header_config( $config ) {
+	// We will remove the Jetpack Social Menu from the header as we will display it in the side toolbar.
 	unset( $config['menu_locations']['jetpack-social-menu'] );
 
 	return $config;

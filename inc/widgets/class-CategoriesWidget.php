@@ -417,7 +417,9 @@ if ( ! class_exists( 'Pixelgrade_CategoriesWidget' ) ) :
 					// This way the order is maintained
 					foreach ( $category_ids as $category_id ) {
 						$category = get_term( $category_id, 'category' );
-						$categories = $categories + array( $category->term_id => $category->name );
+						if ( ! empty( $category ) && ! is_wp_error( $category ) ) {
+							$categories = $categories + array( $category->term_id => $category->name );
+						}
 					}
 				}
 			} else {
@@ -425,6 +427,28 @@ if ( ! class_exists( 'Pixelgrade_CategoriesWidget' ) ) :
 			}
 
 			return $categories;
+		}
+
+		/**
+		 * Handle various export logic specific to this widget's fields.
+		 *
+		 * @param array $widget_data The widget instance values.
+		 * @param string $widget_type The widget type.
+		 * @param array $matching_data The matching import/export data like old-new post IDs, old-new attachment IDs, etc.
+		 *
+		 * @return array The modified widget data.
+		 */
+		public function custom_export_logic( $widget_data, $widget_type, $matching_data ) {
+			// We need to replace each category in the `selected_categories` field with the new category IDs
+			if ( ! empty( $widget_data['selected_categories'] ) && ! empty( $matching_data['taxonomies']['category'] ) ) {
+				foreach ( $widget_data['selected_categories'] as $key => $old_id ) {
+					if ( array_key_exists( $old_id, $matching_data['taxonomies']['category'] ) ) {
+						$widget_data['selected_categories'][ $key ] = $matching_data['taxonomies']['category'][ $old_id ];
+					}
+				}
+			}
+
+			return $widget_data;
 		}
 	}
 

@@ -84,6 +84,9 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
 			if ( is_active_widget( false, false, $this->id_base ) || is_customize_preview() ) {
 				add_action( 'wp_enqueue_scripts', array( $this, 'enqueueScripts' ) );
 			}
+
+			// Add custom export logic
+			add_filter( "pixcare_sce_widget_data_export_{$id}", array( $this, 'custom_export_logic' ), 10, 3 );
 		}
 
 		/**
@@ -391,7 +394,7 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
 				$output .= '<label class="customize-control-title" for="' . esc_attr( $this->get_field_id( $field_name ) ) . '">' . $label . '</label>' . PHP_EOL;
 			}
 
-			$output .= '<textarea class="widefat" id="' . esc_attr( $this->get_field_id( $field_name ) ) . '" name="' . esc_attr( $this->get_field_name( $field_name ) ) . '" rows="' . esc_attr( $rows ) . '" >' . esc_html( $value ) . '</textarea>' . PHP_EOL;
+			$output .= '<textarea class="widefat" id="' . esc_attr( $this->get_field_id( $field_name ) ) . '" name="' . esc_attr( $this->get_field_name( $field_name ) ) . '" rows="' . esc_attr( $rows ) . '" >' . $this->sanitize_textarea( $value, $field_name, $field_config ) . '</textarea>' . PHP_EOL;
 
 			if ( ! empty( $desc ) ) {
 				$output .= '<br />' . PHP_EOL;
@@ -981,17 +984,41 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
 		/**
 		 * Apply filter callbacks for field values, if they are configured (per field).
 		 *
+		 * There can be a single (callable) filter or an array of callable filters.
+		 *
 		 * @param array $instance The current widget details.
+		 * @param bool $skip_default_filters Optional. Whether to skip default filters applied to certain type of fields. These filters are applied last.
 		 *
 		 * @return array
 		 */
-		public function applyFilters( $instance ) {
+		public function applyFilters( $instance, $skip_default_filters = false ) {
 			// Make sure this is an array
 			$instance = (array) $instance;
 
 			foreach ( $this->getFields() as $field_name => $field_config ) {
-				if ( isset( $field_config['filter_callback'] ) && is_callable( $field_config['filter_callback'] ) ) {
-					$instance[ $field_name ] = call_user_func( $field_config['filter_callback'], $instance[ $field_name ] );
+				if ( isset( $field_config['filter_callbacks'] ) ) {
+					if ( is_callable( $field_config['filter_callbacks'] ) ) {
+						$instance[ $field_name ] = call_user_func( $field_config['filter_callbacks'], $instance[ $field_name ] );
+					} elseif ( is_array( $field_config['filter_callbacks'] ) ) {
+						foreach ( $field_config['filter_callbacks'] as $callback ) {
+							if ( is_callable( $callback ) ) {
+								$instance[ $field_name ] = call_user_func( $callback, $instance[ $field_name ] );
+							}
+						}
+					}
+				}
+
+				// Now for the default filters
+				if ( ! $skip_default_filters ) {
+					switch ( $field_config['type'] ) {
+						case 'text':
+						case 'textarea':
+							$instance[ $field_name ] = wptexturize( $instance[ $field_name ] );
+							$instance[ $field_name ] = convert_chars( $instance[ $field_name ] );
+							break;
+						default:
+							break;
+					}
 				}
 			}
 
@@ -1132,7 +1159,11 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
 						),
 						'strong' => array(),
 						'b'      => array(),
+						'div'    => array(
+							'class' => array(),
+						),
 						'em'     => array(),
+						'i'      => array(),
 						'u'      => array(),
 						'span'   => array(
 							'class' => array(),
@@ -1409,6 +1440,21 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
 
 			<?php
 			echo $args['after_widget'];
+		}
+
+		/**
+		 * Handle various export logic specific to this widget's fields.
+		 *
+		 * @param array $widget_data The widget instance values.
+		 * @param string $widget_type The widget type.
+		 * @param array $matching_data The matching import/export data like old-new post IDs, old-new attachment IDs, etc.
+		 *
+		 * @return array The modified widget data.
+		 */
+		public function custom_export_logic( $widget_data, $widget_type, $matching_data ) {
+			// Nothing right now. Define this method in a extending class.
+
+			return $widget_data;
 		}
 	}
 

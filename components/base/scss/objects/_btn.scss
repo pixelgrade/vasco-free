@@ -19,7 +19,7 @@ $btn-border-width: 0 !default;
 $btn-border-style: solid !default;
 $btn-border-color: #222222 !default;
 
-$btn-transition: all .5s cubic-bezier(.18, .61, .43, .99) !default;
+$btn-transition: all .2s cubic-bezier(0, 0, 0.58, 1) !default;
 
 $btn-font: () !default;
 
@@ -62,10 +62,10 @@ $btn-font: () !default;
   color: $btn-color;
   background-color: $btn-background;
 
-  -webkit-font-smoothing: initial;
-
   transition: $btn-transition;
-  transition-property: color, background-color, opacity;
+
+  // -webkit-font-smoothing: initial;
+  // Removed as it makes the font weight too thick
 
   .u-buttons-rounded & {
     border-radius: 0.3em;

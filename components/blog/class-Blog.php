@@ -727,20 +727,6 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
 	}
 
 	/**
-	 * Load, instantiate, and hookup things that need to happen before the 'init' action (where our fire_up() is).
-	 *
-	 * You should refrain from putting things here that are not absolutely necessary because these are murky waters.
-	 */
-	public function preInitSetup() {
-		// Register the widget areas
-		// We hook this in preInitSetup because the `widgets_init` hooks gets fires at init priority 1.
-		add_action( 'widgets_init', array( $this, 'registerSidebars' ), 10 );
-
-		// Register the config nav menu locations, if we have any
-		// $this->registerNavMenus();
-	}
-
-	/**
 	 * Load, instantiate and hook up.
 	 */
 	public function fireUp() {
@@ -811,33 +797,7 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
 	}
 
 	/**
-	 * Register the sidebars (widget areas) configured by the component.
-	 *
-	 * @return bool
-	 */
-	public function registerSidebars() {
-		$registered_some_sidebars = false;
-		if ( ! empty( $this->config['sidebars'] ) ) {
-			foreach ( $this->config['sidebars'] as $id => $settings ) {
-				if ( empty( $settings['sidebar_args']['id'] ) ) {
-					$settings['sidebar_args']['id'] = $id;
-				}
-
-				// Register a new widget area
-				register_sidebar( $settings['sidebar_args'] );
-
-				// Remember what we've done last summer :)
-				$registered_some_sidebars = true;
-			}
-		}
-
-		// Let others know what we did.
-		return $registered_some_sidebars;
-	}
-
-
-	/**
-	 * Enqueue styles and scripts on the frontend
+	 * Enqueue styles and scripts on the frontend.
 	 */
 	public function enqueueScripts() {
 		// Register the general frontend styles and scripts specific to blog
@@ -850,32 +810,32 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
 	}
 
 	/**
-	 * Load on when the admin is initialized
+	 * Loaded when the WordPress dashboard is initialized.
 	 */
 	public function adminInit() {
-		/* register the styles and scripts specific to bloges */
-		wp_register_style( 'pixelgrade_blog-admin-style', pixelgrade_get_theme_file_uri( trailingslashit( PIXELGRADE_COMPONENTS_PATH ) . trailingslashit( self::COMPONENT_SLUG ) . 'css/admin.css' ), array(), $this->assets_version );
-		wp_register_script( 'pixelgrade_blog-admin-scripts', pixelgrade_get_theme_file_uri( trailingslashit( PIXELGRADE_COMPONENTS_PATH ) . trailingslashit( self::COMPONENT_SLUG ) . 'js/admin.js' ), array(), $this->assets_version );
+		/* register the admin styles and scripts specific to this component */
+//		wp_register_style( 'pixelgrade_blog-admin-style', pixelgrade_get_theme_file_uri( trailingslashit( PIXELGRADE_COMPONENTS_PATH ) . trailingslashit( self::COMPONENT_SLUG ) . 'css/admin.css' ), array(), $this->assets_version );
+//		wp_register_script( 'pixelgrade_blog-admin-scripts', pixelgrade_get_theme_file_uri( trailingslashit( PIXELGRADE_COMPONENTS_PATH ) . trailingslashit( self::COMPONENT_SLUG ) . 'js/admin.js' ), array(), $this->assets_version );
 
 	}
 
 	/**
-	 * Enqueue scripts and styles for the admin area
+	 * Enqueue scripts and styles for the admin area.
 	 *
 	 * @param string $hook
 	 */
 	public function adminEnqueueScripts( $hook ) {
-		/* enqueue the styles and scripts specific to bloges */
-		if ( 'edit.php' != $hook ) {
-			wp_enqueue_style( 'pixelgrade_blog-admin-style' );
-			wp_enqueue_script( 'pixelgrade_blog-admin-scripts' );
-
-			wp_localize_script(
-				'pixelgrade_blog-admin-scripts', 'pixelgrade_blog_admin', array(
-					'ajaxurl' => admin_url( 'admin-ajax.php' ),
-				)
-			);
-		}
+		/* enqueue the admin styles and scripts specific to this component */
+//		if ( 'post.php' === $hook ) {
+//			wp_enqueue_style( 'pixelgrade_blog-admin-style' );
+//			wp_enqueue_script( 'pixelgrade_blog-admin-scripts' );
+//
+//			wp_localize_script(
+//				'pixelgrade_blog-admin-scripts', 'pixelgrade_blog_admin', array(
+//					'ajaxurl' => admin_url( 'admin-ajax.php' ),
+//				)
+//			);
+//		}
 	}
 
 	/**

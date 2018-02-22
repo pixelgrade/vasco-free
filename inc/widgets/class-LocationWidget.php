@@ -50,7 +50,8 @@ if ( ! class_exists( 'Pixelgrade_LocationWidget' ) ) :
 					    'label'    => esc_html__( 'Location:', '__theme_txtd' ),
 					    'default'  => 'New South Whales, Australia',
 					    'section'  => 'content',
-					    'filter_callback' => 'pixelgrade_parse_content_tags', // This will be applied before rendering the widget output
+					    // This will be applied before rendering the widget output
+					    'filter_callbacks' => 'pixelgrade_parse_content_tags',
 					    'priority' => 30,
 				    ),
 				    'location_url'           => array(
@@ -242,6 +243,50 @@ if ( ! class_exists( 'Pixelgrade_LocationWidget' ) ) :
 				// Let the developers know that something is amiss
 				_doing_it_wrong( __METHOD__, sprintf( 'Couldn\'t find a template part to use for displaying widget posts in the %s widget!', $this->name ), null );
 			}
+		}
+
+		/**
+		 * Handle various export logic specific to this widget's fields.
+		 *
+		 * @param array $widget_data The widget instance values.
+		 * @param string $widget_type The widget type.
+		 * @param array $matching_data The matching import/export data like old-new post IDs, old-new attachment IDs, etc.
+		 *
+		 * @return array The modified widget data.
+		 */
+		public function custom_export_logic( $widget_data, $widget_type, $matching_data ) {
+			// We need to replace the image attachment ID with the new one
+			if ( ! empty( $widget_data['image'] ) && ( ! empty( $matching_data['placeholders'] || ! empty( $matching_data['ignored_images'] ) ) ) ) {
+				$current_id = absint( $widget_data['image'] );
+				$new_id = false;
+
+				// Search through the placeholder attachments
+				foreach ( $matching_data['placeholders'] as $old_id => $new_attachment_details ) {
+					if ( $current_id === $old_id && ! empty( $new_attachment_details['id'] ) ) {
+						$new_id = $new_attachment_details['id'];
+						break;
+					}
+				}
+
+				if ( empty( $new_id ) ) {
+					// Search through the ignored attachments
+					foreach ( $matching_data['ignored_images'] as $old_id => $new_attachment_details ) {
+						if ( $current_id === $old_id && ! empty( $new_attachment_details['id'] ) ) {
+							$new_id = $new_attachment_details['id'];
+							break;
+						}
+					}
+				}
+
+				if ( ! empty( $new_id ) ) {
+					$widget_data['image'] = $new_id;
+				}
+			}
+
+			// To avoid troublesome button URLs, we will just empty it
+			$widget_data['button_url'] = '#';
+
+			return $widget_data;
 		}
 	}
 

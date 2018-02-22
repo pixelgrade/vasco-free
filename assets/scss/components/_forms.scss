@@ -1,12 +1,12 @@
 @mixin custom-btn-overwrite {
-  transition: $transition--default;
+  // transition: $transition--default;
   cursor: pointer;
-  transform: translateZ(0);
+  transform: perspective(1px) translateZ(0);
 
   &:focus,
   &:active,
   &:hover {
-    transform: scale(1.03) translateZ(0);
+    transform: scale(1.05) translateY(-3px) translateZ(0);
     transform-origin: center;
   }
 

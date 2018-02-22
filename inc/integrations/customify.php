@@ -26,8 +26,10 @@ add_filter( 'pixelgrade_customify_buttons_section_options', 'vasco_customify_but
 add_filter( 'pixelgrade_footer_customify_section_options', 'vasco_customify_footer_section', 10, 2 );
 add_filter( 'pixelgrade_customify_blog_grid_section_options', 'vasco_customify_blog_grid_section', 10, 2 );
 
+define( 'THEME_MAIN_COLOR', '#F59828' ); // Yellow 
+define( 'THEME_SECONDARY_COLOR', '#38C3C8' ); // Blue
+define( 'THEME_DARK_COLOR', '#202423' ); // Dark
 define( 'THEME_TEXT_COLOR', '#2B3D39' );
-define( 'THEME_ACCENT_COLOR', '#DE2D16' );
 
 define( 'THEME_BODY_FONT', 'Lora' );
 define( 'THEME_HEADINGS_FONT', 'YoungSerif' );
@@ -73,7 +75,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 					'type'    => 'color',
 					'label'   => esc_html__( 'Accent Color', '__theme_txtd' ),
 					'live'    => true,
-					'default' => THEME_ACCENT_COLOR,
+					'default' => THEME_MAIN_COLOR,
 					'css'     => array(
 						array(
 							'property' => 'background-color',
@@ -96,7 +98,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 					'type'    => 'color',
 					'label'   => esc_html__( 'Accent Dark Color', '__theme_txtd' ),
 					'live'    => true,
-					'default' => '#202423',
+					'default' => THEME_DARK_COLOR,
 					'css'     => array(
 						array(
 							'property' => 'background-color',
@@ -193,7 +195,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 					'type'    => 'color',
 					'label'   => esc_html__( 'Blobs Main Color', '__theme_txtd' ),
 					'live'    => true,
-					'default' => '#DE2D16',
+					'default' => THEME_MAIN_COLOR,
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -205,7 +207,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 					'type'    => 'color',
 					'label'   => esc_html__( 'Blobs Secondary Color', '__theme_txtd' ),
 					'live'    => true,
-					'default' => '#FFDCCE',
+					'default' => THEME_SECONDARY_COLOR, 
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -217,7 +219,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 					'type'    => 'color',
 					'label'   => esc_html__( 'Blobs Tertiary Color', '__theme_txtd' ),
 					'live'    => true,
-					'default' => '#171512',
+					'default' => THEME_DARK_COLOR,
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -316,7 +318,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 					'type'    => 'color',
 					'label'   => esc_html__( 'Background Color', '__theme_txtd' ),
 					'live'    => true,
-					'default' => '#df2d16',
+					'default' => THEME_SECONDARY_COLOR,
 					'css'     => array(
 						array(
 							'property' => 'background-color',
@@ -328,7 +330,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 					'type'    => 'color',
 					'label'   => esc_html__( 'Text Color', '__theme_txtd' ),
 					'live'    => true,
-					'default' => '#f5f6f1',
+					'default' => '#ffffff',
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -469,11 +471,11 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 					'default' => THEME_TEXT_COLOR,
 				),
 				'main_content_body_link_active_color'   => array(
-					'default' => THEME_ACCENT_COLOR,
+					'default' => THEME_MAIN_COLOR,
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => 'a:hover, a:active',
+							'selector' => 'a:hover, a:active, .c-footer a:hover',
 						),
 						array(
 							'property' => 'background-color',
@@ -501,7 +503,7 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 					'default' => THEME_TEXT_COLOR,
 				),
 				'main_content_heading_4_color'          => array(
-					'default' => THEME_ACCENT_COLOR,
+					'default' => THEME_MAIN_COLOR,
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -510,16 +512,16 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 					),
 				),
 				'main_content_heading_5_color'          => array(
-					'default' => THEME_ACCENT_COLOR,
+					'default' => THEME_MAIN_COLOR,
 					'css'     => array(
 						array(
-							'selector' => 'h5, .h5, .nav-links__label',
+							'selector' => 'h5, .h5, .nav-links__label, .c-author__links a',
 							'property' => 'color'
 						),
 					),
 				),
 				'main_content_heading_6_color'          => array(
-					'default' => THEME_ACCENT_COLOR,
+					'default' => THEME_MAIN_COLOR,
 				),
 
 				// [Sub Section] Backgrounds
@@ -593,7 +595,7 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 					'default' => array(
 						'font-family'    => THEME_HEADINGS_FONT,
 						'font-weight'    => 'regular',
-						'font-size'      => 40,
+						'font-size'      => 32,
 						'line-height'    => 1.5,
 						'letter-spacing' => 0,
 						'text-transform' => 'none',
@@ -789,7 +791,7 @@ function vasco_customify_buttons_section( $section_options, $options ) {
 					'default' => 'rounded',
 				),
 				'buttons_color'      => array(
-					'default' => THEME_ACCENT_COLOR,
+					'default' => THEME_SECONDARY_COLOR,
 					'css'     => array(
 						array(
 							'property' => 'background-color',
@@ -836,7 +838,7 @@ function vasco_customify_buttons_section( $section_options, $options ) {
 						'font-family'    => THEME_HEADINGS_FONT_ALT,
 						'font-weight'    => '500',
 						'font-size'      => 17,
-						'line-height'    => 1.94,
+						'line-height'    => 1.6,
 						'letter-spacing' => 0,
 					),
 				),
@@ -891,7 +893,7 @@ function vasco_customify_blog_grid_section( $section_options, $options ) {
 			'options' => array(
 				// [Section] Layout
 				'blog_grid_width'                    => array(
-					'default' => 1240,
+					'default' => 1200,
 				),
 				'blog_container_sides_spacing'       => array(
 					'default' => 42,
@@ -901,7 +903,7 @@ function vasco_customify_blog_grid_section( $section_options, $options ) {
 					'default' => 'regular',
 				),
 				'blog_items_aspect_ratio'            => array(
-					'default' => 50,
+					'default' => 40,
 					'css'         => array(
 						array(
 							'property'        => 'dummy',
@@ -961,7 +963,7 @@ function vasco_customify_blog_grid_section( $section_options, $options ) {
 					),
 				),
 				'blog_item_meta_primary_color'       => array(
-					'default' => THEME_ACCENT_COLOR,
+					'default' => THEME_MAIN_COLOR,
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -1014,8 +1016,8 @@ function vasco_customify_blog_grid_section( $section_options, $options ) {
 					'default'  => array(
 						'font-family'    => THEME_HEADINGS_FONT,
 						'font-weight'    => '700',
-						'font-size'      => 21,
-						'line-height'    => 1.3,
+						'font-size'      => 24,
+						'line-height'    => 1.25,
 						'letter-spacing' => 0,
 						'text-transform' => 'none',
 					),
@@ -1134,10 +1136,10 @@ function vasco_customify_header_section( $section_options, $options ) {
 
 				// [Section] COLORS
 				'header_navigation_links_color'   => array(
-					'default' => '#323232',
+					'default' => THEME_DARK_COLOR,
 				),
 				'header_links_active_color'       => array(
-					'default' => THEME_ACCENT_COLOR,
+					'default' => THEME_MAIN_COLOR,
 				),
 				'header_links_active_style'       => array(
 					'default' => 'active',
@@ -1242,7 +1244,7 @@ function vasco_customify_footer_section( $section_options, $options ) {
 
 				// [Section] COLORS
 				'footer_body_text_color'       => array(
-					'default' => '#2B3D39',
+					'default' => THEME_DARK_COLOR,
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -1251,7 +1253,7 @@ function vasco_customify_footer_section( $section_options, $options ) {
 					),
 				),
 				'footer_links_color'           => array(
-					'default' => '#2B3D39',
+					'default' => THEME_DARK_COLOR,
 				),
 				'footer_background'            => array(
 					'default' => '#F5F6F1',

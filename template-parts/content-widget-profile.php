@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="c-profile__content">
 
 		<?php if ( ! empty( $subtitle ) ) { ?>
-			<div class="c-profile__subtitle h6"><?php echo $subtitle; ?></div>
+			<div class="c-profile__subtitle h5"><?php echo $subtitle; ?></div>
 		<?php } ?>
 
 		<?php if ( ! empty( $title ) ) { ?>
@@ -44,7 +44,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php } ?>
 
 		<?php if ( ! empty( $button_text ) && ! empty( $button_url ) ) { ?>
-			<a href="<?php echo $button_url; ?>" class="c-profile__btn c-btn"><?php echo $button_text; ?></a>
+			<a href="<?php echo esc_url( $button_url ); ?>" class="c-profile__btn c-btn"><?php echo $button_text; ?></a>
 		<?php } ?>
 
 	</div>
