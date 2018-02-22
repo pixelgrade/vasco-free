@@ -61,7 +61,7 @@
 
 .feature-group-2 {
 
-  @include above(small) {
+  //@include above(small) {
     display: flex;
     align-items: stretch;
     margin-left: -1rem;
@@ -70,7 +70,7 @@
       flex: 1 1 0;
       margin-left: 1rem;
     }
-  }
+  //}
 }
 
 // Pixelgrade Feature x3, x4
@@ -78,7 +78,7 @@
 .feature-group-3,
 .feature-group-4 {
 
-  @include above(small) {
+  //@include above(small) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 1rem;
@@ -109,7 +109,7 @@
       grid-column: 1 / 3;
       grid-row: 3 / 4;
     }
-  }
+  //}
 }
 
 @include above(70em) {

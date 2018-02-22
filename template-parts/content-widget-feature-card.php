@@ -21,9 +21,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php if ( ! empty( $title ) || ! empty( $description ) || ( ! empty( $button_text ) && ! empty( $button_url ) ) ) { ?>
 
-	<div class="c-feature__content">
+	<div class="c-feature__content u-content-width">
 		<?php if ( ! empty( $title ) ) { ?>
-			<div class="c-feature__title h3"><?php echo $title ?></div>
+			<div class="c-feature__title h3"><span><?php echo $title ?></span></div>
 		<?php } ?>
 
 		<?php if ( ! empty( $description ) ) { ?>
@@ -37,6 +37,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php } ?>
 
 	</div>
+
+	<?php if ( ! empty( $button_url ) ) {
+		if ( ! empty( $button_text ) ) { ?>
+			<a href="<?php echo $button_url; ?>" class="c-feature__link u-mq-below-pad"></a>
+		<?php } else { ?>
+			<a href="<?php echo $button_url; ?>" class="c-feature__link"></a>
+		<?php }
+	} ?>
 
 <?php } ?>
 
