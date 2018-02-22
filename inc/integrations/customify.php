@@ -574,7 +574,7 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 					'default' => array(
 						'font-family'    => THEME_HEADINGS_FONT,
 						'font-weight'    => 'regular',
-						'font-size'      => 40,
+						'font-size'      => 32,
 						'line-height'    => 1.5,
 						'letter-spacing' => 0,
 						'text-transform' => 'none',
