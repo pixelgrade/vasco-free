@@ -152,8 +152,15 @@
 }
 
 .widget_media_gallery {
+
   [class*="gallery-columns-"] {
     align-items: center;
+
+    @include below(pad) {
+      &:not(.gallery-columns-1) > .gallery-item {
+        width: 50%;
+      }
+    }
 
     .widget-area--main & {
       justify-content: center;
