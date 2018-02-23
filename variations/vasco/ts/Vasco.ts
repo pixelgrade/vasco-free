@@ -37,6 +37,7 @@ export class Vasco extends BaseTheme {
     setTimeout(() => {
       this.initAnnouncementBar();
     }, 50);
+
     this.handleContent();
     this.groupWidgets();
     this.generateBlobs();
@@ -62,6 +63,7 @@ export class Vasco extends BaseTheme {
 
     GlobalService
       .onCustomizerChange()
+      .debounce( 300 )
       .takeWhile( () => this.subscriptionActive )
       .subscribe( () => {
         this.updateBlobParameters();
@@ -79,17 +81,16 @@ export class Vasco extends BaseTheme {
     const wp = extWindow.wp;
     const $goo = $('#goo');
 
-    const complexity = 1 - parseInt( wp.customize( 'vasco_options[blobs_complexity]' )(), 10 ) / 100;
+    const complexity = parseInt( wp.customize( 'vasco_options[blobs_complexity]' )(), 10 ) / 100;
     const smoothness = parseInt( wp.customize( 'vasco_options[blobs_smoothness]' )(), 10 );
-    const seed = parseInt( wp.customize( 'vasco_options[blobs_seed]' )(), 10 );
+    const preset = parseInt( wp.customize( 'vasco_options[blobs_preset]' )(), 10 );
 
     this.blobs.forEach( ( blob ) => {
-      if ( blob.getSeed() !== seed ) {
-        blob.setSides( Math.max( 5, Math.floor( Math.sqrt( seed ) ) ) );
-        blob.setSeed( seed );
-        blob.render();
+      if ( blob.getPreset() !== preset ) {
+        blob.setPreset( preset );
       }
       blob.setComplexity( complexity );
+      blob.morph( 600 );
     });
 
     requestAnimationFrame(() => {
@@ -154,13 +155,13 @@ export class Vasco extends BaseTheme {
   }
 
   public generateBlobs() {
-    const seed = parseInt( $( 'body' ).data( 'blobs-seed' ), 10 );
-    const sides = Math.max( 5, Math.floor( Math.sqrt( seed ) ) );
+    const preset = parseInt( $( 'body' ).data( 'blobs-preset' ), 10 );
+    const complexity = parseInt( $( 'body' ).data( 'blobs-complexity' ), 10 ) / 100;
+    const sides = 13;
 
     $( '.blob--shape-1' ).each( (i, obj) => {
       const $obj = $(obj);
-      // const blob = new Blob(7, seed);
-      const blob = new Blob(sides, seed);
+      const blob = new Blob(sides, complexity, preset);
 
       this.blobs.push( blob );
       $obj.append( blob.getSvg() );
@@ -168,8 +169,7 @@ export class Vasco extends BaseTheme {
 
     $( '.blob--shape-2' ).each( (i, obj) => {
       const $obj = $(obj);
-      // const blob = new Blob(9, seed);
-      const blob = new Blob(sides, seed, 1);
+      const blob = new Blob(sides, complexity, preset, 1);
 
       this.blobs.push( blob );
       $obj.append( blob.getSvg() );
@@ -177,8 +177,7 @@ export class Vasco extends BaseTheme {
 
     $( '.blob--shape-3' ).each( (i, obj) => {
       const $obj = $(obj);
-      // const blob = new Blob(12, seed);
-      const blob = new Blob(sides, seed, 2);
+      const blob = new Blob(sides, complexity, preset, 2);
 
       this.blobs.push( blob );
       $obj.append( blob.getSvg() );

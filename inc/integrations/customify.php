@@ -122,7 +122,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 					'label'   => esc_html__( 'Show Blobs', '__theme_txtd' ),
 					'default' => true,
 				),
-				'blobs_seed' => array(
+				'blobs_preset' => array(
 					'type'        => 'range',
 					'label'       => esc_html__( 'Presets', '__theme_txtd' ),
 					'desc'        => esc_html__( '', '__theme_txtd' ),
