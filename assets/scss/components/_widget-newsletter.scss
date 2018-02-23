@@ -1,9 +1,9 @@
 .widget_mc4wp_form_widget {
-  padding: 1rem;
+  padding: 2.5rem;
 
   background: $theme-accent-color;
   color: $color-white;
-  text-align: left;
+  text-align: center;
   border-radius: 4px;
 
   .widget__title {
@@ -16,6 +16,7 @@
   }
 
   @include above(pad) {
+    text-align: left;
     padding: 3rem;
 
     input[type="email"] {

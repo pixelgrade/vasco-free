@@ -2,10 +2,6 @@
 
 .stamp-newsletter-group {
 
-  .widget_mc4wp_form_widget {
-    text-align: left;
-  }
-
   @include above(lap) {
     display: flex;
     align-items: stretch;
@@ -32,7 +28,7 @@
     }
 
     .widget_stamp {
-      width: auto !important;
+      display: none;
     }
   }
 }
