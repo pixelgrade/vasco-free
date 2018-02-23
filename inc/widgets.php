@@ -119,7 +119,8 @@ function vasco_handle_front_page_widgets_nesting( $index ) {
 		// If we encounter a stamp widget, we need to see if there is a MailChimp newsletter widget after it - if there is we wrap both
 		if ( 'pixelgrade-stamp' === $widget_type &&
 		     isset( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
-		     'mc4wp_form_widget' === vasco_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
+		     'mc4wp_form_widget' === vasco_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
+			 class_exists( 'MC4WP_Form_Widget' ) ) {
 			// We will output a wrapper before the stamp widget and one after the subscribe form widget
 			$opening_filter = new Vasco_AddWidgetIdWrapperOpeningTag( 'widget-group stamp-newsletter-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
@@ -136,6 +137,7 @@ function vasco_handle_front_page_widgets_nesting( $index ) {
 
 		// Now the other way around, first the newletter and then the stamp widget.
 		if ( 'mc4wp_form_widget' === $widget_type &&
+		     class_exists( 'MC4WP_Form_Widget' ) &&
 		     isset( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
 		     'pixelgrade-stamp' === vasco_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 			// We will output a wrapper before the newsletter form widget.
@@ -192,7 +194,8 @@ function vasco_handle_front_page_widgets_nesting( $index ) {
 		// If we encounter a Social Media Icons widget, we need to see if there is a Instagram widget after it - if there is we wrap both
 		if ( 'wpcom_social_media_icons_widget' === $widget_type &&
 		     isset( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
-		     'null-instagram-feed' === vasco_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
+		     'null-instagram-feed' === vasco_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
+			 class_exists( 'null_instagram_widget' ) ) {
 			// We will output a wrapper before the Social Media Icons widget
 			$opening_filter = new Vasco_AddWidgetIdWrapperOpeningTag( 'widget-group social-instagram-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
@@ -212,6 +215,7 @@ function vasco_handle_front_page_widgets_nesting( $index ) {
 
 		// Now the other way around, first the Instagram widget and then the Social Media Icons widget.
 		if ( 'null-instagram-feed' === $widget_type &&
+		     class_exists( 'null_instagram_widget' ) &&
 		     isset( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
 		     'wpcom_social_media_icons_widget' === vasco_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
 			// We will output a wrapper before the Social Media Icons widget
