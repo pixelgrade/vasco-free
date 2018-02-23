@@ -177,14 +177,6 @@ input[type=submit]{
   }
 }
 
-.blob {
-  filter: url('#goo2');
-
-  svg {
-    filter: url('#goo');
-  }
-}
-
 @import "pages/not-found";
 @import "pages/page";
 @import "pages/single";

@@ -122,12 +122,12 @@ function vasco_customify_general_section( $section_options, $options ) {
 					'label'   => esc_html__( 'Show Blobs', '__theme_txtd' ),
 					'default' => true,
 				),
-				'blobs_seed' => array(
+				'blobs_preset' => array(
 					'type'        => 'range',
 					'label'       => esc_html__( 'Presets', '__theme_txtd' ),
 					'desc'        => esc_html__( '', '__theme_txtd' ),
 					'live'        => true,
-					'default'     => 10,
+					'default'     => 218,
 					'input_attrs' => array(
 						'min'          => 0,
 						'max'          => 1000,
@@ -143,7 +143,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 					'label'       => esc_html__( 'Complexity', '__theme_txtd' ),
 					'desc'        => esc_html__( '', '__theme_txtd' ),
 					'live'        => true,
-					'default'     => 90,
+					'default'     => 84,
 					'input_attrs' => array(
 						'min'          => 0,
 						'max'          => 100,
@@ -154,12 +154,33 @@ function vasco_customify_general_section( $section_options, $options ) {
 
 					),
 				),
+				'blobs_dispersion' => array(
+					'type'        => 'range',
+					'label'       => esc_html__( 'Dispersion', '__theme_txtd' ),
+					'desc'        => esc_html__( '', '__theme_txtd' ),
+					'live'        => true,
+					'default'     => 26,
+					'input_attrs' => array(
+						'min'          => 0,
+						'max'          => 100,
+						'step'         => 1,
+						'data-preview' => true,
+					),
+					'css' => array(
+						array(
+							'property'        => 'dummy',
+							'selector'        => '.blob-dispersion',
+							'callback_filter' => 'pixelgrade_blobs_dispersion',
+							'unit'            => '%',
+						),
+					),
+				),
 				'blobs_smoothness' => array(
 					'type'        => 'range',
 					'label'       => esc_html__( 'Smoothness', '__theme_txtd' ),
 					'desc'        => esc_html__( '', '__theme_txtd' ),
 					'live'        => true,
-					'default'     => 10,
+					'default'     => 25,
 					'input_attrs' => array(
 						'min'          => 0,
 						'max'          => 100,
@@ -1340,3 +1361,63 @@ function vasco_stamp_light_image_control_show() {
 
 	return true;
 }
+
+if ( ! function_exists( 'pixelgrade_blobs_dispersion' ) ) :
+	/**
+	 * Returns the custom CSS rules for the aspect ratio depending on the Customizer settings.
+	 *
+	 * @param mixed  $value The value of the option.
+	 * @param string $selector The CSS selector for this option.
+	 * @param string $property The CSS property of the option.
+	 * @param string $unit The CSS unit used by this option.
+	 *
+	 * @return string
+	 */
+	function pixelgrade_blobs_dispersion( $value, $selector, $property, $unit ) {
+
+		$output = '.blob-dispersion {' . PHP_EOL .
+           'transform: translateY(-' . $value . '%)'. PHP_EOL .
+        '}' . PHP_EOL;
+
+		return $output;
+	}
+endif;
+
+if ( ! function_exists( 'pixelgrade_blobs_dispersion_customizer_preview' ) ) :
+	/**
+	 * Outputs the inline JS code used in the Customizer for the aspect ratio live preview.
+	 */
+	function pixelgrade_blobs_dispersion_customizer_preview() {
+
+		$js = "
+			function pixelgrade_blobs_dispersion( value, selector, property, unit ) {
+			
+			    var css = '',
+			        style = document.getElementById('pixelgrade_blobs_dispersion_style_tag'),
+			        head = document.head || document.getElementsByTagName('head')[0];
+			
+			    css += '.blob-dispersion {' +
+			        'transform: translateY(-' + value + '%)' +
+		        '}';
+			
+			    if ( style !== null ) {
+			        style.innerHTML = css;
+			    } else {
+			        style = document.createElement('style');
+			        style.setAttribute('id', 'pixelgrade_blobs_dispersion_style_tag');
+			
+			        style.type = 'text/css';
+			        if ( style.styleSheet ) {
+			            style.styleSheet.cssText = css;
+			        } else {
+			            style.appendChild(document.createTextNode(css));
+			        }
+			
+			        head.appendChild(style);
+			    }
+			}" . PHP_EOL;
+
+		wp_add_inline_script( 'customify-previewer-scripts', $js );
+	}
+endif;
+add_action( 'customize_preview_init', 'pixelgrade_blobs_dispersion_customizer_preview', 20 );

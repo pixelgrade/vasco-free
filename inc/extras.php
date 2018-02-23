@@ -424,8 +424,9 @@ function vasco_kses_anchor_content( $content ) {
 	return wp_kses( $content, $allowedtags );
 }
 
-function vasco_blobs_seed_body_attribute( $attributes ) {
-	$attributes['data-blobs-seed'] = pixelgrade_option( 'blobs_seed', 357 );
+function vasco_blobs_preset_body_attribute( $attributes ) {
+	$attributes['data-blobs-preset'] = pixelgrade_option( 'blobs_preset', 357 );
+	$attributes['data-blobs-complexity'] = pixelgrade_option( 'blobs_complexity', 84 );
 	return $attributes;
 }
-add_filter( 'pixelgrade_body_attributes', 'vasco_blobs_seed_body_attribute' );
+add_filter( 'pixelgrade_body_attributes', 'vasco_blobs_preset_body_attribute' );

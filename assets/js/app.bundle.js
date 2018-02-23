@@ -501,7 +501,7 @@ var Vasco = function (_BaseTheme) {
             _this.prepareFeatureHover();
             _this.initStamp();
         });
-        __WEBPACK_IMPORTED_MODULE_9__components_base_ts_services_global_service__["a" /* GlobalService */].onCustomizerChange().takeWhile(function () {
+        __WEBPACK_IMPORTED_MODULE_9__components_base_ts_services_global_service__["a" /* GlobalService */].onCustomizerChange().debounce(300).takeWhile(function () {
             return _this.subscriptionActive;
         }).subscribe(function () {
             _this.updateBlobParameters();
@@ -510,21 +510,26 @@ var Vasco = function (_BaseTheme) {
     }
 
     _createClass(Vasco, [{
+        key: 'addBrowserClasses',
+        value: function addBrowserClasses() {
+            var extWindow = window;
+            __WEBPACK_IMPORTED_MODULE_1_jquery___default()('body').toggleClass('is-safari', !!extWindow.safari);
+        }
+    }, {
         key: 'updateBlobParameters',
         value: function updateBlobParameters() {
             var extWindow = window;
             var wp = extWindow.wp;
             var $goo = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('#goo');
-            var complexity = 1 - parseInt(wp.customize('vasco_options[blobs_complexity]')(), 10) / 100;
+            var complexity = parseInt(wp.customize('vasco_options[blobs_complexity]')(), 10) / 100;
             var smoothness = parseInt(wp.customize('vasco_options[blobs_smoothness]')(), 10);
-            var seed = parseInt(wp.customize('vasco_options[blobs_seed]')(), 10);
+            var preset = parseInt(wp.customize('vasco_options[blobs_preset]')(), 10);
             this.blobs.forEach(function (blob) {
-                if (blob.getSeed() !== seed) {
-                    blob.setSides(Math.max(5, Math.floor(Math.sqrt(seed))));
-                    blob.setSeed(seed);
-                    blob.render();
+                if (blob.getPreset() !== preset) {
+                    blob.setPreset(preset);
                 }
                 blob.setComplexity(complexity);
+                blob.morph(600);
             });
             requestAnimationFrame(function () {
                 var stdDeviation = Math.max(smoothness, 0);
@@ -545,6 +550,7 @@ var Vasco = function (_BaseTheme) {
             this.Header = new __WEBPACK_IMPORTED_MODULE_7__components_header_ts_Header__["a" /* Header */]();
             this.SearchOverlay = new __WEBPACK_IMPORTED_MODULE_6__components_base_ts_components_SearchOverlay__["a" /* SearchOverlay */]();
             this.addNavigationClasses();
+            this.addBrowserClasses();
             this.adjustLayout();
             this.initStamp();
         }
@@ -588,26 +594,24 @@ var Vasco = function (_BaseTheme) {
         value: function generateBlobs() {
             var _this2 = this;
 
-            var seed = parseInt(__WEBPACK_IMPORTED_MODULE_1_jquery___default()('body').data('blobs-seed'), 10);
-            var sides = Math.max(5, Math.floor(Math.sqrt(seed)));
+            var preset = parseInt(__WEBPACK_IMPORTED_MODULE_1_jquery___default()('body').data('blobs-preset'), 10);
+            var complexity = parseInt(__WEBPACK_IMPORTED_MODULE_1_jquery___default()('body').data('blobs-complexity'), 10) / 100;
+            var sides = 13;
             __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.blob--shape-1').each(function (i, obj) {
                 var $obj = __WEBPACK_IMPORTED_MODULE_1_jquery___default()(obj);
-                // const blob = new Blob(7, seed);
-                var blob = new __WEBPACK_IMPORTED_MODULE_10__components_base_ts_components_blob__["a" /* Blob */](sides, seed);
+                var blob = new __WEBPACK_IMPORTED_MODULE_10__components_base_ts_components_blob__["a" /* Blob */](sides, complexity, preset);
                 _this2.blobs.push(blob);
                 $obj.append(blob.getSvg());
             });
             __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.blob--shape-2').each(function (i, obj) {
                 var $obj = __WEBPACK_IMPORTED_MODULE_1_jquery___default()(obj);
-                // const blob = new Blob(9, seed);
-                var blob = new __WEBPACK_IMPORTED_MODULE_10__components_base_ts_components_blob__["a" /* Blob */](sides, seed, 1);
+                var blob = new __WEBPACK_IMPORTED_MODULE_10__components_base_ts_components_blob__["a" /* Blob */](sides, complexity, preset, 1);
                 _this2.blobs.push(blob);
                 $obj.append(blob.getSvg());
             });
             __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.blob--shape-3').each(function (i, obj) {
                 var $obj = __WEBPACK_IMPORTED_MODULE_1_jquery___default()(obj);
-                // const blob = new Blob(12, seed);
-                var blob = new __WEBPACK_IMPORTED_MODULE_10__components_base_ts_components_blob__["a" /* Blob */](sides, seed, 2);
+                var blob = new __WEBPACK_IMPORTED_MODULE_10__components_base_ts_components_blob__["a" /* Blob */](sides, complexity, preset, 2);
                 _this2.blobs.push(blob);
                 $obj.append(blob.getSvg());
             });
@@ -1372,17 +1376,19 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Blob = function (_BaseComponent) {
     _inherits(Blob, _BaseComponent);
 
-    function Blob(sides, seed) {
-        var seedOffset = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+    function Blob(sides, complexity, preset) {
+        var presetOffset = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
 
         _classCallCheck(this, Blob);
 
         var _this = _possibleConstructorReturn(this, (Blob.__proto__ || Object.getPrototypeOf(Blob)).call(this));
 
         _this.radius = 10;
+        _this.complexity = 0.84;
         _this.sides = sides;
-        _this.seed = seed + seedOffset;
-        _this.seedOffset = seedOffset;
+        _this.complexity = complexity;
+        _this.preset = preset + presetOffset;
+        _this.presetOffset = presetOffset;
         _this.bindEvents();
         _this.render();
         return _this;
@@ -1397,15 +1403,19 @@ var Blob = function (_BaseComponent) {
             svg.setAttribute('fill', 'currentColor');
             polygon.setAttribute('points', this.generatePoints(true));
             svg.appendChild(polygon);
-            this.timeline = __WEBPACK_IMPORTED_MODULE_1_animejs__({
-                autoplay: false,
-                duration: 1000,
-                easing: 'linear',
-                offset: 0,
-                points: this.generatePoints(),
-                targets: polygon
-            });
             return svg;
+        }
+    }, {
+        key: 'morph',
+        value: function morph() {
+            var morphDuration = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 300;
+
+            __WEBPACK_IMPORTED_MODULE_1_animejs__({
+                duration: morphDuration,
+                offset: 0,
+                points: this.generatePoints(true),
+                targets: this.element.find('polygon').get(0)
+            });
         }
     }, {
         key: 'render',
@@ -1418,16 +1428,14 @@ var Blob = function (_BaseComponent) {
         }
     }, {
         key: 'getRatio',
-        value: function getRatio(seed, i) {
-            var pow = Math.pow(seed, i);
+        value: function getRatio(preset, i) {
+            var pow = Math.pow(preset, i);
             return (4 + 6 * this.getMagicDigit(pow) / 9) / 10;
         }
     }, {
-        key: 'setSeed',
-        value: function setSeed(seed) {
-            // const seeds = [17, 37, 65, 72, 91, 123, 245, 313, 381, 379];
-            // this.seed = seeds[seed - 1];
-            this.seed = seed + this.seedOffset;
+        key: 'setPreset',
+        value: function setPreset(preset) {
+            this.preset = preset + this.presetOffset;
         }
     }, {
         key: 'getMagicDigit',
@@ -1446,7 +1454,7 @@ var Blob = function (_BaseComponent) {
     }, {
         key: 'setComplexity',
         value: function setComplexity(complexity) {
-            this.timeline.seek(complexity * 1000);
+            this.complexity = complexity;
         }
     }, {
         key: 'setSides',
@@ -1463,16 +1471,12 @@ var Blob = function (_BaseComponent) {
                 // generate a regular polygon
                 // we add pi/2 to the angle to have the tip of polygons with odd number of edges pointing upwards
                 var angle = 2 * Math.PI * i / this.sides - Math.PI / 2;
-                var x = this.radius * Math.cos(angle);
-                var y = this.radius * Math.sin(angle);
                 // default ratio is 0.7 because the random one varies between 0.4 and 1
-                var ratio = 0.7;
-                if (random) {
-                    // apply a "random" ratio to the coordinates to create an irregular shape
-                    ratio = this.getRatio(this.seed, i);
-                }
-                points.push(x * ratio + this.radius);
-                points.push(y * ratio + this.radius);
+                var defaultRatio = 0.7;
+                var ratio = defaultRatio + (this.getRatio(this.preset, i) - defaultRatio) * this.complexity;
+                var x = this.radius * (Math.cos(angle) * ratio + 1);
+                var y = this.radius * (Math.sin(angle) * ratio + 1);
+                points.push(x + ',' + y);
             }
             return points.join(' ');
         }
@@ -1482,9 +1486,9 @@ var Blob = function (_BaseComponent) {
             return this.element;
         }
     }, {
-        key: 'getSeed',
-        value: function getSeed() {
-            return this.seed;
+        key: 'getPreset',
+        value: function getPreset() {
+            return this.preset;
         }
     }, {
         key: 'bindEvents',
