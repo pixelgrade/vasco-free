@@ -45,7 +45,11 @@
 
   .cat-link {
     text-decoration: none;
-    transition: $transition--ease-in-cubic;
+  }
+
+  .cat-link-name,
+  .cat-link-count {
+    transition: all .15s ease-in-out;
   }
 
   .cat-link-name {
@@ -62,6 +66,5 @@
     font-size: 75%;
     background-color: $theme-text-color;
     color: $color-white;
-    transition: $transition--ease-in-cubic;
   }
 }
