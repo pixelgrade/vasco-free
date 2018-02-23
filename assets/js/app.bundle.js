@@ -510,6 +510,12 @@ var Vasco = function (_BaseTheme) {
     }
 
     _createClass(Vasco, [{
+        key: 'addBrowserClasses',
+        value: function addBrowserClasses() {
+            var extWindow = window;
+            __WEBPACK_IMPORTED_MODULE_1_jquery___default()('body').toggleClass('is-safari', !!extWindow.safari);
+        }
+    }, {
         key: 'updateBlobParameters',
         value: function updateBlobParameters() {
             var extWindow = window;
@@ -545,6 +551,7 @@ var Vasco = function (_BaseTheme) {
             this.Header = new __WEBPACK_IMPORTED_MODULE_7__components_header_ts_Header__["a" /* Header */]();
             this.SearchOverlay = new __WEBPACK_IMPORTED_MODULE_6__components_base_ts_components_SearchOverlay__["a" /* SearchOverlay */]();
             this.addNavigationClasses();
+            this.addBrowserClasses();
             this.adjustLayout();
             this.initStamp();
         }

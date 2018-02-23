@@ -127,7 +127,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 					'label'       => esc_html__( 'Presets', '__theme_txtd' ),
 					'desc'        => esc_html__( '', '__theme_txtd' ),
 					'live'        => true,
-					'default'     => 10,
+					'default'     => 218,
 					'input_attrs' => array(
 						'min'          => 0,
 						'max'          => 1000,
@@ -143,7 +143,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 					'label'       => esc_html__( 'Complexity', '__theme_txtd' ),
 					'desc'        => esc_html__( '', '__theme_txtd' ),
 					'live'        => true,
-					'default'     => 90,
+					'default'     => 84,
 					'input_attrs' => array(
 						'min'          => 0,
 						'max'          => 100,
@@ -159,7 +159,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 					'label'       => esc_html__( 'Dispersion', '__theme_txtd' ),
 					'desc'        => esc_html__( '', '__theme_txtd' ),
 					'live'        => true,
-					'default'     => 40,
+					'default'     => 26,
 					'input_attrs' => array(
 						'min'          => 0,
 						'max'          => 100,
@@ -180,7 +180,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 					'label'       => esc_html__( 'Smoothness', '__theme_txtd' ),
 					'desc'        => esc_html__( '', '__theme_txtd' ),
 					'live'        => true,
-					'default'     => 10,
+					'default'     => 25,
 					'input_attrs' => array(
 						'min'          => 0,
 						'max'          => 100,

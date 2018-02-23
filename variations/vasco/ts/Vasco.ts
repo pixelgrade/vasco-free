@@ -30,6 +30,7 @@ export class Vasco extends BaseTheme {
     this.$siteHeader =  $('.site-header');
     this.$toolbar = $('.c-toolbar');
     this.$contentPaddingContainer = $('.u-header-height-padding-top');
+
     if ( this.isLoggedIn ) {
       this.clearAnnouncementCookie();
     }
@@ -65,6 +66,12 @@ export class Vasco extends BaseTheme {
       .subscribe( () => {
         this.updateBlobParameters();
       } );
+  }
+
+  public addBrowserClasses() {
+    const extWindow: ExtendedWindow = window;
+
+    $( 'body' ).toggleClass( 'is-safari', !! extWindow.safari );
   }
 
   public updateBlobParameters() {
@@ -105,7 +112,7 @@ export class Vasco extends BaseTheme {
     this.Header = new Header();
     this.SearchOverlay = new SearchOverlay();
     this.addNavigationClasses();
-
+    this.addBrowserClasses();
     this.adjustLayout();
     this.initStamp();
   }
