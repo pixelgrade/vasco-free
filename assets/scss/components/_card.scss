@@ -137,7 +137,7 @@
   }
 
   @include below(lap) {
-    @include spacing('margin-bottom', 2rem);
+    @include spacing('margin-bottom', 1rem);
 
     .c-meta__primary,
     .c-card__action,
