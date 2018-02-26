@@ -234,6 +234,10 @@ body {
       @include fontsize(24px);
       color: $theme-background-color;
       display: inline-block;
+
+      &.genericon {
+        @include fontsize(18px);
+      }
     }
   }
 }
