@@ -47,7 +47,7 @@
     }
 
     > li > a:before {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
@@ -55,8 +55,7 @@
       height: 3px;
       background-color: currentColor;
       transform-origin: 50% 0;
-      transition: $transition--default;
-      transition-property: transform;
+      transition: transform 300ms ease-in-out;
       transform: scaleY(0);
     }
 
