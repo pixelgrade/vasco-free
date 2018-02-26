@@ -1,6 +1,7 @@
 .page-numbers {
   @include button;
   @include button-box;
+  font-size: 17px;
 }
 
 .page-numbers.dots {
@@ -17,6 +18,7 @@ ul.page-numbers {
   justify-content: space-between;
   list-style: none;
   padding-left: 0;
+  padding-right: 0;
   @include spacing(margin-top, 3.5rem);
   @include spacing(margin-bottom, 11rem);
 }
@@ -28,6 +30,11 @@ ul.page-numbers {
 
 .page-numbers__right {
   justify-content: flex-end;
+  display: flex;
+}
+
+.page-numbers__left {
+  justify-content: flex-start;
   display: flex;
 }
 

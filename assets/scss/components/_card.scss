@@ -16,7 +16,7 @@
   }
 
   .c-meta__primary {
-    @include spacing(margin-bottom, 0.7rem);
+    @include spacing(margin-bottom, 1rem);
     min-height: 23px;
   }
 
@@ -67,7 +67,8 @@
     display: inline-block;
     padding: 0.1em 0.47em 0.25em;
     margin-right: 0.5em;
-    vertical-align: middle;
+    vertical-align: bottom;
+    margin-bottom: -3px;
 
     font-size: 0.737em;
     font-weight: bolder;
@@ -136,7 +137,7 @@
   }
 
   @include below(lap) {
-    @include spacing('margin-bottom', 3rem);
+    @include spacing('margin-bottom', 2rem);
 
     .c-meta__primary,
     .c-card__action,
@@ -146,7 +147,7 @@
     }
 
     .c-card__action:before {
-      width: 2em;
+      width: 29px;
     }
   }
 
@@ -159,7 +160,7 @@
     }
 
     .c-card__action:before {
-      width: 2em;
+      width: 29px;
     }
   }
 }
