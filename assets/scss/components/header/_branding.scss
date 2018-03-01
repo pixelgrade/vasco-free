@@ -5,13 +5,18 @@
 }
 
 .c-branding[class] {
-  text-align: center;
+
+  @include below(lap) {
+    text-align: center;
+  }
 
   @include above(lap) {
     margin-left: -1rem;
+    margin-top: -0.5rem;
 
     a, .site-description {
       padding-left: 1rem;
+      margin-top: 0.5rem;
     }
   }
 }
