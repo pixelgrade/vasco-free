@@ -137,15 +137,16 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
 
             // sidebar
             'sidebar'   => array(
-                'type'     => 'callback',
-                'callback' => 'pixelgrade_get_sidebar',
+	            'type'     => 'callback',
+	            'callback' => 'dynamic_sidebar',
+	            'args'     => array( 'sidebar-1' ),
             ),
 
             // sidebar
             'sidebar-below-post'   => array(
                 'type'     => 'callback',
-                'callback' => 'pixelgrade_get_sidebar',
-                'args'     => array( 'below-post' ),
+                'callback' => 'dynamic_sidebar',
+                'args'     => array( 'sidebar-2' ),
             ),
 
             // default loop

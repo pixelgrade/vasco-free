@@ -37,29 +37,45 @@ function vasco_register_blog_blocks( $component_slug, $component_config ) {
 			'container' => array(
 				'extend' => 'blog/container',
 				'blocks' => array(
-					'entry-header-single' => array(
-						'wrappers' => array(
-							array(
-								'classes' => 'u-content-width'
+					'layout' => array(
+						'extend' => 'blog/layout',
+						'blocks' => array(
+							'main' => array(
+								'extend' => 'blog/main',
+								'blocks' => array(
+									'entry-header-single' => array(
+										'wrappers' => array(
+											array(
+												'classes' => 'u-content-width'
+											),
+										),
+										'blocks' => array(
+											'blog/entry-header-single',
+										),
+									),
+									'blog/entry-thumbnail',
+									'blog/entry-content',
+									'sidebar-below-post' => array(
+										'blocks' => array(
+											'blog/sidebar-below-post',
+										),
+										'wrappers' => array(
+											array(
+												'classes' => 'entry-aside u-content-width'
+											),
+										),
+									),
+									'blog/entry-footer'
+								),
+							),
+							'side' => array(
+								'extend' => 'blog/side',
+								'blocks' => array(
+									'blog/sidebar',
+								),
 							),
 						),
-						'blocks' => array(
-							'blog/entry-header-single',
-						),
 					),
-					'blog/entry-thumbnail',
-					'blog/entry-content',
-					'sidebar-below-post' => array(
-						'blocks' => array(
-							'blog/sidebar-below-post',
-						),
-						'wrappers' => array(
-							array(
-								'classes' => 'entry-aside u-content-width'
-							),
-						),
-					),
-					'blog/entry-footer'
 				),
 			),
 			'stamp' => array(
