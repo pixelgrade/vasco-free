@@ -567,7 +567,9 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
 			//
 			// However, the order in which the templates are defined matters: an earlier template has a higher priority
 			// than a latter one when both match their conditions!
-			'404'     => array(
+
+			// Note - The _ in front of the key is intentional to bypass PHP's automagical key casting to integer if it is a numerical representation of a number.
+			'_404'     => array(
 				// The type of this template.
 				// Possible core values: 'index', '404', 'archive', 'author', 'category', 'tag', 'taxonomy', 'date',
 				// 'embed', home', 'frontpage', 'page', 'paged', 'search', 'single', 'singular', and 'attachment'.

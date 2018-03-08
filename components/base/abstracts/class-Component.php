@@ -515,11 +515,11 @@ abstract class Pixelgrade_Component extends Pixelgrade_Singleton {
 					$template_config['type'][ $type_key ] = preg_replace( '|[^a-z0-9-]+|', '', $type_value );
 				}
 
-				// Now we need to process the dependencies, if there are any
-				// We only register the template if all dependencies are met
+				// Now we need to process the dependencies, if there are any.
+				// We only register the template if all dependencies are met.
 				if ( true === Pixelgrade_Config::evaluateDependencies( $template_config ) ) {
-					// We need to keep the relative order in the array
-					// So we will always add at the end of the array
+					// We need to keep the relative order in the array.
+					// So we will always add at the end of the array.
 					$templates = array_merge( $templates, array( $key => $template_config ) );
 				}
 			}
