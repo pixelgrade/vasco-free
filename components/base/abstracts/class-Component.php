@@ -300,7 +300,7 @@ abstract class Pixelgrade_Component extends Pixelgrade_Singleton {
 			$this->page_templater = self::setupPageTemplates( $this->config['page_templates'], constant( get_class( $this ) . '::COMPONENT_SLUG' ) );
 
 			// Setup the custom loop for the page templates - if there are any
-			add_action( 'parse_query', array( $this, 'setupPageCemplatesCustomLoopQuery' ) );
+			add_action( 'parse_query', array( $this, 'setupPageTemplatesCustomLoopQuery' ) );
 		}
 
 		/**
@@ -505,6 +505,16 @@ abstract class Pixelgrade_Component extends Pixelgrade_Singleton {
 					continue;
 				}
 
+				// Normalize the templates config
+				// We want the template type(s) to be an array
+				if ( is_string( $template_config['type'] ) ) {
+					$template_config['type'] = array( $template_config['type'] );
+				}
+				// Make sure that the template type(s) is in the same form as the one used by get_query_template
+				foreach ( $template_config['type'] as $type_key => $type_value ) {
+					$template_config['type'][ $type_key ] = preg_replace( '|[^a-z0-9-]+|', '', $type_value );
+				}
+
 				// Now we need to process the dependencies, if there are any
 				// We only register the template if all dependencies are met
 				if ( true === Pixelgrade_Config::evaluateDependencies( $template_config ) ) {
@@ -531,7 +541,7 @@ abstract class Pixelgrade_Component extends Pixelgrade_Singleton {
 	 *
 	 * @param WP_Query $query
 	 */
-	public function setupPageCemplatesCustomLoopQuery( $query ) {
+	public function setupPageTemplatesCustomLoopQuery( $query ) {
 		// We only do this on the frontend and only for the main query
 		// Bail otherwise
 		if ( is_admin() || ! $query->is_main_query() || empty( $this->config['page_templates'] ) ) {

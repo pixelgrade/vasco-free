@@ -138,15 +138,14 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
             // sidebar
             'sidebar'   => array(
 	            'type'     => 'callback',
-	            'callback' => 'dynamic_sidebar',
-	            'args'     => array( 'sidebar-1' ),
+	            'callback' => 'pixelgrade_get_sidebar',
             ),
 
             // sidebar
             'sidebar-below-post'   => array(
                 'type'     => 'callback',
-                'callback' => 'dynamic_sidebar',
-                'args'     => array( 'sidebar-2' ),
+                'callback' => 'pixelgrade_get_sidebar',
+                'args'     => array( 'below-post' ),
             ),
 
             // default loop
@@ -617,7 +616,7 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
 				// ),
 			),
 			'home'    => array(
-				'type'      => 'home',
+				'type'      => array( 'frontpage', 'home' ),
 				'checks'    => array(
 					'callback' => 'is_home',
 					'args'     => array(),
@@ -657,14 +656,11 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
 				'templates' => 'search',
 			),
 
-			// Add our index at the end to be sure that it is used
+			// Add our index at the end to be sure that it is used.
+			// We use it as fallback for all the templates above, much in the same way the WordPress core does it.
 			'index'   => array(
-				'type'      => 'index',
-				'templates' => array(
-					'slug' => 'index',
-					'name' => 'blog',
-					// We need this so we can overcome the limitation of WordPress wanting a index.php in the theme root
-				),
+				'type'      => array( 'frontpage', 'home', 'single', 'page', 'archive', 'search', 'index' ),
+				'templates' => 'index',
 			),
 
 			// Now for some of our own "types" that we use to handle pseudo-templates like `header.php`, `footer.php`
@@ -676,6 +672,10 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
 			'footer'  => array(
 				'type'      => 'footer',
 				'templates' => 'footer',
+			),
+			'sidebar-below-post' => array(
+				'type'      => 'sidebar',
+				'templates' => 'sidebar-below-post',
 			),
 			'sidebar' => array(
 				'type'      => 'sidebar',
