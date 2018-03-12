@@ -17,6 +17,7 @@
  * @return array The returned options are required, if you don't need options return an empty array
  */
 add_filter( 'customify_filter_fields', 'vasco_add_customify_options', 11, 1 );
+add_filter( 'customify_filter_fields', 'pixelgrade_add_customify_style_manager_section', 12, 1 );
 
 // Modify Customify Config
 add_filter( 'pixelgrade_customify_general_section_options', 'vasco_customify_general_section', 10, 2 );
@@ -41,6 +42,73 @@ function vasco_add_customify_options( $options ) {
 
 	//start with a clean slate - no Customify default sections
 	$options['sections'] = array();
+
+	return $options;
+}
+
+function pixelgrade_add_customify_style_manager_section( $options ) {
+
+	$options['sections']['style_manager_section'] = array(
+		'title'   => esc_html__( 'Style Manager', '__theme_txtd' ),
+		'section_id' => 'style_manager_section', // We will force this section id preventing prefixing and other regular processing.
+		'options' => array(
+			'primary_color' => array(
+				'type'         => 'color',
+				// We will bypass the plugin setting regarding where to store - we will store it cross-theme in wp_options
+				'setting_type' => 'option',
+				// We will force this setting id preventing prefixing and other regular processing.
+				'setting_id'   => 'pxg_primary_color',
+				// We don't want to refresh the preview window, even though we have no direct effect on it through this field.
+				'live'         => true,
+				'label'        => esc_html__( 'Primary Color', '__theme_txtd' ),
+				'default'      => '#8224e3',
+			),
+			'secondary_color' => array(
+				'type'         => 'color',
+				// We will bypass the plugin setting regarding where to store - we will store it cross-theme in wp_options
+				'setting_type' => 'option',
+				// We will force this setting id preventing prefixing and other regular processing.
+				'setting_id'   => 'secondary_color',
+				// We don't want to refresh the preview window, even though we have no direct effect on it through this field.
+				'live'         => true,
+				'label'        => esc_html__( 'Secondary Color', '__theme_txtd' ),
+				'default'      => '#81d742',
+			),
+			'tertiary_color' => array(
+				'type'         => 'color',
+				// We will bypass the plugin setting regarding where to store - we will store it cross-theme in wp_options
+				'setting_type' => 'option',
+				// We will force this setting id preventing prefixing and other regular processing.
+				'setting_id'   => 'tertiary_color',
+				// We don't want to refresh the preview window, even though we have no direct effect on it through this field.
+				'live'         => true,
+				'label'        => esc_html__( 'Tertiary Color', '__theme_txtd' ),
+				'default'      => '#eeee22',
+			),
+			'foreground_color' => array(
+				'type'         => 'color',
+				// We will bypass the plugin setting regarding where to store - we will store it cross-theme in wp_options
+				'setting_type' => 'option',
+				// We will force this setting id preventing prefixing and other regular processing.
+				'setting_id'   => 'foreground_color',
+				// We don't want to refresh the preview window, even though we have no direct effect on it through this field.
+				'live'         => true,
+				'label'        => esc_html__( 'Foreground Color', '__theme_txtd' ),
+				'default'      => '#dd3333',
+			),
+			'background_color' => array(
+				'type'         => 'color',
+				// We will bypass the plugin setting regarding where to store - we will store it cross-theme in wp_options
+				'setting_type' => 'option',
+				// We will force this setting id preventing prefixing and other regular processing.
+				'setting_id'   => 'background_color',
+				// We don't want to refresh the preview window, even though we have no direct effect on it through this field.
+				'live'         => true,
+				'label'        => esc_html__( 'Background Color', '__theme_txtd' ),
+				'default'      => '#ffffff',
+			),
+		),
+	);
 
 	return $options;
 }
