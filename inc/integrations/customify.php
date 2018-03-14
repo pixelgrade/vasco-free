@@ -46,6 +46,7 @@ function vasco_add_customify_options( $options ) {
 	return $options;
 }
 
+
 /**
  * Add the Style Manager cross-theme Customizer section.
  *
@@ -59,76 +60,29 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 	}
 
 	// The section might be already defined, thus we merge, not replace the entire section config.
-	$options['sections']['style_manager_section'] = Pixelgrade_Config::merge( $options['sections']['style_manager_section'], array(
-		'title'   => esc_html__( 'Style Manager', 'hive_txtd' ),
-		'section_id' => 'style_manager_section', // We will force this section id preventing prefixing and other regular processing.
+	$options['sections']['style_manager_section'] = array_replace_recursive( $options['sections']['style_manager_section'], array(
 		'options' => array(
 			'primary_color' => array(
-				'type'         => 'color',
-				// We will bypass the plugin setting regarding where to store - we will store it cross-theme in wp_options
-				'setting_type' => 'option',
-				// We will force this setting id preventing prefixing and other regular processing.
-				'setting_id'   => 'pxg_primary_color',
-				// We don't want to refresh the preview window, even though we have no direct effect on it through this field.
-				'live'         => true,
-				'label'        => esc_html__( 'Primary Color', 'hive_txtd' ),
-				'default'      => '#8224e3',
 				'connected_fields' => array(
 
 				),
 			),
 			'secondary_color' => array(
-				'type'         => 'color',
-				// We will bypass the plugin setting regarding where to store - we will store it cross-theme in wp_options
-				'setting_type' => 'option',
-				// We will force this setting id preventing prefixing and other regular processing.
-				'setting_id'   => 'pxg_secondary_color',
-				// We don't want to refresh the preview window, even though we have no direct effect on it through this field.
-				'live'         => true,
-				'label'        => esc_html__( 'Secondary Color', 'hive_txtd' ),
-				'default'      => '#81d742',
 				'connected_fields' => array(
 
 				),
 			),
 			'tertiary_color' => array(
-				'type'         => 'color',
-				// We will bypass the plugin setting regarding where to store - we will store it cross-theme in wp_options
-				'setting_type' => 'option',
-				// We will force this setting id preventing prefixing and other regular processing.
-				'setting_id'   => 'pxg_tertiary_color',
-				// We don't want to refresh the preview window, even though we have no direct effect on it through this field.
-				'live'         => true,
-				'label'        => esc_html__( 'Tertiary Color', 'hive_txtd' ),
-				'default'      => '#eeee22',
 				'connected_fields' => array(
 
 				),
 			),
 			'primary_background_color' => array(
-				'type'         => 'color',
-				// We will bypass the plugin setting regarding where to store - we will store it cross-theme in wp_options
-				'setting_type' => 'option',
-				// We will force this setting id preventing prefixing and other regular processing.
-				'setting_id'   => 'pxg_primary_background_color',
-				// We don't want to refresh the preview window, even though we have no direct effect on it through this field.
-				'live'         => true,
-				'label'        => esc_html__( 'Primary Background Color', 'hive_txtd' ),
-				'default'      => '#dd3333',
 				'connected_fields' => array(
 
 				),
 			),
 			'secondary_background_color' => array(
-				'type'         => 'color',
-				// We will bypass the plugin setting regarding where to store - we will store it cross-theme in wp_options
-				'setting_type' => 'option',
-				// We will force this setting id preventing prefixing and other regular processing.
-				'setting_id'   => 'pxg_secondary_background_color',
-				// We don't want to refresh the preview window, even though we have no direct effect on it through this field.
-				'live'         => true,
-				'label'        => esc_html__( 'Secondary Background Color', 'hive_txtd' ),
-				'default'      => '#ffffff',
 				'connected_fields' => array(
 
 				),
