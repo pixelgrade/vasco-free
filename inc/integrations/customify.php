@@ -77,12 +77,12 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 
 				),
 			),
-			'primary_background_color' => array(
+			'background_primary_color' => array(
 				'connected_fields' => array(
 
 				),
 			),
-			'secondary_background_color' => array(
+			'background_secondary_color' => array(
 				'connected_fields' => array(
 
 				),
