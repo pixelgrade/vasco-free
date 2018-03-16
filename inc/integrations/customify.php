@@ -62,27 +62,74 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 	// The section might be already defined, thus we merge, not replace the entire section config.
 	$options['sections']['style_manager_section'] = array_replace_recursive( $options['sections']['style_manager_section'], array(
 		'options' => array(
-			'primary_color' => array(
+			'master_primary_color' => array(
+				'connected_fields' => array(
+					'accent_color',
+					'blob_main_color',
+					'main_content_body_link_active_color',
+					'main_content_heading_4_color',
+					'main_content_heading_5_color',
+					'main_content_heading_6_color',
+					'blog_item_meta_primary_color',
+					'header_links_active_color',
+					'main_content_border_color',
+				),
+			),
+			'master_secondary_color' => array(
+				'connected_fields' => array(
+					'blob_secondary_color',
+					'announcement_bar_background_color',
+					'buttons_color',
+//					'buttons_color' => array(
+//						'filters' => array(
+//							array(
+//								'js_callback' => 'customifyInverseHexColorToBlackOrWhite',
+//								'arguments' => array(),
+//								'checks' => array(
+//									array(
+//										'js_callback' => '',
+//									),
+//								),
+//								'priority' => 10,
+//							),
+//						),
+//					),
+				),
+			),
+			'master_tertiary_color' => array(
+				'connected_fields' => array(
+					// DARK COLOR
+					'accent_dark_color',
+					'blob_tertiary_color',
+					'header_navigation_links_color',
+					'footer_body_text_color',
+					'footer_links_color',
+
+					// TEXT COLOR
+					'main_content_page_title_color',
+					'main_content_body_text_color',
+					'main_content_body_link_color',
+					'main_content_heading_1_color',
+					'main_content_heading_2_color',
+					'main_content_heading_3_color',
+					'blog_item_title_color',
+					'blog_item_excerpt_color',
+				),
+			),
+			'master_quaternary_color' => array(
 				'connected_fields' => array(
 
 				),
 			),
-			'secondary_color' => array(
+			'master_background_primary_color' => array(
 				'connected_fields' => array(
-
+					'header_background',
+					'main_content_content_background_color',
+					'blog_item_thumbnail_background',
+					'footer_background',
 				),
 			),
-			'tertiary_color' => array(
-				'connected_fields' => array(
-
-				),
-			),
-			'background_primary_color' => array(
-				'connected_fields' => array(
-
-				),
-			),
-			'background_secondary_color' => array(
+			'master_background_secondary_color' => array(
 				'connected_fields' => array(
 
 				),
