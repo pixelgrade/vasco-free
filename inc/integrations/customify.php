@@ -62,20 +62,7 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 	// The section might be already defined, thus we merge, not replace the entire section config.
 	$options['sections']['style_manager_section'] = array_replace_recursive( $options['sections']['style_manager_section'], array(
 		'options' => array(
-			'master_primary_color' => array(
-				'connected_fields' => array(
-					'accent_color',
-					'blob_main_color',
-					'main_content_body_link_active_color',
-					'main_content_heading_4_color',
-					'main_content_heading_5_color',
-					'main_content_heading_6_color',
-					'blog_item_meta_primary_color',
-					'header_links_active_color',
-					'main_content_border_color',
-				),
-			),
-			'master_secondary_color' => array(
+			'sm_color_primary' => array(
 				'connected_fields' => array(
 					'blob_secondary_color',
 					'announcement_bar_background_color',
@@ -96,7 +83,21 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 //					),
 				),
 			),
-			'master_tertiary_color' => array(
+			'sm_color_secondary' => array(
+				'connected_fields' => array(
+					'accent_color',
+					'blob_main_color',
+					'main_content_body_link_active_color',
+					'main_content_heading_4_color',
+					'main_content_heading_5_color',
+					'main_content_heading_6_color',
+					'blog_item_meta_primary_color',
+					'header_links_active_color',
+					'main_content_border_color',
+				),
+			),
+			
+			'sm_dark_primary' => array(
 				'connected_fields' => array(
 					// DARK COLOR
 					'accent_dark_color',
@@ -104,7 +105,10 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'header_navigation_links_color',
 					'footer_body_text_color',
 					'footer_links_color',
-
+				),
+			),
+			'sm_dark_secondary' => array(
+				'connected_fields' => array(
 					// TEXT COLOR
 					'main_content_page_title_color',
 					'main_content_body_text_color',
@@ -116,12 +120,7 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'blog_item_excerpt_color',
 				),
 			),
-			'master_quaternary_color' => array(
-				'connected_fields' => array(
-
-				),
-			),
-			'master_background_primary_color' => array(
+			'sm_light_primary' => array(
 				'connected_fields' => array(
 					'header_background',
 					'main_content_content_background_color',
@@ -129,7 +128,7 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'footer_background',
 				),
 			),
-			'master_background_secondary_color' => array(
+			'sm_light_secondary' => array(
 				'connected_fields' => array(
 
 				),
@@ -201,7 +200,12 @@ function vasco_customify_general_section( $section_options, $options ) {
 								.c-stamp__container.is-dark,
 								.social-instagram-group .widget_wpcom_social_media_icons_widget,
 								.widget_promo_box .c-promo,
-								.widget_mc4wp_form_widget[class] input[type=submit]
+								.widget_mc4wp_form_widget[class] input[type=submit],
+	
+								.u-buttons-solid .button.default,
+								.u-buttons-solid .comment-form .form-submit .submit,
+								.u-buttons-solid .c-btn--default[class],
+								.u-buttons-solid .c-comments-toggle__label
 							',
 						),
 					),
@@ -547,12 +551,7 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 								.single .header-meta .byline, 
 								.single .header-meta .posted-on,
 								.c-meta__secondary[class],
-								.widget_wpcom_social_media_icons_widget[class] ul li,
-
-								.u-buttons-solid .button.default,
-								.u-buttons-solid .comment-form .form-submit .submit,
-								.u-buttons-solid .c-btn--default[class],
-								.u-buttons-solid .c-comments-toggle__label',
+								.widget_wpcom_social_media_icons_widget[class] ul li',
 						),
 						array(
 							'property' => 'border-color',
