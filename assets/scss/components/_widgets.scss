@@ -168,6 +168,13 @@
   }
 }
 
+.widget__title {
+  .entry-aside & {
+    font-size: 18px;
+    line-height: 30px;
+  }
+}
+
 // increase selector specificity to overwrite footer links color
 body {
 

@@ -5,6 +5,12 @@
   ul {
     list-style: none;
 
+    .entry-aside & {
+      padding-left: 0;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
     @include below(small) {
       display: inline-block;
     }
@@ -18,6 +24,14 @@
 
   .cat-item {
     @include leading-map($h4);
+
+    a {
+      text-decoration: none;
+    }
+
+    .entry-aside & {
+      line-height: 40px !important;
+    }
 
     @include below(small) {
       display: inline-block;
@@ -56,6 +70,10 @@
     display: inline-block;
     vertical-align: middle;
     margin-top: -3px;
+
+    .entry-aside & {
+      margin-top: 0;
+    }
   }
 
   .cat-link-count {
@@ -66,5 +84,9 @@
     font-size: 75%;
     background-color: $theme-text-color;
     color: $color-white;
+
+    .entry-aside & {
+      padding: 1px 8px 2px;
+    }
   }
 }

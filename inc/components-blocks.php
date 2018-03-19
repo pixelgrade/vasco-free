@@ -48,14 +48,23 @@ function vasco_register_blog_blocks( $component_slug, $component_config ) {
 						),
 					),
 					'blog/entry-thumbnail',
-					'blog/entry-content',
-					'sidebar-below-post' => array(
+					'entry-content-with-sidebar' => array(
 						'blocks' => array(
-							'blog/sidebar-below-post',
+							'blog/entry-content',
+							'sidebar-below-post' => array(
+								'blocks' => array(
+									'blog/sidebar-below-post',
+								),
+								'wrappers' => array(
+									array(
+										'classes' => 'entry-aside o-layout__side'
+									),
+								),
+							),
 						),
 						'wrappers' => array(
 							array(
-								'classes' => 'entry-aside u-content-width'
+								'classes' => 'o-layout o-layout--blog'
 							),
 						),
 					),

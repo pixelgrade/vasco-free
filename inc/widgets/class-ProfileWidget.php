@@ -97,7 +97,6 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 				    ),
 			    ),
 				'sidebars_not_supported' => array(
-					'sidebar-1',
 					'sidebar-2',
 					'sidebar-footer',
 				),
