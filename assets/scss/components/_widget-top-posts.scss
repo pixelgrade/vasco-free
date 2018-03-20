@@ -1,0 +1,23 @@
+.widget_top-posts {
+  .widgets-list-layout {
+    li {
+      display: flex;
+      align-items: center;
+    }
+
+    .widgets-list-layout-links {
+      flex: 1;
+
+      a {
+        text-decoration: none;
+      }
+    }
+
+    .widgets-list-layout-blavatar {
+      width: 100px;
+      max-width: 100px;
+      height: 100px;
+      margin-right: 1rem;
+    }
+  }
+}

@@ -149,6 +149,7 @@ $mobile-stamp-size: 124px;
 
   .entry-aside & {
     padding-right: 0;
+    @include spacing(margin-bottom, 2rem);
   }
 
   .c-stamp {
