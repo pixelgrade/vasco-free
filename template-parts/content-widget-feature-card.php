@@ -50,6 +50,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div class="c-feature__media">
 	<?php if ( ! empty ( $image ) ) {
-		echo wp_get_attachment_image( $image, 'full' );
+		echo wp_get_attachment_image( $image, 'vasco-large-image' );
 	} ?>
 </div>
