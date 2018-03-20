@@ -72,14 +72,8 @@ if ( ! function_exists( 'vasco_setup' ) ) {
 		add_theme_support( 'post-thumbnails' );
 
 		/*
-		 * Add image sizes used by theme.
+		 * Add image sizes used specifically by theme, apart from those already registered by components.
 		 */
-		// Used for blog archive(the height is flexible)
-		add_image_size( 'vasco-card-image', 450, 9999, false );
-		// Used for sliders(fixed height)
-		add_image_size( 'vasco-slide-image', 9999, 800, false );
-		// Used for hero image
-		add_image_size( 'vasco-hero-image', 2700, 9999, false );
 		// Used for stamp image
 		add_image_size( 'vasco-stamp-image', 300, 300, false );
 

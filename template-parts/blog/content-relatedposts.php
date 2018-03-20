@@ -101,7 +101,7 @@ if ( $query->have_posts() ) {
 								<?php if ( has_post_thumbnail() ) : ?>
 								<div class="c-card__aside c-card__thumbnail-background">
 									<div class="c-card__frame">
-										<?php the_post_thumbnail(); ?>
+										<?php the_post_thumbnail( 'pixelgrade_card_image' ); ?>
 									</div>
 									<?php if ( $secondary_meta_output ) { ?>
 

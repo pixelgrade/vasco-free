@@ -68,7 +68,7 @@ do_action( 'pixelgrade_before_loop_entry', $location );
 				<div class="c-card__aside c-card__thumbnail-background">
 					<div class="c-card__frame">
 						<?php if ( has_post_thumbnail() ) {
-							the_post_thumbnail();
+							the_post_thumbnail( 'pixelgrade_card_image' );
 						} ?>
 						<div class="c-card__badge"></div>
 					</div>
