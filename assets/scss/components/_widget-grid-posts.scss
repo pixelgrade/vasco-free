@@ -21,7 +21,9 @@
       @include spacing(margin-top, 1rem);
     }
 
-    .o-grid>*, [class*=" o-grid--"]>*, [class^=o-grid--]>* {
+    .o-grid>*,
+    [class*=" o-grid--"],
+    [class^=o-grid--]>* {
       @include spacing(margin-top, 0.7rem);
     }
   }

@@ -1,3 +1,7 @@
+.entry-aside .widget_categories .cat-item[class] {
+  line-height: 2.4;
+}
+
 .widget_categories {
   @include spacing(margin-top, 3em);
   @include spacing(margin-bottom, 3em);
@@ -27,10 +31,6 @@
 
     a {
       text-decoration: none;
-    }
-
-    .entry-aside & {
-      line-height: 40px !important;
     }
 
     @include below(small) {
