@@ -18,13 +18,13 @@
   .o-layout__side & {
     .o-grid--3col-\@small > * {
       width: 100%;
-      @include spacing(margin-top, 1rem);
+      @include spacing(margin-top, 0);
     }
 
     .o-grid>*,
     [class*=" o-grid--"],
     [class^=o-grid--]>* {
-      @include spacing(margin-top, 0.7rem);
+      @include spacing(margin-top, 0);
     }
   }
 }

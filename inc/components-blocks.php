@@ -111,11 +111,6 @@ function vasco_register_blog_blocks( $component_slug, $component_config ) {
 					'side' => array(
 						'extend' => 'blog/side',
 						'blocks' => array( 'blog/sidebar' ),
-						'wrappers' => array(
-							array(
-								'classes' => 'entry-aside'
-							),
-						),
 					),
 				),
 			),

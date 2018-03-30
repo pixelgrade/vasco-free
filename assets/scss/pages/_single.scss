@@ -96,10 +96,6 @@
     }
   }
 
-  .entry-aside > * {
-    @include spacing(margin, 3rem 0);
-  }
-
   .entry-aside > .widget-first {
     margin-top: 0;
   }
