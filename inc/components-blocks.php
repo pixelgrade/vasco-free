@@ -45,30 +45,37 @@ function vasco_register_blog_blocks( $component_slug, $component_config ) {
 						),
 						'blocks' => array(
 							'blog/entry-header-single',
+							'blog/entry-thumbnail',
 						),
 					),
-					'blog/entry-thumbnail',
-					'entry-content-with-sidebar' => array(
+					'layout' => array(
+						'extend' => 'blog/layout',
 						'blocks' => array(
-							'blog/entry-content',
-							'sidebar-below-post' => array(
+							'main' => array(
+								'extend' => 'blog/main',
 								'blocks' => array(
-									'blog/sidebar-below-post',
-								),
-								'wrappers' => array(
-									array(
-										'classes' => 'entry-aside o-layout__side'
+									'blog/entry-content',
+									'sidebar-below-post' => array(
+										'blocks' => array(
+//											'blog/sidebar-below-post',
+										),
+										'wrappers' => array(
+											array(
+												'classes' => 'entry-aside u-content-width'
+											),
+										),
 									),
+									'blog/entry-footer',
 								),
 							),
-						),
-						'wrappers' => array(
-							array(
-								'classes' => 'o-layout o-layout--blog'
-							),
+							'side' => array(
+								'extend' => 'blog/side',
+								'blocks' => array(
+									'blog/sidebar',
+								),
+							)
 						),
 					),
-					'blog/entry-footer'
 				),
 			),
 			'stamp' => array(

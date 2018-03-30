@@ -107,12 +107,6 @@
 
 .entry-content {
 
-  .has-sidebar & {
-    @include above(lap) {
-      width: calc(100% - 356px);
-    }
-  }
-
   .cats[class][class] {
 
     a {
