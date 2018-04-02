@@ -19,7 +19,7 @@
  */
 function vasco_handle_media_gallery_widget_export( $widget_data, $widget_type, $matching_data ) {
 	// Replace the gallery attachment IDs with the new ones
-	if ( ! empty( $widget_data['ids'] ) && ( ! empty( $matching_data['placeholders'] || ! empty( $matching_data['ignored_images'] ) ) ) ) {
+	if ( ! empty( $widget_data['ids'] ) && ( ! empty( $matching_data['placeholders'] ) || ! empty( $matching_data['ignored_images'] ) ) ) {
 		foreach ( $widget_data['ids'] as $key => $current_id ) {
 			$new_id = false;
 
