@@ -259,7 +259,7 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 		 */
 		public function custom_export_logic( $widget_data, $widget_type, $matching_data ) {
 			// We need to replace the image attachment ID with the new one
-			if ( ! empty( $widget_data['image'] ) && ( ! empty( $matching_data['placeholders'] || ! empty( $matching_data['ignored_images'] ) ) ) ) {
+			if ( ! empty( $widget_data['image'] ) && ( ! empty( $matching_data['placeholders'] ) || ! empty( $matching_data['ignored_images'] ) ) ) {
 				$current_id = absint( $widget_data['image'] );
 				$new_id = false;
 

@@ -47,6 +47,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php if ( ! empty ( $image ) ) { ?>
 	<div class="c-callout__media">
-		<?php echo wp_get_attachment_image( $image, 'vasco-large-image' ); ?>
+		<?php echo wp_get_attachment_image( $image, 'pixelgrade_single_landscape' ); ?>
 	</div>
 <?php } ?>
