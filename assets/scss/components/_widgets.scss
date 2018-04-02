@@ -2,6 +2,11 @@
   @include spacing(margin-top, 6rem);
 }
 
+.widget-area.entry-aside > * + * {
+  @include spacing(margin-top, 0);
+  //@include spacing(margin, 4rem 0);
+}
+
 %widget-with-list {
 
   li:not(:last-child) {
@@ -168,10 +173,15 @@
   }
 }
 
-.widget__title {
-  .entry-aside & {
+.entry-aside {
+  .widget {
+    @include spacing(margin-bottom, 4rem);
+  }
+
+  .widget__title {
     font-size: 18px;
     line-height: 30px;
+    margin-bottom: 11px;
   }
 }
 
@@ -205,6 +215,20 @@ body {
 }
 
 .widget_wpcom_social_media_icons_widget {
+
+  .entry-aside & {
+    .widget__title {
+      @include leading-map($h3);
+    }
+
+    &[class] ul {
+      justify-content: flex-start;
+
+      li {
+        justify-content: center;
+      }
+    }
+  }
 
   .widget__title {
     @include leading-map($h4);

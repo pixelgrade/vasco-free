@@ -38,14 +38,12 @@
   z-index: 200;
 }
 
-.c-location__subtitle {
-  .entry-aside & {
+.entry-aside {
+  .c-location__subtitle {
     font-size: 16px;
   }
-}
 
-.c-location__title {
-  .entry-aside & {
+  .c-location__title {
     font-size: 18px;
     line-height: 1.5;
   }
