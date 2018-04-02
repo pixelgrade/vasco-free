@@ -129,6 +129,7 @@ $mobile-stamp-size: 124px;
     .c-profile__title,
     .c-profile__description {
       opacity: 0.9;
+      @include spacing(margin, 0 0 0.9em);
     }
 
     .c-profile__btn {
