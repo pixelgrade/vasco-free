@@ -57,11 +57,11 @@ function vasco_register_blog_blocks( $component_slug, $component_config ) {
 									'blog/entry-content',
 									'sidebar-below-post' => array(
 										'blocks' => array(
-//											'blog/sidebar-below-post',
+											'blog/sidebar-below-post',
 										),
 										'wrappers' => array(
 											array(
-												'classes' => 'entry-aside u-content-width'
+												'classes' => 'entry-aside u-content-width',
 											),
 										),
 									),
@@ -73,7 +73,7 @@ function vasco_register_blog_blocks( $component_slug, $component_config ) {
 								'blocks' => array(
 									'blog/sidebar',
 								),
-							)
+							),
 						),
 					),
 				),
@@ -81,7 +81,7 @@ function vasco_register_blog_blocks( $component_slug, $component_config ) {
 			'stamp' => array(
 				'wrappers' => array(
 					array(
-						'classes' => 'c-stamp__wrapper'
+						'classes' => 'c-stamp__wrapper',
 					),
 				),
 				'blocks' => array(
@@ -104,7 +104,7 @@ function vasco_register_blog_blocks( $component_slug, $component_config ) {
 				'extend' => 'blog/layout',
 				'wrappers' => array(
 					'layout' => array(
-						'extend_classes' => 'o-layout--blog'
+						'extend_classes' => 'o-layout--blog',
 					),
 				),
 				'blocks' => array(
