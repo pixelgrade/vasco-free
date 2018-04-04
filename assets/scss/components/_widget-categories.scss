@@ -1,9 +1,20 @@
+.o-layout__side .widget_categories .cat-item[class] {
+  line-height: 2.4;
+}
+
 .widget_categories {
   @include spacing(margin-top, 3em);
   @include spacing(margin-bottom, 3em);
 
   ul {
     list-style: none;
+
+    .o-layout__side & {
+      padding-left: 0;
+      margin-top: 0;
+      flex-direction: column;
+      align-items: flex-start;
+    }
 
     @include below(small) {
       display: inline-block;
@@ -18,6 +29,10 @@
 
   .cat-item {
     @include leading-map($h4);
+
+    a {
+      text-decoration: none;
+    }
 
     @include below(small) {
       display: inline-block;
@@ -56,6 +71,10 @@
     display: inline-block;
     vertical-align: middle;
     margin-top: -3px;
+
+    .o-layout__side & {
+      margin-top: 0;
+    }
   }
 
   .cat-link-count {
@@ -66,5 +85,9 @@
     font-size: 75%;
     background-color: $theme-text-color;
     color: $color-white;
+
+    .o-layout__side & {
+      padding: 1px 8px 2px;
+    }
   }
 }

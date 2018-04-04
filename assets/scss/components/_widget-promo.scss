@@ -20,8 +20,6 @@
       padding-bottom: 4.5rem;
       margin-bottom: 14rem;
     }
-
-
   }
 
   .c-promo__media {
@@ -91,5 +89,40 @@
   .c-promo__description {
     color: $color-white;
     margin-bottom: 2rem;
+  }
+
+  .o-layout__side & {
+    .c-promo {
+      @include spacing(padding, 8rem 1.5rem 3rem);
+      margin-bottom: 2em;
+      flex-direction: column;
+    }
+
+    .c-promo__media {
+      max-width: 100%;
+      margin-bottom: 2rem;
+      padding-top: 75%;
+      margin-right: 0;
+
+      .c-stamp {
+        top: -$stamp-dimension / 2;
+        color: $color-white;
+        border-color: $color-white;
+
+        &:before {
+          border-color: $color-white;
+        }
+      }
+    }
+
+    .c-promo__title {
+      @include leading-map($h3);
+      text-align: center;
+    }
+
+    .c-promo__description {
+      font-size: 0.9em;
+      text-align: center;
+    }
   }
 }

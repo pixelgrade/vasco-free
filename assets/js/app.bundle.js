@@ -69,11 +69,12 @@ var Helper = function () {
                 var className = $image.attr('class');
                 var $p = $image.closest('p');
                 var $figure = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('<figure />').attr('class', className);
+                console.log($figure, $p, __WEBPACK_IMPORTED_MODULE_0_jquery___default.a.trim($p.text()).length);
                 if (__WEBPACK_IMPORTED_MODULE_0_jquery___default.a.trim($p.text()).length) {
                     return;
                 }
-                $figure.append($image.removeAttr('class'));
-                $p.replaceWith($figure);
+                $figure.append($image.removeAttr('class')).insertAfter($p);
+                $p.remove();
             });
         }
     }, {

@@ -38,34 +38,52 @@ function vasco_register_blog_blocks( $component_slug, $component_config ) {
 				'extend' => 'blog/container',
 				'blocks' => array(
 					'entry-header-single' => array(
-						'wrappers' => array(
-							array(
-								'classes' => 'u-content-width'
-							),
-						),
 						'blocks' => array(
-							'blog/entry-header-single',
+							'entry-header' => array(
+								'blocks' => 'blog/entry-header-single',
+								'wrappers' => array(
+									array(
+										'classes' => 'u-content-width'
+									),
+								),
+							),
+							'blog/entry-thumbnail',
 						),
 					),
-					'blog/entry-thumbnail',
-					'blog/entry-content',
-					'sidebar-below-post' => array(
+					'layout' => array(
+						'extend' => 'blog/layout',
 						'blocks' => array(
-							'blog/sidebar-below-post',
-						),
-						'wrappers' => array(
-							array(
-								'classes' => 'entry-aside u-content-width'
+							'main' => array(
+								'extend' => 'blog/main',
+								'blocks' => array(
+									'blog/entry-content',
+									'sidebar-below-post' => array(
+										'blocks' => array(
+											'blog/sidebar-below-post',
+										),
+										'wrappers' => array(
+											array(
+												'classes' => 'entry-aside u-content-width',
+											),
+										),
+									),
+									'blog/entry-footer',
+								),
+							),
+							'side' => array(
+								'extend' => 'blog/side',
+								'blocks' => array(
+									'blog/sidebar',
+								),
 							),
 						),
 					),
-					'blog/entry-footer'
 				),
 			),
 			'stamp' => array(
 				'wrappers' => array(
 					array(
-						'classes' => 'c-stamp__wrapper'
+						'classes' => 'c-stamp__wrapper',
 					),
 				),
 				'blocks' => array(
@@ -73,6 +91,38 @@ function vasco_register_blog_blocks( $component_slug, $component_config ) {
 				),
 			),
 			'blog/related-posts',
+		),
+	) );
+
+	Pixelgrade_BlocksManager()->registerBlock( 'blog/archive', array(
+		'extend'   => 'blog/default',
+		'wrappers' => array(
+			'sides-spacing' => array( 'classes' => 'u-blog-sides-spacing' ),
+			'wrapper'       => array( 'classes' => 'o-wrapper u-blog-grid-width' ),
+		),
+		'blocks'   => array(
+			'blog/entry-header-archive',
+			'layout' => array(
+				'extend' => 'blog/layout',
+				'wrappers' => array(
+					'layout' => array(
+						'extend_classes' => 'o-layout--blog',
+					),
+				),
+				'blocks' => array(
+					'main' => array(
+						'extend' => 'blog/main',
+						'blocks' => array(
+							'blog/loop', // These two are mutually exclusive
+							'blog/loop-none',
+						),
+					),
+					'side' => array(
+						'extend' => 'blog/side',
+						'blocks' => array( 'blog/sidebar' ),
+					),
+				),
+			),
 		),
 	) );
 

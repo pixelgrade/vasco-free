@@ -76,6 +76,8 @@ if ( ! function_exists( 'vasco_setup' ) ) {
 		 */
 		// Used for stamp image
 		add_image_size( 'vasco-stamp-image', 300, 300, false );
+		// Large image
+		add_image_size( 'vasco-large-image', 1200, 1200, false );
 
 		/*
 		 * Add theme support for site logo

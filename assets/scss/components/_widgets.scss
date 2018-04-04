@@ -2,6 +2,11 @@
   @include spacing(margin-top, 6rem);
 }
 
+.widget-area.o-layout__side > * + * {
+  @include spacing(margin-top, 0);
+  //@include spacing(margin, 4rem 0);
+}
+
 %widget-with-list {
 
   li:not(:last-child) {
@@ -168,6 +173,18 @@
   }
 }
 
+.o-layout__side {
+  .widget {
+    @include spacing(margin-bottom, 4rem);
+  }
+
+  .widget__title {
+    font-size: 18px;
+    line-height: 30px;
+    margin-bottom: 11px;
+  }
+}
+
 // increase selector specificity to overwrite footer links color
 body {
 
@@ -198,6 +215,20 @@ body {
 }
 
 .widget_wpcom_social_media_icons_widget {
+
+  .o-layout__side & {
+    .widget__title {
+      @include leading-map($h3);
+    }
+
+    &[class] ul {
+      justify-content: flex-start;
+
+      li {
+        justify-content: center;
+      }
+    }
+  }
 
   .widget__title {
     @include leading-map($h4);

@@ -1,0 +1,5 @@
+.archive {
+  .o-layout__side {
+    @include spacing(padding-top, 55px);
+  }
+}
