@@ -928,7 +928,7 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
 			$image_orientation = pixelgrade_get_post_thumbnail_aspect_ratio_class();
 
 			if ( ! empty( $image_orientation ) ) {
-				$classes[] = 'entry-image--' . pixelgrade_get_post_thumbnail_aspect_ratio_class();
+				$classes[] = 'entry-image--' . $image_orientation;
 			}
 		}
 
