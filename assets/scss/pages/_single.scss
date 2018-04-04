@@ -84,7 +84,7 @@
   .entry-thumbnail {
     display: flex;
     justify-content: center;
-    @include spacing(margin-bottom, 2.5rem);
+    @include spacing(margin-bottom, 4rem);
 
     img {
       display: block;
