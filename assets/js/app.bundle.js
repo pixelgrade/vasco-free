@@ -1297,9 +1297,7 @@ var Gallery = function (_BaseComponent) {
         _this.subscriptionActive = true;
         _this.masonryGallerySelector = '.c-gallery--packed, .c-gallery--masonry';
         _this.element = element;
-        if (_this.element.is(_this.masonryGallerySelector)) {
-            _this.layout();
-        }
+        _this.layout();
         __WEBPACK_IMPORTED_MODULE_2__services_window_service__["a" /* WindowService */].onResize().debounce(300).takeWhile(function () {
             return _this.subscriptionActive;
         }).subscribe(function () {
@@ -1331,7 +1329,7 @@ var Gallery = function (_BaseComponent) {
         value: function layout() {
             var $items = this.element.children();
             var minColumnWidth = void 0;
-            if (!$items.length) {
+            if (!$items.length || !this.element.is(this.masonryGallerySelector)) {
                 return;
             }
             minColumnWidth = this.element.children().get(0).getBoundingClientRect().width;
