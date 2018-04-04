@@ -16,18 +16,19 @@ var gulp = require( 'gulp-help' )( require( 'gulp' ) ),
 // This task generates a SCSS file containing a map variable that has
 // the same keys and values as the typeline-config.json
 // -----------------------------------------------------------------------------
-
-gulp.task( 'typeline-config', 'Create SCSS typeline config from json', function() {
-	return gulp.src( 'inc/integrations/typeline-config.json' )
-	           .pipe( plugins.jsonToSassMap( {
-		           source: 'inc/integrations/typeline-config.json',
-		           output: 'assets/scss/_typeline-config.scss'
-	           } ) )
-	           .pipe( plugins.jsonToSassMap( {
-		           source: 'inc/integrations/typeline-config-editor.json',
-		           output: 'assets/scss/_typeline-config-editor.scss'
-	           } ) );
-} );
+function typelineConfig() {
+    return gulp.src( 'inc/integrations/typeline-config.json' )
+        .pipe( plugins.jsonToSassMap( {
+            source: 'inc/integrations/typeline-config.json',
+            output: 'assets/scss/_typeline-config.scss'
+        } ) )
+        .pipe( plugins.jsonToSassMap( {
+            source: 'inc/integrations/typeline-config-editor.json',
+            output: 'assets/scss/_typeline-config-editor.scss'
+        } ) );
+}
+typelineConfig.description = 'Create SCSS typeline config from json';
+gulp.task( 'typeline-config', typelineConfig );
 
 
 
@@ -89,10 +90,11 @@ var phpConfig = function( opts ) {
 // The task that actually generates the php file that contains
 // the same configuration as typeline-config.json
 // -----------------------------------------------------------------------------
+function typelinePhpConfig() {
 
-gulp.task( 'typeline-phpconfig', 'Create PHP typeline config from json', function() {
-
-	return gulp.src( 'inc/integrations/typeline-config.json' )
-	           .pipe( phpConfig( 'typeline-config.php' ) )
-	           .pipe( gulp.dest( 'inc/integrations/' ) );
-} );
+    return gulp.src( 'inc/integrations/typeline-config.json' )
+        .pipe( phpConfig( 'typeline-config.php' ) )
+        .pipe( gulp.dest( 'inc/integrations/' ) );
+}
+typelinePhpConfig.description = 'Create PHP typeline config from json';
+gulp.task( 'typeline-phpconfig', typelinePhpConfig );
