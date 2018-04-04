@@ -38,13 +38,15 @@ function vasco_register_blog_blocks( $component_slug, $component_config ) {
 				'extend' => 'blog/container',
 				'blocks' => array(
 					'entry-header-single' => array(
-						'wrappers' => array(
-							array(
-								'classes' => 'u-content-width'
-							),
-						),
 						'blocks' => array(
-							'blog/entry-header-single',
+							'entry-header' => array(
+								'blocks' => 'blog/entry-header-single',
+								'wrappers' => array(
+									array(
+										'classes' => 'u-content-width'
+									),
+								),
+							),
 							'blog/entry-thumbnail',
 						),
 					),
