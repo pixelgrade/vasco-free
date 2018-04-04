@@ -39,10 +39,6 @@
 
   .c-profile__subtitle + .c-profile__title {
     @include spacing(margin-top, 2rem);
-
-    .entry-aside & {
-      @include spacing(margin-top, 1.7rem);
-    }
   }
 }
 
@@ -114,7 +110,7 @@ $mobile-stamp-size: 124px;
   }
 }
 
-.entry-aside {
+.o-layout__side {
   .c-profile {
     flex-direction: column;
   }
@@ -133,10 +129,15 @@ $mobile-stamp-size: 124px;
     .c-profile__title,
     .c-profile__description {
       opacity: 0.9;
+      @include spacing(margin, 0 0 0.9em);
     }
 
     .c-profile__btn {
       width: 100%;
+    }
+
+    .c-profile__subtitle + .c-profile__title {
+      @include spacing(margin-top, 1.7rem);
     }
   }
 

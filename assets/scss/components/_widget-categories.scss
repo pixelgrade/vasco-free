@@ -1,4 +1,4 @@
-.entry-aside .widget_categories .cat-item[class] {
+.o-layout__side .widget_categories .cat-item[class] {
   line-height: 2.4;
 }
 
@@ -9,7 +9,7 @@
   ul {
     list-style: none;
 
-    .entry-aside & {
+    .o-layout__side & {
       padding-left: 0;
       margin-top: 0;
       flex-direction: column;
@@ -72,7 +72,7 @@
     vertical-align: middle;
     margin-top: -3px;
 
-    .entry-aside & {
+    .o-layout__side & {
       margin-top: 0;
     }
   }
@@ -86,7 +86,7 @@
     background-color: $theme-text-color;
     color: $color-white;
 
-    .entry-aside & {
+    .o-layout__side & {
       padding: 1px 8px 2px;
     }
   }

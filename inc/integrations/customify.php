@@ -572,9 +572,9 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 				'main_content_body_text_font' => array(
 					'selector' => '
 						body,
-						.entry-aside .c-profile__content .c-profile__title,
-						.entry-aside .widget_categories .cat-item,
-						.entry-aside .widget_categories .cat-link',
+						.o-layout__side .c-profile__content .c-profile__title,
+						.o-layout__side .widget_categories .cat-item,
+						.o-layout__side .widget_categories .cat-link',
 					'default' => array(
 						'font-family'    => THEME_BODY_FONT,
 						'font-weight'    => 'regular',

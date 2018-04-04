@@ -2,7 +2,7 @@
   @include spacing(margin-top, 6rem);
 }
 
-.widget-area.entry-aside > * + * {
+.widget-area.o-layout__side > * + * {
   @include spacing(margin-top, 0);
   //@include spacing(margin, 4rem 0);
 }
@@ -173,7 +173,7 @@
   }
 }
 
-.entry-aside {
+.o-layout__side {
   .widget {
     @include spacing(margin-bottom, 4rem);
   }
@@ -216,7 +216,7 @@ body {
 
 .widget_wpcom_social_media_icons_widget {
 
-  .entry-aside & {
+  .o-layout__side & {
     .widget__title {
       @include leading-map($h3);
     }
