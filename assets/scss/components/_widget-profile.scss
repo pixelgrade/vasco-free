@@ -69,7 +69,7 @@
 
 @include below(desk) {
   .c-profile__description {
-    // display: none; 
+    // display: none;
     // This is not needed anymore as the description is shown all the time
   }
 }
@@ -129,7 +129,7 @@ $mobile-stamp-size: 124px;
     .c-profile__title,
     .c-profile__description {
       opacity: 0.9;
-      @include spacing(margin, 0 0 0.9em);
+      @include spacing(margin, 0 0 2em);
     }
 
     .c-profile__btn {
@@ -172,7 +172,7 @@ $mobile-stamp-size: 124px;
 
   .c-profile__content + .c-profile__media {
     padding-right: 0;
-    @include spacing(margin-bottom, 1.5rem);
+    @include spacing(margin-bottom, 1rem);
   }
 }
 
@@ -182,7 +182,7 @@ $mobile-stamp-size: 124px;
   }
 
   .c-profile__description {
-    // display: block; 
+    // display: block;
     // Not needed anymore
   }
 }
