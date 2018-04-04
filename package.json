@@ -47,7 +47,7 @@
     "gulp-concat": "*",
     "gulp-debug": "^3.2.0",
     "gulp-exec": "^3.0.1",
-    "gulp-help": "*",
+    "gulp-help": "github:chmontgomery/gulp-help#gulp4",
     "gulp-json-to-sass-map": "*",
     "gulp-load-plugins": "*",
     "gulp-prompt": "*",
