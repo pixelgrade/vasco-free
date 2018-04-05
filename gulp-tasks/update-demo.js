@@ -21,7 +21,7 @@ function updateDemo() {
 
     var run_exec = require( 'child_process' ).exec;
 
-    gulp.src( './' )
+    return gulp.src( './' )
         .pipe( prompt.confirm( "This task will stash all your local changes without commiting them,\n Make sure you did all your commits and pushes to the main " + main_branch + " branch! \n Are you sure you want to continue?!? " ) )
         .pipe( prompt.prompt( {
             type: 'list',
