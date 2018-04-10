@@ -2,6 +2,12 @@
   @extend %overlay-card__container;
 }
 
+.o-layout__side {
+  .c-feature {
+    text-align: center;
+  }
+}
+
 .c-feature__content {
   @extend %overlay-card__content;
 }

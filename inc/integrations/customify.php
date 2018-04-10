@@ -669,6 +669,11 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 				),
 
 				'main_content_body_text_font' => array(
+					'selector' => '
+						body,
+						.o-layout__side .c-profile__content .c-profile__title,
+						.o-layout__side .widget_categories .cat-item,
+						.o-layout__side .widget_categories .cat-link',
 					'default' => array(
 						'font-family'    => THEME_BODY_FONT,
 						'font-weight'    => 'regular',
@@ -932,7 +937,8 @@ function vasco_customify_buttons_section( $section_options, $options ) {
 						div.wpforms-container[class] .wpforms-form .wpforms-field-label,
 						div.wpforms-container[class] .wpforms-form input, 
 						div.wpforms-container[class] .wpforms-form select, 
-						div.wpforms-container[class] .wpforms-form textarea',
+						div.wpforms-container[class] .wpforms-form textarea, 
+						.widgets-list-layout-links a',
 					'default'  => array(
 						'font-family'    => THEME_HEADINGS_FONT_ALT,
 						'font-weight'    => '500',

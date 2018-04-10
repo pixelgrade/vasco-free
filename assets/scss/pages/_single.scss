@@ -84,7 +84,7 @@
   .entry-thumbnail {
     display: flex;
     justify-content: center;
-    @include spacing(margin-bottom, 2.5rem);
+    @include spacing(margin-bottom, 4rem);
 
     img {
       display: block;
@@ -96,8 +96,8 @@
     }
   }
 
-  .entry-aside > * {
-    @include spacing(margin, 3rem 0);
+  .o-layout__side > .widget-first {
+    margin-top: 0;
   }
 }
 
@@ -134,4 +134,10 @@
 
 [style*="rect(1px"] {
   display: none;
+}
+
+.o-layout--blog .o-layout__side {
+  @include below(lap) {
+    margin-top: 4rem;
+  }
 }

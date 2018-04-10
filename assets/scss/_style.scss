@@ -89,6 +89,7 @@ $alert-placeholder-background: $theme-accent-color;
 @import 'components/widget-profile';
 @import 'components/widget-promo';
 @import 'components/widget-search';
+@import 'components/widget-top-posts';
 @import 'components/wp-caption';
 
 .edit-link {
@@ -180,3 +181,4 @@ input[type=submit]{
 @import "pages/not-found";
 @import "pages/page";
 @import "pages/single";
+@import "pages/archive";

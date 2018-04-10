@@ -97,4 +97,32 @@
       bottom: -28px;
     }
   }
+
+  .o-layout__side & {
+    .c-callout-box {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .c-callout__media {
+      padding-top: 75%;
+      width: 100%;
+    }
+
+    .c-callout__content + .c-callout__media {
+      margin-right: 0;
+      margin-bottom: -20%;
+    }
+
+    .c-callout__content {
+      width: calc(100% - 2em);
+      @include spacing(padding, 1em 2rem 2rem);
+      @include spacing(margin, 0 1em 2em);
+      text-align: center;
+    }
+
+    .c-callout__title {
+      @include spacing(margin-top, 1em);
+    }
+  }
 }

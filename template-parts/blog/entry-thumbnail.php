@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php pixelgrade_render_block( 'blog/content-stamp' ); ?>
 		<?php } ?>
 
-			<?php the_post_thumbnail( 'single-' . pixelgrade_get_post_thumbnail_aspect_ratio_class() ); ?>
+			<?php the_post_thumbnail( 'pixelgrade_single_' . pixelgrade_get_post_thumbnail_aspect_ratio_class() ); ?>
 
 			<?php if ( $show_blobs ) {
 				get_template_part( 'template-parts/content-blob' );

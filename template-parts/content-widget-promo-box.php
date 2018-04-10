@@ -42,7 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php if ( ! empty ( $image ) ) { ?>
 	<div class="c-promo__media">
-		<?php echo wp_get_attachment_image( $image, 'full' ); ?>
+		<?php echo wp_get_attachment_image( $image, 'pixelgrade_single_portrait' ); ?>
 
 		<?php if ( pixelgrade_option( 'show_stamps' ) ) {
 			get_template_part( 'template-parts/content-stamp' );
