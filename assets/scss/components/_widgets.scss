@@ -7,6 +7,16 @@
   //@include spacing(margin, 4rem 0);
 }
 
+.widget-area.widget-area--footer-featured {
+  text-align: center;
+
+  .calendar_wrap {
+    width: 350px;
+    display: inline-block;
+    text-align: left;
+  }
+}
+
 %widget-with-list {
 
   li:not(:last-child) {
@@ -214,6 +224,14 @@ body {
   }
 }
 
+.widget-area:not(.widget-area--footer-featured) {
+  .widget_wpcom_social_media_icons_widget {
+    .widget__title {
+      @include leading-map($h4);
+    }
+  }
+}
+
 .widget_wpcom_social_media_icons_widget {
 
   .o-layout__side & {
@@ -231,7 +249,6 @@ body {
   }
 
   .widget__title {
-    @include leading-map($h4);
     color: inherit;
   }
 
