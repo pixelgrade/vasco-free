@@ -64,11 +64,6 @@ $stamp-border-width: 2px;
 
 %c-stamp--dark {
   color: $color-white;
-  border-color: $color-white;
-
-  &:before {
-    border-color: $color-white;
-  }
 }
 
 .c-stamp__container.is-dark .c-stamp.c-stamp--auto,

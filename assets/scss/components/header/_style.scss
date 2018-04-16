@@ -12,6 +12,14 @@
   @import 'desktop';
 }
 
+.c-navbar[class] .sub-menu {
+  background-color: #FFF;
+
+  @include below(lap) {
+    background: none !important;
+  }
+}
+
 @import '../../../../components/header/scss/customify';
 
 @import 'branding';

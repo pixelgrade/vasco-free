@@ -131,11 +131,12 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'main_content_content_background_color',
 					'blog_item_thumbnail_background',
 					'footer_background',
+					'buttons_text_color',
 				),
 			),
 			'sm_light_secondary' => array(
 				'connected_fields' => array(
-
+					'header_submenu_background'
 				),
 			),
 		),
@@ -546,7 +547,9 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 								.u-buttons-outline .comment-form .form-submit .submit,
 								.u-buttons-outline .c-btn--default,
 								.u-buttons-outline .c-comments-toggle__label,
-								.c-search-overlay .search-field',
+								.c-search-overlay .search-field,
+								.u-buttons-solid .c-feature__btn[class],
+								.u-buttons-solid .c-feature__btn[class]:hover',
 						),
 						array(
 							'property' => 'background-color',
@@ -556,7 +559,10 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 								.single .header-meta .byline, 
 								.single .header-meta .posted-on,
 								.c-meta__secondary[class],
-								.widget_wpcom_social_media_icons_widget[class] ul li',
+								.widget_wpcom_social_media_icons_widget[class] ul li,
+								.widget_categories .cat-link-count,
+								
+								.u-buttons-solid .not-found .search-form .search-submit',
 						),
 						array(
 							'property' => 'border-color',
@@ -629,7 +635,17 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'background-color',
-							'selector' => '.u-content-background, .mce-content-body, .related-posts-title span',
+							'selector' => '.u-content-background, 
+								.mce-content-body, 
+								.related-posts-title span,
+								.u-buttons-solid .c-feature__btn[class],
+								.u-buttons-solid .c-feature__btn[class]:hover',
+						),
+
+						array(
+							'property' => 'color',
+							'selector' => '.u-buttons-outline .c-feature__btn[class],
+								.u-buttons-outline .c-feature__btn[class]:hover',
 						),
 						array(
 							'property' => 'color',
@@ -644,7 +660,12 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 								.single .header-meta .posted-on,
 								.c-meta__secondary[class],
 								.entry-content .cats[class] > a,
-								.c-meta__primary .comments',
+								.c-meta__primary .comments,
+								
+								.widget_categories .cat-link-count,
+								
+								.social-instagram-group .widget_wpcom_social_media_icons_widget,
+								.widget_wpcom_social_media_icons_widget[class] ul a',
 						),
 					),
 				),
@@ -912,8 +933,8 @@ function vasco_customify_buttons_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => $buttons_active,
-						)
+							'selector' => $buttons_active
+						),
 					),
 				),
 				'buttons_font'       => array(
@@ -1292,6 +1313,32 @@ function vasco_customify_header_section( $section_options, $options ) {
 	// Now we merge the modified config with the original one
 	// Thus overwriting what we have changed
 	$section_options = Pixelgrade_Config::merge( $section_options, $modified_config );
+
+	$section_options['header_section']['options'] = Pixelgrade_Array::insertAfterKey( $section_options['header_section']['options'], 'header_background', array(
+		'header_submenu_background' => array(
+			'type'    => 'color',
+			'label'   => esc_html__( 'Submenu Background', '__components_txtd' ),
+			'live'    => true,
+			'default' => '#FFFFFF',
+			'css'     => array(
+				array(
+					'property' => 'background-color',
+					'selector' => '.c-navbar[class] .sub-menu',
+				),
+				array(
+					'property' => 'color',
+					'selector' => '.widget_mc4wp_form_widget,
+						.c-stamp__container.is-dark .c-stamp.c-stamp--auto, 
+						.widget_callout_box .c-stamp.c-stamp--auto,
+						.c-feature__content, 
+						.c-location__content,
+						.c-alert,
+						.widget_callout_box .c-callout__title,
+						.widget_callout_box .c-callout__description',
+				),
+			),
+		),
+	));
 
 	return $section_options;
 }
