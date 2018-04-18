@@ -209,8 +209,9 @@ function vasco_customify_general_section( $section_options, $options ) {
 								.widget_mc4wp_form_widget[class] input[type=submit],
 	
 								.u-buttons-solid .button.default,
-								.u-buttons-solid .comment-form .form-submit .submit,
 								.u-buttons-solid .c-btn--default[class],
+								.u-buttons-solid .not-found .search-form .search-submit,
+								.u-buttons-solid .comment-form .form-submit .submit,
 								.u-buttons-solid .c-comments-toggle__label
 							',
 						),
@@ -544,9 +545,12 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 							'selector' => 'body,
 								.c-stamp__container.is-light .c-stamp.c-stamp--auto,
 								.u-buttons-outline .button.default,
+								.u-buttons-outline .c-btn--default[class],
+								.u-buttons-outline .not-found .search-form .search-submit,
 								.u-buttons-outline .comment-form .form-submit .submit,
 								.u-buttons-outline .c-btn--default,
 								.u-buttons-outline .c-comments-toggle__label,
+								.u-buttons-outline .not-found .search-form .search-submit,
 								.c-search-overlay .search-field,
 								.u-buttons-solid .c-feature__btn[class],
 								.u-buttons-solid .c-feature__btn[class]:hover',
@@ -560,9 +564,7 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 								.single .header-meta .posted-on,
 								.c-meta__secondary[class],
 								.widget_wpcom_social_media_icons_widget[class] ul li,
-								.widget_categories .cat-link-count,
-								
-								.u-buttons-solid .not-found .search-form .search-submit',
+								.widget_categories .cat-link-count',
 						),
 						array(
 							'property' => 'border-color',
@@ -635,35 +637,30 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'background-color',
-							'selector' => '.u-content-background, 
+							'selector' => '
+								.u-content-background, 
 								.mce-content-body, 
 								.related-posts-title span,
 								.u-buttons-solid .c-feature__btn[class],
 								.u-buttons-solid .c-feature__btn[class]:hover',
 						),
-
-						array(
-							'property' => 'color',
-							'selector' => '.u-buttons-outline .c-feature__btn[class],
-								.u-buttons-outline .c-feature__btn[class]:hover',
-						),
 						array(
 							'property' => 'color',
 							'selector' => '
+								.u-buttons-outline .c-feature__btn[class],
+								.u-buttons-outline .c-feature__btn[class]:hover,
 								.u-buttons-solid .button.default,
-								.u-buttons-solid .comment-form .form-submit .submit,
 								.u-buttons-solid .c-btn--default[class],
+								.u-buttons-solid .not-found .search-form .search-submit,
+								.u-buttons-solid .comment-form .form-submit .submit,
 								.u-buttons-solid .c-comments-toggle__label[class],
-								
 								.entry-content .dropcap, 
 								.single .header-meta .byline, 
 								.single .header-meta .posted-on,
 								.c-meta__secondary[class],
 								.entry-content .cats[class] > a,
 								.c-meta__primary .comments,
-								
 								.widget_categories .cat-link-count,
-								
 								.social-instagram-group .widget_wpcom_social_media_icons_widget,
 								.widget_wpcom_social_media_icons_widget[class] ul a',
 						),
@@ -671,7 +668,7 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 				),
 
 				// [Section] FONTS
-				'main_content_page_title_font'          => array(
+				'main_content_page_title_font' => array(
 					'selector' => '
 						.single .entry-title,
 						.page .entry-title,
@@ -939,7 +936,8 @@ function vasco_customify_buttons_section( $section_options, $options ) {
 				),
 				'buttons_font'       => array(
 					'selector' => $buttons_default . ',
-						.button.default, 
+						.button.default,
+						.not-found .search-form .search-submit, 
 						.contact-form > div > .grunion-field-label:not(.checkbox):not(.radio),
 						.nf-form-cont .label-above .nf-field-label label,
 						.nf-form-cont .list-checkbox-wrap .nf-field-element li label, 
@@ -1329,12 +1327,12 @@ function vasco_customify_header_section( $section_options, $options ) {
 					'property' => 'color',
 					'selector' => '.widget_mc4wp_form_widget,
 						.c-stamp__container.is-dark .c-stamp.c-stamp--auto, 
-						.widget_callout_box .c-stamp.c-stamp--auto,
 						.c-feature__content, 
 						.c-location__content,
 						.c-alert,
-						.widget_callout_box .c-callout__title,
-						.widget_callout_box .c-callout__description',
+						.c-callout__content,
+						.c-promo__content,
+						.c-promo__media .c-stamp',
 				),
 			),
 		),

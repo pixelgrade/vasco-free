@@ -82,11 +82,9 @@
 
   .c-callout__title {
     @include leading-map($h3);
-    color: $color-white;
   }
 
   .c-callout__description {
-    color: $color-white;
     @include spacing(margin-bottom, 2rem);
     @include spacing(padding-bottom, 2rem);
   }
