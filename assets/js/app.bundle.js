@@ -624,7 +624,7 @@ var Vasco = function (_BaseTheme) {
                 return;
             }
             var $sidebars = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.widget-area--front-page-1, .widget-area--footer-featured');
-            $sidebars.each(function (i, obj) {
+            $sidebars.each(function (index, obj) {
                 var $sidebar = __WEBPACK_IMPORTED_MODULE_1_jquery___default()(obj);
                 var $widgets = $sidebar.find('.widget');
                 var featureWidgetSelector = '.widget_feature_card';
@@ -636,8 +636,8 @@ var Vasco = function (_BaseTheme) {
                 $sidebar.children('.' + groupDefaultClass).children().unwrap();
                 // @todo check why there are still
                 $sidebar.children('.' + groupDefaultClass).remove();
-                for (var _i = 0; _i < $widgets.length; _i++) {
-                    var $widget = $widgets.eq(_i);
+                for (var i = 0; i < $widgets.length; i++) {
+                    var $widget = $widgets.eq(i);
                     var $second = $widget.next();
                     var $third = $second.next();
                     var $fourth = $third.next();
@@ -672,7 +672,7 @@ var Vasco = function (_BaseTheme) {
                     if ($group) {
                         $group.wrapAll('<div class="' + groupClass + ' ' + groupDefaultClass + '">');
                     }
-                    _i += offset;
+                    i += offset;
                 }
             });
         }

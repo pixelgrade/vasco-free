@@ -193,7 +193,7 @@ export class Vasco extends BaseTheme {
 
     const $sidebars = $('.widget-area--front-page-1, .widget-area--footer-featured');
 
-    $sidebars.each((i, obj) => {
+    $sidebars.each((index, obj) => {
       const $sidebar = $(obj);
       const $widgets = $sidebar.find('.widget');
 
