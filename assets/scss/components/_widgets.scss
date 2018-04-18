@@ -1,10 +1,10 @@
-.widget-area > * + * {
+.widget-area > * + *,
+.widget-area--footer-featured {
   @include spacing(margin-top, 6rem);
 }
 
 .widget-area.o-layout__side > * + * {
-  @include spacing(margin-top, 0);
-  //@include spacing(margin, 4rem 0);
+  margin-top: 0;
 }
 
 .widget-area.widget-area--footer-featured {

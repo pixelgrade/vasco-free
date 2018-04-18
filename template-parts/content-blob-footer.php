@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div>
 </div>
 
-<svg>
+<svg class="hidden">
 	<defs>
 		<filter id="goo">
 			<?php
