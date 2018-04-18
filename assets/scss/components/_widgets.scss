@@ -15,6 +15,14 @@
     display: inline-block;
     text-align: left;
   }
+
+  .widget_calendar table {
+    td,
+    th,
+    caption {
+      text-align: center;
+    }
+  }
 }
 
 %widget-with-list {
