@@ -101,8 +101,13 @@ add_action( 'widgets_init', 'vasco_custom_widgets_init', 10 );
 function vasco_handle_front_page_widgets_nesting( $index ) {
 	global $wp_registered_sidebars, $wp_registered_widgets;
 
-	// We only want to deal with the front page widget area, and only in the frontend, not the admin area.
-	if ( is_admin() || 'front-page-1' !== $index ) {
+	// We only want to do the nesting in the frontend because JS will take care of it in the customizer preview
+	if ( is_admin() ) {
+		return;
+	}
+
+	// We also want to deal only with the front page main widget area, or the footer featerd widget area
+	if ( 'front-page-1' !== $index && 'footer-featured' !== $index ) {
 		return;
 	}
 

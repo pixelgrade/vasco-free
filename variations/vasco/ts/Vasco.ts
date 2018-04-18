@@ -191,66 +191,70 @@ export class Vasco extends BaseTheme {
       return;
     }
 
-    const $sidebar = $('.widget-area--front-page-1');
-    const $widgets = $sidebar.find('.widget');
+    const $sidebars = $('.widget-area--front-page-1, .widget-area--footer-featured');
 
-    const featureWidgetSelector = '.widget_feature_card';
-    const stampWidgetSelector = '.widget_stamp';
-    const newsletterWidgetSelector = '.widget_mc4wp_form_widget';
-    const socialWidgetSelector = '.widget_wpcom_social_media_icons_widget';
-    const instagramWidgetSelector = '.null-instagram-feed';
-    const groupDefaultClass = 'widget-group';
+    $sidebars.each((i, obj) => {
+      const $sidebar = $(obj);
+      const $widgets = $sidebar.find('.widget');
 
-    $sidebar.children( '.' + groupDefaultClass ).children().unwrap();
-    // @todo check why there are still
-    $sidebar.children( '.' + groupDefaultClass ).remove();
+      const featureWidgetSelector = '.widget_feature_card';
+      const stampWidgetSelector = '.widget_stamp';
+      const newsletterWidgetSelector = '.widget_mc4wp_form_widget';
+      const socialWidgetSelector = '.widget_wpcom_social_media_icons_widget';
+      const instagramWidgetSelector = '.null-instagram-feed';
+      const groupDefaultClass = 'widget-group';
 
-    for ( let i = 0; i < $widgets.length; i++ ) {
-      const $widget = $widgets.eq(i);
-      const $second = $widget.next();
-      const $third = $second.next();
-      const $fourth = $third.next();
+      $sidebar.children( '.' + groupDefaultClass ).children().unwrap();
+      // @todo check why there are still
+      $sidebar.children( '.' + groupDefaultClass ).remove();
 
-      let $group;
-      let groupClass;
-      let offset = 0;
+      for ( let i = 0; i < $widgets.length; i++ ) {
+        const $widget = $widgets.eq(i);
+        const $second = $widget.next();
+        const $third = $second.next();
+        const $fourth = $third.next();
 
-      if ( $widget.is( featureWidgetSelector ) && $second.is( featureWidgetSelector ) ) {
-        $group = $widget.add( $second );
-        groupClass = 'feature-group-2';
-        offset = 1;
-        if ( $third.is( featureWidgetSelector ) ) {
-          $group = $group.add( $third );
-          groupClass = 'feature-group-3';
-          offset = 2;
-          if ( $fourth.is( featureWidgetSelector ) ) {
-            $group = $group.add( $fourth );
-            groupClass = 'feature-group-4';
-            offset = 3;
+        let $group;
+        let groupClass;
+        let offset = 0;
+
+        if ( $widget.is( featureWidgetSelector ) && $second.is( featureWidgetSelector ) ) {
+          $group = $widget.add( $second );
+          groupClass = 'feature-group-2';
+          offset = 1;
+          if ( $third.is( featureWidgetSelector ) ) {
+            $group = $group.add( $third );
+            groupClass = 'feature-group-3';
+            offset = 2;
+            if ( $fourth.is( featureWidgetSelector ) ) {
+              $group = $group.add( $fourth );
+              groupClass = 'feature-group-4';
+              offset = 3;
+            }
           }
         }
-      }
 
-      if ( $widget.is( newsletterWidgetSelector ) && $second.is( stampWidgetSelector ) ||
-        $widget.is( stampWidgetSelector ) && $second.is( newsletterWidgetSelector ) ) {
-        $group = $widget.add( $second );
-        groupClass = 'stamp-newsletter-group';
-        offset = 1;
-      }
+        if ( $widget.is( newsletterWidgetSelector ) && $second.is( stampWidgetSelector ) ||
+          $widget.is( stampWidgetSelector ) && $second.is( newsletterWidgetSelector ) ) {
+          $group = $widget.add( $second );
+          groupClass = 'stamp-newsletter-group';
+          offset = 1;
+        }
 
-      if ( $widget.is( socialWidgetSelector ) && $second.is( instagramWidgetSelector ) ||
-        $widget.is( instagramWidgetSelector ) && $second.is( socialWidgetSelector ) ) {
-        $group = $widget.add( $second );
-        groupClass = 'social-instagram-group';
-        offset = 1;
-      }
+        if ( $widget.is( socialWidgetSelector ) && $second.is( instagramWidgetSelector ) ||
+          $widget.is( instagramWidgetSelector ) && $second.is( socialWidgetSelector ) ) {
+          $group = $widget.add( $second );
+          groupClass = 'social-instagram-group';
+          offset = 1;
+        }
 
-      if ( $group ) {
-        $group.wrapAll( '<div class="' + groupClass + ' ' + groupDefaultClass + '">' );
-      }
+        if ( $group ) {
+          $group.wrapAll( '<div class="' + groupClass + ' ' + groupDefaultClass + '">' );
+        }
 
-      i += offset;
-    }
+        i += offset;
+      }
+    });
   }
 
   public handleGalleries( $container: JQuery = Helper.$body ) {
