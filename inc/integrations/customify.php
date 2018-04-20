@@ -136,7 +136,9 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 			),
 			'sm_light_secondary' => array(
 				'connected_fields' => array(
-					'header_submenu_background'
+					'header_submenu_background',
+					'announcement_bar_text_color',
+					'main_content_fields_background_color'
 				),
 			),
 		),
@@ -855,6 +857,30 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 				// Disable sub-field (False by default)
 				'text-transform'  => true,
 				'text-decoration' => false,
+			),
+		),
+	) );
+
+	$section_options['main_content']['options'] = Pixelgrade_Array::insertAfterKey( $section_options['main_content']['options'], 'main_content_content_background_color', array(
+		'main_content_fields_background_color' => array(
+			'type'     => 'color',
+			'default'  => '#FFFFFF',
+			'label'    => esc_html__( 'Fields Background Color', '__theme_txtd' ),
+			'desc'     => '',
+			'css' => array(
+				array(
+					'property' => 'background-color',
+					'selector' => '
+						input[type=date],
+						input[type=email],
+						input[type=number],
+						input[type=password],
+						input[type=search],
+						input[type=tel],
+						input[type=text],
+						input[type=url],
+						select, textarea'
+				),
 			),
 		),
 	) );
