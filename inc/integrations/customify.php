@@ -72,20 +72,6 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'blob_secondary_color',
 					'announcement_bar_background_color',
 					'buttons_color',
-//					'buttons_color' => array(
-//						'filters' => array(
-//							array(
-//								'js_callback' => 'customifyInverseHexColorToBlackOrWhite',
-//								'arguments' => array(),
-//								'checks' => array(
-//									array(
-//										'js_callback' => '',
-//									),
-//								),
-//								'priority' => 10,
-//							),
-//						),
-//					),
 				),
 			),
 			'sm_color_secondary' => array(
@@ -867,6 +853,7 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 			'default'  => '#FFFFFF',
 			'label'    => esc_html__( 'Fields Background Color', '__theme_txtd' ),
 			'desc'     => '',
+			'live'     => true,
 			'css' => array(
 				array(
 					'property' => 'background-color',
