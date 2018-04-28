@@ -143,6 +143,8 @@
     position: absolute;
     top: 0;
     right: 0;
+    // iPhone Safari doesn't support event delegation. This makes the search click-able
+    cursor: pointer;
 
     width: 27px;
     height: $header-mobile-height;
