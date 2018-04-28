@@ -109,6 +109,20 @@ export class Vasco extends BaseTheme {
 
   public bindEvents() {
     super.bindEvents();
+    this.handleFeatureCardMobileClick();
+  }
+
+  public handleFeatureCardMobileClick() {
+    if (Helper.above( 'lap' )) { return; }
+    const $featureWidgets = $('.widget_feature_card');
+
+    $featureWidgets.on('click', (event: JQueryEventObject) => {
+      const $actionButton = $(event.currentTarget).find('.c-feature__action').find('a');
+      const href = $actionButton.attr('href');
+      if (href) {
+        window.location.href = $actionButton.attr('href');
+      }
+    } );
   }
 
   public onLoadAction() {

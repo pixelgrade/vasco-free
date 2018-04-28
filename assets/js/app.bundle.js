@@ -547,6 +547,22 @@ var Vasco = function (_BaseTheme) {
         key: 'bindEvents',
         value: function bindEvents() {
             _get(Vasco.prototype.__proto__ || Object.getPrototypeOf(Vasco.prototype), 'bindEvents', this).call(this);
+            this.handleFeatureCardMobileClick();
+        }
+    }, {
+        key: 'handleFeatureCardMobileClick',
+        value: function handleFeatureCardMobileClick() {
+            if (__WEBPACK_IMPORTED_MODULE_5__components_base_ts_services_Helper__["a" /* Helper */].above('lap')) {
+                return;
+            }
+            var $featureWidgets = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.widget_feature_card');
+            $featureWidgets.on('click', function (event) {
+                var $actionButton = __WEBPACK_IMPORTED_MODULE_1_jquery___default()(event.currentTarget).find('.c-feature__action').find('a');
+                var href = $actionButton.attr('href');
+                if (href) {
+                    window.location.href = $actionButton.attr('href');
+                }
+            });
         }
     }, {
         key: 'onLoadAction',
