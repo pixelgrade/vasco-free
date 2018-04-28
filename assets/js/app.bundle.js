@@ -475,6 +475,10 @@ var Vasco = function (_BaseTheme) {
         var _this = _possibleConstructorReturn(this, (Vasco.__proto__ || Object.getPrototypeOf(Vasco)).call(this));
 
         _this.isLoggedIn = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('body').hasClass('logged-in');
+        _this.windowDimensions = {
+            height: _this.$window.height(),
+            width: _this.$window.width()
+        };
         _this.blobs = [];
         _this.$announcementBar = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.c-announcement-bar');
         _this.$siteHeader = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.site-header');
@@ -560,8 +564,13 @@ var Vasco = function (_BaseTheme) {
         value: function onResizeAction() {
             _get(Vasco.prototype.__proto__ || Object.getPrototypeOf(Vasco.prototype), 'onResizeAction', this).call(this);
             this.adjustLayout();
-            this.revertAnnouncementChanges();
-            this.initAnnouncementBar();
+            // Fix for iOS Safari because it triggers and Resize event when scrolling in page and the address bar hides.
+            // The window dimensions don't change, only the event is triggered
+            if (this.windowDimensions.width !== this.$window.width() && this.windowDimensions.height !== this.$window.height()) {
+                this.windowDimensions = { width: this.$window.width(), height: this.$window.height() };
+                this.revertAnnouncementChanges();
+                this.initAnnouncementBar();
+            }
         }
     }, {
         key: 'onJetpackPostLoad',
@@ -868,6 +877,7 @@ var BaseTheme = function () {
         _classCallCheck(this, BaseTheme);
 
         this.$body = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('body');
+        this.$window = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(window);
         this.$html = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('html');
         this.ev = __WEBPACK_IMPORTED_MODULE_0_jquery___default()({});
         this.frameRendered = false;
@@ -889,7 +899,7 @@ var BaseTheme = function () {
             if (window.location.href.indexOf('#comment') === -1) {
                 __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.trigger-comments').removeAttr('checked');
             }
-            __WEBPACK_IMPORTED_MODULE_0_jquery___default()(window).on('beforeunload', this.fadeOut.bind(this));
+            this.$window.on('beforeunload', this.fadeOut.bind(this));
             this.ev.on('render', this.update.bind(this));
         }
     }, {
