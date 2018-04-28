@@ -86,6 +86,10 @@
     justify-content: center;
     @include spacing(margin-bottom, 4rem);
 
+    @include below(lap) {
+      padding-bottom: 4rem;
+    }
+
     img {
       display: block;
       max-width: 100%;
