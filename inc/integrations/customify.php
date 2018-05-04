@@ -87,7 +87,7 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'main_content_border_color',
 				),
 			),
-			
+
 			'sm_dark_primary' => array(
 				'connected_fields' => array(
 					// DARK COLOR
