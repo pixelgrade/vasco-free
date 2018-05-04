@@ -760,7 +760,7 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 						.wp-caption-text,
 						.widget_categories .cat-link,
 						.c-announcement-bar__text,
-						.widget_wpcom_social_media_icons_widget .widget__title,
+						.widget-area:not(.widget-area--footer-featured) .widget_wpcom_social_media_icons_widget .widget__title,
 						.c-stamp',
 					'default' => array(
 						'font-family'    => THEME_HEADINGS_FONT_ALT,

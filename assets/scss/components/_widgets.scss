@@ -1,10 +1,28 @@
-.widget-area > * + * {
+.widget-area > * + *,
+.widget-area--footer-featured {
   @include spacing(margin-top, 6rem);
 }
 
 .widget-area.o-layout__side > * + * {
-  @include spacing(margin-top, 0);
-  //@include spacing(margin, 4rem 0);
+  margin-top: 0;
+}
+
+.widget-area.widget-area--footer-featured {
+  text-align: center;
+
+  .calendar_wrap {
+    width: 350px;
+    display: inline-block;
+    text-align: left;
+  }
+
+  .widget_calendar table {
+    td,
+    th,
+    caption {
+      text-align: center;
+    }
+  }
 }
 
 %widget-with-list {
@@ -214,6 +232,14 @@ body {
   }
 }
 
+.widget-area:not(.widget-area--footer-featured) {
+  .widget_wpcom_social_media_icons_widget {
+    .widget__title {
+      @include leading-map($h4);
+    }
+  }
+}
+
 .widget_wpcom_social_media_icons_widget {
 
   .o-layout__side & {
@@ -231,7 +257,6 @@ body {
   }
 
   .widget__title {
-    @include leading-map($h4);
     color: inherit;
   }
 
@@ -272,3 +297,4 @@ body {
     }
   }
 }
+
