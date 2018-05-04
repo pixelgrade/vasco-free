@@ -413,13 +413,11 @@ export class Vasco extends BaseTheme {
     }
 
     this.$announcementBar.addClass('c-announcement-bar--hidden');
-    const announcementBarHeight = this.$announcementBar.outerHeight();
-    const adminBarHeight = $('#wpadminbar').outerHeight() || 0;
 
-    this.modifyCss(this.$siteHeader, 'top', announcementBarHeight, '-=');
-    this.modifyCss(this.$toolbar, 'padding-top', announcementBarHeight, '-=');
-    this.modifyCss(this.$contentPaddingContainer, 'padding-top', announcementBarHeight, '-=');
-    this.modifyCss(this.$announcementBar, 'top', adminBarHeight, '-=');
+    this.$siteHeader.css( 'top', '' );
+    this.$toolbar.css( 'padding-top', '' );
+    this.$contentPaddingContainer.css( 'padding-top', '' );
+    this.$announcementBar.css( 'top', '');
   }
 
   private onAnnouncementClose(event: JQueryEventObject) {

@@ -842,12 +842,10 @@ var Vasco = function (_BaseTheme) {
                 this.$contentPaddingContainer.addClass('animated');
             }
             this.$announcementBar.addClass('c-announcement-bar--hidden');
-            var announcementBarHeight = this.$announcementBar.outerHeight();
-            var adminBarHeight = __WEBPACK_IMPORTED_MODULE_1_jquery___default()('#wpadminbar').outerHeight() || 0;
-            this.modifyCss(this.$siteHeader, 'top', announcementBarHeight, '-=');
-            this.modifyCss(this.$toolbar, 'padding-top', announcementBarHeight, '-=');
-            this.modifyCss(this.$contentPaddingContainer, 'padding-top', announcementBarHeight, '-=');
-            this.modifyCss(this.$announcementBar, 'top', adminBarHeight, '-=');
+            this.$siteHeader.css('top', '');
+            this.$toolbar.css('padding-top', '');
+            this.$contentPaddingContainer.css('padding-top', '');
+            this.$announcementBar.css('top', '');
         }
     }, {
         key: 'onAnnouncementClose',
