@@ -20,6 +20,10 @@ export class Vasco extends BaseTheme {
   public $toolbar: JQueryExtended;
   public $contentPaddingContainer: JQueryExtended;
   public isLoggedIn: boolean = $('body').hasClass('logged-in');
+  public windowDimensions: { width: number, height: number } = {
+    height: this.$window.height(),
+    width: this.$window.width()
+  };
 
   private blobs: Blob[] = [];
 
@@ -105,6 +109,20 @@ export class Vasco extends BaseTheme {
 
   public bindEvents() {
     super.bindEvents();
+    this.handleFeatureCardMobileClick();
+  }
+
+  public handleFeatureCardMobileClick() {
+    if (Helper.above( 'lap' )) { return; }
+    const $featureWidgets = $('.widget_feature_card');
+
+    $featureWidgets.on('click', (event: JQueryEventObject) => {
+      const $actionButton = $(event.currentTarget).find('.c-feature__action').find('a');
+      const href = $actionButton.attr('href');
+      if (href) {
+        window.location.href = $actionButton.attr('href');
+      }
+    } );
   }
 
   public onLoadAction() {
@@ -121,8 +139,14 @@ export class Vasco extends BaseTheme {
   public onResizeAction() {
     super.onResizeAction();
     this.adjustLayout();
-    this.revertAnnouncementChanges();
-    this.initAnnouncementBar();
+    // Fix for iOS Safari because it triggers and Resize event when scrolling in page and the address bar hides.
+    // The window dimensions don't change, only the event is triggered
+    if ( this.windowDimensions.width !== this.$window.width()
+      && this.windowDimensions.height !== this.$window.height() ) {
+      this.windowDimensions = { width: this.$window.width(), height: this.$window.height() };
+      this.revertAnnouncementChanges();
+      this.initAnnouncementBar();
+    }
   }
 
   public onJetpackPostLoad() {
