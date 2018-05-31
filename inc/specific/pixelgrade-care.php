@@ -17,5 +17,6 @@ function vasco_setup_pixelgrade_care() {
 			'changelog_url' => 'https://wupdates.com/vasco-changelog',
 		)
 	);
+	
 }
 add_action( 'after_setup_theme', 'vasco_setup_pixelgrade_care', 10 );

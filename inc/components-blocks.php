@@ -33,6 +33,7 @@ function vasco_register_blog_blocks( $component_slug, $component_config ) {
 
 	Pixelgrade_BlocksManager()->registerBlock( 'blog/single', array(
 		'extend' => 'blog/default',
+		'type' => 'loop', // We need this to be a loop so all who rely on "in_the_loop" have an easy life.
 		'blocks' => array(
 			'container' => array(
 				'extend' => 'blog/container',
@@ -128,6 +129,7 @@ function vasco_register_blog_blocks( $component_slug, $component_config ) {
 
 	Pixelgrade_BlocksManager()->registerBlock( 'blog/front-page', array(
 		'extend' => 'blog/default',
+		'type' => 'loop', // We need this to be a loop so all who rely on "in_the_loop" have an easy life.
 		'blocks' => array(
 			'content' => array(
 				'extend' => 'blog/container',
