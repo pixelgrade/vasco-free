@@ -118,13 +118,13 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'blog_item_thumbnail_background',
 					'footer_background',
 					'buttons_text_color',
+					'header_submenu_background',
+					'main_content_fields_background_color'
 				),
 			),
 			'sm_light_secondary' => array(
 				'connected_fields' => array(
-					'header_submenu_background',
 					'announcement_bar_text_color',
-					'main_content_fields_background_color'
 				),
 			),
 		),
