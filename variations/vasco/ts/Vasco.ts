@@ -224,7 +224,7 @@ export class Vasco extends BaseTheme {
       const featureWidgetSelector = '.widget_feature_card';
       const stampWidgetSelector = '.widget_stamp';
       const newsletterWidgetSelector = '.widget_mc4wp_form_widget';
-      const socialWidgetSelector = '.widget_wpcom_social_media_icons_widget';
+      const socialWidgetSelector = '.widget_wpcom_social_media_icons_widget, .jetpack_widget_social_icons';
       const instagramWidgetSelector = '.null-instagram-feed';
       const groupDefaultClass = 'widget-group';
 

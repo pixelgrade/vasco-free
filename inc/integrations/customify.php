@@ -193,6 +193,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 							'selector' => '
 								.c-stamp__container.is-dark,
 								.social-instagram-group .widget_wpcom_social_media_icons_widget,
+								.social-instagram-group .jetpack_widget_social_icons,
 								.widget_promo_box .c-promo,
 								.widget_mc4wp_form_widget[class] input[type=submit],
 	
@@ -552,6 +553,7 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 								.single .header-meta .posted-on,
 								.c-meta__secondary[class],
 								.widget_wpcom_social_media_icons_widget[class] ul li,
+								.jetpack_widget_social_icons[class] ul li,
 								.widget_categories .cat-link-count',
 						),
 						array(
@@ -579,6 +581,8 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 								.widget_categories .cat-item a:hover .cat-link-count,
 								.widget_categories .cat-item a:active .cat-link-count,
 								.widget_wpcom_social_media_icons_widget[class] ul li:hover,
+								.jetpack_widget_social_icons[class] ul li:hover,
+								.jetpack_widget_social_icons[class] ul li:active,
 								.widget_wpcom_social_media_icons_widget[class] ul li:active',
 						),
 					),
@@ -650,7 +654,9 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 								.c-meta__primary .comments,
 								.widget_categories .cat-link-count,
 								.social-instagram-group .widget_wpcom_social_media_icons_widget,
-								.widget_wpcom_social_media_icons_widget[class] ul a',
+								.social-instagram-group .jetpack_widget_social_icons,
+								.widget_wpcom_social_media_icons_widget[class] ul a,
+								.jetpack_widget_social_icons[class] ul a',
 						),
 					),
 				),
@@ -761,6 +767,7 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 						.widget_categories .cat-link,
 						.c-announcement-bar__text,
 						.widget-area:not(.widget-area--footer-featured) .widget_wpcom_social_media_icons_widget .widget__title,
+						.widget-area:not(.widget-area--footer-featured) .jetpack_widget_social_icons .widget__title,
 						.c-stamp',
 					'default' => array(
 						'font-family'    => THEME_HEADINGS_FONT_ALT,
