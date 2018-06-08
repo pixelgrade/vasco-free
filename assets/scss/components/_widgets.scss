@@ -234,14 +234,16 @@ body {
 }
 
 .widget-area:not(.widget-area--footer-featured) {
-  .widget_wpcom_social_media_icons_widget {
+  .widget_wpcom_social_media_icons_widget,
+  .jetpack_widget_social_icons {
     .widget__title {
       @include leading-map($h4);
     }
   }
 }
 
-.widget_wpcom_social_media_icons_widget {
+.widget_wpcom_social_media_icons_widget,
+.jetpack_widget_social_icons {
 
   .o-layout__side & {
     .widget__title {

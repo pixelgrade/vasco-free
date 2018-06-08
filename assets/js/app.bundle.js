@@ -655,7 +655,7 @@ var Vasco = function (_BaseTheme) {
                 var featureWidgetSelector = '.widget_feature_card';
                 var stampWidgetSelector = '.widget_stamp';
                 var newsletterWidgetSelector = '.widget_mc4wp_form_widget';
-                var socialWidgetSelector = '.widget_wpcom_social_media_icons_widget';
+                var socialWidgetSelector = '.widget_wpcom_social_media_icons_widget, .jetpack_widget_social_icons';
                 var instagramWidgetSelector = '.null-instagram-feed';
                 var groupDefaultClass = 'widget-group';
                 $sidebar.children('.' + groupDefaultClass).children().unwrap();

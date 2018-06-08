@@ -206,9 +206,9 @@ function vasco_handle_front_page_widgets_nesting( $index ) {
 			continue;
 		}
 
-		// Now handle the case where we have a Social Media Icons (Jetpack) widget + Instagram widget
+		// Now handle the case where we have a Social Icons (Jetpack) or Social Media Icons (Jetpack - Deprecated) widget + Instagram widget
 		// If we encounter a Social Media Icons widget, we need to see if there is a Instagram widget after it - if there is we wrap both
-		if ( 'wpcom_social_media_icons_widget' === $widget_type &&
+		if ( ( 'jetpack_widget_social_icons' === $widget_type || 'wpcom_social_media_icons_widget' === $widget_type ) &&
 		     isset( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
 		     'null-instagram-feed' === vasco_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
 			 class_exists( 'null_instagram_widget' ) ) {
@@ -220,8 +220,8 @@ function vasco_handle_front_page_widgets_nesting( $index ) {
 			$closing_filter = new Vasco_AddWidgetIdWrapperClosingTag( $front_page_sidebar_widgets[ $idx + 1 ] );
 			add_filter( 'dynamic_sidebar_params', array( $closing_filter, 'filter' ), 10, 1 );
 
-			// We will also insert a link to the Instagram account configured in the Instagram widget, before the Social Media Icons widget content.
-			$social_media_icons_filter = new Vasco_AddInstagramBeforeSocialMediaIconsInGroup( $widget_id, $front_page_sidebar_widgets[ $idx + 1 ] );
+			// We will also insert a link to the Instagram account configured in the Instagram widget, before the Social Icons widget content.
+			$social_media_icons_filter = new Vasco_AddInstagramBeforeSocialIconsInGroup( $widget_id, $front_page_sidebar_widgets[ $idx + 1 ] );
 			add_filter( 'dynamic_sidebar_params', array( $social_media_icons_filter, 'filter' ), 10, 1 );
 
 			// Increase the index and continue
@@ -229,11 +229,11 @@ function vasco_handle_front_page_widgets_nesting( $index ) {
 			continue;
 		}
 
-		// Now the other way around, first the Instagram widget and then the Social Media Icons widget.
+		// Now the other way around, first the Instagram widget and then the Social Icons (Jetpack) or Social Media Icons (Jetpack - Deprecated) widget.
 		if ( 'null-instagram-feed' === $widget_type &&
 		     class_exists( 'null_instagram_widget' ) &&
 		     isset( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
-		     'wpcom_social_media_icons_widget' === vasco_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
+		     ( 'jetpack_widget_social_icons' === vasco_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) || 'wpcom_social_media_icons_widget' === vasco_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) ) {
 			// We will output a wrapper before the Social Media Icons widget
 			$opening_filter = new Vasco_AddWidgetIdWrapperOpeningTag( 'widget-group social-instagram-group', $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $opening_filter, 'filter' ), 10, 1 );
@@ -243,7 +243,7 @@ function vasco_handle_front_page_widgets_nesting( $index ) {
 			add_filter( 'dynamic_sidebar_params', array( $closing_filter, 'filter' ), 10, 1 );
 
 			// We will also insert a link to the Instagram account configured in the Instagram widget, before the Social Media Icons widget content.
-			$social_media_icons_filter = new Vasco_AddInstagramBeforeSocialMediaIconsInGroup( $front_page_sidebar_widgets[ $idx + 1 ], $widget_id );
+			$social_media_icons_filter = new Vasco_AddInstagramBeforeSocialIconsInGroup( $front_page_sidebar_widgets[ $idx + 1 ], $widget_id );
 			add_filter( 'dynamic_sidebar_params', array( $social_media_icons_filter, 'filter' ), 10, 1 );
 
 			// Increase the index and continue
@@ -251,10 +251,10 @@ function vasco_handle_front_page_widgets_nesting( $index ) {
 			continue;
 		}
 
-		// Now handle the case where we have a Social Media Icons (Jetpack) widget + a text widget with the [instagram-feed] shortcode in it
+		// Now handle the case where we have a Social Icons (Jetpack) or Social Media Icons (Jetpack - Deprecated) widget + a text widget with the [instagram-feed] shortcode in it
 		// We do this last because it is a more complicated logic because we need to look at the content and search for the shortcode
 		// @see https://wordpress.org/plugins/instagram-feed/
-		if ( 'wpcom_social_media_icons_widget' === $widget_type &&
+		if ( ( 'jetpack_widget_social_icons' === $widget_type || 'wpcom_social_media_icons_widget' === $widget_type ) &&
 		     isset( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
 		     'text' === vasco_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
 		     vasco_text_widget_has_instagram_feed_shortcode( $front_page_sidebar_widgets[ $idx + 1 ] ) ) {
@@ -275,7 +275,7 @@ function vasco_handle_front_page_widgets_nesting( $index ) {
 		// Now the other way around
 		if ( 'text' === $widget_type &&
 		     isset( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
-		     'wpcom_social_media_icons_widget' === vasco_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) &&
+		     ( 'jetpack_widget_social_icons' === vasco_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) || 'wpcom_social_media_icons_widget' === vasco_get_widget_type_from_id( $front_page_sidebar_widgets[ $idx + 1 ] ) ) &&
 		     vasco_text_widget_has_instagram_feed_shortcode( $widget_id ) ) {
 
 			// We will output a wrapper before the text widget
@@ -414,18 +414,18 @@ class Vasco_AddWidgetIdWrapperClosingTag {
  *
  * We need to use a class so we can pass the $html and $widget_id variable to the filter function
  */
-class Vasco_AddInstagramBeforeSocialMediaIconsInGroup {
-	private $social_media_icons_widget_id;
+class Vasco_AddInstagramBeforeSocialIconsInGroup {
+	private $social_icons_widget_id;
 	private $instagram_widget_id;
 
-	function __construct( $social_media_icons_widget_id, $instagram_widget_id ) {
-		$this->social_media_icons_widget_id = $social_media_icons_widget_id;
-		$this->instagram_widget_id = $instagram_widget_id;
+	function __construct( $social_icons_widget_id, $instagram_widget_id ) {
+		$this->social_icons_widget_id = $social_icons_widget_id;
+		$this->instagram_widget_id    = $instagram_widget_id;
 	}
 
 	public function filter( $params ) {
 		// Only add the markup for the target widget ID
-		if ( $params[0]['widget_id'] === $this->social_media_icons_widget_id ) {
+		if ( $params[0]['widget_id'] === $this->social_icons_widget_id ) {
 			// Get the data from the Instagram widget
 			$widget_type = vasco_get_widget_type_from_id( $this->instagram_widget_id );
 			$instance_number = vasco_get_widget_instance_number_from_id( $this->instagram_widget_id );
