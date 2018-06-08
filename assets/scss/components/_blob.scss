@@ -4,6 +4,9 @@
   height: 100%;
 
   pointer-events: none;
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .blobs--thumbnail {
