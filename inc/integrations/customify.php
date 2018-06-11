@@ -477,6 +477,16 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 				),
 				'main_content_content_width'            => array(
 					'default' => 720,
+					'css'         => array(
+						array(
+							'property' => 'max-width',
+							'selector' => '
+									.u-content-width > :not([class*="align"]):not([class*="gallery"]):not(blockquote),
+									.mce-content-body:not([class*="page-template-full-width"]) > :not([class*="align"]):not([data-wpview-type*="gallery"]):not(blockquote):not(.mceTemp),
+									.swp_social_panel',
+							'unit'     => 'px',
+						),
+					),
 				),
 				'main_content_border_width'             => array(
 					'default' => 0,
