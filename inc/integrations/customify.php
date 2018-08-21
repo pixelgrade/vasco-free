@@ -117,9 +117,9 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					// TEXT COLOR
 					'main_content_body_link_color',
 					'main_content_heading_1_color',
+					'main_content_heading_2_color',
 					'main_content_page_title_color',
 					'blog_item_title_color',
-					'main_content_heading_2_color',
 					'main_content_heading_3_color',
 					'blog_item_excerpt_color',
 					'main_content_body_text_color',
