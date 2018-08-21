@@ -7,7 +7,7 @@ $baseline-unit: 14px;
 $fa-font-path: 'assets/fonts/fontawesome';
 
 // Variation Variables
-$theme-accent-color: #DE2D16;
+$sm-color-secondary: #DE2D16;
 $theme-text-color: #2B3D39;
 $theme-border-color: $color-gray-90;
 $theme-background-color: #F5F6F1;
@@ -26,8 +26,8 @@ $transition--ease-in-cubic: all 300ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
 // ========================================
 $btn-padding: 0.75em 1.75em;
 $btn-border-radius: 4px;
-$btn-background: $theme-accent-color;
-$btn-hover-background: $theme-accent-color;
+$btn-background: $sm-color-secondary;
+$btn-hover-background: $sm-color-secondary;
 $btn-color: #FFF;
 $btn-font: (
   font-family: $theme-headings-font-family-alt,
@@ -50,7 +50,7 @@ $header-sides-spacing: 42px;
 // ----------------------------------------
 $header-links-color: $theme-text-color;
 $header-links-active-color: $theme-text-color;
-$header-background-color: $theme-accent-color;
+$header-background-color: $sm-color-secondary;
 
 // ----------------------------------------
 // Fonts
@@ -91,15 +91,15 @@ $content-border-color: transparent;
 // ----------------------------------------
 $page-title-color: $theme-text-color;
 $body-text-color: $theme-text-color;
-$body-link-color: $theme-accent-color;
-$body-link-active-color: $theme-accent-color;
-$body-link-highlight-color: $theme-accent-color;
+$body-link-color: $sm-color-secondary;
+$body-link-active-color: $sm-color-secondary;
+$body-link-highlight-color: $sm-color-secondary;
 $h1-color: $theme-text-color;
 $h2-color: $theme-text-color;
 $h3-color: $theme-text-color;
-$h4-color: $theme-accent-color;
-$h5-color: $theme-accent-color;
-$h6-color: $theme-accent-color;
+$h4-color: $sm-color-secondary;
+$h5-color: $sm-color-secondary;
+$h6-color: $sm-color-secondary;
 $content-background-color: $theme-background-color;
 // ----------------------------------------
 // Fonts
@@ -258,7 +258,7 @@ $blog-excerpt-visibility: true;
 $blog-card-title-color: #2B3D39;
 $blog-primary-meta-color: #DE2D16;
 $blog-secondary-meta-color: #828282;
-$blog-thumbnail-background: $theme-accent-color;
+$blog-thumbnail-background: $sm-color-secondary;
 $blog-thumbnail-background-opacity: 0.5;
 
 $blog-secondary-meta-color: #FFF !default;
@@ -328,8 +328,8 @@ $wp-align-wrapped-image-horizontal-padding: 3rem;
 // ----------------------------------------
 // FORMS
 // ----------------------------------------
-$checkbox-color: $theme-accent-color;
-$checkbox-background-color: $theme-accent-color;
+$checkbox-color: $sm-color-secondary;
+$checkbox-background-color: $sm-color-secondary;
 $checkbox-width: 1.7rem;
 $checkbox-height: 1.7rem;
 $input-focus-border-color: #ADADAD;

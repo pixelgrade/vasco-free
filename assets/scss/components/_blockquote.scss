@@ -12,7 +12,7 @@ blockquote {
     }
 
     cite {
-      color: $theme-accent-color;
+      color: $sm-color-secondary;
       @include vertical-separator;
     }
 }

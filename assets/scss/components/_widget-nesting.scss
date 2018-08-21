@@ -251,6 +251,6 @@
 
   .vertical-separator:before {
     @include spacing(height, 6.5rem);
-    background-color: $theme-accent-color;
+    background-color: $sm-color-secondary;
   }
 }

@@ -53,7 +53,7 @@
   }
 
   &:after {
-    background-color: $theme-accent-color;
+    background-color: $sm-color-secondary;
     z-index: 10;
     mix-blend-mode: multiply;
   }

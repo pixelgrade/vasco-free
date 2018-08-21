@@ -48,7 +48,7 @@ $content-class: '.entry-content';
   @include accent-image-filter;
 }
 
-$alert-placeholder-background: $theme-accent-color;
+$alert-placeholder-background: $sm-color-secondary;
 
 // VASCO STYLING
 @import 'components/alert';
