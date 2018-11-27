@@ -1,22 +1,22 @@
-webpackJsonp([3],{
+webpackJsonp([4],{
 
-/***/ 32:
+/***/ 34:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__scss_admin_scss__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__scss_admin_scss__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__scss_admin_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__scss_admin_scss__);
 
 
 /***/ }),
 
-/***/ 33:
+/***/ 35:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ })
 
-},[32]);
+},[34]);
 //# sourceMappingURL=admin.bundle.js.map
