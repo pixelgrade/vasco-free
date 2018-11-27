@@ -1,4 +1,4 @@
-hr {
+hr:not([class*="wp-block"]) {
     width: 4px;
     height: 4px;
     border-top: 0;

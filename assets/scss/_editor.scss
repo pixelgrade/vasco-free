@@ -1,0 +1,63 @@
+@import "../../components/base/scss/defaults";
+@import "../../variations/vasco/scss/settings";
+
+@import "../../components/base/scss/tools/all";
+
+$content-class: '.edit-post-visual-editor';
+
+.edit-post-visual-editor {
+    @import "../../components/base/scss/typography";
+    @import "../../components/base/scss/elements/two-column";
+    @import "../../components/base/scss/objects/btn";
+
+    @import "base/gutenberg";
+
+    .editor-post-title__block .editor-post-title__input[class] {
+        text-align: center;
+        margin-bottom: 70px;
+    }
+
+    .wp-block-html .editor-plain-text {
+        color: inherit;
+    }
+
+    .wp-block-quote,
+    .wp-block-pullquote {
+        color: inherit;
+    }
+
+    .editor-rich-text__tinymce {
+        line-height: inherit;
+    }
+
+    .wp-block-quote p {
+        font-size: 1em;
+        line-height: inherit;
+    }
+
+    .wp-block-pullquote {
+
+        &.aligncenter,
+        &.alignnone,
+        &:not([class*="align"]) {
+
+            blockquote {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+
+        &.alignright blockquote {
+            margin-right: 0;
+        }
+
+        &.alignleft blockquote {
+            margin-left: 0;
+        }
+    }
+
+    .wp-block-quote:not(.is-large):not(.is-style-large) {
+        padding-left: 0;
+        border-left: 0;
+    }
+}

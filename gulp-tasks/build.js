@@ -19,8 +19,9 @@ var gulp = require( 'gulp-help' )( require( 'gulp' ) ),
 // -----------------------------------------------------------------------------
 // Copy theme folder outside in a build folder, recreate styles before that
 // -----------------------------------------------------------------------------
-function copyFolder() {
-    let variation = config.theme_name;
+
+gulp.task( 'copy-folder', 'Copy theme production files to a build folder', function() {
+    let variation = 'julia';
 
     if ( argv.variation !== undefined ) {
         variation = argv.variation;
@@ -45,15 +46,14 @@ function copyFolder() {
             clean: true,
             exclude: ['node_modules']
         }));
-}
-copyFolder.description = 'Copy theme production files to a build folder';
-gulp.task( 'copy-folder', copyFolder );
+} );
 
 // -----------------------------------------------------------------------------
 // Replace the components' text domain with the theme text domain
 // -----------------------------------------------------------------------------
-function componentsTxtDomainReplace() {
-    let variation = config.theme_name;
+
+gulp.task( 'components-txtdomain-replace', ['copy-folder'], function() {
+    let variation = 'julia';
 
     if ( argv.variation !== undefined ) {
         variation = argv.variation;
@@ -62,14 +62,14 @@ function componentsTxtDomainReplace() {
     return gulp.src( '../build/' + variation + '/components/**/*.php' )
         .pipe( plugins.replace( /['|"]__components_txtd['|"]/g, '\'' + variation + '\'' ) )
         .pipe( gulp.dest( '../build/' + variation + '/components' ) );
-}
-gulp.task( 'components-txtdomain-replace', gulp.series(copyFolder, componentsTxtDomainReplace) );
+} );
 
 // -----------------------------------------------------------------------------
 // Replace the themes' text domain with the actual text domain (think variations)
 // -----------------------------------------------------------------------------
-function txtDomainReplace() {
-    let variation = config.theme_name;
+
+gulp.task( 'txtdomain-replace', ['components-txtdomain-replace'], function() {
+    let variation = 'julia';
 
     if ( argv.variation !== undefined ) {
         variation = argv.variation;
@@ -78,30 +78,30 @@ function txtDomainReplace() {
     return gulp.src( '../build/' + variation + '/**/*.php' )
         .pipe( plugins.replace( /['|"]__theme_txtd['|"]/g, '\'' + variation + '\'' ) )
         .pipe( gulp.dest( '../build/' + variation ) );
-}
-gulp.task( 'txtdomain-replace', gulp.series('components-txtdomain-replace', txtDomainReplace) );
+} );
 
 // -----------------------------------------------------------------------------
 // Move the current variation's PHP files in their proper place
 // -----------------------------------------------------------------------------
-function moveVariationSpecificFiles() {
-    let variation = config.theme_name;
 
-    if ( argv.variation !== undefined ) {
-        variation = argv.variation;
-    }
+gulp.task( 'move-variation-specific-files', ['txtdomain-replace'], function() {
+	let variation = 'julia';
 
-    return gulp.src( '../build/' + variation + '/variations/' + variation + '/synced/**/*' )
-        .pipe( gulp.dest( '../build/' + variation ) );
-}
-gulp.task( 'move-variation-specific-files', gulp.series('txtdomain-replace', moveVariationSpecificFiles) );
+	if ( argv.variation !== undefined ) {
+		variation = argv.variation;
+	}
+
+	return gulp.src( '../build/' + variation + '/variations/' + variation + '/synced/**/*' )
+		.pipe( gulp.dest( '../build/' + variation ) );
+} );
 
 
 // -----------------------------------------------------------------------------
 // Remove unneeded files and folders from the build folder
 // -----------------------------------------------------------------------------
-function buildDirectory() {
-    let variation = config.theme_name;
+
+gulp.task( 'build', 'Remove unneeded files and folders from the build folder', ['move-variation-specific-files'], function() {
+    let variation = 'julia';
 
     if ( argv.variation !== undefined ) {
         variation = argv.variation;
@@ -146,16 +146,15 @@ function buildDirectory() {
         '.jscsrc',
         '.jshintignore',
         'browserslist',
-        '.stylelintrc',
-        'tsconfig.json',
-        'tslint.json',
-        'webpack.config.js',
-        '.jscsrc',
-        '.jshintignore',
-        'labels.json',
+		'.stylelintrc',
+		'tsconfig.json',
+		'tslint.json',
+		'webpack.config.js',
+		'.jscsrc',
+		'.jshintignore',
 
-        'assets/scss',
-        'assets/js-old',
+		'assets/scss',
+		'assets/js-old',
         'docs',
         'components/docs',
         'components/.bin',
@@ -170,24 +169,26 @@ function buildDirectory() {
         'components/phpunit*',
         'components/style.css',
         'variations'
+
     ];
 
     files_to_remove.forEach( function( e, k ) {
         files_to_remove[k] = '../build/' + variation + '/' + e;
     } );
 
-    return del( files_to_remove, {force: true} );
-}
-buildDirectory.description = 'Remove unneeded files and folders from the build folder';
-gulp.task( 'build', gulp.series('move-variation-specific-files', buildDirectory) );
+    return del.sync( files_to_remove, {force: true} );
+} );
+
+
 
 
 
 // -----------------------------------------------------------------------------
 // Create the theme installer archive and delete the build folder
 // -----------------------------------------------------------------------------
-function zipFile() {
-    let variation = config.theme_name;
+
+gulp.task( 'zip', 'Create the theme installer archive and delete the build folder', ['build'], function() {
+    let variation = 'julia';
 
     if ( argv.variation !== undefined ) {
         variation = argv.variation;
@@ -214,6 +215,4 @@ function zipFile() {
 
     return gulp.src( './' )
         .pipe( plugins.exec( 'cd ./../; rm -rf ' + variation[0].toUpperCase() + variation.slice( 1 ) + '*.zip; cd ./build/; zip -r -X ./../' + variation[0].toUpperCase() + variation.slice( 1 ) + '-Installer' + versionString + '.zip ./; cd ./../; rm -rf build' ) );
-}
-zipFile.description = 'Create the theme installer archive and delete the build folder';
-gulp.task( 'zip', gulp.series('build', zipFile) );
+} );

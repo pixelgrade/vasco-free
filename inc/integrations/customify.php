@@ -502,8 +502,8 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 						array(
 							'property' => 'max-width',
 							'selector' => '
-									.u-content-width > :not([class*="align"]):not([class*="gallery"]):not(blockquote),
-									.mce-content-body:not([class*="page-template-full-width"]) > :not([class*="align"]):not([data-wpview-type*="gallery"]):not(blockquote):not(.mceTemp),
+									.u-content-width > :not(.wp-block-image):not([class*="align"]):not([class*="gallery"]):not(blockquote),
+									.mce-content-body:not([class*="page-template-full-width"]) > :not(.wp-block-image):not([class*="align"]):not([data-wpview-type*="gallery"]):not(blockquote):not(.mceTemp),
 									.swp_social_panel',
 							'unit'     => 'px',
 						),
@@ -556,6 +556,13 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 				// [Section] COLORS
 				'main_content_page_title_color'         => array(
 					'default' => SM_DARK_SECONDARY,
+					'css' => array(
+						array(
+							'property' => 'color',
+							'selector' => '.u-page-title-color,
+								.edit-post-visual-editor .editor-post-title__block .editor-post-title__input[class]'
+						),
+					),
 				),
 				'main_content_body_text_color'          => array(
 					'default' => SM_DARK_SECONDARY,
@@ -665,7 +672,8 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 								.mce-content-body, 
 								.related-posts-title span,
 								.u-buttons-solid .c-feature__btn[class],
-								.u-buttons-solid .c-feature__btn[class]:hover',
+								.u-buttons-solid .c-feature__btn[class]:hover,
+								.edit-post-visual-editor',
 						),
 						array(
 							'property' => 'color',
@@ -701,7 +709,8 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 						.search .entry-title,
 						.no-results .page-title,
 						.h0[class],
-						.c-search-overlay .search-field',
+						.c-search-overlay .search-field,
+						.edit-post-visual-editor .editor-post-title__block .editor-post-title__input[class]',
 					'default'  => array(
 						'font-family'    => THEME_HEADINGS_FONT,
 						'font-size'      => 72,

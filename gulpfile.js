@@ -8,19 +8,7 @@ var gulp = require( 'gulp-help' )( require( 'gulp' ) ),
 	plugins = require( 'gulp-load-plugins' )(),
 	fs = require( 'fs' );
 
-// -----------------------------------------------------------------------------
-// Do a clean compilation of all the styles and scripts files
-// with the latest configurations
-// -----------------------------------------------------------------------------
-function compile( cb ) {
-    plugins.sequence( 'styles', 'scripts', cb );
-}
-compile.description = 'Runs all compilation tasks in sequence';
-gulp.task( 'compile', compile );
-
-// -----------------------------------------------------------------------------
-// Load tasks from the gulp-tasks folder
-// -----------------------------------------------------------------------------
+// load tasks from the gulp-tasks folder
 require( 'require-dir' )( './gulp-tasks' );
 
 if ( fs.existsSync( './gulpconfig.json' ) ) {
@@ -31,12 +19,27 @@ if ( fs.existsSync( './gulpconfig.json' ) ) {
 }
 
 
+
+
+
+// -----------------------------------------------------------------------------
+// Do a clean compilation of all the styles and scripts files
+// with the latest configurations
+// -----------------------------------------------------------------------------
+
+gulp.task( 'compile', 'Runs all compilation tasks in sequence', function( cb ) {
+	plugins.sequence( 'styles', 'scripts', cb );
+});
+
+
+
+
+
 // -----------------------------------------------------------------------------
 // Convenience task for development.
 //
 // This is the command you run to warm the site up for development. It will do
 // a full build, open BrowserSync, and start listening for changes.
 // -----------------------------------------------------------------------------
-let bs = gulp.series( 'compile', 'browser-sync', 'watch' );
-bs.description = 'Main development task:';
-gulp.task( 'bs', bs );
+
+gulp.task( 'bs', 'Main development task:', ['compile', 'browser-sync', 'watch'] );
