@@ -43,7 +43,7 @@
     "css-loader": "0.27.3",
     "del": "*",
     "extract-text-webpack-plugin": "2.1.0",
-    "gulp": "*",
+    "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-concat": "*",
     "gulp-debug": "^3.2.0",
