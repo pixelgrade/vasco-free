@@ -125,7 +125,7 @@ $slick-dot-size: 10px !default;
   }
 
   .slick-active {
-    color: $sm-color-secondary;
+    color: $theme-accent-color;
 
     button {
       border-bottom-color: currentColor;
