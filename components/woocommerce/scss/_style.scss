@@ -1,0 +1,23 @@
+
+@import "archive";
+@import "card";
+@import "pagination";
+
+@import "single-product";
+
+@import "sale-flash";
+@import "mini-cart";
+
+@import "cart";
+
+.entry-title--woocommerce,
+.woocommerce-products-header__title {
+    text-align: center;
+}
+
+// overwrite woocommerce buttons styles
+.woocommerce .button {
+    @include specific(3) {
+        @include btn;
+    }
+}
