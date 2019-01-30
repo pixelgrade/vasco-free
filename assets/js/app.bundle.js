@@ -275,8 +275,8 @@ var Helper = function () {
         value: function fitText($el) {
             var currentFontSize = parseFloat($el.css('fontSize'));
             var currentLineHeight = parseFloat($el.css('lineHeight'));
-            var parentHeight = $el.parent().outerHeight() || 1;
-            $el.css('fontSize', currentFontSize * parentHeight / currentLineHeight);
+            var height = $el.outerHeight() || currentLineHeight;
+            $el.css('fontSize', currentFontSize * height / currentLineHeight);
         }
     }]);
 

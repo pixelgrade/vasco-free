@@ -92,6 +92,8 @@ $alert-placeholder-background: $sm-color-secondary;
 @import 'components/widget-top-posts';
 @import 'components/wp-caption';
 
+@import 'woocommerce';
+
 #{$content-class} {
   @import 'base/gutenberg';
 }

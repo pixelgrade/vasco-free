@@ -932,7 +932,7 @@ function vasco_customify_main_content_section( $section_options, $options ) {
  */
 function vasco_customify_buttons_section( $section_options, $options ) {
 
-	$buttons = array(
+	$buttons = apply_filters( 'pixelgrade_button_selectors_array', array(
 		'.c-btn',
 		'.button:not(.default)',
 		'button[type=button]',
@@ -941,13 +941,13 @@ function vasco_customify_buttons_section( $section_options, $options ) {
 		'input[type=button]',
 		'input[type=submit]',
 		'.featured-posts__more',
-		'ul.page-numbers .next',
-		'ul.page-numbers .prev',
-		'.page-numbers.current',
+		'.page-numbers.next[class][class]',
+		'.page-numbers.prev[class][class]',
+		'.page-numbers.current[class][class]',
 		'#infinite-handle[id] span button',
 		'[class*=-instagram-feed] p > a',
 		'div.wpforms-container[class] .wpforms-form .wpforms-submit',
-	);
+	) );
 
 	$buttons_default = implode( ',', $buttons );
 	$buttons_solid = implode( ',', array_map( 'vasco_prefix_solid_buttons', $buttons ) );
