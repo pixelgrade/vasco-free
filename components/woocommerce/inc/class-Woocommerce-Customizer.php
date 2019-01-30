@@ -93,6 +93,126 @@ class Pixelgrade_Woocommerce_Customizer extends Pixelgrade_Singleton {
 
 		// Setup our WooCommerce Customify options
 		add_filter( 'customify_filter_fields', array( $this, 'addCustomifyOptions' ), 60, 1 );
+
+		add_filter( 'pixelgrade_customify_main_content_section_options', array( $this, 'alterContentOptions' ), 30, 2 );
+		add_filter( 'pixelgrade_header_customify_section_options', array( $this, 'alterHeaderOptions' ), 10, 2 );
+		add_filter( 'pixelgrade_button_selectors_array', array( $this, 'alterButtonsSelectors' ), 10, 2 );
+	}
+
+	public function alterContentOptions( $section_options, $options ) {
+
+		$new_section_options = array(
+			'main_content' => array(
+				'options' => array(
+					'main_content_heading_1_font' => array(
+						'selector' => $section_options['main_content']['options']['main_content_heading_1_font']['selector'] . ',
+							.woocommerce-checkout .order-total .woocommerce-Price-amount,
+							.cart_totals h2 
+						'
+					),
+					'main_content_heading_2_font' => array(
+						'selector' => $section_options['main_content']['options']['main_content_heading_2_font']['selector'] . ', 
+							[id="order_review_heading"],
+							.woocommerce-billing-fields > h3,
+							.cart_totals .order-total .woocommerce-Price-amount,
+							.comment-reply-title
+						'
+					),
+					'main_content_heading_3_font' => array(
+						'selector' => $section_options['main_content']['options']['main_content_heading_3_font']['selector'] . ',
+							table.shop_table td.product-name,
+							.c-mini-cart[class] .cart_list a:not(.remove), 
+							.c-mini-cart[class] .product_list_widget a:not(.remove),
+							.product .entry-summary .price[class]'
+					),
+					'main_content_heading_4_font' => array(
+						'selector' => $section_options['main_content']['options']['main_content_heading_4_font']['selector'] . ',
+							.woocommerce-checkout form .form-row label,
+							.woocommerce-mini-cart__empty-message,
+							table.shop_table tr,
+							[id="ship-to-different-address"],
+							.c-mini-cart[class] .cart_list .quantity, 
+							.c-mini-cart[class] .product_list_widget .quantity,
+							.c-mini-cart .woocommerce-mini-cart__total,
+							.wc_payment_method label,
+							.woocommerce-result-count,
+							.woocommerce-ordering select,
+							.woocommerce-categories,
+							.add_to_cart_inline del,
+							.add_to_cart_inline ins,
+							.variations .label,
+							.comment-form label
+						'
+					),
+					'main_content_body_text_color' => array(
+						'css' => array(
+							'xyz1' => array(
+								'selector' => '.woocommerce-checkout .woocommerce-checkout:before',
+								'property' => 'background-color',
+							),
+						),
+					),
+					'main_content_content_background_color' => array(
+						'css' => array(
+							'xyz1' => array(
+								'selector' => '.cart-count',
+								'property' => 'color',
+							),
+						),
+					),
+					'main_content_body_link_active_color' => array(
+						'css' => array(
+							'xyz1' => array(
+								'property' => 'color',
+								'selector' => '
+									.woocommerce-categories a:hover,
+									.woocommerce-categories a:active,
+									.woocommerce-categories .active,
+									.wc-tabs > .active a,
+									.star-rating,
+									.woocommerce p.stars a::before
+									'
+							),
+							'xyz2' => array(
+								'property' => 'background-color',
+								'selector' => '.cart-count'
+							),
+							'xyz3' => array(
+								'selector' => 'input[type=radio]:checked',
+								'property' => 'border-color',
+							),
+						),
+					),
+				),
+			),
+		);
+
+		// Now we merge the modified config with the original one
+		// Thus overwriting what we have changed
+		$section_options = Pixelgrade_Config::merge( $section_options, $new_section_options );
+
+		return $section_options;
+
+	}
+
+	public function alterHeaderOptions( $section_options, $options ) {
+
+		$new_section_options = array(
+			'header_section' => array(
+				'options' => array(
+					'header_background' => array(
+
+					),
+				),
+			),
+		);
+
+		// Now we merge the modified config with the original one
+		// Thus overwriting what we have changed
+		$section_options = Pixelgrade_Config::merge( $section_options, $new_section_options );
+
+		return $section_options;
+
 	}
 
 	/**
@@ -123,5 +243,12 @@ class Pixelgrade_Woocommerce_Customizer extends Pixelgrade_Singleton {
 		$options['sections'] = $options['sections'] + $woocommerce_section;
 
 		return $options;
+	}
+
+	public function alterButtonsSelectors( $array = array() ) {
+		$array[] = '.button[class][class][class][class][class]';
+		$array[] = '.product .cart .qty[class][class][class]';
+		$array[] = '#respond input#submit[id]';
+		return $array;
 	}
 }

@@ -7,14 +7,44 @@
         margin-bottom: 0;
 
         .flex-viewport + .flex-control-thumbs {
-            @include spacing(margin-top, 1rem);
+            margin-top: 0;
         }
 
         .flex-control-thumbs {
             @include spacing(margin-left, -1rem);
+            @include spacing(margin-top, -1rem);
 
             > * {
                 @include spacing(padding-left, 1rem);
+                @include spacing(padding-top, 1rem);
+            }
+        }
+    }
+}
+
+.woocommerce-product-gallery__wrapper {
+
+    @include specific(4) {
+        width: auto;
+        @include spacing(margin-left, -1rem);
+
+        > * {
+            @include spacing(padding-left, 1rem);
+        }
+
+        > :nth-child(n+2) {
+            @include spacing(margin-top, 1rem);
+        }
+
+        .flex-viewport & {
+            margin-left: 0;
+
+            > * {
+                padding-left: 0;
+            }
+
+            > :nth-child(n+2) {
+                margin-top: 0;
             }
         }
     }
@@ -48,10 +78,6 @@
         padding-right: 0.3em;
     }
 
-    > .button {
-        flex-grow: 1;
-    }
-
     @include specific(2) {
 
         .group_table {
@@ -71,10 +97,14 @@
     .woocommerce-grouped-product-list-item__price {
         text-align: right;
     }
+
+    .added_to_cart {
+        display: none;
+    }
 }
 
 .woocommerce-product-details__short-description {
-    @include spacing(margin-bottom, 3rem);
+    @include spacing(margin-bottom, 20px);
 }
 
 // single product - tabs styling
@@ -104,13 +134,11 @@
 
     > .active a {
         text-decoration: underline;
-        color: $sm-color-secondary;
     }
 }
 
 .woocommerce-product-gallery,
 .entry-summary {
-    // @include spacing(margin-bottom, 4rem*10/7); // magic number for 80px
     @include spacing(margin-bottom, 6rem);
 }
 
@@ -123,9 +151,14 @@
         background: currentColor;
         opacity: 0.2;
 
-        // @include spacing(margin-bottom, 4rem*10/7); // magic number for 80px
         @include spacing(margin-top, 6rem);
         @include spacing(margin-bottom, 6rem);
+    }
+
+    &:last-child:after {
+        content: "";
+        display: block;
+        @include spacing(margin-top, 6rem);
     }
 }
 
@@ -136,8 +169,8 @@
 
 // unstyle price
 .woocommerce[class] .product .price {
-    font: inherit;
     color: inherit;
+    @include spacing(margin-bottom, 30px);
 
     del {
         opacity: 1;
@@ -159,20 +192,203 @@
     margin-right: auto;
 }
 
-.c-product-main {
-    position: relative;
-    display: flex;
+#content .c-product-main {
 
-    > .woocommerce-product-gallery {
-        float: none;
-        width: auto;
-        flex-basis: 55%;
+    @include specific(3) {
+
+        .woocommerce-product-gallery + .entry-summary {
+            @include spacing( margin-top, 8rem );
+        }
+
+        @include above( $woocommerce-mobile-breakpoint ) {
+            position: relative;
+            display: flex;
+
+            > .woocommerce-product-gallery {
+                float: none;
+                width: auto;
+                flex-basis: 55%;
+            }
+
+            > .entry-summary {
+                float: none;
+                width: auto;
+                flex-basis: 35%;
+                @include spacing(margin-left, 6rem);
+            }
+
+            .woocommerce-product-gallery + .entry-summary {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+.woocommerce .cart {
+
+    .ajax_add_to_cart + .single_add_to_cart_button[class][class] {
+        display: none;
+    }
+}
+
+.variations {
+    &,
+    tbody,
+    tr,
+    th,
+    td {
+        display: block;
     }
 
-    > .entry-summary {
-        float: none;
-        width: auto;
-        flex-basis: 35%;
-        @include spacing(margin-left, 8rem);
+    @include specific(5) {
+        td,
+        th {
+            padding: 0;
+            line-height: inherit;
+        }
+    }
+
+    &,
+    tbody,
+    tr {
+        border: 0;
+    }
+
+    .label {
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+}
+
+.reset_variations {
+    visibility: visible;
+    display: none;
+}
+
+.woocommerce .product .cart .quantity[class] {
+    float: none;
+}
+
+.add_to_cart_inline {
+
+    .button {
+        @include specific(3) {
+            @include spacing(margin-left, 10px);
+        }
+    }
+
+    ins {
+        text-decoration: none;
+    }
+}
+
+.single_variation_wrap {
+    width: 100%;
+}
+
+.variations_button {
+    display: flex;
+}
+
+.entry-summary {
+    .button,
+    .ajax_add_to_cart {
+        flex-grow: 1;
+    }
+}
+
+.product_meta {
+    font-size: 0.875em;
+
+    > span {
+        display: block;
+
+        a {
+            text-decoration: none;
+            opacity: 0.5;
+        }
+    }
+}
+
+.woocommerce-product-category {
+
+    a {
+        color: inherit;
+
+        .u-underlined-links & {
+            text-decoration: none;
+        }
+    }
+}
+
+.woocommerce-product-header {
+    position: relative;
+    flex-grow: 1;
+}
+
+.entry-summary {
+    display: flex;
+    flex-direction: column;
+
+    &:after {
+        content: "";
+        flex-grow: 1;
+    }
+}
+
+.woocommerce-product-header {
+    display: flex;
+    flex-direction: column;
+
+    &:before {
+        content: "";
+        flex-grow: 1;
+    }
+}
+
+.shop_attributes {
+
+    @include specific(3) {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        border-top: 0;
+        border-bottom: 0;
+
+        tr:last-child {
+            &, th, td {
+                border-bottom: 0;
+            }
+        }
+
+        tbody, tfoot, thead {
+            border-bottom: 0;
+        }
+
+        tr {
+            border-bottom-style: dashed;
+        }
+
+        th, td {
+            background: none;
+        }
+
+        td {
+            font: inherit;
+            font-style: inherit;
+        }
+
+        th {
+            width: 40%;
+            padding: 12px;
+
+            font-size: inherit;
+            line-height: inherit;
+            text-align: right;
+        }
+
+        td p {
+            padding: 12px;
+        }
     }
 }

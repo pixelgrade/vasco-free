@@ -1,12 +1,13 @@
-
 // cart
 .c-mini-cart {
     position: fixed;
-    @include wp-offset(top, 0);
+    top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     z-index: 10000;
+
+    @include wp-offset(top, 0);
 
     .widget_shopping_cart {
 
@@ -59,16 +60,48 @@
         padding: 20px;
         padding-top: 0;
 
+        display: flex;
+        flex-direction: column-reverse;;
+
         @include specific(4) {
             > a {
                 display: block;
             }
 
-            > a + a {
+            > a:not(:last-child) {
                 margin-top: 10px;
             }
         }
+
+        .wc-forward:not(.checkout) {
+            @include specific(4) {
+                position: relative;
+                background: none;
+                color: inherit;
+
+                &:after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    border-radius: inherit;
+                    border: 2px solid;
+                    pointer-events: none;
+                }
+
+                &:hover {
+                    color: inherit;
+                }
+            }
+        }
     }
+}
+
+.woocommerce-mini-cart__empty-message {
+    padding: 20px;
 }
 
 .c-mini-cart__overlay {
@@ -106,6 +139,10 @@
     }
 }
 
+.widget_shopping_cart_content > :not(.woocommerce-mini-cart) {
+    flex-shrink: 0;
+}
+
 .c-mini-cart[class] {
 
     .cart_list,
@@ -124,11 +161,6 @@
             display: flex;
             flex-direction: column;
             text-decoration: none;
-
-            @include leading-map(map-merge($h3, (
-                spacing-top: false,
-                spacing-bottom: false
-            )));
         }
 
         // move the remove button to bottom right next to quantity
@@ -156,13 +188,6 @@
             // reverse image and title order
             order: 10;
         }
-
-        .quantity {
-            @include leading-map(map-merge($h4, (
-                spacing-top: false,
-                spacing-bottom: false
-            )));
-        }
     }
 }
 
@@ -185,7 +210,7 @@
 // show / hide for c-mini-cart
 .c-mini-cart__overlay,
 .c-mini-cart__flyout {
-    transition: $transition--default;
+    transition: all .3s $easeOutQuart;
 }
 
 .c-mini-cart:not(.c-mini-cart--visible) {

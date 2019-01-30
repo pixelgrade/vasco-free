@@ -45,6 +45,17 @@ function pixelgrade_woocommerce_change_blog_component_config() {
 		),
 	) );
 
+	Pixelgrade_BlocksManager()->registerBlock('woocommerce/entry-content', array(
+		'type'      => 'template_part',
+		'templates' => array(
+			array(
+				'component_slug' => 'woocommerce',
+				'slug' => 'entry-content',
+				'name' => 'product',
+			),
+		),
+	) );
+
 	Pixelgrade_BlocksManager()->registerBlock( 'woocommerce/loop-posts', array(
 		'blocks' => array(
 
@@ -95,6 +106,18 @@ function pixelgrade_woocommerce_change_blog_component_config() {
 		),
 	) );
 
+	Pixelgrade_BlocksManager()->registerBlock( 'woocommerce/entry-header-cart', array(
+		'extend' => 'blog/entry-header',
+		'type'      => 'template_part',
+		'templates' => array(
+			array(
+				'component_slug' => 'woocommerce',
+				'slug' => 'entry-header',
+				'name' => 'cart',
+			),
+		),
+	) );
+
 	Pixelgrade_BlocksManager()->registerBlock( 'woocommerce/archive-product', array(
 		'extend' => 'woocommerce/container',
 		'blocks' => array(
@@ -112,10 +135,7 @@ function pixelgrade_woocommerce_change_blog_component_config() {
 								),
 								'wrappers' => array(
 									array(
-										'classes' => 'u-content-width'
-									),
-									array(
-										'classes' => 'woocommerce'
+										'classes' => 'woocommerce-product-archive'
 									),
 								),
 							),
@@ -163,8 +183,8 @@ function pixelgrade_woocommerce_change_blog_component_config() {
 					'main' => array(
 						'extend' => 'blog/main',
 						'blocks' => array(
-							'blog/entry-header-page',
-							'blog/entry-content',
+							'woocommerce/entry-header-cart',
+							'woocommerce/entry-content',
 						),
 					),
 				),
@@ -186,8 +206,7 @@ function pixelgrade_woocommerce_change_blog_component_config() {
 					'main' => array(
 						'extend' => 'blog/main',
 						'blocks' => array(
-							'blog/entry-header-page',
-							'blog/entry-content',
+							'woocommerce/entry-content',
 						),
 					),
 				),

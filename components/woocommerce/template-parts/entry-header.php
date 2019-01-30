@@ -1,9 +1,9 @@
 <?php
 /**
- * The template part used for displaying the entry content.
+ * The template part used for displaying the entry header.
  *
  * This template part can be overridden by copying it to a child theme or in the same theme
- * by putting it in the root `/template-parts/entry-content.php` or in `/template-parts/blog/entry-content.php`.
+ * by putting it in the root `/template-parts/entry-header.php` or in `/template-parts/blog/entry-header.php`.
  *
  * @see pixelgrade_locate_component_template_part()
  *
@@ -23,17 +23,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-the_content(
-    sprintf(
-        /* translators: %s: Name of current post. */
-        wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', '__components_txtd' ), array( 'span' => array( 'class' => array() ) ) ),
-        the_title( '<span class="screen-reader-text">"', '"</span>', false )
-    )
-);
+$classes = array();
+$classes[] = 'h0';
+$classes[] = 'entry-title';
+$classes[] = 'u-page-title-color';
 
-wp_link_pages(
-    array(
-        'before' => '<div class="page-links">' . esc_html__( 'Pages:', '__components_txtd' ),
-        'after'  => '</div>',
-    )
-);
+$classes = apply_filters( 'components_entry_header_classes', $classes );
+
+?>
+
+<?php the_title( '<h2 class="' . join( ' ', $classes ) . '">', '</h2>' ); ?>
