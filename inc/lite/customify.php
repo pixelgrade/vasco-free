@@ -1,8 +1,8 @@
 <?php
 /**
- * Felt Customizer Options Config
+ * Vasco Customizer Options Config
  *
- * @package Felt
+ * @package Vasco
  * @since 1.0.0
  */
 /**
@@ -24,9 +24,9 @@
 /**
  * Remove options from Customify
  */
-function felt_lite_remove_customify_options( $options ) {
+function vasco_lite_remove_customify_options( $options ) {
 	$options['sections'] = array();
 
 	return $options;
 }
-add_filter( 'customify_filter_fields', 'felt_lite_remove_customify_options', 9999, 1 );
+add_filter( 'customify_filter_fields', 'vasco_lite_remove_customify_options', 9999, 1 );
