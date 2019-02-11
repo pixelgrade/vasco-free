@@ -32,8 +32,6 @@
  * This must be the FIRST thing a theme does!
  * =========================
  */
-
-//Ooops! This entire widget area does not support Pixelgrade Widgets. You want to stand out from the crowd, right? Upgrade to Felt PRO and unlock all features.
 require_once trailingslashit( get_template_directory() ) . 'components/components-autoload.php';
 Pixelgrade_Components_Autoload();
 
