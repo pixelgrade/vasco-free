@@ -430,3 +430,10 @@ function vasco_blobs_preset_body_attribute( $attributes ) {
 	return $attributes;
 }
 add_filter( 'pixelgrade_body_attributes', 'vasco_blobs_preset_body_attribute' );
+
+function vasco_product_blobs() {
+	if ( pixelgrade_option( 'show_blobs' ) ) {
+		get_template_part( 'template-parts/content-blob' );
+	}
+}
+add_action( 'woocommerce_before_single_product_summary', 'vasco_product_blobs', 9 );
