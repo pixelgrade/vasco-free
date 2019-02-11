@@ -6,11 +6,11 @@
  * @subpackage Admin
  * @since 1.0.0
  */
-if ( ! class_exists( 'Felt_Lite_About_Page' ) ) {
+if ( ! class_exists( 'Vasco_Lite_About_Page' ) ) {
 	/**
 	 * Singleton class used for generating the about page of the theme.
 	 */
-	class Felt_Lite_About_Page {
+	class Vasco_Lite_About_Page {
 		/**
 		 * Define the version of the class.
 		 *
@@ -74,7 +74,7 @@ if ( ! class_exists( 'Felt_Lite_About_Page' ) ) {
 		/**
 		 * The single instance of TI_About_Page
 		 *
-		 * @var Felt_Lite_About_Page $instance The  TI_About_Page instance.
+		 * @var Vasco_Lite_About_Page $instance The  TI_About_Page instance.
 		 */
 		private static $instance;
 
@@ -86,8 +86,8 @@ if ( ! class_exists( 'Felt_Lite_About_Page' ) ) {
 		 * @param array $config The configuration array.
 		 */
 		public static function init( $config ) {
-			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Felt_Lite_About_Page ) ) {
-				self::$instance = new Felt_Lite_About_Page;
+			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Vasco_Lite_About_Page ) ) {
+				self::$instance = new Vasco_Lite_About_Page;
 				if ( ! empty( $config ) && is_array( $config ) ) {
 					self::$instance->config = $config;
 					self::$instance->setup_config();

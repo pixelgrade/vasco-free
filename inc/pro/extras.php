@@ -30,23 +30,13 @@ if ( ! function_exists( 'vasco_pro_setup' ) ) {
 add_action( 'after_setup_theme', 'vasco_pro_setup' );
 
 /**
- * Register Archive Index for the Pro version.
+ * Register Footer sidebar for the Pro version.
  */
-function vasco_pro_archive_index_sidebar() {
-	/**
-	 * The Archive Index Widget Areas
-	 */
-	register_sidebar( array(
-		'name'          => esc_html__( 'Archive Index', '__theme_txtd' ),
-		'id'            => 'archive-1',
-		'description'   => esc_html__( 'Add widgets here.', '__theme_txtd' ),
-		'before_widget' => '<section id="%1$s" class="widget widget--content %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget__title h3”><span>',
-		'after_title'   => '</span></h2>',
-	) );
+function vasco_pro_footer_sidebar() {
+
+
 }
-add_action( 'widgets_init', 'vasco_pro_archive_index_sidebar', 31 );
+add_action( 'widgets_init', 'vasco_pro_footer_sidebar', 31 );
 
 function vasco_pro_custom_widgets_init() {
 	/**

@@ -29,7 +29,7 @@ function vasco_widget_areas_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Footer - Featured Area', '__theme_txtd' ),
 		'id'            => 'footer-featured',
-		'description'   => esc_html__( 'Site-wide widgets displayed above the Footer Area of your website.', '__theme_txtd' ),
+		'description'   => vasco_pro_widget_description('footer-featured'),
 		'before_widget' => '<section id="%1$s" class="widget widget--full %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget__title h3"><span>',
@@ -37,6 +37,26 @@ function vasco_widget_areas_init() {
 	) );
 }
 add_action( 'widgets_init', 'vasco_widget_areas_init', 10 );
+
+/**
+ * Check if the Pro version is enabled.
+ * If so, some widgets description will be specific, regarding the widgets role.
+ *
+ * @param string $id ID of the widget area
+ *
+ * @return string A specific message, regarding the status of the widget area.
+ */
+function vasco_pro_widget_description($sidebar_id) {
+	if ( pixelgrade_user_has_access( 'pro-features' ) ) {
+		if ( $sidebar_id === 'footer-featured' ) {
+			return esc_html__( 'Site-wide widgets displayed above the Footer Area of your website.', '__theme_txtd' );
+		} else {
+			return esc_html__( 'Add widgets here.', '__theme_txtd' );
+		}
+	}
+
+	return esc_html__( 'Ooops! This entire widget area does not support Pixelgrade Widgets. You want to stand out from the crowd, right? Upgrade to Vasco PRO and unlock all features.', '__theme_txtd' );
+}
 
 /**
  * Register the our custom widgets for use in Appearance -> Widgets

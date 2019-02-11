@@ -1,8 +1,8 @@
 <?php
 /**
- * Felt Lite Theme About Page logic.
+ * Vasco Lite Theme About Page logic.
  *
- * @package Felt Lite
+ * @package Vasco Lite
  */
 
 function felt_lite_admin_setup() {
@@ -17,13 +17,13 @@ function felt_lite_admin_setup() {
 	*/
 	$config = array(
 		// Menu name under Appearance.
-		'menu_name'               => esc_html__( 'About Felt Lite', '__theme_txtd' ),
+		'menu_name'               => esc_html__( 'About Vasco Lite', '__theme_txtd' ),
 		// Page title.
-		'page_name'               => esc_html__( 'About Felt Lite', '__theme_txtd' ),
+		'page_name'               => esc_html__( 'About Vasco Lite', '__theme_txtd' ),
 		/* translators: Main welcome title */
-		'welcome_title'         => sprintf( esc_html__( 'Welcome to %s! - Version ', '__theme_txtd' ), 'Felt Lite' ),
+		'welcome_title'         => sprintf( esc_html__( 'Welcome to %s! - Version ', '__theme_txtd' ), 'Vasco Lite' ),
 		// Main welcome content
-		'welcome_content'       => esc_html__( ' Felt is a free magazine‐style WordPress theme for publishers who want to showcase their fresh ideas. Thanks to the modular layout you can highlight what’s truly important for your tribe to enhance stronger bonds and become memorable. No matter if you are a blogger, journalist, designer or small entrepreneur, this theme will fit perfectly everytime.', '__theme_txtd' ),
+		'welcome_content'       => esc_html__( ' Vasco is a free magazine‐style WordPress theme for publishers who want to showcase their fresh ideas. Thanks to the modular layout you can highlight what’s truly important for your tribe to enhance stronger bonds and become memorable. No matter if you are a blogger, journalist, designer or small entrepreneur, this theme will fit perfectly everytime.', '__theme_txtd' ),
 		/**
 		 * Tabs array.
 		 *
@@ -43,7 +43,7 @@ function felt_lite_admin_setup() {
 			'first' => array (
 				'title' => esc_html__( 'Contact Support','__theme_txtd' ),
 				'icon' => 'dashicons dashicons-sos',
-				'text' => wp_kses( __( 'We want to make sure you have the best experience using Felt Lite. If you <strong>do not have a paid upgrade</strong>, please post your question in our community forums.', '__theme_txtd' ), wp_kses_allowed_html() ),
+				'text' => wp_kses( __( 'We want to make sure you have the best experience using Vasco Lite. If you <strong>do not have a paid upgrade</strong>, please post your question in our community forums.', '__theme_txtd' ), wp_kses_allowed_html() ),
 				'button_label' => esc_html__( 'Contact Support','__theme_txtd' ),
 				'button_link' => esc_url( 'https://wordpress.org/support/theme/felt-lite' ),
 				'is_button' => true,
@@ -52,7 +52,7 @@ function felt_lite_admin_setup() {
 			'second' => array(
 				'title' => esc_html__( 'Documentation','__theme_txtd' ),
 				'icon' => 'dashicons dashicons-book-alt',
-				'text' => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Felt Lite.','__theme_txtd' ),
+				'text' => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Vasco Lite.','__theme_txtd' ),
 				'button_label' => esc_html__( 'Read The Documentation','__theme_txtd' ),
 				'button_link' => 'https://pixelgrade.com/felt-lite-documentation/',
 				'is_button' => false,
@@ -82,7 +82,7 @@ function felt_lite_admin_setup() {
 			),
 			'third' => array(
 				'title' => esc_html__( 'Read the documentation','__theme_txtd' ),
-				'text' => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Felt Lite.','__theme_txtd' ),
+				'text' => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Vasco Lite.','__theme_txtd' ),
 				'button_label' => esc_html__( 'Documentation','__theme_txtd' ),
 				'button_link' => 'https://pixelgrade.com/felt-lite-documentation/',
 				'is_button' => false,
@@ -92,21 +92,21 @@ function felt_lite_admin_setup() {
 		),
 		// Free vs pro array.
 		'free_pro'                => array(
-			'free_theme_name'     => 'Felt Lite',
-			'pro_theme_name'      => 'Felt PRO',
+			'free_theme_name'     => 'Vasco Lite',
+			'pro_theme_name'      => 'Vasco PRO',
 			'pro_theme_link'      => 'https://pixelgrade.com/themes/felt-pro/?utm_source=felt-lite-clients&utm_medium=about-page&utm_campaign=felt-lite',
 			/* translators: View link */
-			'get_pro_theme_label' => sprintf( esc_html__( 'Get %s', '__theme_txtd' ), 'Felt Pro' ),
+			'get_pro_theme_label' => sprintf( esc_html__( 'Get %s', '__theme_txtd' ), 'Vasco Pro' ),
 			'features'            => array(
 				array(
 					'title'       => esc_html__( 'Daring Design for Devoted Readers', '__theme_txtd' ),
-					'description' => esc_html__( 'Felt\'s design helps you stand out from the crowd and create an experience that your readers will love and talk about. With a flexible home page you have the chance to easily showcase appealing content with ease.', '__theme_txtd' ),
+					'description' => esc_html__( 'Vasco\'s design helps you stand out from the crowd and create an experience that your readers will love and talk about. With a flexible home page you have the chance to easily showcase appealing content with ease.', '__theme_txtd' ),
 					'is_in_lite'  => 'true',
 					'is_in_pro'   => 'true',
 				),
 				array(
 					'title'       => esc_html__( 'Mobile-Ready For All Devices', '__theme_txtd' ),
-					'description' => esc_html__( 'Felt makes room for your readers to enjoy your articles on the go, no matter the device they are using. We shaped everything to look amazing to your audience.', '__theme_txtd' ),
+					'description' => esc_html__( 'Vasco makes room for your readers to enjoy your articles on the go, no matter the device they are using. We shaped everything to look amazing to your audience.', '__theme_txtd' ),
 					'is_in_lite'  => 'true',
 					'is_in_pro'   => 'true',
 				),
@@ -118,19 +118,19 @@ function felt_lite_admin_setup() {
 				),
 				array(
 					'title'       => esc_html__( 'New Widgets for Extra Flexiblity', '__theme_txtd' ),
-					'description' => esc_html__( 'Felt PRO gives you extra ways to showcase your articles in great style. Besides the Slideshow, Featured and Grid Posts widgets, the PRO version comes with much more: Carousel, List Posts, Categories Images, and many others.', '__theme_txtd' ),
+					'description' => esc_html__( 'Vasco PRO gives you extra ways to showcase your articles in great style. Besides the Slideshow, Featured and Grid Posts widgets, the PRO version comes with much more: Carousel, List Posts, Categories Images, and many others.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
 				array(
 					'title'       => esc_html__( 'Advanced Widgets Options', '__theme_txtd' ),
-					'description' => esc_html__( 'Felt\'s PRO version comes with more widget options to display and filter posts. For instance, you can have far more control on setting the source of the posts (filtering by category, tags, etc.) or how they are displayed, everything to push the content to the right people and promote it by the blink of an eye.', '__theme_txtd' ),
+					'description' => esc_html__( 'Vasco\'s PRO version comes with more widget options to display and filter posts. For instance, you can have far more control on setting the source of the posts (filtering by category, tags, etc.) or how they are displayed, everything to push the content to the right people and promote it by the blink of an eye.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
 				array(
 					'title'       => esc_html__( 'Flexible Home Page Design', '__theme_txtd' ),
-					'description' => esc_html__( 'Felt\'s PRO version has more Widget Areas available to enable you to place widgets on the Front Page Center, Footer or Below the Post at the end of your articles.', '__theme_txtd' ),
+					'description' => esc_html__( 'Vasco\'s PRO version has more Widget Areas available to enable you to place widgets on the Front Page Center, Footer or Below the Post at the end of your articles.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
@@ -172,7 +172,7 @@ function felt_lite_admin_setup() {
 				),
 				array(
 					'title'       => esc_html__( 'No Credit Footer Link', '__theme_txtd' ),
-					'description' => esc_html__( 'You can easily remove the "Theme: Felt Lite by Pixelgrade" copyright from the footer area and make the theme yours from start to finish.', '__theme_txtd' ),
+					'description' => esc_html__( 'You can easily remove the "Theme: Vasco Lite by Pixelgrade" copyright from the footer area and make the theme yours from start to finish.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				)
@@ -210,6 +210,6 @@ function felt_lite_admin_setup() {
 			),
 		),
 	);
-	Felt_Lite_About_Page::init( $config );
+	Vasco_Lite_About_Page::init( $config );
 }
 add_action( 'after_setup_theme', 'felt_lite_admin_setup' );
