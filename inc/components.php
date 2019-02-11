@@ -21,3 +21,22 @@ function vasco_setup_components() {
 	add_theme_support( 'pixelgrade-gallery-settings-component' );
 }
 add_action( 'after_setup_theme', 'vasco_setup_components', 10 );
+
+
+/**
+ * Customize the Footer component config.
+ *
+ * @param array $config
+ *
+ * @return array
+ */
+function vasco_customize_footer_config( $config ) {
+
+	if ( ! pixelgrade_user_has_access( 'pro-features' ) ) {
+		unset( $config['menu_locations']['footer'] );
+		unset( $config['sidebars']['sidebar-footer'] );
+	}
+
+	return $config;
+}
+add_filter( 'pixelgrade_footer_config', 'vasco_customize_footer_config', 10, 1 );
