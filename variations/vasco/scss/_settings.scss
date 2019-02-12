@@ -10,8 +10,6 @@ $fa-font-path: 'assets/fonts/fontawesome';
 $sm-dark-primary: #2b2b28;
 $sm-color-secondary: #f59828;
 
-
-
 $theme-text-color: #2B3D39;
 $theme-border-color: $color-gray-90;
 $theme-background-color: #F5F6F1;
@@ -53,7 +51,7 @@ $header-sides-spacing: 42px;
 // Colors
 // ----------------------------------------
 $header-links-color: $theme-text-color;
-$header-links-active-color: $theme-text-color;
+$header-links-active-color: $sm-color-secondary;
 $header-background-color: #F5F6F1;
 
 // ----------------------------------------

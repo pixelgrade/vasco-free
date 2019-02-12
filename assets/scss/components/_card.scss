@@ -84,8 +84,8 @@
 
 }
 
-.c-meta__secondary[class] {
-  @include taxonomy;
+.c-meta__secondary {
+  @include taxonomy-button;
 
   a {
     color: inherit;
