@@ -69,17 +69,17 @@ function vasco_lite_customize_register( $wp_customize ) {
 
                         <li>
                             <h4>New Widgets for More Flexiblity</h4>
-                            <div class="description">Besides the Slideshow, Featured and Grid Posts widgets, the PRO version comes with extra goodies: Carousel, Lists Posts, Promo Box, and Categories Images. You also get more layout options and widget areas to play with.</div>
+                            <div class="description">Besides the Grid Posts and Profile widgets, the PRO version comes with much more: Feature Card, Callout Box, Categories, Promo Box and many others. You also get more layout options and widget areas to play with such as Sidebar, Footer and Below Post.</div>
                         </li>
 
                         <li>
                             <h4>Advanced Features for a Unique Look</h4>
-                            <div class="description">Vasco PRO takes everything to the next level, unlocking access to features like Sticky Menu with support for submenus, Author Info Box and Related Posts to display below your articles and a Reading Progress Bar that will switch to a link to the next article to maintain the attention of your readers.</div>
+                            <div class="description">Vasco PRO takes everything to the next level, unlocking features like custom Stamps & Blobs for compelling visual identity and Location Widget to let your audience know where life takes you. You also get access to Sticky Menu, Announcement Bar at the top of your website, Reading Progress Bar, Author Info Box and Related Posts to display below your articles.</div>
                         </li>
 
                         <li>
                             <h4>Premium Customer Support</h4>
-                            <div class="description">You will benefit by priority support from a caring and devoted team, eager to help and to spread happiness. We work hard to provide a flawless experience for those who vote us with trust and choose to be our special clients.</div>
+                            <div class="description">You will benefit from priority support from a caring and devoted team, eager to help and to spread happiness. We work hard to provide a flawless experience for those who vote us with trust and choose to be our special clients.</div>
                         </li>
                         
                 </ul> %s </div>', '__theme_txtd'

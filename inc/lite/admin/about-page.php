@@ -23,7 +23,7 @@ function vasco_lite_admin_setup() {
 		/* translators: Main welcome title */
 		'welcome_title'         => sprintf( esc_html__( 'Welcome to %s! - Version ', '__theme_txtd' ), 'Vasco' ),
 		// Main welcome content
-		'welcome_content'       => esc_html__( ' Vasco is a free magazine‐style WordPress theme for publishers who want to showcase their fresh ideas. Thanks to the modular layout you can highlight what’s truly important for your tribe to enhance stronger bonds and become memorable. No matter if you are a blogger, journalist, designer or small entrepreneur, this theme will fit perfectly everytime.', '__theme_txtd' ),
+		'welcome_content'       => esc_html__( ' Vasco is a free travel blog theme to help you increase your revenue streams and see more of the world. With big and beautiful imagery and a smart widget system for next-level customizations, you have all the right tools to express your personality and nurture a loyal audience around your fascinating stories.', '__theme_txtd' ),
 		/**
 		 * Tabs array.
 		 *
@@ -100,37 +100,37 @@ function vasco_lite_admin_setup() {
 			'features'            => array(
 				array(
 					'title'       => esc_html__( 'Daring Design for Devoted Readers', '__theme_txtd' ),
-					'description' => esc_html__( 'Vasco\'s design helps you stand out from the crowd and create an experience that your readers will love and talk about. With a flexible home page you have the chance to easily showcase appealing content with ease.', '__theme_txtd' ),
+					'description' => esc_html__( 'Vasco\'s design focused on big and beautiful imagery helps you raise awareness and grab attention around your traveling stories. With a flexible home page, you have the chance to easily showcase your ideas.', '__theme_txtd' ),
 					'is_in_lite'  => 'true',
 					'is_in_pro'   => 'true',
 				),
 				array(
 					'title'       => esc_html__( 'Mobile-Ready For All Devices', '__theme_txtd' ),
-					'description' => esc_html__( 'Vasco makes room for your readers to enjoy your articles on the go, no matter the device they are using. We shaped everything to look amazing to your audience.', '__theme_txtd' ),
+					'description' => esc_html__( 'Vasco makes room for your read­ers to enjoy your arti­cles on the go, no mat­ter the device they are using. We shaped everything to look amazing to your audience.', '__theme_txtd' ),
 					'is_in_lite'  => 'true',
 					'is_in_pro'   => 'true',
 				),
 				array(
-					'title'       => esc_html__( 'Widgetized Sidebars To Keep Attention', '__theme_txtd' ),
-					'description' => esc_html__( 'The widget-based flexible system allows you to add your favorite widgets all over the Front Page and on the right side of your articles.', '__theme_txtd' ),
+					'title'       => esc_html__( 'Widgetized Homepage To Keep Attention', '__theme_txtd' ),
+					'description' => esc_html__( 'The widget-based flexible system allows you to add your favorite widgets all over the Front Page.', '__theme_txtd' ),
 					'is_in_lite'  => 'true',
 					'is_in_pro'   => 'true',
 				),
 				array(
-					'title'       => esc_html__( 'New Widgets for Extra Flexiblity', '__theme_txtd' ),
-					'description' => esc_html__( 'Vasco PRO gives you extra ways to showcase your articles in great style. Besides the Slideshow, Featured and Grid Posts widgets, the PRO version comes with much more: Carousel, List Posts, Categories Images, and many others.', '__theme_txtd' ),
+					'title'       => esc_html__( 'New Widgets for Extra Flexibility', '__theme_txtd' ),
+					'description' => esc_html__( 'Vasco PRO gives you extra ways to showcase your articles in great style. Besides the Grid Posts and Profile widgets, the PRO version comes with much more: Feature Card, Callout Box, Categories, and many others.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
 				array(
 					'title'       => esc_html__( 'Advanced Widgets Options', '__theme_txtd' ),
-					'description' => esc_html__( 'Vasco\'s PRO version comes with more widget options to display and filter posts. For instance, you can have far more control on setting the source of the posts (filtering by category, tags, etc.) or how they are displayed, everything to push the content to the right people and promote it by the blink of an eye.', '__theme_txtd' ),
+					'description' => esc_html__( 'Vasco’s PRO version comes with more widget options to lay out and filter posts. For instance, you can have more control on setting the source of the posts (filtering by category, tags, etc.) or how they are displayed (e.g. Show Excerpt, Show Read More).', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
 				array(
-					'title'       => esc_html__( 'Flexible Home Page Design', '__theme_txtd' ),
-					'description' => esc_html__( 'Vasco\'s PRO version has more Widget Areas available to enable you to place widgets on the Front Page Center, Footer or Below the Post at the end of your articles.', '__theme_txtd' ),
+					'title'       => esc_html__( 'Sidebar, Footer & Below Post Widget Areas', '__theme_txtd' ),
+					'description' => esc_html__( 'Vasco’s PRO version unlocks more Widget Areas to be able to place your favorite widgets on the right side or below your posts and in the footer.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
@@ -141,32 +141,50 @@ function vasco_lite_admin_setup() {
 					'is_in_pro'   => 'true',
 				),
 				array(
-					'title'       => esc_html__( 'Sticky Menu and Reading Progress Bar', '__theme_txtd' ),
-					'description' => esc_html__( 'Keep the menu at the top of your page while you scroll, making it more accessible on whatever page you are navigating. On article pages, we\'re pushing this concept even further and improve it with a Progress Bar, and at the end, it will switch to a link to the next article so you can keep momentum and maintain the attention of your readers.', '__theme_txtd' ),
+					'title'       => esc_html__( 'Customizable Stamp for a Unique Style', '__theme_txtd' ),
+					'description' => esc_html__( 'Inspired by travelers lifestyle, you can level up your visual identity by auto‐generating a stamp with custom text and a set of colorful shapes.', '__theme_txtd' ),
+					'is_in_lite'  => 'false',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => esc_html__( 'Location Widget to Connect with Your Local Community', '__theme_txtd' ),
+					'description' => esc_html__( 'Share your whereabouts and connect with readers nearby with the help of a special Location Widget.','__theme_txtd' ),
+					'is_in_lite'  => 'false',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => esc_html__( 'Sticky Menu, Announcement & Reading Progress Bar', '__theme_txtd' ),
+					'description' => esc_html__( 'Keep the menu at the top of your page while you scroll, making it more accessible on whatever page you are navigating. On article pages, you will have a Progress Bar that switches to a link to the next article. The header area gets a boost with an Announcement Bar through which you can promote any link','__theme_txtd' ),
+					'is_in_lite'  => 'false',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => esc_html__( 'Blobs for a Compelling Visual Brand Identity', '__theme_txtd' ),
+					'description' => esc_html__( 'Our unique Blobs creating system allows you to give your website an one of a kind visual identity that your readers will recognize in a heartbeat.','__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
 				array(
 					'title'       => esc_html__( 'Flexible Color Scheme with Style Manager', '__theme_txtd' ),
-					'description' => esc_html__( 'Showcase your unique style in an easy and smart way by using an intuitive inter­face that allows you to change color palettes and fonts with a few clicks until they fully represent you and match your particular needs.','__theme_txtd' ),
+					'description' => esc_html__( 'Showcase your unique style in an easy and smart way by using an intu­itive inter­face that allows you to change color palettes and fonts with a few clicks until they ful­ly rep­re­sent you and match your particular needs.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
 				array(
 					'title'       => esc_html__( 'Advanced Typography Settings', '__theme_txtd' ),
-					'description' => esc_html__( 'Adjust your fonts by taking advantage of a play­ground with 600+ fonts variety you can wisely choose from at any moment.','__theme_txtd' ),
+					'description' => esc_html__( 'Adjust your fonts by tak­ing advan­tage of a play­ground with 600+ fonts vari­ety you can wise­ly choose from at any moment.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
 				array(
 					'title'       => esc_html__( 'Premium Support and Assistance', '__theme_txtd' ),
-					'description' => esc_html__( 'We offer ongoing customer support to help you get things done fast. This way, you save energy and time and focus on what brings you happiness. We know our products inside-out and we can lend a hand to help you save resources of all kinds.','__theme_txtd' ),
+					'description' => esc_html__( 'We offer ongoing customer support to help you get things done fast. This way, you save energy and time and focus on what brings you happiness. We know our prod­ucts inside-out and we can lend a hand to help you save resources of all kinds.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
 				array(
 					'title'       => esc_html__( 'Friendly Self-Service', '__theme_txtd' ),
-					'description' => esc_html__( 'We give you full access to an in-depth documentation to get the job done as quickly as possible. We don\'t stay in your way by offering you full access to our self-help tool directly from your Dashboard.', '__theme_txtd' ),
+					'description' => esc_html__( 'We give you full access to an in-depth doc­u­men­ta­tion to get the job done as quick­ly as pos­si­ble. We don\'t stay in your way by offering you full access to our self-help tool directly from your Dashboard.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
