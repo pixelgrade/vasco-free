@@ -32,7 +32,6 @@
  * This must be the FIRST thing a theme does!
  * =========================
  */
-
 require_once trailingslashit( get_template_directory() ) . 'components/components-autoload.php';
 Pixelgrade_Components_Autoload();
 
