@@ -25,3 +25,12 @@ function vasco_setup_components() {
 	}
 }
 add_action( 'after_setup_theme', 'vasco_setup_components', 10 );
+
+function vasco_customize_footer_config( $config ) {
+	// Don't output empty markup in the footer
+	$config['zones']['middle']['display_blank'] = false;
+	$config['zones']['bottom']['display_blank'] = false;
+
+	return $config;
+}
+add_filter( 'pixelgrade_footer_config', 'vasco_customize_footer_config', 10, 1 );
