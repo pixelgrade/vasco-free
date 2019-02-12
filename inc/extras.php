@@ -157,6 +157,7 @@ function vasco_body_classes( $classes ) {
 
 	return $classes;
 }
+
 add_filter( 'body_class', 'vasco_body_classes' );
 
 /**
