@@ -41,3 +41,18 @@
 .search-form {
   display: flex;
 }
+
+.lite-version {
+
+  .c-navbar li[class*="children"] > a:after {
+    display: none;
+  }
+
+  .site-header {
+    position: relative;
+    top: 0;
+    width: 100%;
+    padding: 0;
+  }
+
+}

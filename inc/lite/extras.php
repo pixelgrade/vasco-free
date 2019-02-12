@@ -116,6 +116,8 @@ function vasco_lite_get_pro_link() {
 function vasco_lite_body_classes( $classes ) {
 
 	$classes[] = 'lite-version';
+	$classes[] = 'u-buttons-rounded';
+	$classes[] = 'u-buttons-solid';
 
 	return $classes;
 }

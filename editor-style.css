@@ -684,7 +684,7 @@ h4 {
   font-size: 19px;
   line-height: 1.21053;
   font-weight: 500;
-  color: #DE2D16; }
+  color: #f59828; }
   @media only screen and (max-width: 770px) {
     h4 {
       font-size: 17.39815px; } }
@@ -724,7 +724,7 @@ h5 {
   font-weight: bold;
   letter-spacing: 0.07143em;
   text-transform: uppercase;
-  color: #DE2D16; }
+  color: #f59828; }
   @media only screen and (max-width: 770px) {
     h5 {
       font-size: 13.00113px; } }
@@ -764,7 +764,7 @@ h6 {
   font-weight: bold;
   letter-spacing: 0.08333em;
   text-transform: uppercase;
-  color: #DE2D16; }
+  color: #f59828; }
   @media only screen and (max-width: 770px) {
     h6 {
       font-size: 11.1829px; } }
@@ -1020,7 +1020,7 @@ small {
   font-family: "HK Grotesk", sans-serif;
   font-size: 17px;
   color: #FFF;
-  background-color: #DE2D16;
+  background-color: #3EBABF;
   border-radius: 0;
   -webkit-transition: all 0.2s cubic-bezier(0, 0, 0.58, 1);
   transition: all 0.2s cubic-bezier(0, 0, 0.58, 1); }
@@ -1046,7 +1046,7 @@ small {
       background: none; }
   .c-btn:hover, .c-btn:active, .c-btn:focus {
     color: #FFF;
-    background-color: #DE2D16;
+    background-color: #3EBABF;
     opacity: 0.8;
     text-decoration: none;
     border: initial; }
@@ -1174,7 +1174,7 @@ small {
   font-family: "HK Grotesk", sans-serif;
   font-size: 17px;
   color: #FFF;
-  background-color: #DE2D16;
+  background-color: #3EBABF;
   border-radius: 0;
   -webkit-transition: all 0.2s cubic-bezier(0, 0, 0.58, 1);
   transition: all 0.2s cubic-bezier(0, 0, 0.58, 1);
@@ -1201,7 +1201,7 @@ small {
       background: none; }
   .button[class][class][class][class][class]:hover, .button[class][class][class][class][class]:active, .button[class][class][class][class][class]:focus {
     color: #FFF;
-    background-color: #DE2D16;
+    background-color: #3EBABF;
     opacity: 0.8;
     text-decoration: none;
     border: initial; }
@@ -1741,7 +1741,7 @@ blockquote {
       blockquote:not(:last-child) {
         margin-bottom: 30.27027px; } }
   blockquote cite {
-    color: #DE2D16; }
+    color: #f59828; }
     blockquote cite:before {
       content: "";
       display: block;
@@ -1798,7 +1798,7 @@ table th {
   font-weight: bold;
   letter-spacing: 0.07143em;
   text-transform: uppercase;
-  color: #DE2D16; }
+  color: #f59828; }
   @media only screen and (max-width: 770px) {
     table th {
       font-size: 13.00113px; } }

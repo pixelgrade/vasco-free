@@ -7,10 +7,12 @@ $baseline-unit: 14px;
 $fa-font-path: 'assets/fonts/fontawesome';
 
 // Variation Variables
-$sm-dark-primary: #2B3D39;
-$sm-color-secondary: #DE2D16;
+$sm-dark-primary: #2b2b28;
+$sm-color-secondary: #f59828;
 
-$theme-text-color: $sm-dark-primary;
+
+
+$theme-text-color: #2B3D39;
 $theme-border-color: $color-gray-90;
 $theme-background-color: #F5F6F1;
 
@@ -28,8 +30,8 @@ $transition--ease-in-cubic: all 300ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
 // ========================================
 $btn-padding: 0.75em 1.75em;
 $btn-border-radius: 4px;
-$btn-background: $sm-color-secondary;
-$btn-hover-background: $sm-color-secondary;
+$btn-background: #3EBABF;
+$btn-hover-background: #3EBABF;
 $btn-color: #FFF;
 $btn-font: (
   font-family: $theme-headings-font-family-alt,
@@ -59,7 +61,7 @@ $header-background-color: #F5F6F1;
 // ----------------------------------------
 $logo-font: (
   font-family: $theme-logo-font-family,
-  font-size: 140px,
+  font-size: 30px,
   line-height: 1,
   font-weight: 700,
   text-transform: none,
@@ -258,7 +260,7 @@ $blog-excerpt-visibility: true;
 // Colors
 // ----------------------------------------
 $blog-card-title-color: #2B3D39;
-$blog-primary-meta-color: #DE2D16;
+$blog-primary-meta-color: $sm-color-secondary;
 $blog-secondary-meta-color: #828282;
 $blog-thumbnail-background: $sm-color-secondary;
 $blog-thumbnail-background-opacity: 0.5;
