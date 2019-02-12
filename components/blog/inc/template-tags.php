@@ -7,7 +7,6 @@
  * @see         https://pixelgrade.com
  * @author      Pixelgrade
  * @package     Components/Blog
- * @version     1.1.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -43,6 +42,7 @@ if ( ! function_exists( 'pixelgrade_get_blog_grid_class' ) ) {
 		 */
 		$classes[] = 'c-gallery';
 		$classes[] = 'c-gallery--blog';
+		$classes[] = 'aspect-ratio-square';
 
 		/*
 		 * Options dependent classes
@@ -308,7 +308,7 @@ if ( ! function_exists( 'pixelgrade_get_the_post_navigation' ) ) {
 		$navigation = '';
 
 		$previous = get_previous_post_link(
-			'<div class="nav-previous"><span class="nav-links__label  nav-links__label--previous">' . esc_html__( 'Previous article', '__components_txtd' ) . '</span><span class="nav-title  nav-title--previous">%link</span></div>',
+			'<div class="nav-previous"><span class="nav-links__label  nav-links__label--previous">' . esc_html__( 'Previous article', '__components_txtd' ) . '</span><span class="h3 nav-title  nav-title--previous">%link</span></div>',
 			$args['prev_text'],
 			$args['in_same_term'],
 			$args['excluded_terms'],
@@ -316,7 +316,7 @@ if ( ! function_exists( 'pixelgrade_get_the_post_navigation' ) ) {
 		);
 
 		$next = get_next_post_link(
-			'<div class="nav-next"><span class="nav-links__label  nav-links__label--next">' . esc_html__( 'Next article', '__components_txtd' ) . '</span><span class="nav-title  nav-title--next">%link</span></div>',
+			'<div class="nav-next"><span class="nav-links__label  nav-links__label--next">' . esc_html__( 'Next article', '__components_txtd' ) . '</span><span class="h3 nav-title  nav-title--next">%link</span></div>',
 			$args['next_text'],
 			$args['in_same_term'],
 			$args['excluded_terms'],
@@ -332,11 +332,15 @@ if ( ! function_exists( 'pixelgrade_get_the_post_navigation' ) ) {
 	}
 }
 
+add_action('pixelgrade_after_article', 'pixelgrade_get_the_post_navigation', 15 );
+
 /**
  * Display the HTML of the author info box
  */
 function pixelgrade_the_author_info_box() {
-	echo pixelgrade_get_the_author_info_box();
+	if ( pixelgrade_user_has_access( 'pro-features' ) ) {
+		echo pixelgrade_get_the_author_info_box();
+	}
 }
 
 if ( ! function_exists( 'pixelgrade_get_the_author_info_box' ) ) {
@@ -452,7 +456,7 @@ if ( ! function_exists( 'pixelgrade_get_author_bio_links' ) ) {
 
 		$markup .= '<span class="c-author__links">' . PHP_EOL;
 
-		$markup .= '<a class="c-author__social-link  c-author__website-link" href="' . esc_url( $user_posts ) . '" rel="author" title="' . esc_attr( sprintf( __( 'View all posts by %s', '__components_txtd' ), get_the_author() ) ) . '">' . esc_html__( 'All posts', '__components_txtd' ) . '</a>';
+		$markup .= '<a class="c-author__social-link  c-author__website-link" href="' . esc_url( $user_posts ) . '" rel="author" title="' . esc_attr( sprintf( esc_html__( 'View all posts by %s', '__components_txtd' ), get_the_author() ) ) . '">' . esc_html__( 'All posts', '__components_txtd' ) . '</a>';
 
 		if ( is_array( $profile ) && ! empty( $profile['entry'][0]['urls'] ) ) {
 			foreach ( $profile['entry'][0]['urls'] as $link ) {
@@ -662,7 +666,7 @@ if ( ! function_exists( 'pixelgrade_shape_comment' ) ) {
 	 * @param int        $depth
 	 */
 	function pixelgrade_shape_comment( $comment, $args, $depth ) {
-		$GLOBALS['comment'] = $comment;
+		$GLOBALS['comment'] = $comment; // @codingStandardsIgnoreLine
 		switch ( $comment->comment_type ) :
 			case 'pingback':
 			case 'trackback':
@@ -695,7 +699,7 @@ if ( ! function_exists( 'pixelgrade_shape_comment' ) ) {
 									<time datetime="<?php comment_time( 'c' ); ?>">
 										<?php
 										/* translators: 1: comment date, 2: comment time */
-										printf( __( '%1$s at %2$s', '__components_txtd' ), get_comment_date( '', $comment ), get_comment_time() );
+										printf( esc_html__( '%1$s at %2$s', '__components_txtd' ), get_comment_date( '', $comment ), get_comment_time() );
 										?>
 									</time>
 								</a>
@@ -708,7 +712,7 @@ if ( ! function_exists( 'pixelgrade_shape_comment' ) ) {
 						</header><!-- .comment-meta -->
 
 						<div class="comment__content">
-							<?php comment_text(); ?>
+							<?php comment_text( $comment ); ?>
 						</div><!-- .comment-content -->
 
 						<?php
@@ -721,7 +725,8 @@ if ( ! function_exists( 'pixelgrade_shape_comment' ) ) {
 									'before'    => '<div class="reply">',
 									'after'     => '</div>',
 								)
-							)
+							),
+							$comment
 						);
 						?>
 					</div>
@@ -853,7 +858,7 @@ if ( ! function_exists( 'pixelgrade_posted_on' ) ) {
 
 		$posted_on = sprintf(
 			/* translators: %s: The current post's posted date, in the post header */
-			esc_html_x( '%s', 'post date', '__components_txtd' ),
+			esc_html_x( '%s', 'post date', '__components_txtd' ), // @codingStandardsIgnoreLine
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
@@ -862,7 +867,7 @@ if ( ! function_exists( 'pixelgrade_posted_on' ) ) {
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
-		echo '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
+		echo '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput
 
 	}
 }
