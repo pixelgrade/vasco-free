@@ -5,7 +5,7 @@
  * @package Vasco Lite
  */
 
-function felt_lite_admin_setup() {
+function vasco_lite_admin_setup() {
 	/**
 	 * Load the About page class
 	 */
@@ -17,11 +17,11 @@ function felt_lite_admin_setup() {
 	*/
 	$config = array(
 		// Menu name under Appearance.
-		'menu_name'               => esc_html__( 'About Vasco Lite', '__theme_txtd' ),
+		'menu_name'               => esc_html__( 'About Vasco', '__theme_txtd' ),
 		// Page title.
-		'page_name'               => esc_html__( 'About Vasco Lite', '__theme_txtd' ),
+		'page_name'               => esc_html__( 'About Vasco', '__theme_txtd' ),
 		/* translators: Main welcome title */
-		'welcome_title'         => sprintf( esc_html__( 'Welcome to %s! - Version ', '__theme_txtd' ), 'Vasco Lite' ),
+		'welcome_title'         => sprintf( esc_html__( 'Welcome to %s! - Version ', '__theme_txtd' ), 'Vasco' ),
 		// Main welcome content
 		'welcome_content'       => esc_html__( ' Vasco is a free travel blog theme to help you increase your revenue streams and see more of the world. With big and beautiful imagery and a smart widget system for next-level customizations, you have all the right tools to express your personality and nurture a loyal audience around your fascinating stories.', '__theme_txtd' ),
 		/**
@@ -43,7 +43,7 @@ function felt_lite_admin_setup() {
 			'first' => array (
 				'title' => esc_html__( 'Contact Support','__theme_txtd' ),
 				'icon' => 'dashicons dashicons-sos',
-				'text' => wp_kses( __( 'We want to make sure you have the best experience using Vasco Lite. If you <strong>do not have a paid upgrade</strong>, please post your question in our community forums.', '__theme_txtd' ), wp_kses_allowed_html() ),
+				'text' => wp_kses( __( 'We want to make sure you have the best experience using Vasco. If you <strong>do not have a paid upgrade</strong>, please post your question in our community forums.', '__theme_txtd' ), wp_kses_allowed_html() ),
 				'button_label' => esc_html__( 'Contact Support','__theme_txtd' ),
 				'button_link' => esc_url( 'https://wordpress.org/support/theme/vasco-lite' ),
 				'is_button' => true,
@@ -52,7 +52,7 @@ function felt_lite_admin_setup() {
 			'second' => array(
 				'title' => esc_html__( 'Documentation','__theme_txtd' ),
 				'icon' => 'dashicons dashicons-book-alt',
-				'text' => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Vasco Lite.','__theme_txtd' ),
+				'text' => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Vasco.','__theme_txtd' ),
 				'button_label' => esc_html__( 'Read The Documentation','__theme_txtd' ),
 				'button_link' => 'https://pixelgrade.com/vasco-lite-documentation/',
 				'is_button' => false,
@@ -82,7 +82,7 @@ function felt_lite_admin_setup() {
 			),
 			'third' => array(
 				'title' => esc_html__( 'Read the documentation','__theme_txtd' ),
-				'text' => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Vasco Lite.','__theme_txtd' ),
+				'text' => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Vasco.','__theme_txtd' ),
 				'button_label' => esc_html__( 'Documentation','__theme_txtd' ),
 				'button_link' => 'https://pixelgrade.com/vasco-lite-documentation/',
 				'is_button' => false,
@@ -190,7 +190,7 @@ function felt_lite_admin_setup() {
 				),
 				array(
 					'title'       => esc_html__( 'No Credit Footer Link', '__theme_txtd' ),
-					'description' => esc_html__( 'You can eas­i­ly remove the “Theme: Vasco Lite by Pix­el­grade” copy­right from the foot­er area and make the theme yours from start to ', '__theme_txtd' ),
+					'description' => esc_html__( 'You can easily remove the "Theme: Vasco by Pixelgrade" copyright from the footer area and make the theme yours from start to finish.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				)
@@ -230,4 +230,4 @@ function felt_lite_admin_setup() {
 	);
 	Vasco_Lite_About_Page::init( $config );
 }
-add_action( 'after_setup_theme', 'felt_lite_admin_setup' );
+add_action( 'after_setup_theme', 'vasco_lite_admin_setup' );
