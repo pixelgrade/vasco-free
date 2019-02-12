@@ -7,8 +7,10 @@ $baseline-unit: 14px;
 $fa-font-path: 'assets/fonts/fontawesome';
 
 // Variation Variables
+$sm-dark-primary: #2B3D39;
 $sm-color-secondary: #DE2D16;
-$theme-text-color: #2B3D39;
+
+$theme-text-color: $sm-dark-primary;
 $theme-border-color: $color-gray-90;
 $theme-background-color: #F5F6F1;
 
@@ -50,7 +52,7 @@ $header-sides-spacing: 42px;
 // ----------------------------------------
 $header-links-color: $theme-text-color;
 $header-links-active-color: $theme-text-color;
-$header-background-color: $sm-color-secondary;
+$header-background-color: #F5F6F1;
 
 // ----------------------------------------
 // Fonts
