@@ -147,12 +147,6 @@ function vasco_lite_admin_setup() {
 					'is_in_pro'   => 'true',
 				),
 				array(
-					'title'       => esc_html__( 'Location Widget to Connect with Your Local Community', '__theme_txtd' ),
-					'description' => esc_html__( 'Share your whereabouts and connect with readers nearby with the help of a special Location Widget.','__theme_txtd' ),
-					'is_in_lite'  => 'false',
-					'is_in_pro'   => 'true',
-				),
-				array(
 					'title'       => esc_html__( 'Sticky Menu, Announcement & Reading Progress Bar', '__theme_txtd' ),
 					'description' => esc_html__( 'Keep the menu at the top of your page while you scroll, making it more accessible on whatever page you are navigating. On article pages, you will have a Progress Bar that switches to a link to the next article. The header area gets a boost with an Announcement Bar through which you can promote any link','__theme_txtd' ),
 					'is_in_lite'  => 'false',
