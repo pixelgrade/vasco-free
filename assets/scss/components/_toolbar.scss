@@ -54,6 +54,8 @@ $toolbar-width: 62px !default;
 
   .has-toolbar,
   .has-toolbar .site-header {
-    padding-right: $toolbar-width;
+    &:not(.lite-version) {
+      padding-right: $toolbar-width;
+    }
   }
 }

@@ -9273,8 +9273,8 @@ table td:last-child {
   cursor: pointer; }
 
 @media only screen and (min-width: 62.5em) {
-  .has-toolbar,
-  .has-toolbar .site-header {
+  .has-toolbar:not(.lite-version),
+  .has-toolbar .site-header:not(.lite-version) {
     padding-left: 62px; } }
 
 .c-search-overlay {
