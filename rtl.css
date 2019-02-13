@@ -8186,7 +8186,8 @@ blockquote {
   font-family: "HK Grotesk", sans-serif;
   font-size: 19px;
   line-height: 1.21053;
-  font-weight: 500; }
+  font-weight: 500;
+  padding-bottom: 0; }
   @media only screen and (max-width: 1024px) {
     .comment-form label {
       font-size: 18.36188px; } }
