@@ -31,3 +31,8 @@
   transition: none;
   will-change: unset;
 }
+
+.post-navigation .nav-links__label {
+  @include leading-map($h5);
+  color: $sm-color-secondary;
+}

@@ -8852,6 +8852,46 @@ ul.page-numbers {
   transition: none;
   will-change: unset; }
 
+.post-navigation .nav-links__label {
+  font-family: "HK Grotesk", sans-serif;
+  font-size: 14px;
+  line-height: 1.25;
+  font-weight: bold;
+  letter-spacing: 0.07143em;
+  text-transform: uppercase;
+  color: #f59828; }
+  @media only screen and (max-width: 1024px) {
+    .post-navigation .nav-links__label {
+      font-size: 13.80803px; } }
+  @media only screen and (max-width: 768px) {
+    .post-navigation .nav-links__label {
+      font-size: 13.62125px; } }
+  @media only screen and (max-width: 400px) {
+    .post-navigation .nav-links__label {
+      font-size: 13.43946px; } }
+  .post-navigation .nav-links__label:not(:first-child) {
+    margin-top: 50.988px; }
+    @media only screen and (max-width: 1024px) {
+      .post-navigation .nav-links__label:not(:first-child) {
+        margin-top: 36.47493px; } }
+    @media only screen and (max-width: 768px) {
+      .post-navigation .nav-links__label:not(:first-child) {
+        margin-top: 28.39318px; } }
+    @media only screen and (max-width: 320px) {
+      .post-navigation .nav-links__label:not(:first-child) {
+        margin-top: 23.24319px; } }
+  .post-navigation .nav-links__label:not(:last-child) {
+    margin-bottom: 22.988px; }
+    @media only screen and (max-width: 1024px) {
+      .post-navigation .nav-links__label:not(:last-child) {
+        margin-bottom: 17.16088px; } }
+    @media only screen and (max-width: 768px) {
+      .post-navigation .nav-links__label:not(:last-child) {
+        margin-bottom: 13.69053px; } }
+    @media only screen and (max-width: 320px) {
+      .post-navigation .nav-links__label:not(:last-child) {
+        margin-bottom: 11.38767px; } }
+
 .related-posts-container {
   border-bottom: 2px solid currentColor;
   margin-bottom: 56px; }
@@ -11571,7 +11611,8 @@ input[type=submit] {
     font-family: "HK Grotesk", sans-serif;
     font-size: 19px;
     line-height: 1.21053;
-    font-weight: 500; }
+    font-weight: 500;
+    color: #f59828; }
     @media only screen and (max-width: 1024px) {
       .single .entry-header .cats {
         font-size: 18.36188px; } }
