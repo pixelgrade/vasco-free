@@ -166,6 +166,9 @@ function vasco_scripts() {
 	$theme           = wp_get_theme();
 	$main_style_deps = array();
 
+	/* Default Google Fonts */
+	wp_enqueue_style( 'vasco-google-fonts', vasco_google_fonts_url() );
+
 	// Default Self-hosted Fonts should be loaded when Customify is off
 	// When Customify is active, the CSS is added only if the font is used in any of the customizer font options
 	if ( ! class_exists( 'PixCustomifyPlugin' ) ) {
