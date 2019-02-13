@@ -21,6 +21,7 @@
     .cats {
       justify-content: center;
       @include leading-map($h4);
+      color: $sm-color-secondary;
 
       a {
         @include vertical-separator;

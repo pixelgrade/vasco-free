@@ -57,6 +57,7 @@ input[type=url],
 select,
 textarea {
   @include input-paddings;
+  @include leading-map($input-font);
 }
 
 /* stylelint-disable */

@@ -76,8 +76,9 @@
   label {
     @include leading-map(map-merge($h4, (
       spacing-top: false,
-      spacing-bottom: 0.5rem
+      spacing-bottom: 0.5rem,
     )));
+    padding-bottom: 0;
   }
 
   @include above(lap) {
