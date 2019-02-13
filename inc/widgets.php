@@ -123,7 +123,7 @@ function vasco_handle_front_page_widgets_nesting( $index ) {
 		return;
 	}
 
-	// We also want to deal only with the front page main widget area, or the footer featerd widget area
+	// We also want to deal only with the front page main widget area, or the footer featured widget area
 	if ( 'front-page-1' !== $index && 'footer-featured' !== $index ) {
 		return;
 	}
