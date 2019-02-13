@@ -3,6 +3,8 @@
   cursor: pointer;
   transform: perspective(1px) translateZ(0);
 
+  @include leading-map($input-font);
+
   &:focus,
   &:active,
   &:hover {

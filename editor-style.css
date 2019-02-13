@@ -1046,8 +1046,8 @@ small {
       background: none; }
   .c-btn:hover, .c-btn:active, .c-btn:focus {
     color: #FFF;
-    background-color: #3EBABF;
-    opacity: 0.8;
+    background-color: #2B2B2A;
+    opacity: 1;
     text-decoration: none;
     border: initial; }
   .c-btn--default {
@@ -1201,8 +1201,8 @@ small {
       background: none; }
   .button[class][class][class][class][class]:hover, .button[class][class][class][class][class]:active, .button[class][class][class][class][class]:focus {
     color: #FFF;
-    background-color: #3EBABF;
-    opacity: 0.8;
+    background-color: #2B2B2A;
+    opacity: 1;
     text-decoration: none;
     border: initial; }
   .button[class][class][class][class][class].default {
