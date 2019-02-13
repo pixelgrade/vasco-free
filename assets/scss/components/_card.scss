@@ -116,6 +116,8 @@
   display: flex;
   align-items: center;
 
+  color: $sm-color-secondary;
+
   &:before {
     display: block;
     content: '';
