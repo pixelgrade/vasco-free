@@ -193,7 +193,7 @@ function vasco_scripts() {
 
 	// The main script
 	wp_enqueue_script( 'vasco-commons-scripts', get_theme_file_uri( '/assets/js/commons.js' ), array( 'jquery' ), $theme->get( 'Version' ), true );
-	wp_enqueue_script( 'vasco-scripts', get_theme_file_uri( '/assets/js/app.bundle.js' ), array( 'vasco-commons-scripts' ), $theme->get( 'Version' ), true );
+	wp_enqueue_script( 'vasco-scripts', get_theme_file_uri( '/assets/js/app.bundle.js' ), array( 'vasco-commons-scripts','masonry' ), $theme->get( 'Version' ), true );
 
 	$localization_array = array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),

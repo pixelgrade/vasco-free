@@ -9,7 +9,8 @@ var gulp = require( 'gulp-help' )( require( 'gulp' ) ),
 	plugins = require( 'gulp-load-plugins' )(),
 	del = require( 'del' ),
 	bs = require( 'browser-sync' ),
-	argv = require('yargs').argv;
+	argv = require('yargs').argv,
+	eol = require('gulp-eol');
 
 var u = plugins.util,
 	c = plugins.util.colors,
@@ -69,9 +70,27 @@ gulp.task( 'styles', 'Compile styles', function( cb ) {
 	plugins.sequence( 'typeline-config', 'typeline-phpconfig', 'styles-components', 'styles-main', 'styles-rtl', cb );
 } );
 
+gulp.task('styles-admin', 'Compiles Sass and uses autoprefixer', function () {
 
+	function handleError(err, res) {
+		log(c.red('Sass failed to compile'));
+		log(c.red('> ') + err.file.split('/')[err.file.split('/').length - 1] + ' ' + c.underline('line ' + err.line) + ': ' + err.message);
+	}
 
+	return gulp.src('assets/scss/admin/*.scss')
+	           .pipe(plugins.sourcemaps.init())
+	           .pipe(plugins.sass().on('error', logError))
+	           .pipe(plugins.autoprefixer() )
+	           // .pipe(csscomb())
+	           // .pipe(chmod(644))
+	           .pipe(gulp.dest('./inc/lite/admin/'));
+});
 
+gulp.task('eol', function() {
+	return gulp.src('assets/js/commons.js')
+	           .pipe(eol())
+	           .pipe(gulp.dest('assets/js/'));
+});
 
 // -----------------------------------------------------------------------------
 // Scripts
@@ -124,23 +143,27 @@ gulp.task( 'sync-variation-specific-files', [], function() {
 // -----------------------------------------------------------------------------
 
 gulp.task( 'watch', 'Watch for changes to various files and process them', ['compile'], function() {
-	gulp.watch( [
-		'inc/integrations/typeline-config.json',
-		'inc/integrations/typeline-config-editor.json'
-	], ['typeline-config', 'typeline-phpconfig'] );
-	// We exclude the docs directory since that is not a true component; also exclude . directories
-	gulp.watch( ['variations/**/*.scss', 'components/**/*.scss', 'assets/scss/**/*.scss', '!components/docs/**/*', '!components/.*/**/*'], ['styles'] );
-	gulp.watch( 'assets/js/**/*.js', ['scripts'] );
-} );
-
-gulp.task( 'watch-variation', 'Watch for changes to the variation synced files and directories and sync them', ['sync-variation-specific-files'], function() {
 	let variation = 'vasco';
 
 	if ( argv.variation !== undefined ) {
 		variation = argv.variation;
 	}
 
-	gulp.watch( 'variations/' + variation + '/synced/**/*', ['sync-variation-specific-files'] );
+	// watch for Typeline config changes
+	gulp.watch( [
+		'inc/integrations/typeline-config.json',
+		'inc/integrations/typeline-config-editor.json'
+	], ['typeline-config', 'typeline-phpconfig'] );
+
+	// watch for theme related CSS changes
+	gulp.watch( ['variations/' + variation + '/**/*.scss', 'assets/scss/**/*.scss'], ['styles-main'] );
+
+	// watch for components related CSS changes
+	// exclude the docs directory since that is not a true component; also exclude . directories
+	gulp.watch( ['components/**/*.scss', '!components/docs/**/*', '!components/.*/**/*'], ['styles-components', 'styles-main'] );
+
+	// watch for JavaScript changes
+	gulp.watch( 'assets/js/**/*.js', ['scripts'] );
 } );
 
 
@@ -166,7 +189,7 @@ gulp.task( 'browser-sync', false, function() {
 		proxy: config.baseurl + (
 			u.env.port ? ':' + u.env.port : ''
 		),
-		files: ['*.php', 'style.css', 'assets/js/main.js'],
+		files: ['*.php', 'style.css', 'assets/js/*.js'],
 		// This tells BrowserSync to auto-open a tab once it boots.
 		open: true
 	}, function( err, bs ) {

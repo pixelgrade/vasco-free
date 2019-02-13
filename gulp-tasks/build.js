@@ -21,7 +21,7 @@ var gulp = require( 'gulp-help' )( require( 'gulp' ) ),
 // -----------------------------------------------------------------------------
 
 gulp.task( 'copy-folder', 'Copy theme production files to a build folder', function() {
-    let variation = 'julia';
+    let variation = 'vasco';
 
     if ( argv.variation !== undefined ) {
         variation = argv.variation;
@@ -39,7 +39,7 @@ gulp.task( 'copy-folder', 'Copy theme production files to a build folder', funct
             destination: '../build/' + variation + '/',
             // archive: true,
             progress: false,
-            silent: false,
+            silent: true,
             compress: false,
             recursive: true,
             emptyDirectories: true,
@@ -53,7 +53,7 @@ gulp.task( 'copy-folder', 'Copy theme production files to a build folder', funct
 // -----------------------------------------------------------------------------
 
 gulp.task( 'components-txtdomain-replace', ['copy-folder'], function() {
-    let variation = 'julia';
+    let variation = 'vasco';
 
     if ( argv.variation !== undefined ) {
         variation = argv.variation;
@@ -69,7 +69,7 @@ gulp.task( 'components-txtdomain-replace', ['copy-folder'], function() {
 // -----------------------------------------------------------------------------
 
 gulp.task( 'txtdomain-replace', ['components-txtdomain-replace'], function() {
-    let variation = 'julia';
+    let variation = 'vasco';
 
     if ( argv.variation !== undefined ) {
         variation = argv.variation;
@@ -85,7 +85,7 @@ gulp.task( 'txtdomain-replace', ['components-txtdomain-replace'], function() {
 // -----------------------------------------------------------------------------
 
 gulp.task( 'move-variation-specific-files', ['txtdomain-replace'], function() {
-	let variation = 'julia';
+	let variation = 'vasco';
 
 	if ( argv.variation !== undefined ) {
 		variation = argv.variation;
@@ -101,7 +101,7 @@ gulp.task( 'move-variation-specific-files', ['txtdomain-replace'], function() {
 // -----------------------------------------------------------------------------
 
 gulp.task( 'build', 'Remove unneeded files and folders from the build folder', ['move-variation-specific-files'], function() {
-    let variation = 'julia';
+    let variation = 'vasco';
 
     if ( argv.variation !== undefined ) {
         variation = argv.variation;
@@ -117,6 +117,9 @@ gulp.task( 'build', 'Remove unneeded files and folders from the build folder', [
         'gulpfile.js',
         'gulpconfig.json',
         'gulpconfig.example.json',
+        'webpack.common.js',
+        'webpack.dev.js',
+        'webpack.prod.js',
         'package.json',
         'package-lock.json',
         'pxg.json',
@@ -168,8 +171,7 @@ gulp.task( 'build', 'Remove unneeded files and folders from the build folder', [
         'components/phpdoc*',
         'components/phpunit*',
         'components/style.css',
-        'variations'
-
+        'variations',
     ];
 
     files_to_remove.forEach( function( e, k ) {
@@ -188,7 +190,7 @@ gulp.task( 'build', 'Remove unneeded files and folders from the build folder', [
 // -----------------------------------------------------------------------------
 
 gulp.task( 'zip', 'Create the theme installer archive and delete the build folder', ['build'], function() {
-    let variation = 'julia';
+    let variation = 'vasco';
 
     if ( argv.variation !== undefined ) {
         variation = argv.variation;
