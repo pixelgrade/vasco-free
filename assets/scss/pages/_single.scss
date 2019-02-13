@@ -21,6 +21,7 @@
     .cats {
       justify-content: center;
       @include leading-map($h4);
+      color: $sm-color-secondary;
 
       a {
         @include vertical-separator;
@@ -61,6 +62,7 @@
 
     .byline, .posted-on {
       @include taxonomy;
+      @include leading-map($blog-card-meta-secondary-font);
     }
 
     a {
@@ -112,6 +114,8 @@
     a {
       @include spacing(margin-top, 1rem);
       @include spacing(margin-right, 1rem);
+
+      @include leading-map($blog-card-meta-secondary-font);
     }
   }
 

@@ -722,7 +722,13 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
 		);
 
 		// Configure the sidebars (widget areas) that the blog component uses
-		$this->config['sidebars']['sidebar-1'] = array(
+
+		/**
+		 * Add Below Post and Sidebar sidebars in the Pro version of the theme.
+		 */
+		if ( pixelgrade_user_has_access( 'pro-features' ) ) {
+
+			$this->config['sidebars']['sidebar-1'] = array(
 				'sidebar_args' => array(
 					'name'          => esc_html__( 'Sidebar', '__components_txtd' ),
 					'id'            => 'sidebar-1',
@@ -735,18 +741,13 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
 					'before_title'  => '<h2 class="widget__title h3"><span>',
 					'after_title'   => '</span></h2>',
 				),
-		);
-
-		/**
-		 * Add Below Post sidebar in the Pro version of the theme.
-		 */
-		if ( pixelgrade_user_has_access( 'pro-features' ) ) {
+			);
 
 			$this->config['sidebars']['sidebar-2'] = array(
 					'sidebar_args' => array(
-						'name'          => esc_html__( 'Below Post', '__theme_txtd' ),
+						'name'          => esc_html__( 'Below Post', '__components_txtd' ),
 						'id'            => 'sidebar-2',
-						'description'   => esc_html__( 'Add widgets here.', '__theme_txtd' ),
+						'description'   => esc_html__( 'Add widgets here.', '__components_txtd' ),
 						'before_widget' => '<section id="%1$s" class="widget widget--content %2$s">',
 						'after_widget'  => '</section>',
 						'before_title'  => '<h2 class="widget__title h3"><span>',
@@ -833,6 +834,8 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
 
 		// Enqueue the frontend assets
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueueScripts' ) );
+		// We will put this script inline since it is so small.
+		add_action( 'wp_print_footer_scripts', array( $this, 'skip_link_focus_fix' ) );
 
 		// Setup how things will behave in the WP admin area
 		add_action( 'admin_init', array( $this, 'adminInit' ) );
@@ -875,12 +878,29 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
 	 */
 	public function enqueueScripts() {
 		// Register the general frontend styles and scripts specific to blog
-		wp_enqueue_script( 'pixelgrade-navigation', pixelgrade_get_theme_file_uri( trailingslashit( PIXELGRADE_COMPONENTS_PATH ) . trailingslashit( self::COMPONENT_SLUG ) . 'js/navigation.js' ), array(), '20180101', true );
-		wp_enqueue_script( 'pixelgrade-skip-link-focus-fix', pixelgrade_get_theme_file_uri( trailingslashit( PIXELGRADE_COMPONENTS_PATH ) . trailingslashit( self::COMPONENT_SLUG ) . 'js/skip-link-focus-fix.js' ), array(), '20180101', true );
+		wp_register_script( 'pixelgrade-navigation', pixelgrade_get_theme_file_uri( trailingslashit( PIXELGRADE_COMPONENTS_PATH ) . trailingslashit( self::COMPONENT_SLUG ) . 'js/navigation.js' ), array(), '20180101', true );
+		wp_enqueue_script( 'pixelgrade-navigation' );
 
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
+	}
+
+	/**
+	 * Fix skip link focus in IE11.
+	 *
+	 * This does not enqueue the script because it is tiny and because it is only for IE11,
+	 * thus it does not warrant having an entire dedicated blocking script being loaded.
+	 *
+	 * @link https://git.io/vWdr2
+	 */
+	public function skip_link_focus_fix() {
+		// The following is minified via `terser --compress --mangle -- js/skip-link-focus-fix.js`.
+		?>
+<script>
+	/(trident|msie)/i.test(navigator.userAgent)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",function(){var t,e=location.hash.substring(1);/^[A-z0-9_-]+$/.test(e)&&(t=document.getElementById(e))&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())},!1);
+</script>
+		<?php
 	}
 
 	/**
@@ -1023,7 +1043,7 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
 	 */
 	public function pingbackHeader() {
 		if ( is_singular() && pings_open() ) {
-			echo '<link rel="pingback" href="' . get_bloginfo( 'pingback_url', 'display' ) . '">';
+			echo '<link rel="pingback" href="' . esc_url( get_bloginfo( 'pingback_url', 'display' ) ) . '">';
 		}
 	}
 

@@ -30,7 +30,7 @@
 .c-comments-toggle__label {
   @include btn;
   display: block;
-  background-color: $theme-text-color;
+  background-color: $sm-dark-primary;
 }
 
 .comment__content {
@@ -76,8 +76,9 @@
   label {
     @include leading-map(map-merge($h4, (
       spacing-top: false,
-      spacing-bottom: 0.5rem
+      spacing-bottom: 0.5rem,
     )));
+    padding-bottom: 0;
   }
 
   @include above(lap) {

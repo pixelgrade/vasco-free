@@ -88,6 +88,22 @@ if ( ! class_exists( 'Pixelgrade_FeatureCardWidget' ) ) :
 			    ),
 			);
 
+			if ( ! pixelgrade_user_has_access( 'pro-features' ) ) {
+				if ( empty( $config['sidebars_not_supported'] ) ) {
+					$config['sidebars_not_supported'] = array();
+				}
+
+				// @todo Maybe use an entry like 'all' to target any sidebar. Just to avoid working in the fields!
+				$config['sidebars_not_supported'] = array_merge( $config['sidebars_not_supported'], array(
+					'sidebar-1',
+					'sidebar-2',
+					'front-page-1',
+					'footer-featured',
+                    'sidebar-footer',
+				) );
+			}
+
+
             // Set up the widget options
             $widget_ops = array(
                 'classname'                   => 'widget_feature_card',

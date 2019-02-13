@@ -3,6 +3,8 @@
   cursor: pointer;
   transform: perspective(1px) translateZ(0);
 
+  @include leading-map($input-font);
+
   &:focus,
   &:active,
   &:hover {
@@ -57,6 +59,7 @@ input[type=url],
 select,
 textarea {
   @include input-paddings;
+  @include leading-map($input-font);
 }
 
 /* stylelint-disable */

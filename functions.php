@@ -165,6 +165,9 @@ function vasco_scripts() {
 	$theme           = wp_get_theme();
 	$main_style_deps = array();
 
+	/* Default Google Fonts */
+	wp_enqueue_style( 'vasco-google-fonts', vasco_google_fonts_url() );
+
 	// Default Self-hosted Fonts should be loaded when Customify is off
 	// When Customify is active, the CSS is added only if the font is used in any of the customizer font options
 	if ( ! class_exists( 'PixCustomifyPlugin' ) ) {
@@ -190,7 +193,7 @@ function vasco_scripts() {
 
 	// The main script
 	wp_enqueue_script( 'vasco-commons-scripts', get_theme_file_uri( '/assets/js/commons.js' ), array( 'jquery' ), $theme->get( 'Version' ), true );
-	wp_enqueue_script( 'vasco-scripts', get_theme_file_uri( '/assets/js/app.bundle.js' ), array( 'vasco-commons-scripts', 'masonry' ), $theme->get( 'Version' ), true );
+	wp_enqueue_script( 'vasco-scripts', get_theme_file_uri( '/assets/js/app.bundle.js' ), array( 'vasco-commons-scripts','masonry' ), $theme->get( 'Version' ), true );
 
 	$localization_array = array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),

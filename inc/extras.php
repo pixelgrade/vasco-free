@@ -93,6 +93,51 @@ function vasco_bebasneue_font_url() {
 	return '';
 }
 
+if ( ! function_exists( 'vasco_google_fonts_url' ) ) :
+	/**
+	 * Register Google fonts for Vasco.
+	 *
+	 * @since Felt 1.3.3
+	 *
+	 * @return string Google fonts URL for the theme.
+	 */
+	function vasco_google_fonts_url() {
+		$fonts_url = '';
+		$fonts     = array();
+		$subsets   = 'latin,latin-ext';
+
+		/* Translators: If there are characters in your language that are not
+		* supported by Lora, translate this to 'off'. Do not translate
+		* into your own language.
+		*/
+		if ( 'off' !== esc_html_x( 'on', 'Lora font: on or off', '__theme_txtd' ) ) {
+			$fonts[] = 'Lora:400,700';
+		}
+
+		/* translators: To add an additional character subset specific to your language, translate this to 'greek', 'cyrillic', 'devanagari' or 'vietnamese'. Do not translate into your own language. */
+		$subset = esc_html_x( 'no-subset', 'Add new subset (greek, cyrillic, devanagari, vietnamese)', '__theme_txtd' );
+
+		if ( 'cyrillic' == $subset ) {
+			$subsets .= ',cyrillic,cyrillic-ext';
+		} elseif ( 'greek' == $subset ) {
+			$subsets .= ',greek,greek-ext';
+		} elseif ( 'devanagari' == $subset ) {
+			$subsets .= ',devanagari';
+		} elseif ( 'vietnamese' == $subset ) {
+			$subsets .= ',vietnamese';
+		}
+
+		if ( $fonts ) {
+			$fonts_url = add_query_arg( array(
+				'family' => urlencode( implode( '|', $fonts ) ),
+				'subset' => urlencode( $subsets ),
+			), '//fonts.googleapis.com/css' );
+		}
+
+		return $fonts_url;
+	} #function
+endif;
+
 /**
  * Display the hidden "Styles" drop-down in the Advanced editor bar.
  *
@@ -157,6 +202,7 @@ function vasco_body_classes( $classes ) {
 
 	return $classes;
 }
+
 add_filter( 'body_class', 'vasco_body_classes' );
 
 /**

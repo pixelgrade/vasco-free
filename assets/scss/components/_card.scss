@@ -84,8 +84,8 @@
 
 }
 
-.c-meta__secondary[class] {
-  @include taxonomy;
+.c-meta__secondary {
+  @include taxonomy-button;
 
   a {
     color: inherit;
@@ -106,7 +106,7 @@
     left: -20px;
     z-index: 2;
     content: '';
-    border-top: 3px solid;
+    border-top: 3px solid $blog-primary-meta-color;
     width: 30px;
     margin-right: 0.5em;
   }
@@ -115,6 +115,8 @@
 .c-card__action {
   display: flex;
   align-items: center;
+
+  color: $sm-color-secondary;
 
   &:before {
     display: block;

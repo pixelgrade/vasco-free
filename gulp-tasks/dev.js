@@ -26,7 +26,7 @@ function logError( err, res ) {
 }
 
 gulp.task( 'styles-main', 'Compiles main css files (ie. style.css editor-style.css)', function() {
-	let variation = 'felt';
+	let variation = 'vasco';
 
 	if ( argv.variation !== undefined ) {
 		variation = argv.variation;
@@ -117,7 +117,7 @@ gulp.task( 'scripts', 'Concatenate all JS into main.js and wrap all code in a cl
 // -----------------------------------------------------------------------------
 
 gulp.task( 'sync-variation-specific-files', [], function() {
-	let variation = 'felt';
+	let variation = 'vasco';
 
 	if ( argv.variation !== undefined ) {
 		variation = argv.variation;
@@ -143,7 +143,7 @@ gulp.task( 'sync-variation-specific-files', [], function() {
 // -----------------------------------------------------------------------------
 
 gulp.task( 'watch', 'Watch for changes to various files and process them', ['compile'], function() {
-	let variation = 'felt';
+	let variation = 'vasco';
 
 	if ( argv.variation !== undefined ) {
 		variation = argv.variation;

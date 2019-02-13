@@ -184,7 +184,9 @@ function pixelgrade_footer_get_nav_menu( $args, $menu_location = '' ) {
  * Display the footer back to top link
  */
 function pixelgrade_footer_the_back_to_top_link() {
-	echo pixelgrade_footer_get_back_to_top_link();
+	if ( pixelgrade_user_has_access( 'pro-features' ) ) {
+		echo pixelgrade_footer_get_back_to_top_link();
+	}
 }
 
 /**
@@ -193,7 +195,7 @@ function pixelgrade_footer_the_back_to_top_link() {
 function pixelgrade_footer_get_back_to_top_link() {
 	$option = pixelgrade_option( 'footer_hide_back_to_top_link', false );
 	if ( empty( $option ) ) {
-		return '';
+		return '<a class="back-to-top" href="#">' . esc_html__( 'Back to Top', '__components_txtd' ) . '</a>';
 	}
 
 	return '';
@@ -203,7 +205,10 @@ function pixelgrade_footer_get_back_to_top_link() {
  * Display the footer copyright.
  */
 function pixelgrade_footer_get_copyright_content() {
-	return '<span class="c-footer__credits">' . sprintf( esc_html__( 'Made with love by %s.', '__components_txtd' ), '<a href="https://pixelgrade.com/?utm_source=felt-lite-clients&utm_medium=footer&utm_campaign=felt-lite" target="_blank">Pixelgrade</a>' ) . '</span>' . PHP_EOL;
+	// Allow others to change this url.
+	$url = apply_filters( 'pixelgrade_footer_credits_url', 'https://pixelgrade.com/' );
+
+	return '<span class="c-footer__credits">' . sprintf( esc_html__( 'Made with love by %s.', '__components_txtd' ), '<a href="' . $url . '" target="_blank">Pixelgrade</a>' ) . '</span>' . PHP_EOL;
 }
 
 /**

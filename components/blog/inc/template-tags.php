@@ -42,7 +42,6 @@ if ( ! function_exists( 'pixelgrade_get_blog_grid_class' ) ) {
 		 */
 		$classes[] = 'c-gallery';
 		$classes[] = 'c-gallery--blog';
-		$classes[] = 'aspect-ratio-square';
 
 		/*
 		 * Options dependent classes
@@ -589,7 +588,7 @@ if ( ! function_exists( 'pixelgrade_get_main_category_link' ) ) {
 		$class_markup = '';
 
 		if ( ! empty( $category_class ) ) {
-			$class_markup = 'class="' . $category_class . '" ';
+			$class_markup = 'class="' . esc_attr( $category_class ) . '" ';
 		}
 		return $before . '<a ' . $class_markup . ' href="' . esc_url( get_category_link( $category->term_id ) ) . '" title="' . esc_attr( $category->name ) . '">' . $category->name . '</a>' . $after;
 

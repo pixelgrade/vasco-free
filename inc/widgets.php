@@ -29,7 +29,7 @@ function vasco_widget_areas_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Footer - Featured Area', '__theme_txtd' ),
 		'id'            => 'footer-featured',
-		'description'   => esc_html__( 'Site-wide widgets displayed above the Footer Area of your website.', '__theme_txtd' ),
+		'description'   => vasco_pro_widget_description('footer-featured'),
 		'before_widget' => '<section id="%1$s" class="widget widget--full %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget__title h3"><span>',
@@ -37,6 +37,26 @@ function vasco_widget_areas_init() {
 	) );
 }
 add_action( 'widgets_init', 'vasco_widget_areas_init', 10 );
+
+/**
+ * Check if the Pro version is enabled.
+ * If so, some widgets description will be specific, regarding the widgets role.
+ *
+ * @param string $id ID of the widget area
+ *
+ * @return string A specific message, regarding the status of the widget area.
+ */
+function vasco_pro_widget_description($sidebar_id) {
+	if ( pixelgrade_user_has_access( 'pro-features' ) ) {
+		if ( $sidebar_id === 'footer-featured' ) {
+			return esc_html__( 'Site-wide widgets displayed above the Footer Area of your website.', '__theme_txtd' );
+		} else {
+			return esc_html__( 'Add widgets here.', '__theme_txtd' );
+		}
+	}
+
+	return esc_html__( 'Ooops! This entire widget area does not support Pixelgrade Widgets. You want to stand out from the crowd, right? Upgrade to Vasco PRO and unlock all features.', '__theme_txtd' );
+}
 
 /**
  * Register the our custom widgets for use in Appearance -> Widgets
@@ -78,9 +98,6 @@ function vasco_custom_widgets_init() {
 	require_once pixelgrade_get_parent_theme_file_path( 'inc/widgets/class-StampWidget.php' );
 	register_widget( 'Pixelgrade_StampWidget' );
 
-	// The Promo Box Widget
-	require_once pixelgrade_get_parent_theme_file_path( 'inc/widgets/class-PromoBoxWidget.php' );
-	register_widget( 'Pixelgrade_PromoBoxWidget' );
 }
 add_action( 'widgets_init', 'vasco_custom_widgets_init', 10 );
 
@@ -106,7 +123,7 @@ function vasco_handle_front_page_widgets_nesting( $index ) {
 		return;
 	}
 
-	// We also want to deal only with the front page main widget area, or the footer featerd widget area
+	// We also want to deal only with the front page main widget area, or the footer featured widget area
 	if ( 'front-page-1' !== $index && 'footer-featured' !== $index ) {
 		return;
 	}

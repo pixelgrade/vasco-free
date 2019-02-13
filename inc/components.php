@@ -26,10 +26,21 @@ function vasco_setup_components() {
 }
 add_action( 'after_setup_theme', 'vasco_setup_components', 10 );
 
+/**
+ * Customize the Footer component config.
+ *
+ * @param array $config
+ *
+ * @return array
+ */
 function vasco_customize_footer_config( $config ) {
 	// Don't output empty markup in the footer
 	$config['zones']['middle']['display_blank'] = false;
 	$config['zones']['bottom']['display_blank'] = false;
+
+	if ( ! pixelgrade_user_has_access( 'pro-features' ) ) {
+		unset( $config['sidebars']['sidebar-footer'] );
+	}
 
 	return $config;
 }

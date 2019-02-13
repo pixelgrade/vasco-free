@@ -1,6 +1,5 @@
 {
   "name": "vasco",
-  "main": "webpack.config.js",
   "scripts": {
     "scripts:dev": "webpack --config webpack.dev.js --watch",
     "scripts:prod": "webpack --config webpack.prod.js",
@@ -9,9 +8,6 @@
     "zip": "npm run build && gulp zip",
     "watch": "npm run scripts:dev & gulp watch",
     "server": "npm run scripts:dev & gulp bs"
-  },
-  "watch": {
-    "rtl": "style.css"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
