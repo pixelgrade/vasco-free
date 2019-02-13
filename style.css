@@ -5830,7 +5830,9 @@ and the top and bottom ones rotate to form an X
     position: relative;
     -webkit-box-align: stretch;
         -ms-flex-align: stretch;
-            align-items: stretch; }
+            align-items: stretch;
+    font-size: 17px;
+    letter-spacing: 0; }
     .c-navbar[class] ul {
       margin-top: 0;
       margin-left: 0; }
