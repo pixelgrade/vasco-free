@@ -11664,7 +11664,21 @@ input[type=submit] {
     line-height: 1.21053;
     font-weight: 500;
     margin-top: 0;
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 19px;
+    line-height: 1.21053;
+    font-weight: bold;
+    letter-spacing: 0.05263em; }
+    @media only screen and (max-width: 1024px) {
+      .single .header-meta .byline, .single .header-meta .posted-on {
+        font-size: 18.36188px; } }
+    @media only screen and (max-width: 768px) {
+      .single .header-meta .byline, .single .header-meta .posted-on {
+        font-size: 17.76524px; } }
+    @media only screen and (max-width: 400px) {
+      .single .header-meta .byline, .single .header-meta .posted-on {
+        font-size: 17.20614px; } }
     @media only screen and (max-width: 1024px) {
       .single .header-meta .byline, .single .header-meta .posted-on {
         font-size: 18.36188px; } }
@@ -11737,7 +11751,12 @@ input[type=submit] {
 
 .entry-content .cats[class][class] a {
   margin-top: 14px;
-  margin-right: 14px; }
+  margin-right: 14px;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 19px;
+  line-height: 1.21053;
+  font-weight: bold;
+  letter-spacing: 0.05263em; }
   @media only screen and (max-width: 1024px) {
     .entry-content .cats[class][class] a {
       margin-top: 12.56357px; } }
@@ -11756,6 +11775,15 @@ input[type=submit] {
   @media only screen and (max-width: 320px) {
     .entry-content .cats[class][class] a {
       margin-right: 10.42442px; } }
+  @media only screen and (max-width: 1024px) {
+    .entry-content .cats[class][class] a {
+      font-size: 18.36188px; } }
+  @media only screen and (max-width: 768px) {
+    .entry-content .cats[class][class] a {
+      font-size: 17.76524px; } }
+  @media only screen and (max-width: 400px) {
+    .entry-content .cats[class][class] a {
+      font-size: 17.20614px; } }
 
 .entry-content .cats__title {
   display: none; }
