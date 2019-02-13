@@ -338,5 +338,10 @@ $input-focus-border-color: #ADADAD;
 $btn-default-background: #202423;
 $input-disabled-background-color: #E0E0E0;
 $input-disabled-border-color: #C7C7C7;
+$input-font: (
+  font-family: $theme-headings-font-family-alt,
+  font-size: 17px,
+  line-height: 1.6,
+);
 
 $jetpack-sharing-icon-bg: #3B3B3B;

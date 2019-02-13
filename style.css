@@ -1903,6 +1903,9 @@ input[type="text"], input[type="tel"], input[type="number"], input[type="date"],
   max-width: 100%;
   padding: 13px 19px 15px;
   border: 1px solid #E0E0E0;
+  font-family: "HK Grotesk", sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
   color: #3B3B3B;
   border-radius: 4px;
   font-family: inherit;
@@ -1916,6 +1919,15 @@ input[type="text"], input[type="tel"], input[type="number"], input[type="date"],
   @media only screen and (max-width: 320px) {
     input[type="text"], input[type="tel"], input[type="number"], input[type="date"], input[type="email"], input[type="password"], input[type="url"], input[type="search"] {
       padding: 10.19908px 10.22949px 10.54945px; } }
+  @media only screen and (max-width: 1024px) {
+    input[type="text"], input[type="tel"], input[type="number"], input[type="date"], input[type="email"], input[type="password"], input[type="url"], input[type="search"] {
+      font-size: 16.5871px; } }
+  @media only screen and (max-width: 768px) {
+    input[type="text"], input[type="tel"], input[type="number"], input[type="date"], input[type="email"], input[type="password"], input[type="url"], input[type="search"] {
+      font-size: 16.19379px; } }
+  @media only screen and (max-width: 400px) {
+    input[type="text"], input[type="tel"], input[type="number"], input[type="date"], input[type="email"], input[type="password"], input[type="url"], input[type="search"] {
+      font-size: 15.8187px; } }
   input[type="text"]:focus, input[type="text"]:active, input[type="tel"]:focus, input[type="tel"]:active, input[type="number"]:focus, input[type="number"]:active, input[type="date"]:focus, input[type="date"]:active, input[type="email"]:focus, input[type="email"]:active, input[type="password"]:focus, input[type="password"]:active, input[type="url"]:focus, input[type="url"]:active, input[type="search"]:focus, input[type="search"]:active {
     outline: 0;
     -webkit-box-shadow: none;
@@ -2104,6 +2116,9 @@ textarea {
   max-width: 100%;
   padding: 13px 19px 15px;
   border: 1px solid #E0E0E0;
+  font-family: "HK Grotesk", sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
   color: #3B3B3B;
   border-radius: 4px;
   font-family: inherit;
@@ -2119,6 +2134,15 @@ textarea {
   @media only screen and (max-width: 320px) {
     textarea {
       padding: 10.19908px 10.22949px 10.54945px; } }
+  @media only screen and (max-width: 1024px) {
+    textarea {
+      font-size: 16.5871px; } }
+  @media only screen and (max-width: 768px) {
+    textarea {
+      font-size: 16.19379px; } }
+  @media only screen and (max-width: 400px) {
+    textarea {
+      font-size: 15.8187px; } }
   textarea:focus, textarea:active {
     outline: 0;
     -webkit-box-shadow: none;
@@ -2133,6 +2157,9 @@ select {
   max-width: 100%;
   padding: 13px 19px 15px;
   border: 1px solid #E0E0E0;
+  font-family: "HK Grotesk", sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
   color: #3B3B3B;
   border-radius: 4px;
   font-family: inherit;
@@ -2150,6 +2177,15 @@ select {
   @media only screen and (max-width: 320px) {
     select {
       padding: 10.19908px 10.22949px 10.54945px; } }
+  @media only screen and (max-width: 1024px) {
+    select {
+      font-size: 16.5871px; } }
+  @media only screen and (max-width: 768px) {
+    select {
+      font-size: 16.19379px; } }
+  @media only screen and (max-width: 400px) {
+    select {
+      font-size: 15.8187px; } }
   select:focus, select:active {
     outline: 0;
     -webkit-box-shadow: none;
@@ -6848,6 +6884,9 @@ div.wpforms-container[class] {
     max-width: 100%;
     padding: 13px 19px 15px;
     border: 1px solid #E0E0E0;
+    font-family: "HK Grotesk", sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
     color: #3B3B3B;
     border-radius: 4px;
     font-family: inherit;
@@ -6869,6 +6908,21 @@ div.wpforms-container[class] {
       div.wpforms-container[class] .wpforms-form select,
       div.wpforms-container[class] .wpforms-form textarea {
         padding: 10.19908px 10.22949px 10.54945px; } }
+    @media only screen and (max-width: 1024px) {
+      div.wpforms-container[class] .wpforms-form input,
+      div.wpforms-container[class] .wpforms-form select,
+      div.wpforms-container[class] .wpforms-form textarea {
+        font-size: 16.5871px; } }
+    @media only screen and (max-width: 768px) {
+      div.wpforms-container[class] .wpforms-form input,
+      div.wpforms-container[class] .wpforms-form select,
+      div.wpforms-container[class] .wpforms-form textarea {
+        font-size: 16.19379px; } }
+    @media only screen and (max-width: 400px) {
+      div.wpforms-container[class] .wpforms-form input,
+      div.wpforms-container[class] .wpforms-form select,
+      div.wpforms-container[class] .wpforms-form textarea {
+        font-size: 15.8187px; } }
     div.wpforms-container[class] .wpforms-form input:focus, div.wpforms-container[class] .wpforms-form input:active,
     div.wpforms-container[class] .wpforms-form select:focus,
     div.wpforms-container[class] .wpforms-form select:active,
@@ -6888,6 +6942,9 @@ div.wpforms-container[class] {
     max-width: 100%;
     padding: 13px 19px 15px;
     border: 1px solid #E0E0E0;
+    font-family: "HK Grotesk", sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
     color: #3B3B3B;
     border-radius: 4px;
     font-family: inherit;
@@ -6905,6 +6962,15 @@ div.wpforms-container[class] {
     @media only screen and (max-width: 320px) {
       div.wpforms-container[class] .wpforms-form select {
         padding: 10.19908px 10.22949px 10.54945px; } }
+    @media only screen and (max-width: 1024px) {
+      div.wpforms-container[class] .wpforms-form select {
+        font-size: 16.5871px; } }
+    @media only screen and (max-width: 768px) {
+      div.wpforms-container[class] .wpforms-form select {
+        font-size: 16.19379px; } }
+    @media only screen and (max-width: 400px) {
+      div.wpforms-container[class] .wpforms-form select {
+        font-size: 15.8187px; } }
     div.wpforms-container[class] .wpforms-form select:focus, div.wpforms-container[class] .wpforms-form select:active {
       outline: 0;
       -webkit-box-shadow: none;
@@ -8232,7 +8298,46 @@ input[type=text],
 input[type=url],
 select,
 textarea {
-  padding: 8px 19px 10px; }
+  padding: 8px 19px 10px;
+  font-family: "HK Grotesk", sans-serif;
+  font-size: 17px;
+  line-height: 1.6; }
+  @media only screen and (max-width: 1024px) {
+    input[type=date],
+    input[type=email],
+    input[type=number],
+    input[type=password],
+    input[type=search],
+    input[type=tel],
+    input[type=text],
+    input[type=url],
+    select,
+    textarea {
+      font-size: 16.5871px; } }
+  @media only screen and (max-width: 768px) {
+    input[type=date],
+    input[type=email],
+    input[type=number],
+    input[type=password],
+    input[type=search],
+    input[type=tel],
+    input[type=text],
+    input[type=url],
+    select,
+    textarea {
+      font-size: 16.19379px; } }
+  @media only screen and (max-width: 400px) {
+    input[type=date],
+    input[type=email],
+    input[type=number],
+    input[type=password],
+    input[type=search],
+    input[type=tel],
+    input[type=text],
+    input[type=url],
+    select,
+    textarea {
+      font-size: 15.8187px; } }
 
 /* stylelint-disable */
 button[type=button],
