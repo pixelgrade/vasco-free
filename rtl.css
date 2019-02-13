@@ -1660,8 +1660,8 @@ figure {
       background: none; }
   .c-btn:hover, .c-btn:active, .c-btn:focus {
     color: #FFF;
-    background-color: #3EBABF;
-    opacity: 0.8;
+    background-color: #2B2B2A;
+    opacity: 1;
     text-decoration: none;
     border: initial; }
   .c-btn--default {
@@ -1815,8 +1815,8 @@ figure {
       background: none; }
   .button[class][class][class][class][class]:hover, .button[class][class][class][class][class]:active, .button[class][class][class][class][class]:focus {
     color: #FFF;
-    background-color: #3EBABF;
-    opacity: 0.8;
+    background-color: #2B2B2A;
+    opacity: 1;
     text-decoration: none;
     border: initial; }
   .button[class][class][class][class][class].default {
@@ -2073,8 +2073,8 @@ button[type="reset"] {
   button[type="reset"]:active,
   button[type="reset"]:focus {
     color: #FFF;
-    background-color: #3EBABF;
-    opacity: 0.8;
+    background-color: #2B2B2A;
+    opacity: 1;
     text-decoration: none;
     border: initial; }
 
@@ -8137,8 +8137,8 @@ blockquote {
       background: none; }
   .c-comments-toggle__label:hover, .c-comments-toggle__label:active, .c-comments-toggle__label:focus {
     color: #FFF;
-    background-color: #3EBABF;
-    opacity: 0.8;
+    background-color: #2B2B2A;
+    opacity: 1;
     text-decoration: none;
     border: initial; }
 
@@ -8258,7 +8258,19 @@ blockquote {
 .button {
   cursor: pointer;
   -webkit-transform: perspective(1px) translateZ(0);
-          transform: perspective(1px) translateZ(0); }
+          transform: perspective(1px) translateZ(0);
+  font-family: "HK Grotesk", sans-serif;
+  font-size: 17px;
+  line-height: 1.6; }
+  @media only screen and (max-width: 1024px) {
+    .button {
+      font-size: 16.5871px; } }
+  @media only screen and (max-width: 768px) {
+    .button {
+      font-size: 16.19379px; } }
+  @media only screen and (max-width: 400px) {
+    .button {
+      font-size: 15.8187px; } }
   .button:focus, .button:active, .button:hover {
     -webkit-transform: scale(1.05) translateY(-3px) translateZ(0);
             transform: scale(1.05) translateY(-3px) translateZ(0);
@@ -8350,7 +8362,37 @@ input[type=submit],
 .c-btn--default {
   cursor: pointer;
   -webkit-transform: perspective(1px) translateZ(0);
-          transform: perspective(1px) translateZ(0); }
+          transform: perspective(1px) translateZ(0);
+  font-family: "HK Grotesk", sans-serif;
+  font-size: 17px;
+  line-height: 1.6; }
+  @media only screen and (max-width: 1024px) {
+    button[type=button],
+    button[type=reset],
+    button[type=submit],
+    input[type=button],
+    input[type=submit],
+    input[type=submit],
+    .c-btn--default {
+      font-size: 16.5871px; } }
+  @media only screen and (max-width: 768px) {
+    button[type=button],
+    button[type=reset],
+    button[type=submit],
+    input[type=button],
+    input[type=submit],
+    input[type=submit],
+    .c-btn--default {
+      font-size: 16.19379px; } }
+  @media only screen and (max-width: 400px) {
+    button[type=button],
+    button[type=reset],
+    button[type=submit],
+    input[type=button],
+    input[type=submit],
+    input[type=submit],
+    .c-btn--default {
+      font-size: 15.8187px; } }
   button[type=button]:focus, button[type=button]:active, button[type=button]:hover,
   button[type=reset]:focus,
   button[type=reset]:active,
@@ -8505,7 +8547,10 @@ div.wpforms-container[class] .wpforms-form .wpforms-submit {
   transition: all 0.2s cubic-bezier(0, 0, 0.58, 1);
   cursor: pointer;
   -webkit-transform: perspective(1px) translateZ(0);
-          transform: perspective(1px) translateZ(0); }
+          transform: perspective(1px) translateZ(0);
+  font-family: "HK Grotesk", sans-serif;
+  font-size: 17px;
+  line-height: 1.6; }
   @media only screen and (max-width: 1024px) {
     div.wpforms-container[class] .wpforms-form .wpforms-submit {
       font-size: 16.5871px; } }
@@ -8528,10 +8573,19 @@ div.wpforms-container[class] .wpforms-form .wpforms-submit {
       background: none; }
   div.wpforms-container[class] .wpforms-form .wpforms-submit:hover, div.wpforms-container[class] .wpforms-form .wpforms-submit:active, div.wpforms-container[class] .wpforms-form .wpforms-submit:focus {
     color: #FFF;
-    background-color: #3EBABF;
-    opacity: 0.8;
+    background-color: #2B2B2A;
+    opacity: 1;
     text-decoration: none;
     border: initial; }
+  @media only screen and (max-width: 1024px) {
+    div.wpforms-container[class] .wpforms-form .wpforms-submit {
+      font-size: 16.5871px; } }
+  @media only screen and (max-width: 768px) {
+    div.wpforms-container[class] .wpforms-form .wpforms-submit {
+      font-size: 16.19379px; } }
+  @media only screen and (max-width: 400px) {
+    div.wpforms-container[class] .wpforms-form .wpforms-submit {
+      font-size: 15.8187px; } }
   div.wpforms-container[class] .wpforms-form .wpforms-submit:focus, div.wpforms-container[class] .wpforms-form .wpforms-submit:active, div.wpforms-container[class] .wpforms-form .wpforms-submit:hover {
     -webkit-transform: scale(1.05) translateY(-3px) translateZ(0);
             transform: scale(1.05) translateY(-3px) translateZ(0);
@@ -8702,7 +8756,10 @@ body #infinite-handle span {
   transition: all 0.2s cubic-bezier(0, 0, 0.58, 1);
   cursor: pointer;
   -webkit-transform: perspective(1px) translateZ(0);
-          transform: perspective(1px) translateZ(0); }
+          transform: perspective(1px) translateZ(0);
+  font-family: "HK Grotesk", sans-serif;
+  font-size: 17px;
+  line-height: 1.6; }
   @media only screen and (max-width: 1024px) {
     #infinite-handle[id] span button {
       font-size: 16.5871px; } }
@@ -8725,10 +8782,19 @@ body #infinite-handle span {
       background: none; }
   #infinite-handle[id] span button:hover, #infinite-handle[id] span button:active, #infinite-handle[id] span button:focus {
     color: #FFF;
-    background-color: #3EBABF;
-    opacity: 0.8;
+    background-color: #2B2B2A;
+    opacity: 1;
     text-decoration: none;
     border: initial; }
+  @media only screen and (max-width: 1024px) {
+    #infinite-handle[id] span button {
+      font-size: 16.5871px; } }
+  @media only screen and (max-width: 768px) {
+    #infinite-handle[id] span button {
+      font-size: 16.19379px; } }
+  @media only screen and (max-width: 400px) {
+    #infinite-handle[id] span button {
+      font-size: 15.8187px; } }
   #infinite-handle[id] span button:focus, #infinite-handle[id] span button:active, #infinite-handle[id] span button:hover {
     -webkit-transform: scale(1.05) translateY(-3px) translateZ(0);
             transform: scale(1.05) translateY(-3px) translateZ(0);
@@ -10503,7 +10569,10 @@ body .widget_nav_menu {
   transition: all 0.2s cubic-bezier(0, 0, 0.58, 1);
   cursor: pointer;
   -webkit-transform: perspective(1px) translateZ(0);
-          transform: perspective(1px) translateZ(0); }
+          transform: perspective(1px) translateZ(0);
+  font-family: "HK Grotesk", sans-serif;
+  font-size: 17px;
+  line-height: 1.6; }
   @media only screen and (max-width: 1024px) {
     [class*='-instagram-feed'] p > a {
       font-size: 16.5871px; } }
@@ -10526,10 +10595,19 @@ body .widget_nav_menu {
       background: none; }
   [class*='-instagram-feed'] p > a:hover, [class*='-instagram-feed'] p > a:active, [class*='-instagram-feed'] p > a:focus {
     color: #FFF;
-    background-color: #3EBABF;
-    opacity: 0.8;
+    background-color: #2B2B2A;
+    opacity: 1;
     text-decoration: none;
     border: initial; }
+  @media only screen and (max-width: 1024px) {
+    [class*='-instagram-feed'] p > a {
+      font-size: 16.5871px; } }
+  @media only screen and (max-width: 768px) {
+    [class*='-instagram-feed'] p > a {
+      font-size: 16.19379px; } }
+  @media only screen and (max-width: 400px) {
+    [class*='-instagram-feed'] p > a {
+      font-size: 15.8187px; } }
   [class*='-instagram-feed'] p > a:focus, [class*='-instagram-feed'] p > a:active, [class*='-instagram-feed'] p > a:hover {
     -webkit-transform: scale(1.05) translateY(-3px) translateZ(0);
             transform: scale(1.05) translateY(-3px) translateZ(0);
@@ -11530,7 +11608,37 @@ input[type=button],
 input[type=submit] {
   cursor: pointer;
   -webkit-transform: perspective(1px) translateZ(0);
-          transform: perspective(1px) translateZ(0); }
+          transform: perspective(1px) translateZ(0);
+  font-family: "HK Grotesk", sans-serif;
+  font-size: 17px;
+  line-height: 1.6; }
+  @media only screen and (max-width: 1024px) {
+    .c-comments-toggle__label,
+    .c-btn,
+    button[type=button],
+    button[type=reset],
+    button[type=submit],
+    input[type=button],
+    input[type=submit] {
+      font-size: 16.5871px; } }
+  @media only screen and (max-width: 768px) {
+    .c-comments-toggle__label,
+    .c-btn,
+    button[type=button],
+    button[type=reset],
+    button[type=submit],
+    input[type=button],
+    input[type=submit] {
+      font-size: 16.19379px; } }
+  @media only screen and (max-width: 400px) {
+    .c-comments-toggle__label,
+    .c-btn,
+    button[type=button],
+    button[type=reset],
+    button[type=submit],
+    input[type=button],
+    input[type=submit] {
+      font-size: 15.8187px; } }
   .c-comments-toggle__label:focus, .c-comments-toggle__label:active, .c-comments-toggle__label:hover,
   .c-btn:focus,
   .c-btn:active,
@@ -12125,7 +12233,10 @@ input[type=submit] {
   transition: all 0.2s cubic-bezier(0, 0, 0.58, 1);
   cursor: pointer;
   -webkit-transform: perspective(1px) translateZ(0);
-          transform: perspective(1px) translateZ(0); }
+          transform: perspective(1px) translateZ(0);
+  font-family: "HK Grotesk", sans-serif;
+  font-size: 17px;
+  line-height: 1.6; }
   @media only screen and (max-width: 1024px) {
     .featured-posts__more,
     .page-numbers.next,
@@ -12187,10 +12298,28 @@ input[type=submit] {
   .page-numbers.current:active,
   .page-numbers.current:focus {
     color: #FFF;
-    background-color: #3EBABF;
-    opacity: 0.8;
+    background-color: #2B2B2A;
+    opacity: 1;
     text-decoration: none;
     border: initial; }
+  @media only screen and (max-width: 1024px) {
+    .featured-posts__more,
+    .page-numbers.next,
+    .page-numbers.prev,
+    .page-numbers.current {
+      font-size: 16.5871px; } }
+  @media only screen and (max-width: 768px) {
+    .featured-posts__more,
+    .page-numbers.next,
+    .page-numbers.prev,
+    .page-numbers.current {
+      font-size: 16.19379px; } }
+  @media only screen and (max-width: 400px) {
+    .featured-posts__more,
+    .page-numbers.next,
+    .page-numbers.prev,
+    .page-numbers.current {
+      font-size: 15.8187px; } }
   .featured-posts__more:focus, .featured-posts__more:active, .featured-posts__more:hover,
   .page-numbers.next:focus,
   .page-numbers.next:active,

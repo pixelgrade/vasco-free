@@ -685,8 +685,8 @@
         background: none; }
     .edit-post-visual-editor .c-btn:hover, .edit-post-visual-editor .c-btn:active, .edit-post-visual-editor .c-btn:focus {
       color: #FFF;
-      background-color: #3EBABF;
-      opacity: 0.8;
+      background-color: #2B2B2A;
+      opacity: 1;
       text-decoration: none;
       border: initial; }
     .edit-post-visual-editor .c-btn--default {
@@ -850,8 +850,8 @@
         background: none; }
     .edit-post-visual-editor .button[class][class][class][class][class]:hover, .edit-post-visual-editor .button[class][class][class][class][class]:active, .edit-post-visual-editor .button[class][class][class][class][class]:focus {
       color: #FFF;
-      background-color: #3EBABF;
-      opacity: 0.8;
+      background-color: #2B2B2A;
+      opacity: 1;
       text-decoration: none;
       border: initial; }
     .edit-post-visual-editor .button[class][class][class][class][class].default {
