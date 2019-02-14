@@ -153,9 +153,3 @@
     background-size: contain;
   }
 }
-
-@include below(lap) {
-  .u-header-height-padding-top[class] {
-    padding-top: $header-mobile-height;
-  }
-}
