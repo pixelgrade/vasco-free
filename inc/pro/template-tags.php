@@ -54,3 +54,12 @@ if ( ! function_exists( 'vasco_output_menu_label' ) ) {
 		echo apply_filters( 'vasco_menu_label_markup', $menu_label );
 	}
 }
+
+/**
+ * Output mobile search trigger icon
+ */
+if ( ! function_exists( 'vasco_output_footer_search_trigger' ) ) {
+	function vasco_output_footer_search_trigger() {
+		echo '<div class="js-search-trigger  js-mobile-search-trigger"></div>';
+	}
+}

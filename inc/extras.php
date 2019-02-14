@@ -206,14 +206,6 @@ function vasco_body_classes( $classes ) {
 add_filter( 'body_class', 'vasco_body_classes' );
 
 /**
- * Output mobile search trigger icon
- */
-function vasco_output_footer_search_trigger() {
-	echo '<div class="js-search-trigger  js-mobile-search-trigger"></div>';
-}
-add_action( 'pixelgrade_footer_after_content', 'vasco_output_footer_search_trigger' );
-
-/**
  * Customize the Header component config.
  *
  * @param array $config
