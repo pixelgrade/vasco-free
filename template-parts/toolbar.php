@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<?php if ( apply_filters( 'pixelgrade_enable_pro_features', false ) ) { ?>
+<?php if ( pixelgrade_user_has_access( 'pro-features' ) ) { ?>
     <div class="c-toolbar  u-content-background">
         <div class="search-trigger  js-search-trigger">
             <?php get_template_part( 'template-parts/svg/search-blob' ); ?>

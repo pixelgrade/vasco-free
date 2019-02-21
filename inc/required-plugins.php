@@ -6,7 +6,7 @@
  * @since 1.0.0
  */
 
-require_once pixelgrade_get_parent_theme_file_path( '/inc/required-plugins/class-tgm-plugin-activation.php' );
+require_once pixelgrade_get_parent_theme_file_path( pixelgrade_get_theme_relative_path( __DIR__ ) . 'required-plugins/class-tgm-plugin-activation.php' );
 
 function vasco_register_required_plugins() {
 
@@ -21,42 +21,7 @@ function vasco_register_required_plugins() {
 	}
 
 	$plugins = array(
-		array(
-			'name'               => 'Pixelgrade Care',
-			'slug'               => 'pixelgrade-care',
-			'force_activation'   => true,
-			'force_deactivation' => false,
-			'required'           => true,
-			'source'             => $protocol . '//wupdates.com/api_wupl_version/JxbVe/2v5t1czd3vw4kmb5xqmyxj1kkwmnt9q0463lhj393r5yxtshdyg05jssgd4jglnfx7A2vdxtfdcf78r9r1sm217k4ht3r2g7pkdng5f6tgwyrk23wryA0pjxvs7gwhhb',
-			'external_url'       => $protocol . '//github.com/pixelgrade/pixelgrade_care',
-			'version'            => '1.4.4',
-			'is_automatic'       => true,
-		),
-		array(
-			'name'               => 'Customify',
-			'slug'               => 'customify',
-			'required'           => true,
-		),
-		array(
-			'name'               => 'Gridable',
-			'slug'               => 'gridable',
-			'required'           => false,
-		),
-		array(
-			'name'               => 'Jetpack',
-			'slug'               => 'jetpack',
-			'required'           => false,
-		),
-		array(
-			'name'               => 'MailChimp for WordPress',
-			'slug'               => 'mailchimp-for-wp',
-			'required'           => false,
-		),
-		array(
-			'name'               => 'WP Instagram Widget',
-			'slug'               => 'wp-instagram-widget',
-			'required'           => false,
-		),
+
 	);
 
 	$config = array(

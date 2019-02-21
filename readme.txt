@@ -23,7 +23,7 @@ Vasco is a free travel blog theme to help you increase your revenue streams and 
 
 == Changelog ==
 
-= 2.3.0 =
+= 1.4.0 =
 * Initial release for the free version.
 
 == Credits ==
@@ -32,7 +32,7 @@ Unless otherwise specified, all the theme files, scripts and images are licensed
 
 Images used in screenshot.jpg: photos by Soroush Karimi (https://stocksnap.io/author/35114) – [Source](https://stocksnap.io/photo/XT3HZBE9GI), Burst (https://stocksnap.io/author/burstshopify) – [Source](https://stocksnap.io/photo/LX71ZFLUKK), Rawpixel (https://stocksnap.io/author/rawpixel) – [Source](https://stocksnap.io/photo/EBXSDDE5IH), Rawpixel (https://stocksnap.io/author/rawpixel) – [Source](https://stocksnap.io/photo/LG7MWHTA8D), Nordwood (https://stocksnap.io/author/nordwood) – [Source](https://stocksnap.io/photo/KNSJXBFYFZ), licensed under [Creative Commons Zero](http://creativecommons.org/publicdomain/zero/1.0/).
 
-The Felt Theme bundles the following third-party resources:
+The Vasco Theme bundles the following third-party resources:
 * HK Grotesk font (c) 2015, [Alfredo Marco Pradil](hello@hanken.co) and HK Grotesk Cyrillic by [Stefan Peev](http://www.contextbg.net/), licensed under [SIL Open Font License v1.10](https://www.fontsquirrel.com/license/hk-grotesk)
 * Charis SIL (c) 1997-2008, [SIL International](http://scripts.sil.org/), licensed under [SIL Open Font License v1.0](https://www.fontsquirrel.com/license/Charis-SIL)
 * normalize.css https://necolas.github.io/normalize.css/, (c) 2012-2016 Nicolas Gallagher and Jonathan Neal, licensed under [MIT](https://opensource.org/licenses/MIT)

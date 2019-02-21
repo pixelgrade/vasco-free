@@ -48,6 +48,8 @@ add_action( 'customize_controls_enqueue_scripts', 'vasco_lite_customizer_assets'
 
 /**
  * Add PRO Tab in Customizer
+ *
+ * @param WP_Customize_Manager $wp_customize
  */
 function vasco_lite_customize_register( $wp_customize ) {
 	// View Pro
@@ -112,6 +114,11 @@ add_action( 'customize_register', 'vasco_lite_customize_register' );
 function vasco_lite_get_pro_link() {
 	return 'https://pixelgrade.com/themes/blogging/vasco-pro?utm_source=vasco-lite-clients&utm_medium=customizer&utm_campaign=vasco-lite';
 }
+
+function vasco_lite_footer_credits_url( $url ) {
+	return 'https://pixelgrade.com/?utm_source=felt-lite-clients&utm_medium=footer&utm_campaign=felt-lite';
+}
+add_filter( 'pixelgrade_footer_credits_url', 'vasco_lite_footer_credits_url' );
 
 function vasco_lite_body_classes( $classes ) {
 

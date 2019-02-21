@@ -4,9 +4,11 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package Felt
- * @since 2.3.0
+ * @package Vasco
+ * @since 1.4.0
  */
+
+// @todo Not so sure these are right! Vasco is different than Felt or Julia.
 
 if ( ! function_exists( 'vasco_output_sticky_header' ) ) {
 	/**

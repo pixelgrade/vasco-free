@@ -170,7 +170,7 @@ function vasco_scripts() {
 
 	// Default Self-hosted Fonts should be loaded when Customify is off
 	// When Customify is active, the CSS is added only if the font is used in any of the customizer font options
-	if ( ! class_exists( 'PixCustomifyPlugin' ) ) {
+	if ( ! class_exists( 'PixCustomifyPlugin' ) || ! pixelgrade_user_has_access( 'pro-features' ) ) {
 		wp_enqueue_style( 'vasco-fonts-youngserif', vasco_youngserif_font_url() );
 		$main_style_deps[] = 'vasco-fonts-youngserif';
 
@@ -185,9 +185,9 @@ function vasco_scripts() {
 	$main_style_deps[] = 'vasco-fonts-drybrush';
 
 	/* The main theme stylesheet */
-	if ( ! is_rtl() ) {
-		wp_enqueue_style( 'vasco-style', get_stylesheet_uri(), $main_style_deps, $theme->get( 'Version' ) );
-	}
+	wp_enqueue_style( 'vasco-style', get_template_directory_uri() . '/style.css', $main_style_deps, $theme->get( 'Version' ) );
+
+	wp_style_add_data( 'vasco-style', 'rtl', 'replace' );
 
 	/* Scripts */
 
@@ -195,11 +195,9 @@ function vasco_scripts() {
 	wp_enqueue_script( 'vasco-commons-scripts', get_theme_file_uri( '/assets/js/commons.js' ), array( 'jquery' ), $theme->get( 'Version' ), true );
 	wp_enqueue_script( 'vasco-scripts', get_theme_file_uri( '/assets/js/app.bundle.js' ), array( 'vasco-commons-scripts','masonry' ), $theme->get( 'Version' ), true );
 
-	$localization_array = array(
+	wp_localize_script( 'vasco-main-scripts', 'vascoStrings', array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
-	);
-
-	wp_localize_script( 'vasco-main-scripts', 'vascoStrings', $localization_array );
+	) );
 }
 add_action( 'wp_enqueue_scripts', 'vasco_scripts' );
 

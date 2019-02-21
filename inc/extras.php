@@ -97,8 +97,6 @@ if ( ! function_exists( 'vasco_google_fonts_url' ) ) :
 	/**
 	 * Register Google fonts for Vasco.
 	 *
-	 * @since Felt 1.3.3
-	 *
 	 * @return string Google fonts URL for the theme.
 	 */
 	function vasco_google_fonts_url() {
@@ -224,6 +222,8 @@ add_filter( 'pixelgrade_header_config', 'vasco_customize_header_config', 10, 1 )
  * Output side toolbar
  */
 function vasco_output_toolbar() {
+	// @todo I think here you should restrict things.
+
 	get_template_part( 'template-parts/toolbar' );
 }
 add_action( 'pixelgrade_after_header', 'vasco_output_toolbar', 10 );
@@ -475,3 +475,13 @@ function vasco_product_blobs() {
 	}
 }
 add_action( 'woocommerce_before_single_product_summary', 'vasco_product_blobs', 9 );
+
+function vasco_maybe_load_pro_features() {
+	if ( true === pixelgrade_user_has_access( 'pro-features' ) ) {
+		pixelgrade_autoload_dir( 'inc/pro' );
+	} else {
+		pixelgrade_autoload_dir( 'inc/lite' );
+	}
+}
+// We want to do this as early as possible. So the zero priority is as intended.
+add_action( 'after_setup_theme', 'vasco_maybe_load_pro_features', 0 );

@@ -67,7 +67,7 @@ function vasco_custom_widgets_init() {
      */
 
     // The Featured Posts - Grid Widget
-    require_once pixelgrade_get_parent_theme_file_path( 'inc/widgets/featured-posts/class-FeaturedPosts-GridWidget.php' );
+    require_once pixelgrade_get_parent_theme_file_path( pixelgrade_get_theme_relative_path( __DIR__ ) . 'widgets/featured-posts/class-FeaturedPosts-GridWidget.php' );
     register_widget( 'Pixelgrade_FeaturedPosts_GridWidget' );
 
     /**
@@ -75,27 +75,27 @@ function vasco_custom_widgets_init() {
      */
 
 	// The Profile Widget
-	require_once pixelgrade_get_parent_theme_file_path( 'inc/widgets/class-ProfileWidget.php' );
+	require_once pixelgrade_get_parent_theme_file_path( pixelgrade_get_theme_relative_path( __DIR__ ) . 'widgets/class-ProfileWidget.php' );
 	register_widget( 'Pixelgrade_ProfileWidget' );
 
 	// The Location Widget
-	require_once pixelgrade_get_parent_theme_file_path( 'inc/widgets/class-LocationWidget.php' );
+	require_once pixelgrade_get_parent_theme_file_path( pixelgrade_get_theme_relative_path( __DIR__ ) . 'widgets/class-LocationWidget.php' );
 	register_widget( 'Pixelgrade_LocationWidget' );
 
 	// The Feature Widget
-	require_once pixelgrade_get_parent_theme_file_path( 'inc/widgets/class-FeatureCardWidget.php' );
+	require_once pixelgrade_get_parent_theme_file_path( pixelgrade_get_theme_relative_path( __DIR__ ) . 'widgets/class-FeatureCardWidget.php' );
 	register_widget( 'Pixelgrade_FeatureCardWidget' );
 
 	// The Callout Box Widget
-	require_once pixelgrade_get_parent_theme_file_path( 'inc/widgets/class-CalloutBoxWidget.php' );
+	require_once pixelgrade_get_parent_theme_file_path( pixelgrade_get_theme_relative_path( __DIR__ ) . 'widgets/class-CalloutBoxWidget.php' );
 	register_widget( 'Pixelgrade_CalloutBoxWidget' );
 
 	// The Categories Widget
-	require_once pixelgrade_get_parent_theme_file_path( 'inc/widgets/class-CategoriesWidget.php' );
+	require_once pixelgrade_get_parent_theme_file_path( pixelgrade_get_theme_relative_path( __DIR__ ) . 'widgets/class-CategoriesWidget.php' );
 	register_widget( 'Pixelgrade_CategoriesWidget' );
 
 	// The Stamp Widget
-	require_once pixelgrade_get_parent_theme_file_path( 'inc/widgets/class-StampWidget.php' );
+	require_once pixelgrade_get_parent_theme_file_path( pixelgrade_get_theme_relative_path( __DIR__ ) . 'widgets/class-StampWidget.php' );
 	register_widget( 'Pixelgrade_StampWidget' );
 
 }

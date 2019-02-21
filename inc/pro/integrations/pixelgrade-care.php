@@ -1,10 +1,23 @@
 <?php
 /**
- * PixCare Compatibility File.
+ * PixelgradeCare Compatibility File.
  *
  * @package Vasco
  * @since Vasco 1.0.0
  */
+
+function vasco_pro_setup_pixelgrade_care() {
+	/*
+	 * Declare support for Pixelgrade Care
+	 */
+	add_theme_support( 'pixelgrade_care', array(
+			'support_url'   => 'https://pixelgrade.com/docs/vasco/',
+			'changelog_url' => 'https://wupdates.com/vasco-changelog',
+		)
+	);
+
+}
+add_action( 'after_setup_theme', 'vasco_pro_setup_pixelgrade_care', 10 );
 
 /**
  * After the first theme activation we need to ensure that Pixelgrade Care is installed
@@ -171,6 +184,8 @@ add_action( 'admin_init', 'vasco_pixcare_install_page' );
 
 
 /**
+ * Change the admin page title.
+ *
  * @param $title
  *
  * @return string

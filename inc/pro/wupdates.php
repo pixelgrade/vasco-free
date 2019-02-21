@@ -2,12 +2,12 @@
 /**
  * Handle updates via our WUpdates service.
  *
- * @package Felt
- * @since 2.0.0
+ * @package Vasco
+ * @since 1.4.0
  */
 
 /* Automagical updates */
-function wupdates_check_M2lXe( $transient ) {
+function wupdates_check_v7zV3( $transient ) {
 	// First get the theme directory name (the theme slug - unique)
 	$slug = basename( get_template_directory() );
 
@@ -44,7 +44,7 @@ function wupdates_check_M2lXe( $transient ) {
 	// Encrypting optional data with private key, just to keep your data a little safer
 	// You should not edit the code bellow
 	$optional_data = json_encode( $optional_data );
-	$w=array();$re="";$s=array();$sa=md5('32e9b138e5b7684ec153ecc309e5b472aafa4d39');
+	$w=array();$re="";$s=array();$sa=md5('18f5d5c003517e0fea02a8873eac9e60116d5056');
 	$l=strlen($sa);$d=$optional_data;$ii=-1;
 	while(++$ii<256){$w[$ii]=ord(substr($sa,(($ii%$l)+1),1));$s[$ii]=$ii;} $ii=-1;$j=0;
 	while(++$ii<256){$j=($j+$w[$ii]+$s[$ii])%255;$t=$s[$j];$s[$ii]=$s[$j];$s[$j]=$t;}
@@ -57,7 +57,7 @@ function wupdates_check_M2lXe( $transient ) {
 	$http_args['body']['data'] = $optional_data;
 
 	// Check for an available update
-	$url = $http_url = set_url_scheme( 'https://wupdates.com/wp-json/wup/v1/themes/check_version/M2lXe', 'http' );
+	$url = $http_url = set_url_scheme( 'https://wupdates.com/wp-json/wup/v1/themes/check_version/v7zV3', 'http' );
 	if ( $ssl = wp_http_supports( array( 'ssl' ) ) ) {
 		$url = set_url_scheme( $url, 'https' );
 	}
@@ -83,16 +83,16 @@ function wupdates_check_M2lXe( $transient ) {
 
 	return $transient;
 }
-add_filter( 'pre_set_site_transient_update_themes', 'wupdates_check_M2lXe' );
+add_filter( 'pre_set_site_transient_update_themes', 'wupdates_check_v7zV3' );
 
-function wupdates_add_id_M2lXe( $ids = array() ) {
+function wupdates_add_id_v7zV3( $ids = array() ) {
 	// First get the theme directory name (unique)
 	$slug = basename( get_template_directory() );
 
 	// Now add the predefined details about this product
 	// Do not tamper with these please!!!
-	$ids[ $slug ] = array( 'name' => 'Vasco', 'slug' => 'felt', 'id' => 'M2lXe', 'type' => 'theme', 'digest' => '6389d50bb298534d0d551fe77e200a3d', );
+	$ids[ $slug ] = array( 'name' => 'Vasco', 'slug' => 'vasco', 'id' => 'v7zV3', 'type' => 'theme', 'digest' => '74ab9906190c8ff2d650930dee448555', );
 
 	return $ids;
 }
-add_filter( 'wupdates_gather_ids', 'wupdates_add_id_M2lXe', 10, 1 );
+add_filter( 'wupdates_gather_ids', 'wupdates_add_id_v7zV3', 10, 1 );

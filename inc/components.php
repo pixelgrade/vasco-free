@@ -2,12 +2,13 @@
 /**
  * Handle the specific Components integration.
  *
- * Development notice: This file is synced from the variations directory! Do not edit in the `inc` directory!
- *
  * @package Vasco
  * @since 1.0.0
  */
 
+/**
+ * Setup components by adding support for the ones needed.
+ */
 function vasco_setup_components() {
 	/*
 	 * Declare support for the Pixelgrade Components the theme uses.

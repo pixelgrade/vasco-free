@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<?php if ( apply_filters( 'pixelgrade_enable_pro_features', false ) ) { ?>
+<?php if ( pixelgrade_user_has_access( 'pro-features' ) ) { ?>
     <div class="c-search-overlay  u-content-background">
         <div class="c-search-overlay__content">
             <?php get_search_form(); ?>

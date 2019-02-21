@@ -6,27 +6,28 @@
  * @since 2.3.0
  */
 
-if ( ! function_exists( 'vasco_pro_setup' ) ) {
+
+/**
+ * Sets up pro theme features.
+ *
+ * Note that this function is hooked into the after_setup_theme hook, which
+ * runs before the init hook. The init hook is too late for some features, such
+ * as indicating support for post thumbnails.
+ */
+function vasco_pro_setup() {
+
+	// @todo Not so sure these are right! Vasco is different than Felt or Julia.
+
+	add_action( 'pixelgrade_after_footer', 'vasco_output_sticky_header', 10 );
+	add_action( 'pixelgrade_after_footer', 'vasco_output_search_overlay_trigger', 15 );
+	add_action( 'pixelgrade_after_footer', 'vasco_output_search_overlay', 16 );
+	add_action( 'pixelgrade_after_footer', 'vasco_output_menu_label', 25 );
+	add_action( 'pixelgrade_footer_after_content', 'vasco_output_footer_search_trigger', 30 );
+
 	/**
-	 * Sets up pro theme features.
-	 *
-	 * Note that this function is hooked into the after_setup_theme hook, which
-	 * runs before the init hook. The init hook is too late for some features, such
-	 * as indicating support for post thumbnails.
+	 * Enable support for the Style Manager Customizer section (via Customify).
 	 */
-	function vasco_pro_setup() {
-
-		add_action( 'pixelgrade_after_footer', 'vasco_output_sticky_header', 10 );
-		add_action( 'pixelgrade_after_footer', 'vasco_output_search_overlay_trigger', 15 );
-		add_action( 'pixelgrade_after_footer', 'vasco_output_search_overlay', 16 );
-		add_action( 'pixelgrade_after_footer', 'vasco_output_menu_label', 25 );
-		add_action( 'pixelgrade_footer_after_content', 'vasco_output_footer_search_trigger', 30 );
-
-		/**
-		 * Enable support for the Style Manager Customizer section (via Customify).
-		 */
-		add_theme_support( 'customizer_style_manager' );
-	}
+	add_theme_support( 'customizer_style_manager' );
 }
 add_action( 'after_setup_theme', 'vasco_pro_setup' );
 
