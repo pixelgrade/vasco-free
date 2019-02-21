@@ -42,4 +42,4 @@ gulp.task( 'compile', 'Runs all compilation tasks in sequence', function( cb ) {
 // a full build, open BrowserSync, and start listening for changes.
 // -----------------------------------------------------------------------------
 
-gulp.task( 'bs', 'Main development task:', ['compile', 'browser-sync', 'watch'] );
+gulp.task( 'bs', 'Main development task:', ['compile', 'watch', 'browser-sync'] );
