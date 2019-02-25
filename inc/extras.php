@@ -222,9 +222,9 @@ add_filter( 'pixelgrade_header_config', 'vasco_customize_header_config', 10, 1 )
  * Output side toolbar
  */
 function vasco_output_toolbar() {
-	// @todo I think here you should restrict things.
-
-	get_template_part( 'template-parts/toolbar' );
+	if ( pixelgrade_user_has_access( 'pro-features' )) {
+		get_template_part( 'template-parts/toolbar' );
+	}
 }
 add_action( 'pixelgrade_after_header', 'vasco_output_toolbar', 10 );
 
