@@ -78,6 +78,10 @@
     }
   }
 
+  .c-promo__content {
+    color: $theme-background-color;
+  }
+
   .c-promo__title {
     @include leading-map($h2);
   }
