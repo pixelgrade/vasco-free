@@ -18,7 +18,7 @@
   }
 }
 
-.entry-title[class] {
+.entry-title:not(.product_title) {
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -590,6 +590,7 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 								.single .header-meta .byline, 
 								.single .header-meta .posted-on,
 								.c-meta__secondary[class],
+								.c-btn--sale-flash,
 								.widget_wpcom_social_media_icons_widget[class] ul li,
 								.jetpack_widget_social_icons[class] ul li,
 								.widget_categories .cat-link-count',
@@ -689,6 +690,7 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 								.single .header-meta .byline, 
 								.single .header-meta .posted-on,
 								.c-meta__secondary[class],
+								.c-btn--sale-flash,
 								.entry-content .cats[class] > a,
 								.c-meta__primary .comments,
 								.widget_categories .cat-link-count,
@@ -863,6 +865,7 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 				.single .header-meta .byline, 
 				.single .header-meta .posted-on,  
 				.c-meta__secondary[class],
+				.c-btn--sale-flash,
 				.entry-content .cats[class] > a',
 			'callback' => 'typeline_font_cb',
 
@@ -977,7 +980,7 @@ function vasco_customify_buttons_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'background-color',
-							'selector' => $buttons_solid,
+							'selector' => $buttons_solid . ', .c-meta__secondary[class], .c-btn--sale-flash',
 						),
 						array(
 							'property' => 'color',

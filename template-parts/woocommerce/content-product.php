@@ -50,7 +50,7 @@ if ( ! $product ) {
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class() ?>>
 
-		<div class="c-card">
+		<div class="c-card  c-card--product">
 
 			<?php
 			/**
@@ -107,11 +107,7 @@ if ( ! $product ) {
 					<?php } ?>
 				<?php } ?>
 
-				<?php if ( pixelgrade_option( 'blog_items_excerpt_visibility', true ) || ! empty( $show_excerpt ) ) { ?>
-					<div class="c-card__excerpt"><?php the_excerpt(); ?></div>
-				<?php } ?>
-
-                <div class="c-card__footer">&nbsp;</div>
+                <div class="c-card__excerpt"><?php woocommerce_template_loop_price(); ?></div>
 
             </div>
 

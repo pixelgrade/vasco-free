@@ -47,7 +47,7 @@ class Pixelgrade_Woocommerce_Layout extends Pixelgrade_Singleton {
 		add_filter( 'woocommerce_product_loop_end', array( $this, 'alterLoopEnd' ), 30, 1 );
 		add_filter( 'woocommerce_comment_pagination_args', array( $this, 'alterPaginationArgs' ), 30, 1 );
 		add_filter( 'woocommerce_pagination_args', array( $this, 'alterPaginationArgs' ), 30, 1 );
-		add_filter( 'woocommerce_sale_flash', array( $this, 'changeSaleFlashMarkup' ), 3, 30 );
+		add_filter( 'woocommerce_sale_flash', array( $this, 'changeSaleFlashMarkup' ), 30, 3 );
 
 		// hide tabs content titles
 		add_filter( 'woocommerce_product_description_heading', '__return_false', 30 );

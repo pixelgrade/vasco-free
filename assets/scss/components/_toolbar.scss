@@ -63,24 +63,3 @@ $toolbar-width: 62px !default;
     }
   }
 }
-
-.c-cart-trigger {
-  position: relative;
-  width: 30px;
-  font-size: 11px;
-
-  .search-trigger + & {
-    margin-top: 1.5rem;
-  }
-
-  .cart-count {
-    width: 20px;
-    height: 20px;
-    top: 100%;
-    left: 100%;
-  }
-
-  svg, a {
-    display: block;
-  }
-}

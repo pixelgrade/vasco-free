@@ -11467,6 +11467,35 @@ body .widget_nav_menu {
 .comment-form-rating label {
   margin-bottom: 0; }
 
+.c-cart-trigger {
+  position: relative;
+  width: 30px;
+  font-size: 11px; }
+  .search-trigger + .c-cart-trigger {
+    margin-top: 1.5rem; }
+  .c-cart-trigger .cart-count {
+    width: 20px;
+    height: 20px;
+    top: 100%;
+    right: 100%; }
+  .c-cart-trigger svg, .c-cart-trigger a {
+    display: block; }
+
+.c-card--product .c-card__meta {
+  top: 14px;
+  bottom: auto;
+  -webkit-transform: none;
+          transform: none; }
+  @media only screen and (max-width: 1024px) {
+    .c-card--product .c-card__meta {
+      top: 12.56357px; } }
+  @media only screen and (max-width: 768px) {
+    .c-card--product .c-card__meta {
+      top: 11.39447px; } }
+  @media only screen and (max-width: 320px) {
+    .c-card--product .c-card__meta {
+      top: 10.42442px; } }
+
 .entry-content .wp-block-separator.is-style-dots:before {
   color: inherit; }
 
