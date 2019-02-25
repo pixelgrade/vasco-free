@@ -246,10 +246,11 @@ class Pixelgrade_Woocommerce_Layout extends Pixelgrade_Singleton {
 			$cart_count_span = '<div class="cart-count"><span>' . $cart_item_count . '</span></div>';
 		}
 
-		$cart_link = '<li class="menu-item menu-item--cart"><a href="' . esc_url( get_permalink( wc_get_page_id( 'cart' ) ) ) . '">' . esc_html__( 'My Cart', '__components_txtd' ) . $cart_count_span . '</a></li>';
+		$cart_link = apply_filters( 'pixelgrade_cart_menu_item_markup', '<li class="menu-item  menu-item--cart"><a class="js-open-cart" href="' . esc_url( get_permalink( wc_get_page_id( 'cart' ) ) ) . '">' . esc_html__( 'My Cart', '__components_txtd' ) . $cart_count_span . '</a></li>' );
+		$cart_menu_item_location = apply_filters( 'pixelgrade_cart_menu_item_location', 'primary-left' );
 
 		// Add the cart link to the end of the menu.
-		if ( $args->theme_location === 'primary-left' ) {
+		if ( $args->theme_location === $cart_menu_item_location ) {
             $items = $items . $cart_link;
 		}
 

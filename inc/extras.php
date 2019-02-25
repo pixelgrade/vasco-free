@@ -485,3 +485,9 @@ function vasco_maybe_load_pro_features() {
 }
 // We want to do this as early as possible. So the zero priority is as intended.
 add_action( 'after_setup_theme', 'vasco_maybe_load_pro_features', 0 );
+
+function vasco_change_cart_menu_item_location( $location ) {
+	$location = false;
+	return $location;
+}
+add_action( 'pixelgrade_cart_menu_item_location', 'vasco_change_cart_menu_item_location', 10 );
