@@ -16,12 +16,7 @@
  */
 function vasco_pro_setup() {
 
-	// @todo Not so sure these are right! Vasco is different than Felt or Julia.
-
-	add_action( 'pixelgrade_after_footer', 'vasco_output_sticky_header', 10 );
-	add_action( 'pixelgrade_after_footer', 'vasco_output_search_overlay_trigger', 15 );
-	add_action( 'pixelgrade_after_footer', 'vasco_output_search_overlay', 16 );
-	add_action( 'pixelgrade_after_footer', 'vasco_output_menu_label', 25 );
+	add_action( 'pixelgrade_after_header', 'vasco_output_toolbar', 10 );
 	add_action( 'pixelgrade_footer_after_content', 'vasco_output_footer_search_trigger', 30 );
 
 	/**
@@ -29,25 +24,26 @@ function vasco_pro_setup() {
 	 */
 	add_theme_support( 'customizer_style_manager' );
 }
+
 add_action( 'after_setup_theme', 'vasco_pro_setup' );
 
 /**
- * Register Footer sidebar for the Pro version.
+ * Output side toolbar
  */
-function vasco_pro_footer_sidebar() {
+function vasco_output_toolbar() {
 
-
+	get_template_part( 'template-parts/toolbar' );
 }
-add_action( 'widgets_init', 'vasco_pro_footer_sidebar', 31 );
 
 function vasco_pro_custom_widgets_init() {
 	/**
-     * Promo Box Widget available only in PRO version
-     */
+	 * Promo Box Widget available only in the PRO version
+	 */
 	$path = pixelgrade_get_parent_theme_file_path( 'inc/widgets/class-PromoBoxWidget.php' );
 	if ( ! empty( $path ) ) {
 		require_once $path;
 		register_widget( 'Pixelgrade_PromoBoxWidget' );
 	}
 }
+
 add_action( 'widgets_init', 'vasco_pro_custom_widgets_init', 32 );

@@ -526,7 +526,7 @@ img {
   display: none; }
 
 a {
-  color: #F59828; }
+  color: #2B3D39; }
   a img {
     -webkit-transition: opacity 0.3s ease-out;
     transition: opacity 0.3s ease-out; }
@@ -10017,6 +10017,7 @@ body .widget_nav_menu {
 
 .widget_callout_box .c-callout__content {
   background-color: #F59828;
+  color: #F5F6F1;
   -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
           box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
   display: -webkit-box;
@@ -11267,6 +11268,9 @@ body .widget_nav_menu {
   @media not screen and (min-width: 42.5em) {
     .widget_promo_box .c-promo__content {
       padding-right: 0; } }
+
+.widget_promo_box .c-promo__content {
+  color: #F5F6F1; }
 
 .widget_promo_box .c-promo__title {
   font-family: "YoungSerif", serif;
