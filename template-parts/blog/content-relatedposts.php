@@ -77,7 +77,7 @@ if ( $query->have_posts() ) {
 	<div class="u-container-sides-spacing">
 		<div class="o-wrapper u-container-width">
 			<div id="related-posts-container" class="related-posts-container">
-				<?php pixelgrade_the_jetpack_related_posts_headline( esc_html__( 'Related Posts', '__components_txtd' ) ); ?>
+				<?php pixelgrade_the_jetpack_related_posts_headline( esc_html__( 'Related Posts', '__theme_txtd' ) ); ?>
 				<div class="c-gallery  c-gallery--blog  c-gallery--regular  o-grid  o-grid--3col-@desk  o-grid--3col-@lap  o-grid--col-@small">
 					<?php
 					/* Start the Loop */
@@ -120,7 +120,7 @@ if ( $query->have_posts() ) {
 									<?php } ?>
 									<div class="c-card__excerpt"><?php the_excerpt(); ?></div>
 									<div class="c-card__footer">
-										<div class="c-card__action"><?php esc_html_e( 'Read More', '__components_txtd' ); ?></div>
+										<div class="c-card__action"><?php esc_html_e( 'Read More', '__theme_txtd' ); ?></div>
 									</div>
 								</div><!-- .c-card__content -->
 								<a class="c-card__link" href="<?php the_permalink(); ?>"></a>

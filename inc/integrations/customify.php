@@ -1375,7 +1375,7 @@ function vasco_customify_header_section( $section_options, $options ) {
 	$section_options['header_section']['options'] = Pixelgrade_Array::insertAfterKey( $section_options['header_section']['options'], 'header_background', array(
 		'header_submenu_background' => array(
 			'type'    => 'color',
-			'label'   => esc_html__( 'Submenu Background', '__components_txtd' ),
+			'label'   => esc_html__( 'Submenu Background', '__theme_txtd' ),
 			'live'    => true,
 			'default' => SM_LIGHT_PRIMARY,
 			'css'     => array(
