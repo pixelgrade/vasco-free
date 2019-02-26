@@ -133,7 +133,9 @@ function vasco_handle_front_page_widgets_nesting( $index ) {
 	$front_page_sidebar_widgets = (array) $sidebars_widgets[ $index ];
 
 	// Now go through the widgets list of our target sidebar and see what we can do.
-    foreach ( $front_page_sidebar_widgets as $idx => $widget_id ) {
+	$no_widgets = count( $front_page_sidebar_widgets );
+	for ( $idx = 0; $idx < $no_widgets; $idx++ ) {
+		$widget_id = $front_page_sidebar_widgets[ $idx ];
 
 		// If the widget is not registered, continue
 		if ( ! isset( $wp_registered_widgets[ $widget_id ] ) ) {

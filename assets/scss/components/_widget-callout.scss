@@ -56,6 +56,7 @@
 
   .c-callout__content {
     background-color: $sm-color-secondary;
+    color: $theme-background-color;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     display: flex;
     flex: 1;
