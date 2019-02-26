@@ -70,13 +70,13 @@ function vasco_lite_customize_register( $wp_customize ) {
                         </li>
 
                         <li>
-                            <h4>New Widgets for More Flexiblity</h4>
+                            <h4>New Widgets for More Flexibility</h4>
                             <div class="description">Besides the Grid Posts and Profile widgets, the PRO version comes with much more: Feature Card, Callout Box, Categories, Promo Box and many others. You also get more layout options and widget areas to play with such as Sidebar, Footer and Below Post.</div>
                         </li>
 
                         <li>
                             <h4>Advanced Features for a Unique Look</h4>
-                            <div class="description">Vasco PRO takes everything to the next level, unlocking features like custom Stamps & Blobs for compelling visual identity and Location Widget to let your audience know where life takes you. You also get access to Sticky Menu, Announcement Bar at the top of your website, Reading Progress Bar, Author Info Box and Related Posts to display below your articles.</div>
+                            <div class="description">Vasco PRO takes everything to the next level, unlocking features like custom Stamps & Blobs for compelling visual identity. You also get access to Sticky Menu, Announcement Bar at the top of your website, Reading Progress Bar, Author Info Box and Related Posts to display below your articles.</div>
                         </li>
 
                         <li>
