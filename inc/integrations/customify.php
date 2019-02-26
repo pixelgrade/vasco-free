@@ -241,7 +241,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 				'blobs_preset' => array(
 					'type'        => 'range',
 					'label'       => esc_html__( 'Presets', '__theme_txtd' ),
-					'desc'        => esc_html__( '', '__theme_txtd' ),
+					'desc'        => '',
 					'live'        => true,
 					'default'     => 218,
 					'input_attrs' => array(
@@ -257,7 +257,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 				'blobs_complexity' => array(
 					'type'        => 'range',
 					'label'       => esc_html__( 'Complexity', '__theme_txtd' ),
-					'desc'        => esc_html__( '', '__theme_txtd' ),
+					'desc'        => '',
 					'live'        => true,
 					'default'     => 84,
 					'input_attrs' => array(
@@ -273,7 +273,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 				'blobs_dispersion' => array(
 					'type'        => 'range',
 					'label'       => esc_html__( 'Dispersion', '__theme_txtd' ),
-					'desc'        => esc_html__( '', '__theme_txtd' ),
+					'desc'        => '',
 					'live'        => true,
 					'default'     => 26,
 					'input_attrs' => array(
@@ -294,7 +294,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 				'blobs_smoothness' => array(
 					'type'        => 'range',
 					'label'       => esc_html__( 'Smoothness', '__theme_txtd' ),
-					'desc'        => esc_html__( '', '__theme_txtd' ),
+					'desc'        => '',
 					'live'        => true,
 					'default'     => 25,
 					'input_attrs' => array(
