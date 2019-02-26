@@ -11468,16 +11468,21 @@ body .widget_nav_menu {
   margin-bottom: 0; }
 
 .c-cart-trigger {
-  position: relative;
-  width: 30px;
-  font-size: 11px; }
+  position: relative; }
   .search-trigger + .c-cart-trigger {
     margin-top: 1.5rem; }
   .c-cart-trigger .cart-count {
     width: 20px;
     height: 20px;
     top: 100%;
-    left: 100%; }
+    left: 100%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    border: 2px solid;
+    font-family: "HK Grotesk", sans-serif;
+    font-weight: 700; }
+    .c-cart-trigger .cart-count span {
+      font-size: 11px; }
   .c-cart-trigger svg, .c-cart-trigger a {
     display: block; }
 
