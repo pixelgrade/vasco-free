@@ -22,7 +22,10 @@
 \*------------------------------------*/
   /**
  * A simple button object.
- */ }
+ */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  background-color: #F5F6F1; }
   .edit-post-visual-editor p:not(:last-child),
   .edit-post-visual-editor ul:not(:last-child), .edit-post-visual-editor ol:not(:last-child), .edit-post-visual-editor dl:not(:last-child),
   .edit-post-visual-editor hr:not(:last-child),
@@ -574,7 +577,9 @@
       border-bottom: 0 solid rgba(0, 0, 0, 0.1); }
     .edit-post-visual-editor table th,
     .edit-post-visual-editor table td {
-      padding: 14px; }
+      padding: 14px;
+      max-width: 100%;
+      white-space: nowrap; }
       @media only screen and (max-width: 1360px) {
         .edit-post-visual-editor table th,
         .edit-post-visual-editor table td {
@@ -996,6 +1001,92 @@
     display: block; }
   .u-underlined-links .wp-block-button__link {
     text-decoration: none; }
+  .edit-post-visual-editor .wp-block-gallery[class] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+  .edit-post-visual-editor .wp-block-categories-list.aligncenter {
+    text-align: center;
+    list-style-position: inside; }
+    .edit-post-visual-editor .wp-block-categories-list.aligncenter ul {
+      list-style-position: inside; }
+  .edit-post-visual-editor .editor-post-title__input {
+    font-family: "YoungSerif", serif;
+    font-size: 72px;
+    line-height: 1.11111; }
+    @media only screen and (max-width: 1360px) {
+      .edit-post-visual-editor .editor-post-title__input {
+        font-size: 58.99441px; } }
+    @media only screen and (max-width: 1024px) {
+      .edit-post-visual-editor .editor-post-title__input {
+        font-size: 49.96845px; } }
+    @media only screen and (max-width: 768px) {
+      .edit-post-visual-editor .editor-post-title__input {
+        font-size: 43.33789px; } }
+    @media only screen and (max-width: 320px) {
+      .edit-post-visual-editor .editor-post-title__input {
+        font-size: 38.26087px; } }
+    .edit-post-visual-editor .editor-post-title__input:not(:first-child) {
+      margin-top: 35px; }
+      @media only screen and (max-width: 1360px) {
+        .edit-post-visual-editor .editor-post-title__input:not(:first-child) {
+          margin-top: 27.48466px; } }
+      @media only screen and (max-width: 1024px) {
+        .edit-post-visual-editor .editor-post-title__input:not(:first-child) {
+          margin-top: 22.62626px; } }
+      @media only screen and (max-width: 768px) {
+        .edit-post-visual-editor .editor-post-title__input:not(:first-child) {
+          margin-top: 19.22747px; } }
+      @media only screen and (max-width: 320px) {
+        .edit-post-visual-editor .editor-post-title__input:not(:first-child) {
+          margin-top: 16.71642px; } }
+    .edit-post-visual-editor .editor-post-title__input:not(:last-child) {
+      margin-bottom: 14px; }
+      @media only screen and (max-width: 1360px) {
+        .edit-post-visual-editor .editor-post-title__input:not(:last-child) {
+          margin-bottom: 12.89431px; } }
+      @media only screen and (max-width: 1024px) {
+        .edit-post-visual-editor .editor-post-title__input:not(:last-child) {
+          margin-bottom: 11.95049px; } }
+      @media only screen and (max-width: 768px) {
+        .edit-post-visual-editor .editor-post-title__input:not(:last-child) {
+          margin-bottom: 11.13541px; } }
+      @media only screen and (max-width: 320px) {
+        .edit-post-visual-editor .editor-post-title__input:not(:last-child) {
+          margin-bottom: 10.42442px; } }
+  .edit-post-visual-editor.editor-styles-wrapper {
+    font-family: "Lora", serif;
+    font-size: 18px;
+    line-height: 1.66667;
+    color: #2B3D39; }
+    @media only screen and (max-width: 1360px) {
+      .edit-post-visual-editor.editor-styles-wrapper {
+        font-size: 17.52678px; } }
+    @media only screen and (max-width: 1024px) {
+      .edit-post-visual-editor.editor-styles-wrapper {
+        font-size: 17.0778px; } }
+    @media only screen and (max-width: 768px) {
+      .edit-post-visual-editor.editor-styles-wrapper {
+        font-size: 16.65125px; } }
+    @media only screen and (max-width: 320px) {
+      .edit-post-visual-editor.editor-styles-wrapper {
+        font-size: 16.24549px; } }
+    .edit-post-visual-editor.editor-styles-wrapper p {
+      font-family: "Lora", serif;
+      font-size: 18px;
+      line-height: 1.66667; }
+      @media only screen and (max-width: 1360px) {
+        .edit-post-visual-editor.editor-styles-wrapper p {
+          font-size: 17.52678px; } }
+      @media only screen and (max-width: 1024px) {
+        .edit-post-visual-editor.editor-styles-wrapper p {
+          font-size: 17.0778px; } }
+      @media only screen and (max-width: 768px) {
+        .edit-post-visual-editor.editor-styles-wrapper p {
+          font-size: 16.65125px; } }
+      @media only screen and (max-width: 320px) {
+        .edit-post-visual-editor.editor-styles-wrapper p {
+          font-size: 16.24549px; } }
   .edit-post-visual-editor .editor-post-title__block .editor-post-title__input[class] {
     text-align: center;
     margin-bottom: 30px; }
@@ -1007,8 +1098,22 @@
   .edit-post-visual-editor .editor-rich-text__tinymce {
     line-height: inherit; }
   .edit-post-visual-editor .wp-block-quote p {
-    font-size: 1em;
-    line-height: inherit; }
+    font-family: "YoungSerif", serif;
+    font-size: 32px;
+    line-height: 1.5;
+    margin-top: 0; }
+    @media only screen and (max-width: 1360px) {
+      .edit-post-visual-editor .wp-block-quote p {
+        font-size: 28.32998px; } }
+    @media only screen and (max-width: 1024px) {
+      .edit-post-visual-editor .wp-block-quote p {
+        font-size: 25.41516px; } }
+    @media only screen and (max-width: 768px) {
+      .edit-post-visual-editor .wp-block-quote p {
+        font-size: 23.04419px; } }
+    @media only screen and (max-width: 320px) {
+      .edit-post-visual-editor .wp-block-quote p {
+        font-size: 21.07784px; } }
   .edit-post-visual-editor .wp-block-pullquote.aligncenter blockquote, .edit-post-visual-editor .wp-block-pullquote.alignnone blockquote, .edit-post-visual-editor .wp-block-pullquote:not([class*="align"]) blockquote {
     margin-left: 0;
     margin-right: 0; }
@@ -1016,8 +1121,77 @@
     margin-right: 0; }
   .edit-post-visual-editor .wp-block-pullquote.alignleft blockquote {
     margin-left: 0; }
+  .edit-post-visual-editor .wp-block-gallery[class][class] .blocks-gallery-item {
+    margin-bottom: 16px; }
   .edit-post-visual-editor .wp-block-quote:not(.is-large):not(.is-style-large) {
     padding-left: 0;
     border-left: 0; }
+  .edit-post-visual-editor .wp-block-quote__citation {
+    font-family: "HK Grotesk", sans-serif;
+    font-size: 19px;
+    line-height: 1.21053;
+    font-weight: 500; }
+    @media only screen and (max-width: 1360px) {
+      .edit-post-visual-editor .wp-block-quote__citation {
+        font-size: 18.41523px; } }
+    @media only screen and (max-width: 1024px) {
+      .edit-post-visual-editor .wp-block-quote__citation {
+        font-size: 17.86538px; } }
+    @media only screen and (max-width: 768px) {
+      .edit-post-visual-editor .wp-block-quote__citation {
+        font-size: 17.34742px; } }
+    @media only screen and (max-width: 320px) {
+      .edit-post-visual-editor .wp-block-quote__citation {
+        font-size: 16.85864px; } }
+    .edit-post-visual-editor .wp-block-quote__citation:not(:first-child) {
+      margin-top: 49px; }
+      @media only screen and (max-width: 1360px) {
+        .edit-post-visual-editor .wp-block-quote__citation:not(:first-child) {
+          margin-top: 37.82871px; } }
+      @media only screen and (max-width: 1024px) {
+        .edit-post-visual-editor .wp-block-quote__citation:not(:first-child) {
+          margin-top: 30.8055px; } }
+      @media only screen and (max-width: 768px) {
+        .edit-post-visual-editor .wp-block-quote__citation:not(:first-child) {
+          margin-top: 25.98177px; } }
+      @media only screen and (max-width: 320px) {
+        .edit-post-visual-editor .wp-block-quote__citation:not(:first-child) {
+          margin-top: 22.46418px; } }
+    .edit-post-visual-editor .wp-block-quote__citation:not(:last-child) {
+      margin-bottom: 28px; }
+      @media only screen and (max-width: 1360px) {
+        .edit-post-visual-editor .wp-block-quote__citation:not(:last-child) {
+          margin-bottom: 22.17822px; } }
+      @media only screen and (max-width: 1024px) {
+        .edit-post-visual-editor .wp-block-quote__citation:not(:last-child) {
+          margin-bottom: 18.36066px; } }
+      @media only screen and (max-width: 768px) {
+        .edit-post-visual-editor .wp-block-quote__citation:not(:last-child) {
+          margin-bottom: 15.66434px; } }
+      @media only screen and (max-width: 320px) {
+        .edit-post-visual-editor .wp-block-quote__citation:not(:last-child) {
+          margin-bottom: 13.65854px; } }
+    .edit-post-visual-editor .wp-block-quote__citation:before {
+      content: "";
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      height: 2rem;
+      width: 2px;
+      background-color: currentColor; }
+  .edit-post-visual-editor .wp-block-table td,
+  .edit-post-visual-editor .wp-block-table th {
+    border: 0; }
+  .edit-post-visual-editor .wp-block-table > tr:nth-child(even),
+  .edit-post-visual-editor .wp-block-table tbody > tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.05); }
+  .edit-post-visual-editor a {
+    color: #2B3D39; }
+    .edit-post-visual-editor a:hover {
+      color: #F59828; }
+  .edit-post-visual-editor pre {
+    font-size: 1em; }
+  .edit-post-visual-editor .wp-block-categories ul {
+    list-style-position: inside; }
 
 /*# sourceMappingURL=editor.css.map */

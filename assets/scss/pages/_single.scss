@@ -123,16 +123,19 @@
     display: none;
   }
 
-  .cats {
-    @include spacing(margin-top, -1rem);
-  }
-
   .tags {
     @include spacing(margin-top, 2rem);
   }
 
   .sharedaddy {
     @include spacing(margin-top, 2.5rem);
+  }
+}
+
+.post-password-form {
+  input[type="submit"] {
+    @include spacing(margin-top, 1rem);
+    width: 100%;
   }
 }
 
