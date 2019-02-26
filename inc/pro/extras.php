@@ -16,12 +16,6 @@
  */
 function vasco_pro_setup() {
 
-	// @todo Not so sure these are right! Vasco is different than Felt or Julia.
-
-	add_action( 'pixelgrade_after_footer', 'vasco_output_sticky_header', 10 );
-	add_action( 'pixelgrade_after_footer', 'vasco_output_search_overlay_trigger', 15 );
-	add_action( 'pixelgrade_after_footer', 'vasco_output_search_overlay', 16 );
-	add_action( 'pixelgrade_after_footer', 'vasco_output_menu_label', 25 );
 	add_action( 'pixelgrade_footer_after_content', 'vasco_output_footer_search_trigger', 30 );
 
 	/**
