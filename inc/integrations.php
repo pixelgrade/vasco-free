@@ -7,6 +7,12 @@
  */
 
 /**
+ * Load Customify compatibility file.
+ * http://pixelgrade.com/
+ */
+require pixelgrade_get_parent_theme_file_path( pixelgrade_get_theme_relative_path( __DIR__ ) . 'integrations/customify.php' );
+
+/**
  * Load Jetpack compatibility file.
  * https://jetpack.me/
  */
