@@ -590,6 +590,7 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 								.single .header-meta .byline, 
 								.single .header-meta .posted-on,
 								.c-meta__secondary[class],
+								.c-btn--sale-flash,
 								.widget_wpcom_social_media_icons_widget[class] ul li,
 								.jetpack_widget_social_icons[class] ul li,
 								.widget_categories .cat-link-count',
@@ -689,6 +690,7 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 								.single .header-meta .byline, 
 								.single .header-meta .posted-on,
 								.c-meta__secondary[class],
+								.c-btn--sale-flash,
 								.entry-content .cats[class] > a,
 								.c-meta__primary .comments,
 								.widget_categories .cat-link-count,
@@ -710,7 +712,8 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 						.no-results .page-title,
 						.h0[class],
 						.c-search-overlay .search-field,
-						.edit-post-visual-editor .editor-post-title__block .editor-post-title__input[class]',
+						.edit-post-visual-editor .editor-post-title__block .editor-post-title__input[class],
+						.woocommerce-products-header__title',
 					'default'  => array(
 						'font-family'    => THEME_HEADINGS_FONT,
 						'font-size'      => 72,
@@ -825,7 +828,8 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 						.wp-caption-text .credit,
 						.site-description, 
 						.nav-links__label,
-						.c-footer__zone--bottom .menu',
+						.c-footer__zone--bottom .menu,
+						.c-cart-trigger .cart-count',
 					'default'  => array(
 						'font-family'    => THEME_HEADINGS_FONT_ALT,
 						'font-weight'    => '700',
@@ -863,6 +867,7 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 				.single .header-meta .byline, 
 				.single .header-meta .posted-on,  
 				.c-meta__secondary[class],
+				.c-btn--sale-flash,
 				.entry-content .cats[class] > a',
 			'callback' => 'typeline_font_cb',
 
@@ -977,7 +982,7 @@ function vasco_customify_buttons_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'background-color',
-							'selector' => $buttons_solid,
+							'selector' => $buttons_solid . ', .c-meta__secondary[class], .c-btn--sale-flash',
 						),
 						array(
 							'property' => 'color',

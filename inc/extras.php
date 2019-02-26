@@ -485,3 +485,14 @@ function vasco_maybe_load_pro_features() {
 }
 // We want to do this as early as possible. So the zero priority is as intended.
 add_action( 'after_setup_theme', 'vasco_maybe_load_pro_features', 0 );
+
+function vasco_change_cart_menu_item_location( $location ) {
+	$location = false;
+	return $location;
+}
+add_action( 'pixelgrade_cart_menu_item_location', 'vasco_change_cart_menu_item_location', 10 );
+
+function vasco_change_sale_flash_markup( $sale_flash, $post, $product ) {
+	return '<span class="c-btn--sale-flash">' . esc_html__( 'Sale!', '__components_txtd' ) . '</span>';
+}
+add_filter( 'woocommerce_sale_flash', 'vasco_change_sale_flash_markup', 35, 3 );

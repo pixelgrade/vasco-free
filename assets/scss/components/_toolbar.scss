@@ -48,6 +48,10 @@ $toolbar-width: 62px !default;
 
 .search-trigger {
   cursor: pointer;
+
+  svg {
+    display: block;
+  }
 }
 
 @include above(lap) {
