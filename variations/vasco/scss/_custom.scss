@@ -14,7 +14,7 @@
 .archive,
 .search {
   .content-area {
-    padding-top: 50px;
+    @include spacing(padding-top, 3rem);
   }
 }
 
@@ -23,7 +23,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  @include spacing(margin-bottom, 2.4rem);
+  @include spacing(margin-bottom, 3rem);
 
   .search-no-results & {
     display: none;
@@ -33,7 +33,7 @@
 .archive-title__pre-title {
   flex: 1;
   color: $sm-color-secondary;
-  @include spacing(margin-bottom, 2.5rem);
+  @include spacing(margin-bottom, 3rem);
 }
 
 .featured-posts__footer {

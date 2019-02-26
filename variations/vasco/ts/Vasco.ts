@@ -393,11 +393,12 @@ export class Vasco extends BaseTheme {
 
     if ( isDisabled ) { return; }
 
-    const adminBarHeight = $('#wpadminbar').outerHeight() || 0;
+    const adminBarHeight = $( '#wpadminbar' ).outerHeight();
     const announcementBarHeight = this.$announcementBar.outerHeight();
+    const headerHeight = this.$siteHeader.outerHeight();
     this.modifyCss(this.$siteHeader, 'top', announcementBarHeight, '+=');
     this.modifyCss(this.$toolbar, 'padding-top', announcementBarHeight, '+=');
-    this.modifyCss(this.$contentPaddingContainer, 'padding-top', announcementBarHeight, '+=');
+    this.$contentPaddingContainer.css( 'padding-top', headerHeight + announcementBarHeight );
     this.modifyCss(this.$announcementBar, 'top', adminBarHeight, '+=');
     this.$announcementBar.removeClass('c-announcement-bar--hidden');
 
@@ -409,6 +410,8 @@ export class Vasco extends BaseTheme {
   }
 
   private revertAnnouncementChanges(animated: boolean = false) {
+    const headerHeight = this.$siteHeader.outerHeight();
+
     if (animated) {
       this.$announcementBar.addClass('animated');
       this.$siteHeader.addClass('animated');
@@ -420,7 +423,7 @@ export class Vasco extends BaseTheme {
 
     this.$siteHeader.css( 'top', '' );
     this.$toolbar.css( 'padding-top', '' );
-    this.$contentPaddingContainer.css( 'padding-top', '' );
+    this.$contentPaddingContainer.css( 'padding-top', headerHeight );
     this.$announcementBar.css( 'top', '');
   }
 

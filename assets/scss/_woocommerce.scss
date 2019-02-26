@@ -56,3 +56,8 @@
 .c-btn--sale-flash[class] {
     padding: 0.25em 0.75em 0.25em;
 }
+
+.woocommerce-header {
+    @include spacing(margin-top, 2.5rem);
+    @include spacing(margin-bottom, 4rem);
+}

@@ -712,7 +712,8 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 						.no-results .page-title,
 						.h0[class],
 						.c-search-overlay .search-field,
-						.edit-post-visual-editor .editor-post-title__block .editor-post-title__input[class]',
+						.edit-post-visual-editor .editor-post-title__block .editor-post-title__input[class],
+						.woocommerce-products-header__title',
 					'default'  => array(
 						'font-family'    => THEME_HEADINGS_FONT,
 						'font-size'      => 72,
