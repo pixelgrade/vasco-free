@@ -11472,17 +11472,24 @@ body .widget_nav_menu {
   .search-trigger + .c-cart-trigger {
     margin-top: 1.5rem; }
   .c-cart-trigger .cart-count {
-    width: 20px;
-    height: 20px;
+    position: absolute;
     top: 100%;
     left: 100%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-    border: 2px solid;
+    -webkit-transform: translate(-50%, -50%) scale(0.8);
+            transform: translate(-50%, -50%) scale(0.8);
+    border: 3px solid;
     font-family: "HK Grotesk", sans-serif;
     font-weight: 700; }
     .c-cart-trigger .cart-count span {
-      font-size: 11px; }
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: 0.05em;
+      margin-top: -0.05em;
+      white-space: nowrap;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%); }
   .c-cart-trigger svg, .c-cart-trigger a {
     display: block; }
 
