@@ -50,27 +50,6 @@ function vasco_hkgrotesk_font_url() {
 	return '';
 }
 
-/**
- * Generate the Dry Brush font URL
- *
- * @since Vasco 1.0
- *
- * @return string
- */
-function vasco_drybrush_font_url() {
-
-	/* Translators: If there are characters in your language that are not
-	* supported by HK Grotesk, translate this to 'off'. Do not translate
-	* into your own language.
-	*/
-	$drybrush = esc_html_x( 'on', 'HK Grotesk font: on or off', '__theme_txtd' );
-	if ( 'off' !== $drybrush ) {
-		return get_template_directory_uri() . '/assets/fonts/drybrush/stylesheet.css';
-	}
-
-	return '';
-}
-
 
 /**
  * Generate the Bebas Neue font URL
@@ -110,6 +89,14 @@ if ( ! function_exists( 'vasco_google_fonts_url' ) ) :
 		*/
 		if ( 'off' !== esc_html_x( 'on', 'Lora font: on or off', '__theme_txtd' ) ) {
 			$fonts[] = 'Lora:400,700';
+		}
+
+		/* Translators: If there are characters in your language that are not
+		* supported by Permanent Marker, translate this to 'off'. Do not translate
+		* into your own language.
+		*/
+		if ( 'off' !== esc_html_x( 'on', 'Permanent Marker font: on or off', '__theme_txtd' ) ) {
+			$fonts[] = 'Permanent Marker';
 		}
 
 		/* translators: To add an additional character subset specific to your language, translate this to 'greek', 'cyrillic', 'devanagari' or 'vietnamese'. Do not translate into your own language. */

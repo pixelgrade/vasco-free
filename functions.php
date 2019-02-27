@@ -181,9 +181,6 @@ function vasco_scripts() {
 		$main_style_deps[] = 'vasco-fonts-bebasneue';
 	}
 
-	wp_enqueue_style( 'vasco-fonts-drybrush', vasco_drybrush_font_url() );
-	$main_style_deps[] = 'vasco-fonts-drybrush';
-
 	/* The main theme stylesheet */
 	wp_enqueue_style( 'vasco-style', get_template_directory_uri() . '/style.css', $main_style_deps, $theme->get( 'Version' ) );
 
