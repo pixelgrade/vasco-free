@@ -982,7 +982,7 @@ function vasco_customify_buttons_section( $section_options, $options ) {
 					'css'     => array(
 						array(
 							'property' => 'background-color',
-							'selector' => $buttons_solid . ', .c-meta__secondary[class], .c-btn--sale-flash',
+							'selector' => $buttons_solid . ', .c-card--product .c-meta__secondary[class], .c-btn--sale-flash',
 						),
 						array(
 							'property' => 'color',
