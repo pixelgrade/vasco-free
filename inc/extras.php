@@ -50,27 +50,6 @@ function vasco_hkgrotesk_font_url() {
 	return '';
 }
 
-/**
- * Generate the Dry Brush font URL
- *
- * @since Vasco 1.0
- *
- * @return string
- */
-function vasco_drybrush_font_url() {
-
-	/* Translators: If there are characters in your language that are not
-	* supported by HK Grotesk, translate this to 'off'. Do not translate
-	* into your own language.
-	*/
-	$drybrush = esc_html_x( 'on', 'HK Grotesk font: on or off', '__theme_txtd' );
-	if ( 'off' !== $drybrush ) {
-		return get_template_directory_uri() . '/assets/fonts/drybrush/stylesheet.css';
-	}
-
-	return '';
-}
-
 
 /**
  * Generate the Bebas Neue font URL
@@ -92,6 +71,29 @@ function vasco_bebasneue_font_url() {
 
 	return '';
 }
+
+
+/**
+ * Generate the Edo font URL
+ *
+ * @since Vasco 1.3.4
+ *
+ * @return string
+ */
+function vasco_edo_font_url() {
+
+	/* Translators: If there are characters in your language that are not
+	* supported by Edo, translate this to 'off'. Do not translate
+	* into your own language.
+	*/
+	$edo = esc_html_x( 'on', 'Edo font: on or off', '__theme_txtd' );
+	if ( 'off' !== $edo ) {
+		return get_template_directory_uri() . '/assets/fonts/edo/stylesheet.css';
+	}
+
+	return '';
+}
+
 
 if ( ! function_exists( 'vasco_google_fonts_url' ) ) :
 	/**
