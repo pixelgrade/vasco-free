@@ -55,7 +55,8 @@ function vasco_pro_widget_description($sidebar_id) {
 		}
 	}
 
-	return esc_html__( 'Ooops! This entire widget area does not support Pixelgrade Widgets. You want to stand out from the crowd, right? Upgrade to Vasco PRO and unlock all features.', '__theme_txtd' );
+	/* translators: %s: The pro theme name */
+	return sprintf( esc_html__( 'Ooops! This entire widget area does not support Pixelgrade Widgets. You want to stand out from the crowd, right? Upgrade to %s and unlock all features.', '__theme_txtd' ), 'Vasco PRO' );
 }
 
 /**
@@ -391,7 +392,7 @@ class Vasco_AddWidgetIdWrapperOpeningTag {
 	public function filter( $params ) {
 		// Only add the closing tag for the target widget ID
 		if ( $params[0]['widget_id'] === $this->widget_id ) {
-			$params[0]['before_widget'] = PHP_EOL . '<div class="' . $this->class . '">' . PHP_EOL . $params[0]['before_widget'];
+			$params[0]['before_widget'] = PHP_EOL . '<div class="' . esc_attr( $this->class ) . '">' . PHP_EOL . $params[0]['before_widget'];
 
 			// A little bit of cleanup since this filter should only be applied once
 			remove_filter( 'dynamic_sidebar_params', array( $this, 'filter' ), 10 );

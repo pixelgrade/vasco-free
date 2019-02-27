@@ -3,9 +3,11 @@
  * Handle updates via our WUpdates service.
  *
  * @package Vasco
- * @since 1.4.0
+ * @since 1.0.0
  */
 
+// phpcs:ignoreFile
+// @codingStandardsIgnoreFile
 /* Automagical updates */
 function wupdates_check_v7zV3( $transient ) {
 	// First get the theme directory name (the theme slug - unique)

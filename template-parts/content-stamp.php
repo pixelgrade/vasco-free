@@ -20,14 +20,14 @@ if ( 'auto' === pixelgrade_option( 'stamp_style' ) ) {
 	// We parse the content tags, if any, and trim the whole thing.
 	$stamp_text = trim( pixelgrade_parse_content_tags( $stamp_text ) );
 
-	// For the icon, we currently use 10 SVG icons from assets/icons/xxx.php
+	// For the icon, we currently use 10 SVG icons from template-parts/stamp-icons/xxx.php
 	$stamp_icon = sanitize_title( pixelgrade_option( 'stamp_icon' ) );
 	?>
 
 	<div class="c-stamp c-stamp--auto">
 		<div class="c-stamp__text"><?php echo wp_kses_post( $stamp_text ); // WPCS: XSS OK. ?></div>
 		<div class="c-stamp__image">
-			<?php get_template_part( '/assets/icons/' . $stamp_icon ); ?>
+			<?php get_template_part( 'template-parts/stamp-icons/' . $stamp_icon ); ?>
 		</div>
 	</div>
 

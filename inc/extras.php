@@ -180,17 +180,6 @@ function vasco_mce_before_init( $settings ) {
 add_filter( 'tiny_mce_before_init', 'vasco_mce_before_init', 10, 1 );
 
 /**
- * Display blobs for the footer.
- */
-function vasco_add_blobs_to_footer() {
-	// Show the blobs only if allowed to by the user
-	if ( pixelgrade_option( 'show_blobs', false ) ) {
-		get_template_part( 'template-parts/content-blob-footer' );
-	}
-}
-add_action( 'pixelgrade_footer_before_content', 'vasco_add_blobs_to_footer', 10 );
-
-/**
  * Adds custom classes to the array of body classes.
  *
  * @param array $classes Classes for the body element.
@@ -202,24 +191,7 @@ function vasco_body_classes( $classes ) {
 
 	return $classes;
 }
-
 add_filter( 'body_class', 'vasco_body_classes' );
-
-/**
- * Customize the Header component config.
- *
- * @param array $config
- *
- * @return array
- */
-function vasco_customize_header_config( $config ) {
-	// We will remove the Jetpack Social Menu from the header as we will display it in the side toolbar.
-	unset( $config['menu_locations']['jetpack-social-menu'] );
-
-	return $config;
-}
-
-add_filter( 'pixelgrade_header_config', 'vasco_customize_header_config', 10, 1 );
 
 /**
  * Create the output needed for the comments_category post meta and add it to the array.
@@ -371,16 +343,6 @@ function vasco_remove_emoji( $text ) {
 	return $clean_text;
 }
 
-/**
- * Display the announcement bar.
- */
-function vasco_announcement_bar() {
-	if ( pixelgrade_option( 'show_announcement_bar' ) ) {
-		get_template_part( 'template-parts/announcement-bar' );
-	}
-}
-add_action( 'pixelgrade_before_header', 'vasco_announcement_bar', 5 );
-
 function vasco_kses_anchor_content( $content ) {
 	$allowedtags = array(
 		'abbr' => array(
@@ -454,20 +416,6 @@ function vasco_kses_anchor_content( $content ) {
 
 	return wp_kses( $content, $allowedtags );
 }
-
-function vasco_blobs_preset_body_attribute( $attributes ) {
-	$attributes['data-blobs-preset'] = pixelgrade_option( 'blobs_preset', 357 );
-	$attributes['data-blobs-complexity'] = pixelgrade_option( 'blobs_complexity', 84 );
-	return $attributes;
-}
-add_filter( 'pixelgrade_body_attributes', 'vasco_blobs_preset_body_attribute' );
-
-function vasco_product_blobs() {
-	if ( pixelgrade_option( 'show_blobs' ) ) {
-		get_template_part( 'template-parts/content-blob' );
-	}
-}
-add_action( 'woocommerce_before_single_product_summary', 'vasco_product_blobs', 9 );
 
 function vasco_maybe_load_pro_features() {
 	if ( true === pixelgrade_user_has_access( 'pro-features' ) ) {

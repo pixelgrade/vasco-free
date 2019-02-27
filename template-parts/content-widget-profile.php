@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php if ( ! empty( $title ) || ! empty( $description ) || ( ! empty( $button_text ) && ! empty( $button_url ) ) ) { ?>
 
 	<?php if ( ! empty( $title ) ) { ?>
-		<div class="c-profile__dropcap"><?php echo substr( $title, 0, 1 ); // WPCS: XSS OK. ?></div>
+		<div class="c-profile__dropcap"><?php echo substr( wp_kses( $title, array() ), 0, 1 ); // WPCS: XSS OK. ?></div>
 	<?php } ?>
 
 	<div class="c-profile__content">

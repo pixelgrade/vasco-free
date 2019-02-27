@@ -10,7 +10,7 @@ function vasco_lite_admin_setup() {
 	 * Load the About page class
 	 */
 	// phpcs:ignore
-	require_once 'ti-about-page/class-ti-about-page.php';
+	require_once 'ti-about-page/class-ti-about-page.php'; // @codingStandardsIgnoreLine.
 
 	/*
 	* About page instance
@@ -204,21 +204,6 @@ function vasco_lite_admin_setup() {
 				array(
 					'slug' => 'wordpress-seo'
 				)
-			),
-		),
-		// Required actions array.
-		'recommended_actions'        => array(
-			'install_label' => esc_html__( 'Install and Activate', '__theme_txtd' ),
-			'activate_label' => esc_html__( 'Activate', '__theme_txtd' ),
-			'deactivate_label' => esc_html__( 'Deactivate', '__theme_txtd' ),
-			'content'            => array(
-				'jetpack' => array(
-					'title'       => 'Jetpack',
-					'description' => wp_kses( __( 'It is highly recommended that you install Jetpack so you can enable the <b>Portfolio</b> content type for adding and managing your projects. Plus, Jetpack provides a whole host of other useful things for you site.', '__theme_txtd' ), wp_kses_allowed_html() ),
-					'check'       => defined( 'JETPACK__VERSION' ),
-					'plugin_slug' => 'jetpack',
-					'id' => 'jetpack'
-				),
 			),
 		),
 	);

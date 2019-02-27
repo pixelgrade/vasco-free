@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
             echo '<div class="c-cart-trigger">';
             echo '<a class="js-open-cart" href="' . esc_url( get_permalink( wc_get_page_id( 'cart' ) ) ) . '">';
-	        get_template_part( 'template-parts/svg/icon-bag-svg' );
+	        get_template_part( 'template-parts/svg/icon-bag' );
             echo $cart_count_span;
 	        echo '</a>';
 	        echo '</div>';

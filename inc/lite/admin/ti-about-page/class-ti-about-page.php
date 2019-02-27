@@ -413,6 +413,8 @@ if ( ! class_exists( 'Vasco_Lite_About_Page' ) ) {
 					);
 					break;
 			}
+
+			return '';
 		}
 
 		/**
@@ -792,6 +794,8 @@ if ( ! class_exists( 'Vasco_Lite_About_Page' ) ) {
 		 */
 		private function parse_changelog() {
 			WP_Filesystem();
+
+			/** @var WP_Filesystem_Base $wp_filesystem */
 			global $wp_filesystem;
 			$changelog = $wp_filesystem->get_contents( get_template_directory() . '/CHANGELOG.md' );
 			if ( is_wp_error( $changelog ) ) {

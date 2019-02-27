@@ -198,7 +198,7 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 				/*
 				 * Start outputting the widget markup
 				 */
-				echo $args['before_widget'];
+				echo $args['before_widget']; // @codingStandardsIgnoreLine
 
 				/**
 				 * Fires at the beginning of the widget.
@@ -214,7 +214,7 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 
 					<?php
 					// We use include so the template part gets access to all the variables defined above
-					include( $found_template ); ?>
+					include( $found_template ); // @codingStandardsIgnoreLine ?>
 
 				</div>
 
@@ -230,7 +230,7 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 				 */
 				do_action( 'pixelgrade_promo_box_widget_end', $args, $instance, $this->id_base );
 
-				echo $args['after_widget'];
+				echo $args['after_widget']; // @codingStandardsIgnoreLine
 
 				/**
 				 * Fires after the widget markup, including the closing </section>.
@@ -244,7 +244,8 @@ if ( ! class_exists( 'Pixelgrade_PromoBoxWidget' ) ) :
 				do_action( 'pixelgrade_widget_after_' . $this->id, $args, $instance );
 			} else {
 				// Let the developers know that something is amiss
-				_doing_it_wrong( __METHOD__, sprintf( 'Couldn\'t find a template part to use for displaying widget posts in the %s widget!', $this->name ), null );
+				/* translators: %s: the widget name. */
+				_doing_it_wrong( __METHOD__, sprintf( 'Couldn\'t find a template part to use for displaying widget posts in the %s widget!', esc_html( $this->name ) ), null );
 			}
 		}
 

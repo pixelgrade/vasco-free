@@ -1,4 +1,10 @@
 <?php
+/**
+ * Custom functions that act independently of the theme templates.
+ *
+ * @package Vasco
+ * @since 1.3.4
+ */
 
 /**
  * Theme About page logic.
@@ -56,10 +62,10 @@ function vasco_lite_customize_register( $wp_customize ) {
 	// View Pro
 	$wp_customize->add_section(
 		'vasco_lite_style_view_pro', array(
-			'title'       => '' . esc_html__( 'View PRO Version', '__theme_txtd' ),
+			'title'       => esc_html__( 'View PRO Version', '__theme_txtd' ),
 			'priority'    => 2,
-			'description' => sprintf(
 			/* translators: The upsell link. */
+			'description' => sprintf(
 				__(
 					'<div class="upsell-container">
 				<h2>Need More? Go PRO</h2>
