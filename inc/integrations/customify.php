@@ -241,7 +241,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 				'blobs_preset' => array(
 					'type'        => 'range',
 					'label'       => esc_html__( 'Presets', '__theme_txtd' ),
-					'desc'        => esc_html__( '', '__theme_txtd' ),
+					'desc'        => '',
 					'live'        => true,
 					'default'     => 218,
 					'input_attrs' => array(
@@ -257,7 +257,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 				'blobs_complexity' => array(
 					'type'        => 'range',
 					'label'       => esc_html__( 'Complexity', '__theme_txtd' ),
-					'desc'        => esc_html__( '', '__theme_txtd' ),
+					'desc'        => '',
 					'live'        => true,
 					'default'     => 84,
 					'input_attrs' => array(
@@ -273,7 +273,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 				'blobs_dispersion' => array(
 					'type'        => 'range',
 					'label'       => esc_html__( 'Dispersion', '__theme_txtd' ),
-					'desc'        => esc_html__( '', '__theme_txtd' ),
+					'desc'        => '',
 					'live'        => true,
 					'default'     => 26,
 					'input_attrs' => array(
@@ -294,7 +294,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 				'blobs_smoothness' => array(
 					'type'        => 'range',
 					'label'       => esc_html__( 'Smoothness', '__theme_txtd' ),
-					'desc'        => esc_html__( '', '__theme_txtd' ),
+					'desc'        => '',
 					'live'        => true,
 					'default'     => 25,
 					'input_attrs' => array(
@@ -1380,7 +1380,7 @@ function vasco_customify_header_section( $section_options, $options ) {
 	$section_options['header_section']['options'] = Pixelgrade_Array::insertAfterKey( $section_options['header_section']['options'], 'header_background', array(
 		'header_submenu_background' => array(
 			'type'    => 'color',
-			'label'   => esc_html__( 'Submenu Background', '__components_txtd' ),
+			'label'   => esc_html__( 'Submenu Background', '__theme_txtd' ),
 			'live'    => true,
 			'default' => SM_LIGHT_PRIMARY,
 			'css'     => array(
@@ -1423,6 +1423,7 @@ function vasco_customify_footer_section( $section_options, $options ) {
 			'options' => array(
 				// [Section] Layout
 				'copyright_text'               => array(
+					/* translators: %year%: current year, %site-title%: the site title */
 					'default' => esc_html__( '&copy; %year% %site-title%.', '__theme_txtd' ),
 				),
 				'footer_top_spacing'           => array(

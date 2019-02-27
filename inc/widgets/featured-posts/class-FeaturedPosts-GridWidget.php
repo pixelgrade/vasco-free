@@ -37,7 +37,7 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_GridWidget' ) ) :
 	                'primary_meta'            => array(
 		                'options'  => array(
 			                // Add a new option
-			                'comments_category' => esc_html__( 'Comments + Category', '__components_txtd' ),
+			                'comments_category' => esc_html__( 'Comments + Category', '__theme_txtd' ),
 		                ),
 	                ),
                 ),
