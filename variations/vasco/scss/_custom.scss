@@ -115,16 +115,9 @@ span.page-numbers {
     }
   }
 
-  .site-header {
-    position: relative;
-    top: 0;
-    width: 100%;
-    padding: 0;
-  }
-
   &.admin-bar {
     .site-header {
-      top: 32px;
+      @include wp-offset(top, 0, true);
     }
   }
 }
