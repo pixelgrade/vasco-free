@@ -111,7 +111,7 @@ if ( ! class_exists( 'Pixelgrade_CategoriesWidget' ) ) :
 				    'show_subcategories'  => array(
 					    'type'       => 'checkbox',
 					    'label'      => esc_html__( 'Show Sub-categories', '__theme_txtd' ),
-					    'desc'       => esc_html__( '', '__theme_txtd' ),
+					    'desc'       => '',
 					    'default'    => true,
 					    'display_on' => array(
 						    'display' => true,
@@ -126,7 +126,7 @@ if ( ! class_exists( 'Pixelgrade_CategoriesWidget' ) ) :
 				    'show_count'          => array(
 					    'type'     => 'checkbox',
 					    'label'    => esc_html__( 'Show Post Count', '__theme_txtd' ),
-					    'desc'     => esc_html__( '', '__theme_txtd' ),
+					    'desc'     => '',
 					    'default'  => true,
 					    'section'  => 'default',
 					    'priority' => 80,

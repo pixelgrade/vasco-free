@@ -17,13 +17,18 @@
 
   display: block;
 
-  font-family: 'Dry Brush', fantasy;
+  font-family: 'Edo', fantasy;
   @include fontsize(614px);
   line-height: 1;
 
-  opacity: 0.1;
+  opacity: 0;
+  transition: opacity .2s ease-out;
   transform: translate(-50%, -50%);
   pointer-events: none;
+
+  &[style] {
+    opacity: 0.1;
+  }
 
   @include below(pad) {
     display: none;

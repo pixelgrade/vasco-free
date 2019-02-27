@@ -50,27 +50,6 @@ function vasco_hkgrotesk_font_url() {
 	return '';
 }
 
-/**
- * Generate the Dry Brush font URL
- *
- * @since Vasco 1.0
- *
- * @return string
- */
-function vasco_drybrush_font_url() {
-
-	/* Translators: If there are characters in your language that are not
-	* supported by HK Grotesk, translate this to 'off'. Do not translate
-	* into your own language.
-	*/
-	$drybrush = esc_html_x( 'on', 'HK Grotesk font: on or off', '__theme_txtd' );
-	if ( 'off' !== $drybrush ) {
-		return get_template_directory_uri() . '/assets/fonts/drybrush/stylesheet.css';
-	}
-
-	return '';
-}
-
 
 /**
  * Generate the Bebas Neue font URL
@@ -92,6 +71,29 @@ function vasco_bebasneue_font_url() {
 
 	return '';
 }
+
+
+/**
+ * Generate the Edo font URL
+ *
+ * @since Vasco 1.3.4
+ *
+ * @return string
+ */
+function vasco_edo_font_url() {
+
+	/* Translators: If there are characters in your language that are not
+	* supported by Edo, translate this to 'off'. Do not translate
+	* into your own language.
+	*/
+	$edo = esc_html_x( 'on', 'Edo font: on or off', '__theme_txtd' );
+	if ( 'off' !== $edo ) {
+		return get_template_directory_uri() . '/assets/fonts/edo/stylesheet.css';
+	}
+
+	return '';
+}
+
 
 if ( ! function_exists( 'vasco_google_fonts_url' ) ) :
 	/**
@@ -247,7 +249,7 @@ function vasco_handle_comments_category_post_meta( $meta, $key ) {
 				// If we are on a page then we only want the main category
 				$main_category = pixelgrade_get_main_category_link();
 				if ( ! empty( $main_category ) ) {
-					$category_meta .= '<span class="screen-reader-text">' . esc_html__( 'Main Category', '__components_txtd' ) . '</span><ul>' . PHP_EOL;
+					$category_meta .= '<span class="screen-reader-text">' . esc_html__( 'Main Category', '__theme_txtd' ) . '</span><ul>' . PHP_EOL;
 					$category_meta .= '<li>' . $main_category . '</li>' . PHP_EOL;
 					$category_meta .= '</ul>' . PHP_EOL;
 				}
@@ -255,7 +257,7 @@ function vasco_handle_comments_category_post_meta( $meta, $key ) {
 				// On archives we want to show all the categories, not just the main one
 				$categories = get_the_terms( get_the_ID(), 'category' );
 				if ( ! is_wp_error( $categories ) && ! empty( $categories ) ) {
-					$category_meta .= '<span class="screen-reader-text">' . esc_html__( 'Categories', '__components_txtd' ) . '</span><ul>' . PHP_EOL;
+					$category_meta .= '<span class="screen-reader-text">' . esc_html__( 'Categories', '__theme_txtd' ) . '</span><ul>' . PHP_EOL;
 					foreach ( $categories as $this_category ) {
 						$category_meta .= '<li><a href="' . esc_url( get_category_link( $this_category ) ) . '" rel="category">' . $this_category->name . '</a></li>' . PHP_EOL;
 					};

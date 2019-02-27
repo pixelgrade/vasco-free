@@ -42,6 +42,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 						'type'            => 'textarea',
 						'label'           => esc_html__( 'Headline:', '__theme_txtd' ),
 						'rows'            => 3,
+						// translators: the first name of the author
 						'default'         => esc_html__( 'Howdy! I\'m %first_name%, a millennial traveler<span class="hidden-mobile"> eager to wander the world and inspire others do the same</span>.', '__theme_txtd' ),
 						'section'         => 'content',
 						// This will be applied before rendering the widget output
