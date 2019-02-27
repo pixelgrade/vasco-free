@@ -80,6 +80,11 @@ span.page-numbers {
 
 }
 
+.c-navbar__zone {
+  @include spacing(padding-left, $header-sides-spacing);
+  @include spacing(padding-right, $header-sides-spacing);
+}
+
 .lite-version {
   .c-navbar li[class*='children'] {
     > a:after {

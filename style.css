@@ -4468,7 +4468,8 @@ body {
 .h0 {
   font-family: "YoungSerif", serif;
   font-size: 72px;
-  line-height: 1.11111; }
+  line-height: 1.11111;
+  color: #2B3D39; }
   @media only screen and (max-width: 1024px) {
     .h0 {
       font-size: 43.95008px; } }
@@ -4504,7 +4505,8 @@ body {
 .h1, h1 {
   font-family: "YoungSerif", serif;
   font-size: 48px;
-  line-height: 1.16667; }
+  line-height: 1.16667;
+  color: #2B3D39; }
   @media only screen and (max-width: 1024px) {
     .h1, h1 {
       font-size: 30.76267px; } }
@@ -4540,7 +4542,8 @@ body {
 .h2, h2 {
   font-family: "YoungSerif", serif;
   font-size: 40px;
-  line-height: 1.1; }
+  line-height: 1.1;
+  color: #2B3D39; }
   @media only screen and (max-width: 1024px) {
     .h2, h2 {
       font-size: 30.2054px; } }
@@ -4576,7 +4579,8 @@ body {
 .h3, h3 {
   font-family: "YoungSerif", serif;
   font-size: 24px;
-  line-height: 1.41667; }
+  line-height: 1.41667;
+  color: #2B3D39; }
   @media only screen and (max-width: 1024px) {
     .h3, h3 {
       font-size: 22.42903px; } }
@@ -4613,7 +4617,8 @@ body {
   font-family: "HK Grotesk", sans-serif;
   font-size: 19px;
   line-height: 1.21053;
-  font-weight: 500; }
+  font-weight: 500;
+  color: #F59828; }
   @media only screen and (max-width: 1024px) {
     .h4, h4 {
       font-size: 18.36188px; } }
@@ -4652,7 +4657,8 @@ body {
   line-height: 1.25;
   font-weight: bold;
   letter-spacing: 0.07143em;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  color: #F59828; }
   @media only screen and (max-width: 1024px) {
     .h5, h5 {
       font-size: 13.80803px; } }
@@ -4691,7 +4697,8 @@ body {
   line-height: 1.25;
   font-weight: bold;
   letter-spacing: 0.08333em;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  color: #F59828; }
   @media only screen and (max-width: 1024px) {
     .h6, h6 {
       font-size: 11.89585px; } }
@@ -12456,6 +12463,28 @@ span.page-numbers[class][class] {
   .c-navbar a {
     padding-left: 28px;
     padding-right: 28px; }
+
+.c-navbar__zone {
+  padding-left: 42px;
+  padding-right: 42px; }
+  @media only screen and (max-width: 1024px) {
+    .c-navbar__zone {
+      padding-left: 30.45317px; } }
+  @media only screen and (max-width: 768px) {
+    .c-navbar__zone {
+      padding-left: 23.88626px; } }
+  @media only screen and (max-width: 320px) {
+    .c-navbar__zone {
+      padding-left: 19.64912px; } }
+  @media only screen and (max-width: 1024px) {
+    .c-navbar__zone {
+      padding-right: 30.45317px; } }
+  @media only screen and (max-width: 768px) {
+    .c-navbar__zone {
+      padding-right: 23.88626px; } }
+  @media only screen and (max-width: 320px) {
+    .c-navbar__zone {
+      padding-right: 19.64912px; } }
 
 .lite-version .c-navbar li[class*='children'] > a:after {
   display: none; }
