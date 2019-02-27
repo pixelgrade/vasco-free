@@ -24,10 +24,12 @@ function vasco_lite_widgets_message( $html_message, $args, $instance ) {
 
 	foreach ( $disallowed_widgets as $widget ) {
 		if ( 0 === strpos( $args['widget_id'], $widget ) ) {
+
 			$html_message = '<div class="c-alert  c-alert--danger">
-                    <h4 class="c-alert__title">'. esc_html__( '🤦 Widget Type Not Available In Free Version', '__theme_txtd' ) . '</h4>
+                    <h4 class="c-alert__title">' . esc_html__( '🤦 Widget Type Not Available In Free Version', '__theme_txtd' ) . '</h4>
                     <div class="c-alert__body">
-                        <p>'.  sprintf( esc_html__( 'The %s is not available in the Free version, but hey, the Pro version is just around the corner!', '__theme_txtd' ), '<em>' . $args['widget_name'] . '</em>' ) .'</p>
+                        <p>' . /* translators: %s: the widget name */
+			                sprintf( esc_html__( 'The %s is not available in the Lite version, but hey, the Pro version is just around the corner!', '__theme_txtd' ), '<em>' . $args['widget_name'] . '</em>' ) . '</p>
                     </div>
                 </div>';
 		}
@@ -43,7 +45,6 @@ add_filter( 'pixelgrade_sidebar_not_supported_message', 'vasco_lite_widgets_mess
 function vasco_lite_customizer_assets() {
 	wp_enqueue_style( 'vasco_lite_customizer_style', get_template_directory_uri() . '/inc/lite/admin/customizer.css', null, '1.0.0', false );
 }
-
 add_action( 'customize_controls_enqueue_scripts', 'vasco_lite_customizer_assets' );
 
 /**
@@ -105,18 +106,17 @@ function vasco_lite_customize_register( $wp_customize ) {
 		)
 	);
 }
-
 add_action( 'customize_register', 'vasco_lite_customize_register' );
 
 /**
- * Generate a link to the Vasco Lite info page.
+ * Generate a link to the Vasco (Free) info page.
  */
 function vasco_lite_get_pro_link() {
 	return 'https://pixelgrade.com/themes/blogging/vasco-pro?utm_source=vasco-lite-clients&utm_medium=customizer&utm_campaign=vasco-lite';
 }
 
 function vasco_lite_footer_credits_url( $url ) {
-	return 'https://pixelgrade.com/?utm_source=felt-lite-clients&utm_medium=footer&utm_campaign=felt-lite';
+	return 'https://pixelgrade.com/?utm_source=vasco-lite-clients&utm_medium=footer&utm_campaign=vasco-lite';
 }
 add_filter( 'pixelgrade_footer_credits_url', 'vasco_lite_footer_credits_url' );
 

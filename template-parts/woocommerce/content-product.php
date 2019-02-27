@@ -92,7 +92,7 @@ if ( ! $product ) {
                 <?php if ( $product->is_on_sale() ) { ?>
                     <div class="c-card__meta c-meta">
                         <div class="c-meta__secondary">
-				            <?php esc_html_e( 'Sale!', 'woocommerce' ); ?>
+				            <?php echo esc_html__( 'Sale!', '__theme_txtd' ); ?>
                         </div>
                     </div>
 	            <?php } ?>

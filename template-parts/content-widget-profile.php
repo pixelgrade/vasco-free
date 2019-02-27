@@ -57,13 +57,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php if ( ! empty ( $image ) ) { ?>
 
 	<div class="c-profile__media">
-		<?php echo wp_get_attachment_image( $image, 'pixelgrade_single_landscape' ); ?>
+		<?php echo wp_get_attachment_image( $image, 'pixelgrade_single_landscape' );
 
-		<?php if ( pixelgrade_option( 'show_stamps' ) ) {
+		if ( pixelgrade_option( 'show_stamps' ) ) {
 			get_template_part( 'template-parts/content-stamp' );
-		} ?>
+		}
 
-		<?php if ( pixelgrade_option( 'show_blobs' ) ) {
+		if ( pixelgrade_option( 'show_blobs' ) ) {
 			get_template_part( 'template-parts/content-blob' );
 		} ?>
 	</div>

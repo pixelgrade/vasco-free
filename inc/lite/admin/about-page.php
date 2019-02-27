@@ -1,8 +1,8 @@
 <?php
 /**
- * Vasco Lite Theme About Page logic.
+ * Vasco (Free) Theme About Page logic.
  *
- * @package Vasco Lite
+ * @package Vasco Free
  */
 
 function vasco_lite_admin_setup() {
@@ -45,7 +45,7 @@ function vasco_lite_admin_setup() {
 				'icon' => 'dashicons dashicons-sos',
 				'text' => wp_kses( __( 'We want to make sure you have the best experience using Vasco. If you <strong>do not have a paid upgrade</strong>, please post your question in our community forums.', '__theme_txtd' ), wp_kses_allowed_html() ),
 				'button_label' => esc_html__( 'Contact Support','__theme_txtd' ),
-				'button_link' => esc_url( 'https://wordpress.org/support/theme/vasco-lite' ),
+				'button_link' => esc_url( 'https://wordpress.org/support/theme/vasco' ),
 				'is_button' => true,
 				'is_new_tab' => true
 			),
@@ -54,7 +54,7 @@ function vasco_lite_admin_setup() {
 				'icon' => 'dashicons dashicons-book-alt',
 				'text' => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Vasco.','__theme_txtd' ),
 				'button_label' => esc_html__( 'Read The Documentation','__theme_txtd' ),
-				'button_link' => 'https://pixelgrade.com/vasco-lite-documentation/',
+				'button_link' => 'https://pixelgrade.com/vasco-documentation/',
 				'is_button' => false,
 				'is_new_tab' => true
 			)
@@ -84,7 +84,7 @@ function vasco_lite_admin_setup() {
 				'title' => esc_html__( 'Read the documentation','__theme_txtd' ),
 				'text' => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Vasco.','__theme_txtd' ),
 				'button_label' => esc_html__( 'Documentation','__theme_txtd' ),
-				'button_link' => 'https://pixelgrade.com/vasco-lite-documentation/',
+				'button_link' => 'https://pixelgrade.com/vasco-documentation/',
 				'is_button' => false,
 				'recommended_actions' => false,
 				'is_new_tab' => true
@@ -92,9 +92,9 @@ function vasco_lite_admin_setup() {
 		),
 		// Free vs pro array.
 		'free_pro'                => array(
-			'free_theme_name'     => 'Vasco Lite',
+			'free_theme_name'     => 'Vasco Free',
 			'pro_theme_name'      => 'Vasco PRO',
-			'pro_theme_link'      => 'https://pixelgrade.com/themes/vasco-pro/?utm_source=vasco-lite-clients&utm_medium=about-page&utm_campaign=vasco-lite',
+			'pro_theme_link'      => 'https://pixelgrade.com/themes/blogging/vasco-pro/?utm_source=vasco-lite-clients&utm_medium=about-page&utm_campaign=vasco-lite',
 			/* translators: View link */
 			'get_pro_theme_label' => sprintf( esc_html__( 'Get %s', '__theme_txtd' ), 'Vasco Pro' ),
 			'features'            => array(
