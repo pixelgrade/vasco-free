@@ -1001,7 +1001,9 @@ table {
     border-bottom: 0 solid rgba(0, 0, 0, 0.1); }
   table th,
   table td {
-    padding: 14px; }
+    padding: 14px;
+    max-width: 100%;
+    white-space: nowrap; }
     @media only screen and (max-width: 1024px) {
       table th,
       table td {
@@ -4320,7 +4322,8 @@ ul.page-numbers[class][class] {
 .entry-content .cats {
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: center; }
+          align-items: center;
+  clear: both; }
   .entry-content .cats__title {
     margin-top: 5px; }
   .entry-content .cats[class] > a {
@@ -4330,7 +4333,8 @@ ul.page-numbers[class][class] {
             box-shadow: none; }
 
 .entry-content .tags {
-  margin-top: 42px; }
+  margin-top: 42px;
+  clear: both; }
   @media only screen and (max-width: 1024px) {
     .entry-content .tags {
       margin-top: 30.45317px; } }
@@ -11629,6 +11633,17 @@ body .widget_nav_menu {
 .u-underlined-links .wp-block-button__link {
   text-decoration: none; }
 
+.entry-content .wp-block-gallery[class] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.entry-content .wp-block-categories-list.aligncenter {
+  text-align: center;
+  list-style-position: inside; }
+  .entry-content .wp-block-categories-list.aligncenter ul {
+    list-style-position: inside; }
+
 .edit-link {
   display: none; }
 
@@ -12098,18 +12113,6 @@ input[type=submit] {
 .entry-content .cats__title {
   display: none; }
 
-.entry-content .cats {
-  margin-top: -14px; }
-  @media only screen and (max-width: 1024px) {
-    .entry-content .cats {
-      margin-top: -12.56357px; } }
-  @media only screen and (max-width: 768px) {
-    .entry-content .cats {
-      margin-top: -11.39447px; } }
-  @media only screen and (max-width: 320px) {
-    .entry-content .cats {
-      margin-top: -10.42442px; } }
-
 .entry-content .tags {
   margin-top: 28px; }
   @media only screen and (max-width: 1024px) {
@@ -12133,6 +12136,19 @@ input[type=submit] {
   @media only screen and (max-width: 320px) {
     .entry-content .sharedaddy {
       margin-top: 16.71642px; } }
+
+.post-password-form input[type="submit"] {
+  margin-top: 14px;
+  width: 100%; }
+  @media only screen and (max-width: 1024px) {
+    .post-password-form input[type="submit"] {
+      margin-top: 12.56357px; } }
+  @media only screen and (max-width: 768px) {
+    .post-password-form input[type="submit"] {
+      margin-top: 11.39447px; } }
+  @media only screen and (max-width: 320px) {
+    .post-password-form input[type="submit"] {
+      margin-top: 10.42442px; } }
 
 .meta__item--button, .entry-content .cats[class] > a {
   display: inline-block;

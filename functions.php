@@ -203,6 +203,9 @@ add_action( 'wp_enqueue_scripts', 'vasco_scripts' );
 
 function vasco_gutenberg_styles() {
 	wp_enqueue_style( 'vasco-gutenberg', get_theme_file_uri( '/editor.css' ), false );
+	wp_enqueue_style( 'vasco-fonts-youngserif', vasco_youngserif_font_url() );
+	wp_enqueue_style( 'vasco-fonts-hkgrotesk', vasco_hkgrotesk_font_url() );
+	wp_enqueue_style( 'vasco-google-fonts', vasco_google_fonts_url() );
 
 	$content_width = pixelgrade_option( 'main_content_content_width' );
 	$container_width = pixelgrade_option( 'main_content_container_width', 1240 ) - 356;

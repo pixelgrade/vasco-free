@@ -25,25 +25,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <?php if ( has_post_thumbnail() ) { ?>
+        <div class="entry-thumbnail">
+            <div>
+            <?php
+            $show_blobs = pixelgrade_option( 'show_blobs', false );
 
-	<div class="entry-thumbnail">
-		<?php
-		$show_blobs = pixelgrade_option( 'show_blobs', false );
+            if ( $show_blobs ) { ?>
+            <div class="blob-container">
+                <?php pixelgrade_render_block( 'blog/content-stamp' ); ?>
+            <?php } ?>
 
-		if ( $show_blobs ) { ?>
-		<div class="blob-container">
-			<?php pixelgrade_render_block( 'blog/content-stamp' ); ?>
-		<?php } ?>
+                <?php the_post_thumbnail( 'pixelgrade_single_' . pixelgrade_get_post_thumbnail_aspect_ratio_class() ); ?>
 
-			<?php the_post_thumbnail( 'pixelgrade_single_' . pixelgrade_get_post_thumbnail_aspect_ratio_class() ); ?>
+                <?php if ( $show_blobs ) {
+                    get_template_part( 'template-parts/content-blob' );
+                } ?>
 
-			<?php if ( $show_blobs ) {
-				get_template_part( 'template-parts/content-blob' );
-			} ?>
-
-		<?php if ( $show_blobs ) { ?>
-		</div>
-		<?php } ?>
-	</div>
+            <?php if ( $show_blobs ) { ?>
+            </div>
+            <?php } ?>
+        </div>
+    </div>
 
 <?php } ?>
