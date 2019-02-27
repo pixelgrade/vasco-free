@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	        $cart_count_span = '';
 
 	        if ( $cart_item_count ) {
-		        $cart_count_span = '<div class="cart-count"><span>' . $cart_item_count . '</span></div>';
+		        $cart_count_span = '<div class="cart-count"><span>' . esc_html( $cart_item_count ) . '</span></div>';
 	        }
 
             echo '<div class="c-cart-trigger">';
@@ -35,4 +35,4 @@ if ( ! defined( 'ABSPATH' ) ) {
         } ?>
     </div>
 
-<?php get_template_part( 'template-parts/search-overlay' ); ?>
+<?php get_template_part( 'template-parts/search-overlay' );

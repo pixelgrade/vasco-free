@@ -41,14 +41,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php
 			$blobs_smoothness = pixelgrade_option( 'blobs_smoothness', 10 );
 			?>
-			<feGaussianBlur in="SourceGraphic" stdDeviation="<?php echo $blobs_smoothness; ?>" result="blur"/>
+			<feGaussianBlur in="SourceGraphic" stdDeviation="<?php echo esc_attr( $blobs_smoothness ); ?>" result="blur"/>
 			<feColorMatrix
 				in="blur"
 				mode="matrix"
 				values="1 0 0 0 0
 					0 1 0 0 0
 					0 0 1 0 0
-					0 0 0 <?php echo 1 + $blobs_smoothness . ' -' . $blobs_smoothness / 3; ?>"
+					0 0 0 <?php echo esc_attr( 1 + $blobs_smoothness . ' -' . $blobs_smoothness / 3 ); ?>"
 				result="goo"/>
 		</filter>
 		<?php if ( ! is_customize_preview() && $blobs_smoothness > 20 ): ?>

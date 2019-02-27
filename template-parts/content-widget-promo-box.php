@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="c-promo__content">
 
 		<?php if ( ! empty( $title ) ) { ?>
-			<div class="c-promo__title"><div><?php echo $title // WPCS: XSS OK. ?></div></div>
+			<div class="c-promo__title"><div><?php echo $title; // WPCS: XSS OK. ?></div></div>
 		<?php } ?>
 
 		<?php if ( ! empty( $description ) ) { ?>
@@ -45,7 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php if ( ! empty ( $image ) ) { ?>
 	<div class="c-promo__media">
-		<?php echo wp_get_attachment_image( $image, 'pixelgrade_single_portrait' ); ?>
+		<?php echo wp_get_attachment_image( $image, 'pixelgrade_single_portrait' ); // WPCS: XSS OK. ?>
 
 		<?php if ( pixelgrade_option( 'show_stamps' ) ) {
 			get_template_part( 'template-parts/content-stamp' );

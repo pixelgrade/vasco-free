@@ -60,10 +60,10 @@ function vasco_hkgrotesk_font_url() {
 function vasco_drybrush_font_url() {
 
 	/* Translators: If there are characters in your language that are not
-	* supported by HK Grotesk, translate this to 'off'. Do not translate
+	* supported by Dry Brush, translate this to 'off'. Do not translate
 	* into your own language.
 	*/
-	$drybrush = esc_html_x( 'on', 'HK Grotesk font: on or off', '__theme_txtd' );
+	$drybrush = esc_html_x( 'on', 'Dry Brush font: on or off', '__theme_txtd' );
 	if ( 'off' !== $drybrush ) {
 		return get_template_directory_uri() . '/assets/fonts/drybrush/stylesheet.css';
 	}

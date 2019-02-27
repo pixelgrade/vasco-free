@@ -43,7 +43,7 @@ $secondary_meta_output = $secondary_meta !== 'none' ? pixelgrade_get_post_meta( 
 do_action( 'pixelgrade_before_loop_entry', $location );
 ?>
 
-	<article id="post-<?php the_ID(); ?>" <?php post_class() ?>>
+	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 		<div class="c-card">
 
@@ -55,14 +55,16 @@ do_action( 'pixelgrade_before_loop_entry', $location );
 			?>
 
 			<div class="c-card__meta c-meta">
-				<div class="c-meta__primary"> <?php if ( $primary_meta_output ) { echo $primary_meta_output; } ?> </div>
+				<div class="c-meta__primary"> <?php if ( $primary_meta_output ) {
+					echo $primary_meta_output; // WPCS: XSS OK.
+				} ?> </div>
 			</div>
 
-			<?php if ( pixelgrade_option( 'blog_items_title_position' ) === 'above' && pixelgrade_option( 'blog_grid_layout' ) !== 'packed' ) { ?>
-				<?php if ( pixelgrade_option( 'blog_items_title_visibility', true ) && get_the_title() ) { ?>
+			<?php if ( pixelgrade_option( 'blog_items_title_position' ) === 'above' && pixelgrade_option( 'blog_grid_layout' ) !== 'packed' ) {
+				if ( pixelgrade_option( 'blog_items_title_visibility', true ) && get_the_title() ) { ?>
 					<h2 class="c-card__title"><span><?php the_title(); ?></span></h2>
-				<?php } ?>
-			<?php } ?>
+				<?php }
+			} ?>
 
 			<?php if ( pixelgrade_display_featured_images() ) { ?>
 				<div class="c-card__aside c-card__thumbnail-background">
@@ -76,7 +78,7 @@ do_action( 'pixelgrade_before_loop_entry', $location );
 					<?php if ( $secondary_meta_output ) { ?>
 
 					<div class="c-card__meta c-meta">
-						<div class="c-meta__secondary"> <?php echo $secondary_meta_output; ?></div>
+						<div class="c-meta__secondary"> <?php echo $secondary_meta_output; // WPCS: XSS OK. ?></div>
 					</div>
 
 					<?php } ?>
@@ -96,7 +98,7 @@ do_action( 'pixelgrade_before_loop_entry', $location );
 				<?php } ?>
 
 				<div class="c-card__footer">
-					<div class="c-card__action"><?php esc_html_e( 'Read More', '__components_txtd' ); ?></div>
+					<div class="c-card__action"><?php esc_html_e( 'Read More', '__theme_txtd' ); ?></div>
 				</div>
 
 			</div>

@@ -16,7 +16,7 @@ $link = pixelgrade_option( 'announcement_bar_link' );
 <?php if ( apply_filters( 'pixelgrade_enable_pro_features', false ) ) { ?>
     <div class="c-announcement-bar c-announcement-bar--hidden">
         <a class="c-announcement-bar__text" href="<?php echo esc_url( $link ); ?>" target="_blank">
-            <?php echo $text; ?>
+            <?php echo wp_kses_post( $text ); ?>
         </a>
         <a href class="c-announcement-bar__close js-announcement-bar__close">
             <?php get_template_part( 'template-parts/svg/icon-close' ); ?>

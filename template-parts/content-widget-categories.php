@@ -2,6 +2,9 @@
 /**
  * Template part for displaying the Categories widget.
  *
+ * The variables bellow, that are available in the scope of this file, are already sanitized in the
+ * Pixelgrade_WidgetFields class with the sanitizeFields() method.
+ *
  * @global array $args The widget display options.
  * @global array $queried_categories The queried categories.
  * @global string $title The title text.
@@ -23,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! empty( $queried_categories ) || ! is_wp_error( $queried_categories ) ) { ?>
 
 	<?php if ( ! empty( $title ) ) {
-		echo $args['before_title'] . $title . $args['after_title'];
+		echo $args['before_title'] . $title . $args['after_title']; // WPCS: XSS OK.
 	} ?>
 
 	<div class="c-categories__content">

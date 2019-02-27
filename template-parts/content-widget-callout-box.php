@@ -2,6 +2,9 @@
 /**
  * Template part for displaying the Callout Box widget.
  *
+ * The variables bellow, that are available in the scope of this file, are already sanitized in the
+ * Pixelgrade_WidgetFields class with the sanitizeFields() method.
+ *
  * @global array $args The widget display options.
  * @global string $title The title text.
  * @global string $description The description text.

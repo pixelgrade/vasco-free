@@ -2,6 +2,9 @@
 /**
  * Template part for displaying the Profile widget.
  *
+ * The variables bellow, that are available in the scope of this file, are already sanitized in the
+ * Pixelgrade_WidgetFields class with the sanitizeFields() method.
+ *
  * @global array $args The widget display options.
  * @global array $args The widget display options.
  * @global string $title The title text.
@@ -26,25 +29,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php if ( ! empty( $title ) || ! empty( $description ) || ( ! empty( $button_text ) && ! empty( $button_url ) ) ) { ?>
 
 	<?php if ( ! empty( $title ) ) { ?>
-		<div class="c-profile__dropcap"><?php echo substr( $title, 0, 1 ); ?></div>
+		<div class="c-profile__dropcap"><?php echo substr( $title, 0, 1 ); // WPCS: XSS OK. ?></div>
 	<?php } ?>
 
 	<div class="c-profile__content">
 
 		<?php if ( ! empty( $subtitle ) ) { ?>
-			<div class="c-profile__subtitle h5"><?php echo $subtitle; ?></div>
+			<div class="c-profile__subtitle h5"><?php echo $subtitle; // WPCS: XSS OK. ?></div>
 		<?php } ?>
 
 		<?php if ( ! empty( $title ) ) { ?>
-			<div class="c-profile__title h2"><?php echo $title ?></div>
+			<div class="c-profile__title h2"><?php echo $title; // WPCS: XSS OK. ?></div>
 		<?php } ?>
 
 		<?php if ( ! empty( $description ) ) { ?>
-			<p class="c-profile__description"><?php echo $description; ?></p>
+			<p class="c-profile__description"><?php echo $description; // WPCS: XSS OK. ?></p>
 		<?php } ?>
 
 		<?php if ( ! empty( $button_text ) && ! empty( $button_url ) ) { ?>
-			<a href="<?php echo esc_url( $button_url ); ?>" class="c-profile__btn c-btn"><?php echo $button_text; ?></a>
+			<a href="<?php echo esc_url( $button_url ); ?>" class="c-profile__btn c-btn"><?php echo $button_text; // WPCS: XSS OK. ?></a>
 		<?php } ?>
 
 	</div>

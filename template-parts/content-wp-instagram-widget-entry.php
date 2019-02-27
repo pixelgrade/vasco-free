@@ -4,6 +4,13 @@
  *
  * @link https://wordpress.org/plugins/wp-instagram-widget/
  *
+ * @global string $liclass
+ * @global array $item
+ * @global string $target
+ * @global string $aclass
+ * @global string $imgclass
+ * @global string $size
+ *
  * @package Vasco
  * @since 1.0.0
  */
@@ -20,6 +27,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<img src="<?php echo esc_url( $item[ $size ] ) ?>"
 		     title="<?php if ( ! is_customize_preview() ) { echo esc_attr( vasco_remove_emoji( $item['description'] ) ); } ?>"
 		     alt="<?php if ( ! is_customize_preview() ) { echo esc_attr( vasco_remove_emoji( $item['description'] ) ); } ?>"
-		     class="<?php echo esc_attr( $imgclass ) ?>"/>
+		     class="<?php echo esc_attr( $imgclass ) ?>" />
 	</a>
 </li>
