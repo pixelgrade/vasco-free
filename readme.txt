@@ -38,6 +38,5 @@ The Vasco Theme bundles the following third-party resources:
 * Bebas Neue font (c) 2014, [Flat-it](https://dharmatype.com/), licensed under [SIL Open Font License v1.10](https://www.fontsquirrel.com/license/bebas-neue)
 
 * normalize.css https://necolas.github.io/normalize.css/, (c) 2012-2019 Nicolas Gallagher and Jonathan Neal, licensed under [MIT](https://opensource.org/licenses/MIT)
-* slick http://kenwheeler.github.io/slick/, Copyright (c) 2017 [Ken Wheeler](https://github.com/kenwheeler), licensed under [MIT](https://opensource.org/licenses/MIT)
 * bundled scripts in assets/js/commons.js: rx.js script by mattpodwysocki (https://www.npmjs.com/~mattpodwysocki) and vvilhonen (https://www.npmjs.com/~vvilhonen), licensed under [Apache 2.0](https://directory.fsf.org/wiki/License:Apache-2.0).
 
