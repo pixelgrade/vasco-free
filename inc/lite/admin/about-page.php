@@ -92,9 +92,9 @@ function vasco_lite_admin_setup() {
 		),
 		// Free vs pro array.
 		'free_pro'                => array(
-			'free_theme_name'     => 'Vasco',
+			'free_theme_name'     => 'Vasco Free',
 			'pro_theme_name'      => 'Vasco PRO',
-			'pro_theme_link'      => 'https://pixelgrade.com/themes/vasco-pro/?utm_source=vasco-lite-clients&utm_medium=about-page&utm_campaign=vasco-lite',
+			'pro_theme_link'      => 'https://pixelgrade.com/themes/blogging/vasco-pro/?utm_source=vasco-lite-clients&utm_medium=about-page&utm_campaign=vasco-lite',
 			/* translators: View link */
 			'get_pro_theme_label' => sprintf( esc_html__( 'Get %s', '__theme_txtd' ), 'Vasco Pro' ),
 			'features'            => array(
