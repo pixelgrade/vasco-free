@@ -3,7 +3,6 @@
   position: relative;
 }
 
-$footer-menu-separator: '\2022' !default;
 
 .c-footer__zone--bottom {
 
@@ -15,7 +14,7 @@ $footer-menu-separator: '\2022' !default;
     padding-left: 0;
 
     li:not(:first-child):before {
-      content: $footer-menu-separator;
+      content: '\2022';
       width: 1em;
       text-align: center;
       display: inline-block;
