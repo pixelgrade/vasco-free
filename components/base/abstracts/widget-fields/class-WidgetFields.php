@@ -230,7 +230,7 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
 									'open',
 									'closed'
 								) ) ) {
-								$state_value = $_REQUEST['widget-section-state'][ $section_id ];
+								$state_value = $_REQUEST['widget-section-state'][ $section_id ]; // @codingStandardsIgnoreLine
 							}
 
 							// We will use the state value as a class also!!!
@@ -1476,7 +1476,9 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
 			$html_message = '<div class="c-alert  c-alert--danger">
                     <h4 class="c-alert__title">'. esc_html__( '🤦 Widget Type Not Supported Here', '__components_txtd' ) . '</h4>
                     <div class="c-alert__body">
-                        <p>'.  sprintf( esc_html__( 'Oops! The %s is not supported in this area, but don\'t panic . You can try to move it to another section or just replace it . ', '__components_txtd' ), '<em>' . $args['widget_name'] . '</em>' ) .'</p>
+                        <p>' .
+			                /* translators: %s: the widget name */
+			                sprintf( esc_html__( 'Oops! The %s is not supported in this area, but don\'t panic . You can try to move it to another section or just replace it . ', '__components_txtd' ), '<em>' . $args['widget_name'] . '</em>' ) .'</p>
                     </div>
                 </div>';
 
