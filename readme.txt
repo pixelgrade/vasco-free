@@ -29,7 +29,7 @@ Vasco is a travel blog theme to help you increase your revenue streams and see m
 
 Unless otherwise specified, all the theme files, scripts and images are licensed under GNU General Public License.
 
-Images used in screenshot.jpg: photos by Soroush Karimi (https://stocksnap.io/author/35114) – [Source](https://stocksnap.io/photo/XT3HZBE9GI), Burst (https://stocksnap.io/author/burstshopify) – [Source](https://stocksnap.io/photo/LX71ZFLUKK), Rawpixel (https://stocksnap.io/author/rawpixel) – [Source](https://stocksnap.io/photo/EBXSDDE5IH), Rawpixel (https://stocksnap.io/author/rawpixel) – [Source](https://stocksnap.io/photo/LG7MWHTA8D), Nordwood (https://stocksnap.io/author/nordwood) – [Source](https://stocksnap.io/photo/KNSJXBFYFZ), licensed under [Creative Commons Zero](http://creativecommons.org/publicdomain/zero/1.0/).
+Images used in screenshot.jpg: photos by Warren Wong (https://stocksnap.io/author/43122) – [Source](https://stocksnap.io/photo/7ZGVCPQ3N7).
 
 The Vasco Theme bundles the following third-party resources:
 * HK Grotesk font (c) 2016, [Alfredo Marco Pradil](hello@hanken.co) and HK Grotesk Cyrillic by [Stefan Peev](http://www.contextbg.net/), licensed under [SIL Open Font License v1.10](https://www.fontsquirrel.com/license/hk-grotesk)
@@ -38,6 +38,5 @@ The Vasco Theme bundles the following third-party resources:
 * Bebas Neue font (c) 2014, [Flat-it](https://dharmatype.com/), licensed under [SIL Open Font License v1.10](https://www.fontsquirrel.com/license/bebas-neue)
 
 * normalize.css https://necolas.github.io/normalize.css/, (c) 2012-2019 Nicolas Gallagher and Jonathan Neal, licensed under [MIT](https://opensource.org/licenses/MIT)
-* slick http://kenwheeler.github.io/slick/, Copyright (c) 2017 [Ken Wheeler](https://github.com/kenwheeler), licensed under [MIT](https://opensource.org/licenses/MIT)
 * bundled scripts in assets/js/commons.js: rx.js script by mattpodwysocki (https://www.npmjs.com/~mattpodwysocki) and vvilhonen (https://www.npmjs.com/~vvilhonen), licensed under [Apache 2.0](https://directory.fsf.org/wiki/License:Apache-2.0).
 
