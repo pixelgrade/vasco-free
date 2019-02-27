@@ -85,6 +85,29 @@ span.page-numbers {
   @include spacing(padding-right, $header-sides-spacing);
 }
 
+.no-customify {
+
+  .c-gallery--blog .c-gallery__item--no-image .c-card__frame {
+    padding-top: 0;
+  }
+
+  .c-gallery__item--no-image {
+    .c-card__aside {
+      .c-meta {
+        margin-bottom: 0;
+      }
+
+      + .c-card__content {
+        margin-top: 0.85em;
+      }
+    }
+    .c-card__thumbnail-background {
+      background-color: transparent;
+    }
+  }
+
+}
+
 .lite-version {
   .c-navbar li[class*='children'] {
     > a:after {
