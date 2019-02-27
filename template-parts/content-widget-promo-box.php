@@ -2,6 +2,9 @@
 /**
  * Template part for displaying the Promo Box widget.
  *
+ * The variables bellow, that are available in the scope of this file, are already sanitized in the
+ * Pixelgrade_WidgetFields class with the sanitizeFields() method.
+ *
  * @global int $image The image attachment ID.
  * @global string $title The headline text.
  * @global string $description The description text.
@@ -23,16 +26,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="c-promo__content">
 
 		<?php if ( ! empty( $title ) ) { ?>
-			<div class="c-promo__title"><div><?php echo $title ?></div></div>
+			<div class="c-promo__title"><div><?php echo $title // WPCS: XSS OK. ?></div></div>
 		<?php } ?>
 
 		<?php if ( ! empty( $description ) ) { ?>
-			<div class="c-promo__description"><div><?php echo $description; ?></div></div>
+			<div class="c-promo__description"><div><?php echo $description; // WPCS: XSS OK. ?></div></div>
 		<?php } ?>
 
 		<?php if ( ! empty( $button_text ) && ! empty( $button_url ) ) { ?>
 			<div class="c-promo__action">
-				<a href="<?php echo $button_url; ?>" class="c-promo__btn c-btn"><?php echo $button_text; ?></a>
+				<a href="<?php echo esc_url( $button_url ); ?>" class="c-promo__btn c-btn"><?php echo $button_text; // WPCS: XSS OK. ?></a>
 			</div>
 		<?php } ?>
 
