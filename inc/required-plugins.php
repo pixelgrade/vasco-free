@@ -35,8 +35,8 @@ function vasco_register_required_plugins() {
 			'page_title'                      => esc_html__( 'Install Required Plugins', '__theme_txtd' ),
 			'menu_title'                      => esc_html__( 'Install Plugins', '__theme_txtd' ),
 			'installing'                      => esc_html__( 'Installing Plugin: %s', '__theme_txtd' ),
-			/* translators: %1$s = plugin name */
 			'oops'                            => esc_html__( 'Something went wrong with the plugin API.', '__theme_txtd' ),
+			/* translators: %1$s = plugin name */
 			'notice_can_install_required'     => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.', '__theme_txtd' ),
 			/* translators: %1$s = plugin name(s) */
 			'notice_can_install_recommended'  => _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.', '__theme_txtd' ),
