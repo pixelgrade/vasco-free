@@ -64,6 +64,31 @@ function vasco_blobs_preset_body_attribute( $attributes ) {
 add_filter( 'pixelgrade_body_attributes', 'vasco_blobs_preset_body_attribute' );
 
 /**
+ * Display blobs markup for the entry thumbnail (before).
+ */
+function vasco_add_blobs_to_entry_thumbnail_before() {
+	// Show the blobs only if allowed to by the user
+	if ( pixelgrade_option( 'show_blobs', false ) ) { ?>
+		<div class="blob-container">
+		<?php
+		pixelgrade_render_block( 'blog/content-stamp' );
+	}
+}
+add_action( 'pixelgrade_before_entry_thumbnail_content', 'vasco_add_blobs_to_entry_thumbnail_before', 10 );
+
+/**
+ * Display blobs markup for the entry thumbnail (after).
+ */
+function vasco_add_blobs_to_entry_thumbnail_after() {
+	// Show the blobs only if allowed to by the user
+	if ( pixelgrade_option( 'show_blobs', false ) ) {
+		get_template_part( 'template-parts/content-blob' ); ?>
+		</div><!-- .blob-container -->
+	<?php }
+}
+add_action( 'pixelgrade_after_entry_thumbnail_content', 'vasco_add_blobs_to_entry_thumbnail_after', 10 );
+
+/**
  * Display blobs for the footer.
  */
 function vasco_add_blobs_to_footer() {
@@ -74,9 +99,33 @@ function vasco_add_blobs_to_footer() {
 }
 add_action( 'pixelgrade_footer_before_content', 'vasco_add_blobs_to_footer', 10 );
 
+/**
+ * Display stamp for the Pixelgrade Profile Widget.
+ */
+function vasco_add_stamp_to_pixelgrade_profile_widget() {
+	// Show the blobs only if allowed to by the user
+	if ( pixelgrade_option( 'show_stamps', true ) ) {
+		get_template_part( 'template-parts/content-stamp' );
+	}
+}
+add_action( 'pixelgrade_widget_profile_after_profile_image', 'vasco_add_stamp_to_pixelgrade_profile_widget', 10 );
+
+/**
+ * Display blobs for the Pixelgrade Profile Widget.
+ */
+function vasco_add_blobs_to_pixelgrade_profile_widget() {
+	// Show the blobs only if allowed to by the user
+	if ( pixelgrade_option( 'show_blobs', false ) ) {
+		get_template_part( 'template-parts/content-blob' );
+	}
+}
+add_action( 'pixelgrade_widget_profile_after_profile_image', 'vasco_add_blobs_to_pixelgrade_profile_widget', 20 );
+
 function vasco_product_blobs() {
-	if ( pixelgrade_option( 'show_blobs' ) ) {
+	if ( pixelgrade_option( 'show_blobs', false ) ) {
 		get_template_part( 'template-parts/content-blob' );
 	}
 }
 add_action( 'woocommerce_before_single_product_summary', 'vasco_product_blobs', 9 );
+
+
