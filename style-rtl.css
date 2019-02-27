@@ -10882,10 +10882,12 @@ body .widget_nav_menu {
   top: 50%;
   right: 50%;
   display: block;
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Edo', fantasy;
   font-size: 614px;
   line-height: 1;
-  opacity: 0.1;
+  opacity: 0;
+  -webkit-transition: opacity .2s ease-out;
+  transition: opacity .2s ease-out;
   -webkit-transform: translate(50%, -50%);
           transform: translate(50%, -50%);
   pointer-events: none; }
@@ -10898,6 +10900,8 @@ body .widget_nav_menu {
   @media only screen and (max-width: 400px) {
     .c-profile__dropcap {
       font-size: 187.42369px; } }
+  .c-profile__dropcap[style] {
+    opacity: 0.1; }
   @media not screen and (min-width: 50em) {
     .c-profile__dropcap {
       display: none; } }

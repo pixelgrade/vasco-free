@@ -72,6 +72,29 @@ function vasco_bebasneue_font_url() {
 	return '';
 }
 
+
+/**
+ * Generate the Edo font URL
+ *
+ * @since Vasco 1.3.4
+ *
+ * @return string
+ */
+function vasco_edo_font_url() {
+
+	/* Translators: If there are characters in your language that are not
+	* supported by Edo, translate this to 'off'. Do not translate
+	* into your own language.
+	*/
+	$edo = esc_html_x( 'on', 'Edo font: on or off', '__theme_txtd' );
+	if ( 'off' !== $edo ) {
+		return get_template_directory_uri() . '/assets/fonts/edo/stylesheet.css';
+	}
+
+	return '';
+}
+
+
 if ( ! function_exists( 'vasco_google_fonts_url' ) ) :
 	/**
 	 * Register Google fonts for Vasco.
@@ -89,14 +112,6 @@ if ( ! function_exists( 'vasco_google_fonts_url' ) ) :
 		*/
 		if ( 'off' !== esc_html_x( 'on', 'Lora font: on or off', '__theme_txtd' ) ) {
 			$fonts[] = 'Lora:400,700';
-		}
-
-		/* Translators: If there are characters in your language that are not
-		* supported by Permanent Marker, translate this to 'off'. Do not translate
-		* into your own language.
-		*/
-		if ( 'off' !== esc_html_x( 'on', 'Permanent Marker font: on or off', '__theme_txtd' ) ) {
-			$fonts[] = 'Permanent Marker';
 		}
 
 		/* translators: To add an additional character subset specific to your language, translate this to 'greek', 'cyrillic', 'devanagari' or 'vietnamese'. Do not translate into your own language. */
