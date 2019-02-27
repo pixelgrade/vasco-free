@@ -122,4 +122,9 @@ span.page-numbers {
     padding: 0;
   }
 
+  &.admin-bar {
+    .site-header {
+      top: 32px;
+    }
+  }
 }
