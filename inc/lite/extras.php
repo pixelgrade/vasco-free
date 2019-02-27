@@ -24,6 +24,7 @@ function vasco_lite_widgets_message( $html_message, $args, $instance ) {
 
 	foreach ( $disallowed_widgets as $widget ) {
 		if ( 0 === strpos( $args['widget_id'], $widget ) ) {
+			/* translators: %s: the widget name */
 			$html_message = '<div class="c-alert  c-alert--danger">
                     <h4 class="c-alert__title">'. esc_html__( '🤦 Widget Type Not Available In Lite Version', '__theme_txtd' ) . '</h4>
                     <div class="c-alert__body">

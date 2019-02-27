@@ -1418,6 +1418,7 @@ function vasco_customify_footer_section( $section_options, $options ) {
 			'options' => array(
 				// [Section] Layout
 				'copyright_text'               => array(
+					/* translators: %year%: current year  %site-title%: the site title */
 					'default' => esc_html__( '&copy; %year% %site-title%.', '__theme_txtd' ),
 				),
 				'footer_top_spacing'           => array(
