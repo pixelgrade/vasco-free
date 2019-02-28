@@ -29,7 +29,7 @@ function vasco_widget_areas_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Footer - Featured Area', '__theme_txtd' ),
 		'id'            => 'footer-featured',
-		'description'   => vasco_pro_widget_description('footer-featured'),
+		'description'   => vasco_pro_widget_description('footer-featured'), // WPCS: XSS OK.
 		'before_widget' => '<section id="%1$s" class="widget widget--full %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget__title h3"><span>',

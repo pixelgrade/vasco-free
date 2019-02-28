@@ -6,6 +6,9 @@
  * @since 1.3.4
  */
 
+/**
+ * Register the recommended or required plugins via TGMPA.
+ */
 function vasco_pro_register_required_plugins() {
 
 	/**

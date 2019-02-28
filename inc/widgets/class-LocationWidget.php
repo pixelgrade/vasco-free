@@ -41,7 +41,7 @@ if ( ! class_exists( 'Pixelgrade_LocationWidget' ) ) :
 				    'subtitle'          => array(
 					    'type'     => 'text',
 					    'label'    => esc_html__( 'Subtitle:', '__theme_txtd' ),
-					    'default'  => esc_html__('I\'m currently having fun in:', '__theme_txtd' ),
+					    'default'  => 'I\'m currently having fun in:',
 					    'section'  => 'content',
 					    'priority' => 20,
 				    ),
@@ -57,7 +57,7 @@ if ( ! class_exists( 'Pixelgrade_LocationWidget' ) ) :
 				    'location_url'           => array(
 					    'type'     => 'text',
 					    'label'    => esc_html__( 'Location Link URL:', '__theme_txtd' ),
-					    'default'  => esc_html__('#', '__theme_txtd' ),
+					    'default'  => '#',
 					    'section'  => 'content',
 					    'priority' => 40,
 				    ),

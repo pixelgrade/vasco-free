@@ -41,7 +41,7 @@ if ( ! class_exists( 'Pixelgrade_FeatureCardWidget' ) ) :
 					'title'      => array(
 						'type'     => 'text',
 						'label'    => esc_html__( 'Headline:', '__theme_txtd' ),
-						'default'  => esc_html__( 'Discover Mindblowing Places', '__theme_txtd' ),
+						'default'  => 'Discover Mindblowing Places',
 						'section'  => 'content',
 						'priority' => 10,
 					),
@@ -56,14 +56,14 @@ if ( ! class_exists( 'Pixelgrade_FeatureCardWidget' ) ) :
 					'button_text'   => array(
 						'type'     => 'text',
 						'label'    => esc_html__( 'Button Text:', '__theme_txtd' ),
-						'default'  => esc_html__( 'Discover them all', '__theme_txtd' ),
+						'default'  => 'Discover them all',
 						'section'  => 'content',
 						'priority' => 30,
 					),
 					'button_url'    => array(
 						'type'     => 'text',
 						'label'    => esc_html__( 'Button Link URL:', '__theme_txtd' ),
-						'default'  => esc_html__( '#', '__theme_txtd' ),
+						'default'  => '#',
 						'section'  => 'content',
 						'priority' => 40,
 					),

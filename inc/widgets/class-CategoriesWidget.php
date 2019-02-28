@@ -40,7 +40,7 @@ if ( ! class_exists( 'Pixelgrade_CategoriesWidget' ) ) :
 				    'title' => array(
 					    'type'     => 'text',
 					    'label'    => esc_html__( 'Title:', '__theme_txtd' ),
-					    'default'  => esc_html__( 'Categories', '__theme_txtd' ),
+					    'default'  => 'Categories',
 					    'section'  => 'default',
 					    'priority' => 10,
 				    ),

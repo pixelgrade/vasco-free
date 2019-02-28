@@ -7,7 +7,7 @@
  */
 
 /**
- * Register new blog blocks, besides the ones provided by the blog component.
+ * Register new blog blocks, besides the ones provided by the blog component, or modify existing ones.
  */
 function vasco_register_blog_blocks() {
 
