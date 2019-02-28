@@ -286,7 +286,8 @@ if ( ! class_exists( 'Vasco_Lite_About_Page' ) ) {
 		 * Call plugin api
 		 */
 		public function call_plugin_api( $slug ) {
-			include_once( ABSPATH . 'wp-admin/includes/plugin-install.php' ); // phpcs:ignore
+			// @codingStandardsIgnoreLine
+			include_once( ABSPATH . 'wp-admin/includes/plugin-install.php' );
 
 			if ( false === ( $call_api = get_transient( 'ti_about_page_plugin_information_transient_' . $slug ) ) ) {
 				$call_api = plugins_api(
@@ -336,7 +337,8 @@ if ( ! class_exists( 'Vasco_Lite_About_Page' ) ) {
 
 			if ( file_exists( $path ) ) {
 
-				include_once( ABSPATH . 'wp-admin/includes/plugin.php' ); // phpcs:ignore
+				// @codingStandardsIgnoreLine
+				include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 				$needs = is_plugin_active( $slug . '/' . $plugin_root_file . '.php' ) ? 'deactivate' : 'activate';
 
@@ -413,6 +415,8 @@ if ( ! class_exists( 'Vasco_Lite_About_Page' ) ) {
 					);
 					break;
 			}
+
+			return '';
 		}
 
 		/**
@@ -792,6 +796,8 @@ if ( ! class_exists( 'Vasco_Lite_About_Page' ) ) {
 		 */
 		private function parse_changelog() {
 			WP_Filesystem();
+
+			/** @var WP_Filesystem_Base $wp_filesystem */
 			global $wp_filesystem;
 			$changelog = $wp_filesystem->get_contents( get_template_directory() . '/CHANGELOG.md' );
 			if ( is_wp_error( $changelog ) ) {

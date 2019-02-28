@@ -22,8 +22,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-// @todo Make sure that things go smoothly in the Customizer (Jetpack uses some dummy content in its logic)
-
 //we first need to know the bigger picture - the location this template part was loaded from
 $location = pixelgrade_set_location( 'related-posts', true );
 
@@ -91,7 +89,9 @@ if ( $query->have_posts() ) {
 						<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 							<div class="c-card  c-card--related">
 								<div class="c-card__meta c-meta">
-									<div class="c-meta__primary"> <?php if ( $primary_meta_output ) { echo $primary_meta_output; } ?> </div>
+									<div class="c-meta__primary"> <?php if ( $primary_meta_output ) {
+										echo $primary_meta_output; // WPCS: XSS OK.
+									} ?> </div>
 								</div>
 								<?php if ( pixelgrade_option( 'blog_items_title_position' ) === 'above' && pixelgrade_option( 'blog_grid_layout' ) !== 'packed' ) { ?>
 									<?php if ( pixelgrade_option( 'blog_items_title_visibility', true ) && get_the_title() ) { ?>
@@ -106,7 +106,7 @@ if ( $query->have_posts() ) {
 									<?php if ( $secondary_meta_output ) { ?>
 
 										<div class="c-card__meta c-meta">
-											<div class="c-meta__secondary"> <?php echo $secondary_meta_output; ?></div>
+											<div class="c-meta__secondary"> <?php echo $secondary_meta_output; // WPCS: XSS OK. ?></div>
 										</div>
 
 									<?php } ?>

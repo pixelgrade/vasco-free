@@ -2,6 +2,9 @@
 /**
  * Template part for displaying the Feature Card widget.
  *
+ * The variables bellow, that are available in the scope of this file, are already sanitized in the
+ * Pixelgrade_WidgetFields class with the sanitizeFields() method.
+ *
  * @global array $args The widget display options.
  * @global string $title The title text.
  * @global string $description The description text.
@@ -23,16 +26,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<div class="c-feature__content u-content-width">
 		<?php if ( ! empty( $title ) ) { ?>
-			<div class="c-feature__title h3"><span><?php echo $title ?></span></div>
+			<div class="c-feature__title h3"><span><?php echo $title; // WPCS: XSS OK. ?></span></div>
 		<?php } ?>
 
 		<?php if ( ! empty( $description ) ) { ?>
-			<div class="c-feature__description"><?php echo $description; ?></div>
+			<div class="c-feature__description"><?php echo $description; // WPCS: XSS OK. ?></div>
 		<?php } ?>
 
 		<?php if ( ! empty( $button_text ) && ! empty( $button_url ) ) { ?>
 			<div class="c-feature__action">
-				<a href="<?php echo $button_url; ?>" class="c-feature__btn c-btn"><?php echo $button_text; ?></a>
+				<a href="<?php echo esc_url( $button_url ); ?>" class="c-feature__btn c-btn"><?php echo $button_text; // WPCS: XSS OK. ?></a>
 			</div>
 		<?php } ?>
 
@@ -40,9 +43,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php if ( ! empty( $button_url ) ) {
 		if ( ! empty( $button_text ) ) { ?>
-			<a href="<?php echo $button_url; ?>" class="c-feature__link u-mq-below-pad"></a>
+			<a href="<?php echo esc_url( $button_url ); ?>" class="c-feature__link u-mq-below-pad"></a>
 		<?php } else { ?>
-			<a href="<?php echo $button_url; ?>" class="c-feature__link"></a>
+			<a href="<?php echo esc_url( $button_url ); ?>" class="c-feature__link"></a>
 		<?php }
 	} ?>
 
@@ -50,6 +53,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div class="c-feature__media">
 	<?php if ( ! empty ( $image ) ) {
-		echo wp_get_attachment_image( $image, 'pixelgrade_single_landscape' );
+		echo wp_get_attachment_image( $image, 'pixelgrade_single_landscape' ); // WPCS: XSS OK.
 	} ?>
 </div>

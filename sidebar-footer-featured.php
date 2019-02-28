@@ -11,6 +11,5 @@
 if ( ! is_active_sidebar( 'footer-featured' ) ) {
 	return;
 }
-?>
 
-<?php dynamic_sidebar( 'footer-featured' ); ?>
+dynamic_sidebar( 'footer-featured' );

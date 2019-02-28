@@ -2,7 +2,9 @@
 /**
  * Template part for displaying the Profile widget.
  *
- * @global array $args The widget display options.
+ * The variables bellow, that are available in the scope of this file, are already sanitized in the
+ * Pixelgrade_WidgetFields class with the sanitizeFields() method.
+ *
  * @global array $args The widget display options.
  * @global string $title The title text.
  * @global string $subtitle The subtitle text.
@@ -23,47 +25,57 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div class="c-profile">
 
-<?php if ( ! empty( $title ) || ! empty( $description ) || ( ! empty( $button_text ) && ! empty( $button_url ) ) ) { ?>
+<?php if ( ! empty( $title ) || ! empty( $description ) || ( ! empty( $button_text ) && ! empty( $button_url ) ) ) {
 
-	<?php if ( ! empty( $title ) ) { ?>
-		<div class="c-profile__dropcap"><?php echo substr( $title, 0, 1 ); ?></div>
+	if ( ! empty( $title ) ) { ?>
+		<div class="c-profile__dropcap"><?php echo substr( wp_kses( $title, array() ), 0, 1 ); // WPCS: XSS OK. ?></div>
 	<?php } ?>
 
 	<div class="c-profile__content">
 
 		<?php if ( ! empty( $subtitle ) ) { ?>
-			<div class="c-profile__subtitle h5"><?php echo $subtitle; ?></div>
+			<div class="c-profile__subtitle h5"><?php echo $subtitle; // WPCS: XSS OK. ?></div>
+		<?php }
+
+		if ( ! empty( $title ) ) { ?>
+			<div class="c-profile__title h2"><?php echo $title; // WPCS: XSS OK. ?></div>
+		<?php }
+
+		if ( ! empty( $description ) ) { ?>
+			<p class="c-profile__description"><?php echo $description; // WPCS: XSS OK. ?></p>
+		<?php }
+
+		if ( ! empty( $button_text ) && ! empty( $button_url ) ) { ?>
+			<a href="<?php echo esc_url( $button_url ); ?>" class="c-profile__btn c-btn"><?php echo $button_text; // WPCS: XSS OK. ?></a>
 		<?php } ?>
 
-		<?php if ( ! empty( $title ) ) { ?>
-			<div class="c-profile__title h2"><?php echo $title ?></div>
-		<?php } ?>
+	</div><!-- .c-profile__content -->
 
-		<?php if ( ! empty( $description ) ) { ?>
-			<p class="c-profile__description"><?php echo $description; ?></p>
-		<?php } ?>
+<?php }
 
-		<?php if ( ! empty( $button_text ) && ! empty( $button_url ) ) { ?>
-			<a href="<?php echo esc_url( $button_url ); ?>" class="c-profile__btn c-btn"><?php echo $button_text; ?></a>
-		<?php } ?>
-
-	</div>
-
-<?php } ?>
-
-<?php if ( ! empty ( $image ) ) { ?>
+if ( ! empty ( $image ) ) { ?>
 
 	<div class="c-profile__media">
+
+		<?php
+		/**
+		 * pixelgrade_widget_profile_before_profile_image hook.
+		 */
+		do_action( 'pixelgrade_widget_profile_before_profile_image', $args );
+		?>
+		<!-- pixelgrade_widget_profile_before_profile_image -->
+
 		<?php echo wp_get_attachment_image( $image, 'pixelgrade_single_landscape' ); ?>
 
-		<?php if ( pixelgrade_option( 'show_stamps' ) ) {
-			get_template_part( 'template-parts/content-stamp' );
-		} ?>
+		<?php
+		/**
+		 * pixelgrade_widget_profile_after_profile_image hook.
+		 */
+		do_action( 'pixelgrade_widget_profile_after_profile_image', $args );
+		?>
+		<!-- pixelgrade_widget_profile_after_profile_image -->
 
-		<?php if ( pixelgrade_option( 'show_blobs' ) ) {
-			get_template_part( 'template-parts/content-blob' );
-		} ?>
-	</div>
+	</div><!-- .c-profile__media -->
 
 <?php } ?>
-</div>
+</div><!-- .c-profile -->
