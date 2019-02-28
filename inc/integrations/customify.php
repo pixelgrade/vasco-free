@@ -1592,7 +1592,7 @@ if ( ! function_exists( 'pixelgrade_blobs_dispersion' ) ) :
 	function pixelgrade_blobs_dispersion( $value, $selector, $property, $unit ) {
 
 		$output = '.blob-dispersion {' . PHP_EOL .
-           'transform: translateY(-' . $value . '%)'. PHP_EOL .
+           'transform: translateY(-' . $value . '%) scale(1)'. PHP_EOL .
         '}' . PHP_EOL;
 
 		return $output;

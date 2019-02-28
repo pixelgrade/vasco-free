@@ -1493,6 +1493,9 @@ function (_BaseTheme) {
 
         $obj.append(blob.getSvg());
       });
+      window.requestAnimationFrame(function () {
+        external_jQuery_default()('.blob--shape').closest('.blob').addClass('blob--loaded');
+      });
     }
   }, {
     key: "groupWidgets",
@@ -1688,18 +1691,11 @@ function (_BaseTheme) {
       var adminBarHeight = external_jQuery_default()('#wpadminbar').outerHeight();
       var announcementBarHeight = this.$announcementBar.outerHeight();
       var headerHeight = this.$siteHeader.outerHeight();
-      this.modifyCss(this.$siteHeader, 'top', announcementBarHeight, '+=');
-      this.modifyCss(this.$toolbar, 'padding-top', announcementBarHeight, '+=');
+      this.$siteHeader.css('top', announcementBarHeight + adminBarHeight);
+      this.$toolbar.css('top', announcementBarHeight + adminBarHeight);
       this.$contentPaddingContainer.css('padding-top', headerHeight + announcementBarHeight);
-      this.modifyCss(this.$announcementBar, 'top', adminBarHeight, '+=');
-      this.$announcementBar.removeClass('c-announcement-bar--hidden');
+      this.$announcementBar.css('top', adminBarHeight).removeClass('c-announcement-bar--hidden');
       external_jQuery_default()('.js-announcement-bar__close').on('click', this.onAnnouncementClose.bind(this));
-    }
-  }, {
-    key: "modifyCss",
-    value: function modifyCss($element, property, value, sign) {
-      var unit = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 'px';
-      $element.css(property, "".concat(sign).concat(value).concat(unit));
     }
   }, {
     key: "revertAnnouncementChanges",
@@ -1716,7 +1712,7 @@ function (_BaseTheme) {
 
       this.$announcementBar.addClass('c-announcement-bar--hidden');
       this.$siteHeader.css('top', '');
-      this.$toolbar.css('padding-top', '');
+      this.$toolbar.css('top', '');
       this.$contentPaddingContainer.css('padding-top', headerHeight);
       this.$announcementBar.css('top', '');
     }

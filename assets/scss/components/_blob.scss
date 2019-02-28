@@ -19,6 +19,24 @@
     width: 100%;
     height: 100%;
   }
+
+  svg {
+    display: block;
+    transform: translateZ(0);
+  }
+}
+
+.blob--shape {
+  transition: transform .3s $easeOutBack;
+
+  body:not(.is-loaded) .blob:not(.blob--loaded) & {
+    transform: translateY(0) scale(0.7);
+  }
+}
+
+body:not(.is-loaded) .blob:not(.blob--loaded) {
+  transition: opacity .3s $easeOutCirc;
+  opacity: 0;
 }
 
 .blobs--thumbnail {

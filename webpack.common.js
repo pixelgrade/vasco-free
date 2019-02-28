@@ -36,14 +36,6 @@ module.exports = {
 		minimizer: [
 			new UglifyJsPlugin({
 				include: /\.min\.js$/,
-				chunkFilter: (chunk) => {
-					// Exclude uglification for the `vendor` chunk
-					if (chunk.name === 'vendor') {
-						return false;
-					}
-
-					return true;
-				}
 			})
 		],
 	},
