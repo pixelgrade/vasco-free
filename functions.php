@@ -164,6 +164,7 @@ add_filter( 'tiled_gallery_content_width', 'vasco_custom_tiled_gallery_width' );
 function vasco_scripts() {
 	$theme           = wp_get_theme();
 	$main_style_deps = array();
+	$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
 	/* Default Google Fonts */
 	wp_enqueue_style( 'vasco-google-fonts', vasco_google_fonts_url() );
@@ -193,7 +194,7 @@ function vasco_scripts() {
 
 	// The main script
 	wp_enqueue_script( 'vasco-commons-scripts', get_theme_file_uri( '/assets/js/commons.js' ), array( 'jquery' ), $theme->get( 'Version' ), true );
-	wp_enqueue_script( 'vasco-scripts', get_theme_file_uri( '/assets/js/app.bundle.js' ), array( 'vasco-commons-scripts','masonry', 'hoverIntent' ), $theme->get( 'Version' ), true );
+	wp_enqueue_script( 'vasco-scripts', get_theme_file_uri( '/assets/js/scripts' . $suffix . '.js' ), array( 'vasco-commons-scripts','masonry', 'hoverIntent' ), $theme->get( 'Version' ), true );
 
 	wp_localize_script( 'vasco-main-scripts', 'vascoStrings', array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),

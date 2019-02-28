@@ -1,12 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
 	/**
 	 * This is the entry point for our application src/App.ts everything including an import to our scss goes through here
 	 */
 	entry: {
-		app: './variations/vasco/ts/App.ts'
+		scripts: './variations/vasco/ts/App.ts',
+		"scripts.min": './variations/vasco/ts/App.ts'
 	},
 	externals: {
 		jquery: 'jQuery',
@@ -29,7 +31,13 @@ module.exports = {
 					enforce: true
 				}
 			}
-		}
+		},
+		minimize: true,
+		minimizer: [
+			new UglifyJsPlugin({
+				include: /\.min\.js$/,
+			})
+		],
 	},
 	plugins: [
 		new webpack.BannerPlugin({
@@ -42,7 +50,7 @@ module.exports = {
 	 */
 	output: {
 		path: path.resolve(__dirname, './assets/js'),
-		filename: '[name].bundle.js',
+		filename: '[name].js',
 		// Set this to whatever the relative asset path will be on your server
 		publicPath: '/'
 	},

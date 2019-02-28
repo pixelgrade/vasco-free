@@ -9,7 +9,7 @@ License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: vasco
 Domain Path: /languages/
-Tags: translation-ready, theme-options, featured-images, custom-menu, custom-colors, two-columns, three-columns, four-columns, custom-widgets
+Tags: blog, holiday, photography, translation-ready, featured-images, custom-menu, custom-logo, one-column, two-columns, three-columns, four-columns, editor-style, sticky-post, footer-widgets, threaded-comments
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -7494,6 +7494,25 @@ body #infinite-handle span {
   right: 0;
   width: 100%;
   height: 100%; }
+
+.blobs--thumbnail svg {
+  display: block;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0); }
+
+.blob--shape {
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+  body:not(.is-loaded) .blob:not(.blob--loaded) .blob--shape {
+    -webkit-transform: translateY(0) scale(0.7);
+            transform: translateY(0) scale(0.7); }
+
+body:not(.is-loaded) .blob:not(.blob--loaded) {
+  -webkit-transition: opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  opacity: 0; }
 
 .blobs--thumbnail {
   right: -50%; }
