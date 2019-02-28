@@ -117,6 +117,12 @@ function vasco_lite_admin_setup() {
 					'is_in_pro'   => 'true',
 				),
 				array(
+					'title'       => esc_html__( 'Location Widget to Connect with Your Local Community', '__theme_txtd' ),
+					'description' => esc_html__( 'Share your whereabouts and connect with readers nearby with the help of our custom Location Widget.', '__theme_txtd' ),
+					'is_in_lite'  => 'true',
+					'is_in_pro'   => 'true',
+				),
+				array(
 					'title'       => esc_html__( 'New Widgets for Extra Flexibility', '__theme_txtd' ),
 					'description' => esc_html__( 'Vasco PRO gives you extra ways to showcase your articles in great style. Besides the Grid Posts and Profile widgets, the PRO version comes with much more: Feature Card, Callout Box, Categories, and many others.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
