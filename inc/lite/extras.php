@@ -35,7 +35,7 @@ function vasco_lite_widgets_message( $html_message, $args, $instance ) {
                     <h4 class="c-alert__title">' . esc_html__( '🤦 Widget Type Not Available In Free Version', '__theme_txtd' ) . '</h4>
                     <div class="c-alert__body">
                         <p>' . /* translators: %s: the widget name */
-			                sprintf( esc_html__( 'The %s is not available in the Lite version, but hey, the Pro version is just around the corner!', '__theme_txtd' ), '<em>' . $args['widget_name'] . '</em>' ) . '</p>
+			                sprintf( esc_html__( 'The %s is not available in the Free version, but hey, the Pro version is just around the corner!', '__theme_txtd' ), '<em>' . $args['widget_name'] . '</em>' ) . '</p>
                     </div>
                 </div>';
 		}
