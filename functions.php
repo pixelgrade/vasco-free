@@ -196,7 +196,7 @@ function vasco_scripts() {
 	wp_enqueue_script( 'vasco-commons-scripts', get_theme_file_uri( '/assets/js/commons.js' ), array( 'jquery' ), $theme->get( 'Version' ), true );
 	wp_enqueue_script( 'vasco-scripts', get_theme_file_uri( '/assets/js/scripts' . $suffix . '.js' ), array( 'vasco-commons-scripts','masonry', 'hoverIntent' ), $theme->get( 'Version' ), true );
 
-	wp_localize_script( 'vasco-main-scripts', 'vascoStrings', array(
+	wp_localize_script( 'vasco-scripts', 'vascoStrings', array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
 	) );
 }
