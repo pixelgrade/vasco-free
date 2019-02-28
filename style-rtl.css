@@ -1,10 +1,9 @@
 /*!
 Theme Name: Vasco
-Theme URI: https://demos.pixelgrade.com/vasco/
 Author: Pixelgrade
 Author URI: https://pixelgrade.com
 Description: Vasco is a travel blog theme for people who want to wander the world and make money out of their passion.
-Version: 1.3.3
+Version: 1.3.4
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: vasco
@@ -13,9 +12,6 @@ Tags: blog, holiday, photography, translation-ready, featured-images, custom-men
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
-
-Vasco is based on Underscores http://underscores.me/, (C) 2012-2018 Automattic, Inc.
-Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
@@ -7333,8 +7329,8 @@ body #infinite-handle span {
   transition-property: transform, opacity, -webkit-transform; }
 
 .u-header-height-padding-top {
-  -webkit-transition-property: padding-top;
-  transition-property: padding-top; }
+  -webkit-transition-property: margin-top;
+  transition-property: margin-top; }
 
 .c-toolbar,
 .site-header {
