@@ -193,9 +193,10 @@ function vasco_scripts() {
 	/* Scripts */
 
 	// The main script
-	wp_enqueue_script( 'vasco-commons-scripts', get_theme_file_uri( '/assets/js/commons.js' ), array( 'jquery' ), $theme->get( 'Version' ), true );
-	wp_enqueue_script( 'animejs', '//cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js', array(), $theme->get( 'Version' ), true );
-	wp_enqueue_script( 'vasco-scripts', get_theme_file_uri( '/assets/js/scripts' . $suffix . '.js' ), array( 'vasco-commons-scripts', 'masonry', 'hoverIntent', 'animejs' ), $theme->get( 'Version' ), true );
+	wp_register_script( 'animejs', get_theme_file_uri( '/assets/js/anime.min.js' ), array(), '2.2.0', true );
+	wp_register_script( 'circletype', get_theme_file_uri( '/assets/js/circletype.min.js' ), array(), '2.3.0', true );
+	wp_register_script( 'js-cookie', get_theme_file_uri( '/assets/js/js.cookie' . $suffix . '.js' ), array(), '2.2.0', true );
+	wp_enqueue_script( 'vasco-scripts', get_theme_file_uri( '/assets/js/scripts' . $suffix . '.js' ), array( 'masonry', 'hoverIntent', 'animejs', 'js-cookie', 'circletype' ), $theme->get( 'Version' ), true );
 
 	wp_localize_script( 'vasco-main-scripts', 'vascoStrings', array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),

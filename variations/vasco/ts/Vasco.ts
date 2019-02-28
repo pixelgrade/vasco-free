@@ -10,6 +10,8 @@ import { Gallery } from '../../../components/base/ts/components/Gallery';
 import { ExtendedWindow, GlobalService } from '../../../components/base/ts/services/global.service';
 import { Blob } from '../../../components/base/ts/components/blob';
 
+import { takeWhile, debounceTime } from 'rxjs/operators';
+
 const ANNOUNCEMENT_COOKIE_NAME: string = 'announcementClosed';
 
 export class Vasco extends BaseTheme {
@@ -48,8 +50,8 @@ export class Vasco extends BaseTheme {
 
     GlobalService
       .onCustomizerRender()
-      .debounce( 300 )
-      .takeWhile( () => this.subscriptionActive )
+      .pipe( debounceTime( 300 ) )
+      .pipe( takeWhile( () => this.subscriptionActive ) )
       .subscribe( () => {
         this.groupWidgets();
         this.prepareFeatureHover();
@@ -58,8 +60,8 @@ export class Vasco extends BaseTheme {
 
     GlobalService
       .onCustomizerChange()
-      .debounce( 300 )
-      .takeWhile( () => this.subscriptionActive )
+      .pipe( debounceTime( 300 ) )
+      .pipe( takeWhile( () => this.subscriptionActive ) )
       .subscribe( () => {
         this.prepareFeatureHover();
         this.initStamp();
@@ -67,8 +69,8 @@ export class Vasco extends BaseTheme {
 
     GlobalService
       .onCustomizerChange()
-      .debounce( 300 )
-      .takeWhile( () => this.subscriptionActive )
+      .pipe( debounceTime( 300 ) )
+      .pipe( takeWhile( () => this.subscriptionActive ) )
       .subscribe( () => {
         this.updateBlobParameters();
       } );

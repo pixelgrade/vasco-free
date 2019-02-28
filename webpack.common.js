@@ -19,20 +19,10 @@ module.exports = {
 		select2: 'jQuery',
 		'slick-carousel': 'jQuery',
 		animejs: 'anime',
+		'js-cookie': 'Cookies',
+		circletype: 'CircleType',
 	},
 	optimization: {
-		splitChunks: {
-			cacheGroups: {
-				commons: {
-					test: /node_modules/,
-					chunks: "initial",
-					name: "commons",
-					filename: "commons.js",
-					priority: 10,
-					enforce: true
-				}
-			}
-		},
 		minimize: true,
 		minimizer: [
 			new UglifyJsPlugin({
@@ -43,8 +33,8 @@ module.exports = {
 	plugins: [
 		new webpack.BannerPlugin({
 			banner: '@codingStandardsIgnoreFile\nphpcs:ignoreFile',
-			include: 'commons.js'
-		})
+			include: ['scripts.js', 'scripts.min.js']
+		}),
 	],
 	/**
 	 * This is where our bundled stuff is saved and the public path is what we link to in our script tags

@@ -1,5 +1,6 @@
 {
   "name": "vasco",
+  "sideEffects": false,
   "scripts": {
     "scripts:dev": "webpack --config webpack.dev.js --watch",
     "scripts:prod": "webpack --config webpack.prod.js",
@@ -42,6 +43,7 @@
     "masonry-layout": "^4.2.2",
     "require-dir": "^1.2.0",
     "rx-dom": "^7.0.3",
+    "rxjs": "^6.4.0",
     "through2": "^3.0.0",
     "ts-loader": "^5.3.3",
     "tslint": "^5.12.1",
@@ -52,6 +54,7 @@
     "webpack": "^4.29.3",
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.2.3",
+    "webpack-common-shake": "^2.1.0",
     "webpack-merge": "^4.2.1",
     "yargs": "^13.1.0"
   }
