@@ -1,12 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
 	/**
 	 * This is the entry point for our application src/App.ts everything including an import to our scss goes through here
 	 */
 	entry: {
-		app: './variations/vasco/ts/App.ts'
+		scripts: './variations/vasco/ts/App.ts',
+		"scripts.min": './variations/vasco/ts/App.ts'
 	},
 	externals: {
 		jquery: 'jQuery',
@@ -29,14 +31,34 @@ module.exports = {
 					enforce: true
 				}
 			}
-		}
+		},
+		minimize: true,
+		minimizer: [
+			new UglifyJsPlugin({
+				include: /\.min\.js$/,
+				chunkFilter: (chunk) => {
+					// Exclude uglification for the `vendor` chunk
+					if (chunk.name === 'vendor') {
+						return false;
+					}
+
+					return true;
+				}
+			})
+		],
 	},
+	plugins: [
+		new webpack.BannerPlugin({
+			banner: '@codingStandardsIgnoreFile\nphpcs:ignoreFile',
+			include: 'commons.js'
+		})
+	],
 	/**
 	 * This is where our bundled stuff is saved and the public path is what we link to in our script tags
 	 */
 	output: {
 		path: path.resolve(__dirname, './assets/js'),
-		filename: '[name].bundle.js',
+		filename: '[name].js',
 		// Set this to whatever the relative asset path will be on your server
 		publicPath: '/'
 	},
