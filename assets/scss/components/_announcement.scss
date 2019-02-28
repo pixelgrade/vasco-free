@@ -18,14 +18,31 @@
   align-items: center;
   transform: translateY(0);
   will-change: transform;
-  &.animated {
-    transition: $transition--ease-in-cubic;
-  }
 
   &.c-announcement-bar--hidden {
     transform: translateY(-100%);
     opacity: 0;
   }
+}
+
+.c-announcement-bar,
+.u-header-height-padding-top,
+.c-toolbar,
+.site-header {
+  transition: all .6s $easeOutExpo;
+}
+
+.c-announcement-bar {
+  transition-property: transform, opacity;
+}
+
+.u-header-height-padding-top {
+  transition-property: padding-top;
+}
+
+.c-toolbar,
+.site-header {
+  transition-property: top;
 }
 
 .c-announcement-bar__text[class] {

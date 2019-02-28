@@ -40,7 +40,7 @@ export class Vasco extends BaseTheme {
     }
     setTimeout(() => {
       this.initAnnouncementBar();
-    }, 50);
+    }, 2000);
 
     this.handleContent();
     this.groupWidgets();
@@ -144,8 +144,7 @@ export class Vasco extends BaseTheme {
     if ( this.windowDimensions.width !== this.$window.width()
       && this.windowDimensions.height !== this.$window.height() ) {
       this.windowDimensions = { width: this.$window.width(), height: this.$window.height() };
-      this.revertAnnouncementChanges();
-      this.initAnnouncementBar();
+      this.positionAnnouncementBar();
     }
   }
 
@@ -207,9 +206,11 @@ export class Vasco extends BaseTheme {
       $obj.append( blob.getSvg() );
     });
 
-    window.requestAnimationFrame(() => {
-      $( '.blob--shape' ).closest( '.blob' ).addClass( 'blob--loaded' );
-    });
+    setTimeout(() => {
+      window.requestAnimationFrame(() => {
+        $( '.blob--shape' ).closest( '.blob' ).addClass( 'blob--loaded' );
+      });
+    }, 500);
   }
 
   public groupWidgets() {
@@ -392,43 +393,42 @@ export class Vasco extends BaseTheme {
   }
 
   private initAnnouncementBar() {
+    this.positionAnnouncementBar();
+    this.$announcementBar.removeClass('c-announcement-bar--hidden');
+    $('.js-announcement-bar__close').on('click', this.onAnnouncementClose.bind(this));
+  }
+
+  private positionAnnouncementBar() {
     const isDisabled = Cookies.get('announcementClosed') === 'true';
 
-    if ( isDisabled ) { return; }
+    if (isDisabled) {
+      return;
+    }
 
     const adminBarHeight = $( '#wpadminbar' ).outerHeight();
     const announcementBarHeight = this.$announcementBar.outerHeight();
     const headerHeight = this.$siteHeader.outerHeight();
+
     this.$siteHeader.css( 'top', announcementBarHeight + adminBarHeight);
     this.$toolbar.css( 'top', announcementBarHeight + adminBarHeight );
     this.$contentPaddingContainer.css( 'padding-top', headerHeight + announcementBarHeight );
-    this.$announcementBar.css( 'top', adminBarHeight ).removeClass('c-announcement-bar--hidden');
-
-    $('.js-announcement-bar__close').on('click', this.onAnnouncementClose.bind(this));
+    this.$announcementBar.css( 'top', adminBarHeight );
   }
 
-  private revertAnnouncementChanges(animated: boolean = false) {
+  private revertAnnouncementChanges() {
     const headerHeight = this.$siteHeader.outerHeight();
-
-    if (animated) {
-      this.$announcementBar.addClass('animated');
-      this.$siteHeader.addClass('animated');
-      this.$toolbar.addClass('animated');
-      this.$contentPaddingContainer.addClass('animated');
-    }
-
-    this.$announcementBar.addClass('c-announcement-bar--hidden');
-
     this.$siteHeader.css( 'top', '' );
     this.$toolbar.css( 'top', '' );
     this.$contentPaddingContainer.css( 'padding-top', headerHeight );
-    this.$announcementBar.css( 'top', '');
   }
 
   private onAnnouncementClose(event: JQueryEventObject) {
     event.preventDefault();
-    this.revertAnnouncementChanges(true);
-    if ( !this.isLoggedIn ) {
+
+    this.revertAnnouncementChanges();
+    this.$announcementBar.addClass('c-announcement-bar--hidden');
+
+    if ( ! this.isLoggedIn ) {
       Cookies.set(ANNOUNCEMENT_COOKIE_NAME, 'true', { expires: 1 });
     }
   }

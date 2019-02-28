@@ -26,17 +26,34 @@
   }
 }
 
-.blob--shape {
-  transition: transform .3s $easeOutBack;
+body:not(.is-customizer-preview) {
 
-  body:not(.is-loaded) .blob:not(.blob--loaded) & {
+  .blob--shape {
+    transition: transform .3s $easeOutExpo;
+  }
+
+  &:not(.is-loaded) .blob:not(.blob--loaded) .blob--shape {
     transform: translateY(0) scale(0.7);
   }
-}
 
-body:not(.is-loaded) .blob:not(.blob--loaded) {
-  transition: opacity .3s $easeOutCirc;
-  opacity: 0;
+  .blob {
+    transition: opacity .4s $easeOutExpo;
+
+    @for $i from 1 through 3 {
+
+      &:nth-child(#{$i}) {
+        transition-delay: .1s + $i * .07s;
+      }
+
+      &:nth-child(#{$i}) .blob--shape {
+        transition-delay: $i * .07s;
+      }
+    }
+  }
+
+  &:not(.is-loaded) .blob:not(.blob--loaded) {
+    opacity: 0;
+  }
 }
 
 .blobs--thumbnail {

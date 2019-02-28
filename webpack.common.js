@@ -18,6 +18,7 @@ module.exports = {
 		gsap: '_gsScope',
 		select2: 'jQuery',
 		'slick-carousel': 'jQuery',
+		animejs: 'anime',
 	},
 	optimization: {
 		splitChunks: {

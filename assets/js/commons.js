@@ -2,18 +2,31 @@
  * @codingStandardsIgnoreFile
  * phpcs:ignoreFile
  */
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[0],[
-/* 0 */,
-/* 1 */
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["commons"],{
+
+/***/ "./node_modules/circletype/dist/circletype.min.js":
+/*!********************************************************!*\
+  !*** ./node_modules/circletype/dist/circletype.min.js ***!
+  \********************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Rx = __webpack_require__(7);
-__webpack_require__(11);
-module.exports = Rx;
+/*!
+ * circletype 2.3.0
+ * A JavaScript library that lets you curve type on the web.
+ * Copyright © 2014-2018 Peter Hrynkow
+ * Licensed MIT
+ * https://github.com/peterhry/CircleType#readme
+ */
+!function(t,e){ true?module.exports=e():undefined}("undefined"!=typeof self?self:this,function(){return function(t){function e(r){if(n[r])return n[r].exports;var i=n[r]={i:r,l:!1,exports:{}};return t[r].call(i.exports,i,i.exports,e),i.l=!0,i.exports}var n={};return e.m=t,e.c=n,e.d=function(t,n,r){e.o(t,n)||Object.defineProperty(t,n,{configurable:!1,enumerable:!0,get:r})},e.n=function(t){var n=t&&t.__esModule?function(){return t.default}:function(){return t};return e.d(n,"a",n),n},e.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},e.p="",e(e.s=29)}([function(t,e,n){var r=n(24)("wks"),i=n(12),o=n(1).Symbol,u="function"==typeof o;(t.exports=function(t){return r[t]||(r[t]=u&&o[t]||(u?o:i)("Symbol."+t))}).store=r},function(t,e){var n=t.exports="undefined"!=typeof window&&window.Math==Math?window:"undefined"!=typeof self&&self.Math==Math?self:Function("return this")();"number"==typeof __g&&(__g=n)},function(t,e){var n=t.exports={version:"2.5.6"};"number"==typeof __e&&(__e=n)},function(t,e,n){var r=n(4),i=n(11);t.exports=n(6)?function(t,e,n){return r.f(t,e,i(1,n))}:function(t,e,n){return t[e]=n,t}},function(t,e,n){var r=n(5),i=n(34),o=n(35),u=Object.defineProperty;e.f=n(6)?Object.defineProperty:function(t,e,n){if(r(t),e=o(e,!0),r(n),i)try{return u(t,e,n)}catch(t){}if("get"in n||"set"in n)throw TypeError("Accessors not supported!");return"value"in n&&(t[e]=n.value),t}},function(t,e,n){var r=n(10);t.exports=function(t){if(!r(t))throw TypeError(t+" is not an object!");return t}},function(t,e,n){t.exports=!n(17)(function(){return 7!=Object.defineProperty({},"a",{get:function(){return 7}}).a})},function(t,e){var n={}.hasOwnProperty;t.exports=function(t,e){return n.call(t,e)}},function(t,e){var n=Math.ceil,r=Math.floor;t.exports=function(t){return isNaN(t=+t)?0:(t>0?r:n)(t)}},function(t,e){t.exports=function(t){if(void 0==t)throw TypeError("Can't call method on  "+t);return t}},function(t,e){t.exports=function(t){return"object"==typeof t?null!==t:"function"==typeof t}},function(t,e){t.exports=function(t,e){return{enumerable:!(1&t),configurable:!(2&t),writable:!(4&t),value:e}}},function(t,e){var n=0,r=Math.random();t.exports=function(t){return"Symbol(".concat(void 0===t?"":t,")_",(++n+r).toString(36))}},function(t,e){t.exports={}},function(t,e,n){var r=n(24)("keys"),i=n(12);t.exports=function(t){return r[t]||(r[t]=i(t))}},function(t,e){t.exports=!1},function(t,e,n){var r=n(1),i=n(2),o=n(3),u=n(19),c=n(20),f=function(t,e,n){var a,s,l,p,h=t&f.F,d=t&f.G,v=t&f.S,y=t&f.P,_=t&f.B,m=d?r:v?r[e]||(r[e]={}):(r[e]||{}).prototype,g=d?i:i[e]||(i[e]={}),x=g.prototype||(g.prototype={});d&&(n=e);for(a in n)s=!h&&m&&void 0!==m[a],l=(s?m:n)[a],p=_&&s?c(l,r):y&&"function"==typeof l?c(Function.call,l):l,m&&u(m,a,l,t&f.U),g[a]!=l&&o(g,a,p),y&&x[a]!=l&&(x[a]=l)};r.core=i,f.F=1,f.G=2,f.S=4,f.P=8,f.B=16,f.W=32,f.U=64,f.R=128,t.exports=f},function(t,e){t.exports=function(t){try{return!!t()}catch(t){return!0}}},function(t,e,n){var r=n(10),i=n(1).document,o=r(i)&&r(i.createElement);t.exports=function(t){return o?i.createElement(t):{}}},function(t,e,n){var r=n(1),i=n(3),o=n(7),u=n(12)("src"),c=Function.toString,f=(""+c).split("toString");n(2).inspectSource=function(t){return c.call(t)},(t.exports=function(t,e,n,c){var a="function"==typeof n;a&&(o(n,"name")||i(n,"name",e)),t[e]!==n&&(a&&(o(n,u)||i(n,u,t[e]?""+t[e]:f.join(String(e)))),t===r?t[e]=n:c?t[e]?t[e]=n:i(t,e,n):(delete t[e],i(t,e,n)))})(Function.prototype,"toString",function(){return"function"==typeof this&&this[u]||c.call(this)})},function(t,e,n){var r=n(36);t.exports=function(t,e,n){if(r(t),void 0===e)return t;switch(n){case 1:return function(n){return t.call(e,n)};case 2:return function(n,r){return t.call(e,n,r)};case 3:return function(n,r,i){return t.call(e,n,r,i)}}return function(){return t.apply(e,arguments)}}},function(t,e,n){var r=n(42),i=n(9);t.exports=function(t){return r(i(t))}},function(t,e){var n={}.toString;t.exports=function(t){return n.call(t).slice(8,-1)}},function(t,e,n){var r=n(8),i=Math.min;t.exports=function(t){return t>0?i(r(t),9007199254740991):0}},function(t,e,n){var r=n(2),i=n(1),o=i["__core-js_shared__"]||(i["__core-js_shared__"]={});(t.exports=function(t,e){return o[t]||(o[t]=void 0!==e?e:{})})("versions",[]).push({version:r.version,mode:n(15)?"pure":"global",copyright:"© 2018 Denis Pushkarev (zloirock.ru)"})},function(t,e){t.exports="constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf".split(",")},function(t,e,n){var r=n(4).f,i=n(7),o=n(0)("toStringTag");t.exports=function(t,e,n){t&&!i(t=n?t:t.prototype,o)&&r(t,o,{configurable:!0,value:e})}},function(t,e,n){var r=n(9);t.exports=function(t){return Object(r(t))}},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=Math.PI/180;e.default=function(t){return t*r}},function(t,e,n){"use strict";n(30);var r=n(54),i=function(t){return t&&t.__esModule?t:{default:t}}(r);t.exports=i.default},function(t,e,n){n(31),n(47),t.exports=n(2).Array.from},function(t,e,n){"use strict";var r=n(32)(!0);n(33)(String,"String",function(t){this._t=String(t),this._i=0},function(){var t,e=this._t,n=this._i;return n>=e.length?{value:void 0,done:!0}:(t=r(e,n),this._i+=t.length,{value:t,done:!1})})},function(t,e,n){var r=n(8),i=n(9);t.exports=function(t){return function(e,n){var o,u,c=String(i(e)),f=r(n),a=c.length;return f<0||f>=a?t?"":void 0:(o=c.charCodeAt(f),o<55296||o>56319||f+1===a||(u=c.charCodeAt(f+1))<56320||u>57343?t?c.charAt(f):o:t?c.slice(f,f+2):u-56320+(o-55296<<10)+65536)}}},function(t,e,n){"use strict";var r=n(15),i=n(16),o=n(19),u=n(3),c=n(13),f=n(37),a=n(26),s=n(46),l=n(0)("iterator"),p=!([].keys&&"next"in[].keys()),h=function(){return this};t.exports=function(t,e,n,d,v,y,_){f(n,e,d);var m,g,x,b=function(t){if(!p&&t in M)return M[t];switch(t){case"keys":case"values":return function(){return new n(this,t)}}return function(){return new n(this,t)}},O=e+" Iterator",w="values"==v,j=!1,M=t.prototype,S=M[l]||M["@@iterator"]||v&&M[v],P=S||b(v),A=v?w?b("entries"):P:void 0,T="Array"==e?M.entries||S:S;if(T&&(x=s(T.call(new t)))!==Object.prototype&&x.next&&(a(x,O,!0),r||"function"==typeof x[l]||u(x,l,h)),w&&S&&"values"!==S.name&&(j=!0,P=function(){return S.call(this)}),r&&!_||!p&&!j&&M[l]||u(M,l,P),c[e]=P,c[O]=h,v)if(m={values:w?P:b("values"),keys:y?P:b("keys"),entries:A},_)for(g in m)g in M||o(M,g,m[g]);else i(i.P+i.F*(p||j),e,m);return m}},function(t,e,n){t.exports=!n(6)&&!n(17)(function(){return 7!=Object.defineProperty(n(18)("div"),"a",{get:function(){return 7}}).a})},function(t,e,n){var r=n(10);t.exports=function(t,e){if(!r(t))return t;var n,i;if(e&&"function"==typeof(n=t.toString)&&!r(i=n.call(t)))return i;if("function"==typeof(n=t.valueOf)&&!r(i=n.call(t)))return i;if(!e&&"function"==typeof(n=t.toString)&&!r(i=n.call(t)))return i;throw TypeError("Can't convert object to primitive value")}},function(t,e){t.exports=function(t){if("function"!=typeof t)throw TypeError(t+" is not a function!");return t}},function(t,e,n){"use strict";var r=n(38),i=n(11),o=n(26),u={};n(3)(u,n(0)("iterator"),function(){return this}),t.exports=function(t,e,n){t.prototype=r(u,{next:i(1,n)}),o(t,e+" Iterator")}},function(t,e,n){var r=n(5),i=n(39),o=n(25),u=n(14)("IE_PROTO"),c=function(){},f=function(){var t,e=n(18)("iframe"),r=o.length;for(e.style.display="none",n(45).appendChild(e),e.src="javascript:",t=e.contentWindow.document,t.open(),t.write("<script>document.F=Object<\/script>"),t.close(),f=t.F;r--;)delete f.prototype[o[r]];return f()};t.exports=Object.create||function(t,e){var n;return null!==t?(c.prototype=r(t),n=new c,c.prototype=null,n[u]=t):n=f(),void 0===e?n:i(n,e)}},function(t,e,n){var r=n(4),i=n(5),o=n(40);t.exports=n(6)?Object.defineProperties:function(t,e){i(t);for(var n,u=o(e),c=u.length,f=0;c>f;)r.f(t,n=u[f++],e[n]);return t}},function(t,e,n){var r=n(41),i=n(25);t.exports=Object.keys||function(t){return r(t,i)}},function(t,e,n){var r=n(7),i=n(21),o=n(43)(!1),u=n(14)("IE_PROTO");t.exports=function(t,e){var n,c=i(t),f=0,a=[];for(n in c)n!=u&&r(c,n)&&a.push(n);for(;e.length>f;)r(c,n=e[f++])&&(~o(a,n)||a.push(n));return a}},function(t,e,n){var r=n(22);t.exports=Object("z").propertyIsEnumerable(0)?Object:function(t){return"String"==r(t)?t.split(""):Object(t)}},function(t,e,n){var r=n(21),i=n(23),o=n(44);t.exports=function(t){return function(e,n,u){var c,f=r(e),a=i(f.length),s=o(u,a);if(t&&n!=n){for(;a>s;)if((c=f[s++])!=c)return!0}else for(;a>s;s++)if((t||s in f)&&f[s]===n)return t||s||0;return!t&&-1}}},function(t,e,n){var r=n(8),i=Math.max,o=Math.min;t.exports=function(t,e){return t=r(t),t<0?i(t+e,0):o(t,e)}},function(t,e,n){var r=n(1).document;t.exports=r&&r.documentElement},function(t,e,n){var r=n(7),i=n(27),o=n(14)("IE_PROTO"),u=Object.prototype;t.exports=Object.getPrototypeOf||function(t){return t=i(t),r(t,o)?t[o]:"function"==typeof t.constructor&&t instanceof t.constructor?t.constructor.prototype:t instanceof Object?u:null}},function(t,e,n){"use strict";var r=n(20),i=n(16),o=n(27),u=n(48),c=n(49),f=n(23),a=n(50),s=n(51);i(i.S+i.F*!n(53)(function(t){Array.from(t)}),"Array",{from:function(t){var e,n,i,l,p=o(t),h="function"==typeof this?this:Array,d=arguments.length,v=d>1?arguments[1]:void 0,y=void 0!==v,_=0,m=s(p);if(y&&(v=r(v,d>2?arguments[2]:void 0,2)),void 0==m||h==Array&&c(m))for(e=f(p.length),n=new h(e);e>_;_++)a(n,_,y?v(p[_],_):p[_]);else for(l=m.call(p),n=new h;!(i=l.next()).done;_++)a(n,_,y?u(l,v,[i.value,_],!0):i.value);return n.length=_,n}})},function(t,e,n){var r=n(5);t.exports=function(t,e,n,i){try{return i?e(r(n)[0],n[1]):e(n)}catch(e){var o=t.return;throw void 0!==o&&r(o.call(t)),e}}},function(t,e,n){var r=n(13),i=n(0)("iterator"),o=Array.prototype;t.exports=function(t){return void 0!==t&&(r.Array===t||o[i]===t)}},function(t,e,n){"use strict";var r=n(4),i=n(11);t.exports=function(t,e,n){e in t?r.f(t,e,i(0,n)):t[e]=n}},function(t,e,n){var r=n(52),i=n(0)("iterator"),o=n(13);t.exports=n(2).getIteratorMethod=function(t){if(void 0!=t)return t[i]||t["@@iterator"]||o[r(t)]}},function(t,e,n){var r=n(22),i=n(0)("toStringTag"),o="Arguments"==r(function(){return arguments}()),u=function(t,e){try{return t[e]}catch(t){}};t.exports=function(t){var e,n,c;return void 0===t?"Undefined":null===t?"Null":"string"==typeof(n=u(e=Object(t),i))?n:o?r(e):"Object"==(c=r(e))&&"function"==typeof e.callee?"Arguments":c}},function(t,e,n){var r=n(0)("iterator"),i=!1;try{var o=[7][r]();o.return=function(){i=!0},Array.from(o,function(){throw 2})}catch(t){}t.exports=function(t,e){if(!e&&!i)return!1;var n=!1;try{var o=[7],u=o[r]();u.next=function(){return{done:n=!0}},o[r]=function(){return u},t(o)}catch(t){}return n}},function(t,e,n){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}function i(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(e,"__esModule",{value:!0});var o=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}(),u=n(55),c=r(u),f=n(56),a=r(f),s=n(57),l=r(s),p=n(58),h=r(p),d=n(59),v=r(d),y=Math.PI,_=Math.max,m=Math.min,g=function(){function t(e,n){i(this,t),this.element=e,this.originalHTML=this.element.innerHTML;var r=document.createElement("div"),o=document.createDocumentFragment();r.setAttribute("aria-label",e.innerText),r.style.position="relative",this.container=r,this._letters=(0,a.default)(e,n),this._letters.forEach(function(t){return o.appendChild(t)}),r.appendChild(o),this.element.innerHTML="",this.element.appendChild(r);var u=window.getComputedStyle(this.element),f=u.fontSize,s=u.lineHeight;this._fontSize=parseFloat(f),this._lineHeight=parseFloat(s)||this._fontSize,this._metrics=this._letters.map(c.default);var l=this._metrics.reduce(function(t,e){return t+e.width},0);this._minRadius=l/y/2+this._lineHeight,this._dir=1,this._forceWidth=!1,this._forceHeight=!0,this._radius=this._minRadius,this._invalidate()}return o(t,[{key:"radius",value:function(t){return void 0!==t?(this._radius=_(this._minRadius,t),this._invalidate(),this):this._radius}},{key:"dir",value:function(t){return void 0!==t?(this._dir=t,this._invalidate(),this):this._dir}},{key:"forceWidth",value:function(t){return void 0!==t?(this._forceWidth=t,this._invalidate(),this):this._forceWidth}},{key:"forceHeight",value:function(t){return void 0!==t?(this._forceHeight=t,this._invalidate(),this):this._forceHeight}},{key:"refresh",value:function(){return this._invalidate()}},{key:"destroy",value:function(){return this.element.innerHTML=this.originalHTML,this}},{key:"_invalidate",value:function(){var t=this;return cancelAnimationFrame(this._raf),this._raf=requestAnimationFrame(function(){t._layout()}),this}},{key:"_layout",value:function(){var t=this,e=this._radius,n=this._dir,r=-1===n?-e+this._lineHeight:e,i="center "+r/this._fontSize+"em",o=e-this._lineHeight,u=(0,v.default)(this._metrics,o),c=u.rotations,f=u.θ;if(this._letters.forEach(function(e,r){var o=e.style,u=(-.5*f+c[r])*n,a=-.5*t._metrics[r].width/t._fontSize,s="translateX("+a+"em) rotate("+u+"deg)";o.position="absolute",o.bottom=-1===n?0:"auto",o.left="50%",o.transform=s,o.transformOrigin=i,o.webkitTransform=s,o.webkitTransformOrigin=i}),this._forceHeight){var a=f>180?(0,l.default)(e,f):(0,l.default)(o,f)+this._lineHeight;this.container.style.height=a/this._fontSize+"em"}if(this._forceWidth){var s=(0,h.default)(e,m(180,f));this.container.style.width=s/this._fontSize+"em"}return this}}]),t}();e.default=g},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(t){var e=t.getBoundingClientRect();return{height:e.height,left:e.left+window.pageXOffset,top:e.top+window.pageYOffset,width:e.width}}},function(t,e,n){"use strict";function r(t){if(Array.isArray(t)){for(var e=0,n=Array(t.length);e<t.length;e++)n[e]=t[e];return n}return Array.from(t)}Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(t,e){var n=document.createElement("span"),i=t.innerText.trim();return(e?e(i):[].concat(r(i))).map(function(t){var e=n.cloneNode();return e.insertAdjacentHTML("afterbegin"," "===t?"&nbsp;":t),e})}},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=n(28),i=function(t){return t&&t.__esModule?t:{default:t}}(r);e.default=function(t,e){return t*(1-Math.cos((0,i.default)(e/2)))}},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=n(28),i=function(t){return t&&t.__esModule?t:{default:t}}(r);e.default=function(t,e){return 2*t*Math.sin((0,i.default)(e/2))}},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=n(60),i=function(t){return t&&t.__esModule?t:{default:t}}(r);e.default=function(t,e){return t.reduce(function(t,n){var r=n.width,o=(0,i.default)(r/e);return{"θ":t.θ+o,rotations:t.rotations.concat([t.θ+o/2])}},{"θ":0,rotations:[]})}},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=180/Math.PI;e.default=function(t){return t*r}}])});
 
 /***/ }),
-/* 2 */,
-/* 3 */
+
+/***/ "./node_modules/js-cookie/src/js.cookie.js":
+/*!*************************************************!*\
+  !*** ./node_modules/js-cookie/src/js.cookie.js ***!
+  \*************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -188,1325 +201,1614 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 
 /***/ }),
-/* 4 */
+
+/***/ "./node_modules/process/browser.js":
+/*!*****************************************!*\
+  !*** ./node_modules/process/browser.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
+
+
+/***/ }),
+
+/***/ "./node_modules/rx-dom/dist/rx.dom.js":
+/*!********************************************!*\
+  !*** ./node_modules/rx-dom/dist/rx.dom.js ***!
+  \********************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/*!
- * circletype 2.3.0
- * A JavaScript library that lets you curve type on the web.
- * Copyright © 2014-2018 Peter Hrynkow
- * Licensed MIT
- * https://github.com/peterhry/CircleType#readme
- */
-!function(t,e){ true?module.exports=e():undefined}("undefined"!=typeof self?self:this,function(){return function(t){function e(r){if(n[r])return n[r].exports;var i=n[r]={i:r,l:!1,exports:{}};return t[r].call(i.exports,i,i.exports,e),i.l=!0,i.exports}var n={};return e.m=t,e.c=n,e.d=function(t,n,r){e.o(t,n)||Object.defineProperty(t,n,{configurable:!1,enumerable:!0,get:r})},e.n=function(t){var n=t&&t.__esModule?function(){return t.default}:function(){return t};return e.d(n,"a",n),n},e.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},e.p="",e(e.s=29)}([function(t,e,n){var r=n(24)("wks"),i=n(12),o=n(1).Symbol,u="function"==typeof o;(t.exports=function(t){return r[t]||(r[t]=u&&o[t]||(u?o:i)("Symbol."+t))}).store=r},function(t,e){var n=t.exports="undefined"!=typeof window&&window.Math==Math?window:"undefined"!=typeof self&&self.Math==Math?self:Function("return this")();"number"==typeof __g&&(__g=n)},function(t,e){var n=t.exports={version:"2.5.6"};"number"==typeof __e&&(__e=n)},function(t,e,n){var r=n(4),i=n(11);t.exports=n(6)?function(t,e,n){return r.f(t,e,i(1,n))}:function(t,e,n){return t[e]=n,t}},function(t,e,n){var r=n(5),i=n(34),o=n(35),u=Object.defineProperty;e.f=n(6)?Object.defineProperty:function(t,e,n){if(r(t),e=o(e,!0),r(n),i)try{return u(t,e,n)}catch(t){}if("get"in n||"set"in n)throw TypeError("Accessors not supported!");return"value"in n&&(t[e]=n.value),t}},function(t,e,n){var r=n(10);t.exports=function(t){if(!r(t))throw TypeError(t+" is not an object!");return t}},function(t,e,n){t.exports=!n(17)(function(){return 7!=Object.defineProperty({},"a",{get:function(){return 7}}).a})},function(t,e){var n={}.hasOwnProperty;t.exports=function(t,e){return n.call(t,e)}},function(t,e){var n=Math.ceil,r=Math.floor;t.exports=function(t){return isNaN(t=+t)?0:(t>0?r:n)(t)}},function(t,e){t.exports=function(t){if(void 0==t)throw TypeError("Can't call method on  "+t);return t}},function(t,e){t.exports=function(t){return"object"==typeof t?null!==t:"function"==typeof t}},function(t,e){t.exports=function(t,e){return{enumerable:!(1&t),configurable:!(2&t),writable:!(4&t),value:e}}},function(t,e){var n=0,r=Math.random();t.exports=function(t){return"Symbol(".concat(void 0===t?"":t,")_",(++n+r).toString(36))}},function(t,e){t.exports={}},function(t,e,n){var r=n(24)("keys"),i=n(12);t.exports=function(t){return r[t]||(r[t]=i(t))}},function(t,e){t.exports=!1},function(t,e,n){var r=n(1),i=n(2),o=n(3),u=n(19),c=n(20),f=function(t,e,n){var a,s,l,p,h=t&f.F,d=t&f.G,v=t&f.S,y=t&f.P,_=t&f.B,m=d?r:v?r[e]||(r[e]={}):(r[e]||{}).prototype,g=d?i:i[e]||(i[e]={}),x=g.prototype||(g.prototype={});d&&(n=e);for(a in n)s=!h&&m&&void 0!==m[a],l=(s?m:n)[a],p=_&&s?c(l,r):y&&"function"==typeof l?c(Function.call,l):l,m&&u(m,a,l,t&f.U),g[a]!=l&&o(g,a,p),y&&x[a]!=l&&(x[a]=l)};r.core=i,f.F=1,f.G=2,f.S=4,f.P=8,f.B=16,f.W=32,f.U=64,f.R=128,t.exports=f},function(t,e){t.exports=function(t){try{return!!t()}catch(t){return!0}}},function(t,e,n){var r=n(10),i=n(1).document,o=r(i)&&r(i.createElement);t.exports=function(t){return o?i.createElement(t):{}}},function(t,e,n){var r=n(1),i=n(3),o=n(7),u=n(12)("src"),c=Function.toString,f=(""+c).split("toString");n(2).inspectSource=function(t){return c.call(t)},(t.exports=function(t,e,n,c){var a="function"==typeof n;a&&(o(n,"name")||i(n,"name",e)),t[e]!==n&&(a&&(o(n,u)||i(n,u,t[e]?""+t[e]:f.join(String(e)))),t===r?t[e]=n:c?t[e]?t[e]=n:i(t,e,n):(delete t[e],i(t,e,n)))})(Function.prototype,"toString",function(){return"function"==typeof this&&this[u]||c.call(this)})},function(t,e,n){var r=n(36);t.exports=function(t,e,n){if(r(t),void 0===e)return t;switch(n){case 1:return function(n){return t.call(e,n)};case 2:return function(n,r){return t.call(e,n,r)};case 3:return function(n,r,i){return t.call(e,n,r,i)}}return function(){return t.apply(e,arguments)}}},function(t,e,n){var r=n(42),i=n(9);t.exports=function(t){return r(i(t))}},function(t,e){var n={}.toString;t.exports=function(t){return n.call(t).slice(8,-1)}},function(t,e,n){var r=n(8),i=Math.min;t.exports=function(t){return t>0?i(r(t),9007199254740991):0}},function(t,e,n){var r=n(2),i=n(1),o=i["__core-js_shared__"]||(i["__core-js_shared__"]={});(t.exports=function(t,e){return o[t]||(o[t]=void 0!==e?e:{})})("versions",[]).push({version:r.version,mode:n(15)?"pure":"global",copyright:"© 2018 Denis Pushkarev (zloirock.ru)"})},function(t,e){t.exports="constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf".split(",")},function(t,e,n){var r=n(4).f,i=n(7),o=n(0)("toStringTag");t.exports=function(t,e,n){t&&!i(t=n?t:t.prototype,o)&&r(t,o,{configurable:!0,value:e})}},function(t,e,n){var r=n(9);t.exports=function(t){return Object(r(t))}},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=Math.PI/180;e.default=function(t){return t*r}},function(t,e,n){"use strict";n(30);var r=n(54),i=function(t){return t&&t.__esModule?t:{default:t}}(r);t.exports=i.default},function(t,e,n){n(31),n(47),t.exports=n(2).Array.from},function(t,e,n){"use strict";var r=n(32)(!0);n(33)(String,"String",function(t){this._t=String(t),this._i=0},function(){var t,e=this._t,n=this._i;return n>=e.length?{value:void 0,done:!0}:(t=r(e,n),this._i+=t.length,{value:t,done:!1})})},function(t,e,n){var r=n(8),i=n(9);t.exports=function(t){return function(e,n){var o,u,c=String(i(e)),f=r(n),a=c.length;return f<0||f>=a?t?"":void 0:(o=c.charCodeAt(f),o<55296||o>56319||f+1===a||(u=c.charCodeAt(f+1))<56320||u>57343?t?c.charAt(f):o:t?c.slice(f,f+2):u-56320+(o-55296<<10)+65536)}}},function(t,e,n){"use strict";var r=n(15),i=n(16),o=n(19),u=n(3),c=n(13),f=n(37),a=n(26),s=n(46),l=n(0)("iterator"),p=!([].keys&&"next"in[].keys()),h=function(){return this};t.exports=function(t,e,n,d,v,y,_){f(n,e,d);var m,g,x,b=function(t){if(!p&&t in M)return M[t];switch(t){case"keys":case"values":return function(){return new n(this,t)}}return function(){return new n(this,t)}},O=e+" Iterator",w="values"==v,j=!1,M=t.prototype,S=M[l]||M["@@iterator"]||v&&M[v],P=S||b(v),A=v?w?b("entries"):P:void 0,T="Array"==e?M.entries||S:S;if(T&&(x=s(T.call(new t)))!==Object.prototype&&x.next&&(a(x,O,!0),r||"function"==typeof x[l]||u(x,l,h)),w&&S&&"values"!==S.name&&(j=!0,P=function(){return S.call(this)}),r&&!_||!p&&!j&&M[l]||u(M,l,P),c[e]=P,c[O]=h,v)if(m={values:w?P:b("values"),keys:y?P:b("keys"),entries:A},_)for(g in m)g in M||o(M,g,m[g]);else i(i.P+i.F*(p||j),e,m);return m}},function(t,e,n){t.exports=!n(6)&&!n(17)(function(){return 7!=Object.defineProperty(n(18)("div"),"a",{get:function(){return 7}}).a})},function(t,e,n){var r=n(10);t.exports=function(t,e){if(!r(t))return t;var n,i;if(e&&"function"==typeof(n=t.toString)&&!r(i=n.call(t)))return i;if("function"==typeof(n=t.valueOf)&&!r(i=n.call(t)))return i;if(!e&&"function"==typeof(n=t.toString)&&!r(i=n.call(t)))return i;throw TypeError("Can't convert object to primitive value")}},function(t,e){t.exports=function(t){if("function"!=typeof t)throw TypeError(t+" is not a function!");return t}},function(t,e,n){"use strict";var r=n(38),i=n(11),o=n(26),u={};n(3)(u,n(0)("iterator"),function(){return this}),t.exports=function(t,e,n){t.prototype=r(u,{next:i(1,n)}),o(t,e+" Iterator")}},function(t,e,n){var r=n(5),i=n(39),o=n(25),u=n(14)("IE_PROTO"),c=function(){},f=function(){var t,e=n(18)("iframe"),r=o.length;for(e.style.display="none",n(45).appendChild(e),e.src="javascript:",t=e.contentWindow.document,t.open(),t.write("<script>document.F=Object<\/script>"),t.close(),f=t.F;r--;)delete f.prototype[o[r]];return f()};t.exports=Object.create||function(t,e){var n;return null!==t?(c.prototype=r(t),n=new c,c.prototype=null,n[u]=t):n=f(),void 0===e?n:i(n,e)}},function(t,e,n){var r=n(4),i=n(5),o=n(40);t.exports=n(6)?Object.defineProperties:function(t,e){i(t);for(var n,u=o(e),c=u.length,f=0;c>f;)r.f(t,n=u[f++],e[n]);return t}},function(t,e,n){var r=n(41),i=n(25);t.exports=Object.keys||function(t){return r(t,i)}},function(t,e,n){var r=n(7),i=n(21),o=n(43)(!1),u=n(14)("IE_PROTO");t.exports=function(t,e){var n,c=i(t),f=0,a=[];for(n in c)n!=u&&r(c,n)&&a.push(n);for(;e.length>f;)r(c,n=e[f++])&&(~o(a,n)||a.push(n));return a}},function(t,e,n){var r=n(22);t.exports=Object("z").propertyIsEnumerable(0)?Object:function(t){return"String"==r(t)?t.split(""):Object(t)}},function(t,e,n){var r=n(21),i=n(23),o=n(44);t.exports=function(t){return function(e,n,u){var c,f=r(e),a=i(f.length),s=o(u,a);if(t&&n!=n){for(;a>s;)if((c=f[s++])!=c)return!0}else for(;a>s;s++)if((t||s in f)&&f[s]===n)return t||s||0;return!t&&-1}}},function(t,e,n){var r=n(8),i=Math.max,o=Math.min;t.exports=function(t,e){return t=r(t),t<0?i(t+e,0):o(t,e)}},function(t,e,n){var r=n(1).document;t.exports=r&&r.documentElement},function(t,e,n){var r=n(7),i=n(27),o=n(14)("IE_PROTO"),u=Object.prototype;t.exports=Object.getPrototypeOf||function(t){return t=i(t),r(t,o)?t[o]:"function"==typeof t.constructor&&t instanceof t.constructor?t.constructor.prototype:t instanceof Object?u:null}},function(t,e,n){"use strict";var r=n(20),i=n(16),o=n(27),u=n(48),c=n(49),f=n(23),a=n(50),s=n(51);i(i.S+i.F*!n(53)(function(t){Array.from(t)}),"Array",{from:function(t){var e,n,i,l,p=o(t),h="function"==typeof this?this:Array,d=arguments.length,v=d>1?arguments[1]:void 0,y=void 0!==v,_=0,m=s(p);if(y&&(v=r(v,d>2?arguments[2]:void 0,2)),void 0==m||h==Array&&c(m))for(e=f(p.length),n=new h(e);e>_;_++)a(n,_,y?v(p[_],_):p[_]);else for(l=m.call(p),n=new h;!(i=l.next()).done;_++)a(n,_,y?u(l,v,[i.value,_],!0):i.value);return n.length=_,n}})},function(t,e,n){var r=n(5);t.exports=function(t,e,n,i){try{return i?e(r(n)[0],n[1]):e(n)}catch(e){var o=t.return;throw void 0!==o&&r(o.call(t)),e}}},function(t,e,n){var r=n(13),i=n(0)("iterator"),o=Array.prototype;t.exports=function(t){return void 0!==t&&(r.Array===t||o[i]===t)}},function(t,e,n){"use strict";var r=n(4),i=n(11);t.exports=function(t,e,n){e in t?r.f(t,e,i(0,n)):t[e]=n}},function(t,e,n){var r=n(52),i=n(0)("iterator"),o=n(13);t.exports=n(2).getIteratorMethod=function(t){if(void 0!=t)return t[i]||t["@@iterator"]||o[r(t)]}},function(t,e,n){var r=n(22),i=n(0)("toStringTag"),o="Arguments"==r(function(){return arguments}()),u=function(t,e){try{return t[e]}catch(t){}};t.exports=function(t){var e,n,c;return void 0===t?"Undefined":null===t?"Null":"string"==typeof(n=u(e=Object(t),i))?n:o?r(e):"Object"==(c=r(e))&&"function"==typeof e.callee?"Arguments":c}},function(t,e,n){var r=n(0)("iterator"),i=!1;try{var o=[7][r]();o.return=function(){i=!0},Array.from(o,function(){throw 2})}catch(t){}t.exports=function(t,e){if(!e&&!i)return!1;var n=!1;try{var o=[7],u=o[r]();u.next=function(){return{done:n=!0}},o[r]=function(){return u},t(o)}catch(t){}return n}},function(t,e,n){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}function i(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(e,"__esModule",{value:!0});var o=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}(),u=n(55),c=r(u),f=n(56),a=r(f),s=n(57),l=r(s),p=n(58),h=r(p),d=n(59),v=r(d),y=Math.PI,_=Math.max,m=Math.min,g=function(){function t(e,n){i(this,t),this.element=e,this.originalHTML=this.element.innerHTML;var r=document.createElement("div"),o=document.createDocumentFragment();r.setAttribute("aria-label",e.innerText),r.style.position="relative",this.container=r,this._letters=(0,a.default)(e,n),this._letters.forEach(function(t){return o.appendChild(t)}),r.appendChild(o),this.element.innerHTML="",this.element.appendChild(r);var u=window.getComputedStyle(this.element),f=u.fontSize,s=u.lineHeight;this._fontSize=parseFloat(f),this._lineHeight=parseFloat(s)||this._fontSize,this._metrics=this._letters.map(c.default);var l=this._metrics.reduce(function(t,e){return t+e.width},0);this._minRadius=l/y/2+this._lineHeight,this._dir=1,this._forceWidth=!1,this._forceHeight=!0,this._radius=this._minRadius,this._invalidate()}return o(t,[{key:"radius",value:function(t){return void 0!==t?(this._radius=_(this._minRadius,t),this._invalidate(),this):this._radius}},{key:"dir",value:function(t){return void 0!==t?(this._dir=t,this._invalidate(),this):this._dir}},{key:"forceWidth",value:function(t){return void 0!==t?(this._forceWidth=t,this._invalidate(),this):this._forceWidth}},{key:"forceHeight",value:function(t){return void 0!==t?(this._forceHeight=t,this._invalidate(),this):this._forceHeight}},{key:"refresh",value:function(){return this._invalidate()}},{key:"destroy",value:function(){return this.element.innerHTML=this.originalHTML,this}},{key:"_invalidate",value:function(){var t=this;return cancelAnimationFrame(this._raf),this._raf=requestAnimationFrame(function(){t._layout()}),this}},{key:"_layout",value:function(){var t=this,e=this._radius,n=this._dir,r=-1===n?-e+this._lineHeight:e,i="center "+r/this._fontSize+"em",o=e-this._lineHeight,u=(0,v.default)(this._metrics,o),c=u.rotations,f=u.θ;if(this._letters.forEach(function(e,r){var o=e.style,u=(-.5*f+c[r])*n,a=-.5*t._metrics[r].width/t._fontSize,s="translateX("+a+"em) rotate("+u+"deg)";o.position="absolute",o.bottom=-1===n?0:"auto",o.left="50%",o.transform=s,o.transformOrigin=i,o.webkitTransform=s,o.webkitTransformOrigin=i}),this._forceHeight){var a=f>180?(0,l.default)(e,f):(0,l.default)(o,f)+this._lineHeight;this.container.style.height=a/this._fontSize+"em"}if(this._forceWidth){var s=(0,h.default)(e,m(180,f));this.container.style.width=s/this._fontSize+"em"}return this}}]),t}();e.default=g},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(t){var e=t.getBoundingClientRect();return{height:e.height,left:e.left+window.pageXOffset,top:e.top+window.pageYOffset,width:e.width}}},function(t,e,n){"use strict";function r(t){if(Array.isArray(t)){for(var e=0,n=Array(t.length);e<t.length;e++)n[e]=t[e];return n}return Array.from(t)}Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(t,e){var n=document.createElement("span"),i=t.innerText.trim();return(e?e(i):[].concat(r(i))).map(function(t){var e=n.cloneNode();return e.insertAdjacentHTML("afterbegin"," "===t?"&nbsp;":t),e})}},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=n(28),i=function(t){return t&&t.__esModule?t:{default:t}}(r);e.default=function(t,e){return t*(1-Math.cos((0,i.default)(e/2)))}},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=n(28),i=function(t){return t&&t.__esModule?t:{default:t}}(r);e.default=function(t,e){return 2*t*Math.sin((0,i.default)(e/2))}},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=n(60),i=function(t){return t&&t.__esModule?t:{default:t}}(r);e.default=function(t,e){return t.reduce(function(t,n){var r=n.width,o=(0,i.default)(r/e);return{"θ":t.θ+o,rotations:t.rotations.concat([t.θ+o/2])}},{"θ":0,rotations:[]})}},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=180/Math.PI;e.default=function(t){return t*r}}])});
+/* WEBPACK VAR INJECTION */(function(module, global) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Copyright (c) Microsoft, Inc. All rights reserved. See License.txt in the project root for license information.
 
-/***/ }),
-/* 5 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/*
- * anime.js v3.0.1
- * (c) 2019 Julian Garnier
- * Released under the MIT license
- * animejs.com
- */
-
-// Defaults
-
-var defaultInstanceSettings = {
-  update: null,
-  begin: null,
-  loopBegin: null,
-  changeBegin: null,
-  change: null,
-  changeComplete: null,
-  loopComplete: null,
-  complete: null,
-  loop: 1,
-  direction: 'normal',
-  autoplay: true,
-  timelineOffset: 0
-};
-
-var defaultTweenSettings = {
-  duration: 1000,
-  delay: 0,
-  endDelay: 0,
-  easing: 'easeOutElastic(1, .5)',
-  round: 0
-};
-
-var validTransforms = ['translateX', 'translateY', 'translateZ', 'rotate', 'rotateX', 'rotateY', 'rotateZ', 'scale', 'scaleX', 'scaleY', 'scaleZ', 'skew', 'skewX', 'skewY', 'perspective'];
-
-// Caching
-
-var cache = {
-  CSS: {},
-  springs: {}
-};
-
-// Utils
-
-function minMax(val, min, max) {
-  return Math.min(Math.max(val, min), max);
-}
-
-function stringContains(str, text) {
-  return str.indexOf(text) > -1;
-}
-
-function applyArguments(func, args) {
-  return func.apply(null, args);
-}
-
-var is = {
-  arr: function (a) { return Array.isArray(a); },
-  obj: function (a) { return stringContains(Object.prototype.toString.call(a), 'Object'); },
-  pth: function (a) { return is.obj(a) && a.hasOwnProperty('totalLength'); },
-  svg: function (a) { return a instanceof SVGElement; },
-  inp: function (a) { return a instanceof HTMLInputElement; },
-  dom: function (a) { return a.nodeType || is.svg(a); },
-  str: function (a) { return typeof a === 'string'; },
-  fnc: function (a) { return typeof a === 'function'; },
-  und: function (a) { return typeof a === 'undefined'; },
-  hex: function (a) { return /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(a); },
-  rgb: function (a) { return /^rgb/.test(a); },
-  hsl: function (a) { return /^hsl/.test(a); },
-  col: function (a) { return (is.hex(a) || is.rgb(a) || is.hsl(a)); },
-  key: function (a) { return !defaultInstanceSettings.hasOwnProperty(a) && !defaultTweenSettings.hasOwnProperty(a) && a !== 'targets' && a !== 'keyframes'; }
-};
-
-// Easings
-
-function parseEasingParameters(string) {
-  var match = /\(([^)]+)\)/.exec(string);
-  return match ? match[1].split(',').map(function (p) { return parseFloat(p); }) : [];
-}
-
-// Spring solver inspired by Webkit Copyright © 2016 Apple Inc. All rights reserved. https://webkit.org/demos/spring/spring.js
-
-function spring(string, duration) {
-
-  var params = parseEasingParameters(string);
-  var mass = minMax(is.und(params[0]) ? 1 : params[0], .1, 100);
-  var stiffness = minMax(is.und(params[1]) ? 100 : params[1], .1, 100);
-  var damping = minMax(is.und(params[2]) ? 10 : params[2], .1, 100);
-  var velocity =  minMax(is.und(params[3]) ? 0 : params[3], .1, 100);
-  var w0 = Math.sqrt(stiffness / mass);
-  var zeta = damping / (2 * Math.sqrt(stiffness * mass));
-  var wd = zeta < 1 ? w0 * Math.sqrt(1 - zeta * zeta) : 0;
-  var a = 1;
-  var b = zeta < 1 ? (zeta * w0 + -velocity) / wd : -velocity + w0;
-
-  function solver(t) {
-    var progress = duration ? (duration * t) / 1000 : t;
-    if (zeta < 1) {
-      progress = Math.exp(-progress * zeta * w0) * (a * Math.cos(wd * progress) + b * Math.sin(wd * progress));
-    } else {
-      progress = (a + b * progress) * Math.exp(-progress * w0);
-    }
-    if (t === 0 || t === 1) { return t; }
-    return 1 - progress;
-  }
-
-  function getDuration() {
-    var cached = cache.springs[string];
-    if (cached) { return cached; }
-    var frame = 1/6;
-    var elapsed = 0;
-    var rest = 0;
-    while(true) {
-      elapsed += frame;
-      if (solver(elapsed) === 1) {
-        rest++;
-        if (rest >= 16) { break; }
-      } else {
-        rest = 0;
-      }
-    }
-    var duration = elapsed * frame * 1000;
-    cache.springs[string] = duration;
-    return duration;
-  }
-
-  return duration ? solver : getDuration;
-
-}
-
-// Elastic easing adapted from jQueryUI http://api.jqueryui.com/easings/
-
-function elastic(amplitude, period) {
-  if ( amplitude === void 0 ) amplitude = 1;
-  if ( period === void 0 ) period = .5;
-
-  var a = minMax(amplitude, 1, 10);
-  var p = minMax(period, .1, 2);
-  return function (t) {
-    return (t === 0 || t === 1) ? t : 
-      -a * Math.pow(2, 10 * (t - 1)) * Math.sin((((t - 1) - (p / (Math.PI * 2) * Math.asin(1 / a))) * (Math.PI * 2)) / p);
-  }
-}
-
-// Basic steps easing implementation https://developer.mozilla.org/fr/docs/Web/CSS/transition-timing-function
-
-function steps(steps) {
-  if ( steps === void 0 ) steps = 10;
-
-  return function (t) { return Math.round(t * steps) * (1 / steps); };
-}
-
-// BezierEasing https://github.com/gre/bezier-easing
-
-var bezier = (function () {
-
-  var kSplineTableSize = 11;
-  var kSampleStepSize = 1.0 / (kSplineTableSize - 1.0);
-
-  function A(aA1, aA2) { return 1.0 - 3.0 * aA2 + 3.0 * aA1 }
-  function B(aA1, aA2) { return 3.0 * aA2 - 6.0 * aA1 }
-  function C(aA1)      { return 3.0 * aA1 }
-
-  function calcBezier(aT, aA1, aA2) { return ((A(aA1, aA2) * aT + B(aA1, aA2)) * aT + C(aA1)) * aT }
-  function getSlope(aT, aA1, aA2) { return 3.0 * A(aA1, aA2) * aT * aT + 2.0 * B(aA1, aA2) * aT + C(aA1) }
-
-  function binarySubdivide(aX, aA, aB, mX1, mX2) {
-    var currentX, currentT, i = 0;
-    do {
-      currentT = aA + (aB - aA) / 2.0;
-      currentX = calcBezier(currentT, mX1, mX2) - aX;
-      if (currentX > 0.0) { aB = currentT; } else { aA = currentT; }
-    } while (Math.abs(currentX) > 0.0000001 && ++i < 10);
-    return currentT;
-  }
-
-  function newtonRaphsonIterate(aX, aGuessT, mX1, mX2) {
-    for (var i = 0; i < 4; ++i) {
-      var currentSlope = getSlope(aGuessT, mX1, mX2);
-      if (currentSlope === 0.0) { return aGuessT; }
-      var currentX = calcBezier(aGuessT, mX1, mX2) - aX;
-      aGuessT -= currentX / currentSlope;
-    }
-    return aGuessT;
-  }
-
-  function bezier(mX1, mY1, mX2, mY2) {
-
-    if (!(0 <= mX1 && mX1 <= 1 && 0 <= mX2 && mX2 <= 1)) { return; }
-    var sampleValues = new Float32Array(kSplineTableSize);
-
-    if (mX1 !== mY1 || mX2 !== mY2) {
-      for (var i = 0; i < kSplineTableSize; ++i) {
-        sampleValues[i] = calcBezier(i * kSampleStepSize, mX1, mX2);
-      }
-    }
-
-    function getTForX(aX) {
-
-      var intervalStart = 0;
-      var currentSample = 1;
-      var lastSample = kSplineTableSize - 1;
-
-      for (; currentSample !== lastSample && sampleValues[currentSample] <= aX; ++currentSample) {
-        intervalStart += kSampleStepSize;
-      }
-
-      --currentSample;
-
-      var dist = (aX - sampleValues[currentSample]) / (sampleValues[currentSample + 1] - sampleValues[currentSample]);
-      var guessForT = intervalStart + dist * kSampleStepSize;
-      var initialSlope = getSlope(guessForT, mX1, mX2);
-
-      if (initialSlope >= 0.001) {
-        return newtonRaphsonIterate(aX, guessForT, mX1, mX2);
-      } else if (initialSlope === 0.0) {
-        return guessForT;
-      } else {
-        return binarySubdivide(aX, intervalStart, intervalStart + kSampleStepSize, mX1, mX2);
-      }
-
-    }
-
-    return function (x) {
-      if (mX1 === mY1 && mX2 === mY2) { return x; }
-      if (x === 0 || x === 1) { return x; }
-      return calcBezier(getTForX(x), mY1, mY2);
-    }
-
-  }
-
-  return bezier;
-
-})();
-
-var penner = (function () {
-
-  var names = ['Quad', 'Cubic', 'Quart', 'Quint', 'Sine', 'Expo', 'Circ', 'Back', 'Elastic'];
-
-  // Approximated Penner equations http://matthewlein.com/ceaser/
-
-  var curves = {
-    In: [
-      [0.550, 0.085, 0.680, 0.530], /* inQuad */
-      [0.550, 0.055, 0.675, 0.190], /* inCubic */
-      [0.895, 0.030, 0.685, 0.220], /* inQuart */
-      [0.755, 0.050, 0.855, 0.060], /* inQuint */
-      [0.470, 0.000, 0.745, 0.715], /* inSine */
-      [0.950, 0.050, 0.795, 0.035], /* inExpo */
-      [0.600, 0.040, 0.980, 0.335], /* inCirc */
-      [0.600,-0.280, 0.735, 0.045], /* inBack */
-      elastic /* inElastic */
-    ],
-    Out: [
-      [0.250, 0.460, 0.450, 0.940], /* outQuad */
-      [0.215, 0.610, 0.355, 1.000], /* outCubic */
-      [0.165, 0.840, 0.440, 1.000], /* outQuart */
-      [0.230, 1.000, 0.320, 1.000], /* outQuint */
-      [0.390, 0.575, 0.565, 1.000], /* outSine */
-      [0.190, 1.000, 0.220, 1.000], /* outExpo */
-      [0.075, 0.820, 0.165, 1.000], /* outCirc */
-      [0.175, 0.885, 0.320, 1.275], /* outBack */
-      function (a, p) { return function (t) { return 1 - elastic(a, p)(1 - t); }; } /* outElastic */
-    ],
-    InOut: [
-      [0.455, 0.030, 0.515, 0.955], /* inOutQuad */
-      [0.645, 0.045, 0.355, 1.000], /* inOutCubic */
-      [0.770, 0.000, 0.175, 1.000], /* inOutQuart */
-      [0.860, 0.000, 0.070, 1.000], /* inOutQuint */
-      [0.445, 0.050, 0.550, 0.950], /* inOutSine */
-      [1.000, 0.000, 0.000, 1.000], /* inOutExpo */
-      [0.785, 0.135, 0.150, 0.860], /* inOutCirc */
-      [0.680,-0.550, 0.265, 1.550], /* inOutBack */
-      function (a, p) { return function (t) { return t < .5 ? elastic(a, p)(t * 2) / 2 : 1 - elastic(a, p)(t * -2 + 2) / 2; }; } /* inOutElastic */
-    ]
+;(function (factory) {
+  var objectTypes = {
+    'function': true,
+    'object': true
   };
 
-  var eases = { 
-    linear: [0.250, 0.250, 0.750, 0.750]
-  };
-
-  var loop = function ( coords ) {
-    curves[coords].forEach(function (ease, i) {
-      eases['ease'+coords+names[i]] = ease;
-    });
-  };
-
-  for (var coords in curves) loop( coords );
-
-  return eases;
-
-})();
-
-function parseEasings(easing, duration) {
-  if (is.fnc(easing)) { return easing; }
-  var name = easing.split('(')[0];
-  var ease = penner[name];
-  var args = parseEasingParameters(easing);
-  switch (name) {
-    case 'spring' : return spring(easing, duration);
-    case 'cubicBezier' : return applyArguments(bezier, args);
-    case 'steps' : return applyArguments(steps, args);
-    default : return is.fnc(ease) ? applyArguments(ease, args) : applyArguments(bezier, ease);
+  function checkGlobal(value) {
+    return (value && value.Object === Object) ? value : null;
   }
-}
 
-// Strings
+  var freeExports = (objectTypes[typeof exports] && exports && !exports.nodeType) ? exports : null;
+  var freeModule = (objectTypes[typeof module] && module && !module.nodeType) ? module : null;
+  var freeGlobal = checkGlobal(freeExports && freeModule && typeof global === 'object' && global);
+  var freeSelf = checkGlobal(objectTypes[typeof self] && self);
+  var freeWindow = checkGlobal(objectTypes[typeof window] && window);
+  var moduleExports = (freeModule && freeModule.exports === freeExports) ? freeExports : null;
+  var thisGlobal = checkGlobal(objectTypes[typeof this] && this);
+  var root = freeGlobal || ((freeWindow !== (thisGlobal && thisGlobal.window)) && freeWindow) || freeSelf || thisGlobal || Function('return this')();
 
-function selectString(str) {
-  try {
-    var nodes = document.querySelectorAll(str);
-    return nodes;
-  } catch(e) {
-    return;
-  }
-}
+  // Because of build optimizers
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(/*! rx */ "./node_modules/rx/dist/rx.all.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (Rx, exports) {
+      return factory(root, exports, Rx);
+    }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else {}
+}.call(this, function (root, exp, Rx, undefined) {
 
-// Arrays
+  var Observable = Rx.Observable,
+    ObservableBase = Rx.ObservableBase,
+    AbstractObserver = Rx.internals.AbstractObserver,
+    observerCreate = Rx.Observer.create,
+    observableCreate = Rx.Observable.create,
+    disposableCreate = Rx.Disposable.create,
+    Disposable = Rx.Disposable,
+    CompositeDisposable = Rx.CompositeDisposable,
+    BinaryDisposable = Rx.BinaryDisposable,
+    SingleAssignmentDisposable = Rx.SingleAssignmentDisposable,
+    Subject = Rx.Subject,
+    Scheduler = Rx.Scheduler,
+    dom = Rx.DOM = {},
+    hasOwnProperty = {}.hasOwnProperty,
+    noop = Rx.helpers.noop,
+    isFunction = Rx.helpers.isFunction,
+    inherits = Rx.internals.inherits;
 
-function filterArray(arr, callback) {
-  var len = arr.length;
-  var thisArg = arguments.length >= 2 ? arguments[1] : void 0;
-  var result = [];
-  for (var i = 0; i < len; i++) {
-    if (i in arr) {
-      var val = arr[i];
-      if (callback.call(thisArg, val, i, arr)) {
-        result.push(val);
+  var errorObj = {e: {}};
+
+  function tryCatcherGen(tryCatchTarget) {
+    return function tryCatcher() {
+      try {
+        return tryCatchTarget.apply(this, arguments);
+      } catch (e) {
+        errorObj.e = e;
+        return errorObj;
       }
+    };
+  }
+
+  function tryCatch(fn) {
+    if (!isFunction(fn)) { throw new TypeError('fn must be a function'); }
+    return tryCatcherGen(fn);
+  }
+
+  function thrower(e) {
+    throw e;
+  }
+
+  function CreateListenerDisposable(element, name, handler, useCapture) {
+    this._e = element;
+    this._n = name;
+    this._fn = handler;
+    this._u = useCapture;
+    this._e.addEventListener(this._n, this._fn, this._u);
+    this.isDisposed = false;
+  }
+
+  CreateListenerDisposable.prototype.dispose = function () {
+    if (!this.isDisposed) {
+      this.isDisposed = true;
+      this._e.removeEventListener(this._n, this._fn, this._u);
     }
-  }
-  return result;
-}
+  };
 
-function flattenArray(arr) {
-  return arr.reduce(function (a, b) { return a.concat(is.arr(b) ? flattenArray(b) : b); }, []);
-}
-
-function toArray(o) {
-  if (is.arr(o)) { return o; }
-  if (is.str(o)) { o = selectString(o) || o; }
-  if (o instanceof NodeList || o instanceof HTMLCollection) { return [].slice.call(o); }
-  return [o];
-}
-
-function arrayContains(arr, val) {
-  return arr.some(function (a) { return a === val; });
-}
-
-// Objects
-
-function cloneObject(o) {
-  var clone = {};
-  for (var p in o) { clone[p] = o[p]; }
-  return clone;
-}
-
-function replaceObjectProps(o1, o2) {
-  var o = cloneObject(o1);
-  for (var p in o1) { o[p] = o2.hasOwnProperty(p) ? o2[p] : o1[p]; }
-  return o;
-}
-
-function mergeObjects(o1, o2) {
-  var o = cloneObject(o1);
-  for (var p in o2) { o[p] = is.und(o1[p]) ? o2[p] : o1[p]; }
-  return o;
-}
-
-// Colors
-
-function rgbToRgba(rgbValue) {
-  var rgb = /rgb\((\d+,\s*[\d]+,\s*[\d]+)\)/g.exec(rgbValue);
-  return rgb ? ("rgba(" + (rgb[1]) + ",1)") : rgbValue;
-}
-
-function hexToRgba(hexValue) {
-  var rgx = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-  var hex = hexValue.replace(rgx, function (m, r, g, b) { return r + r + g + g + b + b; } );
-  var rgb = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  var r = parseInt(rgb[1], 16);
-  var g = parseInt(rgb[2], 16);
-  var b = parseInt(rgb[3], 16);
-  return ("rgba(" + r + "," + g + "," + b + ",1)");
-}
-
-function hslToRgba(hslValue) {
-  var hsl = /hsl\((\d+),\s*([\d.]+)%,\s*([\d.]+)%\)/g.exec(hslValue) || /hsla\((\d+),\s*([\d.]+)%,\s*([\d.]+)%,\s*([\d.]+)\)/g.exec(hslValue);
-  var h = parseInt(hsl[1], 10) / 360;
-  var s = parseInt(hsl[2], 10) / 100;
-  var l = parseInt(hsl[3], 10) / 100;
-  var a = hsl[4] || 1;
-  function hue2rgb(p, q, t) {
-    if (t < 0) { t += 1; }
-    if (t > 1) { t -= 1; }
-    if (t < 1/6) { return p + (q - p) * 6 * t; }
-    if (t < 1/2) { return q; }
-    if (t < 2/3) { return p + (q - p) * (2/3 - t) * 6; }
-    return p;
-  }
-  var r, g, b;
-  if (s == 0) {
-    r = g = b = l;
-  } else {
-    var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
-    var p = 2 * l - q;
-    r = hue2rgb(p, q, h + 1/3);
-    g = hue2rgb(p, q, h);
-    b = hue2rgb(p, q, h - 1/3);
-  }
-  return ("rgba(" + (r * 255) + "," + (g * 255) + "," + (b * 255) + "," + a + ")");
-}
-
-function colorToRgb(val) {
-  if (is.rgb(val)) { return rgbToRgba(val); }
-  if (is.hex(val)) { return hexToRgba(val); }
-  if (is.hsl(val)) { return hslToRgba(val); }
-}
-
-// Units
-
-function getUnit(val) {
-  var split = /([\+\-]?[0-9#\.]+)(%|px|pt|em|rem|in|cm|mm|ex|ch|pc|vw|vh|vmin|vmax|deg|rad|turn)?$/.exec(val);
-  if (split) { return split[2]; }
-}
-
-function getTransformUnit(propName) {
-  if (stringContains(propName, 'translate') || propName === 'perspective') { return 'px'; }
-  if (stringContains(propName, 'rotate') || stringContains(propName, 'skew')) { return 'deg'; }
-}
-
-// Values
-
-function getFunctionValue(val, animatable) {
-  if (!is.fnc(val)) { return val; }
-  return val(animatable.target, animatable.id, animatable.total);
-}
-
-function getAttribute(el, prop) {
-  return el.getAttribute(prop);
-}
-
-function convertPxToUnit(el, value, unit) {
-  var valueUnit = getUnit(value);
-  if (arrayContains([unit, 'deg', 'rad', 'turn'], valueUnit)) { return value; }
-  var cached = cache.CSS[value + unit];
-  if (!is.und(cached)) { return cached; }
-  var baseline = 100;
-  var tempEl = document.createElement(el.tagName);
-  var parentEl = (el.parentNode && (el.parentNode !== document)) ? el.parentNode : document.body;
-  parentEl.appendChild(tempEl);
-  tempEl.style.position = 'absolute';
-  tempEl.style.width = baseline + unit;
-  var factor = baseline / tempEl.offsetWidth;
-  parentEl.removeChild(tempEl);
-  var convertedUnit = factor * parseFloat(value);
-  cache.CSS[value + unit] = convertedUnit;
-  return convertedUnit;
-}
-
-function getCSSValue(el, prop, unit) {
-  if (prop in el.style) {
-    var uppercasePropName = prop.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-    var value = el.style[prop] || getComputedStyle(el).getPropertyValue(uppercasePropName) || '0';
-    return unit ? convertPxToUnit(el, value, unit) : value;
-  }
-}
-
-function getAnimationType(el, prop) {
-  if (is.dom(el) && !is.inp(el) && (getAttribute(el, prop) || (is.svg(el) && el[prop]))) { return 'attribute'; }
-  if (is.dom(el) && arrayContains(validTransforms, prop)) { return 'transform'; }
-  if (is.dom(el) && (prop !== 'transform' && getCSSValue(el, prop))) { return 'css'; }
-  if (el[prop] != null) { return 'object'; }
-}
-
-function getElementTransforms(el) {
-  if (!is.dom(el)) { return; }
-  var str = el.style.transform || '';
-  var reg  = /(\w+)\(([^)]*)\)/g;
-  var transforms = new Map();
-  var m; while (m = reg.exec(str)) { transforms.set(m[1], m[2]); }
-  return transforms;
-}
-
-function getTransformValue(el, propName, animatable, unit) {
-  var defaultVal = stringContains(propName, 'scale') ? 1 : 0 + getTransformUnit(propName);
-  var value = getElementTransforms(el).get(propName) || defaultVal;
-  if (animatable) {
-    animatable.transforms.list.set(propName, value);
-    animatable.transforms['last'] = propName;
-  }
-  return unit ? convertPxToUnit(el, value, unit) : value;
-}
-
-function getOriginalTargetValue(target, propName, unit, animatable) {
-  switch (getAnimationType(target, propName)) {
-    case 'transform': return getTransformValue(target, propName, animatable, unit);
-    case 'css': return getCSSValue(target, propName, unit);
-    case 'attribute': return getAttribute(target, propName);
-    default: return target[propName] || 0;
-  }
-}
-
-function getRelativeValue(to, from) {
-  var operator = /^(\*=|\+=|-=)/.exec(to);
-  if (!operator) { return to; }
-  var u = getUnit(to) || 0;
-  var x = parseFloat(from);
-  var y = parseFloat(to.replace(operator[0], ''));
-  switch (operator[0][0]) {
-    case '+': return x + y + u;
-    case '-': return x - y + u;
-    case '*': return x * y + u;
-  }
-}
-
-function validateValue(val, unit) {
-  if (is.col(val)) { return colorToRgb(val); }
-  var originalUnit = getUnit(val);
-  var unitLess = originalUnit ? val.substr(0, val.length - originalUnit.length) : val;
-  return unit && !/\s/g.test(val) ? unitLess + unit : unitLess;
-}
-
-// getTotalLength() equivalent for circle, rect, polyline, polygon and line shapes
-// adapted from https://gist.github.com/SebLambla/3e0550c496c236709744
-
-function getDistance(p1, p2) {
-  return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
-}
-
-function getCircleLength(el) {
-  return Math.PI * 2 * getAttribute(el, 'r');
-}
-
-function getRectLength(el) {
-  return (getAttribute(el, 'width') * 2) + (getAttribute(el, 'height') * 2);
-}
-
-function getLineLength(el) {
-  return getDistance(
-    {x: getAttribute(el, 'x1'), y: getAttribute(el, 'y1')}, 
-    {x: getAttribute(el, 'x2'), y: getAttribute(el, 'y2')}
-  );
-}
-
-function getPolylineLength(el) {
-  var points = el.points;
-  var totalLength = 0;
-  var previousPos;
-  for (var i = 0 ; i < points.numberOfItems; i++) {
-    var currentPos = points.getItem(i);
-    if (i > 0) { totalLength += getDistance(previousPos, currentPos); }
-    previousPos = currentPos;
-  }
-  return totalLength;
-}
-
-function getPolygonLength(el) {
-  var points = el.points;
-  return getPolylineLength(el) + getDistance(points.getItem(points.numberOfItems - 1), points.getItem(0));
-}
-
-// Path animation
-
-function getTotalLength(el) {
-  if (el.getTotalLength) { return el.getTotalLength(); }
-  switch(el.tagName.toLowerCase()) {
-    case 'circle': return getCircleLength(el);
-    case 'rect': return getRectLength(el);
-    case 'line': return getLineLength(el);
-    case 'polyline': return getPolylineLength(el);
-    case 'polygon': return getPolygonLength(el);
-  }
-}
-
-function setDashoffset(el) {
-  var pathLength = getTotalLength(el);
-  el.setAttribute('stroke-dasharray', pathLength);
-  return pathLength;
-}
-
-// Motion path
-
-function getParentSvgEl(el) {
-  var parentEl = el.parentNode;
-  while (is.svg(parentEl)) {
-    parentEl = parentEl.parentNode;
-    if (!is.svg(parentEl.parentNode)) { break; }
-  }
-  return parentEl;
-}
-
-function getParentSvg(pathEl, svgData) {
-  var svg = svgData || {};
-  var parentSvgEl = svg.el || getParentSvgEl(pathEl);
-  var rect = parentSvgEl.getBoundingClientRect();
-  var viewBoxAttr = getAttribute(parentSvgEl, 'viewBox');
-  var width = rect.width;
-  var height = rect.height;
-  var viewBox = svg.viewBox || (viewBoxAttr ? viewBoxAttr.split(' ') : [0, 0, width, height]);
-  return {
-    el: parentSvgEl,
-    viewBox: viewBox,
-    x: viewBox[0] / 1,
-    y: viewBox[1] / 1,
-    w: width / viewBox[2],
-    h: height / viewBox[3]
-  }
-}
-
-function getPath(path, percent) {
-  var pathEl = is.str(path) ? selectString(path)[0] : path;
-  var p = percent || 100;
-  return function(property) {
-    return {
-      property: property,
-      el: pathEl,
-      svg: getParentSvg(pathEl),
-      totalLength: getTotalLength(pathEl) * (p / 100)
+  function createListener (element, name, handler, useCapture) {
+    if (element.addEventListener) {
+      return new CreateListenerDisposable(element, name, handler, useCapture);
     }
+    throw new Error('No listener found');
   }
-}
 
-function getPathProgress(path, progress) {
-  function point(offset) {
-    if ( offset === void 0 ) offset = 0;
+  function createEventListener (el, eventName, handler, useCapture) {
+    var disposables = new CompositeDisposable();
 
-    var l = progress + offset >= 1 ? progress + offset : 0;
-    return path.el.getPointAtLength(l);
-  }
-  var svg = getParentSvg(path.el, path.svg);
-  var p = point();
-  var p0 = point(-1);
-  var p1 = point(+1);
-  switch (path.property) {
-    case 'x': return (p.x - svg.x) * svg.w;
-    case 'y': return (p.y - svg.y) * svg.h;
-    case 'angle': return Math.atan2(p1.y - p0.y, p1.x - p0.x) * 180 / Math.PI;
-  }
-}
-
-// Decompose value
-
-function decomposeValue(val, unit) {
-  var rgx = /-?\d*\.?\d+/g;
-  var value = validateValue((is.pth(val) ? val.totalLength : val), unit) + '';
-  return {
-    original: value,
-    numbers: value.match(rgx) ? value.match(rgx).map(Number) : [0],
-    strings: (is.str(val) || unit) ? value.split(rgx) : []
-  }
-}
-
-// Animatables
-
-function parseTargets(targets) {
-  var targetsArray = targets ? (flattenArray(is.arr(targets) ? targets.map(toArray) : toArray(targets))) : [];
-  return filterArray(targetsArray, function (item, pos, self) { return self.indexOf(item) === pos; });
-}
-
-function getAnimatables(targets) {
-  var parsed = parseTargets(targets);
-  return parsed.map(function (t, i) {
-    return {target: t, id: i, total: parsed.length, transforms: { list: getElementTransforms(t) } };
-  });
-}
-
-// Properties
-
-function normalizePropertyTweens(prop, tweenSettings) {
-  var settings = cloneObject(tweenSettings);
-  // Override duration if easing is a spring
-  if (/^spring/.test(settings.easing)) { settings.duration = spring(settings.easing); }
-  if (is.arr(prop)) {
-    var l = prop.length;
-    var isFromTo = (l === 2 && !is.obj(prop[0]));
-    if (!isFromTo) {
-      // Duration divided by the number of tweens
-      if (!is.fnc(tweenSettings.duration)) { settings.duration = tweenSettings.duration / l; }
-    } else {
-      // Transform [from, to] values shorthand to a valid tween value
-      prop = {value: prop};
+    // Asume NodeList or HTMLCollection
+    var toStr = Object.prototype.toString;
+    if (toStr.call(el) === '[object NodeList]' || toStr.call(el) === '[object HTMLCollection]') {
+      for (var i = 0, len = el.length; i < len; i++) {
+        disposables.add(createEventListener(el.item(i), eventName, handler, useCapture));
+      }
+    } else if (el) {
+      disposables.add(createListener(el, eventName, handler, useCapture));
     }
+    return disposables;
   }
-  var propArray = is.arr(prop) ? prop : [prop];
-  return propArray.map(function (v, i) {
-    var obj = (is.obj(v) && !is.pth(v)) ? v : {value: v};
-    // Default delay value should only be applied to the first tween
-    if (is.und(obj.delay)) { obj.delay = !i ? tweenSettings.delay : 0; }
-    // Default endDelay value should only be applied to the last tween
-    if (is.und(obj.endDelay)) { obj.endDelay = i === propArray.length - 1 ? tweenSettings.endDelay : 0; }
-    return obj;
-  }).map(function (k) { return mergeObjects(k, settings); });
-}
 
+  var FromEventObservable = (function(__super__) {
+    inherits(FromEventObservable, __super__);
+    function FromEventObservable(element, eventName, selector, useCapture) {
+      this._e = element;
+      this._n = eventName;
+      this._fn = selector;
+      this._uc = useCapture;
+      __super__.call(this);
+    }
 
-function flattenKeyframes(keyframes) {
-  var propertyNames = filterArray(flattenArray(keyframes.map(function (key) { return Object.keys(key); })), function (p) { return is.key(p); })
-  .reduce(function (a,b) { if (a.indexOf(b) < 0) { a.push(b); } return a; }, []);
-  var properties = {};
-  var loop = function ( i ) {
-    var propName = propertyNames[i];
-    properties[propName] = keyframes.map(function (key) {
-      var newKey = {};
-      for (var p in key) {
-        if (is.key(p)) {
-          if (p == propName) { newKey.value = key[p]; }
-        } else {
-          newKey[p] = key[p];
+    function createHandler(o, fn) {
+      return function handler() {
+        var results = arguments[0];
+        if (fn) {
+          results = tryCatch(fn).apply(null, arguments);
+          if (results === errorObj) { return o.onError(results.e); }
         }
-      }
-      return newKey;
-    });
+        o.onNext(results);
+      };
+    }
+
+    FromEventObservable.prototype.subscribeCore = function (o) {
+      return createEventListener(
+        this._e,
+        this._n,
+        createHandler(o, this._fn),
+        this._uc);
+    };
+
+    return FromEventObservable;
+  }(ObservableBase));
+
+  /**
+   * Creates an observable sequence by adding an event listener to the matching DOMElement or each item in the NodeList.
+   * @param {Object} element The DOMElement or NodeList to attach a listener.
+   * @param {String} eventName The event name to attach the observable sequence.
+   * @param {Function} [selector] A selector which takes the arguments from the event handler to produce a single item to yield on next.
+   * @param {Boolean} [useCapture] If true, useCapture indicates that the user wishes to initiate capture. After initiating capture, all events of the specified type will be dispatched to the registered listener before being dispatched to any EventTarget beneath it in the DOM tree. Events which are bubbling upward through the tree will not trigger a listener designated to use capture
+   * @returns {Observable} An observable sequence of events from the specified element and the specified event.
+   */
+  var fromEvent = dom.fromEvent = function (element, eventName, selector, useCapture) {
+    var selectorFn = isFunction(selector) ? selector : null;
+    typeof selector === 'boolean' && (useCapture = selector);
+    typeof useCapture === 'undefined' && (useCapture = false);
+    return new FromEventObservable(element, eventName, selectorFn, useCapture).publish().refCount();
   };
 
-  for (var i = 0; i < propertyNames.length; i++) loop( i );
-  return properties;
-}
+  (function () {
+    var events = 'blur focus focusin focusout load resize scroll unload click dblclick ' +
+      'mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave ' +
+      'change select submit keydown keypress keyup error contextmenu input';
 
-function getProperties(tweenSettings, params) {
-  var properties = [];
-  var keyframes = params.keyframes;
-  if (keyframes) { params = mergeObjects(flattenKeyframes(keyframes), params); }
-  for (var p in params) {
-    if (is.key(p)) {
-      properties.push({
-        name: p,
-        tweens: normalizePropertyTweens(params[p], tweenSettings)
-      });
+    if (root.PointerEvent) {
+      events += ' pointerdown pointerup pointermove pointerover pointerout pointerenter pointerleave';
+    }
+
+    if (root.TouchEvent) {
+      events += ' touchstart touchend touchmove touchcancel';
+    }
+
+    events = events.split(' ');
+
+    for(var i = 0, len = events.length; i < len; i++) {
+      (function (e) {
+        dom[e] = function (element, selector, useCapture) {
+          return fromEvent(element, e, selector, useCapture);
+        };
+      }(events[i]))
+    }
+  }());
+
+  var ReadyObservable = (function (__super__) {
+    inherits(ReadyObservable, __super__);
+    function ReadyObservable() {
+      __super__.call(this);
+    }
+
+    function createHandler(o) {
+      return function handler() {
+        o.onNext();
+        o.onCompleted();
+      };
+    }
+
+    ReadyObservable.prototype.subscribeCore = function (o) {
+      return new ReadyDisposable(o, createHandler(o));
+    };
+
+    function ReadyDisposable(o, fn) {
+      this._o = o;
+      this._fn = fn;
+      this._addedHandlers = false;
+      this.isDisposed = false;
+
+      if (root.document.readyState === 'complete') {
+        setTimeout(this._fn, 0);
+      } else {
+        this._addedHandlers = true;
+        root.document.addEventListener( 'DOMContentLoaded', this._fn, false );
+      }
+    }
+
+    ReadyDisposable.prototype.dispose = function () {
+      if (!this.isDisposed) {
+        this.isDisposed = true;
+        root.document.removeEventListener( 'DOMContentLoaded', this._fn, false );
+      }
+    };
+
+    return ReadyObservable;
+  }(ObservableBase));
+
+  /**
+   * Creates an observable sequence when the DOM is loaded
+   * @returns {Observable} An observable sequence fired when the DOM is loaded
+   */
+  dom.ready = function () {
+    return new ReadyObservable();
+  };
+
+
+  // Gets the proper XMLHttpRequest for support for older IE
+  function getXMLHttpRequest() {
+    if (root.XMLHttpRequest) {
+      return new root.XMLHttpRequest();
+    } else {
+      var progId;
+      try {
+        var progIds = ['Msxml2.XMLHTTP', 'Microsoft.XMLHTTP', 'Msxml2.XMLHTTP.4.0'];
+        for(var i = 0; i < 3; i++) {
+          try {
+            progId = progIds[i];
+            if (new root.ActiveXObject(progId)) {
+              break;
+            }
+          } catch(e) { }
+        }
+        return new root.ActiveXObject(progId);
+      } catch (e) {
+        throw new Error('XMLHttpRequest is not supported by your browser');
+      }
     }
   }
-  return properties;
-}
 
-// Tweens
-
-function normalizeTweenValues(tween, animatable) {
-  var t = {};
-  for (var p in tween) {
-    var value = getFunctionValue(tween[p], animatable);
-    if (is.arr(value)) {
-      value = value.map(function (v) { return getFunctionValue(v, animatable); });
-      if (value.length === 1) { value = value[0]; }
-    }
-    t[p] = value;
-  }
-  t.duration = parseFloat(t.duration);
-  t.delay = parseFloat(t.delay);
-  return t;
-}
-
-function normalizeTweens(prop, animatable) {
-  var previousTween;
-  return prop.tweens.map(function (t) {
-    var tween = normalizeTweenValues(t, animatable);
-    var tweenValue = tween.value;
-    var to = is.arr(tweenValue) ? tweenValue[1] : tweenValue;
-    var toUnit = getUnit(to);
-    var originalValue = getOriginalTargetValue(animatable.target, prop.name, toUnit, animatable);
-    var previousValue = previousTween ? previousTween.to.original : originalValue;
-    var from = is.arr(tweenValue) ? tweenValue[0] : previousValue;
-    var fromUnit = getUnit(from) || getUnit(originalValue);
-    var unit = toUnit || fromUnit;
-    if (is.und(to)) { to = previousValue; }
-    tween.from = decomposeValue(from, unit);
-    tween.to = decomposeValue(getRelativeValue(to, from), unit);
-    tween.start = previousTween ? previousTween.end : 0;
-    tween.end = tween.start + tween.delay + tween.duration + tween.endDelay;
-    tween.easing = parseEasings(tween.easing, tween.duration);
-    tween.isPath = is.pth(tweenValue);
-    tween.isColor = is.col(tween.from.original);
-    if (tween.isColor) { tween.round = 1; }
-    previousTween = tween;
-    return tween;
-  });
-}
-
-// Tween progress
-
-var setProgressValue = {
-  css: function (t, p, v) { return t.style[p] = v; },
-  attribute: function (t, p, v) { return t.setAttribute(p, v); },
-  object: function (t, p, v) { return t[p] = v; },
-  transform: function (t, p, v, transforms, manual) {
-    transforms.list.set(p, v);
-    if (p === transforms.last || manual) {
-      var str = '';
-      transforms.list.forEach(function (value, prop) { str += prop + "(" + value + ") "; });
-      t.style.transform = str;
+  // Get CORS support even for older IE
+  function getCORSRequest() {
+    var xhr = new root.XMLHttpRequest();
+    if ('withCredentials' in xhr) {
+      xhr.withCredentials = true;
+      return xhr;
+    } else if (!!root.XDomainRequest) {
+      return new XDomainRequest();
+    } else {
+      throw new Error('CORS is not supported by your browser');
     }
   }
-};
 
-// Set Value helper
-
-function setTargetsValue(targets, properties) {
-  var animatables = getAnimatables(targets);
-  animatables.forEach(function (animatable) {
-    for (var property in properties) {
-      var value = getFunctionValue(properties[property], animatable);
-      var target = animatable.target;
-      var valueUnit = getUnit(value);
-      var originalValue = getOriginalTargetValue(target, property, valueUnit, animatable);
-      var unit = valueUnit || getUnit(originalValue);
-      var to = getRelativeValue(validateValue(value, unit), originalValue);
-      var animType = getAnimationType(target, property);
-      setProgressValue[animType](target, property, to, animatable.transforms, true);
-    }
-  });
-}
-
-// Animations
-
-function createAnimation(animatable, prop) {
-  var animType = getAnimationType(animatable.target, prop.name);
-  if (animType) {
-    var tweens = normalizeTweens(prop, animatable);
-    var lastTween = tweens[tweens.length - 1];
+  function normalizeAjaxSuccessEvent(e, xhr, settings) {
+    var response = ('response' in xhr) ? xhr.response : xhr.responseText;
+    response = settings.responseType === 'json' ? JSON.parse(response) : response;
     return {
-      type: animType,
-      property: prop.name,
-      animatable: animatable,
-      tweens: tweens,
-      duration: lastTween.end,
-      delay: tweens[0].delay,
-      endDelay: lastTween.endDelay
+      response: response,
+      status: xhr.status,
+      responseType: xhr.responseType,
+      xhr: xhr,
+      originalEvent: e
+    };
+  }
+
+  function normalizeAjaxErrorEvent(e, xhr, type) {
+    return {
+      type: type,
+      status: xhr.status,
+      xhr: xhr,
+      originalEvent: e
+    };
+  }
+
+  var AjaxObservable = (function(__super__) {
+    inherits(AjaxObservable, __super__);
+    function AjaxObservable(settings) {
+      this._settings = settings;
+      __super__.call(this);
     }
-  }
-}
 
-function getAnimations(animatables, properties) {
-  return filterArray(flattenArray(animatables.map(function (animatable) {
-    return properties.map(function (prop) {
-      return createAnimation(animatable, prop);
-    });
-  })), function (a) { return !is.und(a); });
-}
+    AjaxObservable.prototype.subscribeCore = function (o) {
+      var state = { isDone: false };
+      var xhr;
 
-// Create Instance
+      var settings = this._settings;
+      var normalizeError = settings.normalizeError;
+      var normalizeSuccess = settings.normalizeSuccess;
 
-function getInstanceTimings(animations, tweenSettings) {
-  var animLength = animations.length;
-  var getTlOffset = function (anim) { return anim.timelineOffset ? anim.timelineOffset : 0; };
-  var timings = {};
-  timings.duration = animLength ? Math.max.apply(Math, animations.map(function (anim) { return getTlOffset(anim) + anim.duration; })) : tweenSettings.duration;
-  timings.delay = animLength ? Math.min.apply(Math, animations.map(function (anim) { return getTlOffset(anim) + anim.delay; })) : tweenSettings.delay;
-  timings.endDelay = animLength ? timings.duration - Math.max.apply(Math, animations.map(function (anim) { return getTlOffset(anim) + anim.duration - anim.endDelay; })) : tweenSettings.endDelay;
-  return timings;
-}
-
-var instanceID = 0;
-
-function createNewInstance(params) {
-  var instanceSettings = replaceObjectProps(defaultInstanceSettings, params);
-  var tweenSettings = replaceObjectProps(defaultTweenSettings, params);
-  var properties = getProperties(tweenSettings, params);
-  var animatables = getAnimatables(params.targets);
-  var animations = getAnimations(animatables, properties);
-  var timings = getInstanceTimings(animations, tweenSettings);
-  var id = instanceID;
-  instanceID++;
-  return mergeObjects(instanceSettings, {
-    id: id,
-    children: [],
-    animatables: animatables,
-    animations: animations,
-    duration: timings.duration,
-    delay: timings.delay,
-    endDelay: timings.endDelay
-  });
-}
-
-// Core
-
-var activeInstances = [];
-var pausedInstances = [];
-var raf;
-
-var engine = (function () {
-  function play() { 
-    raf = requestAnimationFrame(step);
-  }
-  function step(t) {
-    var activeInstancesLength = activeInstances.length;
-    if (activeInstancesLength) {
-      var i = 0;
-      while (i < activeInstancesLength) {
-        var activeInstance = activeInstances[i];
-        if (!activeInstance.paused) {
-          activeInstance.tick(t);
+      var processResponse = function(xhr, e){
+        var status = xhr.status === 1223 ? 204 : xhr.status;
+        if ((status >= 200 && status <= 300) || status === 0 || status === '') {
+          o.onNext(normalizeSuccess(e, xhr, settings));
+          o.onCompleted();
         } else {
-          var instanceIndex = activeInstances.indexOf(activeInstance);
-          if (instanceIndex > -1) {
-            activeInstances.splice(instanceIndex, 1);
-            activeInstancesLength = activeInstances.length;
+          o.onError(settings.normalizeError(e, xhr, 'error'));
+        }
+        state.isDone = true;
+      };
+
+      try {
+        xhr = settings.createXHR();
+      } catch (err) {
+        return o.onError(err);
+      }
+
+      try {
+        if (settings.user) {
+          xhr.open(settings.method, settings.url, settings.async, settings.user, settings.password);
+        } else {
+          xhr.open(settings.method, settings.url, settings.async);
+        }
+
+        var headers = settings.headers;
+        for (var header in headers) {
+          if (hasOwnProperty.call(headers, header)) {
+            xhr.setRequestHeader(header, headers[header]);
           }
         }
-        i++;
-      }
-      play();
-    } else {
-      raf = cancelAnimationFrame(raf);
-    }
-  }
-  return play;
-})();
 
-function handleVisibilityChange() {
-  if (document.hidden) {
-    activeInstances.forEach(function (ins) { return ins.pause(); });
-    pausedInstances = activeInstances.slice(0);
-    activeInstances = [];
-  } else {
-    pausedInstances.forEach(function (ins) { return ins.play(); });
-  }
-}
+        xhr.timeout = settings.timeout;
+        xhr.ontimeout = function (e) {
+          settings.progressObserver && settings.progressObserver.onError(e);
+          o.onError(normalizeError(e, xhr, 'timeout'));
+        };
 
-if (typeof document !== 'undefined') {
-  document.addEventListener('visibilitychange', handleVisibilityChange);
-}
+        if(!!xhr.upload || (!('withCredentials' in xhr) && !!root.XDomainRequest)) {
+          xhr.onload = function(e) {
+            if(settings.progressObserver) {
+              settings.progressObserver.onNext(e);
+              settings.progressObserver.onCompleted();
+            }
+            processResponse(xhr, e);
+          };
 
-// Public Instance
-
-function anime(params) {
-  if ( params === void 0 ) params = {};
-
-
-  var startTime = 0, lastTime = 0, now = 0;
-  var children, childrenLength = 0;
-  var resolve = null;
-
-  function makePromise(instance) {
-    var promise = window.Promise && new Promise(function (_resolve) { return resolve = _resolve; });
-    instance.finished = promise;
-    return promise;
-  }
-
-  var instance = createNewInstance(params);
-  var promise = makePromise(instance);
-
-  function toggleInstanceDirection() {
-    var direction = instance.direction;
-    if (direction !== 'alternate') {
-      instance.direction = direction !== 'normal' ? 'normal' : 'reverse';
-    }
-    instance.reversed = !instance.reversed;
-    children.forEach(function (child) { return child.reversed = instance.reversed; });
-  }
-
-  function adjustTime(time) {
-    return instance.reversed ? instance.duration - time : time;
-  }
-
-  function resetTime() {
-    startTime = 0;
-    lastTime = adjustTime(instance.currentTime) * (1 / anime.speed);
-  }
-
-  function seekCild(time, child) {
-    if (child) { child.seek(time - child.timelineOffset); }
-  }
-
-  function syncInstanceChildren(time) {
-    if (!instance.reversePlayback) {
-      for (var i = 0; i < childrenLength; i++) { seekCild(time, children[i]); }
-    } else {
-      for (var i$1 = childrenLength; i$1--;) { seekCild(time, children[i$1]); }
-    }
-  }
-
-  function setAnimationsProgress(insTime) {
-    var i = 0;
-    var animations = instance.animations;
-    var animationsLength = animations.length;
-    while (i < animationsLength) {
-      var anim = animations[i];
-      var animatable = anim.animatable;
-      var tweens = anim.tweens;
-      var tweenLength = tweens.length - 1;
-      var tween = tweens[tweenLength];
-      // Only check for keyframes if there is more than one tween
-      if (tweenLength) { tween = filterArray(tweens, function (t) { return (insTime < t.end); })[0] || tween; }
-      var elapsed = minMax(insTime - tween.start - tween.delay, 0, tween.duration) / tween.duration;
-      var eased = isNaN(elapsed) ? 1 : tween.easing(elapsed);
-      var strings = tween.to.strings;
-      var round = tween.round;
-      var numbers = [];
-      var toNumbersLength = tween.to.numbers.length;
-      var progress = (void 0);
-      for (var n = 0; n < toNumbersLength; n++) {
-        var value = (void 0);
-        var toNumber = tween.to.numbers[n];
-        var fromNumber = tween.from.numbers[n] || 0;
-        if (!tween.isPath) {
-          value = fromNumber + (eased * (toNumber - fromNumber));
-        } else {
-          value = getPathProgress(tween.value, eased * toNumber);
-        }
-        if (round) {
-          if (!(tween.isColor && n > 2)) {
-            value = Math.round(value * round) / round;
+          if(settings.progressObserver) {
+            xhr.onprogress = function(e) {
+              settings.progressObserver.onNext(e);
+            };
           }
+
+          xhr.onerror = function(e) {
+            settings.progressObserver && settings.progressObserver.onError(e);
+            o.onError(normalizeError(e, xhr, 'error'));
+            state.isDone = true;
+          };
+
+          xhr.onabort = function(e) {
+            settings.progressObserver && settings.progressObserver.onError(e);
+            o.onError(normalizeError(e, xhr, 'abort'));
+            state.isDone = true;
+          };
+        } else {
+          xhr.onreadystatechange = function (e) {
+            xhr.readyState === 4 && processResponse(xhr, e);
+          };
         }
-        numbers.push(value);
-      }
-      // Manual Array.reduce for better performances
-      var stringsLength = strings.length;
-      if (!stringsLength) {
-        progress = numbers[0];
-      } else {
-        progress = strings[0];
-        for (var s = 0; s < stringsLength; s++) {
-          var a = strings[s];
-          var b = strings[s + 1];
-          var n$1 = numbers[s];
-          if (!isNaN(n$1)) {
-            if (!b) {
-              progress += n$1 + ' ';
-            } else {
-              progress += n$1 + b;
+
+        var contentType = settings.headers['Content-Type'] ||
+            settings.headers['Content-type'] ||
+            settings.headers['content-type'];
+        if (settings.hasContent && contentType === 'application/x-www-form-urlencoded' && typeof settings.body !== 'string') {
+          var newBody = [];
+          for (var prop in settings.body) {
+            if (hasOwnProperty.call(settings.body, prop)) {
+              newBody.push(prop + '=' + settings.body[prop]);
             }
           }
+          settings.body = newBody.join('&');
+        }
+
+        xhr.send(settings.hasContent && settings.body || null);
+      } catch (e) {
+        o.onError(e);
+      }
+
+      return new AjaxDisposable(state, xhr);
+    };
+
+    function AjaxDisposable(state, xhr) {
+      this._state = state;
+      this._xhr = xhr;
+      this.isDisposed = false;
+    }
+
+    AjaxDisposable.prototype.dispose = function () {
+      if (!this.isDisposed) {
+        this.isDisposed = true;
+        if (!this._state.isDone && this._xhr.readyState !== 4) { this._xhr.abort(); }
+      }
+    };
+
+    return AjaxObservable;
+  }(ObservableBase));
+
+  /**
+   * Creates an observable for an Ajax request with either a settings object with url, headers, etc or a string for a URL.
+   *
+   * @example
+   *   source = Rx.DOM.ajax('/products');
+   *   source = Rx.DOM.ajax( url: 'products', method: 'GET' });
+   *
+   * @param {Object} settings Can be one of the following:
+   *
+   *  A string of the URL to make the Ajax call.
+   *  An object with the following properties
+   *   - url: URL of the request
+   *   - body: The body of the request
+   *   - method: Method of the request, such as GET, POST, PUT, PATCH, DELETE
+   *   - async: Whether the request is async
+   *   - headers: Optional headers
+   *   - crossDomain: true if a cross domain request, else false
+   *
+   * @returns {Observable} An observable sequence containing the XMLHttpRequest.
+  */
+  var ajaxRequest = dom.ajax = function (options) {
+    var settings = {
+      method: 'GET',
+      crossDomain: false,
+      async: true,
+      headers: {},
+      responseType: 'text',
+      timeout: 0,
+      createXHR: function(){
+        return this.crossDomain ? getCORSRequest() : getXMLHttpRequest()
+      },
+      normalizeError: normalizeAjaxErrorEvent,
+      normalizeSuccess: normalizeAjaxSuccessEvent
+    };
+
+    if(typeof options === 'string') {
+      settings.url = options;
+    } else {
+      for(var prop in options) {
+        if(hasOwnProperty.call(options, prop)) {
+          settings[prop] = options[prop];
         }
       }
-      setProgressValue[anim.type](animatable.target, anim.property, progress, animatable.transforms);
-      anim.currentValue = progress;
-      i++;
     }
-  }
 
-  function setCallback(cb) {
-    if (instance[cb] && !instance.passThrough) { instance[cb](instance); }
-  }
+    if (!settings.crossDomain && !settings.headers['X-Requested-With']) {
+      settings.headers['X-Requested-With'] = 'XMLHttpRequest';
+    }
+    settings.hasContent = settings.body !== undefined;
 
-  function countIteration() {
-    if (instance.remaining && instance.remaining !== true) {
-      instance.remaining--;
-    }
-  }
+    return new AjaxObservable(settings);
+  };
 
-  function setInstanceProgress(engineTime) {
-    var insDuration = instance.duration;
-    var insDelay = instance.delay;
-    var insEndDelay = insDuration - instance.endDelay;
-    var insTime = adjustTime(engineTime);
-    instance.progress = minMax((insTime / insDuration) * 100, 0, 100);
-    instance.reversePlayback = insTime < instance.currentTime;
-    if (children) { syncInstanceChildren(insTime); }
-    if (!instance.began && instance.currentTime > 0) {
-      instance.began = true;
-      setCallback('begin');
-      setCallback('loopBegin');
+  /**
+   * Creates an observable sequence from an Ajax POST Request with the body.
+   *
+   * @param {String} url The URL to POST
+   * @param {Object} body The body to POST
+   * @returns {Observable} The observable sequence which contains the response from the Ajax POST.
+   */
+  dom.post = function (url, body) {
+    var settings;
+    if (typeof url === 'string') {
+      settings = {url: url, body: body, method: 'POST' };
+    } else if (typeof url === 'object') {
+      settings = url;
+      settings.method = 'POST';
     }
-    if (insTime <= insDelay && instance.currentTime !== 0) {
-      setAnimationsProgress(0);
+    return ajaxRequest(settings);
+  };
+
+  /**
+   * Creates an observable sequence from an Ajax GET Request with the body.
+   *
+   * @param {String} url The URL to GET
+   * @returns {Observable} The observable sequence which contains the response from the Ajax GET.
+   */
+  dom.get = function (url) {
+    var settings;
+    if (typeof url === 'string') {
+      settings = {url: url };
+    } else if (typeof url === 'object') {
+      settings = url;
     }
-    if ((insTime >= insEndDelay && instance.currentTime !== insDuration) || !insDuration) {
-      setAnimationsProgress(insDuration);
+    return ajaxRequest(settings);
+  };
+
+  /**
+   * Creates an observable sequence from JSON from an Ajax request
+   *
+   * @param {String} url The URL to GET
+   * @returns {Observable} The observable sequence which contains the parsed JSON.
+   */
+  dom.getJSON = function (url) {
+    if (!root.JSON && typeof root.JSON.parse !== 'function') { throw new TypeError('JSON is not supported in your runtime.'); }
+    return ajaxRequest({url: url, responseType: 'json'}).map(function (x) {
+      return x.response;
+    });
+  };
+
+  var destroy = (function () {
+    var trash = 'document' in root && root.document.createElement('div');
+    return function (element) {
+      trash.appendChild(element);
+      trash.innerHTML = '';
+    };
+  })();
+
+  var ScriptObservable = (function(__super__) {
+    inherits(ScriptObservable, __super__);
+    function ScriptObservable(settings) {
+      this._settings = settings;
+      __super__.call(this);
     }
-    if (insTime > insDelay && insTime < insEndDelay) {
-      if (!instance.changeBegan) {
-        instance.changeBegan = true;
-        instance.changeCompleted = false;
-        setCallback('changeBegin');
-      }
-      setCallback('change');
-      setAnimationsProgress(insTime);
-    } else {
-      if (instance.changeBegan) {
-        instance.changeCompleted = true;
-        instance.changeBegan = false;
-        setCallback('changeComplete');
-      }
-    }
-    instance.currentTime = minMax(insTime, 0, insDuration);
-    if (instance.began) { setCallback('update'); }
-    if (engineTime >= insDuration) {
-      lastTime = 0;
-      countIteration();
-      if (instance.remaining) {
-        startTime = now;
-        setCallback('loopComplete');
-        setCallback('loopBegin');
-        if (instance.direction === 'alternate') { toggleInstanceDirection(); }
+
+    ScriptObservable.id = 0;
+
+    ScriptObservable.prototype.subscribeCore = function (o) {
+      var settings = {
+        jsonp: 'JSONPCallback',
+        async: true,
+        jsonpCallback: 'rxjsjsonpCallbacks' + 'callback_' + (ScriptObservable.id++).toString(36)
+      };
+
+      if(typeof this._settings === 'string') {
+        settings.url = this._settings;
       } else {
-        instance.paused = true;
-        if (!instance.completed) {
-          instance.completed = true;
-          setCallback('loopComplete');
-          setCallback('complete');
-          if (!instance.passThrough && 'Promise' in window) {
-            resolve();
-            promise = makePromise(instance);
+        for(var prop in this._settings) {
+          if(hasOwnProperty.call(this._settings, prop)) {
+            settings[prop] = this._settings[prop];
+          }
+        }
+      }
+
+      var script = root.document.createElement('script');
+      script.type = 'text/javascript';
+      script.async = settings.async;
+      script.src = settings.url.replace(settings.jsonp, settings.jsonpCallback);
+
+      root[settings.jsonpCallback] = function(data) {
+        root[settings.jsonpCallback].called = true;
+        root[settings.jsonpCallback].data = data;
+      };
+
+      var handler = function(e) {
+        if(e.type === 'load' && !root[settings.jsonpCallback].called) {
+          e = { type: 'error' };
+        }
+        var status = e.type === 'error' ? 400 : 200;
+        var data = root[settings.jsonpCallback].data;
+
+        if(status === 200) {
+          o.onNext({
+            status: status,
+            responseType: 'jsonp',
+            response: data,
+            originalEvent: e
+          });
+
+          o.onCompleted();
+        }
+        else {
+          o.onError({
+            type: 'error',
+            status: status,
+            originalEvent: e
+          });
+        }
+      };
+
+      script.onload = script.onreadystatechanged = script.onerror = handler;
+
+      var head = root.document.getElementsByTagName('head')[0] || root.document.documentElement;
+      head.insertBefore(script, head.firstChild);
+
+      return new ScriptDisposable(script);
+    };
+
+    function ScriptDisposable(script) {
+      this._script = script;
+      this.isDisposed = false;
+    }
+
+    ScriptDisposable.prototype.dispose = function () {
+      if (!this.isDisposed) {
+        this.isDisposed = true;
+        this._script.onload = this._script.onreadystatechanged = this._script.onerror = null;
+        destroy(this._script);
+        this._script = null;
+      }
+    };
+
+    return ScriptObservable;
+  }(ObservableBase));
+
+  /**
+   * Creates an observable JSONP Request with the specified settings.
+   * @param {Object} settings Can be one of the following:
+   *
+   *  A string of the URL to make the JSONP call with the JSONPCallback=? in the url.
+   *  An object with the following properties
+   *   - url: URL of the request
+   *   - jsonp: The named callback parameter for the JSONP call
+   *   - jsonpCallback: Callback to execute. For when the JSONP callback can't be changed
+   *
+   * @returns {Observable} A cold observable containing the results from the JSONP call.
+   */
+   dom.jsonpRequest = function (settings) {
+     return new ScriptObservable(settings);
+   };
+
+  function socketClose(socket, closingObserver, code, reason) {
+    if (socket) {
+      if (closingObserver) {
+        closingObserver.onNext();
+        closingObserver.onCompleted();
+      }
+      if (!code) {
+        socket.close();
+      } else {
+        socket.close(code, reason);
+      }
+    }
+  }
+
+  var SocketObservable = (function (__super__) {
+    inherits(SocketObservable, __super__);
+    function SocketObservable(state, url, protocol, open, close) {
+      this._state = state;
+      this._url = url;
+      this._protocol = protocol;
+      this._open = open;
+      this._close = close;
+      __super__.call(this);
+    }
+
+    function createOpenHandler(open, socket) {
+      return function openHandler(e) {
+        open.onNext(e);
+        open.onCompleted();
+        socket.removeEventListener('open', openHandler, false);
+      };
+    }
+    function createMsgHandler(o) { return function msgHandler(e) { o.onNext(e); }; }
+    function createErrHandler(o) { return function errHandler(e) { o.onError(e); }; }
+    function createCloseHandler(o) {
+      return function closeHandler(e) {
+        if (e.code !== 1000 || !e.wasClean) { return o.onError(e); }
+        o.onCompleted();
+      };
+    }
+
+    function SocketDisposable(socket, msgFn, errFn, closeFn, close) {
+      this._socket = socket;
+      this._msgFn = msgFn;
+      this._errFn = errFn;
+      this._closeFn = closeFn;
+      this._close = close;
+      this.isDisposed = false;
+    }
+
+    SocketDisposable.prototype.dispose = function () {
+      if (!this.isDisposed) {
+        this.isDisposed = true;
+        socketClose(this._socket, this._close);
+
+        this._socket.removeEventListener('message', this._msgFn, false);
+        this._socket.removeEventListener('error', this._errFn, false);
+        this._socket.removeEventListener('close', this._closeFn, false);
+      }
+    };
+
+    SocketObservable.prototype.subscribeCore = function (o) {
+      this._state.socket = this._protocol ? new WebSocket(this._url, this._protocol) : new WebSocket(this._url);
+
+      var openHandler = createOpenHandler(this._open, this._state.socket);
+      var msgHandler = createMsgHandler(o);
+      var errHandler = createErrHandler(o);
+      var closeHandler = createCloseHandler(o);
+
+      this._open && this._state.socket.addEventListener('open', openHandler, false);
+      this._state.socket.addEventListener('message', msgHandler, false);
+      this._state.socket.addEventListener('error', errHandler, false);
+      this._state.socket.addEventListener('close', closeHandler, false);
+
+      return new SocketDisposable(this._state.socket, msgHandler, errHandler, closeHandler, this._close);
+    };
+
+    return SocketObservable;
+  }(ObservableBase));
+
+  var SocketObserver = (function (__super__) {
+    inherits(SocketObserver, __super__);
+    function SocketObserver(state, close) {
+      this._state = state;
+      this._close = close;
+      __super__.call(this);
+    }
+
+    SocketObserver.prototype.next = function (x) {
+      this._state.socket && this._state.socket.readyState === WebSocket.OPEN && this._state.socket.send(x);
+    };
+
+    SocketObserver.prototype.error = function (e) {
+      if (!e.code) {
+        throw new Error('no code specified. be sure to pass { code: ###, reason: "" } to onError()');
+      }
+      socketClose(this._state.socket, this._close, e.code, e.reason || '');
+    };
+
+    SocketObserver.prototype.completed = function () {
+      socketClose(this._state.socket, this._close, 1000, '');
+    };
+
+    return SocketObserver;
+  }(AbstractObserver));
+
+   /**
+   * Creates a WebSocket Subject with a given URL, protocol and an optional observer for the open event.
+   *
+   * @example
+   *  var socket = Rx.DOM.fromWebSocket('http://localhost:8080', 'stock-protocol', openObserver, closingObserver);
+   *
+   * @param {String} url The URL of the WebSocket.
+   * @param {String} protocol The protocol of the WebSocket.
+   * @param {Observer} [openObserver] An optional Observer to capture the open event.
+   * @param {Observer} [closingObserver] An optional Observer to capture the moment before the underlying socket is closed.
+   * @returns {Subject} An observable sequence wrapping a WebSocket.
+   */
+  dom.fromWebSocket = function (url, protocol, openObserver, closingObserver) {
+    if (!WebSocket) { throw new TypeError('WebSocket not implemented in your runtime.'); }
+    var state = { socket: null };
+    return Subject.create(
+      new SocketObserver(state, closingObserver),
+      new SocketObservable(state, url, protocol, openObserver, closingObserver)
+    );
+  };
+
+  var WorkerObserver = (function (__super__) {
+    inherits(WorkerObserver, __super__);
+    function WorkerObserver(state) {
+      this._state = state;
+      __super__.call(this);
+    }
+
+    WorkerObserver.prototype.next = function (x) { this._state.worker && this._state.worker.postMessage(x); };
+    WorkerObserver.prototype.error = function (e) { throw e; };
+    WorkerObserver.prototype.completed = function () { };
+
+    return WorkerObserver;
+  }(AbstractObserver));
+
+  var WorkerObservable = (function (__super__) {
+    inherits(WorkerObservable, __super__);
+    function WorkerObservable(state, url) {
+      this._state = state;
+      this._url = url;
+      __super__.call(this);
+    }
+
+    function createMessageHandler(o) { return function messageHandler (e) { o.onNext(e); }; }
+    function createErrHandler(o) { return function errHandler(e) { o.onError(e); }; }
+
+    function WorkerDisposable(w, msgFn, errFn) {
+      this._w = w;
+      this._msgFn = msgFn;
+      this._errFn = errFn;
+      this.isDisposed = false;
+    }
+
+    WorkerDisposable.prototype.dispose = function () {
+      if (!this.isDisposed) {
+        this.isDisposed = true;
+        this._w.terminate();
+        this._w.removeEventListener('message', this._msgFn, false);
+        this._w.removeEventListener('error', this._errFn, false);
+      }
+    };
+
+    WorkerObservable.prototype.subscribeCore = function (o) {
+      this._state.worker = new root.Worker(this._url);
+
+      var messageHandler = createMessageHandler(o);
+      var errHandler = createErrHandler(o);
+
+      this._state.worker.addEventListener('message', messageHandler, false);
+      this._state.worker.addEventListener('error', errHandler, false);
+
+      return new WorkerDisposable(this._state.worker, messageHandler, errHandler);
+    };
+
+    return WorkerObservable;
+  }(ObservableBase));
+
+  /**
+   * Creates a Web Worker with a given URL as a Subject.
+   *
+   * @example
+   * var worker = Rx.DOM.fromWebWorker('worker.js');
+   *
+   * @param {String} url The URL of the Web Worker.
+   * @returns {Subject} A Subject wrapping the Web Worker.
+   */
+  dom.fromWorker = function (url) {
+    if (!root.Worker) { throw new TypeError('Worker not implemented in your runtime.'); }
+    var state = { worker: null };
+    return Subject.create(new WorkerObserver(state), new WorkerObservable(state, url));
+  };
+
+  function getMutationObserver(next) {
+    var M = root.MutationObserver || root.WebKitMutationObserver;
+    return new M(next);
+  }
+
+  var MutationObserverObservable = (function (__super__) {
+    inherits(MutationObserverObservable, __super__);
+    function MutationObserverObservable(target, options) {
+      this._target = target;
+      this._options = options;
+      __super__.call(this);
+    }
+
+    function InnerDisposable(mutationObserver) {
+      this._m = mutationObserver;
+      this.isDisposed = false;
+    }
+
+    InnerDisposable.prototype.dispose = function () {
+      if (!this.isDisposed) {
+        this.isDisposed = true;
+        this._m.disconnect();
+      }
+    };
+
+    MutationObserverObservable.prototype.subscribeCore = function (o) {
+      var mutationObserver = getMutationObserver(function (e) { o.onNext(e); });
+      mutationObserver.observe(this._target, this._options);
+      return new InnerDisposable(mutationObserver);
+    };
+
+    return MutationObserverObservable;
+  }(ObservableBase));
+
+  /**
+   * Creates an observable sequence from a Mutation Observer.
+   * MutationObserver provides developers a way to react to changes in a DOM.
+   * @example
+   *  Rx.DOM.fromMutationObserver(document.getElementById('foo'), { attributes: true, childList: true, characterData: true });
+   *
+   * @param {Object} target The Node on which to obserave DOM mutations.
+   * @param {Object} options A MutationObserverInit object, specifies which DOM mutations should be reported.
+   * @returns {Observable} An observable sequence which contains mutations on the given DOM target.
+   */
+  dom.fromMutationObserver = function (target, options) {
+    if (!(root.MutationObserver || root.WebKitMutationObserver)) { throw new TypeError('MutationObserver not implemented in your runtime.'); }
+    return new MutationObserverObservable(target, options);
+  };
+
+  var CurrentPositionObservable = (function (__super__) {
+    inherits(CurrentPositionObservable, __super__);
+    function CurrentPositionObservable(opts) {
+      this._opts = opts;
+      __super__.call(this);
+    }
+
+    CurrentPositionObservable.prototype.subscribeCore = function (o) {
+      root.navigator.geolocation.getCurrentPosition(
+        function (data) {
+          o.onNext(data);
+          o.onCompleted();
+        },
+        function (e) { o.onError(e); },
+        this._opts);
+    };
+
+    return CurrentPositionObservable;
+  }(ObservableBase));
+
+  var WatchPositionObservable = (function (__super__) {
+    inherits(WatchPositionObservable, __super__);
+    function WatchPositionObservable(opts) {
+      this._opts = opts;
+      __super__.call(this);
+    }
+
+    function WatchPositionDisposable(id) {
+      this._id = id;
+      this.isDisposed = false;
+    }
+
+    WatchPositionDisposable.prototype.dispose = function () {
+      if (!this.isDisposed) {
+        this.isDisposed = true;
+        root.navigator.geolocation.clearWatch(this._id);
+      }
+    };
+
+    WatchPositionObservable.prototype.subscribeCore = function (o) {
+      var watchId = root.navigator.geolocation.watchPosition(
+        function (x) { o.onNext(x); },
+        function (e) { o.onError(e); },
+        this._opts);
+
+      return new WatchPositionDisposable(watchId);
+    };
+
+    return WatchPositionObservable;
+  }(ObservableBase));
+
+  Rx.DOM.geolocation = {
+    /**
+    * Obtains the geographic position, in terms of latitude and longitude coordinates, of the device.
+    * @param {Object} [geolocationOptions] An object literal to specify one or more of the following attributes and desired values:
+    *   - enableHighAccuracy: Specify true to obtain the most accurate position possible, or false to optimize in favor of performance and power consumption.
+    *   - timeout: An Integer value that indicates the time, in milliseconds, allowed for obtaining the position.
+    *              If timeout is Infinity, (the default value) the location request will not time out.
+    *              If timeout is zero (0) or negative, the results depend on the behavior of the location provider.
+    *   - maximumAge: An Integer value indicating the maximum age, in milliseconds, of cached position information.
+    *                 If maximumAge is non-zero, and a cached position that is no older than maximumAge is available, the cached position is used instead of obtaining an updated location.
+    *                 If maximumAge is zero (0), watchPosition always tries to obtain an updated position, even if a cached position is already available.
+    *                 If maximumAge is Infinity, any cached position is used, regardless of its age, and watchPosition only tries to obtain an updated position if no cached position data exists.
+    * @returns {Observable} An observable sequence with the geographical location of the device running the client.
+    */
+    getCurrentPosition: function (geolocationOptions) {
+      if (!root.navigator && !root.navigation.geolocation) { throw new TypeError('geolocation not available'); }
+      return new CurrentPositionObservable(geolocationOptions);
+    },
+
+    /**
+    * Begins listening for updates to the current geographical location of the device running the client.
+    * @param {Object} [geolocationOptions] An object literal to specify one or more of the following attributes and desired values:
+    *   - enableHighAccuracy: Specify true to obtain the most accurate position possible, or false to optimize in favor of performance and power consumption.
+    *   - timeout: An Integer value that indicates the time, in milliseconds, allowed for obtaining the position.
+    *              If timeout is Infinity, (the default value) the location request will not time out.
+    *              If timeout is zero (0) or negative, the results depend on the behavior of the location provider.
+    *   - maximumAge: An Integer value indicating the maximum age, in milliseconds, of cached position information.
+    *                 If maximumAge is non-zero, and a cached position that is no older than maximumAge is available, the cached position is used instead of obtaining an updated location.
+    *                 If maximumAge is zero (0), watchPosition always tries to obtain an updated position, even if a cached position is already available.
+    *                 If maximumAge is Infinity, any cached position is used, regardless of its age, and watchPosition only tries to obtain an updated position if no cached position data exists.
+    * @returns {Observable} An observable sequence with the current geographical location of the device running the client.
+    */
+    watchPosition: function (geolocationOptions) {
+      if (!root.navigator && !root.navigation.geolocation) { throw new TypeError('geolocation not available'); }
+      return new WatchPositionObservable(geolocationOptions).publish().refCount();
+    }
+  };
+
+  var FromReaderObservable = (function (__super__) {
+    inherits(FromReaderObservable, __super__);
+    function FromReaderObservable(readerFn, file, progressObserver, encoding) {
+      this._readerFn  = readerFn;
+      this._file = file;
+      this._progressObserver = progressObserver;
+      this._encoding = encoding;
+      __super__.call(this);
+    }
+
+    function createLoadHandler(o, p) {
+      return function loadHandler(e) {
+        p && p.onCompleted();
+        o.onNext(e.target.result);
+        o.onCompleted();
+      };
+    }
+
+    function createErrorHandler(o) { return function errorHandler (e) { o.onError(e.target.error); }; }
+    function createProgressHandler(o) { return function progressHandler (e) { o.onNext(e); }; }
+
+    function FromReaderDisposable(reader, progressObserver, loadHandler, errorHandler, progressHandler) {
+      this._r = reader;
+      this._po = progressObserver;
+      this._lFn = loadHandler;
+      this._eFn = errorHandler;
+      this._pFn = progressHandler;
+      this.isDisposed = false;
+    }
+
+    FromReaderDisposable.prototype.dispose = function () {
+      if (!this.isDisposed) {
+        this.isDisposed = true;
+        this._r.readyState === root.FileReader.LOADING && this._r.abort();
+        this._r.removeEventListener('load', this._lFn, false);
+        this._r.removeEventListener('error', this._eFn, false);
+        this._po && this._r.removeEventListener('progress', this._pFn, false);
+      }
+    };
+
+    FromReaderObservable.prototype.subscribeCore = function (o) {
+      var reader = new root.FileReader();
+
+      var loadHandler = createLoadHandler(o, this._progressObserver);
+      var errorHandler = createErrorHandler(o);
+      var progressHandler = createProgressHandler(this._progressObserver);
+
+      reader.addEventListener('load', loadHandler, false);
+      reader.addEventListener('error', errorHandler, false);
+      this._progressObserver && reader.addEventListener('progress', progressHandler, false);
+
+      reader[this._readerFn](this._file, this._encoding);
+
+      return new FromReaderDisposable(reader, this._progressObserver, loadHandler, errorHandler, progressHandler);
+    };
+
+    return FromReaderObservable;
+  }(ObservableBase));
+
+  /**
+   * The FileReader object lets web applications asynchronously read the contents of
+   * files (or raw data buffers) stored on the user's computer, using File or Blob objects
+   * to specify the file or data to read as an observable sequence.
+   * @param {String} file The file to read.
+   * @param {Observer} An observer to watch for progress.
+   * @returns {Object} An object which contains methods for reading the data.
+   */
+  dom.fromReader = function(file, progressObserver) {
+    if (!root.FileReader) { throw new TypeError('FileReader not implemented in your runtime.'); }
+
+    return {
+      /**
+       * This method is used to read the file as an ArrayBuffer as an Observable stream.
+       * @returns {Observable} An observable stream of an ArrayBuffer
+       */
+      asArrayBuffer : function() {
+        return new FromReaderObservable('readAsArrayBuffer', file, progressObserver);
+      },
+      /**
+       * This method is used to read the file as a binary data string as an Observable stream.
+       * @returns {Observable} An observable stream of a binary data string.
+       */
+      asBinaryString : function() {
+        return new FromReaderObservable('readAsBinaryString', file, progressObserver);
+      },
+      /**
+       * This method is used to read the file as a URL of the file's data as an Observable stream.
+       * @returns {Observable} An observable stream of a URL representing the file's data.
+       */
+      asDataURL : function() {
+        return new FromReaderObservable('readAsDataURL', file, progressObserver);
+      },
+      /**
+       * This method is used to read the file as a string as an Observable stream.
+       * @returns {Observable} An observable stream of the string contents of the file.
+       */
+      asText : function(encoding) {
+        return new FromReaderObservable('readAsText', file, progressObserver, encoding);
+      }
+    };
+  };
+
+  var EventSourceObservable = (function(__super__) {
+    inherits(EventSourceObservable, __super__);
+    function EventSourceObservable(url, open) {
+      this._url = url;
+      this._open = open;
+      __super__.call(this);
+    }
+
+    function createOnOpen(o, source) {
+      return function onOpen(e) {
+        o.onNext(e);
+        o.onCompleted();
+        source.removeEventListener('open', onOpen, false);
+      };
+    }
+
+    function createOnError(o) {
+      return function onError(e) {
+        if (e.readyState === EventSource.CLOSED) {
+          o.onCompleted();
+        } else {
+          o.onError(e);
+        }
+      };
+    }
+
+    function createOnMessage(o) { return function onMessage(e) { o.onNext(e.data); }; }
+
+    function EventSourceDisposable(s, errFn, msgFn) {
+      this._s = s;
+      this._errFn = errFn;
+      this._msgFn = msgFn;
+      this.isDisposed = false;
+    }
+
+    EventSourceDisposable.prototype.dispose = function () {
+      if (!this.isDisposed) {
+        this._s.removeEventListener('error', this._errFn, false);
+        this._s.removeEventListener('message', this._msgFn, false);
+        this._s.close();
+      }
+    };
+
+    EventSourceObservable.prototype.subscribeCore = function (o) {
+      var source = new EventSource(this._url);
+      var onOpen = createOnOpen(this._open, source);
+      var onError = createOnError(o);
+      var onMessage = createOnMessage(o);
+
+      this._open && source.addEventListener('open', onOpen, false);
+      source.addEventListener('error', onError, false);
+      source.addEventListener('message', onMessage, false);
+
+      return new EventSourceDisposable(source, onError, onMessage);
+    };
+
+    return EventSourceObservable;
+  }(ObservableBase));
+
+  /**
+   * This method wraps an EventSource as an observable sequence.
+   * @param {String} url The url of the server-side script.
+   * @param {Observer} [openObserver] An optional observer for the 'open' event for the server side event.
+   * @returns {Observable} An observable sequence which represents the data from a server-side event.
+   */
+  dom.fromEventSource = function (url, openObserver) {
+    if (!root.EventSource) { throw new TypeError('EventSource not implemented in your runtime.'); }
+    return new EventSourceObservable(url, openObserver);
+  };
+
+  var requestAnimFrame, cancelAnimFrame;
+  if (root.requestAnimationFrame) {
+    requestAnimFrame = root.requestAnimationFrame;
+    cancelAnimFrame = root.cancelAnimationFrame;
+  } else if (root.mozRequestAnimationFrame) {
+    requestAnimFrame = root.mozRequestAnimationFrame;
+    cancelAnimFrame = root.mozCancelAnimationFrame;
+  } else if (root.webkitRequestAnimationFrame) {
+    requestAnimFrame = root.webkitRequestAnimationFrame;
+    cancelAnimFrame = root.webkitCancelAnimationFrame;
+  } else if (root.msRequestAnimationFrame) {
+    requestAnimFrame = root.msRequestAnimationFrame;
+    cancelAnimFrame = root.msCancelAnimationFrame;
+  } else if (root.oRequestAnimationFrame) {
+    requestAnimFrame = root.oRequestAnimationFrame;
+    cancelAnimFrame = root.oCancelAnimationFrame;
+  } else {
+    requestAnimFrame = function(cb) { root.setTimeout(cb, 1000 / 60); };
+    cancelAnimFrame = root.clearTimeout;
+  }
+
+  /**
+   * Gets a scheduler that schedules schedules work on the requestAnimationFrame for immediate actions.
+   */
+  Scheduler.requestAnimationFrame = (function () {
+    var RequestAnimationFrameScheduler = (function (__super__) {
+      inherits(RequestAnimationFrameScheduler, __super__);
+      function RequestAnimationFrameScheduler() {
+        __super__.call(this);
+      }
+
+      function scheduleAction(disposable, action, scheduler, state) {
+        return function schedule() {
+          !disposable.isDisposed && disposable.setDisposable(Disposable._fixup(action(scheduler, state)));
+        };
+      }
+
+      function ClearDisposable(method, id) {
+        this._id = id;
+        this._method = method;
+        this.isDisposed = false;
+      }
+
+      ClearDisposable.prototype.dispose = function () {
+        if (!this.isDisposed) {
+          this.isDisposed = true;
+          this._method.call(null, this._id);
+        }
+      };
+
+      RequestAnimationFrameScheduler.prototype.schedule = function (state, action) {
+        var disposable = new SingleAssignmentDisposable(),
+            id = requestAnimFrame(scheduleAction(disposable, action, this, state));
+        return new BinaryDisposable(disposable, new ClearDisposable(cancelAnimFrame, id));
+      };
+
+      RequestAnimationFrameScheduler.prototype._scheduleFuture = function (state, dueTime, action) {
+        if (dueTime === 0) { return this.schedule(state, action); }
+        var disposable = new SingleAssignmentDisposable(),
+            id = root.setTimeout(scheduleAction(disposable, action, this, state), dueTime);
+        return new BinaryDisposable(disposable, new ClearDisposable(root.clearTimeout, id));
+      };
+
+      return RequestAnimationFrameScheduler;
+    }(Scheduler));
+
+    return new RequestAnimationFrameScheduler();
+  }());
+
+  /**
+   * Scheduler that uses a MutationObserver changes as the scheduling mechanism
+   */
+  Scheduler.microtask = (function () {
+
+    var nextHandle = 1, tasksByHandle = {}, currentlyRunning = false, scheduleMethod;
+
+    function clearMethod(handle) {
+      delete tasksByHandle[handle];
+    }
+
+    function runTask(handle) {
+      if (currentlyRunning) {
+        root.setTimeout(function () { runTask(handle) }, 0);
+      } else {
+        var task = tasksByHandle[handle];
+        if (task) {
+          currentlyRunning = true;
+          try {
+            task();
+          } catch (e) {
+            throw e;
+          } finally {
+            clearMethod(handle);
+            currentlyRunning = false;
           }
         }
       }
     }
-  }
 
-  instance.reset = function() {
-    var direction = instance.direction;
-    instance.passThrough = false;
-    instance.currentTime = 0;
-    instance.progress = 0;
-    instance.paused = true;
-    instance.began = false;
-    instance.changeBegan = false;
-    instance.completed = false;
-    instance.changeCompleted = false;
-    instance.reversePlayback = false;
-    instance.reversed = direction === 'reverse';
-    instance.remaining = instance.loop;
-    children = instance.children;
-    childrenLength = children.length;
-    for (var i = childrenLength; i--;) { instance.children[i].reset(); }
-    if (instance.reversed && instance.loop !== true || (direction === 'alternate' && instance.loop === 1)) { instance.remaining++; }
-    setAnimationsProgress(0);
-  };
+    function postMessageSupported () {
+      // Ensure not in a worker
+      if (!root.postMessage || root.importScripts) { return false; }
+      var isAsync = false, oldHandler = root.onmessage;
+      // Test for async
+      root.onmessage = function () { isAsync = true; };
+      root.postMessage('', '*');
+      root.onmessage = oldHandler;
 
-  // Set Value helper
-
-  instance.set = function(targets, properties) {
-    setTargetsValue(targets, properties);
-    return instance;
-  };
-
-  instance.tick = function(t) {
-    now = t;
-    if (!startTime) { startTime = now; }
-    setInstanceProgress((now + (lastTime - startTime)) * anime.speed);
-  };
-
-  instance.seek = function(time) {
-    setInstanceProgress(adjustTime(time));
-  };
-
-  instance.pause = function() {
-    instance.paused = true;
-    resetTime();
-  };
-
-  instance.play = function() {
-    if (!instance.paused) { return; }
-    if (instance.completed) { instance.reset(); }
-    instance.paused = false;
-    activeInstances.push(instance);
-    resetTime();
-    if (!raf) { engine(); }
-  };
-
-  instance.reverse = function() {
-    toggleInstanceDirection();
-    resetTime();
-  };
-
-  instance.restart = function() {
-    instance.reset();
-    instance.play();
-  };
-
-  instance.reset();
-
-  if (instance.autoplay) { instance.play(); }
-
-  return instance;
-
-}
-
-// Remove targets from animation
-
-function removeTargetsFromAnimations(targetsArray, animations) {
-  for (var a = animations.length; a--;) {
-    if (arrayContains(targetsArray, animations[a].animatable.target)) {
-      animations.splice(a, 1);
+      return isAsync;
     }
-  }
-}
 
-function removeTargets(targets) {
-  var targetsArray = parseTargets(targets);
-  for (var i = activeInstances.length; i--;) {
-    var instance = activeInstances[i];
-    var animations = instance.animations;
-    var children = instance.children;
-    removeTargetsFromAnimations(targetsArray, animations);
-    for (var c = children.length; c--;) {
-      var child = children[c];
-      var childAnimations = child.animations;
-      removeTargetsFromAnimations(targetsArray, childAnimations);
-      if (!childAnimations.length && !child.children.length) { children.splice(c, 1); }
-    }
-    if (!animations.length && !children.length) { instance.pause(); }
-  }
-}
+    // Use in order, setImmediate, nextTick, postMessage, MessageChannel, script readystatechanged, setTimeout
+    var BrowserMutationObserver = root.MutationObserver || root.WebKitMutationObserver;
+    if (!!BrowserMutationObserver) {
 
-// Stagger helpers
+      var PREFIX = 'drainqueue_';
 
-function stagger(val, params) {
-  if ( params === void 0 ) params = {};
+      var observer = new BrowserMutationObserver(function(mutations) {
+        mutations.forEach(function (mutation) {
+          runTask(mutation.attributeName.substring(PREFIX.length));
+        })
+      });
 
-  var direction = params.direction || 'normal';
-  var easing = params.easing ? parseEasings(params.easing) : null;
-  var grid = params.grid;
-  var axis = params.axis;
-  var fromIndex = params.from || 0;
-  var fromFirst = fromIndex === 'first';
-  var fromCenter = fromIndex === 'center';
-  var fromLast = fromIndex === 'last';
-  var isRange = is.arr(val);
-  var val1 = isRange ? parseFloat(val[0]) : parseFloat(val);
-  var val2 = isRange ? parseFloat(val[1]) : 0;
-  var unit = getUnit(isRange ? val[1] : val) || 0;
-  var start = params.start || 0 + (isRange ? val1 : 0);
-  var values = [];
-  var maxValue = 0;
-  return function (el, i, t) {
-    if (fromFirst) { fromIndex = 0; }
-    if (fromCenter) { fromIndex = (t - 1) / 2; }
-    if (fromLast) { fromIndex = t - 1; }
-    if (!values.length) {
-      for (var index = 0; index < t; index++) {
-        if (!grid) {
-          values.push(Math.abs(fromIndex - index));
-        } else {
-          var fromX = !fromCenter ? fromIndex%grid[0] : (grid[0]-1)/2;
-          var fromY = !fromCenter ? Math.floor(fromIndex/grid[0]) : (grid[1]-1)/2;
-          var toX = index%grid[0];
-          var toY = Math.floor(index/grid[0]);
-          var distanceX = fromX - toX;
-          var distanceY = fromY - toY;
-          var value = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
-          if (axis === 'x') { value = -distanceX; }
-          if (axis === 'y') { value = -distanceY; }
-          values.push(value);
+      var element = root.document.createElement('div');
+      observer.observe(element, { attributes: true });
+
+      // Prevent leaks
+      root.addEventListener('unload', function () {
+        observer.disconnect();
+        observer = null;
+      }, false);
+
+      scheduleMethod = function (action) {
+        var id = nextHandle++;
+        tasksByHandle[id] = action;
+        element.setAttribute(PREFIX + id, 'drainQueue');
+        return id;
+      };
+    } else if (typeof root.setImmediate === 'function') {
+      scheduleMethod = function (action) {
+        var id = nextHandle++;
+        tasksByHandle[id] = action;
+        root.setImmediate(function () { runTask(id); });
+
+        return id;
+      };
+    } else if (postMessageSupported()) {
+      var MSG_PREFIX = 'ms.rx.schedule' + Math.random();
+
+      function onGlobalPostMessage(event) {
+        // Only if we're a match to avoid any other global events
+        if (typeof event.data === 'string' && event.data.substring(0, MSG_PREFIX.length) === MSG_PREFIX) {
+          runTask(event.data.substring(MSG_PREFIX.length));
         }
-        maxValue = Math.max.apply(Math, values);
       }
-      if (easing) { values = values.map(function (val) { return easing(val / maxValue) * maxValue; }); }
-      if (direction === 'reverse') { values = values.map(function (val) { return axis ? (val < 0) ? val * -1 : -val : Math.abs(maxValue - val); }); }
+
+      if (root.addEventListener) {
+        root.addEventListener('message', onGlobalPostMessage, false);
+      } else if (root.attachEvent){
+        root.attachEvent('onmessage', onGlobalPostMessage);
+      }
+
+      scheduleMethod = function (action) {
+        var id = nextHandle++;
+        tasksByHandle[id] = action;
+        root.postMessage(MSG_PREFIX + id, '*');
+        return id;
+      };
+    } else if (!!root.MessageChannel) {
+      var channel = new root.MessageChannel();
+
+      channel.port1.onmessage = function (event) {
+        runTask(event.data);
+      };
+
+      scheduleMethod = function (action) {
+        var id = nextHandle++;
+        tasksByHandle[id] = action;
+        channel.port2.postMessage(id);
+        return id;
+      };
+    } else if ('document' in root && 'onreadystatechange' in root.document.createElement('script')) {
+
+      scheduleMethod = function (action) {
+        var scriptElement = root.document.createElement('script');
+        var id = nextHandle++;
+        tasksByHandle[id] = action;
+
+        scriptElement.onreadystatechange = function () {
+          runTask(id);
+          scriptElement.onreadystatechange = null;
+          scriptElement.parentNode.removeChild(scriptElement);
+          scriptElement = null;
+        };
+        root.document.documentElement.appendChild(scriptElement);
+
+        return id;
+      };
+
+    } else {
+      scheduleMethod = function (action) {
+        var id = nextHandle++;
+        tasksByHandle[id] = action;
+        root.setTimeout(function () {
+          runTask(id);
+        }, 0);
+
+        return id;
+      };
     }
-    var spacing = isRange ? (val2 - val1) / maxValue : val1;
-    return start + (spacing * (Math.round(values[i] * 100) / 100)) + unit;
-  }
-}
 
-// Timeline
+    var MicroTaskScheduler = (function (__super__) {
+      inherits(MicroTaskScheduler, __super__);
+      function MicroTaskScheduler() {
+        __super__.call(this);
+      }
 
-function timeline(params) {
-  if ( params === void 0 ) params = {};
+      function scheduleAction(disposable, action, scheduler, state) {
+        return function schedule() {
+          !disposable.isDisposed && disposable.setDisposable(Disposable._fixup(action(scheduler, state)));
+        };
+      }
 
-  var tl = anime(params);
-  tl.duration = 0;
-  tl.add = function(instanceParams, timelineOffset) {
-    var tlIndex = activeInstances.indexOf(tl);
-    var children = tl.children;
-    if (tlIndex > -1) { activeInstances.splice(tlIndex, 1); }
-    function passThrough(ins) { ins.passThrough = true; }
-    for (var i = 0; i < children.length; i++) { passThrough(children[i]); }
-    var insParams = mergeObjects(instanceParams, replaceObjectProps(defaultTweenSettings, params));
-    insParams.targets = insParams.targets || params.targets;
-    var tlDuration = tl.duration;
-    insParams.autoplay = false;
-    insParams.direction = tl.direction;
-    insParams.timelineOffset = is.und(timelineOffset) ? tlDuration : getRelativeValue(timelineOffset, tlDuration);
-    passThrough(tl);
-    tl.seek(insParams.timelineOffset);
-    var ins = anime(insParams);
-    passThrough(ins);
-    children.push(ins);
-    var timings = getInstanceTimings(children, params);
-    tl.delay = timings.delay;
-    tl.endDelay = timings.endDelay;
-    tl.duration = timings.duration;
-    tl.seek(0);
-    tl.reset();
-    if (tl.autoplay) { tl.play(); }
-    return tl;
-  };
-  return tl;
-}
+      function ClearDisposable(method, id) {
+        this._id = id;
+        this._method = method;
+        this.isDisposed = false;
+      }
 
-anime.version = '3.0.1';
-anime.speed = 1;
-anime.running = activeInstances;
-anime.remove = removeTargets;
-anime.get = getOriginalTargetValue;
-anime.set = setTargetsValue;
-anime.convertPx = convertPxToUnit;
-anime.path = getPath;
-anime.setDashoffset = setDashoffset;
-anime.stagger = stagger;
-anime.timeline = timeline;
-anime.easing = parseEasings;
-anime.penner = penner;
-anime.random = function (min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; };
+      ClearDisposable.prototype.dispose = function () {
+        if (!this.isDisposed) {
+          this.isDisposed = true;
+          this._method.call(null, this._id);
+        }
+      };
 
-/* harmony default export */ __webpack_exports__["default"] = (anime);
+      MicroTaskScheduler.prototype.schedule = function (state, action) {
+        var disposable = new SingleAssignmentDisposable(),
+            id = scheduleMethod(scheduleAction(disposable, action, this, state));
+        return new BinaryDisposable(disposable, new ClearDisposable(clearMethod, id));
+      };
 
+      MicroTaskScheduler.prototype._scheduleFuture = function (state, dueTime, action) {
+        if (dueTime === 0) { return this.schedule(state, action); }
+        var disposable = new SingleAssignmentDisposable(),
+            id = root.setTimeout(scheduleAction(disposable, action, this, state), dueTime);
+        return new BinaryDisposable(disposable, new ClearDisposable(root.clearTimeout, id));
+      };
+
+      return MicroTaskScheduler;
+    }(Scheduler));
+
+    return new MicroTaskScheduler();
+  }());
+
+  return Rx;
+}));
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module), __webpack_require__(/*! ./../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
 
 /***/ }),
-/* 6 */,
-/* 7 */
+
+/***/ "./node_modules/rx-dom/index.js":
+/*!**************************************!*\
+  !*** ./node_modules/rx-dom/index.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Rx = __webpack_require__(/*! rx */ "./node_modules/rx/dist/rx.all.js");
+__webpack_require__(/*! ./dist/rx.dom */ "./node_modules/rx-dom/dist/rx.dom.js");
+module.exports = Rx;
+
+/***/ }),
+
+/***/ "./node_modules/rx/dist/rx.all.js":
+/*!****************************************!*\
+  !*** ./node_modules/rx/dist/rx.all.js ***!
+  \****************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module, global, process) {var __WEBPACK_AMD_DEFINE_RESULT__;// Copyright (c) Microsoft, All rights reserved. See License.txt in the project root for license information.
@@ -13889,10 +14191,46 @@ var ReactiveTest = Rx.ReactiveTest = {
 
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(8)(module), __webpack_require__(9), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module), __webpack_require__(/*! ./../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js"), __webpack_require__(/*! ./../../process/browser.js */ "./node_modules/process/browser.js")))
 
 /***/ }),
-/* 8 */
+
+/***/ "./node_modules/webpack/buildin/global.js":
+/*!***********************************!*\
+  !*** (webpack)/buildin/global.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || new Function("return this")();
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+
+/***/ "./node_modules/webpack/buildin/module.js":
+/*!***********************************!*\
+  !*** (webpack)/buildin/module.js ***!
+  \***********************************/
+/*! no static exports found */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -13919,1610 +14257,7 @@ module.exports = function(module) {
 };
 
 
-/***/ }),
-/* 9 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || new Function("return this")();
-} catch (e) {
-	// This works if the window reference is available
-	if (typeof window === "object") g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports) {
-
-// shim for using process in browser
-var process = module.exports = {};
-
-// cached from whatever global is present so that test runners that stub it
-// don't break things.  But we need to wrap it in a try catch in case it is
-// wrapped in strict mode code which doesn't define any globals.  It's inside a
-// function because try/catches deoptimize in certain engines.
-
-var cachedSetTimeout;
-var cachedClearTimeout;
-
-function defaultSetTimout() {
-    throw new Error('setTimeout has not been defined');
-}
-function defaultClearTimeout () {
-    throw new Error('clearTimeout has not been defined');
-}
-(function () {
-    try {
-        if (typeof setTimeout === 'function') {
-            cachedSetTimeout = setTimeout;
-        } else {
-            cachedSetTimeout = defaultSetTimout;
-        }
-    } catch (e) {
-        cachedSetTimeout = defaultSetTimout;
-    }
-    try {
-        if (typeof clearTimeout === 'function') {
-            cachedClearTimeout = clearTimeout;
-        } else {
-            cachedClearTimeout = defaultClearTimeout;
-        }
-    } catch (e) {
-        cachedClearTimeout = defaultClearTimeout;
-    }
-} ())
-function runTimeout(fun) {
-    if (cachedSetTimeout === setTimeout) {
-        //normal enviroments in sane situations
-        return setTimeout(fun, 0);
-    }
-    // if setTimeout wasn't available but was latter defined
-    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-        cachedSetTimeout = setTimeout;
-        return setTimeout(fun, 0);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedSetTimeout(fun, 0);
-    } catch(e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
-            return cachedSetTimeout.call(null, fun, 0);
-        } catch(e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
-            return cachedSetTimeout.call(this, fun, 0);
-        }
-    }
-
-
-}
-function runClearTimeout(marker) {
-    if (cachedClearTimeout === clearTimeout) {
-        //normal enviroments in sane situations
-        return clearTimeout(marker);
-    }
-    // if clearTimeout wasn't available but was latter defined
-    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-        cachedClearTimeout = clearTimeout;
-        return clearTimeout(marker);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedClearTimeout(marker);
-    } catch (e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
-            return cachedClearTimeout.call(null, marker);
-        } catch (e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
-            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
-            return cachedClearTimeout.call(this, marker);
-        }
-    }
-
-
-
-}
-var queue = [];
-var draining = false;
-var currentQueue;
-var queueIndex = -1;
-
-function cleanUpNextTick() {
-    if (!draining || !currentQueue) {
-        return;
-    }
-    draining = false;
-    if (currentQueue.length) {
-        queue = currentQueue.concat(queue);
-    } else {
-        queueIndex = -1;
-    }
-    if (queue.length) {
-        drainQueue();
-    }
-}
-
-function drainQueue() {
-    if (draining) {
-        return;
-    }
-    var timeout = runTimeout(cleanUpNextTick);
-    draining = true;
-
-    var len = queue.length;
-    while(len) {
-        currentQueue = queue;
-        queue = [];
-        while (++queueIndex < len) {
-            if (currentQueue) {
-                currentQueue[queueIndex].run();
-            }
-        }
-        queueIndex = -1;
-        len = queue.length;
-    }
-    currentQueue = null;
-    draining = false;
-    runClearTimeout(timeout);
-}
-
-process.nextTick = function (fun) {
-    var args = new Array(arguments.length - 1);
-    if (arguments.length > 1) {
-        for (var i = 1; i < arguments.length; i++) {
-            args[i - 1] = arguments[i];
-        }
-    }
-    queue.push(new Item(fun, args));
-    if (queue.length === 1 && !draining) {
-        runTimeout(drainQueue);
-    }
-};
-
-// v8 likes predictible objects
-function Item(fun, array) {
-    this.fun = fun;
-    this.array = array;
-}
-Item.prototype.run = function () {
-    this.fun.apply(null, this.array);
-};
-process.title = 'browser';
-process.browser = true;
-process.env = {};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
-process.versions = {};
-
-function noop() {}
-
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
-process.prependListener = noop;
-process.prependOnceListener = noop;
-
-process.listeners = function (name) { return [] }
-
-process.binding = function (name) {
-    throw new Error('process.binding is not supported');
-};
-
-process.cwd = function () { return '/' };
-process.chdir = function (dir) {
-    throw new Error('process.chdir is not supported');
-};
-process.umask = function() { return 0; };
-
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(module, global) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Copyright (c) Microsoft, Inc. All rights reserved. See License.txt in the project root for license information.
-
-;(function (factory) {
-  var objectTypes = {
-    'function': true,
-    'object': true
-  };
-
-  function checkGlobal(value) {
-    return (value && value.Object === Object) ? value : null;
-  }
-
-  var freeExports = (objectTypes[typeof exports] && exports && !exports.nodeType) ? exports : null;
-  var freeModule = (objectTypes[typeof module] && module && !module.nodeType) ? module : null;
-  var freeGlobal = checkGlobal(freeExports && freeModule && typeof global === 'object' && global);
-  var freeSelf = checkGlobal(objectTypes[typeof self] && self);
-  var freeWindow = checkGlobal(objectTypes[typeof window] && window);
-  var moduleExports = (freeModule && freeModule.exports === freeExports) ? freeExports : null;
-  var thisGlobal = checkGlobal(objectTypes[typeof this] && this);
-  var root = freeGlobal || ((freeWindow !== (thisGlobal && thisGlobal.window)) && freeWindow) || freeSelf || thisGlobal || Function('return this')();
-
-  // Because of build optimizers
-  if (true) {
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(7)], __WEBPACK_AMD_DEFINE_RESULT__ = (function (Rx, exports) {
-      return factory(root, exports, Rx);
-    }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-  } else {}
-}.call(this, function (root, exp, Rx, undefined) {
-
-  var Observable = Rx.Observable,
-    ObservableBase = Rx.ObservableBase,
-    AbstractObserver = Rx.internals.AbstractObserver,
-    observerCreate = Rx.Observer.create,
-    observableCreate = Rx.Observable.create,
-    disposableCreate = Rx.Disposable.create,
-    Disposable = Rx.Disposable,
-    CompositeDisposable = Rx.CompositeDisposable,
-    BinaryDisposable = Rx.BinaryDisposable,
-    SingleAssignmentDisposable = Rx.SingleAssignmentDisposable,
-    Subject = Rx.Subject,
-    Scheduler = Rx.Scheduler,
-    dom = Rx.DOM = {},
-    hasOwnProperty = {}.hasOwnProperty,
-    noop = Rx.helpers.noop,
-    isFunction = Rx.helpers.isFunction,
-    inherits = Rx.internals.inherits;
-
-  var errorObj = {e: {}};
-
-  function tryCatcherGen(tryCatchTarget) {
-    return function tryCatcher() {
-      try {
-        return tryCatchTarget.apply(this, arguments);
-      } catch (e) {
-        errorObj.e = e;
-        return errorObj;
-      }
-    };
-  }
-
-  function tryCatch(fn) {
-    if (!isFunction(fn)) { throw new TypeError('fn must be a function'); }
-    return tryCatcherGen(fn);
-  }
-
-  function thrower(e) {
-    throw e;
-  }
-
-  function CreateListenerDisposable(element, name, handler, useCapture) {
-    this._e = element;
-    this._n = name;
-    this._fn = handler;
-    this._u = useCapture;
-    this._e.addEventListener(this._n, this._fn, this._u);
-    this.isDisposed = false;
-  }
-
-  CreateListenerDisposable.prototype.dispose = function () {
-    if (!this.isDisposed) {
-      this.isDisposed = true;
-      this._e.removeEventListener(this._n, this._fn, this._u);
-    }
-  };
-
-  function createListener (element, name, handler, useCapture) {
-    if (element.addEventListener) {
-      return new CreateListenerDisposable(element, name, handler, useCapture);
-    }
-    throw new Error('No listener found');
-  }
-
-  function createEventListener (el, eventName, handler, useCapture) {
-    var disposables = new CompositeDisposable();
-
-    // Asume NodeList or HTMLCollection
-    var toStr = Object.prototype.toString;
-    if (toStr.call(el) === '[object NodeList]' || toStr.call(el) === '[object HTMLCollection]') {
-      for (var i = 0, len = el.length; i < len; i++) {
-        disposables.add(createEventListener(el.item(i), eventName, handler, useCapture));
-      }
-    } else if (el) {
-      disposables.add(createListener(el, eventName, handler, useCapture));
-    }
-    return disposables;
-  }
-
-  var FromEventObservable = (function(__super__) {
-    inherits(FromEventObservable, __super__);
-    function FromEventObservable(element, eventName, selector, useCapture) {
-      this._e = element;
-      this._n = eventName;
-      this._fn = selector;
-      this._uc = useCapture;
-      __super__.call(this);
-    }
-
-    function createHandler(o, fn) {
-      return function handler() {
-        var results = arguments[0];
-        if (fn) {
-          results = tryCatch(fn).apply(null, arguments);
-          if (results === errorObj) { return o.onError(results.e); }
-        }
-        o.onNext(results);
-      };
-    }
-
-    FromEventObservable.prototype.subscribeCore = function (o) {
-      return createEventListener(
-        this._e,
-        this._n,
-        createHandler(o, this._fn),
-        this._uc);
-    };
-
-    return FromEventObservable;
-  }(ObservableBase));
-
-  /**
-   * Creates an observable sequence by adding an event listener to the matching DOMElement or each item in the NodeList.
-   * @param {Object} element The DOMElement or NodeList to attach a listener.
-   * @param {String} eventName The event name to attach the observable sequence.
-   * @param {Function} [selector] A selector which takes the arguments from the event handler to produce a single item to yield on next.
-   * @param {Boolean} [useCapture] If true, useCapture indicates that the user wishes to initiate capture. After initiating capture, all events of the specified type will be dispatched to the registered listener before being dispatched to any EventTarget beneath it in the DOM tree. Events which are bubbling upward through the tree will not trigger a listener designated to use capture
-   * @returns {Observable} An observable sequence of events from the specified element and the specified event.
-   */
-  var fromEvent = dom.fromEvent = function (element, eventName, selector, useCapture) {
-    var selectorFn = isFunction(selector) ? selector : null;
-    typeof selector === 'boolean' && (useCapture = selector);
-    typeof useCapture === 'undefined' && (useCapture = false);
-    return new FromEventObservable(element, eventName, selectorFn, useCapture).publish().refCount();
-  };
-
-  (function () {
-    var events = 'blur focus focusin focusout load resize scroll unload click dblclick ' +
-      'mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave ' +
-      'change select submit keydown keypress keyup error contextmenu input';
-
-    if (root.PointerEvent) {
-      events += ' pointerdown pointerup pointermove pointerover pointerout pointerenter pointerleave';
-    }
-
-    if (root.TouchEvent) {
-      events += ' touchstart touchend touchmove touchcancel';
-    }
-
-    events = events.split(' ');
-
-    for(var i = 0, len = events.length; i < len; i++) {
-      (function (e) {
-        dom[e] = function (element, selector, useCapture) {
-          return fromEvent(element, e, selector, useCapture);
-        };
-      }(events[i]))
-    }
-  }());
-
-  var ReadyObservable = (function (__super__) {
-    inherits(ReadyObservable, __super__);
-    function ReadyObservable() {
-      __super__.call(this);
-    }
-
-    function createHandler(o) {
-      return function handler() {
-        o.onNext();
-        o.onCompleted();
-      };
-    }
-
-    ReadyObservable.prototype.subscribeCore = function (o) {
-      return new ReadyDisposable(o, createHandler(o));
-    };
-
-    function ReadyDisposable(o, fn) {
-      this._o = o;
-      this._fn = fn;
-      this._addedHandlers = false;
-      this.isDisposed = false;
-
-      if (root.document.readyState === 'complete') {
-        setTimeout(this._fn, 0);
-      } else {
-        this._addedHandlers = true;
-        root.document.addEventListener( 'DOMContentLoaded', this._fn, false );
-      }
-    }
-
-    ReadyDisposable.prototype.dispose = function () {
-      if (!this.isDisposed) {
-        this.isDisposed = true;
-        root.document.removeEventListener( 'DOMContentLoaded', this._fn, false );
-      }
-    };
-
-    return ReadyObservable;
-  }(ObservableBase));
-
-  /**
-   * Creates an observable sequence when the DOM is loaded
-   * @returns {Observable} An observable sequence fired when the DOM is loaded
-   */
-  dom.ready = function () {
-    return new ReadyObservable();
-  };
-
-
-  // Gets the proper XMLHttpRequest for support for older IE
-  function getXMLHttpRequest() {
-    if (root.XMLHttpRequest) {
-      return new root.XMLHttpRequest();
-    } else {
-      var progId;
-      try {
-        var progIds = ['Msxml2.XMLHTTP', 'Microsoft.XMLHTTP', 'Msxml2.XMLHTTP.4.0'];
-        for(var i = 0; i < 3; i++) {
-          try {
-            progId = progIds[i];
-            if (new root.ActiveXObject(progId)) {
-              break;
-            }
-          } catch(e) { }
-        }
-        return new root.ActiveXObject(progId);
-      } catch (e) {
-        throw new Error('XMLHttpRequest is not supported by your browser');
-      }
-    }
-  }
-
-  // Get CORS support even for older IE
-  function getCORSRequest() {
-    var xhr = new root.XMLHttpRequest();
-    if ('withCredentials' in xhr) {
-      xhr.withCredentials = true;
-      return xhr;
-    } else if (!!root.XDomainRequest) {
-      return new XDomainRequest();
-    } else {
-      throw new Error('CORS is not supported by your browser');
-    }
-  }
-
-  function normalizeAjaxSuccessEvent(e, xhr, settings) {
-    var response = ('response' in xhr) ? xhr.response : xhr.responseText;
-    response = settings.responseType === 'json' ? JSON.parse(response) : response;
-    return {
-      response: response,
-      status: xhr.status,
-      responseType: xhr.responseType,
-      xhr: xhr,
-      originalEvent: e
-    };
-  }
-
-  function normalizeAjaxErrorEvent(e, xhr, type) {
-    return {
-      type: type,
-      status: xhr.status,
-      xhr: xhr,
-      originalEvent: e
-    };
-  }
-
-  var AjaxObservable = (function(__super__) {
-    inherits(AjaxObservable, __super__);
-    function AjaxObservable(settings) {
-      this._settings = settings;
-      __super__.call(this);
-    }
-
-    AjaxObservable.prototype.subscribeCore = function (o) {
-      var state = { isDone: false };
-      var xhr;
-
-      var settings = this._settings;
-      var normalizeError = settings.normalizeError;
-      var normalizeSuccess = settings.normalizeSuccess;
-
-      var processResponse = function(xhr, e){
-        var status = xhr.status === 1223 ? 204 : xhr.status;
-        if ((status >= 200 && status <= 300) || status === 0 || status === '') {
-          o.onNext(normalizeSuccess(e, xhr, settings));
-          o.onCompleted();
-        } else {
-          o.onError(settings.normalizeError(e, xhr, 'error'));
-        }
-        state.isDone = true;
-      };
-
-      try {
-        xhr = settings.createXHR();
-      } catch (err) {
-        return o.onError(err);
-      }
-
-      try {
-        if (settings.user) {
-          xhr.open(settings.method, settings.url, settings.async, settings.user, settings.password);
-        } else {
-          xhr.open(settings.method, settings.url, settings.async);
-        }
-
-        var headers = settings.headers;
-        for (var header in headers) {
-          if (hasOwnProperty.call(headers, header)) {
-            xhr.setRequestHeader(header, headers[header]);
-          }
-        }
-
-        xhr.timeout = settings.timeout;
-        xhr.ontimeout = function (e) {
-          settings.progressObserver && settings.progressObserver.onError(e);
-          o.onError(normalizeError(e, xhr, 'timeout'));
-        };
-
-        if(!!xhr.upload || (!('withCredentials' in xhr) && !!root.XDomainRequest)) {
-          xhr.onload = function(e) {
-            if(settings.progressObserver) {
-              settings.progressObserver.onNext(e);
-              settings.progressObserver.onCompleted();
-            }
-            processResponse(xhr, e);
-          };
-
-          if(settings.progressObserver) {
-            xhr.onprogress = function(e) {
-              settings.progressObserver.onNext(e);
-            };
-          }
-
-          xhr.onerror = function(e) {
-            settings.progressObserver && settings.progressObserver.onError(e);
-            o.onError(normalizeError(e, xhr, 'error'));
-            state.isDone = true;
-          };
-
-          xhr.onabort = function(e) {
-            settings.progressObserver && settings.progressObserver.onError(e);
-            o.onError(normalizeError(e, xhr, 'abort'));
-            state.isDone = true;
-          };
-        } else {
-          xhr.onreadystatechange = function (e) {
-            xhr.readyState === 4 && processResponse(xhr, e);
-          };
-        }
-
-        var contentType = settings.headers['Content-Type'] ||
-            settings.headers['Content-type'] ||
-            settings.headers['content-type'];
-        if (settings.hasContent && contentType === 'application/x-www-form-urlencoded' && typeof settings.body !== 'string') {
-          var newBody = [];
-          for (var prop in settings.body) {
-            if (hasOwnProperty.call(settings.body, prop)) {
-              newBody.push(prop + '=' + settings.body[prop]);
-            }
-          }
-          settings.body = newBody.join('&');
-        }
-
-        xhr.send(settings.hasContent && settings.body || null);
-      } catch (e) {
-        o.onError(e);
-      }
-
-      return new AjaxDisposable(state, xhr);
-    };
-
-    function AjaxDisposable(state, xhr) {
-      this._state = state;
-      this._xhr = xhr;
-      this.isDisposed = false;
-    }
-
-    AjaxDisposable.prototype.dispose = function () {
-      if (!this.isDisposed) {
-        this.isDisposed = true;
-        if (!this._state.isDone && this._xhr.readyState !== 4) { this._xhr.abort(); }
-      }
-    };
-
-    return AjaxObservable;
-  }(ObservableBase));
-
-  /**
-   * Creates an observable for an Ajax request with either a settings object with url, headers, etc or a string for a URL.
-   *
-   * @example
-   *   source = Rx.DOM.ajax('/products');
-   *   source = Rx.DOM.ajax( url: 'products', method: 'GET' });
-   *
-   * @param {Object} settings Can be one of the following:
-   *
-   *  A string of the URL to make the Ajax call.
-   *  An object with the following properties
-   *   - url: URL of the request
-   *   - body: The body of the request
-   *   - method: Method of the request, such as GET, POST, PUT, PATCH, DELETE
-   *   - async: Whether the request is async
-   *   - headers: Optional headers
-   *   - crossDomain: true if a cross domain request, else false
-   *
-   * @returns {Observable} An observable sequence containing the XMLHttpRequest.
-  */
-  var ajaxRequest = dom.ajax = function (options) {
-    var settings = {
-      method: 'GET',
-      crossDomain: false,
-      async: true,
-      headers: {},
-      responseType: 'text',
-      timeout: 0,
-      createXHR: function(){
-        return this.crossDomain ? getCORSRequest() : getXMLHttpRequest()
-      },
-      normalizeError: normalizeAjaxErrorEvent,
-      normalizeSuccess: normalizeAjaxSuccessEvent
-    };
-
-    if(typeof options === 'string') {
-      settings.url = options;
-    } else {
-      for(var prop in options) {
-        if(hasOwnProperty.call(options, prop)) {
-          settings[prop] = options[prop];
-        }
-      }
-    }
-
-    if (!settings.crossDomain && !settings.headers['X-Requested-With']) {
-      settings.headers['X-Requested-With'] = 'XMLHttpRequest';
-    }
-    settings.hasContent = settings.body !== undefined;
-
-    return new AjaxObservable(settings);
-  };
-
-  /**
-   * Creates an observable sequence from an Ajax POST Request with the body.
-   *
-   * @param {String} url The URL to POST
-   * @param {Object} body The body to POST
-   * @returns {Observable} The observable sequence which contains the response from the Ajax POST.
-   */
-  dom.post = function (url, body) {
-    var settings;
-    if (typeof url === 'string') {
-      settings = {url: url, body: body, method: 'POST' };
-    } else if (typeof url === 'object') {
-      settings = url;
-      settings.method = 'POST';
-    }
-    return ajaxRequest(settings);
-  };
-
-  /**
-   * Creates an observable sequence from an Ajax GET Request with the body.
-   *
-   * @param {String} url The URL to GET
-   * @returns {Observable} The observable sequence which contains the response from the Ajax GET.
-   */
-  dom.get = function (url) {
-    var settings;
-    if (typeof url === 'string') {
-      settings = {url: url };
-    } else if (typeof url === 'object') {
-      settings = url;
-    }
-    return ajaxRequest(settings);
-  };
-
-  /**
-   * Creates an observable sequence from JSON from an Ajax request
-   *
-   * @param {String} url The URL to GET
-   * @returns {Observable} The observable sequence which contains the parsed JSON.
-   */
-  dom.getJSON = function (url) {
-    if (!root.JSON && typeof root.JSON.parse !== 'function') { throw new TypeError('JSON is not supported in your runtime.'); }
-    return ajaxRequest({url: url, responseType: 'json'}).map(function (x) {
-      return x.response;
-    });
-  };
-
-  var destroy = (function () {
-    var trash = 'document' in root && root.document.createElement('div');
-    return function (element) {
-      trash.appendChild(element);
-      trash.innerHTML = '';
-    };
-  })();
-
-  var ScriptObservable = (function(__super__) {
-    inherits(ScriptObservable, __super__);
-    function ScriptObservable(settings) {
-      this._settings = settings;
-      __super__.call(this);
-    }
-
-    ScriptObservable.id = 0;
-
-    ScriptObservable.prototype.subscribeCore = function (o) {
-      var settings = {
-        jsonp: 'JSONPCallback',
-        async: true,
-        jsonpCallback: 'rxjsjsonpCallbacks' + 'callback_' + (ScriptObservable.id++).toString(36)
-      };
-
-      if(typeof this._settings === 'string') {
-        settings.url = this._settings;
-      } else {
-        for(var prop in this._settings) {
-          if(hasOwnProperty.call(this._settings, prop)) {
-            settings[prop] = this._settings[prop];
-          }
-        }
-      }
-
-      var script = root.document.createElement('script');
-      script.type = 'text/javascript';
-      script.async = settings.async;
-      script.src = settings.url.replace(settings.jsonp, settings.jsonpCallback);
-
-      root[settings.jsonpCallback] = function(data) {
-        root[settings.jsonpCallback].called = true;
-        root[settings.jsonpCallback].data = data;
-      };
-
-      var handler = function(e) {
-        if(e.type === 'load' && !root[settings.jsonpCallback].called) {
-          e = { type: 'error' };
-        }
-        var status = e.type === 'error' ? 400 : 200;
-        var data = root[settings.jsonpCallback].data;
-
-        if(status === 200) {
-          o.onNext({
-            status: status,
-            responseType: 'jsonp',
-            response: data,
-            originalEvent: e
-          });
-
-          o.onCompleted();
-        }
-        else {
-          o.onError({
-            type: 'error',
-            status: status,
-            originalEvent: e
-          });
-        }
-      };
-
-      script.onload = script.onreadystatechanged = script.onerror = handler;
-
-      var head = root.document.getElementsByTagName('head')[0] || root.document.documentElement;
-      head.insertBefore(script, head.firstChild);
-
-      return new ScriptDisposable(script);
-    };
-
-    function ScriptDisposable(script) {
-      this._script = script;
-      this.isDisposed = false;
-    }
-
-    ScriptDisposable.prototype.dispose = function () {
-      if (!this.isDisposed) {
-        this.isDisposed = true;
-        this._script.onload = this._script.onreadystatechanged = this._script.onerror = null;
-        destroy(this._script);
-        this._script = null;
-      }
-    };
-
-    return ScriptObservable;
-  }(ObservableBase));
-
-  /**
-   * Creates an observable JSONP Request with the specified settings.
-   * @param {Object} settings Can be one of the following:
-   *
-   *  A string of the URL to make the JSONP call with the JSONPCallback=? in the url.
-   *  An object with the following properties
-   *   - url: URL of the request
-   *   - jsonp: The named callback parameter for the JSONP call
-   *   - jsonpCallback: Callback to execute. For when the JSONP callback can't be changed
-   *
-   * @returns {Observable} A cold observable containing the results from the JSONP call.
-   */
-   dom.jsonpRequest = function (settings) {
-     return new ScriptObservable(settings);
-   };
-
-  function socketClose(socket, closingObserver, code, reason) {
-    if (socket) {
-      if (closingObserver) {
-        closingObserver.onNext();
-        closingObserver.onCompleted();
-      }
-      if (!code) {
-        socket.close();
-      } else {
-        socket.close(code, reason);
-      }
-    }
-  }
-
-  var SocketObservable = (function (__super__) {
-    inherits(SocketObservable, __super__);
-    function SocketObservable(state, url, protocol, open, close) {
-      this._state = state;
-      this._url = url;
-      this._protocol = protocol;
-      this._open = open;
-      this._close = close;
-      __super__.call(this);
-    }
-
-    function createOpenHandler(open, socket) {
-      return function openHandler(e) {
-        open.onNext(e);
-        open.onCompleted();
-        socket.removeEventListener('open', openHandler, false);
-      };
-    }
-    function createMsgHandler(o) { return function msgHandler(e) { o.onNext(e); }; }
-    function createErrHandler(o) { return function errHandler(e) { o.onError(e); }; }
-    function createCloseHandler(o) {
-      return function closeHandler(e) {
-        if (e.code !== 1000 || !e.wasClean) { return o.onError(e); }
-        o.onCompleted();
-      };
-    }
-
-    function SocketDisposable(socket, msgFn, errFn, closeFn, close) {
-      this._socket = socket;
-      this._msgFn = msgFn;
-      this._errFn = errFn;
-      this._closeFn = closeFn;
-      this._close = close;
-      this.isDisposed = false;
-    }
-
-    SocketDisposable.prototype.dispose = function () {
-      if (!this.isDisposed) {
-        this.isDisposed = true;
-        socketClose(this._socket, this._close);
-
-        this._socket.removeEventListener('message', this._msgFn, false);
-        this._socket.removeEventListener('error', this._errFn, false);
-        this._socket.removeEventListener('close', this._closeFn, false);
-      }
-    };
-
-    SocketObservable.prototype.subscribeCore = function (o) {
-      this._state.socket = this._protocol ? new WebSocket(this._url, this._protocol) : new WebSocket(this._url);
-
-      var openHandler = createOpenHandler(this._open, this._state.socket);
-      var msgHandler = createMsgHandler(o);
-      var errHandler = createErrHandler(o);
-      var closeHandler = createCloseHandler(o);
-
-      this._open && this._state.socket.addEventListener('open', openHandler, false);
-      this._state.socket.addEventListener('message', msgHandler, false);
-      this._state.socket.addEventListener('error', errHandler, false);
-      this._state.socket.addEventListener('close', closeHandler, false);
-
-      return new SocketDisposable(this._state.socket, msgHandler, errHandler, closeHandler, this._close);
-    };
-
-    return SocketObservable;
-  }(ObservableBase));
-
-  var SocketObserver = (function (__super__) {
-    inherits(SocketObserver, __super__);
-    function SocketObserver(state, close) {
-      this._state = state;
-      this._close = close;
-      __super__.call(this);
-    }
-
-    SocketObserver.prototype.next = function (x) {
-      this._state.socket && this._state.socket.readyState === WebSocket.OPEN && this._state.socket.send(x);
-    };
-
-    SocketObserver.prototype.error = function (e) {
-      if (!e.code) {
-        throw new Error('no code specified. be sure to pass { code: ###, reason: "" } to onError()');
-      }
-      socketClose(this._state.socket, this._close, e.code, e.reason || '');
-    };
-
-    SocketObserver.prototype.completed = function () {
-      socketClose(this._state.socket, this._close, 1000, '');
-    };
-
-    return SocketObserver;
-  }(AbstractObserver));
-
-   /**
-   * Creates a WebSocket Subject with a given URL, protocol and an optional observer for the open event.
-   *
-   * @example
-   *  var socket = Rx.DOM.fromWebSocket('http://localhost:8080', 'stock-protocol', openObserver, closingObserver);
-   *
-   * @param {String} url The URL of the WebSocket.
-   * @param {String} protocol The protocol of the WebSocket.
-   * @param {Observer} [openObserver] An optional Observer to capture the open event.
-   * @param {Observer} [closingObserver] An optional Observer to capture the moment before the underlying socket is closed.
-   * @returns {Subject} An observable sequence wrapping a WebSocket.
-   */
-  dom.fromWebSocket = function (url, protocol, openObserver, closingObserver) {
-    if (!WebSocket) { throw new TypeError('WebSocket not implemented in your runtime.'); }
-    var state = { socket: null };
-    return Subject.create(
-      new SocketObserver(state, closingObserver),
-      new SocketObservable(state, url, protocol, openObserver, closingObserver)
-    );
-  };
-
-  var WorkerObserver = (function (__super__) {
-    inherits(WorkerObserver, __super__);
-    function WorkerObserver(state) {
-      this._state = state;
-      __super__.call(this);
-    }
-
-    WorkerObserver.prototype.next = function (x) { this._state.worker && this._state.worker.postMessage(x); };
-    WorkerObserver.prototype.error = function (e) { throw e; };
-    WorkerObserver.prototype.completed = function () { };
-
-    return WorkerObserver;
-  }(AbstractObserver));
-
-  var WorkerObservable = (function (__super__) {
-    inherits(WorkerObservable, __super__);
-    function WorkerObservable(state, url) {
-      this._state = state;
-      this._url = url;
-      __super__.call(this);
-    }
-
-    function createMessageHandler(o) { return function messageHandler (e) { o.onNext(e); }; }
-    function createErrHandler(o) { return function errHandler(e) { o.onError(e); }; }
-
-    function WorkerDisposable(w, msgFn, errFn) {
-      this._w = w;
-      this._msgFn = msgFn;
-      this._errFn = errFn;
-      this.isDisposed = false;
-    }
-
-    WorkerDisposable.prototype.dispose = function () {
-      if (!this.isDisposed) {
-        this.isDisposed = true;
-        this._w.terminate();
-        this._w.removeEventListener('message', this._msgFn, false);
-        this._w.removeEventListener('error', this._errFn, false);
-      }
-    };
-
-    WorkerObservable.prototype.subscribeCore = function (o) {
-      this._state.worker = new root.Worker(this._url);
-
-      var messageHandler = createMessageHandler(o);
-      var errHandler = createErrHandler(o);
-
-      this._state.worker.addEventListener('message', messageHandler, false);
-      this._state.worker.addEventListener('error', errHandler, false);
-
-      return new WorkerDisposable(this._state.worker, messageHandler, errHandler);
-    };
-
-    return WorkerObservable;
-  }(ObservableBase));
-
-  /**
-   * Creates a Web Worker with a given URL as a Subject.
-   *
-   * @example
-   * var worker = Rx.DOM.fromWebWorker('worker.js');
-   *
-   * @param {String} url The URL of the Web Worker.
-   * @returns {Subject} A Subject wrapping the Web Worker.
-   */
-  dom.fromWorker = function (url) {
-    if (!root.Worker) { throw new TypeError('Worker not implemented in your runtime.'); }
-    var state = { worker: null };
-    return Subject.create(new WorkerObserver(state), new WorkerObservable(state, url));
-  };
-
-  function getMutationObserver(next) {
-    var M = root.MutationObserver || root.WebKitMutationObserver;
-    return new M(next);
-  }
-
-  var MutationObserverObservable = (function (__super__) {
-    inherits(MutationObserverObservable, __super__);
-    function MutationObserverObservable(target, options) {
-      this._target = target;
-      this._options = options;
-      __super__.call(this);
-    }
-
-    function InnerDisposable(mutationObserver) {
-      this._m = mutationObserver;
-      this.isDisposed = false;
-    }
-
-    InnerDisposable.prototype.dispose = function () {
-      if (!this.isDisposed) {
-        this.isDisposed = true;
-        this._m.disconnect();
-      }
-    };
-
-    MutationObserverObservable.prototype.subscribeCore = function (o) {
-      var mutationObserver = getMutationObserver(function (e) { o.onNext(e); });
-      mutationObserver.observe(this._target, this._options);
-      return new InnerDisposable(mutationObserver);
-    };
-
-    return MutationObserverObservable;
-  }(ObservableBase));
-
-  /**
-   * Creates an observable sequence from a Mutation Observer.
-   * MutationObserver provides developers a way to react to changes in a DOM.
-   * @example
-   *  Rx.DOM.fromMutationObserver(document.getElementById('foo'), { attributes: true, childList: true, characterData: true });
-   *
-   * @param {Object} target The Node on which to obserave DOM mutations.
-   * @param {Object} options A MutationObserverInit object, specifies which DOM mutations should be reported.
-   * @returns {Observable} An observable sequence which contains mutations on the given DOM target.
-   */
-  dom.fromMutationObserver = function (target, options) {
-    if (!(root.MutationObserver || root.WebKitMutationObserver)) { throw new TypeError('MutationObserver not implemented in your runtime.'); }
-    return new MutationObserverObservable(target, options);
-  };
-
-  var CurrentPositionObservable = (function (__super__) {
-    inherits(CurrentPositionObservable, __super__);
-    function CurrentPositionObservable(opts) {
-      this._opts = opts;
-      __super__.call(this);
-    }
-
-    CurrentPositionObservable.prototype.subscribeCore = function (o) {
-      root.navigator.geolocation.getCurrentPosition(
-        function (data) {
-          o.onNext(data);
-          o.onCompleted();
-        },
-        function (e) { o.onError(e); },
-        this._opts);
-    };
-
-    return CurrentPositionObservable;
-  }(ObservableBase));
-
-  var WatchPositionObservable = (function (__super__) {
-    inherits(WatchPositionObservable, __super__);
-    function WatchPositionObservable(opts) {
-      this._opts = opts;
-      __super__.call(this);
-    }
-
-    function WatchPositionDisposable(id) {
-      this._id = id;
-      this.isDisposed = false;
-    }
-
-    WatchPositionDisposable.prototype.dispose = function () {
-      if (!this.isDisposed) {
-        this.isDisposed = true;
-        root.navigator.geolocation.clearWatch(this._id);
-      }
-    };
-
-    WatchPositionObservable.prototype.subscribeCore = function (o) {
-      var watchId = root.navigator.geolocation.watchPosition(
-        function (x) { o.onNext(x); },
-        function (e) { o.onError(e); },
-        this._opts);
-
-      return new WatchPositionDisposable(watchId);
-    };
-
-    return WatchPositionObservable;
-  }(ObservableBase));
-
-  Rx.DOM.geolocation = {
-    /**
-    * Obtains the geographic position, in terms of latitude and longitude coordinates, of the device.
-    * @param {Object} [geolocationOptions] An object literal to specify one or more of the following attributes and desired values:
-    *   - enableHighAccuracy: Specify true to obtain the most accurate position possible, or false to optimize in favor of performance and power consumption.
-    *   - timeout: An Integer value that indicates the time, in milliseconds, allowed for obtaining the position.
-    *              If timeout is Infinity, (the default value) the location request will not time out.
-    *              If timeout is zero (0) or negative, the results depend on the behavior of the location provider.
-    *   - maximumAge: An Integer value indicating the maximum age, in milliseconds, of cached position information.
-    *                 If maximumAge is non-zero, and a cached position that is no older than maximumAge is available, the cached position is used instead of obtaining an updated location.
-    *                 If maximumAge is zero (0), watchPosition always tries to obtain an updated position, even if a cached position is already available.
-    *                 If maximumAge is Infinity, any cached position is used, regardless of its age, and watchPosition only tries to obtain an updated position if no cached position data exists.
-    * @returns {Observable} An observable sequence with the geographical location of the device running the client.
-    */
-    getCurrentPosition: function (geolocationOptions) {
-      if (!root.navigator && !root.navigation.geolocation) { throw new TypeError('geolocation not available'); }
-      return new CurrentPositionObservable(geolocationOptions);
-    },
-
-    /**
-    * Begins listening for updates to the current geographical location of the device running the client.
-    * @param {Object} [geolocationOptions] An object literal to specify one or more of the following attributes and desired values:
-    *   - enableHighAccuracy: Specify true to obtain the most accurate position possible, or false to optimize in favor of performance and power consumption.
-    *   - timeout: An Integer value that indicates the time, in milliseconds, allowed for obtaining the position.
-    *              If timeout is Infinity, (the default value) the location request will not time out.
-    *              If timeout is zero (0) or negative, the results depend on the behavior of the location provider.
-    *   - maximumAge: An Integer value indicating the maximum age, in milliseconds, of cached position information.
-    *                 If maximumAge is non-zero, and a cached position that is no older than maximumAge is available, the cached position is used instead of obtaining an updated location.
-    *                 If maximumAge is zero (0), watchPosition always tries to obtain an updated position, even if a cached position is already available.
-    *                 If maximumAge is Infinity, any cached position is used, regardless of its age, and watchPosition only tries to obtain an updated position if no cached position data exists.
-    * @returns {Observable} An observable sequence with the current geographical location of the device running the client.
-    */
-    watchPosition: function (geolocationOptions) {
-      if (!root.navigator && !root.navigation.geolocation) { throw new TypeError('geolocation not available'); }
-      return new WatchPositionObservable(geolocationOptions).publish().refCount();
-    }
-  };
-
-  var FromReaderObservable = (function (__super__) {
-    inherits(FromReaderObservable, __super__);
-    function FromReaderObservable(readerFn, file, progressObserver, encoding) {
-      this._readerFn  = readerFn;
-      this._file = file;
-      this._progressObserver = progressObserver;
-      this._encoding = encoding;
-      __super__.call(this);
-    }
-
-    function createLoadHandler(o, p) {
-      return function loadHandler(e) {
-        p && p.onCompleted();
-        o.onNext(e.target.result);
-        o.onCompleted();
-      };
-    }
-
-    function createErrorHandler(o) { return function errorHandler (e) { o.onError(e.target.error); }; }
-    function createProgressHandler(o) { return function progressHandler (e) { o.onNext(e); }; }
-
-    function FromReaderDisposable(reader, progressObserver, loadHandler, errorHandler, progressHandler) {
-      this._r = reader;
-      this._po = progressObserver;
-      this._lFn = loadHandler;
-      this._eFn = errorHandler;
-      this._pFn = progressHandler;
-      this.isDisposed = false;
-    }
-
-    FromReaderDisposable.prototype.dispose = function () {
-      if (!this.isDisposed) {
-        this.isDisposed = true;
-        this._r.readyState === root.FileReader.LOADING && this._r.abort();
-        this._r.removeEventListener('load', this._lFn, false);
-        this._r.removeEventListener('error', this._eFn, false);
-        this._po && this._r.removeEventListener('progress', this._pFn, false);
-      }
-    };
-
-    FromReaderObservable.prototype.subscribeCore = function (o) {
-      var reader = new root.FileReader();
-
-      var loadHandler = createLoadHandler(o, this._progressObserver);
-      var errorHandler = createErrorHandler(o);
-      var progressHandler = createProgressHandler(this._progressObserver);
-
-      reader.addEventListener('load', loadHandler, false);
-      reader.addEventListener('error', errorHandler, false);
-      this._progressObserver && reader.addEventListener('progress', progressHandler, false);
-
-      reader[this._readerFn](this._file, this._encoding);
-
-      return new FromReaderDisposable(reader, this._progressObserver, loadHandler, errorHandler, progressHandler);
-    };
-
-    return FromReaderObservable;
-  }(ObservableBase));
-
-  /**
-   * The FileReader object lets web applications asynchronously read the contents of
-   * files (or raw data buffers) stored on the user's computer, using File or Blob objects
-   * to specify the file or data to read as an observable sequence.
-   * @param {String} file The file to read.
-   * @param {Observer} An observer to watch for progress.
-   * @returns {Object} An object which contains methods for reading the data.
-   */
-  dom.fromReader = function(file, progressObserver) {
-    if (!root.FileReader) { throw new TypeError('FileReader not implemented in your runtime.'); }
-
-    return {
-      /**
-       * This method is used to read the file as an ArrayBuffer as an Observable stream.
-       * @returns {Observable} An observable stream of an ArrayBuffer
-       */
-      asArrayBuffer : function() {
-        return new FromReaderObservable('readAsArrayBuffer', file, progressObserver);
-      },
-      /**
-       * This method is used to read the file as a binary data string as an Observable stream.
-       * @returns {Observable} An observable stream of a binary data string.
-       */
-      asBinaryString : function() {
-        return new FromReaderObservable('readAsBinaryString', file, progressObserver);
-      },
-      /**
-       * This method is used to read the file as a URL of the file's data as an Observable stream.
-       * @returns {Observable} An observable stream of a URL representing the file's data.
-       */
-      asDataURL : function() {
-        return new FromReaderObservable('readAsDataURL', file, progressObserver);
-      },
-      /**
-       * This method is used to read the file as a string as an Observable stream.
-       * @returns {Observable} An observable stream of the string contents of the file.
-       */
-      asText : function(encoding) {
-        return new FromReaderObservable('readAsText', file, progressObserver, encoding);
-      }
-    };
-  };
-
-  var EventSourceObservable = (function(__super__) {
-    inherits(EventSourceObservable, __super__);
-    function EventSourceObservable(url, open) {
-      this._url = url;
-      this._open = open;
-      __super__.call(this);
-    }
-
-    function createOnOpen(o, source) {
-      return function onOpen(e) {
-        o.onNext(e);
-        o.onCompleted();
-        source.removeEventListener('open', onOpen, false);
-      };
-    }
-
-    function createOnError(o) {
-      return function onError(e) {
-        if (e.readyState === EventSource.CLOSED) {
-          o.onCompleted();
-        } else {
-          o.onError(e);
-        }
-      };
-    }
-
-    function createOnMessage(o) { return function onMessage(e) { o.onNext(e.data); }; }
-
-    function EventSourceDisposable(s, errFn, msgFn) {
-      this._s = s;
-      this._errFn = errFn;
-      this._msgFn = msgFn;
-      this.isDisposed = false;
-    }
-
-    EventSourceDisposable.prototype.dispose = function () {
-      if (!this.isDisposed) {
-        this._s.removeEventListener('error', this._errFn, false);
-        this._s.removeEventListener('message', this._msgFn, false);
-        this._s.close();
-      }
-    };
-
-    EventSourceObservable.prototype.subscribeCore = function (o) {
-      var source = new EventSource(this._url);
-      var onOpen = createOnOpen(this._open, source);
-      var onError = createOnError(o);
-      var onMessage = createOnMessage(o);
-
-      this._open && source.addEventListener('open', onOpen, false);
-      source.addEventListener('error', onError, false);
-      source.addEventListener('message', onMessage, false);
-
-      return new EventSourceDisposable(source, onError, onMessage);
-    };
-
-    return EventSourceObservable;
-  }(ObservableBase));
-
-  /**
-   * This method wraps an EventSource as an observable sequence.
-   * @param {String} url The url of the server-side script.
-   * @param {Observer} [openObserver] An optional observer for the 'open' event for the server side event.
-   * @returns {Observable} An observable sequence which represents the data from a server-side event.
-   */
-  dom.fromEventSource = function (url, openObserver) {
-    if (!root.EventSource) { throw new TypeError('EventSource not implemented in your runtime.'); }
-    return new EventSourceObservable(url, openObserver);
-  };
-
-  var requestAnimFrame, cancelAnimFrame;
-  if (root.requestAnimationFrame) {
-    requestAnimFrame = root.requestAnimationFrame;
-    cancelAnimFrame = root.cancelAnimationFrame;
-  } else if (root.mozRequestAnimationFrame) {
-    requestAnimFrame = root.mozRequestAnimationFrame;
-    cancelAnimFrame = root.mozCancelAnimationFrame;
-  } else if (root.webkitRequestAnimationFrame) {
-    requestAnimFrame = root.webkitRequestAnimationFrame;
-    cancelAnimFrame = root.webkitCancelAnimationFrame;
-  } else if (root.msRequestAnimationFrame) {
-    requestAnimFrame = root.msRequestAnimationFrame;
-    cancelAnimFrame = root.msCancelAnimationFrame;
-  } else if (root.oRequestAnimationFrame) {
-    requestAnimFrame = root.oRequestAnimationFrame;
-    cancelAnimFrame = root.oCancelAnimationFrame;
-  } else {
-    requestAnimFrame = function(cb) { root.setTimeout(cb, 1000 / 60); };
-    cancelAnimFrame = root.clearTimeout;
-  }
-
-  /**
-   * Gets a scheduler that schedules schedules work on the requestAnimationFrame for immediate actions.
-   */
-  Scheduler.requestAnimationFrame = (function () {
-    var RequestAnimationFrameScheduler = (function (__super__) {
-      inherits(RequestAnimationFrameScheduler, __super__);
-      function RequestAnimationFrameScheduler() {
-        __super__.call(this);
-      }
-
-      function scheduleAction(disposable, action, scheduler, state) {
-        return function schedule() {
-          !disposable.isDisposed && disposable.setDisposable(Disposable._fixup(action(scheduler, state)));
-        };
-      }
-
-      function ClearDisposable(method, id) {
-        this._id = id;
-        this._method = method;
-        this.isDisposed = false;
-      }
-
-      ClearDisposable.prototype.dispose = function () {
-        if (!this.isDisposed) {
-          this.isDisposed = true;
-          this._method.call(null, this._id);
-        }
-      };
-
-      RequestAnimationFrameScheduler.prototype.schedule = function (state, action) {
-        var disposable = new SingleAssignmentDisposable(),
-            id = requestAnimFrame(scheduleAction(disposable, action, this, state));
-        return new BinaryDisposable(disposable, new ClearDisposable(cancelAnimFrame, id));
-      };
-
-      RequestAnimationFrameScheduler.prototype._scheduleFuture = function (state, dueTime, action) {
-        if (dueTime === 0) { return this.schedule(state, action); }
-        var disposable = new SingleAssignmentDisposable(),
-            id = root.setTimeout(scheduleAction(disposable, action, this, state), dueTime);
-        return new BinaryDisposable(disposable, new ClearDisposable(root.clearTimeout, id));
-      };
-
-      return RequestAnimationFrameScheduler;
-    }(Scheduler));
-
-    return new RequestAnimationFrameScheduler();
-  }());
-
-  /**
-   * Scheduler that uses a MutationObserver changes as the scheduling mechanism
-   */
-  Scheduler.microtask = (function () {
-
-    var nextHandle = 1, tasksByHandle = {}, currentlyRunning = false, scheduleMethod;
-
-    function clearMethod(handle) {
-      delete tasksByHandle[handle];
-    }
-
-    function runTask(handle) {
-      if (currentlyRunning) {
-        root.setTimeout(function () { runTask(handle) }, 0);
-      } else {
-        var task = tasksByHandle[handle];
-        if (task) {
-          currentlyRunning = true;
-          try {
-            task();
-          } catch (e) {
-            throw e;
-          } finally {
-            clearMethod(handle);
-            currentlyRunning = false;
-          }
-        }
-      }
-    }
-
-    function postMessageSupported () {
-      // Ensure not in a worker
-      if (!root.postMessage || root.importScripts) { return false; }
-      var isAsync = false, oldHandler = root.onmessage;
-      // Test for async
-      root.onmessage = function () { isAsync = true; };
-      root.postMessage('', '*');
-      root.onmessage = oldHandler;
-
-      return isAsync;
-    }
-
-    // Use in order, setImmediate, nextTick, postMessage, MessageChannel, script readystatechanged, setTimeout
-    var BrowserMutationObserver = root.MutationObserver || root.WebKitMutationObserver;
-    if (!!BrowserMutationObserver) {
-
-      var PREFIX = 'drainqueue_';
-
-      var observer = new BrowserMutationObserver(function(mutations) {
-        mutations.forEach(function (mutation) {
-          runTask(mutation.attributeName.substring(PREFIX.length));
-        })
-      });
-
-      var element = root.document.createElement('div');
-      observer.observe(element, { attributes: true });
-
-      // Prevent leaks
-      root.addEventListener('unload', function () {
-        observer.disconnect();
-        observer = null;
-      }, false);
-
-      scheduleMethod = function (action) {
-        var id = nextHandle++;
-        tasksByHandle[id] = action;
-        element.setAttribute(PREFIX + id, 'drainQueue');
-        return id;
-      };
-    } else if (typeof root.setImmediate === 'function') {
-      scheduleMethod = function (action) {
-        var id = nextHandle++;
-        tasksByHandle[id] = action;
-        root.setImmediate(function () { runTask(id); });
-
-        return id;
-      };
-    } else if (postMessageSupported()) {
-      var MSG_PREFIX = 'ms.rx.schedule' + Math.random();
-
-      function onGlobalPostMessage(event) {
-        // Only if we're a match to avoid any other global events
-        if (typeof event.data === 'string' && event.data.substring(0, MSG_PREFIX.length) === MSG_PREFIX) {
-          runTask(event.data.substring(MSG_PREFIX.length));
-        }
-      }
-
-      if (root.addEventListener) {
-        root.addEventListener('message', onGlobalPostMessage, false);
-      } else if (root.attachEvent){
-        root.attachEvent('onmessage', onGlobalPostMessage);
-      }
-
-      scheduleMethod = function (action) {
-        var id = nextHandle++;
-        tasksByHandle[id] = action;
-        root.postMessage(MSG_PREFIX + id, '*');
-        return id;
-      };
-    } else if (!!root.MessageChannel) {
-      var channel = new root.MessageChannel();
-
-      channel.port1.onmessage = function (event) {
-        runTask(event.data);
-      };
-
-      scheduleMethod = function (action) {
-        var id = nextHandle++;
-        tasksByHandle[id] = action;
-        channel.port2.postMessage(id);
-        return id;
-      };
-    } else if ('document' in root && 'onreadystatechange' in root.document.createElement('script')) {
-
-      scheduleMethod = function (action) {
-        var scriptElement = root.document.createElement('script');
-        var id = nextHandle++;
-        tasksByHandle[id] = action;
-
-        scriptElement.onreadystatechange = function () {
-          runTask(id);
-          scriptElement.onreadystatechange = null;
-          scriptElement.parentNode.removeChild(scriptElement);
-          scriptElement = null;
-        };
-        root.document.documentElement.appendChild(scriptElement);
-
-        return id;
-      };
-
-    } else {
-      scheduleMethod = function (action) {
-        var id = nextHandle++;
-        tasksByHandle[id] = action;
-        root.setTimeout(function () {
-          runTask(id);
-        }, 0);
-
-        return id;
-      };
-    }
-
-    var MicroTaskScheduler = (function (__super__) {
-      inherits(MicroTaskScheduler, __super__);
-      function MicroTaskScheduler() {
-        __super__.call(this);
-      }
-
-      function scheduleAction(disposable, action, scheduler, state) {
-        return function schedule() {
-          !disposable.isDisposed && disposable.setDisposable(Disposable._fixup(action(scheduler, state)));
-        };
-      }
-
-      function ClearDisposable(method, id) {
-        this._id = id;
-        this._method = method;
-        this.isDisposed = false;
-      }
-
-      ClearDisposable.prototype.dispose = function () {
-        if (!this.isDisposed) {
-          this.isDisposed = true;
-          this._method.call(null, this._id);
-        }
-      };
-
-      MicroTaskScheduler.prototype.schedule = function (state, action) {
-        var disposable = new SingleAssignmentDisposable(),
-            id = scheduleMethod(scheduleAction(disposable, action, this, state));
-        return new BinaryDisposable(disposable, new ClearDisposable(clearMethod, id));
-      };
-
-      MicroTaskScheduler.prototype._scheduleFuture = function (state, dueTime, action) {
-        if (dueTime === 0) { return this.schedule(state, action); }
-        var disposable = new SingleAssignmentDisposable(),
-            id = root.setTimeout(scheduleAction(disposable, action, this, state), dueTime);
-        return new BinaryDisposable(disposable, new ClearDisposable(root.clearTimeout, id));
-      };
-
-      return MicroTaskScheduler;
-    }(Scheduler));
-
-    return new MicroTaskScheduler();
-  }());
-
-  return Rx;
-}));
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(8)(module), __webpack_require__(9)))
-
 /***/ })
-]]);
+
+}]);
+//# sourceMappingURL=commons.js.map

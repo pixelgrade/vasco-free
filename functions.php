@@ -194,7 +194,8 @@ function vasco_scripts() {
 
 	// The main script
 	wp_enqueue_script( 'vasco-commons-scripts', get_theme_file_uri( '/assets/js/commons.js' ), array( 'jquery' ), $theme->get( 'Version' ), true );
-	wp_enqueue_script( 'vasco-scripts', get_theme_file_uri( '/assets/js/scripts' . $suffix . '.js' ), array( 'vasco-commons-scripts','masonry', 'hoverIntent' ), $theme->get( 'Version' ), true );
+	wp_enqueue_script( 'animejs', '//cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js', array(), $theme->get( 'Version' ), true );
+	wp_enqueue_script( 'vasco-scripts', get_theme_file_uri( '/assets/js/scripts' . $suffix . '.js' ), array( 'vasco-commons-scripts', 'masonry', 'hoverIntent', 'animejs' ), $theme->get( 'Version' ), true );
 
 	wp_localize_script( 'vasco-main-scripts', 'vascoStrings', array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
