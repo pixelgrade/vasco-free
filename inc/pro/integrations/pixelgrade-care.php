@@ -75,14 +75,14 @@ function vasco_pixcare_install_page() {
 	// &amp; is not something that wp.ajax can actually handle
 	$nonce_url = str_replace( 'amp;', '', $nonce_url );
 
+	// @todo Maybe reevaluate this way of enqueing the styles and scripts. Something is fishy.
 	wp_enqueue_style( 'galanogrotesquealt', '//pxgcdn.com/fonts/galanogrotesquealt/stylesheet.css' );
 	wp_enqueue_style( 'galanoclassic', '//pxgcdn.com/fonts/galanoclassic/stylesheet.css' );
 
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'wp-util' );
-	global $title, $hook_suffix, $current_screen, $wp_locale, $pagenow,
-	       $update_title, $total_update_count, $parent_file; ?>
-	<!DOCTYPE html>
+
+	?><!DOCTYPE html>
 	<html <?php language_attributes(); ?>>
 	<head>
 		<meta name="viewport" content="width=device-width"/>
@@ -181,7 +181,6 @@ function vasco_pixcare_install_page() {
 	exit;
 }
 add_action( 'admin_init', 'vasco_pixcare_install_page' );
-
 
 /**
  * Change the admin page title.

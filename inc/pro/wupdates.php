@@ -2,8 +2,11 @@
 /**
  * Handle updates via our WUpdates service.
  *
+ * @codingStandardsIgnoreFile
+ * phpcs:ignoreFile
+ *
  * @package Vasco
- * @since 1.4.0
+ * @since 1.0.0
  */
 
 /* Automagical updates */

@@ -28,6 +28,21 @@ function vasco_setup_components() {
 add_action( 'after_setup_theme', 'vasco_setup_components', 10 );
 
 /**
+ * Customize the Header component config.
+ *
+ * @param array $config
+ *
+ * @return array
+ */
+function vasco_customize_header_config( $config ) {
+	// We will remove the Jetpack Social Menu from the header as we will display it in the side toolbar.
+	unset( $config['menu_locations']['jetpack-social-menu'] );
+
+	return $config;
+}
+add_filter( 'pixelgrade_header_config', 'vasco_customize_header_config', 10, 1 );
+
+/**
  * Customize the Footer component config.
  *
  * @param array $config

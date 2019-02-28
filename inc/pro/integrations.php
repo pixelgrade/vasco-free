@@ -2,8 +2,11 @@
 /**
  * Require files that deal with various plugins integrations.
  *
+ * @codingStandardsIgnoreFile
+ * phpcs:ignoreFile
+ *
  * @package Vasco
- * @since 1.4.0
+ * @since 1.3.4
  */
 
 /**

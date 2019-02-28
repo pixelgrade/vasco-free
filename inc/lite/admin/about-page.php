@@ -10,6 +10,7 @@ function vasco_lite_admin_setup() {
 	 * Load the About page class
 	 */
 	// phpcs:ignore
+	// @codingStandardsIgnoreLine
 	require_once 'ti-about-page/class-ti-about-page.php';
 
 	/*
@@ -106,13 +107,19 @@ function vasco_lite_admin_setup() {
 				),
 				array(
 					'title'       => esc_html__( 'Mobile-Ready For All Devices', '__theme_txtd' ),
-					'description' => esc_html__( 'Vasco makes room for your read­ers to enjoy your arti­cles on the go, no mat­ter the device they are using. We shaped everything to look amazing to your audience.', '__theme_txtd' ),
+					'description' => esc_html__( 'Vasco makes room for your readers to enjoy your articles on the go, no matter the device they are using. We shaped everything to look amazing to your audience.', '__theme_txtd' ),
 					'is_in_lite'  => 'true',
 					'is_in_pro'   => 'true',
 				),
 				array(
 					'title'       => esc_html__( 'Widgetized Homepage To Keep Attention', '__theme_txtd' ),
 					'description' => esc_html__( 'The widget-based flexible system allows you to add your favorite widgets all over the Front Page.', '__theme_txtd' ),
+					'is_in_lite'  => 'true',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => esc_html__( 'Location Widget to Connect with Your Local Community', '__theme_txtd' ),
+					'description' => esc_html__( 'Share your whereabouts and connect with readers nearby with the help of our custom Location Widget.', '__theme_txtd' ),
 					'is_in_lite'  => 'true',
 					'is_in_pro'   => 'true',
 				),
@@ -124,13 +131,13 @@ function vasco_lite_admin_setup() {
 				),
 				array(
 					'title'       => esc_html__( 'Advanced Widgets Options', '__theme_txtd' ),
-					'description' => esc_html__( 'Vasco’s PRO version comes with more widget options to lay out and filter posts. For instance, you can have more control on setting the source of the posts (filtering by category, tags, etc.) or how they are displayed (e.g. Show Excerpt, Show Read More).', '__theme_txtd' ),
+					'description' => esc_html__( 'Vasco\'s PRO version comes with more widget options to lay out and filter posts. For instance, you can have more control on setting the source of the posts (filtering by category, tags, etc.) or how they are displayed (e.g. Show Excerpt, Show Read More).', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
 				array(
 					'title'       => esc_html__( 'Sidebar, Footer & Below Post Widget Areas', '__theme_txtd' ),
-					'description' => esc_html__( 'Vasco’s PRO version unlocks more Widget Areas to be able to place your favorite widgets on the right side or below your posts and in the footer.', '__theme_txtd' ),
+					'description' => esc_html__( 'Vasco\'s PRO version unlocks more Widget Areas to be able to place your favorite widgets on the right side or below your posts and in the footer.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
@@ -142,7 +149,7 @@ function vasco_lite_admin_setup() {
 				),
 				array(
 					'title'       => esc_html__( 'Customizable Stamp for a Unique Style', '__theme_txtd' ),
-					'description' => esc_html__( 'Inspired by travelers lifestyle, you can level up your visual identity by auto‐generating a stamp with custom text and a set of colorful shapes.', '__theme_txtd' ),
+					'description' => esc_html__( 'Inspired by travelers lifestyle, you can level up your visual identity by auto-generating a stamp with custom text and a set of colorful shapes.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
@@ -160,25 +167,25 @@ function vasco_lite_admin_setup() {
 				),
 				array(
 					'title'       => esc_html__( 'Flexible Color Scheme with Style Manager', '__theme_txtd' ),
-					'description' => esc_html__( 'Showcase your unique style in an easy and smart way by using an intu­itive inter­face that allows you to change color palettes and fonts with a few clicks until they ful­ly rep­re­sent you and match your particular needs.', '__theme_txtd' ),
+					'description' => esc_html__( 'Showcase your unique style in an easy and smart way by using an intuitive interface that allows you to change color palettes and fonts with a few clicks until they fully represent you and match your particular needs.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
 				array(
 					'title'       => esc_html__( 'Advanced Typography Settings', '__theme_txtd' ),
-					'description' => esc_html__( 'Adjust your fonts by tak­ing advan­tage of a play­ground with 600+ fonts vari­ety you can wise­ly choose from at any moment.', '__theme_txtd' ),
+					'description' => esc_html__( 'Adjust your fonts by taking advantage of a playground with 600+ fonts variety you can wisely choose from at any moment.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
 				array(
 					'title'       => esc_html__( 'Premium Support and Assistance', '__theme_txtd' ),
-					'description' => esc_html__( 'We offer ongoing customer support to help you get things done fast. This way, you save energy and time and focus on what brings you happiness. We know our prod­ucts inside-out and we can lend a hand to help you save resources of all kinds.', '__theme_txtd' ),
+					'description' => esc_html__( 'We offer ongoing customer support to help you get things done fast. This way, you save energy and time and focus on what brings you happiness. We know our products inside-out and we can lend a hand to help you save resources of all kinds.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
 				array(
 					'title'       => esc_html__( 'Friendly Self-Service', '__theme_txtd' ),
-					'description' => esc_html__( 'We give you full access to an in-depth doc­u­men­ta­tion to get the job done as quick­ly as pos­si­ble. We don\'t stay in your way by offering you full access to our self-help tool directly from your Dashboard.', '__theme_txtd' ),
+					'description' => esc_html__( 'We give you full access to an in-depth documentation to get the job done as quickly as possible. We don\'t stay in your way by offering you full access to our self-help tool directly from your Dashboard.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
@@ -204,21 +211,6 @@ function vasco_lite_admin_setup() {
 				array(
 					'slug' => 'wordpress-seo'
 				)
-			),
-		),
-		// Required actions array.
-		'recommended_actions'        => array(
-			'install_label' => esc_html__( 'Install and Activate', '__theme_txtd' ),
-			'activate_label' => esc_html__( 'Activate', '__theme_txtd' ),
-			'deactivate_label' => esc_html__( 'Deactivate', '__theme_txtd' ),
-			'content'            => array(
-				'jetpack' => array(
-					'title'       => 'Jetpack',
-					'description' => wp_kses( __( 'It is highly recommended that you install Jetpack so you can enable the <b>Portfolio</b> content type for adding and managing your projects. Plus, Jetpack provides a whole host of other useful things for you site.', '__theme_txtd' ), wp_kses_allowed_html() ),
-					'check'       => defined( 'JETPACK__VERSION' ),
-					'plugin_slug' => 'jetpack',
-					'id' => 'jetpack'
-				),
 			),
 		),
 	);

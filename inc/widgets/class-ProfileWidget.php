@@ -43,7 +43,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 						'label'           => esc_html__( 'Headline:', '__theme_txtd' ),
 						'rows'            => 3,
 						// translators: the first name of the author
-						'default'         => esc_html__( 'Howdy! I\'m %first_name%, a millennial traveler<span class="hidden-mobile"> eager to wander the world and inspire others do the same</span>.', '__theme_txtd' ),
+						'default'         => wp_kses( __( 'Howdy! I\'m %first_name%, a millennial traveler<span class="hidden-mobile"> eager to wander the world and inspire others do the same</span>.', '__theme_txtd' ), wp_kses_allowed_html( 'data' ) ),
 						'section'         => 'content',
 						// This will be applied before rendering the widget output
 						'filter_callbacks' => 'pixelgrade_parse_content_tags',
@@ -60,7 +60,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 						'type'     => 'textarea',
 						'label'    => esc_html__( 'Description:', '__theme_txtd' ),
 						'rows'     => 5,
-						'default'  => esc_html__( 'I just quit my demanding job to travel full time around the world and share authentic stories.<span class="hidden-mobile">If you want to achieve your travel goals this is the right place to be. Enjoy the ride!</span>', '__theme_txtd' ),
+						'default'  => wp_kses( __( 'I just quit my demanding job to travel full time around the world and share authentic stories.<span class="hidden-mobile">If you want to achieve your travel goals this is the right place to be. Enjoy the ride!</span>', '__theme_txtd' ), wp_kses_allowed_html( 'data' ) ),
 						'section'  => 'content',
 						'priority' => 40,
 					),
@@ -216,7 +216,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 				/*
 				 * Start outputting the widget markup
 				 */
-				echo $args['before_widget'];
+				echo $args['before_widget']; // @codingStandardsIgnoreLine
 
 				/**
 				 * Fires at the beginning of the widget.
@@ -232,6 +232,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 
 					<?php
 					// We use include so the template part gets access to all the variables defined above
+					// @codingStandardsIgnoreLine
 					include( $found_template ); ?>
 
 				</div>
@@ -248,7 +249,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 				 */
 				do_action( 'pixelgrade_profile_widget_end', $args, $instance, $this->id_base );
 
-				echo $args['after_widget'];
+				echo $args['after_widget']; // @codingStandardsIgnoreLine
 
 				/**
 				 * Fires after the widget markup, including the closing </section>.
@@ -262,7 +263,8 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 				do_action( 'pixelgrade_widget_after_' . $this->id, $args, $instance );
 			} else {
 				// Let the developers know that something is amiss
-				_doing_it_wrong( __METHOD__, sprintf( 'Couldn\'t find a template part to use for displaying widget posts in the %s widget!', $this->name ), null );
+				/* translators: %s: the widget name. */
+				_doing_it_wrong( __METHOD__, sprintf( 'Couldn\'t find a template part to use for displaying widget posts in the %s widget!', esc_html( $this->name ) ), null );
 			}
 		}
 

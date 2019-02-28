@@ -3,7 +3,7 @@
  * The template part used for displaying post content on archives
  *
  * This template part can be overridden by copying it to a child theme or in the same theme
- * by putting it in the root `/template-parts/content.php` or in `/template-parts/blog/content.php`.
+ * by putting it in the root `/template-parts/content-product.php` or in `/template-parts/woocommerce/content-product.php`.
  * @see pixelgrade_locate_component_template_part()
  *
  * HOWEVER, on occasion Pixelgrade will need to update template files and you
@@ -14,7 +14,7 @@
  *
  * @see        https://pixelgrade.com
  * @author     Pixelgrade
- * @package    Components/Blog
+ * @package    Components/WooCommerce
  * @version    1.0.0
  */
 
@@ -31,12 +31,11 @@ $primary_meta_output   = '';
 $secondary_meta_output   = '';
 
 $terms = get_the_terms( $post->ID, 'product_cat' );
-
-if ( $terms && ! is_wp_error( $terms ) ) :
+if ( $terms && ! is_wp_error( $terms ) ) {
 	if ( ! empty( $terms ) ) {
 		$primary_meta_output = $terms[0]->name;
 	}
-endif;
+}
 
 ob_start();
 woocommerce_show_product_loop_sale_flash();
@@ -45,10 +44,9 @@ $secondary_meta_output = ob_get_clean();
 if ( ! $product ) {
 	return;
 }
-
 ?>
 
-	<article id="post-<?php the_ID(); ?>" <?php post_class() ?>>
+	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 		<div class="c-card  c-card--product">
 
@@ -60,7 +58,9 @@ if ( ! $product ) {
 			?>
 
 			<div class="c-card__meta c-meta">
-				<div class="c-meta__primary"> <?php if ( $primary_meta_output ) { echo $primary_meta_output; } ?> </div>
+				<div class="c-meta__primary"> <?php if ( $primary_meta_output ) {
+					echo $primary_meta_output; // WPCS: XSS OK.
+				} ?> </div>
 			</div>
 
 			<?php if ( pixelgrade_option( 'blog_items_title_position' ) === 'above' && pixelgrade_option( 'blog_grid_layout' ) !== 'packed' ) { ?>
@@ -89,23 +89,23 @@ if ( ! $product ) {
                     </div>
                 </div>
 
-                <?php if ( $product->is_on_sale() ) : ?>
+                <?php if ( $product->is_on_sale() ) { ?>
                     <div class="c-card__meta c-meta">
                         <div class="c-meta__secondary">
 				            <?php echo esc_html__( 'Sale!', '__theme_txtd' ); ?>
                         </div>
                     </div>
-	            <?php endif; ?>
+	            <?php } ?>
 
             </div>
 
 			<div class="c-card__content">
 
-				<?php if ( pixelgrade_option( 'blog_items_title_position' ) !== 'above' || pixelgrade_option( 'blog_grid_layout' ) === 'packed' ) { ?>
-					<?php if ( pixelgrade_option( 'blog_items_title_visibility', true ) && get_the_title() ) { ?>
+				<?php if ( pixelgrade_option( 'blog_items_title_position' ) !== 'above' || pixelgrade_option( 'blog_grid_layout' ) === 'packed' ) {
+					if ( pixelgrade_option( 'blog_items_title_visibility', true ) && get_the_title() ) { ?>
 						<h2 class="c-card__title"><span><?php the_title(); ?></span></h2>
-					<?php } ?>
-				<?php } ?>
+					<?php }
+				} ?>
 
                 <div class="c-card__excerpt"><?php woocommerce_template_loop_price(); ?></div>
 

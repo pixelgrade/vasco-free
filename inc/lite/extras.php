@@ -1,9 +1,15 @@
 <?php
+/**
+ * Custom functions that act independently of the theme templates.
+ *
+ * @package Vasco
+ * @since 1.3.4
+ */
 
 /**
  * Theme About page logic.
  */
-require get_template_directory() . '/inc/lite/admin/about-page.php';
+require get_template_directory() . '/inc/lite/admin/about-page.php'; // @codingStandardsIgnoreLines
 
 /**
  * Check if the widget is only available for the Pro version.
@@ -56,10 +62,10 @@ function vasco_lite_customize_register( $wp_customize ) {
 	// View Pro
 	$wp_customize->add_section(
 		'vasco_lite_style_view_pro', array(
-			'title'       => '' . esc_html__( 'View PRO Version', '__theme_txtd' ),
+			'title'       => esc_html__( 'View PRO Version', '__theme_txtd' ),
 			'priority'    => 2,
 			'description' => sprintf(
-			/* translators: The upsell link. */
+			/* translators: %s: The upsell link. */
 				__(
 					'<div class="upsell-container">
 				<h2>Need More? Go PRO</h2>

@@ -3,7 +3,7 @@
  * Vasco required or recommended plugins
  *
  * @package Vasco
- * @since 1.4.0
+ * @since 1.3.4
  */
 
 function vasco_pro_register_required_plugins() {

@@ -27,7 +27,7 @@ Vasco is a travel blog theme to help you increase your revenue streams and see m
 
 == Credits ==
 
-Unless otherwise specified, all the theme files, scripts and images are licensed under GNU General Public License.
+Unless otherwise specified, all the theme files, scripts and images are licensed under GNU General Public License v2 or later.
 
 Images used in screenshot.jpg: photos by Warren Wong (https://stocksnap.io/author/43122) – [Source](https://stocksnap.io/photo/7ZGVCPQ3N7).
 
