@@ -212,16 +212,17 @@ function vasco_gutenberg_styles() {
 	$container_width = pixelgrade_option( 'main_content_container_width', 1240 ) - 356;
 
 	$style = '
-	    .edit-post-visual-editor[class] .editor-block-list__block,
-        .edit-post-visual-editor[class] .editor-post-title__block {
-            max-width: ' . $content_width . 'px;
-        }
-        
-        /*.editor-block-list__layout .editor-block-list__block[data-type="core/gallery"],
-        .editor-block-list__layout .editor-block-list__block[data-align=left], 
-        .editor-block-list__layout .editor-block-list__block[data-align=right] {
-            max-width: ' . $container_width . 'px;
-        }*/';
+.edit-post-visual-editor[class] .editor-block-list__block,
+.edit-post-visual-editor[class] .editor-post-title__block {
+    max-width: ' . $content_width . 'px;
+}
+
+/*.editor-block-list__layout .editor-block-list__block[data-type="core/gallery"],
+.editor-block-list__layout .editor-block-list__block[data-align=left], 
+.editor-block-list__layout .editor-block-list__block[data-align=right] {
+    max-width: ' . $container_width . 'px;
+}*/
+';
 	wp_add_inline_style( 'vasco-gutenberg', $style );
 
 }
