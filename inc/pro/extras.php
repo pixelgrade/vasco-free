@@ -41,7 +41,7 @@ function vasco_pro_custom_widgets_init() {
 	 */
 	$path = pixelgrade_get_parent_theme_file_path( 'inc/widgets/class-PromoBoxWidget.php' );
 	if ( ! empty( $path ) ) {
-		require_once $path; // WPCS: XSS OK.
+		require_once $path; // @codingStandardsIgnoreLine
 		register_widget( 'Pixelgrade_PromoBoxWidget' );
 	}
 }

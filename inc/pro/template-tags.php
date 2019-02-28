@@ -5,9 +5,8 @@
  * Eventually, some of the functionality here could be replaced by core features.
  *
  * @package Vasco
- * @since 1.4.0
+ * @since 1.3.4
  */
-
 
 /**
  * Output mobile search trigger icon

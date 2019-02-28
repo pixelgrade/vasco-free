@@ -26,11 +26,12 @@ if ( ! defined( 'ABSPATH' ) ) {
             echo '<div class="c-cart-trigger">';
             echo '<a class="js-open-cart" href="' . esc_url( get_permalink( wc_get_page_id( 'cart' ) ) ) . '">';
 	        get_template_part( 'template-parts/svg/icon-bag' );
-            echo $cart_count_span;
+            echo $cart_count_span; // WPCS: XSS OK.
 	        echo '</a>';
 	        echo '</div>';
-        } ?>
-        <?php if ( function_exists( 'jetpack_social_menu' ) ) {
+        }
+
+        if ( function_exists( 'jetpack_social_menu' ) ) {
             jetpack_social_menu();
         } ?>
     </div>

@@ -105,7 +105,7 @@ class Pixelgrade_EditAttachmentFields extends Pixelgrade_Singleton {
 			$my_section = ob_get_clean();
 			$tpl = substr_replace( $tpl, $my_section, $before_idx, 0 );
 		}
-		echo $tpl;
+		echo $tpl; // WPCS: XSS OK.
 	}
 
 	/**
@@ -265,14 +265,14 @@ class Pixelgrade_EditAttachmentFields extends Pixelgrade_Singleton {
 	 * @return array
 	 */
 	public function saveFields( $post, $attachment = null ) {
-		if ( $attachment === null && isset( $_POST['attachment'] ) ) {
-			$attachment = $_POST['attachment'];
+		if ( isset( $_POST['attachment'] ) && null === $attachment ) {
+			$attachment = wp_unslash( $_POST['attachment'] ); // WPCS: XSS OK.
 		}
 
 		$post_id = absint( $post['ID'] );
 
 		if ( isset( $attachment['credits'] ) ) {
-			update_post_meta( $post_id, '_credits', $attachment['credits'] );
+			update_post_meta( $post_id, '_credits', sanitize_textarea_field( $attachment['credits'] ) );
 		}
 
 		return $post;
@@ -296,7 +296,7 @@ class Pixelgrade_EditAttachmentFields extends Pixelgrade_Singleton {
 			wp_send_json_error();
 		}
 
-		$changes = $_REQUEST['changes'];
+		$changes = wp_unslash( $_REQUEST['changes'] ); // WPCS: XSS OK.
 		$post    = get_post( $id, ARRAY_A );
 
 		if ( 'attachment' != $post['post_type'] ) {
@@ -304,7 +304,7 @@ class Pixelgrade_EditAttachmentFields extends Pixelgrade_Singleton {
 		}
 
 		if ( isset( $changes['credits'] ) ) {
-			update_post_meta( $id, '_credits', $changes['credits'] );
+			update_post_meta( $id, '_credits', sanitize_textarea_field( $changes['credits'] ) );
 		}
 	}
 
@@ -319,7 +319,7 @@ class Pixelgrade_EditAttachmentFields extends Pixelgrade_Singleton {
 		if ( empty( $_REQUEST['attachments'] ) || empty( $_REQUEST['attachments'][ $id ] ) ) {
 			return;
 		}
-		$attachment_data = $_REQUEST['attachments'][ $id ];
+		$attachment_data = wp_unslash( $_REQUEST['attachments'][ $id ] ); // WPCS: XSS OK.
 
 		check_ajax_referer( 'update-post_' . $id, 'nonce' );
 
@@ -334,7 +334,7 @@ class Pixelgrade_EditAttachmentFields extends Pixelgrade_Singleton {
 		}
 
 		if ( isset( $attachment_data['credits'] ) ) {
-			update_post_meta( $id, '_credits', $attachment_data['credits'] );
+			update_post_meta( $id, '_credits', sanitize_textarea_field( $attachment_data['credits'] ) );
 		}
 	}
 }

@@ -7,6 +7,9 @@
  * for the support of your plugin or theme. Please contact the plugin
  * or theme author for support.
  *
+ * @codingStandardsIgnoreFile
+ * phpcs:ignoreFile
+ *
  * @package   TGM-Plugin-Activation
  * @version   2.6.1 for parent theme Vasco for publication on WordPress.org
  * @link      http://tgmpluginactivation.com/

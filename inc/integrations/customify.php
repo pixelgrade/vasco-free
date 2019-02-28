@@ -1591,9 +1591,10 @@ if ( ! function_exists( 'pixelgrade_blobs_dispersion' ) ) :
 	 */
 	function pixelgrade_blobs_dispersion( $value, $selector, $property, $unit ) {
 
-		$output = '.blob-dispersion {' . PHP_EOL .
-           'transform: translateY(-' . $value . '%)'. PHP_EOL .
-        '}' . PHP_EOL;
+		$output = '.blob-dispersion {
+           transform: translateY(-' . $value . '%)
+        }
+        ';
 
 		return $output;
 	}
@@ -1606,32 +1607,33 @@ if ( ! function_exists( 'pixelgrade_blobs_dispersion_customizer_preview' ) ) :
 	function pixelgrade_blobs_dispersion_customizer_preview() {
 
 		$js = "
-			function pixelgrade_blobs_dispersion( value, selector, property, unit ) {
-			
-			    var css = '',
-			        style = document.getElementById('pixelgrade_blobs_dispersion_style_tag'),
-			        head = document.head || document.getElementsByTagName('head')[0];
-			
-			    css += '.blob-dispersion {' +
-			        'transform: translateY(-' + value + '%)' +
-		        '}';
-			
-			    if ( style !== null ) {
-			        style.innerHTML = css;
-			    } else {
-			        style = document.createElement('style');
-			        style.setAttribute('id', 'pixelgrade_blobs_dispersion_style_tag');
-			
-			        style.type = 'text/css';
-			        if ( style.styleSheet ) {
-			            style.styleSheet.cssText = css;
-			        } else {
-			            style.appendChild(document.createTextNode(css));
-			        }
-			
-			        head.appendChild(style);
-			    }
-			}" . PHP_EOL;
+function pixelgrade_blobs_dispersion( value, selector, property, unit ) {
+
+    var css = '',
+        style = document.getElementById('pixelgrade_blobs_dispersion_style_tag'),
+        head = document.head || document.getElementsByTagName('head')[0];
+
+    css += '.blob-dispersion {' +
+        'transform: translateY(-' + value + '%)' +
+    '}';
+
+    if ( style !== null ) {
+        style.innerHTML = css;
+    } else {
+        style = document.createElement('style');
+        style.setAttribute('id', 'pixelgrade_blobs_dispersion_style_tag');
+
+        style.type = 'text/css';
+        if ( style.styleSheet ) {
+            style.styleSheet.cssText = css;
+        } else {
+            style.appendChild(document.createTextNode(css));
+        }
+
+        head.appendChild(style);
+    }
+}
+";
 
 		wp_add_inline_script( 'customify-previewer-scripts', $js );
 	}

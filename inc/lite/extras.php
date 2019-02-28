@@ -9,7 +9,7 @@
 /**
  * Theme About page logic.
  */
-require get_template_directory() . '/inc/lite/admin/about-page.php';
+require get_template_directory() . '/inc/lite/admin/about-page.php'; // @codingStandardsIgnoreLines
 
 /**
  * Check if the widget is only available for the Pro version.
@@ -64,8 +64,8 @@ function vasco_lite_customize_register( $wp_customize ) {
 		'vasco_lite_style_view_pro', array(
 			'title'       => esc_html__( 'View PRO Version', '__theme_txtd' ),
 			'priority'    => 2,
-			/* translators: The upsell link. */
 			'description' => sprintf(
+			/* translators: %s: The upsell link. */
 				__(
 					'<div class="upsell-container">
 				<h2>Need More? Go PRO</h2>

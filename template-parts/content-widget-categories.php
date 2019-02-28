@@ -23,9 +23,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-if ( ! empty( $queried_categories ) || ! is_wp_error( $queried_categories ) ) { ?>
+if ( ! empty( $queried_categories ) || ! is_wp_error( $queried_categories ) ) {
 
-	<?php if ( ! empty( $title ) ) {
+	if ( ! empty( $title ) ) {
 		echo $args['before_title'] . $title . $args['after_title']; // WPCS: XSS OK.
 	} ?>
 
@@ -44,7 +44,7 @@ if ( ! empty( $queried_categories ) || ! is_wp_error( $queried_categories ) ) { 
 				$classes = 'cat-item cat-item-' . $category->term_id;
 
 				/* Assemble the category output */
-				$output = '<li class="' . esc_attr( $classes ) . '">' . PHP_EOL;
+				$output = '<li class="' . esc_attr( $classes ) . "\">\n";
 				// The category link
 				$output .= '<a class="cat-link" href="' . esc_url( get_term_link( $category ) ) . '" >';
 				// The category count
@@ -53,13 +53,13 @@ if ( ! empty( $queried_categories ) || ! is_wp_error( $queried_categories ) ) { 
 				}
 				// The category name
 				$output .= '<span class="cat-link-name">' . $cat_name . '</span>';
-				$output .= '</a>' . PHP_EOL;
-				$output .= '</li>' . PHP_EOL;
+				$output .= "</a>\n";
+				$output .= "</li>\n";
 
 				/**
 				 * Filters the HTML output of a category in the Categories widget
 				 */
-				echo apply_filters( 'pixelgrade_category_widget', $output, $args );
+				echo apply_filters( 'pixelgrade_category_widget', $output, $args ); // WPCS: XSS OK.
 			} ?>
 		</ul>
 	</div>

@@ -233,7 +233,8 @@ if ( ! class_exists( 'Pixelgrade_FeatureCardWidget' ) ) :
 
 					<?php
 					// We use include so the template part gets access to all the variables defined above
-					include( $found_template ); // @codingStandardsIgnoreLine ?>
+					// @codingStandardsIgnoreLine
+					include( $found_template ); ?>
 
 				</div>
 

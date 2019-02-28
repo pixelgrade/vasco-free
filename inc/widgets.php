@@ -63,6 +63,7 @@ function vasco_pro_widget_description($sidebar_id) {
  * Register the our custom widgets for use in Appearance -> Widgets
  */
 function vasco_custom_widgets_init() {
+	// @codingStandardsIgnoreStart
     /**
      * Load and register the custom Featured Posts Widgets
      */
@@ -99,6 +100,7 @@ function vasco_custom_widgets_init() {
 	require_once pixelgrade_get_parent_theme_file_path( pixelgrade_get_theme_relative_path( __DIR__ ) . 'widgets/class-StampWidget.php' );
 	register_widget( 'Pixelgrade_StampWidget' );
 
+	// @codingStandardsIgnoreEnd
 }
 add_action( 'widgets_init', 'vasco_custom_widgets_init', 10 );
 
@@ -392,7 +394,7 @@ class Vasco_AddWidgetIdWrapperOpeningTag {
 	public function filter( $params ) {
 		// Only add the closing tag for the target widget ID
 		if ( $params[0]['widget_id'] === $this->widget_id ) {
-			$params[0]['before_widget'] = PHP_EOL . '<div class="' . esc_attr( $this->class ) . '">' . PHP_EOL . $params[0]['before_widget'];
+			$params[0]['before_widget'] = "\n<div class=\"" . esc_attr( $this->class ) . "\">\n" . $params[0]['before_widget'];
 
 			// A little bit of cleanup since this filter should only be applied once
 			remove_filter( 'dynamic_sidebar_params', array( $this, 'filter' ), 10 );
@@ -417,7 +419,7 @@ class Vasco_AddWidgetIdWrapperClosingTag {
 	public function filter( $params ) {
 		// Only add the closing tag for the target widget ID
 		if ( $params[0]['widget_id'] === $this->widget_id ) {
-			$params[0]['after_widget'] = $params[0]['after_widget'] . PHP_EOL . '</div><!-- close nesting wrapper -->' . PHP_EOL;
+			$params[0]['after_widget'] = $params[0]['after_widget'] . "\n</div><!-- close nesting wrapper -->\n";
 
 			// A little bit of cleanup since this filter should only be applied once
 			remove_filter( 'dynamic_sidebar_params', array( $this, 'filter' ), 10 );
@@ -470,7 +472,7 @@ class Vasco_AddInstagramBeforeSocialIconsInGroup {
 				        '<div class="vertical-separator"></div>' .
 						'<div>';
 
-				$params[0]['before_widget'] = $params[0]['before_widget'] . PHP_EOL . $html . PHP_EOL;
+				$params[0]['before_widget'] = $params[0]['before_widget'] . "\n" . $html . "\n";
 				$params[0]['after_widget'] = '</div>' . $params[0]['after_widget'];
 
 			}

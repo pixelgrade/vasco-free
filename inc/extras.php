@@ -221,19 +221,19 @@ function vasco_handle_comments_category_post_meta( $meta, $key ) {
 				// If we are on a page then we only want the main category
 				$main_category = pixelgrade_get_main_category_link();
 				if ( ! empty( $main_category ) ) {
-					$category_meta .= '<span class="screen-reader-text">' . esc_html__( 'Main Category', '__theme_txtd' ) . '</span><ul>' . PHP_EOL;
-					$category_meta .= '<li>' . $main_category . '</li>' . PHP_EOL;
-					$category_meta .= '</ul>' . PHP_EOL;
+					$category_meta .= '<span class="screen-reader-text">' . esc_html__( 'Main Category', '__theme_txtd' ) . "</span><ul>\n";
+					$category_meta .= '<li>' . $main_category . "</li>\n";
+					$category_meta .= "</ul>\n";
 				}
 			} else {
 				// On archives we want to show all the categories, not just the main one
 				$categories = get_the_terms( get_the_ID(), 'category' );
 				if ( ! is_wp_error( $categories ) && ! empty( $categories ) ) {
-					$category_meta .= '<span class="screen-reader-text">' . esc_html__( 'Categories', '__theme_txtd' ) . '</span><ul>' . PHP_EOL;
+					$category_meta .= '<span class="screen-reader-text">' . esc_html__( 'Categories', '__theme_txtd' ) . "</span><ul>\n";
 					foreach ( $categories as $this_category ) {
-						$category_meta .= '<li><a href="' . esc_url( get_category_link( $this_category ) ) . '" rel="category">' . $this_category->name . '</a></li>' . PHP_EOL;
+						$category_meta .= '<li><a href="' . esc_url( get_category_link( $this_category ) ) . '" rel="category">' . $this_category->name . "</a></li>\n";
 					};
-					$category_meta .= '</ul>' . PHP_EOL;
+					$category_meta .= "</ul>\n";
 				}
 			}
 		}

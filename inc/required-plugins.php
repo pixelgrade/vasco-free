@@ -6,7 +6,7 @@
  * @since 1.0.0
  */
 
-require_once pixelgrade_get_parent_theme_file_path( pixelgrade_get_theme_relative_path( __DIR__ ) . 'required-plugins/class-tgm-plugin-activation.php' );
+require_once pixelgrade_get_parent_theme_file_path( pixelgrade_get_theme_relative_path( __DIR__ ) . 'required-plugins/class-tgm-plugin-activation.php' ); // @codingStandardsIgnoreLine
 
 function vasco_register_required_plugins() {
 
@@ -29,6 +29,7 @@ function vasco_register_required_plugins() {
 		'strings'          => array(
 			'page_title'                      => esc_html__( 'Install Required Plugins', '__theme_txtd' ),
 			'menu_title'                      => esc_html__( 'Install Plugins', '__theme_txtd' ),
+			/* translators: %s: the plugin name */
 			'installing'                      => esc_html__( 'Installing Plugin: %s', '__theme_txtd' ),
 			'oops'                            => esc_html__( 'Something went wrong with the plugin API.', '__theme_txtd' ),
 			/* translators: %1$s: plugin name */
