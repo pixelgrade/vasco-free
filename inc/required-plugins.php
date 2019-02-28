@@ -8,6 +8,9 @@
 
 require_once pixelgrade_get_parent_theme_file_path( pixelgrade_get_theme_relative_path( __DIR__ ) . 'required-plugins/class-tgm-plugin-activation.php' ); // @codingStandardsIgnoreLine
 
+/**
+ * Register the recommended or required plugins via TGMPA.
+ */
 function vasco_register_required_plugins() {
 
 	/**

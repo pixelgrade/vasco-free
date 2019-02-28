@@ -42,7 +42,7 @@ if ( ! class_exists( 'Pixelgrade_CalloutBoxWidget' ) ) :
 						'type'     => 'textarea',
 						'label'    => esc_html__( 'Headline:', '__theme_txtd' ),
 						'rows'     => 3,
-						'default'  => esc_html__( 'Join my adventures', '__theme_txtd' ),
+						'default'  => 'Join my adventures',
 						'section'  => 'content',
 						'priority' => 10,
 //						'sanitize_callback' => array( $this, 'sanitize_textarea' ), // Use this if you want to allow HTML tags like strong,b,em,u,a
@@ -50,21 +50,21 @@ if ( ! class_exists( 'Pixelgrade_CalloutBoxWidget' ) ) :
 					'description'   => array(
 						'type'     => 'textarea',
 						'label'    => esc_html__( 'Description:', '__theme_txtd' ),
-						'default'  => esc_html__( 'You have plans to visit Australia? I can help you make the most out of your journey.', '__theme_txtd' ),
+						'default'  => 'You have plans to visit Australia? I can help you make the most out of your journey.',
 						'section'  => 'content',
 						'priority' => 20,
 					),
 					'button_text'   => array(
 						'type'     => 'text',
 						'label'    => esc_html__( 'Button Text:', '__theme_txtd' ),
-						'default'  => esc_html__( 'Ask for help', '__theme_txtd' ),
+						'default'  => 'Ask for help',
 						'section'  => 'content',
 						'priority' => 30,
 					),
 					'button_url'    => array(
 						'type'     => 'text',
 						'label'    => esc_html__( 'Button Link URL:', '__theme_txtd' ),
-						'default'  => esc_html__( '#', '__theme_txtd' ),
+						'default'  => '#',
 						'section'  => 'content',
 						'priority' => 40,
 					),

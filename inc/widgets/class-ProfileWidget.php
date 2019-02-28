@@ -43,7 +43,7 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 						'label'           => esc_html__( 'Headline:', '__theme_txtd' ),
 						'rows'            => 3,
 						// translators: the first name of the author
-						'default'         => wp_kses( __( 'Howdy! I\'m %first_name%, a millennial traveler<span class="hidden-mobile"> eager to wander the world and inspire others do the same</span>.', '__theme_txtd' ), wp_kses_allowed_html( 'data' ) ),
+						'default'         => 'Howdy! I\'m %first_name%, a millennial traveler<span class="hidden-mobile"> eager to wander the world and inspire others do the same</span>.',
 						'section'         => 'content',
 						// This will be applied before rendering the widget output
 						'filter_callbacks' => 'pixelgrade_parse_content_tags',
@@ -60,21 +60,21 @@ if ( ! class_exists( 'Pixelgrade_ProfileWidget' ) ) :
 						'type'     => 'textarea',
 						'label'    => esc_html__( 'Description:', '__theme_txtd' ),
 						'rows'     => 5,
-						'default'  => wp_kses( __( 'I just quit my demanding job to travel full time around the world and share authentic stories.<span class="hidden-mobile">If you want to achieve your travel goals this is the right place to be. Enjoy the ride!</span>', '__theme_txtd' ), wp_kses_allowed_html( 'data' ) ),
+						'default'  => 'I just quit my demanding job to travel full time around the world and share authentic stories.<span class="hidden-mobile">If you want to achieve your travel goals this is the right place to be. Enjoy the ride!</span>',
 						'section'  => 'content',
 						'priority' => 40,
 					),
 					'button_text'   => array(
 						'type'     => 'text',
 						'label'    => esc_html__( 'Button Text:', '__theme_txtd' ),
-						'default'  => esc_html__( 'Find out my story', '__theme_txtd' ),
+						'default'  => 'Find out my story',
 						'section'  => 'content',
 						'priority' => 50,
 					),
 					'button_url'    => array(
 						'type'     => 'text',
 						'label'    => esc_html__( 'Button Link URL:', '__theme_txtd' ),
-						'default'  => esc_html__( '#', '__theme_txtd' ),
+						'default'  => '#',
 						'section'  => 'content',
 						'priority' => 60,
 					),

@@ -28,13 +28,16 @@ function vasco_pro_setup() {
 add_action( 'after_setup_theme', 'vasco_pro_setup' );
 
 /**
- * Output side toolbar
+ * Output the side toolbar.
  */
 function vasco_the_toolbar() {
 
 	get_template_part( 'template-parts/toolbar' );
 }
 
+/**
+ * Initialize custom widgets.
+ */
 function vasco_pro_custom_widgets_init() {
 	/**
 	 * Promo Box Widget available only in the PRO version
@@ -56,6 +59,13 @@ function vasco_announcement_bar() {
 	}
 }
 
+/**
+ * Add custom data attributes to body related to blobs.
+ *
+ * @param array $attributes
+ *
+ * @return mixed
+ */
 function vasco_blobs_preset_body_attribute( $attributes ) {
 	$attributes['data-blobs-preset'] = pixelgrade_option( 'blobs_preset', 357 );
 	$attributes['data-blobs-complexity'] = pixelgrade_option( 'blobs_complexity', 84 );
@@ -121,6 +131,9 @@ function vasco_add_blobs_to_pixelgrade_profile_widget() {
 }
 add_action( 'pixelgrade_widget_profile_after_profile_image', 'vasco_add_blobs_to_pixelgrade_profile_widget', 20 );
 
+/**
+ * Display blobs for WooCommerce single product.
+ */
 function vasco_product_blobs() {
 	if ( pixelgrade_option( 'show_blobs', false ) ) {
 		get_template_part( 'template-parts/content-blob' );

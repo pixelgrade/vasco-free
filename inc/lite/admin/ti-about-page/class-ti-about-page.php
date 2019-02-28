@@ -101,14 +101,11 @@ if ( ! class_exists( 'Vasco_Lite_About_Page' ) ) {
 		 * Setup the class props based on the config array.
 		 */
 		public function setup_config() {
-			$theme = wp_get_theme();
-			if ( is_child_theme() ) {
-				$this->theme_name = $theme->parent()->get( 'Name' );
-				$this->theme      = $theme->parent();
-			} else {
-				$this->theme_name = $theme->get( 'Name' );
-				$this->theme      = $theme->parent();
-			}
+			$theme = wp_get_theme( get_template() );
+
+			$this->theme_name = $theme->get( 'Name' );
+			$this->theme      = $theme;
+
 			$this->theme_version = $theme->get( 'Version' );
 			$this->theme_slug    = $theme->get_template();
 			$this->menu_name     = isset( $this->config['menu_name'] ) ? $this->config['menu_name'] : 'About ' . $this->theme_name;

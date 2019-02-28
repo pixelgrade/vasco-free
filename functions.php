@@ -162,7 +162,7 @@ add_filter( 'tiled_gallery_content_width', 'vasco_custom_tiled_gallery_width' );
  * Enqueue scripts and styles.
  */
 function vasco_scripts() {
-	$theme           = wp_get_theme();
+	$theme           = wp_get_theme( get_template() );
 	$main_style_deps = array();
 	$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
@@ -198,7 +198,7 @@ function vasco_scripts() {
 	wp_register_script( 'js-cookie', get_theme_file_uri( '/assets/js/js.cookie' . $suffix . '.js' ), array(), '2.2.0', true );
 	wp_enqueue_script( 'vasco-scripts', get_theme_file_uri( '/assets/js/scripts' . $suffix . '.js' ), array( 'masonry', 'hoverIntent', 'animejs', 'js-cookie', 'circletype' ), $theme->get( 'Version' ), true );
 
-	wp_localize_script( 'vasco-main-scripts', 'vascoStrings', array(
+	wp_localize_script( 'vasco-scripts', 'vascoStrings', array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
 	) );
 }
@@ -214,16 +214,17 @@ function vasco_gutenberg_styles() {
 	$container_width = pixelgrade_option( 'main_content_container_width', 1240 ) - 356;
 
 	$style = '
-	    .edit-post-visual-editor[class] .editor-block-list__block,
-        .edit-post-visual-editor[class] .editor-post-title__block {
-            max-width: ' . $content_width . 'px;
-        }
-        
-        /*.editor-block-list__layout .editor-block-list__block[data-type="core/gallery"],
-        .editor-block-list__layout .editor-block-list__block[data-align=left], 
-        .editor-block-list__layout .editor-block-list__block[data-align=right] {
-            max-width: ' . $container_width . 'px;
-        }*/';
+.edit-post-visual-editor[class] .editor-block-list__block,
+.edit-post-visual-editor[class] .editor-post-title__block {
+    max-width: ' . $content_width . 'px;
+}
+
+/*.editor-block-list__layout .editor-block-list__block[data-type="core/gallery"],
+.editor-block-list__layout .editor-block-list__block[data-align=left], 
+.editor-block-list__layout .editor-block-list__block[data-align=right] {
+    max-width: ' . $container_width . 'px;
+}*/
+';
 	wp_add_inline_style( 'vasco-gutenberg', $style );
 
 }

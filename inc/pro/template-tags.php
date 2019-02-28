@@ -8,10 +8,10 @@
  * @since 1.3.4
  */
 
-/**
- * Output mobile search trigger icon
- */
 if ( ! function_exists( 'vasco_the_footer_search_trigger' ) ) {
+	/**
+	 * Output mobile search trigger icon.
+	 */
 	function vasco_the_footer_search_trigger() {
 		echo '<div class="js-search-trigger  js-mobile-search-trigger"></div>';
 	}

@@ -213,6 +213,15 @@ function vasco_lite_admin_setup() {
 				)
 			),
 		),
+		// Required actions array.
+		'recommended_actions'        => array(
+			'install_label' => esc_html__( 'Install and Activate', '__theme_txtd' ),
+			'activate_label' => esc_html__( 'Activate', '__theme_txtd' ),
+			'deactivate_label' => esc_html__( 'Deactivate', '__theme_txtd' ),
+			'content'            => array(
+				// None right now.
+			),
+		),
 	);
 	Vasco_Lite_About_Page::init( $config );
 }

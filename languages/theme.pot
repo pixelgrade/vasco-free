@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-02-28T09:27:39+00:00\n"
+"POT-Creation-Date: 2019-02-28T11:23:59+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.1.0\n"
 "X-Domain: vasco\n"
@@ -60,19 +60,19 @@ msgid "Ooops! This entire widget area does not support Pixelgrade Widgets. You w
 msgstr ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:330
-#: inc/required-plugins.php:30
+#: inc/required-plugins.php:33
 msgid "Install Required Plugins"
 msgstr ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:331
-#: inc/required-plugins.php:31
+#: inc/required-plugins.php:34
 msgid "Install Plugins"
 msgstr ""
 
 #. translators: %s: plugin name.
 #. translators: %s: the plugin name
 #: inc/required-plugins/class-tgm-plugin-activation.php:333
-#: inc/required-plugins.php:33
+#: inc/required-plugins.php:36
 msgid "Installing Plugin: %s"
 msgstr ""
 
@@ -82,14 +82,14 @@ msgid "Updating Plugin: %s"
 msgstr ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:336
-#: inc/required-plugins.php:34
+#: inc/required-plugins.php:37
 msgid "Something went wrong with the plugin API."
 msgstr ""
 
 #. translators: 1: plugin name(s).
 #. translators: %1$s: plugin name
 #: inc/required-plugins/class-tgm-plugin-activation.php:338
-#: inc/required-plugins.php:36
+#: inc/required-plugins.php:39
 msgid "This theme requires the following plugin: %1$s."
 msgid_plural "This theme requires the following plugins: %1$s."
 msgstr[0] ""
@@ -97,7 +97,7 @@ msgstr[0] ""
 #. translators: 1: plugin name(s).
 #. translators: %1$s: plugin name(s)
 #: inc/required-plugins/class-tgm-plugin-activation.php:344
-#: inc/required-plugins.php:38
+#: inc/required-plugins.php:41
 msgid "This theme recommends the following plugin: %1$s."
 msgid_plural "This theme recommends the following plugins: %1$s."
 msgstr[0] ""
@@ -105,7 +105,7 @@ msgstr[0] ""
 #. translators: 1: plugin name(s).
 #. translators: %1$s: plugin name(s)
 #: inc/required-plugins/class-tgm-plugin-activation.php:350
-#: inc/required-plugins.php:48
+#: inc/required-plugins.php:51
 msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
 msgid_plural "The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s."
 msgstr[0] ""
@@ -119,7 +119,7 @@ msgstr[0] ""
 #. translators: 1: plugin name(s).
 #. translators: %1$s: plugin name(s)
 #: inc/required-plugins/class-tgm-plugin-activation.php:362
-#: inc/required-plugins.php:42
+#: inc/required-plugins.php:45
 msgid "The following required plugin is currently inactive: %1$s."
 msgid_plural "The following required plugins are currently inactive: %1$s."
 msgstr[0] ""
@@ -127,14 +127,14 @@ msgstr[0] ""
 #. translators: 1: plugin name(s).
 #. translators: %1$s: plugin name(s)
 #: inc/required-plugins/class-tgm-plugin-activation.php:368
-#: inc/required-plugins.php:44
+#: inc/required-plugins.php:47
 msgid "The following recommended plugin is currently inactive: %1$s."
 msgid_plural "The following recommended plugins are currently inactive: %1$s."
 msgstr[0] ""
 
 #. translators: %1$s: plugin name(s)
 #: inc/required-plugins/class-tgm-plugin-activation.php:373
-#: inc/required-plugins.php:52
+#: inc/required-plugins.php:55
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
 msgstr[0] ""
@@ -150,7 +150,7 @@ msgid_plural "Begin activating plugins"
 msgstr[0] ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:388
-#: inc/required-plugins.php:54
+#: inc/required-plugins.php:57
 msgid "Return to Required Plugins Installer"
 msgstr ""
 
@@ -163,7 +163,7 @@ msgstr ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:390
 #: inc/required-plugins/class-tgm-plugin-activation.php:3162
-#: inc/required-plugins.php:55
+#: inc/required-plugins.php:58
 msgid "Plugin activated successfully."
 msgstr ""
 
@@ -378,7 +378,8 @@ msgid "Update"
 msgstr ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:2729
-#: inc/lite/admin/about-page.php:198
+#: inc/lite/admin/about-page.php:205
+#: inc/lite/admin/about-page.php:219
 msgid "Activate"
 msgstr ""
 
@@ -514,235 +515,245 @@ msgstr ""
 msgid "Pixelgrade Care &rsaquo; Installer"
 msgstr ""
 
-#: inc/lite/admin/ti-about-page/class-ti-about-page.php:906
+#: inc/lite/admin/ti-about-page/class-ti-about-page.php:905
 msgid "Activating"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:20
-#: inc/lite/admin/about-page.php:22
+#: inc/lite/admin/about-page.php:21
+#: inc/lite/admin/about-page.php:23
 msgid "About Vasco"
 msgstr ""
 
 #. translators: Main welcome title
-#: inc/lite/admin/about-page.php:24
+#: inc/lite/admin/about-page.php:25
 msgid "Welcome to %s! - Version "
 msgstr ""
 
-#: inc/lite/admin/about-page.php:26
+#: inc/lite/admin/about-page.php:27
 msgid " Vasco is a free travel blog theme to help you increase your revenue streams and see more of the world. With big and beautiful imagery and a smart widget system for next-level customizations, you have all the right tools to express your personality and nurture a loyal audience around your fascinating stories."
 msgstr ""
 
-#: inc/lite/admin/about-page.php:34
+#: inc/lite/admin/about-page.php:35
 msgid "Getting Started"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:35
+#: inc/lite/admin/about-page.php:36
 msgid "Recommended Actions"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:36
+#: inc/lite/admin/about-page.php:37
 msgid "Useful Plugins"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:37
+#: inc/lite/admin/about-page.php:38
 msgid "Support"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:38
+#: inc/lite/admin/about-page.php:39
 msgid "Changelog"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:39
+#: inc/lite/admin/about-page.php:40
 msgid "Free VS PRO"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:44
-#: inc/lite/admin/about-page.php:47
+#: inc/lite/admin/about-page.php:45
+#: inc/lite/admin/about-page.php:48
 msgid "Contact Support"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:46
+#: inc/lite/admin/about-page.php:47
 msgid "We want to make sure you have the best experience using Vasco. If you <strong>do not have a paid upgrade</strong>, please post your question in our community forums."
 msgstr ""
 
-#: inc/lite/admin/about-page.php:53
-#: inc/lite/admin/about-page.php:86
+#: inc/lite/admin/about-page.php:54
+#: inc/lite/admin/about-page.php:87
 msgid "Documentation"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:55
-#: inc/lite/admin/about-page.php:85
+#: inc/lite/admin/about-page.php:56
+#: inc/lite/admin/about-page.php:86
 msgid "Need more details? Please check our full documentation for detailed information on how to use Vasco."
 msgstr ""
 
-#: inc/lite/admin/about-page.php:56
+#: inc/lite/admin/about-page.php:57
 msgid "Read The Documentation"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:65
-#: inc/lite/admin/about-page.php:67
+#: inc/lite/admin/about-page.php:66
+#: inc/lite/admin/about-page.php:68
 msgid "Go to Customizer"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:66
+#: inc/lite/admin/about-page.php:67
 msgid "Using the WordPress Customizer you can easily customize every aspect of the theme."
 msgstr ""
 
-#: inc/lite/admin/about-page.php:74
-#: inc/lite/admin/about-page.php:76
+#: inc/lite/admin/about-page.php:75
+#: inc/lite/admin/about-page.php:77
 msgid "Recommended actions"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:75
+#: inc/lite/admin/about-page.php:76
 msgid "We have compiled a list of steps for you, to take make sure the experience you will have using one of our products is very easy to follow."
 msgstr ""
 
-#: inc/lite/admin/about-page.php:78
+#: inc/lite/admin/about-page.php:79
 msgid "You are good to go!"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:84
+#: inc/lite/admin/about-page.php:85
 msgid "Read the documentation"
 msgstr ""
 
 #. translators: View link
-#: inc/lite/admin/about-page.php:99
+#: inc/lite/admin/about-page.php:100
 msgid "Get %s"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:102
+#: inc/lite/admin/about-page.php:103
 msgid "Daring Design for Devoted Readers"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:103
+#: inc/lite/admin/about-page.php:104
 msgid "Vasco's design focused on big and beautiful imagery helps you raise awareness and grab attention around your traveling stories. With a flexible home page, you have the chance to easily showcase your ideas."
 msgstr ""
 
-#: inc/lite/admin/about-page.php:108
+#: inc/lite/admin/about-page.php:109
 msgid "Mobile-Ready For All Devices"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:109
+#: inc/lite/admin/about-page.php:110
 msgid "Vasco makes room for your readers to enjoy your articles on the go, no matter the device they are using. We shaped everything to look amazing to your audience."
 msgstr ""
 
-#: inc/lite/admin/about-page.php:114
+#: inc/lite/admin/about-page.php:115
 msgid "Widgetized Homepage To Keep Attention"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:115
+#: inc/lite/admin/about-page.php:116
 msgid "The widget-based flexible system allows you to add your favorite widgets all over the Front Page."
 msgstr ""
 
-#: inc/lite/admin/about-page.php:120
-msgid "New Widgets for Extra Flexibility"
-msgstr ""
-
 #: inc/lite/admin/about-page.php:121
-msgid "Vasco PRO gives you extra ways to showcase your articles in great style. Besides the Grid Posts and Profile widgets, the PRO version comes with much more: Feature Card, Callout Box, Categories, and many others."
+msgid "Location Widget to Connect with Your Local Community"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:126
-msgid "Advanced Widgets Options"
+#: inc/lite/admin/about-page.php:122
+msgid "Share your whereabouts and connect with readers nearby with the help of our custom Location Widget."
 msgstr ""
 
 #: inc/lite/admin/about-page.php:127
-msgid "Vasco’s PRO version comes with more widget options to lay out and filter posts. For instance, you can have more control on setting the source of the posts (filtering by category, tags, etc.) or how they are displayed (e.g. Show Excerpt, Show Read More)."
+msgid "New Widgets for Extra Flexibility"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:132
-msgid "Sidebar, Footer & Below Post Widget Areas"
+#: inc/lite/admin/about-page.php:128
+msgid "Vasco PRO gives you extra ways to showcase your articles in great style. Besides the Grid Posts and Profile widgets, the PRO version comes with much more: Feature Card, Callout Box, Categories, and many others."
 msgstr ""
 
 #: inc/lite/admin/about-page.php:133
-msgid "Vasco’s PRO version unlocks more Widget Areas to be able to place your favorite widgets on the right side or below your posts and in the footer."
+msgid "Advanced Widgets Options"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:138
-msgid "Reliable Support for All Kind of Ads"
+#: inc/lite/admin/about-page.php:134
+msgid "Vasco's PRO version comes with more widget options to lay out and filter posts. For instance, you can have more control on setting the source of the posts (filtering by category, tags, etc.) or how they are displayed (e.g. Show Excerpt, Show Read More)."
 msgstr ""
 
 #: inc/lite/admin/about-page.php:139
-msgid "Make money out of your website in various ways with the Promo Box widget. Use it to deliver quality ads to your audience, promote a special offer or anything else that helps you achieve your goals."
+msgid "Sidebar, Footer & Below Post Widget Areas"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:144
-msgid "Customizable Stamp for a Unique Style"
+#: inc/lite/admin/about-page.php:140
+msgid "Vasco's PRO version unlocks more Widget Areas to be able to place your favorite widgets on the right side or below your posts and in the footer."
 msgstr ""
 
 #: inc/lite/admin/about-page.php:145
-msgid "Inspired by travelers lifestyle, you can level up your visual identity by auto‐generating a stamp with custom text and a set of colorful shapes."
+msgid "Reliable Support for All Kind of Ads"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:150
-msgid "Sticky Menu, Announcement & Reading Progress Bar"
+#: inc/lite/admin/about-page.php:146
+msgid "Make money out of your website in various ways with the Promo Box widget. Use it to deliver quality ads to your audience, promote a special offer or anything else that helps you achieve your goals."
 msgstr ""
 
 #: inc/lite/admin/about-page.php:151
-msgid "Keep the menu at the top of your page while you scroll, making it more accessible on whatever page you are navigating. On article pages, you will have a Progress Bar that switches to a link to the next article. The header area gets a boost with an Announcement Bar through which you can promote any link"
+msgid "Customizable Stamp for a Unique Style"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:156
-msgid "Blobs for a Compelling Visual Brand Identity"
+#: inc/lite/admin/about-page.php:152
+msgid "Inspired by travelers lifestyle, you can level up your visual identity by auto-generating a stamp with custom text and a set of colorful shapes."
 msgstr ""
 
 #: inc/lite/admin/about-page.php:157
-msgid "Our unique Blobs creating system allows you to give your website an one of a kind visual identity that your readers will recognize in a heartbeat."
+msgid "Sticky Menu, Announcement & Reading Progress Bar"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:162
-msgid "Flexible Color Scheme with Style Manager"
+#: inc/lite/admin/about-page.php:158
+msgid "Keep the menu at the top of your page while you scroll, making it more accessible on whatever page you are navigating. On article pages, you will have a Progress Bar that switches to a link to the next article. The header area gets a boost with an Announcement Bar through which you can promote any link"
 msgstr ""
 
 #: inc/lite/admin/about-page.php:163
-msgid "Showcase your unique style in an easy and smart way by using an intuitive interface that allows you to change color palettes and fonts with a few clicks until they fully represent you and match your particular needs."
+msgid "Blobs for a Compelling Visual Brand Identity"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:168
-msgid "Advanced Typography Settings"
+#: inc/lite/admin/about-page.php:164
+msgid "Our unique Blobs creating system allows you to give your website an one of a kind visual identity that your readers will recognize in a heartbeat."
 msgstr ""
 
 #: inc/lite/admin/about-page.php:169
-msgid "Adjust your fonts by taking advantage of a playground with 600+ fonts variety you can wisely choose from at any moment."
+msgid "Flexible Color Scheme with Style Manager"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:174
-msgid "Premium Support and Assistance"
+#: inc/lite/admin/about-page.php:170
+msgid "Showcase your unique style in an easy and smart way by using an intuitive interface that allows you to change color palettes and fonts with a few clicks until they fully represent you and match your particular needs."
 msgstr ""
 
 #: inc/lite/admin/about-page.php:175
-msgid "We offer ongoing customer support to help you get things done fast. This way, you save energy and time and focus on what brings you happiness. We know our products inside-out and we can lend a hand to help you save resources of all kinds."
+msgid "Advanced Typography Settings"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:180
-msgid "Friendly Self-Service"
+#: inc/lite/admin/about-page.php:176
+msgid "Adjust your fonts by taking advantage of a playground with 600+ fonts variety you can wisely choose from at any moment."
 msgstr ""
 
 #: inc/lite/admin/about-page.php:181
-msgid "We give you full access to an in-depth documentation to get the job done as quickly as possible. We don't stay in your way by offering you full access to our self-help tool directly from your Dashboard."
+msgid "Premium Support and Assistance"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:186
-msgid "No Credit Footer Link"
+#: inc/lite/admin/about-page.php:182
+msgid "We offer ongoing customer support to help you get things done fast. This way, you save energy and time and focus on what brings you happiness. We know our products inside-out and we can lend a hand to help you save resources of all kinds."
 msgstr ""
 
 #: inc/lite/admin/about-page.php:187
+msgid "Friendly Self-Service"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:188
+msgid "We give you full access to an in-depth documentation to get the job done as quickly as possible. We don't stay in your way by offering you full access to our self-help tool directly from your Dashboard."
+msgstr ""
+
+#: inc/lite/admin/about-page.php:193
+msgid "No Credit Footer Link"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:194
 msgid "You can easily remove the \"Theme: Vasco by Pixelgrade\" copyright from the footer area and make the theme yours from start to finish."
 msgstr ""
 
-#: inc/lite/admin/about-page.php:195
+#: inc/lite/admin/about-page.php:202
 msgid "Already activated"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:196
+#: inc/lite/admin/about-page.php:203
 msgid "Version: "
 msgstr ""
 
-#: inc/lite/admin/about-page.php:197
+#: inc/lite/admin/about-page.php:204
+#: inc/lite/admin/about-page.php:218
 msgid "Install and Activate"
 msgstr ""
 
-#: inc/lite/admin/about-page.php:199
+#: inc/lite/admin/about-page.php:206
+#: inc/lite/admin/about-page.php:220
 msgid "Deactivate"
 msgstr ""
 
@@ -752,7 +763,7 @@ msgstr ""
 
 #. translators: %s: the widget name
 #: inc/lite/extras.php:38
-msgid "The %s is not available in the Lite version, but hey, the Pro version is just around the corner!"
+msgid "The %s is not available in the Free version, but hey, the Pro version is just around the corner!"
 msgstr ""
 
 #: inc/lite/extras.php:65
@@ -853,7 +864,6 @@ msgid "Main Category"
 msgstr ""
 
 #: inc/extras.php:232
-#: inc/widgets/class-CategoriesWidget.php:43
 #: components/blog/inc/extras.php:35
 #: components/blog/inc/template-tags.php:211
 msgid "Categories"
@@ -1081,30 +1091,30 @@ msgid "&copy; %year% %site-title%."
 msgstr ""
 
 #. translators: %1$s: plugin name(s)
-#: inc/required-plugins.php:40
+#: inc/required-plugins.php:43
 msgid "Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed."
 msgid_plural "Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed."
 msgstr[0] ""
 
 #. translators: %1$s: plugin name(s)
-#: inc/required-plugins.php:46
+#: inc/required-plugins.php:49
 msgid "Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated."
 msgid_plural "Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated."
 msgstr[0] ""
 
 #. translators: %1$s: plugin name(s)
-#: inc/required-plugins.php:50
+#: inc/required-plugins.php:53
 msgid "Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated."
 msgid_plural "Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated."
 msgstr[0] ""
 
-#: inc/required-plugins.php:53
+#: inc/required-plugins.php:56
 msgid "Activate installed plugin"
 msgid_plural "Activate installed plugins"
 msgstr[0] ""
 
 #. translators: %s: the return to dashboard link
-#: inc/required-plugins.php:57
+#: inc/required-plugins.php:60
 msgid "All plugins installed and activated successfully. %s"
 msgstr ""
 
@@ -1186,24 +1196,12 @@ msgstr ""
 msgid "Subtitle:"
 msgstr ""
 
-#: inc/widgets/class-LocationWidget.php:44
-msgid "I'm currently having fun in:"
-msgstr ""
-
 #: inc/widgets/class-LocationWidget.php:50
 msgid "Location:"
 msgstr ""
 
 #: inc/widgets/class-LocationWidget.php:59
 msgid "Location Link URL:"
-msgstr ""
-
-#: inc/widgets/class-LocationWidget.php:60
-#: inc/widgets/class-FeatureCardWidget.php:66
-#: inc/widgets/class-ProfileWidget.php:77
-#: inc/widgets/class-PromoBoxWidget.php:66
-#: inc/widgets/class-CalloutBoxWidget.php:67
-msgid "#"
 msgstr ""
 
 #: inc/widgets/class-LocationWidget.php:66
@@ -1229,10 +1227,6 @@ msgstr ""
 msgid "Headline:"
 msgstr ""
 
-#: inc/widgets/class-FeatureCardWidget.php:44
-msgid "Discover Mindblowing Places"
-msgstr ""
-
 #: inc/widgets/class-FeatureCardWidget.php:50
 #: inc/widgets/class-ProfileWidget.php:61
 #: inc/widgets/class-PromoBoxWidget.php:51
@@ -1245,10 +1239,6 @@ msgstr ""
 #: inc/widgets/class-PromoBoxWidget.php:58
 #: inc/widgets/class-CalloutBoxWidget.php:59
 msgid "Button Text:"
-msgstr ""
-
-#: inc/widgets/class-FeatureCardWidget.php:59
-msgid "Discover them all"
 msgstr ""
 
 #: inc/widgets/class-FeatureCardWidget.php:65
@@ -1266,11 +1256,6 @@ msgstr ""
 msgid "&#32; Pixelgrade: Feature Card"
 msgstr ""
 
-#. translators: the first name of the author
-#: inc/widgets/class-ProfileWidget.php:46
-msgid "Howdy! I'm %first_name%, a millennial traveler<span class=\"hidden-mobile\"> eager to wander the world and inspire others do the same</span>."
-msgstr ""
-
 #: inc/widgets/class-ProfileWidget.php:54
 msgid "Secondary Headline:"
 msgstr ""
@@ -1279,32 +1264,12 @@ msgstr ""
 msgid "Welcome to My Blog"
 msgstr ""
 
-#: inc/widgets/class-ProfileWidget.php:63
-msgid "I just quit my demanding job to travel full time around the world and share authentic stories.<span class=\"hidden-mobile\">If you want to achieve your travel goals this is the right place to be. Enjoy the ride!</span>"
-msgstr ""
-
-#: inc/widgets/class-ProfileWidget.php:70
-msgid "Find out my story"
-msgstr ""
-
 #: inc/widgets/class-ProfileWidget.php:120
 msgid "Use this area to showcase a summary of who you are and what's your blog about."
 msgstr ""
 
 #: inc/widgets/class-ProfileWidget.php:126
 msgid "&#32; Pixelgrade: Profile"
-msgstr ""
-
-#: inc/widgets/class-PromoBoxWidget.php:45
-msgid "Get familiar with the wanderlust"
-msgstr ""
-
-#: inc/widgets/class-PromoBoxWidget.php:52
-msgid "Hey, traveller lover! I'm Jake and for the last couple of years I've been living on the go. It was a blast and I've learned so much along the way. So I put together some guides about my experiences that I hope you'll enjoy. Ready for a sneak peekf?"
-msgstr ""
-
-#: inc/widgets/class-PromoBoxWidget.php:59
-msgid "It's your first glance? Don't be shy, start here"
 msgstr ""
 
 #: inc/widgets/class-PromoBoxWidget.php:94
@@ -1334,18 +1299,6 @@ msgstr ""
 
 #: inc/widgets/class-StampWidget.php:87
 msgid "&#32; Pixelgrade: Stamp"
-msgstr ""
-
-#: inc/widgets/class-CalloutBoxWidget.php:45
-msgid "Join my adventures"
-msgstr ""
-
-#: inc/widgets/class-CalloutBoxWidget.php:53
-msgid "You have plans to visit Australia? I can help you make the most out of your journey."
-msgstr ""
-
-#: inc/widgets/class-CalloutBoxWidget.php:60
-msgid "Ask for help"
 msgstr ""
 
 #: inc/widgets/class-CalloutBoxWidget.php:116

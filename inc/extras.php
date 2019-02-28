@@ -301,11 +301,11 @@ add_filter( 'pixelgrade_featured_posts_widget_classes', 'vasco_featured_posts_wi
 
 function vasco_remove_emoji( $text ) {
 
-	$clean_text = "";
+	$clean_text = $text;
 
 	// Match Emoticons
 	$regexEmoticons = '/[\x{1F600}-\x{1F64F}]/u';
-	$clean_text = preg_replace($regexEmoticons, '', $text);
+	$clean_text = preg_replace($regexEmoticons, '', $clean_text);
 
 	// Match Miscellaneous Symbols and Pictographs
 	$regexSymbols = '/[\x{1F300}-\x{1F5FF}]/u';
