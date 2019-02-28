@@ -185,6 +185,27 @@
   opacity: 0.9;
 }
 
+.c-gallery__item--no-image {
+
+  .c-card__aside {
+    .c-meta {
+      margin-bottom: 0;
+    }
+
+    + .c-card__content {
+      margin-top: 0.85em;
+    }
+  }
+
+  .c-card__frame[class] {
+    padding-top: 0;
+  }
+
+  .c-card__thumbnail-background {
+    background-color: transparent;
+  }
+}
+
 .c-card__frame {
   .aspect-ratio-portrait & {
     padding-top: percentage(4/3);
