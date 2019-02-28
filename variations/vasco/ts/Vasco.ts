@@ -409,19 +409,17 @@ export class Vasco extends BaseTheme {
 
     const adminBarHeight = $( '#wpadminbar' ).outerHeight();
     const announcementBarHeight = this.$announcementBar.outerHeight();
-    const headerHeight = this.$siteHeader.outerHeight();
 
     this.$siteHeader.css( 'top', announcementBarHeight + adminBarHeight);
     this.$toolbar.css( 'top', announcementBarHeight + adminBarHeight );
-    this.$contentPaddingContainer.css( 'padding-top', headerHeight + announcementBarHeight );
+    this.$contentPaddingContainer.css( 'marginTop', announcementBarHeight );
     this.$announcementBar.css( 'top', adminBarHeight );
   }
 
   private revertAnnouncementChanges() {
-    const headerHeight = this.$siteHeader.outerHeight();
     this.$siteHeader.css( 'top', '' );
     this.$toolbar.css( 'top', '' );
-    this.$contentPaddingContainer.css( 'padding-top', headerHeight );
+    this.$contentPaddingContainer.css( 'marginTop', '' );
   }
 
   private onAnnouncementClose(event: JQueryEventObject) {

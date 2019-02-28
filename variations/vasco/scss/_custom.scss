@@ -18,6 +18,21 @@
   }
 }
 
+.single,
+.page,
+.archive,
+.search,
+.no-results {
+  .entry-title {
+    @include leading-map(map_merge($page-title-font, (
+        spacing-top: false,
+        spacing-bottom: false,
+        letter-spacing: 0,
+        text-transform: none
+    )));
+  }
+}
+
 .entry-title:not(.product_title) {
   display: flex;
   flex-direction: column;
@@ -33,6 +48,10 @@
 .archive-title__pre-title {
   flex: 1;
   color: $sm-color-secondary;
+  @include leading-map(map-merge($h4, (
+      spacing-top: 0,
+      spacing-bottom: 0,
+  )));
   @include spacing(margin-bottom, 3rem);
 }
 
@@ -106,4 +125,8 @@ span.page-numbers {
       }
     }
   }
+}
+
+[id="wpadminbar"] {
+  transform: translateZ(0);
 }

@@ -3019,19 +3019,17 @@ function (_BaseTheme) {
 
       var adminBarHeight = external_jQuery_default()('#wpadminbar').outerHeight();
       var announcementBarHeight = this.$announcementBar.outerHeight();
-      var headerHeight = this.$siteHeader.outerHeight();
       this.$siteHeader.css('top', announcementBarHeight + adminBarHeight);
       this.$toolbar.css('top', announcementBarHeight + adminBarHeight);
-      this.$contentPaddingContainer.css('padding-top', headerHeight + announcementBarHeight);
+      this.$contentPaddingContainer.css('marginTop', announcementBarHeight);
       this.$announcementBar.css('top', adminBarHeight);
     }
   }, {
     key: "revertAnnouncementChanges",
     value: function revertAnnouncementChanges() {
-      var headerHeight = this.$siteHeader.outerHeight();
       this.$siteHeader.css('top', '');
       this.$toolbar.css('top', '');
-      this.$contentPaddingContainer.css('padding-top', headerHeight);
+      this.$contentPaddingContainer.css('marginTop', '');
     }
   }, {
     key: "onAnnouncementClose",

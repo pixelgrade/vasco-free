@@ -151,3 +151,22 @@ function vasco_register_blog_blocks() {
 	) );
 }
 add_action( 'pixelgrade_blog_after_register_blocks', 'vasco_register_blog_blocks', 10 );
+
+function vasco_remove_sidebar_from_page_block( $config ) {
+
+	if ( empty( $config['blocks']['side'] ) ) {
+		return $config;
+	}
+
+	if ( empty( $config['blocks']['side']['checks'] ) ) {
+		$config['blocks']['side']['checks'] = array();
+	}
+
+	array_push( $config['blocks']['side']['checks'], array(
+		'callback' => 'is_page',
+		'compare' => 'NOT'
+	) );
+
+	return $config;
+}
+add_filter( 'pixelgrade_blog_config', 'vasco_remove_sidebar_from_page_block', 10 );

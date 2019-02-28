@@ -1,11 +1,3 @@
-.site-header,
-.u-header-height-padding-top,
-.c-toolbar {
-  &.animated {
-    transition: $transition--ease-in-cubic;
-  }
-}
-
 .c-announcement-bar {
   position: fixed;
   top: 0;
@@ -25,6 +17,10 @@
   }
 }
 
+.u-header-height-padding-top {
+  padding-top: $header-height;
+}
+
 .c-announcement-bar,
 .u-header-height-padding-top,
 .c-toolbar,
@@ -37,7 +33,7 @@
 }
 
 .u-header-height-padding-top {
-  transition-property: padding-top;
+  transition-property: margin-top;
 }
 
 .c-toolbar,
