@@ -1,9 +1,9 @@
 === Vasco ===
 Contributors: pixelgrade, babbardel, vlad.olaru, razvanonofrei
-Tags: blog, holiday, photography, translation-ready, featured-images, custom-menu, custom-logo, one-column, two-columns, three-columns, four-columns, editor-style, sticky-post, footer-widgets, threaded-comments
+Tags: blog, holiday, photography, translation-ready, featured-images, custom-menu, custom-logo, one-column, two-columns, three-columns, four-columns, editor-style, sticky-post, footer-widgets, threaded-comments, rtl-language-support
 Requires at least: 4.9.9
 Tested up to: 5.1.0
-Stable tag:
+Stable tag: 1.3.4.1
 Requires PHP: 5.3.0
 License: GPLv2 or later
 License URI: LICENSE
@@ -12,7 +12,7 @@ Vasco is a travel blog theme for people who want to wander the world and make mo
 
 == Description ==
 
-Vasco is a travel blog theme to help you increase your revenue streams and see more of the world. With big and beautiful imagery and a smart widget system for next-level customizations, you have all the right tools to express your personality and nurture a loyal audience around your fascinating stories.
+Vasco is a travel blog theme to help you increase your revenue streams and see more of the world. With big and beautiful imagery, modular layout, compatibility with the new Gutenberg editor, multilingual support, and a smart widget system for next-level customizations, you have all the right tools to express your personality and nurture a loyal audience around your fascinating stories.
 
 == Installation ==
 
@@ -30,6 +30,7 @@ Vasco is a travel blog theme to help you increase your revenue streams and see m
 Unless otherwise specified, all the theme files, scripts and images are licensed under GNU General Public License v2 or later.
 
 Images used in screenshot.jpg: photos by Warren Wong (https://stocksnap.io/author/43122) – [Source](https://stocksnap.io/photo/7ZGVCPQ3N7).
+The logos used in screenshot.jpg are all bogus logos with no affiliation or reference to any real company - any resemblance is strictly accidental. They have been generated using [Canva](https://www.canva.com/).
 
 The Vasco Theme bundles the following third-party resources:
 * HK Grotesk font (c) 2016, [Alfredo Marco Pradil](hello@hanken.co) and HK Grotesk Cyrillic by [Stefan Peev](http://www.contextbg.net/), licensed under [SIL Open Font License v1.10](https://www.fontsquirrel.com/license/hk-grotesk)

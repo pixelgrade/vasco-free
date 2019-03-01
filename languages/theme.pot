@@ -530,7 +530,7 @@ msgid "Welcome to %s! - Version "
 msgstr ""
 
 #: inc/lite/admin/about-page.php:27
-msgid " Vasco is a free travel blog theme to help you increase your revenue streams and see more of the world. With big and beautiful imagery and a smart widget system for next-level customizations, you have all the right tools to express your personality and nurture a loyal audience around your fascinating stories."
+msgid "Vasco is a travel blog theme for people who want to wander the world and make money out of their passion."
 msgstr ""
 
 #: inc/lite/admin/about-page.php:35

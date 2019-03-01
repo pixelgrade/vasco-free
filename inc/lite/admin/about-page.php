@@ -24,7 +24,7 @@ function vasco_lite_admin_setup() {
 		/* translators: Main welcome title */
 		'welcome_title'         => sprintf( esc_html__( 'Welcome to %s! - Version ', '__theme_txtd' ), 'Vasco' ),
 		// Main welcome content
-		'welcome_content'       => esc_html__( ' Vasco is a free travel blog theme to help you increase your revenue streams and see more of the world. With big and beautiful imagery and a smart widget system for next-level customizations, you have all the right tools to express your personality and nurture a loyal audience around your fascinating stories.', '__theme_txtd' ),
+		'welcome_content'       => esc_html__( 'Vasco is a travel blog theme for people who want to wander the world and make money out of their passion.', '__theme_txtd' ),
 		/**
 		 * Tabs array.
 		 *
