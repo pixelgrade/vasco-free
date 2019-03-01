@@ -53,6 +53,7 @@
     "no-trailing-whitespace": false,
     "no-unused-expression": false,
     "object-literal-sort-keys": true,
+    "only-arrow-functions": false,
     "one-line": [
       true,
       "check-catch",

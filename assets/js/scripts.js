@@ -1454,9 +1454,11 @@ function () {
     value: function onCustomizerRender() {
       var exWindow = window;
       return Observable_Observable.create(function (observer) {
+        var callback = observer.next.bind(observer);
+
         if (exWindow.wp && exWindow.wp.customize && exWindow.wp.customize.selectiveRefresh) {
-          exWindow.wp.customize.selectiveRefresh.bind('partial-content-rendered', function (placement) {
-            observer.onNext($(placement.container));
+          exWindow.wp.customize.selectiveRefresh.bind('partial-content-rendered', function (value) {
+            callback(value);
           });
         }
       });
@@ -1466,9 +1468,11 @@ function () {
     value: function onCustomizerChange() {
       var exWindow = window;
       return Observable_Observable.create(function (observer) {
+        var callback = observer.next.bind(observer);
+
         if (exWindow.wp && exWindow.wp.customize) {
-          exWindow.wp.customize.bind('change', function (setting) {
-            observer.onNext(setting);
+          exWindow.wp.customize.bind('change', function (value) {
+            callback(value);
           });
         }
       });
@@ -1476,7 +1480,7 @@ function () {
   }, {
     key: "onReady",
     value: function onReady() {
-      return fromEvent(window.document, 'ready');
+      return fromEvent(document, 'DOMContentLoaded');
     }
   }]);
 
