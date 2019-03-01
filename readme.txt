@@ -3,7 +3,7 @@ Contributors: pixelgrade, babbardel, vlad.olaru, razvanonofrei
 Tags: blog, holiday, photography, translation-ready, featured-images, custom-menu, custom-logo, one-column, two-columns, three-columns, four-columns, editor-style, sticky-post, footer-widgets, threaded-comments, rtl-language-support
 Requires at least: 4.9.9
 Tested up to: 5.1.0
-Stable tag: 1.3.4.1
+Stable tag: 1.3.4.2
 Requires PHP: 5.3.0
 License: GPLv2 or later
 License URI: LICENSE
@@ -21,6 +21,9 @@ Vasco is a travel blog theme to help you increase your revenue streams and see m
 3. Click Activate to use your new theme right away.
 
 == Changelog ==
+
+= 1.3.4.2 =
+* Fixed an issue with widgets not doing live updating in the Customizer.
 
 = 1.3.4 =
 * Initial release for the free version.
