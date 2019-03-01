@@ -134,6 +134,7 @@ function vasco_handle_front_page_widgets_nesting( $index ) {
 	// Get all the sidebar widgets
 	$sidebars_widgets = wp_get_sidebars_widgets();
 	$front_page_sidebar_widgets = (array) $sidebars_widgets[ $index ];
+	$front_page_sidebar_widgets = array_values( $front_page_sidebar_widgets );
 
 	// Now go through the widgets list of our target sidebar and see what we can do.
 	$no_widgets = count( $front_page_sidebar_widgets );
