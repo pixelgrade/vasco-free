@@ -30,6 +30,7 @@ Vasco is a travel blog theme to help you increase your revenue streams and see m
 Unless otherwise specified, all the theme files, scripts and images are licensed under GNU General Public License v2 or later.
 
 Images used in screenshot.jpg: photos by Warren Wong (https://stocksnap.io/author/43122) – [Source](https://stocksnap.io/photo/7ZGVCPQ3N7).
+The logos used in screenshot.jpg are all bogus logos with no affiliation or reference to any real company - any resemblance is strictly accidental. They have been generated using [Canva](https://www.canva.com/).
 
 The Vasco Theme bundles the following third-party resources:
 * HK Grotesk font (c) 2016, [Alfredo Marco Pradil](hello@hanken.co) and HK Grotesk Cyrillic by [Stefan Peev](http://www.contextbg.net/), licensed under [SIL Open Font License v1.10](https://www.fontsquirrel.com/license/hk-grotesk)
