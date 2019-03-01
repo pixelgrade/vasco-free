@@ -42,7 +42,6 @@
     "js-cookie": "^2.2.0",
     "masonry-layout": "^4.2.2",
     "require-dir": "^1.2.0",
-    "rx-dom": "^7.0.3",
     "rxjs": "^6.4.0",
     "through2": "^3.0.0",
     "ts-loader": "^5.3.3",
