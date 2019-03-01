@@ -9,7 +9,7 @@
 /**
  * Theme About page logic.
  */
-require get_template_directory() . '/inc/lite/admin/about-page.php'; // @codingStandardsIgnoreLines
+require pixelgrade_get_parent_theme_file_path( pixelgrade_get_theme_relative_path( __DIR__ ) . 'admin/about-page.php' ); // @codingStandardsIgnoreLines
 
 /**
  * Check if the widget is only available for the Pro version.
