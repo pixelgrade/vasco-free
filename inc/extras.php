@@ -427,6 +427,27 @@ function vasco_maybe_load_pro_features() {
 // We want to do this as early as possible. So the zero priority is as intended.
 add_action( 'after_setup_theme', 'vasco_maybe_load_pro_features', 0 );
 
+/**
+ * Handle the WUpdates theme identification.
+ *
+ * @param array $ids
+ *
+ * @return array
+ */
+function vasco_wupdates_add_id_wporg( $ids = array() ) {
+
+	// First get the theme directory name (unique)
+	$slug = basename( get_template_directory() );
+
+	// Now add the predefined details about this product
+	// Do not tamper with these please!!!
+	$ids[ $slug ] = array( 'name' => 'Vasco', 'slug' => 'vasco', 'id' => 'v7zV3', 'type' => 'theme_wporg', 'digest' => '1f3a465e6d9ab66621960b4a5427a039', );
+
+	return $ids;
+}
+// The 5 priority is intentional to allow for pro to overwrite.
+add_filter( 'wupdates_gather_ids', 'vasco_wupdates_add_id_wporg', 5, 1 );
+
 function vasco_change_cart_menu_item_location( $location ) {
 	$location = false;
 	return $location;

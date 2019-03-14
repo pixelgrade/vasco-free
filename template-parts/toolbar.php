@@ -15,8 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="search-trigger  js-search-trigger">
             <?php get_template_part( 'template-parts/svg/search-blob' ); ?>
         </div>
-        <?php if ( pixelgrade_user_has_access( 'woocommerce' ) ) {
-	        $cart_item_count = WC()->cart->get_cart_contents_count();
+        <?php if ( Pixelgrade_Woocommerce::siteSupportsWoocommerce() && pixelgrade_user_has_access( 'woocommerce' ) ) {
+	        $cart_item_count = wc()->cart->get_cart_contents_count();
 	        $cart_count_span = '';
 
 	        if ( $cart_item_count ) {
