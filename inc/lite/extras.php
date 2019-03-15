@@ -98,13 +98,12 @@ function vasco_lite_customize_register( $wp_customize ) {
 		)
 	);
 
+	// This is just an empty control so that the section will show up.
 	$wp_customize->add_setting(
 		'vasco_lite_style_view_pro_desc', array(
 			'default'           => '',
-			'sanitize_callback' => 'vasco_sanitize_checkbox',
 		)
 	);
-
 	$wp_customize->add_control(
 		'vasco_lite_style_view_pro_desc', array(
 			'section' => 'vasco_lite_style_view_pro',
