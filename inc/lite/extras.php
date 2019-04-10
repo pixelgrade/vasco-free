@@ -7,9 +7,9 @@
  */
 
 /**
- * Theme About page logic.
+ * Admin Dashboard logic.
  */
-require pixelgrade_get_parent_theme_file_path( pixelgrade_get_theme_relative_path( __DIR__ ) . 'admin/about-page.php' ); // @codingStandardsIgnoreLines
+require pixelgrade_get_parent_theme_file_path( pixelgrade_get_theme_relative_path( __DIR__ ) . 'admin/admin.php' ); // @codingStandardsIgnoreLines
 
 /**
  * Check if the widget is only available for the Pro version.
@@ -49,7 +49,7 @@ add_filter( 'pixelgrade_sidebar_not_supported_message', 'vasco_lite_widgets_mess
  * Assets that will be loaded for the customizer sidebar
  */
 function vasco_lite_customizer_assets() {
-	wp_enqueue_style( 'vasco_lite_customizer_style', get_template_directory_uri() . '/inc/lite/admin/customizer.css', null, '1.0.0', false );
+	wp_enqueue_style( 'vasco_lite_customizer_style', get_template_directory_uri() . '/inc/lite/admin/css/customizer.css', null, '1.3.4.3', false );
 }
 add_action( 'customize_controls_enqueue_scripts', 'vasco_lite_customizer_assets' );
 
@@ -61,7 +61,7 @@ add_action( 'customize_controls_enqueue_scripts', 'vasco_lite_customizer_assets'
 function vasco_lite_customize_register( $wp_customize ) {
 	// View Pro
 	$wp_customize->add_section(
-		'vasco_lite_style_view_pro', array(
+		'pro__section', array(
 			'title'       => esc_html__( 'View PRO Version', '__theme_txtd' ),
 			'priority'    => 2,
 			'description' => sprintf(
@@ -102,11 +102,12 @@ function vasco_lite_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'vasco_lite_style_view_pro_desc', array(
 			'default'           => '',
+			'sanitize_callback' => '__return_true',
 		)
 	);
 	$wp_customize->add_control(
 		'vasco_lite_style_view_pro_desc', array(
-			'section' => 'vasco_lite_style_view_pro',
+			'section' => 'pro__section',
 			'type'    => 'hidden',
 		)
 	);

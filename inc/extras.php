@@ -435,13 +435,12 @@ add_action( 'after_setup_theme', 'vasco_maybe_load_pro_features', 0 );
  * @return array
  */
 function vasco_wupdates_add_id_wporg( $ids = array() ) {
-
 	// First get the theme directory name (unique)
 	$slug = basename( get_template_directory() );
 
 	// Now add the predefined details about this product
 	// Do not tamper with these please!!!
-	$ids[ $slug ] = array( 'name' => 'Vasco', 'slug' => 'vasco', 'id' => 'v7zV3', 'type' => 'theme_wporg', 'digest' => '1f3a465e6d9ab66621960b4a5427a039', );
+	$ids[ $slug ] = array( 'name' => 'Vasco', 'slug' => 'vasco', 'id' => 'v7zV3', 'type' => 'theme_modular_wporg', 'digest' => '1620a9f29f78ed470fc4e29113b9e084', );
 
 	return $ids;
 }

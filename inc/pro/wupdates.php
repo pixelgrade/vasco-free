@@ -94,7 +94,7 @@ function wupdates_add_id_v7zV3( $ids = array() ) {
 
 	// Now add the predefined details about this product
 	// Do not tamper with these please!!!
-	$ids[ $slug ] = array( 'name' => 'Vasco', 'slug' => 'vasco', 'id' => 'v7zV3', 'type' => 'theme', 'digest' => '74ab9906190c8ff2d650930dee448555', );
+	$ids[ $slug ] = array( 'name' => 'Vasco', 'slug' => 'vasco', 'id' => 'v7zV3', 'type' => 'theme_modular', 'digest' => 'f22e36b11a3d050da6479e30f920e563', );
 
 	return $ids;
 }
