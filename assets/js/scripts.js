@@ -2771,6 +2771,7 @@ function (_BaseTheme) {
       Helper_Helper.handleCustomCSS($container);
       this.handleGalleries($container);
       this.eventHandlers($container);
+      this.handleCards($container);
       var $commentForm = $container.find('.comment-form');
 
       if ($commentForm.length) {
@@ -2780,6 +2781,23 @@ function (_BaseTheme) {
 
       $container.find('.c-gallery').not('.c-gallery--widget').each(function (index, element) {
         new Gallery_Gallery(external_jQuery_default()(element));
+      });
+    }
+  }, {
+    key: "handleCards",
+    value: function handleCards() {
+      var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
+      var $cards = $container.find('.c-card');
+      $cards.each(function (i, obj) {
+        var $card = external_jQuery_default()(obj);
+        var $meta = $card.find('.c-card__meta').detach();
+        var $primary = external_jQuery_default()('<div class="c-card__meta">');
+        var $secondary = $primary.clone();
+        $meta.find('.c-meta__primary').wrap('<div class="c-meta">').parent().appendTo($primary);
+        $meta.find('.c-meta__secondary').wrap('<div class="c-meta">').parent().appendTo($secondary);
+        $primary.prependTo($card);
+        $secondary.appendTo($card.find('.c-card__aside'));
+        $meta.remove();
       });
     }
   }, {

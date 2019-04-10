@@ -166,6 +166,7 @@ export class Vasco extends BaseTheme {
 
     this.handleGalleries( $container );
     this.eventHandlers( $container );
+    this.handleCards( $container );
 
     const $commentForm = $container.find( '.comment-form' );
 
@@ -176,6 +177,25 @@ export class Vasco extends BaseTheme {
 
     $container.find( '.c-gallery' ).not( '.c-gallery--widget' ).each((index, element) => {
       new Gallery( $( element ) );
+    });
+  }
+
+  public handleCards( $container: JQuery = this.$body ) {
+    const $cards = $container.find( '.c-card' );
+
+    $cards.each((i, obj) => {
+      const $card = $(obj);
+      const $meta = $card.find( '.c-card__meta' ).detach();
+      const $primary = $( '<div class="c-card__meta">' );
+      const $secondary = $primary.clone();
+
+      $meta.find( '.c-meta__primary' ).wrap( '<div class="c-meta">' ).parent().appendTo( $primary );
+      $meta.find( '.c-meta__secondary' ).wrap( '<div class="c-meta">' ).parent().appendTo( $secondary );
+
+      $primary.prependTo( $card );
+      $secondary.appendTo( $card.find( '.c-card__aside' ) );
+
+      $meta.remove();
     });
   }
 
