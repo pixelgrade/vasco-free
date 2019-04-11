@@ -10203,7 +10203,11 @@ body .widget_nav_menu {
       height: 100%; }
     .stamp-newsletter-group .widget_stamp {
       -ms-flex-negative: 0;
-          flex-shrink: 0; } }
+          flex-shrink: 0; }
+    .stamp-newsletter-group .widget_mc4wp_form_widget {
+      -webkit-box-flex: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1; } }
 
 @media not screen and (min-width: 62.5em) {
   .stamp-newsletter-group .widget + .widget {

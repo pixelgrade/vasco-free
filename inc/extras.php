@@ -287,6 +287,7 @@ function vasco_featured_posts_widget_classes( $classes = array() ) {
 	$widget_classes = array();
 
 	$widget_classes[] = 'c-gallery';
+	$widget_classes[] = 'c-gallery--blog';
 	$widget_classes = array_merge( $widget_classes, pixelgrade_get_blog_grid_layout_class() );
 	$widget_classes = array_merge( $widget_classes, pixelgrade_get_blog_grid_alignment_class() );
 
