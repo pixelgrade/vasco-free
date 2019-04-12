@@ -65,13 +65,6 @@ export class Vasco extends BaseTheme {
       .subscribe( () => {
         this.prepareFeatureHover();
         this.initStamp();
-      } );
-
-    GlobalService
-      .onCustomizerChange()
-      .pipe( debounceTime( 300 ) )
-      .pipe( takeWhile( () => this.subscriptionActive ) )
-      .subscribe( () => {
         this.updateBlobParameters();
       } );
   }
@@ -85,10 +78,9 @@ export class Vasco extends BaseTheme {
   public updateBlobParameters() {
     const extWindow: ExtendedWindow = window;
     const wp = extWindow.wp;
-    const $goo = $('#goo');
 
     const complexity = parseInt( wp.customize( 'vasco_options[blobs_complexity]' )(), 10 ) / 100;
-    const smoothness = parseInt( wp.customize( 'vasco_options[blobs_smoothness]' )(), 10 );
+    const smoothness = parseInt( wp.customize( 'vasco_options[blobs_smoothness]' )(), 10 ) / 100;
     const preset = parseInt( wp.customize( 'vasco_options[blobs_preset]' )(), 10 );
 
     this.blobs.forEach( ( blob ) => {
@@ -96,16 +88,8 @@ export class Vasco extends BaseTheme {
         blob.setPreset( preset );
       }
       blob.setComplexity( complexity );
+      blob.setSmoothness( smoothness );
       blob.morph( 600 );
-    });
-
-    requestAnimationFrame(() => {
-      const stdDeviation = Math.max(smoothness, 0);
-      const rgbaMatrix = '0 0 0 ' + (1 + smoothness) + ' -' + (smoothness / 3);
-
-      $goo.find( 'feGaussianBlur' ).attr( 'stdDeviation', stdDeviation );
-      $goo.find( 'feColorMatrix' )
-        .attr( 'values', '1 0 0 0 0  0 1 0 0 0  0 0 1 0 0 ' + rgbaMatrix );
     });
   }
 
@@ -202,11 +186,11 @@ export class Vasco extends BaseTheme {
   public generateBlobs() {
     const preset = parseInt( $( 'body' ).data( 'blobs-preset' ), 10 );
     const complexity = parseInt( $( 'body' ).data( 'blobs-complexity' ), 10 ) / 100;
-    const sides = 13;
+    const smoothness = parseInt( $( 'body' ).data( 'blobs-smoothness' ), 10 ) / 100;
 
     $( '.blob--shape-1' ).each( (i, obj) => {
       const $obj = $(obj);
-      const blob = new Blob(sides, complexity, preset);
+      const blob = new Blob(preset, complexity, smoothness);
 
       this.blobs.push( blob );
       $obj.append( blob.getSvg() );
@@ -214,7 +198,7 @@ export class Vasco extends BaseTheme {
 
     $( '.blob--shape-2' ).each( (i, obj) => {
       const $obj = $(obj);
-      const blob = new Blob(sides, complexity, preset, 1);
+      const blob = new Blob(preset, complexity, smoothness, 1);
 
       this.blobs.push( blob );
       $obj.append( blob.getSvg() );
@@ -222,7 +206,7 @@ export class Vasco extends BaseTheme {
 
     $( '.blob--shape-3' ).each( (i, obj) => {
       const $obj = $(obj);
-      const blob = new Blob(sides, complexity, preset, 2);
+      const blob = new Blob(preset, complexity, smoothness, 2);
 
       this.blobs.push( blob );
       $obj.append( blob.getSvg() );
