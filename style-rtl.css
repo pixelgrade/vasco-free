@@ -3,7 +3,7 @@ Theme Name: Vasco
 Author: Pixelgrade
 Author URI: https://pixelgrade.com
 Description: Vasco is a travel blog theme to help you increase your revenue streams and see more of the world. With big and beautiful imagery, modular layout, compatibility with the new Gutenberg editor, multilingual support, and a smart widget system for next-level customizations, you have all the right tools to express your personality and nurture a loyal audience around your fascinating stories.
-Version: 1.3.5
+Version: 1.4.0
 Tested up to: 5.1.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
@@ -3903,156 +3903,156 @@ body {
       .h0:not(:last-child) {
         margin-bottom: 10.42442px; } }
 
-h1 {
+.h1, h1 {
   font-family: "YoungSerif", serif;
   font-size: 48px;
   line-height: 1.16667;
   color: #2B3D39; }
   @media only screen and (max-width: 1024px) {
-    h1 {
+    .h1, h1 {
       font-size: 30.76267px; } }
   @media only screen and (max-width: 768px) {
-    h1 {
+    .h1, h1 {
       font-size: 22.6344px; } }
   @media only screen and (max-width: 400px) {
-    h1 {
+    .h1, h1 {
       font-size: 17.90378px; } }
-  h1:not(:first-child) {
+  .h1:not(:first-child), h1:not(:first-child) {
     margin-top: 39.004px; }
     @media only screen and (max-width: 1024px) {
-      h1:not(:first-child) {
+      .h1:not(:first-child), h1:not(:first-child) {
         margin-top: 28.40942px; } }
     @media only screen and (max-width: 768px) {
-      h1:not(:first-child) {
+      .h1:not(:first-child), h1:not(:first-child) {
         margin-top: 22.34098px; } }
     @media only screen and (max-width: 320px) {
-      h1:not(:first-child) {
+      .h1:not(:first-child), h1:not(:first-child) {
         margin-top: 18.40875px; } }
-  h1:not(:last-child) {
+  .h1:not(:last-child), h1:not(:last-child) {
     margin-bottom: 18.004px; }
     @media only screen and (max-width: 1024px) {
-      h1:not(:last-child) {
+      .h1:not(:last-child), h1:not(:last-child) {
         margin-bottom: 14.48242px; } }
     @media only screen and (max-width: 768px) {
-      h1:not(:last-child) {
+      .h1:not(:last-child), h1:not(:last-child) {
         margin-bottom: 12.11311px; } }
     @media only screen and (max-width: 320px) {
-      h1:not(:last-child) {
+      .h1:not(:last-child), h1:not(:last-child) {
         margin-bottom: 10.41003px; } }
 
-h2 {
+.h2, h2 {
   font-family: "YoungSerif", serif;
   font-size: 40px;
   line-height: 1.1;
   color: #2B3D39; }
   @media only screen and (max-width: 1024px) {
-    h2 {
+    .h2, h2 {
       font-size: 30.2054px; } }
   @media only screen and (max-width: 768px) {
-    h2 {
+    .h2, h2 {
       font-size: 24.26399px; } }
   @media only screen and (max-width: 400px) {
-    h2 {
+    .h2, h2 {
       font-size: 20.27575px; } }
-  h2:not(:first-child) {
+  .h2:not(:first-child), h2:not(:first-child) {
     margin-top: 42px; }
     @media only screen and (max-width: 1024px) {
-      h2:not(:first-child) {
+      .h2:not(:first-child), h2:not(:first-child) {
         margin-top: 30.45317px; } }
     @media only screen and (max-width: 768px) {
-      h2:not(:first-child) {
+      .h2:not(:first-child), h2:not(:first-child) {
         margin-top: 23.88626px; } }
     @media only screen and (max-width: 320px) {
-      h2:not(:first-child) {
+      .h2:not(:first-child), h2:not(:first-child) {
         margin-top: 19.64912px; } }
-  h2:not(:last-child) {
+  .h2:not(:last-child), h2:not(:last-child) {
     margin-bottom: 21px; }
     @media only screen and (max-width: 1024px) {
-      h2:not(:last-child) {
+      .h2:not(:last-child), h2:not(:last-child) {
         margin-bottom: 15.72543px; } }
     @media only screen and (max-width: 768px) {
-      h2:not(:last-child) {
+      .h2:not(:last-child), h2:not(:last-child) {
         margin-bottom: 12.56858px; } }
     @media only screen and (max-width: 320px) {
-      h2:not(:last-child) {
+      .h2:not(:last-child), h2:not(:last-child) {
         margin-bottom: 10.46729px; } }
 
-h3 {
+.h3, h3 {
   font-family: "YoungSerif", serif;
   font-size: 24px;
   line-height: 1.41667;
   color: #2B3D39; }
   @media only screen and (max-width: 1024px) {
-    h3 {
+    .h3, h3 {
       font-size: 22.42903px; } }
   @media only screen and (max-width: 768px) {
-    h3 {
+    .h3, h3 {
       font-size: 21.0511px; } }
   @media only screen and (max-width: 400px) {
-    h3 {
+    .h3, h3 {
       font-size: 19.83267px; } }
-  h3:not(:first-child) {
+  .h3:not(:first-child), h3:not(:first-child) {
     margin-top: 42px; }
     @media only screen and (max-width: 1024px) {
-      h3:not(:first-child) {
+      .h3:not(:first-child), h3:not(:first-child) {
         margin-top: 30.45317px; } }
     @media only screen and (max-width: 768px) {
-      h3:not(:first-child) {
+      .h3:not(:first-child), h3:not(:first-child) {
         margin-top: 23.88626px; } }
     @media only screen and (max-width: 320px) {
-      h3:not(:first-child) {
+      .h3:not(:first-child), h3:not(:first-child) {
         margin-top: 19.64912px; } }
-  h3:not(:last-child) {
+  .h3:not(:last-child), h3:not(:last-child) {
     margin-bottom: 21px; }
     @media only screen and (max-width: 1024px) {
-      h3:not(:last-child) {
+      .h3:not(:last-child), h3:not(:last-child) {
         margin-bottom: 15.72543px; } }
     @media only screen and (max-width: 768px) {
-      h3:not(:last-child) {
+      .h3:not(:last-child), h3:not(:last-child) {
         margin-bottom: 12.56858px; } }
     @media only screen and (max-width: 320px) {
-      h3:not(:last-child) {
+      .h3:not(:last-child), h3:not(:last-child) {
         margin-bottom: 10.46729px; } }
 
-h4 {
+.h4, h4 {
   font-family: "HK Grotesk", sans-serif;
   font-size: 19px;
   line-height: 1.21053;
   font-weight: 500;
   color: #F59828; }
   @media only screen and (max-width: 1024px) {
-    h4 {
+    .h4, h4 {
       font-size: 18.36188px; } }
   @media only screen and (max-width: 768px) {
-    h4 {
+    .h4, h4 {
       font-size: 17.76524px; } }
   @media only screen and (max-width: 400px) {
-    h4 {
+    .h4, h4 {
       font-size: 17.20614px; } }
-  h4:not(:first-child) {
+  .h4:not(:first-child), h4:not(:first-child) {
     margin-top: 49px; }
     @media only screen and (max-width: 1024px) {
-      h4:not(:first-child) {
+      .h4:not(:first-child), h4:not(:first-child) {
         margin-top: 35.15695px; } }
     @media only screen and (max-width: 768px) {
-      h4:not(:first-child) {
+      .h4:not(:first-child), h4:not(:first-child) {
         margin-top: 27.41259px; } }
     @media only screen and (max-width: 320px) {
-      h4:not(:first-child) {
+      .h4:not(:first-child), h4:not(:first-child) {
         margin-top: 22.46418px; } }
-  h4:not(:last-child) {
+  .h4:not(:last-child), h4:not(:last-child) {
     margin-bottom: 28px; }
     @media only screen and (max-width: 1024px) {
-      h4:not(:last-child) {
+      .h4:not(:last-child), h4:not(:last-child) {
         margin-bottom: 20.74074px; } }
     @media only screen and (max-width: 768px) {
-      h4:not(:last-child) {
+      .h4:not(:last-child), h4:not(:last-child) {
         margin-bottom: 16.47059px; } }
     @media only screen and (max-width: 320px) {
-      h4:not(:last-child) {
+      .h4:not(:last-child), h4:not(:last-child) {
         margin-bottom: 13.65854px; } }
 
-h5 {
+.h5, h5 {
   font-family: "HK Grotesk", sans-serif;
   font-size: 14px;
   line-height: 1.25;
@@ -4061,38 +4061,38 @@ h5 {
   text-transform: uppercase;
   color: #F59828; }
   @media only screen and (max-width: 1024px) {
-    h5 {
+    .h5, h5 {
       font-size: 13.80803px; } }
   @media only screen and (max-width: 768px) {
-    h5 {
+    .h5, h5 {
       font-size: 13.62125px; } }
   @media only screen and (max-width: 400px) {
-    h5 {
+    .h5, h5 {
       font-size: 13.43946px; } }
-  h5:not(:first-child) {
+  .h5:not(:first-child), h5:not(:first-child) {
     margin-top: 50.988px; }
     @media only screen and (max-width: 1024px) {
-      h5:not(:first-child) {
+      .h5:not(:first-child), h5:not(:first-child) {
         margin-top: 36.47493px; } }
     @media only screen and (max-width: 768px) {
-      h5:not(:first-child) {
+      .h5:not(:first-child), h5:not(:first-child) {
         margin-top: 28.39318px; } }
     @media only screen and (max-width: 320px) {
-      h5:not(:first-child) {
+      .h5:not(:first-child), h5:not(:first-child) {
         margin-top: 23.24319px; } }
-  h5:not(:last-child) {
+  .h5:not(:last-child), h5:not(:last-child) {
     margin-bottom: 22.988px; }
     @media only screen and (max-width: 1024px) {
-      h5:not(:last-child) {
+      .h5:not(:last-child), h5:not(:last-child) {
         margin-bottom: 17.16088px; } }
     @media only screen and (max-width: 768px) {
-      h5:not(:last-child) {
+      .h5:not(:last-child), h5:not(:last-child) {
         margin-bottom: 13.69053px; } }
     @media only screen and (max-width: 320px) {
-      h5:not(:last-child) {
+      .h5:not(:last-child), h5:not(:last-child) {
         margin-bottom: 11.38767px; } }
 
-h6 {
+.h6, h6 {
   font-family: "HK Grotesk", sans-serif;
   font-size: 12px;
   line-height: 1.25;
@@ -4101,35 +4101,35 @@ h6 {
   text-transform: uppercase;
   color: #F59828; }
   @media only screen and (max-width: 1024px) {
-    h6 {
+    .h6, h6 {
       font-size: 11.89585px; } }
   @media only screen and (max-width: 768px) {
-    h6 {
+    .h6, h6 {
       font-size: 11.79349px; } }
   @media only screen and (max-width: 400px) {
-    h6 {
+    .h6, h6 {
       font-size: 11.69288px; } }
-  h6:not(:first-child) {
+  .h6:not(:first-child), h6:not(:first-child) {
     margin-top: 53.004px; }
     @media only screen and (max-width: 1024px) {
-      h6:not(:first-child) {
+      .h6:not(:first-child), h6:not(:first-child) {
         margin-top: 37.80352px; } }
     @media only screen and (max-width: 768px) {
-      h6:not(:first-child) {
+      .h6:not(:first-child), h6:not(:first-child) {
         margin-top: 29.37839px; } }
     @media only screen and (max-width: 320px) {
-      h6:not(:first-child) {
+      .h6:not(:first-child), h6:not(:first-child) {
         margin-top: 24.0242px; } }
-  h6:not(:last-child) {
+  .h6:not(:last-child), h6:not(:last-child) {
     margin-bottom: 11.004px; }
     @media only screen and (max-width: 1024px) {
-      h6:not(:last-child) {
+      .h6:not(:last-child), h6:not(:last-child) {
         margin-bottom: 10.4252px; } }
     @media only screen and (max-width: 768px) {
-      h6:not(:last-child) {
+      .h6:not(:last-child), h6:not(:last-child) {
         margin-bottom: 9.90425px; } }
     @media only screen and (max-width: 320px) {
-      h6:not(:last-child) {
+      .h6:not(:last-child), h6:not(:last-child) {
         margin-bottom: 9.43289px; } }
 
 h1 + h1:not(:first-child), h2 + h1:not(:first-child), h3 + h1:not(:first-child), h4 + h1:not(:first-child), h5 + h1:not(:first-child), h6 + h1:not(:first-child), h1 + h2:not(:first-child), h2 + h2:not(:first-child), h3 + h2:not(:first-child), h4 + h2:not(:first-child), h5 + h2:not(:first-child), h6 + h2:not(:first-child), h1 + h3:not(:first-child), h2 + h3:not(:first-child), h3 + h3:not(:first-child), h4 + h3:not(:first-child), h5 + h3:not(:first-child), h6 + h3:not(:first-child), h1 + h4:not(:first-child), h2 + h4:not(:first-child), h3 + h4:not(:first-child), h4 + h4:not(:first-child), h5 + h4:not(:first-child), h6 + h4:not(:first-child), h1 + h5:not(:first-child), h2 + h5:not(:first-child), h3 + h5:not(:first-child), h4 + h5:not(:first-child), h5 + h5:not(:first-child), h6 + h5:not(:first-child), h1 + h6:not(:first-child), h2 + h6:not(:first-child), h3 + h6:not(:first-child), h4 + h6:not(:first-child), h5 + h6:not(:first-child), h6 + h6:not(:first-child) {
@@ -11768,7 +11768,7 @@ input[type=submit] {
     .search .content-area {
       padding-top: 19.64912px; } }
 
-.single .entry-title,
+.single-post .entry-title,
 .page .entry-title,
 .archive .entry-title,
 .search .entry-title,
@@ -11779,21 +11779,21 @@ input[type=submit] {
   letter-spacing: 0;
   text-transform: none; }
   @media only screen and (max-width: 1024px) {
-    .single .entry-title,
+    .single-post .entry-title,
     .page .entry-title,
     .archive .entry-title,
     .search .entry-title,
     .no-results .entry-title {
       font-size: 43.95008px; } }
   @media only screen and (max-width: 768px) {
-    .single .entry-title,
+    .single-post .entry-title,
     .page .entry-title,
     .archive .entry-title,
     .search .entry-title,
     .no-results .entry-title {
       font-size: 31.62827px; } }
   @media only screen and (max-width: 400px) {
-    .single .entry-title,
+    .single-post .entry-title,
     .page .entry-title,
     .archive .entry-title,
     .search .entry-title,
