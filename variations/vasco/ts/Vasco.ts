@@ -84,12 +84,7 @@ export class Vasco extends BaseTheme {
     const preset = parseInt( wp.customize( 'vasco_options[blobs_preset]' )(), 10 );
 
     this.blobs.forEach( ( blob ) => {
-      if ( blob.getPreset() !== preset ) {
-        blob.setPreset( preset );
-      }
-      blob.setComplexity( complexity );
-      blob.setSmoothness( smoothness );
-      blob.morph( 600 );
+      blob.morph({complexity, preset, smoothness});
     });
   }
 

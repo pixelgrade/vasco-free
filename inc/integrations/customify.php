@@ -26,6 +26,7 @@ add_filter( 'pixelgrade_customify_main_content_section_options', 'vasco_customif
 add_filter( 'pixelgrade_customify_buttons_section_options', 'vasco_customify_buttons_section', 10, 2 );
 add_filter( 'pixelgrade_footer_customify_section_options', 'vasco_customify_footer_section', 10, 2 );
 add_filter( 'pixelgrade_customify_blog_grid_section_options', 'vasco_customify_blog_grid_section', 10, 2 );
+add_filter( 'pixelgrade_customify_woocommerce_grid_section_options', 'vasco_customify_woocommerce_grid_section', 10, 2 );
 
 // Color Constants
 define( 'SM_COLOR_PRIMARY', '#38c3c8' );
@@ -95,6 +96,9 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'main_content_heading_5_color',
 					'main_content_heading_6_color',
 					'blog_item_meta_primary_color',
+					'woocommerce_item_meta_primary_color',
+					'blog_item_footer_color',
+					'woocommerce_item_footer_color',
 				),
 			),
 			'sm_color_tertiary'  => array(
@@ -107,6 +111,8 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'accent_dark_color',
 					'blob_tertiary_color',
 					'header_navigation_links_color',
+					'blog_item_thumbnail_background',
+					'woocommerce_item_thumbnail_background',
 					'footer_links_color',
 					'footer_body_text_color',
 				),
@@ -120,8 +126,10 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'main_content_heading_2_color',
 					'main_content_page_title_color',
 					'blog_item_title_color',
+					'woocommerce_item_title_color',
 					'main_content_heading_3_color',
 					'blog_item_excerpt_color',
+					'woocommerce_item_excerpt_color',
 					'main_content_body_text_color',
 				),
 			),
@@ -133,7 +141,6 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 				'connected_fields' => array(
 					'header_background',
 					'main_content_content_background_color',
-					'blog_item_thumbnail_background',
 					'footer_background',
 					'buttons_text_color',
 					'header_submenu_background',
@@ -699,7 +706,7 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 				// [Section] FONTS
 				'main_content_page_title_font'          => array(
 					'selector' => '
-						.single .entry-title,
+						.single-post .entry-title,
 						.page .entry-title,
 						.archive .entry-title,
 						.search .entry-title,
@@ -1246,6 +1253,144 @@ function vasco_customify_blog_grid_section( $section_options, $options ) {
 
 	unset( $section_options['blog_grid']['options']['blog_item_meta_secondary_color'] );
 	unset( $section_options['blog_grid']['options']['blog_grid_layout']['choices']['packed'] );
+
+	return $section_options;
+}
+
+/**
+ * Blog Grid Section
+ *
+ * @param array $section_options The specific Customify config to be filtered
+ * @param array $options The whole Customify config
+ *
+ * @return array $main_content_section The modified specific config
+ */
+function vasco_customify_woocommerce_grid_section( $section_options, $options ) {
+	// First setup the default values
+	// These should always come from the theme, not relying on the component's defaults
+	$modified_config = array(
+		// Blog Grid
+		'woocommerce_section' => array(
+			'options' => array(
+				// [Section] Layout
+				'woocommerce_grid_width'                    => array(
+					'default' => 1200,
+				),
+				'woocommerce_container_sides_spacing'       => array(
+					'default' => 42,
+				),
+				// [Sub Section] Items Grid
+				'woocommerce_grid_layout'                   => array(
+					'default' => 'regular',
+				),
+				'woocommerce_items_aspect_ratio'            => array(
+					'default' => 40,
+				),
+				'woocommerce_items_per_row'                 => array(
+					'default' => 3,
+				),
+				'woocommerce_items_vertical_spacing'        => array(
+					'default' => 0,
+				),
+				'woocommerce_items_horizontal_spacing'      => array(
+					'default' => 32,
+				),
+				// [Sub Section] Items Title
+				'woocommerce_items_title_position'          => array(
+					'default' => 'below',
+				),
+				'woocommerce_items_title_alignment_nearby'  => array(
+					'default' => 'left',
+				),
+				'woocommerce_items_title_alignment_overlay' => array(
+					'default' => 'middle-center',
+				),
+				// Title Visiblity
+				'woocommerce_items_title_visibility'        => array(
+					'default' => 1,
+				),
+				// Excerpt Visiblity
+				'woocommerce_items_excerpt_visibility'      => array(
+					'default' => 1,
+				),
+				// [Sub Section] Items Meta
+				'woocommerce_items_primary_meta'            => array(
+					'default' => 'category',
+				),
+				'woocommerce_items_secondary_meta'          => array(
+					'default' => 'none',
+				),
+				'woocommerce_items_heading'                 => array(
+					'default' => 'title',
+				),
+				'woocommerce_items_content'                 => array(
+					'default' => 'price',
+				),
+				'woocommerce_items_footer'                  => array(
+					'default' => 'none',
+				),
+
+				// [Section] COLORS
+				'woocommerce_item_title_color'              => array(
+					'default' => SM_DARK_SECONDARY,
+				),
+				'woocommerce_item_meta_primary_color'       => array(
+					'default' => SM_COLOR_SECONDARY,
+				),
+				'woocommerce_item_thumbnail_background'     => array(
+					'default' => SM_LIGHT_PRIMARY,
+				),
+				'woocommerce_item_excerpt_color'            => array(
+					'default' => SM_DARK_SECONDARY,
+				),
+				'woocommerce_item_footer_color'             => array(
+					'default' => SM_COLOR_SECONDARY
+				),
+
+				// [Sub Section] Thumbnail Hover
+				'woocommerce_item_thumbnail_hover_opacity'  => array(
+					'default' => 1,
+				),
+
+				// [Section] FONTS
+				'woocommerce_item_title_font'               => array(
+					'default'  => array(
+						'font-family'    => THEME_HEADINGS_FONT,
+						'font-weight'    => '700',
+						'font-size'      => 24,
+						'line-height'    => 1.25,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'woocommerce_item_meta_font'                => array(
+					'default'  => array(
+						'font-family' => THEME_HEADINGS_FONT_ALT,
+						'font-weight' => '500',
+						'font-size'   => 19,
+						'line-height' => 1.1
+					),
+				),
+				'woocommerce_item_excerpt_font'             => array(
+					'default' => array(
+						'font-family'    => THEME_BODY_FONT,
+						'font-weight'    => '400',
+						'font-size'      => 16,
+						'line-height'    => 1.5,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+			),
+		),
+	);
+
+	// Now we merge the modified config with the original one
+	// Thus overwriting what we have changed
+	$section_options = Pixelgrade_Config::merge( $section_options, $modified_config );
+
+	unset( $section_options['woocommerce_section']['options']['woocommerce_item_meta_secondary_color'] );
+	unset( $section_options['woocommerce_section']['options']['woocommerce_grid_layout']['choices']['packed'] );
 
 	return $section_options;
 }

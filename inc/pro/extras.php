@@ -69,7 +69,7 @@ function vasco_announcement_bar() {
 function vasco_blobs_preset_body_attribute( $attributes ) {
 	$attributes['data-blobs-preset'] = pixelgrade_option( 'blobs_preset', 357 );
 	$attributes['data-blobs-complexity'] = pixelgrade_option( 'blobs_complexity', 84 );
-	$attributes['data-blobs-smoothness'] = pixelgrade_option( 'blobs_smoothness', 26 );
+	$attributes['data-blobs-smoothness'] = pixelgrade_option( 'blobs_smoothness', 26 ) . '';
 	return $attributes;
 }
 add_filter( 'pixelgrade_body_attributes', 'vasco_blobs_preset_body_attribute' );

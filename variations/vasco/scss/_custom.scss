@@ -18,7 +18,7 @@
   }
 }
 
-.single,
+.single-post,
 .page,
 .archive,
 .search,
@@ -129,13 +129,4 @@ span.page-numbers {
 
 [id="wpadminbar"] {
   transform: translateZ(0);
-}
-
-.c-profile__media img,
-.c-profile__content {
-  opacity: 0;
-}
-
-.c-profile__media .blobs {
-  left: 0;
 }
