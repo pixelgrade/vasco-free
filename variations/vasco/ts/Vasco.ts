@@ -123,8 +123,11 @@ export class Vasco extends BaseTheme {
     // Fix for iOS Safari because it triggers and Resize event when scrolling in page and the address bar hides.
     // The window dimensions don't change, only the event is triggered
     if ( this.windowDimensions.width !== this.$window.width()
-      && this.windowDimensions.height !== this.$window.height() ) {
-      this.windowDimensions = { width: this.$window.width(), height: this.$window.height() };
+      || this.windowDimensions.height !== this.$window.height() ) {
+      this.windowDimensions = {
+        width: this.$window.width(),
+        height: this.$window.height()
+      };
       this.positionAnnouncementBar();
     }
   }

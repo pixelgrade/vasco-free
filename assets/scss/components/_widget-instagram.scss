@@ -5,6 +5,15 @@
   &[class][class] {
     @include grid;
     @include grid-spacing(1rem);
+
+    > * {
+      width: percentage(1/2);
+      margin-bottom: 0;
+
+      @include above(small) {
+        width: percentage(1/4);
+      }
+    }
   }
 
   &:not(:last-child) {
@@ -12,16 +21,6 @@
   }
 
   > li {
-    width: percentage(1/4);
-    margin-bottom: 0;
-
-    @include above(small) {
-      width: percentage(1/4);
-    }
-
-    @include below(small) {
-      width: percentage(1/2);
-    }
 
     a {
       @extend .accent-image-filter;
