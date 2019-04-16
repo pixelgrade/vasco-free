@@ -130,3 +130,27 @@ span.page-numbers {
 [id="wpadminbar"] {
   transform: translateZ(0);
 }
+
+.woocommerce-checkout.has-toolbar {
+  padding-right: 0;
+}
+
+.woocommerce-checkout {
+
+  .u-header-height-padding-top {
+    padding-top: 0;
+  }
+
+  .o-layout__main {
+    @include spacing(padding-top, 4rem);
+    @include spacing(padding-bottom, 4rem);
+  }
+
+  [id="order_review_heading"] {
+    margin-top: 0;
+  }
+}
+
+.shop_table[class] tr {
+  background: none;
+}
