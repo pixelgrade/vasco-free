@@ -1284,7 +1284,7 @@ function vasco_customify_woocommerce_grid_section( $section_options, $options ) 
 					'default' => 'regular',
 				),
 				'woocommerce_items_aspect_ratio'            => array(
-					'default' => 40,
+					'default' => 100,
 				),
 				'woocommerce_items_per_row'                 => array(
 					'default' => 3,

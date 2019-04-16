@@ -10027,9 +10027,9 @@ body .widget_nav_menu {
     .instagram-pics[class][class] > * {
       width: 50%;
       margin-bottom: 0; }
-    @media only screen and (min-width: 42.5em) {
-      .instagram-pics[class][class] {
-        width: 25%; } }
+      @media only screen and (min-width: 42.5em) {
+        .instagram-pics[class][class] > * {
+          width: 25%; } }
   .instagram-pics:not(:last-child) {
     margin-bottom: 28px; }
     @media only screen and (max-width: 1024px) {
