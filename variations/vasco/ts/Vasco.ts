@@ -125,8 +125,8 @@ export class Vasco extends BaseTheme {
     if ( this.windowDimensions.width !== this.$window.width()
       || this.windowDimensions.height !== this.$window.height() ) {
       this.windowDimensions = {
+        height: this.$window.height(),
         width: this.$window.width(),
-        height: this.$window.height()
       };
       this.positionAnnouncementBar();
     }

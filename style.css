@@ -341,8 +341,8 @@ template {
           box-sizing: border-box; }
 
 * {
-  -webkit-text-decoration-skip: auto;
-          text-decoration-skip: auto; }
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto; }
 
 body,
 h1, h2, h3, h4, h5, h6,
@@ -1284,8 +1284,17 @@ a {
             transform: translate3d(-5px, calc(0.5px - 50%), 0); }
 
 .c-btn-directional--right {
-  padding-right: 6.5em;
+  padding-right: 100px;
   text-align: left; }
+  @media only screen and (max-width: 1024px) {
+    .c-btn-directional--right {
+      padding-right: 66.66667px; } }
+  @media only screen and (max-width: 768px) {
+    .c-btn-directional--right {
+      padding-right: 50px; } }
+  @media only screen and (max-width: 320px) {
+    .c-btn-directional--right {
+      padding-right: 40px; } }
   .c-btn-directional--right:before {
     right: 2.33333em; }
   .c-btn-directional--right:after {
@@ -1363,7 +1372,7 @@ a {
     width: 100%; }
   .button[class][class][class][class][class].arrow {
     position: relative;
-    padding-right: 6.5em;
+    padding-right: 100px;
     text-align: left; }
     .button[class][class][class][class][class].arrow:before, .button[class][class][class][class][class].arrow:after {
       content: '';
@@ -1399,6 +1408,15 @@ a {
       border-bottom: 5px solid transparent;
       -webkit-transform: translate(0, calc(0.5px - 50%));
               transform: translate(0, calc(0.5px - 50%)); }
+    @media only screen and (max-width: 1024px) {
+      .button[class][class][class][class][class].arrow {
+        padding-right: 66.66667px; } }
+    @media only screen and (max-width: 768px) {
+      .button[class][class][class][class][class].arrow {
+        padding-right: 50px; } }
+    @media only screen and (max-width: 320px) {
+      .button[class][class][class][class][class].arrow {
+        padding-right: 40px; } }
     .button[class][class][class][class][class].arrow:before {
       right: 2.33333em; }
     .button[class][class][class][class][class].arrow:after {
@@ -1434,7 +1452,7 @@ a {
 input[type="text"], input[type="tel"], input[type="number"], input[type="date"], input[type="email"], input[type="password"], input[type="url"], input[type="search"] {
   width: 100%;
   max-width: 100%;
-  padding: 13px 19px 15px;
+  padding: 8px 19px 10px;
   border: 1px solid #E0E0E0;
   font-family: "HK Grotesk", sans-serif;
   font-size: 17px;
@@ -1445,13 +1463,13 @@ input[type="text"], input[type="tel"], input[type="number"], input[type="date"],
   -webkit-font-smoothing: initial; }
   @media only screen and (max-width: 1024px) {
     input[type="text"], input[type="tel"], input[type="number"], input[type="date"], input[type="email"], input[type="password"], input[type="url"], input[type="search"] {
-      padding: 11.90976px 14.77689px 13.15068px; } }
+      padding: 7.8329px 14.77689px 9.6px; } }
   @media only screen and (max-width: 768px) {
     input[type="text"], input[type="tel"], input[type="number"], input[type="date"], input[type="email"], input[type="password"], input[type="url"], input[type="search"] {
-      padding: 10.98824px 12.08972px 11.70732px; } }
+      padding: 7.67263px 12.08972px 9.23077px; } }
   @media only screen and (max-width: 320px) {
     input[type="text"], input[type="tel"], input[type="number"], input[type="date"], input[type="email"], input[type="password"], input[type="url"], input[type="search"] {
-      padding: 10.19908px 10.22949px 10.54945px; } }
+      padding: 7.5188px 10.22949px 8.88889px; } }
   @media only screen and (max-width: 1024px) {
     input[type="text"], input[type="tel"], input[type="number"], input[type="date"], input[type="email"], input[type="password"], input[type="url"], input[type="search"] {
       font-size: 16.5871px; } }
@@ -1633,7 +1651,7 @@ input[disabled] {
 textarea {
   width: 100%;
   max-width: 100%;
-  padding: 13px 19px 15px;
+  padding: 8px 19px 10px;
   border: 1px solid #E0E0E0;
   font-family: "HK Grotesk", sans-serif;
   font-size: 17px;
@@ -1646,13 +1664,13 @@ textarea {
   resize: vertical; }
   @media only screen and (max-width: 1024px) {
     textarea {
-      padding: 11.90976px 14.77689px 13.15068px; } }
+      padding: 7.8329px 14.77689px 9.6px; } }
   @media only screen and (max-width: 768px) {
     textarea {
-      padding: 10.98824px 12.08972px 11.70732px; } }
+      padding: 7.67263px 12.08972px 9.23077px; } }
   @media only screen and (max-width: 320px) {
     textarea {
-      padding: 10.19908px 10.22949px 10.54945px; } }
+      padding: 7.5188px 10.22949px 8.88889px; } }
   @media only screen and (max-width: 1024px) {
     textarea {
       font-size: 16.5871px; } }
@@ -1674,7 +1692,7 @@ textarea {
 select {
   width: 100%;
   max-width: 100%;
-  padding: 13px 19px 15px;
+  padding: 8px 19px 10px;
   border: 1px solid #E0E0E0;
   font-family: "HK Grotesk", sans-serif;
   font-size: 17px;
@@ -1689,13 +1707,13 @@ select {
   -webkit-appearance: none; }
   @media only screen and (max-width: 1024px) {
     select {
-      padding: 11.90976px 14.77689px 13.15068px; } }
+      padding: 7.8329px 14.77689px 9.6px; } }
   @media only screen and (max-width: 768px) {
     select {
-      padding: 10.98824px 12.08972px 11.70732px; } }
+      padding: 7.67263px 12.08972px 9.23077px; } }
   @media only screen and (max-width: 320px) {
     select {
-      padding: 10.19908px 10.22949px 10.54945px; } }
+      padding: 7.5188px 10.22949px 8.88889px; } }
   @media only screen and (max-width: 1024px) {
     select {
       font-size: 16.5871px; } }
@@ -1745,6 +1763,43 @@ fieldset {
     -ms-flex-negative: 0;
         flex-shrink: 0;
     margin-top: 0; }
+
+.select2-container--default .select2-selection--single {
+  border: 1px solid #E0E0E0;
+  border-radius: 4px;
+  height: auto; }
+  .select2-container--default .select2-selection--single .select2-selection__rendered {
+    padding: 8px 19px 10px;
+    font-family: "HK Grotesk", sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    color: #3B3B3B; }
+    @media only screen and (max-width: 1024px) {
+      .select2-container--default .select2-selection--single .select2-selection__rendered {
+        padding: 7.8329px 14.77689px 9.6px; } }
+    @media only screen and (max-width: 768px) {
+      .select2-container--default .select2-selection--single .select2-selection__rendered {
+        padding: 7.67263px 12.08972px 9.23077px; } }
+    @media only screen and (max-width: 320px) {
+      .select2-container--default .select2-selection--single .select2-selection__rendered {
+        padding: 7.5188px 10.22949px 8.88889px; } }
+    @media only screen and (max-width: 1024px) {
+      .select2-container--default .select2-selection--single .select2-selection__rendered {
+        font-size: 16.5871px; } }
+    @media only screen and (max-width: 768px) {
+      .select2-container--default .select2-selection--single .select2-selection__rendered {
+        font-size: 16.19379px; } }
+    @media only screen and (max-width: 400px) {
+      .select2-container--default .select2-selection--single .select2-selection__rendered {
+        font-size: 15.8187px; } }
+  .select2-container--default .select2-selection--single .select2-selection__placeholder {
+    display: block;
+    min-height: 1.6em; }
+  .select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 50%;
+    right: 19px;
+    -webkit-transform: translate(50%, -50%);
+            transform: translate(50%, -50%); }
 
 .o-wrapper {
   margin-left: auto;
@@ -3271,7 +3326,7 @@ fieldset {
 .bypostauthor {
   color: inherit; }
   .bypostauthor .comment__author {
-    color: inherit; }
+    color: #000; }
 
 .says {
   display: none; }
@@ -6351,7 +6406,7 @@ div.wpforms-container[class] {
   div.wpforms-container[class] .wpforms-form textarea {
     width: 100%;
     max-width: 100%;
-    padding: 13px 19px 15px;
+    padding: 8px 19px 10px;
     border: 1px solid #E0E0E0;
     font-family: "HK Grotesk", sans-serif;
     font-size: 17px;
@@ -6366,17 +6421,17 @@ div.wpforms-container[class] {
       div.wpforms-container[class] .wpforms-form input,
       div.wpforms-container[class] .wpforms-form select,
       div.wpforms-container[class] .wpforms-form textarea {
-        padding: 11.90976px 14.77689px 13.15068px; } }
+        padding: 7.8329px 14.77689px 9.6px; } }
     @media only screen and (max-width: 768px) {
       div.wpforms-container[class] .wpforms-form input,
       div.wpforms-container[class] .wpforms-form select,
       div.wpforms-container[class] .wpforms-form textarea {
-        padding: 10.98824px 12.08972px 11.70732px; } }
+        padding: 7.67263px 12.08972px 9.23077px; } }
     @media only screen and (max-width: 320px) {
       div.wpforms-container[class] .wpforms-form input,
       div.wpforms-container[class] .wpforms-form select,
       div.wpforms-container[class] .wpforms-form textarea {
-        padding: 10.19908px 10.22949px 10.54945px; } }
+        padding: 7.5188px 10.22949px 8.88889px; } }
     @media only screen and (max-width: 1024px) {
       div.wpforms-container[class] .wpforms-form input,
       div.wpforms-container[class] .wpforms-form select,
@@ -6409,7 +6464,7 @@ div.wpforms-container[class] {
   div.wpforms-container[class] .wpforms-form select {
     width: 100%;
     max-width: 100%;
-    padding: 13px 19px 15px;
+    padding: 8px 19px 10px;
     border: 1px solid #E0E0E0;
     font-family: "HK Grotesk", sans-serif;
     font-size: 17px;
@@ -6424,13 +6479,13 @@ div.wpforms-container[class] {
     -webkit-appearance: none; }
     @media only screen and (max-width: 1024px) {
       div.wpforms-container[class] .wpforms-form select {
-        padding: 11.90976px 14.77689px 13.15068px; } }
+        padding: 7.8329px 14.77689px 9.6px; } }
     @media only screen and (max-width: 768px) {
       div.wpforms-container[class] .wpforms-form select {
-        padding: 10.98824px 12.08972px 11.70732px; } }
+        padding: 7.67263px 12.08972px 9.23077px; } }
     @media only screen and (max-width: 320px) {
       div.wpforms-container[class] .wpforms-form select {
-        padding: 10.19908px 10.22949px 10.54945px; } }
+        padding: 7.5188px 10.22949px 8.88889px; } }
     @media only screen and (max-width: 1024px) {
       div.wpforms-container[class] .wpforms-form select {
         font-size: 16.5871px; } }
@@ -6584,8 +6639,8 @@ body #infinite-handle span {
   z-index: 1000;
   padding: 0 20px;
   background-color: #FFFFFF;
-  border-top: 1px solid #C1C1C1;
-  font-family: "Lora", serif; }
+  border-top: 1px solid currentColor;
+  font-family: inherit; }
   #infinite-footer .container {
     padding: 5px 0;
     width: auto !important;
@@ -6689,6 +6744,8 @@ body #infinite-handle span {
         font-size: 13.43946px; } }
     #content .sharedaddy[class] .sd-button:after {
       position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       content: '';
@@ -12127,7 +12184,17 @@ span.page-numbers[class][class] {
 .woocommerce-checkout [id="order_review_heading"] {
   margin-top: 0; }
 
+.shop_table[class] th {
+  color: inherit; }
+
 .shop_table[class] tr {
   background: none; }
+
+.c-mini-cart__title {
+  color: inherit; }
+
+.c-mini-cart[class] .cart_list a:not(.remove),
+.c-mini-cart[class] .product_list_widget a:not(.remove) {
+  color: inherit; }
 
 /*# sourceMappingURL=style.css.map */

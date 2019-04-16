@@ -126,7 +126,7 @@ function () {
     this.$body = jquery__WEBPACK_IMPORTED_MODULE_0___default()('body');
     this.$window = jquery__WEBPACK_IMPORTED_MODULE_0___default()(window);
     this.$html = jquery__WEBPACK_IMPORTED_MODULE_0___default()('html');
-    this.ev = jquery__WEBPACK_IMPORTED_MODULE_0___default()({});
+    this.ev = jquery__WEBPACK_IMPORTED_MODULE_0___default()();
     this.frameRendered = false;
     this.subscriptionActive = true;
     this.$html.toggleClass('is-IE', _services_Helper__WEBPACK_IMPORTED_MODULE_1__["Helper"].getIEversion() && _services_Helper__WEBPACK_IMPORTED_MODULE_1__["Helper"].getIEversion() < 12);
@@ -14216,8 +14216,8 @@ function (_BaseTheme) {
 
       if (this.windowDimensions.width !== this.$window.width() || this.windowDimensions.height !== this.$window.height()) {
         this.windowDimensions = {
-          width: this.$window.width(),
-          height: this.$window.height()
+          height: this.$window.height(),
+          width: this.$window.width()
         };
         this.positionAnnouncementBar();
       }

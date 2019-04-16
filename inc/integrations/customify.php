@@ -903,7 +903,7 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 	$section_options['main_content']['options'] = Pixelgrade_Array::insertAfterKey( $section_options['main_content']['options'], 'main_content_content_background_color', array(
 		'main_content_fields_background_color' => array(
 			'type'    => 'color',
-			'default' => SM_LIGHT_PRIMARY,
+			'default' => '#FFFFFF',
 			'label'   => esc_html__( 'Fields Background Color', '__theme_txtd' ),
 			'desc'    => '',
 			'live'    => true,

@@ -151,6 +151,27 @@ span.page-numbers {
   }
 }
 
-.shop_table[class] tr {
-  background: none;
+// checkout products table adjustments
+.shop_table[class] {
+
+  th {
+    color: inherit;
+  }
+
+  tr {
+    background: none;
+  }
+}
+
+// mini cart title color
+.c-mini-cart__title {
+  color: inherit;
+}
+
+// mini cart product titles color
+.c-mini-cart[class] {
+  .cart_list a:not(.remove),
+  .product_list_widget a:not(.remove) {
+    color: inherit;
+  }
 }
