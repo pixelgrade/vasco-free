@@ -7856,104 +7856,7 @@ blockquote {
       .dropcap[class] {
         font-size: 22.33677px; } }
 
-.button {
-  cursor: pointer;
-  -webkit-transform: perspective(1px) translateZ(0);
-          transform: perspective(1px) translateZ(0);
-  font-family: "HK Grotesk", sans-serif;
-  font-size: 17px;
-  line-height: 1.6; }
-  @media only screen and (max-width: 1024px) {
-    .button {
-      font-size: 16.5871px; } }
-  @media only screen and (max-width: 768px) {
-    .button {
-      font-size: 16.19379px; } }
-  @media only screen and (max-width: 400px) {
-    .button {
-      font-size: 15.8187px; } }
-  .button:focus, .button:active, .button:hover {
-    -webkit-transform: scale(1.05) translateY(-3px) translateZ(0);
-            transform: scale(1.05) translateY(-3px) translateZ(0);
-    -webkit-transform-origin: center;
-            transform-origin: center; }
-  .u-buttons-solid .button:focus, .u-buttons-solid .button:active, .u-buttons-solid .button:hover {
-    color: #FFF;
-    -webkit-box-shadow: 0 4px 4px 0 rgba(42, 54, 52, 0.1), 0 8px 8px 0 rgba(42, 54, 52, 0.1), 0 16px 16px 0 rgba(42, 54, 52, 0.1), 0 16px 32px 0 rgba(42, 54, 52, 0.1), 0 32px 64px 0 rgba(42, 54, 52, 0.1), 0 64px 128px 0 rgba(42, 54, 52, 0.1);
-            box-shadow: 0 4px 4px 0 rgba(42, 54, 52, 0.1), 0 8px 8px 0 rgba(42, 54, 52, 0.1), 0 16px 16px 0 rgba(42, 54, 52, 0.1), 0 16px 32px 0 rgba(42, 54, 52, 0.1), 0 32px 64px 0 rgba(42, 54, 52, 0.1), 0 64px 128px 0 rgba(42, 54, 52, 0.1); }
-
-::-webkit-input-placeholder {
-  color: #3B3B3B;
-  opacity: 0.5;
-  font-style: normal; }
-
-::-moz-placeholder {
-  color: #3B3B3B;
-  opacity: 0.5;
-  font-style: normal; }
-
-:-ms-input-placeholder {
-  color: #3B3B3B;
-  opacity: 0.5;
-  font-style: normal; }
-
-:-moz-placeholder {
-  color: #3B3B3B;
-  opacity: 0.5;
-  font-style: normal; }
-
-input[type=date],
-input[type=email],
-input[type=number],
-input[type=password],
-input[type=search],
-input[type=tel],
-input[type=text],
-input[type=url],
-select,
-textarea {
-  padding: 8px 19px 10px;
-  font-family: "HK Grotesk", sans-serif;
-  font-size: 17px;
-  line-height: 1.6; }
-  @media only screen and (max-width: 1024px) {
-    input[type=date],
-    input[type=email],
-    input[type=number],
-    input[type=password],
-    input[type=search],
-    input[type=tel],
-    input[type=text],
-    input[type=url],
-    select,
-    textarea {
-      font-size: 16.5871px; } }
-  @media only screen and (max-width: 768px) {
-    input[type=date],
-    input[type=email],
-    input[type=number],
-    input[type=password],
-    input[type=search],
-    input[type=tel],
-    input[type=text],
-    input[type=url],
-    select,
-    textarea {
-      font-size: 16.19379px; } }
-  @media only screen and (max-width: 400px) {
-    input[type=date],
-    input[type=email],
-    input[type=number],
-    input[type=password],
-    input[type=search],
-    input[type=tel],
-    input[type=text],
-    input[type=url],
-    select,
-    textarea {
-      font-size: 15.8187px; } }
-
-/* stylelint-disable */
+.button,
 button[type=button],
 button[type=reset],
 button[type=submit],
@@ -7968,6 +7871,7 @@ input[type=submit],
   font-size: 17px;
   line-height: 1.6; }
   @media only screen and (max-width: 1024px) {
+    .button,
     button[type=button],
     button[type=reset],
     button[type=submit],
@@ -7977,6 +7881,7 @@ input[type=submit],
     .c-btn--default {
       font-size: 16.5871px; } }
   @media only screen and (max-width: 768px) {
+    .button,
     button[type=button],
     button[type=reset],
     button[type=submit],
@@ -7986,6 +7891,7 @@ input[type=submit],
     .c-btn--default {
       font-size: 16.19379px; } }
   @media only screen and (max-width: 400px) {
+    .button,
     button[type=button],
     button[type=reset],
     button[type=submit],
@@ -7994,7 +7900,10 @@ input[type=submit],
     input[type=submit],
     .c-btn--default {
       font-size: 15.8187px; } }
-  button[type=button]:focus, button[type=button]:active, button[type=button]:hover,
+  .button:focus, .button:active, .button:hover,
+  button[type=button]:focus,
+  button[type=button]:active,
+  button[type=button]:hover,
   button[type=reset]:focus,
   button[type=reset]:active,
   button[type=reset]:hover,
@@ -8017,7 +7926,10 @@ input[type=submit],
             transform: scale(1.05) translateY(-3px) translateZ(0);
     -webkit-transform-origin: center;
             transform-origin: center; }
-  .u-buttons-solid button[type=button]:focus, .u-buttons-solid button[type=button]:active, .u-buttons-solid button[type=button]:hover, .u-buttons-solid
+  .u-buttons-solid .button:focus, .u-buttons-solid .button:active, .u-buttons-solid .button:hover, .u-buttons-solid
+  button[type=button]:focus, .u-buttons-solid
+  button[type=button]:active, .u-buttons-solid
+  button[type=button]:hover, .u-buttons-solid
   button[type=reset]:focus, .u-buttons-solid
   button[type=reset]:active, .u-buttons-solid
   button[type=reset]:hover, .u-buttons-solid
@@ -8056,148 +7968,6 @@ input[type="checkbox"]:checked {
   input[type="checkbox"]:checked[disabled] {
     border-color: #E0E0E0;
     background: #E0E0E0 url("assets/images/icon-check.svg") center center no-repeat; }
-
-.label-above .nf-field-label[class] {
-  padding-bottom: 0;
-  margin-bottom: 5px; }
-  @media only screen and (max-width: 1024px) {
-    .label-above .nf-field-label[class] {
-      margin-bottom: 4.97409px; } }
-  @media only screen and (max-width: 768px) {
-    .label-above .nf-field-label[class] {
-      margin-bottom: 4.94845px; } }
-  @media only screen and (max-width: 320px) {
-    .label-above .nf-field-label[class] {
-      margin-bottom: 4.92308px; } }
-
-.contact-form > div > .grunion-field-label:not(.checkbox):not(.radio),
-.nf-form-cont .label-above .nf-field-label label {
-  text-transform: none;
-  padding-bottom: 0;
-  margin-bottom: 5px; }
-  @media only screen and (max-width: 1024px) {
-    .contact-form > div > .grunion-field-label:not(.checkbox):not(.radio),
-    .nf-form-cont .label-above .nf-field-label label {
-      margin-bottom: 4.97409px; } }
-  @media only screen and (max-width: 768px) {
-    .contact-form > div > .grunion-field-label:not(.checkbox):not(.radio),
-    .nf-form-cont .label-above .nf-field-label label {
-      margin-bottom: 4.94845px; } }
-  @media only screen and (max-width: 320px) {
-    .contact-form > div > .grunion-field-label:not(.checkbox):not(.radio),
-    .nf-form-cont .label-above .nf-field-label label {
-      margin-bottom: 4.92308px; } }
-
-.nf-form-cont .list-checkbox-wrap .nf-field-element li, .nf-form-cont .list-radio-wrap .nf-field-element li {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-bottom: 0 !important; }
-
-div.wpforms-container[class] .wpforms-form .wpforms-field-label {
-  text-transform: none;
-  padding-bottom: 0;
-  margin-bottom: 5px; }
-  @media only screen and (max-width: 1024px) {
-    div.wpforms-container[class] .wpforms-form .wpforms-field-label {
-      margin-bottom: 4.97409px; } }
-  @media only screen and (max-width: 768px) {
-    div.wpforms-container[class] .wpforms-form .wpforms-field-label {
-      margin-bottom: 4.94845px; } }
-  @media only screen and (max-width: 320px) {
-    div.wpforms-container[class] .wpforms-form .wpforms-field-label {
-      margin-bottom: 4.92308px; } }
-
-div.wpforms-container[class] .wpforms-form input,
-div.wpforms-container[class] .wpforms-form select,
-div.wpforms-container[class] .wpforms-form textarea {
-  padding: 8px 19px 10px; }
-
-div.wpforms-container[class] .wpforms-form input[type="radio"]:checked {
-  border-color: #F59828; }
-  div.wpforms-container[class] .wpforms-form input[type="radio"]:checked[disabled] {
-    background-color: #FFFFFF;
-    border-color: #E0E0E0; }
-
-div.wpforms-container[class] .wpforms-form input[type="checkbox"]:checked {
-  border-color: #F59828;
-  background: #F59828 url("assets/images/icon-check.svg") center center no-repeat;
-  background-size: 100% 100%; }
-  div.wpforms-container[class] .wpforms-form input[type="checkbox"]:checked[disabled] {
-    border-color: #E0E0E0;
-    background: #E0E0E0 url("assets/images/icon-check.svg") center center no-repeat; }
-
-div.wpforms-container[class] .wpforms-form .wpforms-submit {
-  display: inline-block;
-  /* [1] */
-  vertical-align: middle;
-  /* [2] */
-  text-align: center;
-  /* [4] */
-  cursor: pointer;
-  /* [5] */
-  padding: 0.75em 1.75em;
-  border: 0 solid #222222;
-  margin: 0;
-  font-family: "HK Grotesk", sans-serif;
-  font-size: 17px;
-  color: #FFF;
-  background-color: #3EBABF;
-  border-radius: 0;
-  -webkit-transition: all 0.2s cubic-bezier(0, 0, 0.58, 1);
-  transition: all 0.2s cubic-bezier(0, 0, 0.58, 1);
-  cursor: pointer;
-  -webkit-transform: perspective(1px) translateZ(0);
-          transform: perspective(1px) translateZ(0);
-  font-family: "HK Grotesk", sans-serif;
-  font-size: 17px;
-  line-height: 1.6; }
-  @media only screen and (max-width: 1024px) {
-    div.wpforms-container[class] .wpforms-form .wpforms-submit {
-      font-size: 16.5871px; } }
-  @media only screen and (max-width: 768px) {
-    div.wpforms-container[class] .wpforms-form .wpforms-submit {
-      font-size: 16.19379px; } }
-  @media only screen and (max-width: 400px) {
-    div.wpforms-container[class] .wpforms-form .wpforms-submit {
-      font-size: 15.8187px; } }
-  .u-buttons-rounded div.wpforms-container[class] .wpforms-form .wpforms-submit {
-    border-radius: 0.3em; }
-  .u-buttons-pill div.wpforms-container[class] .wpforms-form .wpforms-submit {
-    border-radius: 999em; }
-  .u-underlined-links div.wpforms-container[class] .wpforms-form .wpforms-submit {
-    text-decoration: none; }
-  .u-buttons-outline div.wpforms-container[class] .wpforms-form .wpforms-submit {
-    background: none;
-    border: 2px solid currentColor; }
-    .u-buttons-outline div.wpforms-container[class] .wpforms-form .wpforms-submit:hover, .u-buttons-outline div.wpforms-container[class] .wpforms-form .wpforms-submit:active, .u-buttons-outline div.wpforms-container[class] .wpforms-form .wpforms-submit:focus {
-      background: none; }
-  div.wpforms-container[class] .wpforms-form .wpforms-submit:hover, div.wpforms-container[class] .wpforms-form .wpforms-submit:active, div.wpforms-container[class] .wpforms-form .wpforms-submit:focus {
-    color: #FFF;
-    background-color: #2B2B2A;
-    opacity: 1;
-    text-decoration: none;
-    border: initial; }
-  @media only screen and (max-width: 1024px) {
-    div.wpforms-container[class] .wpforms-form .wpforms-submit {
-      font-size: 16.5871px; } }
-  @media only screen and (max-width: 768px) {
-    div.wpforms-container[class] .wpforms-form .wpforms-submit {
-      font-size: 16.19379px; } }
-  @media only screen and (max-width: 400px) {
-    div.wpforms-container[class] .wpforms-form .wpforms-submit {
-      font-size: 15.8187px; } }
-  div.wpforms-container[class] .wpforms-form .wpforms-submit:focus, div.wpforms-container[class] .wpforms-form .wpforms-submit:active, div.wpforms-container[class] .wpforms-form .wpforms-submit:hover {
-    -webkit-transform: scale(1.05) translateY(-3px) translateZ(0);
-            transform: scale(1.05) translateY(-3px) translateZ(0);
-    -webkit-transform-origin: center;
-            transform-origin: center; }
-  .u-buttons-solid div.wpforms-container[class] .wpforms-form .wpforms-submit:focus, .u-buttons-solid div.wpforms-container[class] .wpforms-form .wpforms-submit:active, .u-buttons-solid div.wpforms-container[class] .wpforms-form .wpforms-submit:hover {
-    color: #FFF;
-    -webkit-box-shadow: 0 4px 4px 0 rgba(42, 54, 52, 0.1), 0 8px 8px 0 rgba(42, 54, 52, 0.1), 0 16px 16px 0 rgba(42, 54, 52, 0.1), 0 16px 32px 0 rgba(42, 54, 52, 0.1), 0 32px 64px 0 rgba(42, 54, 52, 0.1), 0 64px 128px 0 rgba(42, 54, 52, 0.1);
-            box-shadow: 0 4px 4px 0 rgba(42, 54, 52, 0.1), 0 8px 8px 0 rgba(42, 54, 52, 0.1), 0 16px 16px 0 rgba(42, 54, 52, 0.1), 0 16px 32px 0 rgba(42, 54, 52, 0.1), 0 32px 64px 0 rgba(42, 54, 52, 0.1), 0 64px 128px 0 rgba(42, 54, 52, 0.1); }
-  .u-buttons-solid div.wpforms-container[class] .wpforms-form .wpforms-submit {
-    border: 0; }
 
 .c-footer {
   position: relative; }
@@ -12203,5 +11973,37 @@ span.page-numbers[class][class] {
 
 ul.woocommerce-checkout-breadcrumbs {
   margin-top: 0; }
+
+.woocommerce-categories a,
+.woocommerce-categories .active {
+  position: relative;
+  border-bottom: 2px solid transparent;
+  -webkit-transition: color .2s ease-out;
+  transition: color .2s ease-out; }
+  .woocommerce-categories a:after,
+  .woocommerce-categories .active:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+    -webkit-transition: -webkit-transform .2s ease-out;
+    transition: -webkit-transform .2s ease-out;
+    transition: transform .2s ease-out;
+    transition: transform .2s ease-out, -webkit-transform .2s ease-out; }
+
+.u-underlined-links .woocommerce-categories[class] a:hover,
+.u-underlined-links .woocommerce-categories[class] .active {
+  text-decoration: none; }
+  .u-underlined-links .woocommerce-categories[class] a:hover:after,
+  .u-underlined-links .woocommerce-categories[class] .active:after {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1); }
 
 /*# sourceMappingURL=style.css.map */
