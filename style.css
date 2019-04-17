@@ -1801,6 +1801,10 @@ fieldset {
     -webkit-transform: translate(50%, -50%);
             transform: translate(50%, -50%); }
 
+.select2-dropdown,
+.select2-container--default .select2-search--dropdown .select2-search__field {
+  border-color: #E0E0E0; }
+
 .o-wrapper {
   margin-left: auto;
   margin-right: auto; }
@@ -12196,5 +12200,8 @@ span.page-numbers[class][class] {
 .c-mini-cart[class] .cart_list a:not(.remove),
 .c-mini-cart[class] .product_list_widget a:not(.remove) {
   color: inherit; }
+
+ul.woocommerce-checkout-breadcrumbs {
+  margin-top: 0; }
 
 /*# sourceMappingURL=style.css.map */
