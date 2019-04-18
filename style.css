@@ -12007,4 +12007,14 @@ ul.woocommerce-checkout-breadcrumbs {
     -webkit-transform: scaleY(1);
             transform: scaleY(1); }
 
+#content .c-product-main[class][class][class], #content .c-product-main[class][class][class] .entry-summary {
+  position: relative; }
+
+@media not screen and (min-width: 768px) {
+  .shop_table[class][class][class] td {
+    background: none; }
+  .shop_table[class][class][class] td, .shop_table[class][class][class] th {
+    padding-left: 0;
+    padding-right: 0; } }
+
 /*# sourceMappingURL=style.css.map */

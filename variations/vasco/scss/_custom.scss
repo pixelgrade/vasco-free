@@ -225,13 +225,29 @@ ul.woocommerce-checkout-breadcrumbs {
   }
 }
 
-//.wc-tabs {
-//
-//  a {
-//    @include underlined-link;
-//  }
-//
-//  .u-underlined-links & > .active a {
-//    @include underlined-link-active;
-//  }
-//}
+// properly position blobs on product page
+#content .c-product-main {
+  @include specific(3) {
+    &, .entry-summary {
+      position: relative;
+    }
+  }
+}
+
+.shop_table {
+
+  @include specific(3) {
+
+    @include below(768px) { // woocommerce mobile breakpoint
+
+      td {
+        background: none
+      }
+
+      td, th {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+}
