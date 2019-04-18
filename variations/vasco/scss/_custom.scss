@@ -180,27 +180,37 @@ ul.woocommerce-checkout-breadcrumbs {
   margin-top: 0;
 }
 
+@mixin underlined-link {
+  position: relative;
+  border-bottom: 2px solid transparent;
+  transition: color .2s ease-out;
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    transform: scaleY(0);
+    transform-origin: 50% 100%;
+    transition: transform .2s ease-out;
+  }
+}
+
+@mixin underlined-link-active {
+
+  &:after {
+    transform: scaleY(1);
+  }
+}
 
 .woocommerce-categories {
 
   a,
   .active {
-    position: relative;
-    border-bottom: 2px solid transparent;
-    transition: color .2s ease-out;
-
-    &:after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: currentColor;
-      transform: scaleY(0);
-      transform-origin: 50% 100%;
-      transition: transform .2s ease-out;
-    }
+    @include underlined-link;
   }
 
   .u-underlined-links &[class] {
@@ -209,9 +219,18 @@ ul.woocommerce-checkout-breadcrumbs {
     .active {
       text-decoration: none;
 
-      &:after {
-        transform: scaleY(1);
-      }
+      @include underlined-link-active;
     }
   }
 }
+
+//.wc-tabs {
+//
+//  a {
+//    @include underlined-link;
+//  }
+//
+//  .u-underlined-links & > .active a {
+//    @include underlined-link-active;
+//  }
+//}
