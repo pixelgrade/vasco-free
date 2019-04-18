@@ -152,7 +152,8 @@ span.page-numbers {
 }
 
 // checkout products table adjustments
-.shop_table[class] {
+.shop_table[class],
+.woocommerce-product-attributes[class] {
 
   th {
     color: inherit;

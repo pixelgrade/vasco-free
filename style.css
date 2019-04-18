@@ -8515,8 +8515,7 @@ table th {
   line-height: 1.25;
   font-weight: bold;
   letter-spacing: 0.07143em;
-  text-transform: uppercase;
-  color: #F59828; }
+  text-transform: uppercase; }
   @media only screen and (max-width: 1024px) {
     table th {
       font-size: 13.80803px; } }
@@ -11958,10 +11957,12 @@ span.page-numbers[class][class] {
 .woocommerce-checkout [id="order_review_heading"] {
   margin-top: 0; }
 
-.shop_table[class] th {
+.shop_table[class] th,
+.woocommerce-product-attributes[class] th {
   color: inherit; }
 
-.shop_table[class] tr {
+.shop_table[class] tr,
+.woocommerce-product-attributes[class] tr {
   background: none; }
 
 .c-mini-cart__title {

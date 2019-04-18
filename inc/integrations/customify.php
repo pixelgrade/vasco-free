@@ -830,7 +830,9 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 						.site-description, 
 						.nav-links__label,
 						.c-footer__zone--bottom .menu,
-						.c-cart-trigger .cart-count',
+						.c-cart-trigger .cart-count,
+						table th,
+						.shop_attributes[class][class][class] th',
 					'default'  => array(
 						'font-family'    => THEME_HEADINGS_FONT_ALT,
 						'font-weight'    => '700',
