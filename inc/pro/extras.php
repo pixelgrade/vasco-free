@@ -140,6 +140,4 @@ function vasco_product_blobs() {
 		get_template_part( 'template-parts/content-blob' );
 	}
 }
-add_action( 'woocommerce_before_single_product_summary', 'vasco_product_blobs', 9 );
-
-
+//add_action( 'woocommerce_before_single_product_summary', 'vasco_product_blobs', 9 );
