@@ -271,3 +271,9 @@ table.variations {
     padding-right: 0.3em;
   }
 }
+
+.c-btn--sale-flash {
+  @include taxonomy-button;
+  @include leading-map($woocommerce-card-meta-secondary-font);
+  background-color: $btn-background;
+}

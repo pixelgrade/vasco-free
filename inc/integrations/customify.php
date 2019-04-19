@@ -1245,6 +1245,16 @@ function vasco_customify_blog_grid_section( $section_options, $options ) {
 						'text-transform' => 'none',
 					),
 				),
+				'blog_item_footer_font'             => array(
+					'default' => array(
+						'font-family'    => THEME_BODY_FONT,
+						'font-weight'    => '400',
+						'font-size'      => 16,
+						'line-height'    => 1.5,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
 			),
 		),
 	);

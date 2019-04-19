@@ -4427,7 +4427,7 @@ blockquote {
   line-height: 1.21053;
   font-weight: bold;
   letter-spacing: 0.05263em;
-  color: #828282; }
+  color: #FFFFFF; }
   @media only screen and (max-width: 1024px) {
     .c-meta__secondary {
       font-size: 18.36188px; } }
@@ -4439,7 +4439,33 @@ blockquote {
       font-size: 17.20614px; } }
 
 .c-meta__separator {
-  color: #828282; }
+  color: #FFFFFF; }
+
+.c-card__excerpt {
+  font-size: 16px;
+  color: #2b3d39; }
+  @media only screen and (max-width: 1024px) {
+    .c-card__excerpt {
+      font-size: 15.6747px; } }
+  @media only screen and (max-width: 768px) {
+    .c-card__excerpt {
+      font-size: 15.36237px; } }
+  @media only screen and (max-width: 400px) {
+    .c-card__excerpt {
+      font-size: 15.06224px; } }
+
+.c-card__footer {
+  font-size: 16px;
+  color: #f59828; }
+  @media only screen and (max-width: 1024px) {
+    .c-card__footer {
+      font-size: 15.6747px; } }
+  @media only screen and (max-width: 768px) {
+    .c-card__footer {
+      font-size: 15.36237px; } }
+  @media only screen and (max-width: 400px) {
+    .c-card__footer {
+      font-size: 15.06224px; } }
 
 .c-card__thumbnail-background {
   background-color: #F59828; }
@@ -12040,5 +12066,35 @@ table.variations tbody tr {
     content: "/";
     padding-left: 0.3em;
     padding-right: 0.3em; }
+
+.c-btn--sale-flash {
+  display: inline-block;
+  /* [1] */
+  vertical-align: middle;
+  /* [2] */
+  text-align: center;
+  /* [4] */
+  cursor: pointer;
+  /* [5] */
+  padding: 0.25em 0.75em 0.25em;
+  background-color: #2B3D39;
+  color: #FFF;
+  text-decoration: none;
+  text-shadow: none;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 19px;
+  line-height: 1.21053;
+  font-weight: bold;
+  letter-spacing: 0.05263em;
+  background-color: #3EBABF; }
+  @media only screen and (max-width: 1024px) {
+    .c-btn--sale-flash {
+      font-size: 18.36188px; } }
+  @media only screen and (max-width: 768px) {
+    .c-btn--sale-flash {
+      font-size: 17.76524px; } }
+  @media only screen and (max-width: 400px) {
+    .c-btn--sale-flash {
+      font-size: 17.20614px; } }
 
 /*# sourceMappingURL=style.css.map */
