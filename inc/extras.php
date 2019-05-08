@@ -287,6 +287,7 @@ function vasco_featured_posts_widget_classes( $classes = array() ) {
 	$widget_classes = array();
 
 	$widget_classes[] = 'c-gallery';
+	$widget_classes[] = 'c-gallery--blog';
 	$widget_classes = array_merge( $widget_classes, pixelgrade_get_blog_grid_layout_class() );
 	$widget_classes = array_merge( $widget_classes, pixelgrade_get_blog_grid_alignment_class() );
 
@@ -457,3 +458,51 @@ function vasco_change_sale_flash_markup( $sale_flash, $post, $product ) {
 	return '<span class="c-btn--sale-flash">' . esc_html__( 'Sale!', '__theme_txtd' ) . '</span>';
 }
 add_filter( 'woocommerce_sale_flash', 'vasco_change_sale_flash_markup', 35, 3 );
+
+function vasco_extend_card_post_details( $details ) {
+	$comments_meta = '';
+	$category_meta = '';
+
+	// We only want the comments number
+	if ( comments_open() ) {
+		$comments_meta = get_comments_number(); // get_comments_number returns only a numeric value
+	}
+
+	// If we already have the category meta, we will use it
+	if ( ! empty( $details['category'] ) ) {
+		$category_meta = $details['category'];
+	} else {
+		if ( is_page() ) {
+			// If we are on a page then we only want the main category
+			$main_category = pixelgrade_get_main_category_link();
+			if ( ! empty( $main_category ) ) {
+				$category_meta .= '<span class="screen-reader-text">' . esc_html__( 'Main Category', '__theme_txtd' ) . "</span><ul>\n";
+				$category_meta .= '<li>' . $main_category . "</li>\n";
+				$category_meta .= "</ul>\n";
+			}
+		} else {
+			// On archives we want to show all the categories, not just the main one
+			$categories = get_the_terms( get_the_ID(), 'category' );
+			if ( ! is_wp_error( $categories ) && ! empty( $categories ) ) {
+				$category_meta .= '<span class="screen-reader-text">' . esc_html__( 'Categories', '__theme_txtd' ) . "</span><ul>\n";
+				foreach ( $categories as $this_category ) {
+					$category_meta .= '<li><a href="' . esc_url( get_category_link( $this_category ) ) . '" rel="category">' . $this_category->name . "</a></li>\n";
+				};
+				$category_meta .= "</ul>\n";
+			}
+		}
+	}
+
+	$details['comments_category'] = '';
+
+	if ( ! empty( $comments_meta ) ) {
+		$details['comments_category'] .= '<span class="comments">' . $comments_meta . '</span>';
+	}
+
+	if ( ! empty( $category_meta ) ) {
+		$details['comments_category'] .= $category_meta;
+	}
+
+	return $details;
+}
+add_filter( 'pixelgrade_card_post_details', 'vasco_extend_card_post_details' );

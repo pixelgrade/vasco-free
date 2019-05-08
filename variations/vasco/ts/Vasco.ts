@@ -65,13 +65,6 @@ export class Vasco extends BaseTheme {
       .subscribe( () => {
         this.prepareFeatureHover();
         this.initStamp();
-      } );
-
-    GlobalService
-      .onCustomizerChange()
-      .pipe( debounceTime( 300 ) )
-      .pipe( takeWhile( () => this.subscriptionActive ) )
-      .subscribe( () => {
         this.updateBlobParameters();
       } );
   }
@@ -85,27 +78,13 @@ export class Vasco extends BaseTheme {
   public updateBlobParameters() {
     const extWindow: ExtendedWindow = window;
     const wp = extWindow.wp;
-    const $goo = $('#goo');
 
     const complexity = parseInt( wp.customize( 'vasco_options[blobs_complexity]' )(), 10 ) / 100;
-    const smoothness = parseInt( wp.customize( 'vasco_options[blobs_smoothness]' )(), 10 );
+    const smoothness = parseInt( wp.customize( 'vasco_options[blobs_smoothness]' )(), 10 ) / 100;
     const preset = parseInt( wp.customize( 'vasco_options[blobs_preset]' )(), 10 );
 
     this.blobs.forEach( ( blob ) => {
-      if ( blob.getPreset() !== preset ) {
-        blob.setPreset( preset );
-      }
-      blob.setComplexity( complexity );
-      blob.morph( 600 );
-    });
-
-    requestAnimationFrame(() => {
-      const stdDeviation = Math.max(smoothness, 0);
-      const rgbaMatrix = '0 0 0 ' + (1 + smoothness) + ' -' + (smoothness / 3);
-
-      $goo.find( 'feGaussianBlur' ).attr( 'stdDeviation', stdDeviation );
-      $goo.find( 'feColorMatrix' )
-        .attr( 'values', '1 0 0 0 0  0 1 0 0 0  0 0 1 0 0 ' + rgbaMatrix );
+      blob.morph({complexity, preset, smoothness});
     });
   }
 
@@ -144,8 +123,11 @@ export class Vasco extends BaseTheme {
     // Fix for iOS Safari because it triggers and Resize event when scrolling in page and the address bar hides.
     // The window dimensions don't change, only the event is triggered
     if ( this.windowDimensions.width !== this.$window.width()
-      && this.windowDimensions.height !== this.$window.height() ) {
-      this.windowDimensions = { width: this.$window.width(), height: this.$window.height() };
+      || this.windowDimensions.height !== this.$window.height() ) {
+      this.windowDimensions = {
+        height: this.$window.height(),
+        width: this.$window.width(),
+      };
       this.positionAnnouncementBar();
     }
   }
@@ -166,6 +148,7 @@ export class Vasco extends BaseTheme {
 
     this.handleGalleries( $container );
     this.eventHandlers( $container );
+    this.handleCards( $container );
 
     const $commentForm = $container.find( '.comment-form' );
 
@@ -179,14 +162,33 @@ export class Vasco extends BaseTheme {
     });
   }
 
+  public handleCards( $container: JQuery = this.$body ) {
+    const $cards = $container.find( '.c-card' );
+
+    $cards.each((i, obj) => {
+      const $card = $(obj);
+      const $meta = $card.find( '.c-card__meta' ).detach();
+      const $primary = $( '<div class="c-card__meta">' );
+      const $secondary = $primary.clone();
+
+      $meta.find( '.c-meta__primary' ).wrap( '<div class="c-meta">' ).parent().appendTo( $primary );
+      $meta.find( '.c-meta__secondary' ).wrap( '<div class="c-meta">' ).parent().appendTo( $secondary );
+
+      $primary.prependTo( $card );
+      $secondary.appendTo( $card.find( '.c-card__aside' ) );
+
+      $meta.remove();
+    });
+  }
+
   public generateBlobs() {
     const preset = parseInt( $( 'body' ).data( 'blobs-preset' ), 10 );
     const complexity = parseInt( $( 'body' ).data( 'blobs-complexity' ), 10 ) / 100;
-    const sides = 13;
+    const smoothness = parseInt( $( 'body' ).data( 'blobs-smoothness' ), 10 ) / 100;
 
     $( '.blob--shape-1' ).each( (i, obj) => {
       const $obj = $(obj);
-      const blob = new Blob(sides, complexity, preset);
+      const blob = new Blob(preset, complexity, smoothness);
 
       this.blobs.push( blob );
       $obj.append( blob.getSvg() );
@@ -194,7 +196,7 @@ export class Vasco extends BaseTheme {
 
     $( '.blob--shape-2' ).each( (i, obj) => {
       const $obj = $(obj);
-      const blob = new Blob(sides, complexity, preset, 1);
+      const blob = new Blob(preset, complexity, smoothness, 1);
 
       this.blobs.push( blob );
       $obj.append( blob.getSvg() );
@@ -202,7 +204,7 @@ export class Vasco extends BaseTheme {
 
     $( '.blob--shape-3' ).each( (i, obj) => {
       const $obj = $(obj);
-      const blob = new Blob(sides, complexity, preset, 2);
+      const blob = new Blob(preset, complexity, smoothness, 2);
 
       this.blobs.push( blob );
       $obj.append( blob.getSvg() );

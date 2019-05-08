@@ -238,3 +238,9 @@
     @include spacing(margin-top, 0.25rem);
   }
 }
+
+.c-card__footer {
+  .u-underlined-links & a {
+    text-decoration: none;
+  }
+}

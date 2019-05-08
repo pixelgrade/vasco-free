@@ -18,7 +18,7 @@
   }
 }
 
-.single,
+.single-post,
 .page,
 .archive,
 .search,
@@ -129,4 +129,151 @@ span.page-numbers {
 
 [id="wpadminbar"] {
   transform: translateZ(0);
+}
+
+.woocommerce-checkout {
+
+  &.has-toolbar {
+    padding-right: 0;
+  }
+
+  .o-layout__main {
+    @include spacing(padding-top, 4rem);
+    @include spacing(padding-bottom, 4rem);
+  }
+
+  [id="order_review_heading"] {
+    margin-top: 0;
+  }
+}
+
+// checkout products table adjustments
+.shop_table[class],
+.woocommerce-product-attributes[class] {
+
+  th {
+    color: inherit;
+  }
+
+  tr {
+    background: none;
+  }
+}
+
+// mini cart title color
+.c-mini-cart__title {
+  color: inherit;
+}
+
+// mini cart product titles color
+.c-mini-cart[class] {
+  .cart_list a:not(.remove),
+  .product_list_widget a:not(.remove) {
+    color: inherit;
+  }
+}
+
+ul.woocommerce-checkout-breadcrumbs {
+  margin-top: 0;
+}
+
+@mixin underlined-link {
+  position: relative;
+  border-bottom: 2px solid transparent;
+  transition: color .2s ease-out;
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    transform: scaleY(0);
+    transform-origin: 50% 100%;
+    transition: transform .2s ease-out;
+  }
+}
+
+@mixin underlined-link-active {
+
+  &:after {
+    transform: scaleY(1);
+  }
+}
+
+.woocommerce-categories {
+
+  a,
+  .active {
+    @include underlined-link;
+  }
+
+  .u-underlined-links &[class] {
+
+    a:hover,
+    .active {
+      text-decoration: none;
+
+      @include underlined-link-active;
+    }
+  }
+}
+
+// properly position blobs on product page
+#content .c-product-main {
+  @include specific(3) {
+    &, .entry-summary {
+      position: relative;
+    }
+  }
+}
+
+.shop_table {
+
+  @include specific(3) {
+
+    @include below(768px) { // woocommerce mobile breakpoint
+
+      td {
+        background: none
+      }
+
+      td, th {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+table.variations {
+  tbody tr {
+     background: none;
+  }
+}
+
+.u-buttons-rounded .c-product-main .cart .qty {
+  border-radius: 0.3em;
+}
+
+.woocommerce .product .images .flex-control-thumbs > li {
+  @include spacing(max-width, 116px);
+}
+
+.woocommerce-product-category {
+  display: flex;
+
+  li + li:before {
+    content: "/";
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+  }
+}
+
+.c-btn--sale-flash {
+  @include taxonomy-button;
+  @include leading-map($woocommerce-card-meta-secondary-font);
+  background-color: $btn-background;
 }

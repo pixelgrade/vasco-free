@@ -69,6 +69,7 @@ function vasco_announcement_bar() {
 function vasco_blobs_preset_body_attribute( $attributes ) {
 	$attributes['data-blobs-preset'] = pixelgrade_option( 'blobs_preset', 357 );
 	$attributes['data-blobs-complexity'] = pixelgrade_option( 'blobs_complexity', 84 );
+	$attributes['data-blobs-smoothness'] = pixelgrade_option( 'blobs_smoothness', 26 ) . '';
 	return $attributes;
 }
 add_filter( 'pixelgrade_body_attributes', 'vasco_blobs_preset_body_attribute' );
@@ -139,6 +140,4 @@ function vasco_product_blobs() {
 		get_template_part( 'template-parts/content-blob' );
 	}
 }
-add_action( 'woocommerce_before_single_product_summary', 'vasco_product_blobs', 9 );
-
-
+//add_action( 'woocommerce_before_single_product_summary', 'vasco_product_blobs', 9 );

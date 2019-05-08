@@ -26,6 +26,7 @@ add_filter( 'pixelgrade_customify_main_content_section_options', 'vasco_customif
 add_filter( 'pixelgrade_customify_buttons_section_options', 'vasco_customify_buttons_section', 10, 2 );
 add_filter( 'pixelgrade_footer_customify_section_options', 'vasco_customify_footer_section', 10, 2 );
 add_filter( 'pixelgrade_customify_blog_grid_section_options', 'vasco_customify_blog_grid_section', 10, 2 );
+add_filter( 'pixelgrade_customify_woocommerce_grid_section_options', 'vasco_customify_woocommerce_grid_section', 10, 2 );
 
 // Color Constants
 define( 'SM_COLOR_PRIMARY', '#38c3c8' );
@@ -76,8 +77,8 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 	// The section might be already defined, thus we merge, not replace the entire section config.
 	$options['sections']['style_manager_section'] = array_replace_recursive( $options['sections']['style_manager_section'], array(
 		'options' => array(
-			'sm_color_primary' => array(
-				'default' => SM_COLOR_PRIMARY,
+			'sm_color_primary'   => array(
+				'default'          => SM_COLOR_PRIMARY,
 				'connected_fields' => array(
 					'blob_secondary_color',
 					'announcement_bar_background_color',
@@ -85,7 +86,7 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 				),
 			),
 			'sm_color_secondary' => array(
-				'default' => SM_COLOR_SECONDARY,
+				'default'          => SM_COLOR_SECONDARY,
 				'connected_fields' => array(
 					'accent_color',
 					'blob_main_color',
@@ -95,24 +96,29 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'main_content_heading_5_color',
 					'main_content_heading_6_color',
 					'blog_item_meta_primary_color',
+					'woocommerce_item_meta_primary_color',
+					'blog_item_footer_color',
+					'woocommerce_item_footer_color',
 				),
 			),
-			'sm_color_tertiary' => array(
+			'sm_color_tertiary'  => array(
 				'default' => SM_COLOR_TERTIARY,
 			),
-			'sm_dark_primary' => array(
-				'default' => SM_DARK_PRIMARY,
+			'sm_dark_primary'    => array(
+				'default'          => SM_DARK_PRIMARY,
 				'connected_fields' => array(
 					// DARK COLOR
 					'accent_dark_color',
 					'blob_tertiary_color',
 					'header_navigation_links_color',
+					'blog_item_thumbnail_background',
+					'woocommerce_item_thumbnail_background',
 					'footer_links_color',
 					'footer_body_text_color',
 				),
 			),
-			'sm_dark_secondary' => array(
-				'default' => SM_DARK_SECONDARY,
+			'sm_dark_secondary'  => array(
+				'default'          => SM_DARK_SECONDARY,
 				'connected_fields' => array(
 					// TEXT COLOR
 					'main_content_body_link_color',
@@ -120,20 +126,21 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'main_content_heading_2_color',
 					'main_content_page_title_color',
 					'blog_item_title_color',
+					'woocommerce_item_title_color',
 					'main_content_heading_3_color',
 					'blog_item_excerpt_color',
+					'woocommerce_item_excerpt_color',
 					'main_content_body_text_color',
 				),
 			),
-			'sm_dark_tertiary' => array(
+			'sm_dark_tertiary'   => array(
 				'default' => SM_DARK_TERTIARY,
 			),
-			'sm_light_primary' => array(
-				'default' => SM_LIGHT_PRIMARY,
+			'sm_light_primary'   => array(
+				'default'          => SM_LIGHT_PRIMARY,
 				'connected_fields' => array(
 					'header_background',
 					'main_content_content_background_color',
-					'blog_item_thumbnail_background',
 					'footer_background',
 					'buttons_text_color',
 					'header_submenu_background',
@@ -145,7 +152,7 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 			'sm_light_secondary' => array(
 				'default' => SM_LIGHT_SECONDARY,
 			),
-			'sm_light_tertiary' => array(
+			'sm_light_tertiary'  => array(
 				'default' => SM_LIGHT_TERTIARY,
 			),
 		),
@@ -168,7 +175,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 		// General
 		'general' => array(
 			'options' => array(
-				'general_options_customizer_tabs' => array(
+				'general_options_customizer_tabs'        => array(
 					'type' => 'html',
 					'html' => '<nav class="section-navigation  js-section-navigation">
 							<a href="#section-title-general-colors">' . esc_html__( 'Colors', '__theme_txtd' ) . '</a>
@@ -176,11 +183,11 @@ function vasco_customify_general_section( $section_options, $options ) {
 							<a href="#section-title-general-stamps">' . esc_html__( 'Stamps', '__theme_txtd' ) . '</a>
 							</nav>',
 				),
-				'general_title_colors_section'     => array(
+				'general_title_colors_section'           => array(
 					'type' => 'html',
 					'html' => '<span id="section-title-general-colors" class="separator section label large">&#x1f3a8; ' . esc_html__( 'Colors', '__theme_txtd' ) . '</span>',
 				),
-				'accent_color' => array(
+				'accent_color'                           => array(
 					'type'    => 'color',
 					'label'   => esc_html__( 'Accent Color', '__theme_txtd' ),
 					'live'    => true,
@@ -203,7 +210,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 						),
 					),
 				),
-				'accent_dark_color' => array(
+				'accent_dark_color'                      => array(
 					'type'    => 'color',
 					'label'   => esc_html__( 'Accent Dark Color', '__theme_txtd' ),
 					'live'    => true,
@@ -228,17 +235,17 @@ function vasco_customify_general_section( $section_options, $options ) {
 					),
 				),
 				// [Section] Blobs
-				'general_title_blobs_section'     => array(
+				'general_title_blobs_section'            => array(
 					'type' => 'html',
 					// @todo Adjust the section icon
 					'html' => '<span id="section-title-general-blobs" class="separator section label large">&#x1f3a8; ' . esc_html__( 'Blobs', '__theme_txtd' ) . '</span>',
 				),
-				'show_blobs'                      => array(
+				'show_blobs'                             => array(
 					'type'    => 'checkbox',
 					'label'   => esc_html__( 'Show Blobs', '__theme_txtd' ),
 					'default' => true,
 				),
-				'blobs_preset' => array(
+				'blobs_preset'                           => array(
 					'type'        => 'range',
 					'label'       => esc_html__( 'Presets', '__theme_txtd' ),
 					'desc'        => '',
@@ -250,11 +257,9 @@ function vasco_customify_general_section( $section_options, $options ) {
 						'step'         => 1,
 						'data-preview' => true,
 					),
-					'css' => array(
-
-					),
+					'css'         => array(),
 				),
-				'blobs_complexity' => array(
+				'blobs_complexity'                       => array(
 					'type'        => 'range',
 					'label'       => esc_html__( 'Complexity', '__theme_txtd' ),
 					'desc'        => '',
@@ -266,11 +271,9 @@ function vasco_customify_general_section( $section_options, $options ) {
 						'step'         => 1,
 						'data-preview' => true,
 					),
-					'css' => array(
-
-					),
+					'css'         => array(),
 				),
-				'blobs_dispersion' => array(
+				'blobs_dispersion'                       => array(
 					'type'        => 'range',
 					'label'       => esc_html__( 'Dispersion', '__theme_txtd' ),
 					'desc'        => '',
@@ -282,7 +285,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 						'step'         => 1,
 						'data-preview' => true,
 					),
-					'css' => array(
+					'css'         => array(
 						array(
 							'property'        => 'dummy',
 							'selector'        => '.blob-dispersion',
@@ -291,7 +294,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 						),
 					),
 				),
-				'blobs_smoothness' => array(
+				'blobs_smoothness'                       => array(
 					'type'        => 'range',
 					'label'       => esc_html__( 'Smoothness', '__theme_txtd' ),
 					'desc'        => '',
@@ -303,11 +306,9 @@ function vasco_customify_general_section( $section_options, $options ) {
 						'step'         => 1,
 						'data-preview' => true,
 					),
-					'css' => array(
-
-					),
+					'css'         => array(),
 				),
-				'blob_main_color'                 => array(
+				'blob_main_color'                        => array(
 					'type'    => 'color',
 					'label'   => esc_html__( 'Blobs Main Color', '__theme_txtd' ),
 					'live'    => true,
@@ -319,7 +320,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 						),
 					),
 				),
-				'blob_secondary_color'            => array(
+				'blob_secondary_color'                   => array(
 					'type'    => 'color',
 					'label'   => esc_html__( 'Blobs Secondary Color', '__theme_txtd' ),
 					'live'    => true,
@@ -331,7 +332,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 						),
 					),
 				),
-				'blob_tertiary_color'             => array(
+				'blob_tertiary_color'                    => array(
 					'type'    => 'color',
 					'label'   => esc_html__( 'Blobs Tertiary Color', '__theme_txtd' ),
 					'live'    => true,
@@ -345,17 +346,17 @@ function vasco_customify_general_section( $section_options, $options ) {
 				),
 
 				// [Section] Stamps
-				'general_title_stamps_section'    => array(
+				'general_title_stamps_section'           => array(
 					'type' => 'html',
 					// @todo Adjust the section icon
 					'html' => '<span id="section-title-general-stamps" class="separator section label large">&#x1f3a8; ' . esc_html__( 'Stamps', '__theme_txtd' ) . '</span>',
 				),
-				'show_stamps'                     => array(
+				'show_stamps'                            => array(
 					'type'    => 'checkbox',
 					'label'   => esc_html__( 'Show Stamps', '__theme_txtd' ),
 					'default' => true,
 				),
-				'stamp_style'                     => array(
+				'stamp_style'                            => array(
 					'type'    => 'radio',
 					'label'   => esc_html__( 'Stamp Style', '__theme_txtd' ),
 					'desc'    => esc_html__( 'Set how the stamp is defined.', '__theme_txtd' ),
@@ -365,7 +366,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 						'custom' => esc_html__( 'Custom Image', '__theme_txtd' ),
 					),
 				),
-				'stamp_text'                      => array(
+				'stamp_text'                             => array(
 					'type'              => 'text',
 					'label'             => esc_html__( 'Stamp Text', '__theme_txtd' ),
 					'desc'              => esc_html__( 'Set the text that will appear around the stamp.', '__theme_txtd' ),
@@ -373,7 +374,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 					'sanitize_callback' => 'wp_kses_post',
 					'active_callback'   => 'vasco_stamp_text_control_show',
 				),
-				'stamp_icon'                      => array(
+				'stamp_icon'                             => array(
 					'type'            => 'select',
 					'label'           => esc_html__( 'Stamp Icon', '__theme_txtd' ),
 					'desc'            => esc_html__( 'Select an icon to be placed in the middle of the stamp.', '__theme_txtd' ),
@@ -392,13 +393,13 @@ function vasco_customify_general_section( $section_options, $options ) {
 					),
 					'active_callback' => 'vasco_stamp_icon_control_show',
 				),
-				'stamp_dark_image'                => array(
+				'stamp_dark_image'                       => array(
 					'type'            => 'media',
 					'label'           => esc_html__( 'Dark Stamp Image', '__theme_txtd' ),
 					'desc'            => '',
 					'active_callback' => 'vasco_stamp_dark_image_control_show',
 				),
-				'stamp_light_image'               => array(
+				'stamp_light_image'                      => array(
 					'type'            => 'media',
 					'label'           => esc_html__( 'Light Stamp Image', '__theme_txtd' ),
 					'desc'            => '',
@@ -498,7 +499,7 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 				),
 				'main_content_content_width'            => array(
 					'default' => 720,
-					'css'         => array(
+					'css'     => array(
 						array(
 							'property' => 'max-width',
 							'selector' => '
@@ -511,7 +512,7 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 				),
 				'main_content_border_width'             => array(
 					'default' => 0,
-					'css'         => array(
+					'css'     => array(
 						array(
 							'property' => 'border-width',
 							'selector' => 'html',
@@ -541,7 +542,7 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 				),
 				'main_content_border_color'             => array(
 					'default' => SM_LIGHT_PRIMARY,
-					'css' => array(
+					'css'     => array(
 						array(
 							'property' => 'border-color',
 							'selector' => 'html',
@@ -556,7 +557,7 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 				// [Section] COLORS
 				'main_content_page_title_color'         => array(
 					'default' => SM_DARK_SECONDARY,
-					'css' => array(
+					'css'     => array(
 						array(
 							'property' => 'color',
 							'selector' => '.u-page-title-color,
@@ -703,9 +704,9 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 				),
 
 				// [Section] FONTS
-				'main_content_page_title_font' => array(
+				'main_content_page_title_font'          => array(
 					'selector' => '
-						.single .entry-title,
+						.single-post .entry-title,
 						.page .entry-title,
 						.archive .entry-title,
 						.search .entry-title,
@@ -729,7 +730,7 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 						.o-layout__side .c-profile__content .c-profile__title,
 						.o-layout__side .widget_categories .cat-item,
 						.o-layout__side .widget_categories .cat-link',
-					'default' => array(
+					'default'  => array(
 						'font-family'    => THEME_BODY_FONT,
 						'font-weight'    => 'regular',
 						'font-size'      => 17,
@@ -778,7 +779,7 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 							.widget_promo_box .c-promo__title,
 							 h2,
 							 .h2',
-					'default' => array(
+					'default'  => array(
 						'font-family'    => THEME_HEADINGS_FONT,
 						'font-weight'    => 'regular',
 						'font-size'      => 40,
@@ -793,7 +794,7 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 						.widget_callout_box .c-feature__title,
 						 h3,
 						 .h3',
-					'default' => array(
+					'default'  => array(
 						'font-family'    => THEME_HEADINGS_FONT,
 						'font-weight'    => 'regular',
 						'font-size'      => 24,
@@ -812,10 +813,10 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 						.widget-area:not(.widget-area--footer-featured) .widget_wpcom_social_media_icons_widget .widget__title,
 						.widget-area:not(.widget-area--footer-featured) .jetpack_widget_social_icons .widget__title,
 						.c-stamp',
-					'default' => array(
+					'default'  => array(
 						'font-family'    => THEME_HEADINGS_FONT_ALT,
 						'font-weight'    => '500',
-						'font-size'      => 19,
+						'font-size'      => 18,
 						'line-height'    => 1.21,
 						'letter-spacing' => 0,
 						'text-transform' => 'none',
@@ -829,7 +830,9 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 						.site-description, 
 						.nav-links__label,
 						.c-footer__zone--bottom .menu,
-						.c-cart-trigger .cart-count',
+						.c-cart-trigger .cart-count,
+						table th,
+						.shop_attributes[class][class][class] th',
 					'default'  => array(
 						'font-family'    => THEME_HEADINGS_FONT_ALT,
 						'font-weight'    => '700',
@@ -901,12 +904,12 @@ function vasco_customify_main_content_section( $section_options, $options ) {
 
 	$section_options['main_content']['options'] = Pixelgrade_Array::insertAfterKey( $section_options['main_content']['options'], 'main_content_content_background_color', array(
 		'main_content_fields_background_color' => array(
-			'type'     => 'color',
-			'default'  => SM_LIGHT_PRIMARY,
-			'label'    => esc_html__( 'Fields Background Color', '__theme_txtd' ),
-			'desc'     => '',
-			'live'     => true,
-			'css' => array(
+			'type'    => 'color',
+			'default' => '#FFFFFF',
+			'label'   => esc_html__( 'Fields Background Color', '__theme_txtd' ),
+			'desc'    => '',
+			'live'    => true,
+			'css'     => array(
 				array(
 					'property' => 'background-color',
 					'selector' => '
@@ -955,7 +958,7 @@ function vasco_customify_buttons_section( $section_options, $options ) {
 	) );
 
 	$buttons_default = implode( ',', $buttons );
-	$buttons_solid = implode( ',', array_map( 'vasco_prefix_solid_buttons', $buttons ) );
+	$buttons_solid   = implode( ',', array_map( 'vasco_prefix_solid_buttons', $buttons ) );
 	$buttons_outline = implode( ',', array_map( 'vasco_prefix_outline_buttons', $buttons ) );
 
 	$buttons_active = implode( ',', array(
@@ -1093,7 +1096,7 @@ function vasco_customify_blog_grid_section( $section_options, $options ) {
 				),
 				'blog_items_aspect_ratio'            => array(
 					'default' => 40,
-					'css'         => array(
+					'css'     => array(
 						array(
 							'property'        => 'dummy',
 							'selector'        => '.c-card__frame',
@@ -1130,6 +1133,15 @@ function vasco_customify_blog_grid_section( $section_options, $options ) {
 					'default' => 1,
 				),
 				// [Sub Section] Items Meta
+				'blog_items_heading'                 => array(
+					'default' => 'title',
+				),
+				'blog_items_content'                 => array(
+					'default' => 'excerpt',
+				),
+				'blog_items_footer'                  => array(
+					'default' => 'read_more',
+				),
 				'blog_items_primary_meta'            => array(
 					'default' => 'comments_category',
 					'choices' => array(
@@ -1186,11 +1198,14 @@ function vasco_customify_blog_grid_section( $section_options, $options ) {
 						),
 					),
 				),
+				'blog_item_footer_color'             => array(
+					'default' => SM_COLOR_SECONDARY
+				),
 
 				// [Sub Section] Thumbnail Hover
 				'blog_item_thumbnail_hover_opacity'  => array(
 					'default' => 1,
-					'css'         => array(
+					'css'     => array(
 						array(
 							'property' => 'opacity',
 							'selector' => '.c-card:hover .c-card__frame',
@@ -1214,13 +1229,23 @@ function vasco_customify_blog_grid_section( $section_options, $options ) {
 				'blog_item_meta_font'                => array(
 					'selector' => '.c-meta__primary, .archive-title__pre-title',
 					'default'  => array(
-						'font-family'    => THEME_HEADINGS_FONT_ALT,
-						'font-weight'    => '500',
-						'font-size'      => 19,
-						'line-height'    => 1.1
+						'font-family' => THEME_HEADINGS_FONT_ALT,
+						'font-weight' => '500',
+						'font-size'   => 19,
+						'line-height' => 1.1
 					),
 				),
 				'blog_item_excerpt_font'             => array(
+					'default' => array(
+						'font-family'    => THEME_BODY_FONT,
+						'font-weight'    => '400',
+						'font-size'      => 16,
+						'line-height'    => 1.5,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'blog_item_footer_font'             => array(
 					'default' => array(
 						'font-family'    => THEME_BODY_FONT,
 						'font-weight'    => '400',
@@ -1240,6 +1265,144 @@ function vasco_customify_blog_grid_section( $section_options, $options ) {
 
 	unset( $section_options['blog_grid']['options']['blog_item_meta_secondary_color'] );
 	unset( $section_options['blog_grid']['options']['blog_grid_layout']['choices']['packed'] );
+
+	return $section_options;
+}
+
+/**
+ * Blog Grid Section
+ *
+ * @param array $section_options The specific Customify config to be filtered
+ * @param array $options The whole Customify config
+ *
+ * @return array $main_content_section The modified specific config
+ */
+function vasco_customify_woocommerce_grid_section( $section_options, $options ) {
+	// First setup the default values
+	// These should always come from the theme, not relying on the component's defaults
+	$modified_config = array(
+		// Blog Grid
+		'woocommerce_section' => array(
+			'options' => array(
+				// [Section] Layout
+				'woocommerce_grid_width'                    => array(
+					'default' => 1200,
+				),
+				'woocommerce_container_sides_spacing'       => array(
+					'default' => 42,
+				),
+				// [Sub Section] Items Grid
+				'woocommerce_grid_layout'                   => array(
+					'default' => 'regular',
+				),
+				'woocommerce_items_aspect_ratio'            => array(
+					'default' => 100,
+				),
+				'woocommerce_items_per_row'                 => array(
+					'default' => 3,
+				),
+				'woocommerce_items_vertical_spacing'        => array(
+					'default' => 0,
+				),
+				'woocommerce_items_horizontal_spacing'      => array(
+					'default' => 32,
+				),
+				// [Sub Section] Items Title
+				'woocommerce_items_title_position'          => array(
+					'default' => 'below',
+				),
+				'woocommerce_items_title_alignment_nearby'  => array(
+					'default' => 'left',
+				),
+				'woocommerce_items_title_alignment_overlay' => array(
+					'default' => 'middle-center',
+				),
+				// Title Visiblity
+				'woocommerce_items_title_visibility'        => array(
+					'default' => 1,
+				),
+				// Excerpt Visiblity
+				'woocommerce_items_excerpt_visibility'      => array(
+					'default' => 1,
+				),
+				// [Sub Section] Items Meta
+				'woocommerce_items_primary_meta'            => array(
+					'default' => 'category',
+				),
+				'woocommerce_items_secondary_meta'          => array(
+					'default' => 'none',
+				),
+				'woocommerce_items_heading'                 => array(
+					'default' => 'title',
+				),
+				'woocommerce_items_content'                 => array(
+					'default' => 'price',
+				),
+				'woocommerce_items_footer'                  => array(
+					'default' => 'none',
+				),
+
+				// [Section] COLORS
+				'woocommerce_item_title_color'              => array(
+					'default' => SM_DARK_SECONDARY,
+				),
+				'woocommerce_item_meta_primary_color'       => array(
+					'default' => SM_COLOR_SECONDARY,
+				),
+				'woocommerce_item_thumbnail_background'     => array(
+					'default' => SM_LIGHT_PRIMARY,
+				),
+				'woocommerce_item_excerpt_color'            => array(
+					'default' => SM_DARK_SECONDARY,
+				),
+				'woocommerce_item_footer_color'             => array(
+					'default' => SM_COLOR_SECONDARY
+				),
+
+				// [Sub Section] Thumbnail Hover
+				'woocommerce_item_thumbnail_hover_opacity'  => array(
+					'default' => 1,
+				),
+
+				// [Section] FONTS
+				'woocommerce_item_title_font'               => array(
+					'default'  => array(
+						'font-family'    => THEME_HEADINGS_FONT,
+						'font-weight'    => '700',
+						'font-size'      => 24,
+						'line-height'    => 1.25,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'woocommerce_item_meta_font'                => array(
+					'default'  => array(
+						'font-family' => THEME_HEADINGS_FONT_ALT,
+						'font-weight' => '500',
+						'font-size'   => 19,
+						'line-height' => 1.1
+					),
+				),
+				'woocommerce_item_excerpt_font'             => array(
+					'default' => array(
+						'font-family'    => THEME_BODY_FONT,
+						'font-weight'    => '400',
+						'font-size'      => 16,
+						'line-height'    => 1.5,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+			),
+		),
+	);
+
+	// Now we merge the modified config with the original one
+	// Thus overwriting what we have changed
+	$section_options = Pixelgrade_Config::merge( $section_options, $modified_config );
+
+	unset( $section_options['woocommerce_section']['options']['woocommerce_item_meta_secondary_color'] );
+	unset( $section_options['woocommerce_section']['options']['woocommerce_grid_layout']['choices']['packed'] );
 
 	return $section_options;
 }
@@ -1401,7 +1564,7 @@ function vasco_customify_header_section( $section_options, $options ) {
 				),
 			),
 		),
-	));
+	) );
 
 	return $section_options;
 }
@@ -1582,7 +1745,7 @@ if ( ! function_exists( 'pixelgrade_blobs_dispersion' ) ) :
 	/**
 	 * Returns the custom CSS rules for the aspect ratio depending on the Customizer settings.
 	 *
-	 * @param mixed  $value The value of the option.
+	 * @param mixed $value The value of the option.
 	 * @param string $selector The CSS selector for this option.
 	 * @param string $property The CSS property of the option.
 	 * @param string $unit The CSS unit used by this option.

@@ -1850,7 +1850,7 @@ function () {
     this.$body = external_jQuery_default()('body');
     this.$window = external_jQuery_default()(window);
     this.$html = external_jQuery_default()('html');
-    this.ev = external_jQuery_default()({});
+    this.ev = external_jQuery_default()();
     this.frameRendered = false;
     this.subscriptionActive = true;
     this.$html.toggleClass('is-IE', Helper_Helper.getIEversion() && Helper_Helper.getIEversion() < 12);
@@ -2443,7 +2443,7 @@ var blob_Blob =
 function (_BaseComponent) {
   blob_inherits(Blob, _BaseComponent);
 
-  function Blob(sides, complexity, preset) {
+  function Blob(preset, complexity, smoothness) {
     var _this;
 
     var presetOffset = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
@@ -2452,11 +2452,17 @@ function (_BaseComponent) {
 
     _this = blob_possibleConstructorReturn(this, blob_getPrototypeOf(Blob).call(this));
     _this.radius = 10;
+    _this.preset = 245;
+    _this.mostSides = 20;
     _this.complexity = 0.84;
-    _this.sides = sides;
-    _this.complexity = complexity;
-    _this.preset = preset + presetOffset;
+    _this.smoothness = 1;
     _this.presetOffset = presetOffset;
+
+    _this.setPreset(preset);
+
+    _this.setComplexity(complexity);
+
+    _this.setSmoothness(smoothness);
 
     _this.bindEvents();
 
@@ -2469,22 +2475,28 @@ function (_BaseComponent) {
     key: "generateSvg",
     value: function generateSvg() {
       var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-      var polygon = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+      var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
       svg.setAttribute('viewBox', '0 0 ' + 2 * this.radius + ' ' + 2 * this.radius);
       svg.setAttribute('fill', 'currentColor');
-      polygon.setAttribute('points', this.generatePoints(true));
-      svg.appendChild(polygon);
+      path.setAttribute('d', this.generatePoints());
+      svg.appendChild(path);
       return svg;
     }
   }, {
     key: "morph",
     value: function morph() {
-      var morphDuration = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 300;
+      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      var target = this.element.find('path').get(0);
+      var opts = external_jQuery_default.a.extend({
+        complexity: this.complexity,
+        preset: this.preset,
+        smoothness: this.smoothness
+      }, options);
       external_anime_default()({
-        duration: morphDuration,
-        offset: 0,
-        points: this.generatePoints(true),
-        targets: this.element.find('polygon').get(0)
+        d: this.generatePoints(opts),
+        duration: 1000,
+        easing: 'easeOutQuad',
+        targets: target
       });
     }
   }, {
@@ -2502,12 +2514,7 @@ function (_BaseComponent) {
     key: "getRatio",
     value: function getRatio(preset, i) {
       var pow = Math.pow(preset, i);
-      return (4 + 6 * this.getMagicDigit(pow) / 9) / 10;
-    }
-  }, {
-    key: "setPreset",
-    value: function setPreset(preset) {
-      this.preset = preset + this.presetOffset;
+      return (1 + this.getMagicDigit(pow)) / 10;
     }
   }, {
     key: "getMagicDigit",
@@ -2527,34 +2534,97 @@ function (_BaseComponent) {
       return sum;
     }
   }, {
+    key: "setPreset",
+    value: function setPreset(preset) {
+      this.preset = preset;
+    }
+  }, {
+    key: "getSidesFromPreset",
+    value: function getSidesFromPreset(preset) {
+      return Math.min(Math.max(3, Math.floor(Math.sqrt(preset))), this.mostSides);
+    }
+  }, {
     key: "setComplexity",
     value: function setComplexity(complexity) {
       this.complexity = complexity;
     }
   }, {
-    key: "setSides",
-    value: function setSides(sides) {
-      this.sides = sides;
+    key: "setSmoothness",
+    value: function setSmoothness(smoothness) {
+      this.smoothness = smoothness;
     }
   }, {
     key: "generatePoints",
     value: function generatePoints() {
-      var random = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+      var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var points = [];
+      var path = '';
+      var firstPoint = '';
+      var curves = '';
+      var options = external_jQuery_default.a.extend({
+        complexity: this.complexity,
+        preset: this.preset,
+        smoothness: this.smoothness
+      }, opts);
+      var sides = this.getSidesFromPreset(options.preset);
 
-      for (var i = 1; i <= this.sides; i++) {
+      for (var i = 1; i <= sides; i++) {
         // generate a regular polygon
         // we add pi/2 to the angle to have the tip of polygons with odd number of edges pointing upwards
-        var angle = 2 * Math.PI * i / this.sides - Math.PI / 2; // default ratio is 0.7 because the random one varies between 0.4 and 1
+        var angle = 2 * Math.PI * i / sides - Math.PI / 2; // default ratio is 0.7 because the random one varies between 0.4 and 1
 
         var defaultRatio = 0.7;
-        var ratio = defaultRatio + (this.getRatio(this.preset, i) - defaultRatio) * this.complexity;
-        var x = this.radius * (Math.cos(angle) * ratio + 1);
-        var y = this.radius * (Math.sin(angle) * ratio + 1);
-        points.push(x + ',' + y);
+        var initialRatio = this.getRatio(options.preset + this.presetOffset, i);
+        var ratio = defaultRatio + (initialRatio - defaultRatio) * options.complexity;
+        points.push({
+          x: this.radius * (Math.cos(angle) * ratio + 1),
+          y: this.radius * (Math.sin(angle) * ratio + 1)
+        });
       }
 
-      return points.join(' ');
+      var missingPoints = this.mostSides - sides;
+
+      for (var _i = 0; _i < points.length; _i++) {
+        var nextIdx = (_i + 1) % points.length;
+        var prevIdx = (_i + points.length - 1) % points.length;
+        var nextPt = points[nextIdx];
+        var thisPt = points[_i];
+        var prevPt = points[prevIdx];
+        var smoothness = Math.sqrt(options.smoothness);
+        var M1 = {
+          x: (prevPt.x + thisPt.x) / 2,
+          y: (prevPt.y + thisPt.y) / 2
+        };
+        var M2 = {
+          x: (thisPt.x + nextPt.x) / 2,
+          y: (thisPt.y + nextPt.y) / 2
+        };
+        var x1 = M1.x * (1 - smoothness) + thisPt.x * smoothness;
+        var y1 = M1.y * (1 - smoothness) + thisPt.y * smoothness;
+        var x2 = M2.x * (1 - smoothness) + thisPt.x * smoothness;
+        var y2 = M2.y * (1 - smoothness) + thisPt.y * smoothness;
+
+        if (_i === 0) {
+          firstPoint = M1.x + ' ' + M1.y;
+        }
+
+        curves += ' C ' + x1 + ' ' + y1 + ' ' + x2 + ' ' + y2 + ' ' + M2.x + ' ' + M2.y;
+        var dummyPointsCount = Math.round(missingPoints / (points.length - _i));
+
+        for (var j = 0; j < dummyPointsCount; j++) {
+          curves += ' C ' + M2.x + ' ' + M2.y + ' ' + M2.x + ' ' + M2.y + ' ' + M2.x + ' ' + M2.y;
+        }
+
+        missingPoints -= dummyPointsCount;
+      } // move to first point
+
+
+      path = 'M ' + firstPoint; // add the curves to draw the actual path
+
+      path += curves; // close the path
+
+      path += ' Z';
+      return path;
     }
   }, {
     key: "getSvg",
@@ -2663,10 +2733,7 @@ function (_BaseTheme) {
       _this.prepareFeatureHover();
 
       _this.initStamp();
-    });
-    global_service_GlobalService.onCustomizerChange().pipe(debounceTime(300)).pipe(takeWhile(function () {
-      return _this.subscriptionActive;
-    })).subscribe(function () {
+
       _this.updateBlobParameters();
     });
     return _this;
@@ -2683,23 +2750,15 @@ function (_BaseTheme) {
     value: function updateBlobParameters() {
       var extWindow = window;
       var wp = extWindow.wp;
-      var $goo = external_jQuery_default()('#goo');
       var complexity = parseInt(wp.customize('vasco_options[blobs_complexity]')(), 10) / 100;
-      var smoothness = parseInt(wp.customize('vasco_options[blobs_smoothness]')(), 10);
+      var smoothness = parseInt(wp.customize('vasco_options[blobs_smoothness]')(), 10) / 100;
       var preset = parseInt(wp.customize('vasco_options[blobs_preset]')(), 10);
       this.blobs.forEach(function (blob) {
-        if (blob.getPreset() !== preset) {
-          blob.setPreset(preset);
-        }
-
-        blob.setComplexity(complexity);
-        blob.morph(600);
-      });
-      requestAnimationFrame(function () {
-        var stdDeviation = Math.max(smoothness, 0);
-        var rgbaMatrix = '0 0 0 ' + (1 + smoothness) + ' -' + smoothness / 3;
-        $goo.find('feGaussianBlur').attr('stdDeviation', stdDeviation);
-        $goo.find('feColorMatrix').attr('values', '1 0 0 0 0  0 1 0 0 0  0 0 1 0 0 ' + rgbaMatrix);
+        blob.morph({
+          complexity: complexity,
+          preset: preset,
+          smoothness: smoothness
+        });
       });
     }
   }, {
@@ -2746,10 +2805,10 @@ function (_BaseTheme) {
       this.adjustLayout(); // Fix for iOS Safari because it triggers and Resize event when scrolling in page and the address bar hides.
       // The window dimensions don't change, only the event is triggered
 
-      if (this.windowDimensions.width !== this.$window.width() && this.windowDimensions.height !== this.$window.height()) {
+      if (this.windowDimensions.width !== this.$window.width() || this.windowDimensions.height !== this.$window.height()) {
         this.windowDimensions = {
-          width: this.$window.width(),
-          height: this.$window.height()
+          height: this.$window.height(),
+          width: this.$window.width()
         };
         this.positionAnnouncementBar();
       }
@@ -2771,6 +2830,7 @@ function (_BaseTheme) {
       Helper_Helper.handleCustomCSS($container);
       this.handleGalleries($container);
       this.eventHandlers($container);
+      this.handleCards($container);
       var $commentForm = $container.find('.comment-form');
 
       if ($commentForm.length) {
@@ -2783,16 +2843,33 @@ function (_BaseTheme) {
       });
     }
   }, {
+    key: "handleCards",
+    value: function handleCards() {
+      var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
+      var $cards = $container.find('.c-card');
+      $cards.each(function (i, obj) {
+        var $card = external_jQuery_default()(obj);
+        var $meta = $card.find('.c-card__meta').detach();
+        var $primary = external_jQuery_default()('<div class="c-card__meta">');
+        var $secondary = $primary.clone();
+        $meta.find('.c-meta__primary').wrap('<div class="c-meta">').parent().appendTo($primary);
+        $meta.find('.c-meta__secondary').wrap('<div class="c-meta">').parent().appendTo($secondary);
+        $primary.prependTo($card);
+        $secondary.appendTo($card.find('.c-card__aside'));
+        $meta.remove();
+      });
+    }
+  }, {
     key: "generateBlobs",
     value: function generateBlobs() {
       var _this2 = this;
 
       var preset = parseInt(external_jQuery_default()('body').data('blobs-preset'), 10);
       var complexity = parseInt(external_jQuery_default()('body').data('blobs-complexity'), 10) / 100;
-      var sides = 13;
+      var smoothness = parseInt(external_jQuery_default()('body').data('blobs-smoothness'), 10) / 100;
       external_jQuery_default()('.blob--shape-1').each(function (i, obj) {
         var $obj = external_jQuery_default()(obj);
-        var blob = new blob_Blob(sides, complexity, preset);
+        var blob = new blob_Blob(preset, complexity, smoothness);
 
         _this2.blobs.push(blob);
 
@@ -2800,7 +2877,7 @@ function (_BaseTheme) {
       });
       external_jQuery_default()('.blob--shape-2').each(function (i, obj) {
         var $obj = external_jQuery_default()(obj);
-        var blob = new blob_Blob(sides, complexity, preset, 1);
+        var blob = new blob_Blob(preset, complexity, smoothness, 1);
 
         _this2.blobs.push(blob);
 
@@ -2808,7 +2885,7 @@ function (_BaseTheme) {
       });
       external_jQuery_default()('.blob--shape-3').each(function (i, obj) {
         var $obj = external_jQuery_default()(obj);
-        var blob = new blob_Blob(sides, complexity, preset, 2);
+        var blob = new blob_Blob(preset, complexity, smoothness, 2);
 
         _this2.blobs.push(blob);
 

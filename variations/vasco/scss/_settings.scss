@@ -47,7 +47,7 @@ $header-height: 87px;
 $header-mobile-height: 60px;
 $header-links-spacing: 56px;
 $header-sides-spacing: 42px;
-$branding-horizontal: true;
+$branding-horizontal: false;
 // ----------------------------------------
 // Colors
 // ----------------------------------------
@@ -260,11 +260,10 @@ $blog-excerpt-visibility: true;
 // ----------------------------------------
 $blog-card-title-color: #2B3D39;
 $blog-primary-meta-color: $sm-color-secondary;
-$blog-secondary-meta-color: #828282;
+$blog-secondary-meta-color: #FFFFFF;
 $blog-thumbnail-background: $sm-color-secondary;
 $blog-thumbnail-background-opacity: 0.5;
 
-$blog-secondary-meta-color: #FFF !default;
 // ----------------------------------------
 // Fonts
 // ----------------------------------------
@@ -346,3 +345,44 @@ $input-font: (
 );
 
 $jetpack-sharing-icon-bg: #3B3B3B;
+$input-padding: 8px 19px 10px;
+
+// WOOCOMMERCE GRID COLORS & FONTS
+
+$woocommerce-card-title-color: #2B3D39;
+$woocommerce-primary-meta-color: $sm-color-secondary;
+$woocommerce-secondary-meta-color: #FFFFFF;
+$woocommerce-thumbnail-background: $sm-color-secondary;
+
+$woocommerce-thumbnail-background-opacity: 0.5;
+
+// Fonts
+// ----------------------------------------
+$woocommerce-card-title-font: (
+    font-family: $theme-headings-font-family,
+    font-size: 24px,
+    line-height: 1.25,
+    font-weight: 700
+);
+
+$woocommerce-card-meta-primary-font: $h4;
+$woocommerce-card-meta-secondary-font: (
+    font-family: $theme-logo-font-family,
+    font-size: 19px,
+    line-height: (23/19),
+    font-weight: bold,
+    letter-spacing: (1em/19)
+);
+
+$blog-card-excerpt-color: #2b3d39;
+$blog-card-footer-color: #f59828;
+$woocommerce-card-excerpt-color: #2b3d39;
+$woocommerce-card-footer-color: #2b3d39;
+
+$blog-card-excerpt-font: (
+    font-size: 16px
+);
+
+$blog-card-footer-font: $blog-card-excerpt-font;
+$woocommerce-card-excerpt-font: $blog-card-excerpt-font;
+$woocommerce-card-footer-font: $blog-card-excerpt-font;
