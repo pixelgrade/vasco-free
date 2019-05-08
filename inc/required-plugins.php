@@ -30,6 +30,21 @@ function vasco_register_required_plugins() {
 			'version'            => '1.5.0',
 			'is_automatic'       => false,
 		),
+		array(
+			'name'               => 'Customify',
+			'slug'               => 'customify',
+			'required'           => true,
+		),
+		array(
+			'name'               => 'Gridable',
+			'slug'               => 'gridable',
+			'required'           => false,
+		),
+		array(
+			'name'               => 'Jetpack',
+			'slug'               => 'jetpack',
+			'required'           => false,
+		),
 	);
 
 	$config = array(
@@ -74,4 +89,4 @@ function vasco_register_required_plugins() {
 	tgmpa( $plugins, $config );
 
 }
-add_action( 'tgmpa_register', 'vasco_register_required_plugins', 999 );
+add_action( 'tgmpa_register', 'vasco_register_required_plugins', 995 );
