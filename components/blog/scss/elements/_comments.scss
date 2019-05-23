@@ -29,17 +29,18 @@ $comments-toggle-label-background: #000 !default;
 
 .comment-list {
 
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  .children {
     list-style: none;
-    padding: 0;
-    margin: 0;
+  }
 
-    .children {
-        list-style: none;
-    }
+  > li + li {
+    @include spacing(margin-top, 2rem);
+  }
 
-    > li + li {
-        @include spacing(margin-top, 2rem);
-    }
 }
 
 .comment-list,

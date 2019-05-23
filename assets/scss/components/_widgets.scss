@@ -1,3 +1,18 @@
+.widget_archive,
+.widget_categories,
+.widget_meta,
+.widget_nav_menu,
+.widget_pages,
+.widget_recent_comments,
+.widget_recent_entries,
+.widget_rss,
+.widget_text,
+.widget_tag_cloud,
+.widget_search,
+.widget_calendar {
+  @extend .wordpress-default-widgets;
+}
+
 .widget-area > * + *,
 .widget-area--footer-featured {
   @include spacing(margin-top, 6rem);
@@ -68,16 +83,14 @@
   font-size: (19em/17);
   line-height: (26/19);
 
-  a {
-    color: $sm-color-secondary;
-  }
 }
 
 .widget_archive,
 .widget_meta,
 .widget_recent_comments,
 .widget_recent_entries,
-.widget_rss {
+.widget_rss,
+.widget_categories {
   @extend %widget--list;
 }
 
@@ -301,3 +314,17 @@ body {
   }
 }
 
+.wordpress-default-widgets {
+  ul ul {
+    counter-reset: submenu;
+    > li > a:before {
+      content: "- " counters(submenu, "- ", none);
+      counter-increment: submenu;
+    }
+  }
+
+  ul, ol {
+    list-style: none;
+    padding-left: 0;
+  }
+}
