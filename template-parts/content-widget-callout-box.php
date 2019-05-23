@@ -30,16 +30,16 @@ if ( ! empty( $title ) || ! empty( $description ) || ( ! empty( $button_text ) &
 		}
 
 		if ( ! empty( $title ) ) { ?>
-			<div class="c-callout__title"><?php echo $title; // WPCS: XSS OK. ?></div>
+			<div class="c-callout__title"><?php echo wp_kses_post( $title ); ?></div>
 		<?php }
 
 		if ( ! empty( $description ) ) { ?>
-			<div class="c-callout__description"><?php echo $description; // WPCS: XSS OK. ?></div>
+			<div class="c-callout__description"><?php echo wp_kses_post( $description ); ?></div>
 		<?php }
 
 		if ( ! empty( $button_text ) && ! empty( $button_url ) ) { ?>
 			<div class="c-callout__action">
-				<a href="<?php echo esc_url( $button_url ); ?>" class="c-callout__btn c-btn c-btn--default"><?php echo $button_text; // WPCS: XSS OK. ?></a>
+				<a href="<?php echo esc_url( $button_url ); ?>" class="c-callout__btn c-btn c-btn--default"><?php echo wp_kses_post( $button_text ); ?></a>
 			</div>
 		<?php } ?>
 
@@ -49,7 +49,7 @@ if ( ! empty( $title ) || ! empty( $description ) || ( ! empty( $button_text ) &
 
 if ( ! empty ( $image ) ) { ?>
 	<div class="c-callout__media">
-		<?php echo wp_get_attachment_image( $image, 'pixelgrade_single_landscape' ); ?>
+		<?php echo wp_get_attachment_image( $image, 'pixelgrade_single_landscape' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</div>
 <?php }
 

@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! empty( $queried_categories ) || ! is_wp_error( $queried_categories ) ) {
 
 	if ( ! empty( $title ) ) {
-		echo $args['before_title'] . $title . $args['after_title']; // WPCS: XSS OK.
+		echo $args['before_title'] . $title . $args['after_title']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	} ?>
 
 	<div class="c-categories__content">
@@ -59,7 +59,7 @@ if ( ! empty( $queried_categories ) || ! is_wp_error( $queried_categories ) ) {
 				/**
 				 * Filters the HTML output of a category in the Categories widget
 				 */
-				echo apply_filters( 'pixelgrade_category_widget', $output, $args ); // WPCS: XSS OK.
+				echo apply_filters( 'pixelgrade_category_widget', $output, $args ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			} ?>
 		</ul>
 	</div>
