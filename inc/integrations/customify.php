@@ -287,7 +287,7 @@ function vasco_customify_general_section( $section_options, $options ) {
 					),
 					'css'         => array(
 						array(
-							'property'        => 'dummy',
+							'property'        => 'column-gap',
 							'selector'        => '.blob-dispersion',
 							'callback_filter' => 'pixelgrade_blobs_dispersion',
 							'unit'            => '%',
@@ -1098,7 +1098,7 @@ function vasco_customify_blog_grid_section( $section_options, $options ) {
 					'default' => 40,
 					'css'     => array(
 						array(
-							'property'        => 'dummy',
+							'property'        => 'column-gap',
 							'selector'        => '.c-card__frame',
 							'callback_filter' => 'pixelgrade_aspect_ratio_cb',
 							'unit'            => '%',
