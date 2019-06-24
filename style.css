@@ -5994,8 +5994,9 @@ and the top and bottom ones rotate to form an X
                 transform: scaleY(1); }
     .c-navbar[class] .sub-menu {
       position: absolute;
-      top: 100%;
+      top: inherit;
       left: 0;
+      z-index: 1;
       display: none;
       width: 100%;
       padding-left: 0;
@@ -6074,7 +6075,7 @@ and the top and bottom ones rotate to form an X
 .c-navbar {
   font-family: "HK Grotesk", sans-serif;
   font-size: 16px;
-  line-height: 1;
+  line-height: 1.5;
   font-weight: normal;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -6198,6 +6199,15 @@ and the top and bottom ones rotate to form an X
   .c-logo + a {
     display: none; } }
 
+.site-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 9000;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0); }
+
 .c-navbar__checkbox {
   display: none; }
 
@@ -6223,6 +6233,18 @@ and the top and bottom ones rotate to form an X
   .c-navbar li[class*="children"]:hover > > a:after {
     -webkit-transform: translateY(50%) rotate(-135deg);
             transform: translateY(50%) rotate(-135deg); }
+
+.site-header-mobile .js-search-trigger {
+  right: 42px; }
+  @media only screen and (max-width: 1024px) {
+    .site-header-mobile .js-search-trigger {
+      right: 30.45317px; } }
+  @media only screen and (max-width: 768px) {
+    .site-header-mobile .js-search-trigger {
+      right: 23.88626px; } }
+  @media only screen and (max-width: 320px) {
+    .site-header-mobile .js-search-trigger {
+      right: 19.64912px; } }
 
 @media not screen and (min-width: 62.5em) {
   .entry-footer__wrapper {
