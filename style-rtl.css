@@ -5994,8 +5994,9 @@ and the top and bottom ones rotate to form an X
                 transform: scaleY(1); }
     .c-navbar[class] .sub-menu {
       position: absolute;
-      top: 100%;
+      top: inherit;
       right: 0;
+      z-index: 1;
       display: none;
       width: 100%;
       padding-right: 0;
@@ -6074,7 +6075,7 @@ and the top and bottom ones rotate to form an X
 .c-navbar {
   font-family: "HK Grotesk", sans-serif;
   font-size: 16px;
-  line-height: 1;
+  line-height: 1.5;
   font-weight: normal;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -6203,24 +6204,9 @@ and the top and bottom ones rotate to form an X
   top: 0;
   left: 0;
   right: 0;
-  z-index: 9000; }
-  .admin-bar .site-header {
-    top: 32px; }
-  .demo-site .site-header {
-    top: 80px; }
-  .admin-bar.demo-site .site-header {
-    top: 112px; }
-  @media (max-width: 782px) {
-    .admin-bar .site-header {
-      top: 46px; }
-    .admin-bar.demo-site .site-header {
-      top: 126px; } }
-  @media (max-width: 700px) {
-    .admin-bar.demo-site .site-header {
-      top: 146px; } }
-  @media screen and (max-width: 600px) {
-    .admin-bar .site-header {
-      position: absolute; } }
+  z-index: 9000;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0); }
 
 .c-navbar__checkbox {
   display: none; }
@@ -6247,6 +6233,18 @@ and the top and bottom ones rotate to form an X
   .c-navbar li[class*="children"]:hover > > a:after {
     -webkit-transform: translateY(50%) rotate(135deg);
             transform: translateY(50%) rotate(135deg); }
+
+.site-header-mobile .js-search-trigger {
+  left: 42px; }
+  @media only screen and (max-width: 1024px) {
+    .site-header-mobile .js-search-trigger {
+      left: 30.45317px; } }
+  @media only screen and (max-width: 768px) {
+    .site-header-mobile .js-search-trigger {
+      left: 23.88626px; } }
+  @media only screen and (max-width: 320px) {
+    .site-header-mobile .js-search-trigger {
+      left: 19.64912px; } }
 
 @media not screen and (min-width: 62.5em) {
   .entry-footer__wrapper {
@@ -9225,10 +9223,19 @@ table td:last-child {
             appearance: none;
     position: absolute;
     top: 0;
-    left: 0;
+    left: 42px;
     height: 60px;
     cursor: pointer;
     color: inherit; }
+    @media only screen and (max-width: 1024px) {
+      .c-search-overlay__close-button {
+        left: 30.45317px; } }
+    @media only screen and (max-width: 768px) {
+      .c-search-overlay__close-button {
+        left: 23.88626px; } }
+    @media only screen and (max-width: 320px) {
+      .c-search-overlay__close-button {
+        left: 19.64912px; } }
     .c-search-overlay__close-button svg {
       display: block; }
     @media only screen and (min-width: 62.5em) {
