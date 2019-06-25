@@ -9223,19 +9223,10 @@ table td:last-child {
             appearance: none;
     position: absolute;
     top: 0;
-    left: 42px;
+    left: 0;
     height: 60px;
     cursor: pointer;
     color: inherit; }
-    @media only screen and (max-width: 1024px) {
-      .c-search-overlay__close-button {
-        left: 30.45317px; } }
-    @media only screen and (max-width: 768px) {
-      .c-search-overlay__close-button {
-        left: 23.88626px; } }
-    @media only screen and (max-width: 320px) {
-      .c-search-overlay__close-button {
-        left: 19.64912px; } }
     .c-search-overlay__close-button svg {
       display: block; }
     @media only screen and (min-width: 62.5em) {

@@ -29,7 +29,7 @@
 
     position: absolute;
     top: 0;
-    @include spacing(right, $header-sides-spacing);
+    right: 0;
 
     height: $header-mobile-height;
     cursor: pointer;
