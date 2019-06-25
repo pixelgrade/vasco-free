@@ -380,7 +380,7 @@ class Pixelgrade_Woocommerce_Customizer extends Pixelgrade_Singleton {
 						),
 						'css'         => array(
 							array(
-								'property' => 'dummy',
+								'property' => 'column-gap',
 								'selector' => '.dummy',
 								'unit'     => 'px',
 							),
