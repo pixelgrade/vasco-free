@@ -3533,6 +3533,17 @@ figure {
   margin: 0; }
   .comment-list .children {
     list-style: none; }
+    .comment-list .children > li + li {
+      margin-top: 28px; }
+      @media only screen and (max-width: 1024px) {
+        .comment-list .children > li + li {
+          margin-top: 20.74074px; } }
+      @media only screen and (max-width: 768px) {
+        .comment-list .children > li + li {
+          margin-top: 16.47059px; } }
+      @media only screen and (max-width: 320px) {
+        .comment-list .children > li + li {
+          margin-top: 13.65854px; } }
   .comment-list > li + li {
     margin-top: 28px; }
     @media only screen and (max-width: 1024px) {
@@ -8113,6 +8124,12 @@ blockquote {
 
 .u-underlined-links .c-card__footer a {
   text-decoration: none; }
+
+.c-card__meta[class] ul {
+  margin-top: 0; }
+
+.c-card__badge {
+  right: 0; }
 
 .comment-list[class] {
   margin: 56px 0; }

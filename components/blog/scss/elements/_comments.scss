@@ -35,6 +35,10 @@ $comments-toggle-label-background: #000 !default;
 
   .children {
     list-style: none;
+
+      > li + li {
+          @include spacing(margin-top, 2rem);
+      }
   }
 
   > li + li {

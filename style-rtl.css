@@ -3533,6 +3533,17 @@ figure {
   margin: 0; }
   .comment-list .children {
     list-style: none; }
+    .comment-list .children > li + li {
+      margin-top: 28px; }
+      @media only screen and (max-width: 1024px) {
+        .comment-list .children > li + li {
+          margin-top: 20.74074px; } }
+      @media only screen and (max-width: 768px) {
+        .comment-list .children > li + li {
+          margin-top: 16.47059px; } }
+      @media only screen and (max-width: 320px) {
+        .comment-list .children > li + li {
+          margin-top: 13.65854px; } }
   .comment-list > li + li {
     margin-top: 28px; }
     @media only screen and (max-width: 1024px) {
