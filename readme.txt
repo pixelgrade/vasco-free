@@ -23,7 +23,7 @@ Vasco is a travel blog theme to help you increase your revenue streams and see m
 == Changelog ==
 
 = 1.4.1 =
-* Styling bug fixes.
+* Fixed some styling issues.
 * Optimized and refactored code.
 
 = 1.3.5 =
