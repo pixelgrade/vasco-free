@@ -24,6 +24,16 @@
 
 @import 'branding';
 
+.site-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 9000;
+
+  transform: translateZ(0);
+}
+
 .c-navbar__checkbox {
   display: none;
 }
@@ -61,5 +71,11 @@
         transform: translateY(50%) rotate(-135deg);
       }
     }
+  }
+}
+
+.site-header-mobile {
+  .js-search-trigger {
+    @include spacing(right, $header-sides-spacing);
   }
 }

@@ -26,16 +26,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="c-promo__content">
 
 		<?php if ( ! empty( $title ) ) { ?>
-			<div class="c-promo__title"><div><?php echo $title; // WPCS: XSS OK. ?></div></div>
+			<div class="c-promo__title"><div><?php echo wp_kses_post( $title ); ?></div></div>
 		<?php } ?>
 
 		<?php if ( ! empty( $description ) ) { ?>
-			<div class="c-promo__description"><div><?php echo $description; // WPCS: XSS OK. ?></div></div>
+			<div class="c-promo__description"><div><?php echo wp_kses_post( $description ); ?></div></div>
 		<?php } ?>
 
 		<?php if ( ! empty( $button_text ) && ! empty( $button_url ) ) { ?>
 			<div class="c-promo__action">
-				<a href="<?php echo esc_url( $button_url ); ?>" class="c-promo__btn c-btn"><?php echo $button_text; // WPCS: XSS OK. ?></a>
+				<a href="<?php echo esc_url( $button_url ); ?>" class="c-promo__btn c-btn"><?php echo wp_kses_post( $button_text ); ?></a>
 			</div>
 		<?php } ?>
 
@@ -45,7 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php if ( ! empty ( $image ) ) { ?>
 	<div class="c-promo__media">
-		<?php echo wp_get_attachment_image( $image, 'pixelgrade_single_portrait' ); // WPCS: XSS OK. ?>
+		<?php echo wp_get_attachment_image( $image, 'pixelgrade_single_portrait' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 
 		<?php if ( pixelgrade_option( 'show_stamps' ) ) {
 			get_template_part( 'template-parts/content-stamp' );

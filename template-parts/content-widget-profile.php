@@ -28,25 +28,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php if ( ! empty( $title ) || ! empty( $description ) || ( ! empty( $button_text ) && ! empty( $button_url ) ) ) {
 
 	if ( ! empty( $title ) ) { ?>
-		<div class="c-profile__dropcap"><?php echo substr( wp_kses( $title, array() ), 0, 1 ); // WPCS: XSS OK. ?></div>
+		<div class="c-profile__dropcap"><?php echo substr( wp_kses( $title, array() ), 0, 1 ); ?></div>
 	<?php } ?>
 
 	<div class="c-profile__content">
 
 		<?php if ( ! empty( $subtitle ) ) { ?>
-			<div class="c-profile__subtitle h5"><?php echo $subtitle; // WPCS: XSS OK. ?></div>
+			<div class="c-profile__subtitle h5"><?php echo wp_kses_post( $subtitle ); ?></div>
 		<?php }
 
 		if ( ! empty( $title ) ) { ?>
-			<div class="c-profile__title h2"><?php echo $title; // WPCS: XSS OK. ?></div>
+			<div class="c-profile__title h2"><?php echo wp_kses_post( $title ); ?></div>
 		<?php }
 
 		if ( ! empty( $description ) ) { ?>
-			<p class="c-profile__description"><?php echo $description; // WPCS: XSS OK. ?></p>
+			<p class="c-profile__description"><?php echo wp_kses_post( $description ); ?></p>
 		<?php }
 
 		if ( ! empty( $button_text ) && ! empty( $button_url ) ) { ?>
-			<a href="<?php echo esc_url( $button_url ); ?>" class="c-profile__btn c-btn"><?php echo $button_text; // WPCS: XSS OK. ?></a>
+			<a href="<?php echo esc_url( $button_url ); ?>" class="c-profile__btn c-btn"><?php echo wp_kses_post( $button_text ); ?></a>
 		<?php } ?>
 
 	</div><!-- .c-profile__content -->
@@ -65,7 +65,7 @@ if ( ! empty ( $image ) ) { ?>
 		?>
 		<!-- pixelgrade_widget_profile_before_profile_image -->
 
-		<?php echo wp_get_attachment_image( $image, 'pixelgrade_single_landscape' ); ?>
+		<?php echo wp_get_attachment_image( $image, 'pixelgrade_single_landscape' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 
 		<?php
 		/**

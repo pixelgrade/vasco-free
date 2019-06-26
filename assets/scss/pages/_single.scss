@@ -107,6 +107,17 @@
   }
 }
 
+.page-links {
+  @include spacing(margin-top, 2rem);
+  @include spacing(margin-bottom, 2rem);
+  @extend .h5 !optional;
+  clear: both;
+
+  &:before, &:after {
+    content: none;
+  }
+}
+
 .entry-content {
 
   .cats[class][class] {

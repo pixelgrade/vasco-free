@@ -210,10 +210,11 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
 			'loop-none'       => array(
 				'type'      => 'template_part',
 				'templates' => array(
-					array(
+					'content-none' => array(
 						'component_slug' => self::COMPONENT_SLUG,
 						'slug'           => 'content',
 						'name'           => 'none',
+						'lookup_parts_root' => true,
 					),
 				),
 				'checks'    => array(
@@ -528,9 +529,37 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
 					'blog/related-posts',
 				),
 			),
+
+			'page' => array(
+				'extend' => 'blog/default',
+				'type'   => 'loop', // We need this to be a loop so all who rely on "in_the_loop" have an easy life.
+				'blocks' => array(
+					'container' => array(
+						'extend' => 'blog/container',
+						'blocks' => array(
+							'layout' => array(
+								'extend' => 'blog/layout',
+								'blocks' => array(
+									'main' => array(
+										'extend' => 'blog/main',
+										'blocks' => array(
+											'blog/entry-header-page',
+											'blog/entry-content',
+											'blog/entry-footer',
+										),
+									),
+									'side' => array(
+										'extend' => 'blog/side',
+										'blocks' => array( 'blog/sidebar' ),
+									),
+								),
+							),
+						),
+					),
+				),
+			),
 		);
 
-		$this->registerPageBlock();
 
 		/*
 		 * For custom page templates, we can handle two formats:
@@ -777,68 +806,6 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
 		$this->config = $modified_config;
 	}
 
-	public function registerPageBlock() {
-
-		$location = array( 'page' );
-		if ( is_front_page() ) {
-			$location[] = 'front-page';
-		}
-
-		Pixelgrade_BlocksManager()->registerBlock('blog/content-page', array(
-			'extend' => 'blog/default',
-			'blocks' => array(
-				'before-loop' => array(
-					'type' => 'callback',
-					'callback' => 'do_action',
-					'args' => array( 'pixelgrade_before_loop', $location )
-				),
-				'layout' => array(
-					'extend' => 'blog/layout',
-					'blocks' => array(
-						'main' => array(
-							'extend' => 'blog/main',
-							'blocks' => array(
-								'blog/entry-header-page',
-								'blog/entry-thumbnail',
-								'content' => array(
-									'type'     => 'callback',
-									'callback' => 'pixelgrade_get_component_template_part',
-									'args'     => array( 'blog', 'content', 'page' ),
-								),
-								'blog/entry-footer',
-							),
-						),
-						'side' => array(
-							'extend' => 'blog/side',
-						),
-					),
-				),
-				'after-loop' => array(
-					'type' => 'callback',
-					'callback' => 'do_action',
-					'args' => array( 'pixelgrade_after_loop', $location )
-				),
-			),
-		) );
-
-		Pixelgrade_BlocksManager()->registerBlock('blog/page', array(
-			'type'   => 'loop', // We need this to be a loop so all who rely on "in_the_loop" have an easy life.
-			'blocks' => array(
-				'before-main-content' => array(
-					'type' => 'callback',
-					'callback' => 'do_action',
-					'args' => array( 'pixelgrade_before_main_content', $location )
-				),
-				'blog/content-page',
-				'after-main-content' => array(
-					'type' => 'callback',
-					'callback' => 'do_action',
-					'args' => array( 'pixelgrade_after_main_content', $location )
-				),
-			),
-		) );
-	}
-
 	/**
 	 * Load, instantiate and hook up.
 	 */
@@ -1016,7 +983,7 @@ class Pixelgrade_Blog extends Pixelgrade_Component {
 			$image_orientation = pixelgrade_get_post_thumbnail_aspect_ratio_class();
 
 			if ( ! empty( $image_orientation ) ) {
-				$classes[] = 'entry-image--' . $image_orientation;
+				$classes[] = 'entry-image--' . sanitize_html_class( $image_orientation );
 			}
 		}
 

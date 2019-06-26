@@ -26,16 +26,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<div class="c-feature__content u-content-width">
 		<?php if ( ! empty( $title ) ) { ?>
-			<div class="c-feature__title h3"><span><?php echo $title; // WPCS: XSS OK. ?></span></div>
+			<div class="c-feature__title h3"><span><?php echo wp_kses_post( $title ); ?></span></div>
 		<?php } ?>
 
 		<?php if ( ! empty( $description ) ) { ?>
-			<div class="c-feature__description"><?php echo $description; // WPCS: XSS OK. ?></div>
+			<div class="c-feature__description"><?php echo wp_kses_post( $description ); ?></div>
 		<?php } ?>
 
 		<?php if ( ! empty( $button_text ) && ! empty( $button_url ) ) { ?>
 			<div class="c-feature__action">
-				<a href="<?php echo esc_url( $button_url ); ?>" class="c-feature__btn c-btn"><?php echo $button_text; // WPCS: XSS OK. ?></a>
+				<a href="<?php echo esc_url( $button_url ); ?>" class="c-feature__btn c-btn"><?php echo wp_kses_post( $button_text ); ?></a>
 			</div>
 		<?php } ?>
 
@@ -53,6 +53,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div class="c-feature__media">
 	<?php if ( ! empty ( $image ) ) {
-		echo wp_get_attachment_image( $image, 'pixelgrade_single_landscape' ); // WPCS: XSS OK.
+		echo wp_get_attachment_image( $image, 'pixelgrade_single_landscape' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	} ?>
 </div>

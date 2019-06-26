@@ -34,11 +34,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php if ( ! empty( $subtitle ) || ! empty( $title ) ) { ?>
 				<div class="c-location__text">
 					<?php if ( ! empty( $subtitle ) ) { ?>
-						<h4 class="c-location__subtitle h4"><?php echo $subtitle; // WPCS: XSS OK. ?></h4>
+						<h4 class="c-location__subtitle h4"><?php echo wp_kses_post( $subtitle ); ?></h4>
 					<?php } ?>
 
 					<?php if ( ! empty( $title ) ) { ?>
-						<h2 class="c-location__title h2"><?php echo $title; // WPCS: XSS OK. ?></h2>
+						<h2 class="c-location__title h2"><?php echo wp_kses_post( $title ); ?></h2>
 					<?php } ?>
 				</div>
 			<?php } ?>
@@ -47,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<div class="c-location__media">
 			<?php if ( ! empty ( $image ) ) {
-				echo wp_get_attachment_image( $image, 'pixelgrade_single_landscape' ); // WPCS: XSS OK.
+				echo wp_get_attachment_image( $image, 'pixelgrade_single_landscape' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			} ?>
 		</div>
 

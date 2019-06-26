@@ -248,7 +248,7 @@ class Pixelgrade_Portfolio_Customizer extends Pixelgrade_Singleton {
 						),
 						'css'         => array(
 							array(
-								'property' => 'dummy',
+								'property' => 'column-gap',
 								'selector' => '.dummy',
 								'unit'     => 'px',
 							),

@@ -44,7 +44,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<feGaussianBlur in="SourceGraphic" stdDeviation="<?php echo esc_attr( $blobs_smoothness ); ?>" result="blur"/>
 			<feColorMatrix
 				in="blur"
-				mode="matrix"
+				type="matrix"
 				values="1 0 0 0 0
 					0 1 0 0 0
 					0 0 1 0 0
@@ -56,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
 				<feColorMatrix
 					in="blur"
-					mode="matrix"
+					type="matrix"
 					values="1 0 0 0 0
 						0 1 0 0 0
 						0 0 1 0 0

@@ -244,3 +244,13 @@
     text-decoration: none;
   }
 }
+
+.c-card__meta[class] {
+  ul {
+    margin-top: 0;
+  }
+}
+
+.c-card__badge {
+  right: 0;
+}
