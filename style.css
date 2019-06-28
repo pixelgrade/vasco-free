@@ -3,7 +3,7 @@ Theme Name: Vasco
 Author: Pixelgrade
 Author URI: https://pixelgrade.com
 Description: Vasco is a travel blog theme to help you increase your revenue streams and see more of the world. With big and beautiful imagery, modular layout, compatibility with the new Gutenberg editor, multilingual support, and a smart widget system for next-level customizations, you have all the right tools to express your personality and nurture a loyal audience around your fascinating stories.
-Version: 1.4.1
+Version: 1.4.2
 Tested up to: 5.2.2
 License: GNU General Public License v2 or later
 License URI: LICENSE
@@ -11,8 +11,16 @@ Text Domain: vasco
 Domain Path: /languages/
 Tags: blog, holiday, photography, translation-ready, featured-images, custom-menu, custom-logo, one-column, two-columns, three-columns, four-columns, editor-style, sticky-post, footer-widgets, threaded-comments, rtl-language-support
 
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
+Vasco WordPress Theme, Copyright (C) 2018-2019, Pixelgrade.
+Vasco is distributed under the terms of the GNU GPL v2 or later.
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
+
+Vasco is based on Underscores http://underscores.me/, (C) 2012-2018 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
@@ -3533,17 +3541,6 @@ figure {
   margin: 0; }
   .comment-list .children {
     list-style: none; }
-    .comment-list .children > li + li {
-      margin-top: 28px; }
-      @media only screen and (max-width: 1024px) {
-        .comment-list .children > li + li {
-          margin-top: 20.74074px; } }
-      @media only screen and (max-width: 768px) {
-        .comment-list .children > li + li {
-          margin-top: 16.47059px; } }
-      @media only screen and (max-width: 320px) {
-        .comment-list .children > li + li {
-          margin-top: 13.65854px; } }
   .comment-list > li + li {
     margin-top: 28px; }
     @media only screen and (max-width: 1024px) {
