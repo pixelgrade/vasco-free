@@ -33,7 +33,7 @@ function vasco_register_required_plugins() {
 		array(
 			'name'               => 'Customify',
 			'slug'               => 'customify',
-			'required'           => true,
+			'required'           => false,
 		),
 		array(
 			'name'               => 'Gridable',
