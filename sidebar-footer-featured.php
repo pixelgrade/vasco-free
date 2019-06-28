@@ -8,6 +8,10 @@
  * @since 1.3.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 if ( ! is_active_sidebar( 'footer-featured' ) ) {
 	return;
 }
