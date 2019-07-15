@@ -46,17 +46,6 @@ if ( ! class_exists( 'Pixelgrade_FeaturedPosts_GridWidget' ) ) :
 				),
 			);
 
-			if ( ! pixelgrade_user_has_access( 'pro-features' ) ) {
-				if ( empty( $config['sidebars_not_supported'] ) ) {
-					$config['sidebars_not_supported'] = array();
-				}
-
-				// @todo Maybe use an entry like 'all' to target any sidebar. Just to avoid working in the fields!
-				$config['sidebars_not_supported'] = array_merge( $config['sidebars_not_supported'], array(
-					'footer-featured',
-				) );
-			}
-
 			parent::__construct( 'featured-posts-grid',
 				apply_filters( 'pixelgrade_widget_name', esc_html__( '&#10; Pixelgrade: Grid Posts', '__theme_txtd' ) ),
 				$widget_ops,

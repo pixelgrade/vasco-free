@@ -36,21 +36,6 @@ function vasco_the_toolbar() {
 }
 
 /**
- * Initialize custom widgets.
- */
-function vasco_pro_custom_widgets_init() {
-	/**
-	 * Promo Box Widget available only in the PRO version
-	 */
-	$path = pixelgrade_get_parent_theme_file_path( 'inc/widgets/class-PromoBoxWidget.php' );
-	if ( ! empty( $path ) ) {
-		require_once $path; // @codingStandardsIgnoreLine
-		register_widget( 'Pixelgrade_PromoBoxWidget' );
-	}
-}
-add_action( 'widgets_init', 'vasco_pro_custom_widgets_init', 32 );
-
-/**
  * Display the announcement bar.
  */
 function vasco_announcement_bar() {

@@ -75,10 +75,6 @@ function vasco_pixcare_install_page() {
 	// &amp; is not something that wp.ajax can actually handle
 	$nonce_url = str_replace( 'amp;', '', $nonce_url );
 
-	// @todo Maybe reevaluate this way of enqueing the styles and scripts. Something is fishy.
-	wp_enqueue_style( 'galanogrotesquealt', '//pxgcdn.com/fonts/galanogrotesquealt/stylesheet.css' );
-	wp_enqueue_style( 'galanoclassic', '//pxgcdn.com/fonts/galanoclassic/stylesheet.css' );
-
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'wp-util' );
 

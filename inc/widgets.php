@@ -29,7 +29,7 @@ function vasco_widget_areas_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Footer - Featured Area', '__theme_txtd' ),
 		'id'            => 'footer-featured',
-		'description'   => vasco_pro_widget_description('footer-featured'), // WPCS: XSS OK.
+		'description'   => 'Site-wide widgets displayed above the Footer Area of your website.', // WPCS: XSS OK.
 		'before_widget' => '<section id="%1$s" class="widget widget--full %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget__title h3"><span>',
@@ -37,27 +37,6 @@ function vasco_widget_areas_init() {
 	) );
 }
 add_action( 'widgets_init', 'vasco_widget_areas_init', 10 );
-
-/**
- * Check if the Pro version is enabled.
- * If so, some widgets description will be specific, regarding the widgets role.
- *
- * @param string $id ID of the widget area
- *
- * @return string A specific message, regarding the status of the widget area.
- */
-function vasco_pro_widget_description($sidebar_id) {
-	if ( pixelgrade_user_has_access( 'pro-features' ) ) {
-		if ( $sidebar_id === 'footer-featured' ) {
-			return esc_html__( 'Site-wide widgets displayed above the Footer Area of your website.', '__theme_txtd' );
-		} else {
-			return esc_html__( 'Add widgets here.', '__theme_txtd' );
-		}
-	}
-
-	/* translators: %s: The pro theme name */
-	return sprintf( esc_html__( 'Ooops! This entire widget area does not support Pixelgrade Widgets. You want to stand out from the crowd, right? Upgrade to %s and unlock all features.', '__theme_txtd' ), 'Vasco PRO' );
-}
 
 /**
  * Register the our custom widgets for use in Appearance -> Widgets
@@ -83,22 +62,6 @@ function vasco_custom_widgets_init() {
 	// The Location Widget
 	require_once pixelgrade_get_parent_theme_file_path( pixelgrade_get_theme_relative_path( __DIR__ ) . 'widgets/class-LocationWidget.php' );
 	register_widget( 'Pixelgrade_LocationWidget' );
-
-	// The Feature Widget
-	require_once pixelgrade_get_parent_theme_file_path( pixelgrade_get_theme_relative_path( __DIR__ ) . 'widgets/class-FeatureCardWidget.php' );
-	register_widget( 'Pixelgrade_FeatureCardWidget' );
-
-	// The Callout Box Widget
-	require_once pixelgrade_get_parent_theme_file_path( pixelgrade_get_theme_relative_path( __DIR__ ) . 'widgets/class-CalloutBoxWidget.php' );
-	register_widget( 'Pixelgrade_CalloutBoxWidget' );
-
-	// The Categories Widget
-	require_once pixelgrade_get_parent_theme_file_path( pixelgrade_get_theme_relative_path( __DIR__ ) . 'widgets/class-CategoriesWidget.php' );
-	register_widget( 'Pixelgrade_CategoriesWidget' );
-
-	// The Stamp Widget
-	require_once pixelgrade_get_parent_theme_file_path( pixelgrade_get_theme_relative_path( __DIR__ ) . 'widgets/class-StampWidget.php' );
-	register_widget( 'Pixelgrade_StampWidget' );
 
 	// @codingStandardsIgnoreEnd
 }
