@@ -129,8 +129,8 @@ if ( ! function_exists( 'vasco_google_fonts_url' ) ) :
 
 		if ( $fonts ) {
 			$fonts_url = add_query_arg( array(
-				'family' => urlencode( implode( '|', $fonts ) ),
-				'subset' => urlencode( $subsets ),
+				'family' => rawurlencode( implode( '|', $fonts ) ),
+				'subset' => rawurlencode( $subsets ),
 			), '//fonts.googleapis.com/css' );
 		}
 
