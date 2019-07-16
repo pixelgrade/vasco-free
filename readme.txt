@@ -4,7 +4,7 @@ Description: Vasco is a travel blog theme to help you increase your revenue stre
 Tags: blog, holiday, photography, translation-ready, featured-images, custom-menu, custom-logo, one-column, two-columns, three-columns, four-columns, editor-style, sticky-post, footer-widgets, threaded-comments, rtl-language-support
 Requires at least: 4.9.9
 Tested up to: 5.2.2
-Stable tag: 1.4.2
+Stable tag: 1.3.6
 Requires PHP: 5.3.0
 License: GPLv2 or later
 License URI: LICENSE
@@ -23,10 +23,8 @@ Vasco is a travel blog theme to help you increase your revenue streams and see m
 
 == Changelog ==
 
-= 1.4.2 =
+= 1.3.6 =
 * Cleanup and security enhancements.
-
-= 1.4.1 =
 * Fixed some styling issues.
 * Optimized and refactored code.
 
