@@ -20,10 +20,6 @@ function vasco_setup_components() {
 	add_theme_support( 'pixelgrade-header-component' );
 	add_theme_support( 'pixelgrade-footer-component' );
 	add_theme_support( 'pixelgrade-gallery-settings-component' );
-
-	if ( pixelgrade_user_has_access( 'woocommerce' ) ) {
-		add_theme_support( 'pixelgrade-woocommerce-component' );
-	}
 }
 add_action( 'after_setup_theme', 'vasco_setup_components', 10 );
 
@@ -54,9 +50,7 @@ function vasco_customize_footer_config( $config ) {
 	$config['zones']['middle']['display_blank'] = false;
 	$config['zones']['bottom']['display_blank'] = false;
 
-	if ( ! pixelgrade_user_has_access( 'pro-features' ) ) {
-		unset( $config['sidebars']['sidebar-footer'] );
-	}
+	unset( $config['sidebars']['sidebar-footer'] );
 
 	return $config;
 }

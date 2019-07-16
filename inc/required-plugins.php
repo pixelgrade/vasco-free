@@ -13,11 +13,6 @@ require_once pixelgrade_get_parent_theme_file_path( pixelgrade_get_theme_relativ
  */
 function vasco_register_required_plugins() {
 
-	$protocol = 'http:';
-	if ( is_ssl() ) {
-		$protocol = 'https:';
-	}
-
 	$plugins = array(
 		array(
 			'name'               => 'Customify',

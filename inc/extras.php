@@ -418,16 +418,6 @@ function vasco_kses_anchor_content( $content ) {
 	return wp_kses( $content, $allowedtags );
 }
 
-function vasco_maybe_load_pro_features() {
-	if ( true === pixelgrade_user_has_access( 'pro-features' ) ) {
-		pixelgrade_autoload_dir( 'inc/pro' );
-	} else {
-		pixelgrade_autoload_dir( 'inc/lite' );
-	}
-}
-// We want to do this as early as possible. So the zero priority is as intended.
-add_action( 'after_setup_theme', 'vasco_maybe_load_pro_features', 0 );
-
 function vasco_change_cart_menu_item_location( $location ) {
 	$location = false;
 	return $location;
@@ -486,3 +476,5 @@ function vasco_extend_card_post_details( $details ) {
 	return $details;
 }
 add_filter( 'pixelgrade_card_post_details', 'vasco_extend_card_post_details' );
+
+pixelgrade_autoload_dir( 'inc/lite' );
