@@ -1,7 +1,7 @@
 # Vasco: A Free WordPress Travel Blog Theme
 ### Vasco is a travel blog theme to help you increase your revenue streams and see more of the world. With big and beautiful imagery, modular layout, compatibility with the new Gutenberg editor, multilingual support, and a smart widget system for next-level customizations, you have all the right tools to express your personality and nurture a loyal audience around your fascinating stories.
 
-[Download for Free](https://downloads.wordpress.org/theme/vasco.latest-stable.zip) &nbsp;·&nbsp; [Demo Preview](https://demos.pixelgrade.com/vasco-lite/) &nbsp;·&nbsp; [ Vasco Pro](https://pixelgrade.com/themes/vasco-pro/)
+[View Demo](https://demos.pixelgrade.com/vasco-lite/) &nbsp;·&nbsp; [Documentation](https://pixelgrade.com/vasco-documentation/) &nbsp;·&nbsp; [Download for Free](https://downloads.wordpress.org/theme/vasco.latest-stable.zip) &nbsp;·&nbsp; [View Pro Version](https://pixelgrade.com/themes/vasco-pro/)
 
 [![](https://img.shields.io/github/issues-closed/pixelgrade/vasco-free.svg?color=6cc644&label=Issues)](https://github.com/pixelgrade/vasco-free/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aclosed+) [![](https://img.shields.io/github/issues/pixelgrade/vasco-free.svg?color=4078c0&label=%20)](https://github.com/pixelgrade/vasco-free/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen)
 
