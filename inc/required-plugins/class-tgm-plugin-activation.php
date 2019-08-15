@@ -7,11 +7,8 @@
  * for the support of your plugin or theme. Please contact the plugin
  * or theme author for support.
  *
- * @codingStandardsIgnoreFile
- * phpcs:ignoreFile
- *
  * @package   TGM-Plugin-Activation
- * @version   2.6.1 for parent theme Vasco for publication on WordPress.org
+ * @version   2.6.1
  * @link      http://tgmpluginactivation.com/
  * @author    Thomas Griffin, Gary Jones, Juliette Reinders Folmer
  * @copyright Copyright (c) 2011, Thomas Griffin
@@ -334,38 +331,38 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 				/* translators: %s: plugin name. */
 				'updating'                        => esc_html__( 'Updating Plugin: %s', '__theme_txtd' ),
 				'oops'                            => esc_html__( 'Something went wrong with the plugin API.', '__theme_txtd' ),
+				'notice_can_install_required'     => _n_noop(
 				/* translators: 1: plugin name(s). */
-                'notice_can_install_required'     => _n_noop(
 					'This theme requires the following plugin: %1$s.',
 					'This theme requires the following plugins: %1$s.',
 					'__theme_txtd'
 				),
-				/* translators: 1: plugin name(s). */
 				'notice_can_install_recommended'  => _n_noop(
+				/* translators: 1: plugin name(s). */
 					'This theme recommends the following plugin: %1$s.',
 					'This theme recommends the following plugins: %1$s.',
 					'__theme_txtd'
 				),
-				/* translators: 1: plugin name(s). */
 				'notice_ask_to_update'            => _n_noop(
+				/* translators: 1: plugin name(s). */
 					'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.',
 					'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.',
 					'__theme_txtd'
 				),
-				/* translators: 1: plugin name(s). */
 				'notice_ask_to_update_maybe'      => _n_noop(
+				/* translators: 1: plugin name(s). */
 					'There is an update available for: %1$s.',
 					'There are updates available for the following plugins: %1$s.',
 					'__theme_txtd'
 				),
-				/* translators: 1: plugin name(s). */
 				'notice_can_activate_required'    => _n_noop(
+				/* translators: 1: plugin name(s). */
 					'The following required plugin is currently inactive: %1$s.',
 					'The following required plugins are currently inactive: %1$s.',
 					'__theme_txtd'
 				),
-				/* translators: 1: plugin name(s). */
 				'notice_can_activate_recommended' => _n_noop(
+				/* translators: 1: plugin name(s). */
 					'The following recommended plugin is currently inactive: %1$s.',
 					'The following recommended plugins are currently inactive: %1$s.',
 					'__theme_txtd'
@@ -389,8 +386,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 				'dashboard'                       => esc_html__( 'Return to the Dashboard', '__theme_txtd' ),
 				'plugin_activated'                => esc_html__( 'Plugin activated successfully.', '__theme_txtd' ),
 				'activated_successfully'          => esc_html__( 'The following plugin was activated successfully:', '__theme_txtd' ),
-				/* translators: 1: plugin name. */
-				'plugin_already_active'           => esc_html__( 'No action taken. Plugin %1$s was already active.', '__theme_txtd' ),
+				'plugin_already_active'           => esc_html__( 'No action taken. Plugin was already active.', '__theme_txtd' ),
 				/* translators: 1: plugin name. */
 				'plugin_needs_higher_version'     => esc_html__( 'Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin.', '__theme_txtd' ),
 				/* translators: 1: dashboard link. */
@@ -672,7 +668,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 
 				<?php
 				if ( ! empty( $this->message ) && is_string( $this->message ) ) {
-					echo wp_kses_post( $this->message ); // WPCS: XSS OK.
+					echo wp_kses_post( $this->message );
 				}
 				?>
 				<?php $plugin_table->views(); ?>
@@ -960,8 +956,8 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 				$activate = activate_plugin( $file_path );
 
 				if ( is_wp_error( $activate ) ) {
-					echo '<div id="message" class="error"><p>' . wp_kses_post( $activate->get_error_message() ) . '</p></div>' .
-					'<p><a href="' . esc_url( $this->get_tgmpa_url() ) . '" target="_parent">' . esc_html( $this->strings['return'] ) . '</a></p>';
+					echo '<div id="message" class="error"><p>', wp_kses_post( $activate->get_error_message() ), '</p></div>',
+					'<p><a href="', esc_url( $this->get_tgmpa_url() ), '" target="_parent">', esc_html( $this->strings['return'] ), '</a></p>';
 
 					return false; // End it here if there is an error with activation.
 				} else {
@@ -2413,7 +2409,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 						'<a href="%s"%s>%s</a>',
 						esc_url( $this->tgmpa->get_tgmpa_status_url( $type ) ),
 						( $type === $this->view_context ) ? ' class="current"' : '',
-						wp_kses_post( sprintf( $text, number_format_i18n( $count ) ) )
+						sprintf( $text, number_format_i18n( $count ) )
 					);
 				}
 			}
