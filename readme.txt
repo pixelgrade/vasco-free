@@ -1,11 +1,11 @@
 === Vasco ===
 Contributors: pixelgrade, babbardel, vlad.olaru, razvanonofrei
 Description: Vasco is a travel blog theme to help you increase your revenue streams and see more of the world. With big and beautiful imagery, modular layout, compatibility with the new Gutenberg editor, multilingual support, and a smart widget system for next-level customizations, you have all the right tools to express your personality and nurture a loyal audience around your fascinating stories.
-Version: 1.3.7.1
+Version: 1.3.8
 Tags: blog, holiday, photography, translation-ready, featured-images, custom-menu, custom-logo, one-column, two-columns, three-columns, four-columns, editor-style, sticky-post, footer-widgets, threaded-comments, rtl-language-support
 Requires at least: 4.9.9
 Tested up to: 5.2.2
-Stable tag: 1.3.7.1
+Stable tag: 1.3.8
 Requires PHP: 5.3.0
 License: GPLv2 or later
 License URI: LICENSE
@@ -23,6 +23,10 @@ Vasco is a travel blog theme to help you increase your revenue streams and see m
 3. Click Activate to use your new theme right away.
 
 == Changelog ==
+
+= 1.3.8 =
+* Added Style Manager.
+* Added Customify recommended plugin.
 
 = 1.3.7.1 =
 * Added Pixelgrade Assistant as recommended plugin.

@@ -23,6 +23,7 @@ function vasco_register_required_plugins() {
 		array(
 			'name'               => 'Customify',
 			'slug'               => 'customify',
+			'is_callable'        => 'PixCustomifyPlugin',
 			'required'           => false,
 		),
 		array(
