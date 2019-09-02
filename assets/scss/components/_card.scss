@@ -139,6 +139,18 @@
     pointer-events: none;
   }
 
+  &:focus-within {
+    .c-meta__primary,
+    .c-card__action,
+    .c-card__thumbnail-background:before {
+      opacity: 1;
+    }
+
+    .c-card__action:before {
+      width: 29px;
+    }
+  }
+
   @include below(lap) {
     @include spacing('margin-bottom', 1rem);
 

@@ -1722,22 +1722,22 @@ a {
               transform: translate3d(-5px, calc(0.5px - 50%), 0); }
 
 ::-webkit-input-placeholder {
-  color: #3B3B3B;
+  color: currentColor;
   opacity: .6;
   font-style: italic; }
 
 ::-moz-placeholder {
-  color: #3B3B3B;
+  color: currentColor;
   opacity: .6;
   font-style: italic; }
 
 :-ms-input-placeholder {
-  color: #3B3B3B;
+  color: currentColor;
   opacity: .6;
   font-style: italic; }
 
 :-moz-placeholder {
-  color: #3B3B3B;
+  color: currentColor;
   opacity: .6;
   font-style: italic; }
 
@@ -8037,6 +8037,11 @@ blockquote {
   transition: all 0.3s ease-in-out;
   opacity: 0;
   pointer-events: none; }
+
+.c-card:focus-within .c-meta__primary,
+.c-card:focus-within .c-card__action,
+.c-card:focus-within .c-card__thumbnail-background:before {
+  opacity: 1; }
 
 @media not screen and (min-width: 62.5em) {
   .c-card {

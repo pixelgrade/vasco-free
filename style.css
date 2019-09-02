@@ -8038,6 +8038,14 @@ blockquote {
   opacity: 0;
   pointer-events: none; }
 
+.c-card:focus-within .c-meta__primary,
+.c-card:focus-within .c-card__action,
+.c-card:focus-within .c-card__thumbnail-background:before {
+  opacity: 1; }
+
+.c-card:focus-within .c-card__action:before {
+  width: 29px; }
+
 @media not screen and (min-width: 62.5em) {
   .c-card {
     margin-bottom: 14px; }
