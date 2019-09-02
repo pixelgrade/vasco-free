@@ -2751,9 +2751,17 @@ function (_BaseTheme) {
     value: function updateBlobParameters() {
       var extWindow = window;
       var wp = extWindow.wp;
-      var complexity = parseInt(wp.customize('vasco_options[blobs_complexity]')(), 10) / 100;
-      var smoothness = parseInt(wp.customize('vasco_options[blobs_smoothness]')(), 10) / 100;
-      var preset = parseInt(wp.customize('vasco_options[blobs_preset]')(), 10);
+      var complexitySetting = wp.customize('vasco_options[blobs_complexity]');
+      var smoothnessSetting = wp.customize('vasco_options[blobs_smoothness]');
+      var presetSetting = wp.customize('vasco_options[blobs_preset]');
+
+      if (typeof complexitySetting === "undefined" || typeof smoothnessSetting === "undefined" || typeof presetSetting === "undefined") {
+        return;
+      }
+
+      var complexity = parseInt(complexitySetting(), 10) / 100;
+      var smoothness = parseInt(smoothnessSetting(), 10) / 100;
+      var preset = parseInt(presetSetting(), 10);
       this.blobs.forEach(function (blob) {
         blob.morph({
           complexity: complexity,

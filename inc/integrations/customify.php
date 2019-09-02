@@ -18,9 +18,9 @@
  */
 
 add_filter( 'customify_filter_fields', 'vasco_lite_add_customify_options', 11, 1 );
-add_filter( 'customify_filter_fields', 'vasco_lite_add_customify_style_manager_section', 12, 1 );
+add_filter( 'customify_filter_fields', 'vasco_lite_add_customify_style_manager_section', 13, 1 );
 
-add_filter( 'customify_filter_fields', 'vasco_lite_fill_customify_options', 20 );
+add_filter( 'customify_filter_fields', 'vasco_lite_fill_customify_options', 50 );
 
 // Color Constants
 define( 'VASCOLITE_SM_COLOR_PRIMARY', '#38c3c8' );
@@ -34,6 +34,12 @@ define( 'VASCOLITE_SM_DARK_TERTIARY', '#65726f' );
 define( 'VASCOLITE_SM_LIGHT_PRIMARY', '#f5f6f1' );
 define( 'VASCOLITE_SM_LIGHT_SECONDARY', '#e6f7f7' );
 define( 'VASCOLITE_SM_LIGHT_TERTIARY', '#faede8' );
+
+// Font Family Constants
+define( 'VASCOLITE_BODY_FONT', 'Lora' );
+define( 'VASCOLITE_HEADINGS_FONT', 'YoungSerif' );
+define( 'VASCOLITE_HEADINGS_FONT_ALT', 'HK Grotesk' );
+define( 'VASCOLITE_SITE_TITLE_FONT', 'Bebas Neue' );
 
 function vasco_lite_add_customify_options( $options ) {
 	$options['opt-name'] = 'vasco_options';
@@ -144,7 +150,7 @@ function vasco_lite_add_customify_style_manager_section( $options ) {
 		),
 	);
 
-	$options['sections']['style_manager_section'] = Customify_Array::array_merge_recursive_distinct( $options['sections']['style_manager_section'], $new_config );
+	$options['sections']['style_manager_section'] = Pixelgrade_Config::merge( $options['sections']['style_manager_section'], $new_config );
 
 	return $options;
 }
@@ -167,6 +173,7 @@ function vasco_lite_fill_customify_options( $options ) {
 		'div.wpforms-container[class] .wpforms-form .wpforms-submit',
 	) );
 
+	$buttons_default = implode( ',', $buttons );
 	$buttons_solid   = implode( ',', array_map( 'vasco_prefix_solid_buttons', $buttons ) );
 	$buttons_outline = implode( ',', array_map( 'vasco_prefix_outline_buttons', $buttons ) );
 
@@ -293,6 +300,78 @@ function vasco_lite_fill_customify_options( $options ) {
 			'title'     => '',
 			'type'      => 'hidden',
 			'options'   => array(
+				// [Section] Layout
+				'header_logo_height'              => array(
+					'type'      => 'hidden_control',
+					'default' => 40,
+				),
+				'header_height'                   => array(
+					'type'      => 'hidden_control',
+					'default' => 87,
+					'css'     => array(
+						array(
+							'property' => 'height',
+							'selector' => '.u-header-height, .c-navbar .sub-menu',
+							'unit'     => 'px',
+						),
+						array(
+							'property' => 'padding-top',
+							'selector' => '.u-header-height-padding-top',
+							'unit'     => 'px',
+						),
+					),
+				),
+				'header_navigation_links_spacing' => array(
+					'type'      => 'hidden_control',
+					'default' => 28,
+					'css'     => array(
+						array(
+							'property'        => 'padding-left',
+							'selector'        => '.c-navbar a',
+							'unit'            => 'px',
+							'callback_filter' => 'typeline_spacing_cb',
+						),
+						array(
+							'property'        => 'padding-right',
+							'selector'        => '.c-navbar a',
+							'unit'            => 'px',
+							'callback_filter' => 'typeline_spacing_cb',
+						),
+					),
+				),
+				'header_position'                 => array(
+					'type'      => 'hidden_control',
+					'default' => 'sticky',
+				),
+				'header_width'                    => array(
+					'type'      => 'hidden_control',
+					'default' => 'full',
+				),
+				'header_sides_spacing'            => array(
+					'type'      => 'hidden_control',
+					'default' => 42,
+					'css'     => array(
+						array(
+							'property'        => 'padding-left',
+							'selector'        => '.u-header-sides-spacing, .c-navbar__zone',
+							'unit'            => 'px',
+							'callback_filter' => 'typeline_spacing_cb',
+						),
+						array(
+							'property'        => 'padding-right',
+							'selector'        => '.u-header-sides-spacing, .c-navbar__zone',
+							'unit'            => 'px',
+							'callback_filter' => 'typeline_spacing_cb',
+						),
+						array(
+							'property'        => 'right',
+							'selector'        => '.site-header-mobile .js-search-trigger',
+							'unit'            => 'px',
+							'callback_filter' => 'typeline_spacing_cb',
+						),
+					),
+				),
+
 				'header_navigation_links_color'   => array(
 					'type'      => 'hidden_control',
 					'live'    => true,
@@ -353,12 +432,97 @@ function vasco_lite_fill_customify_options( $options ) {
 						),
 					),
 				),
+
+				// [Section] FONTS
+				'header_site_title_font'          => array(
+					'type'      => 'hidden_control',
+					'fields'  => array(
+						'font-size' => array(
+							'max' => 150,
+						),
+					),
+					'default' => array(
+						'font-family'    => VASCOLITE_SITE_TITLE_FONT,
+						'font-weight'    => '400',
+						'font-size'      => 30,
+						'line-height'    => 1,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'header_navigation_font'          => array(
+					'type'      => 'hidden_control',
+					'default' => array(
+						'font-family'    => VASCOLITE_HEADINGS_FONT_ALT,
+						'font-weight'    => '500',
+						'font-size'      => 17,
+						'line-height'    => 1.5,
+						'letter-spacing' => 0,
+						'text-transform' => 'none'
+					),
+				),
 			)
 		),
 		'main_content'          => array(
 			'title'     => '',
 			'type'      => 'hidden',
 			'options'   => array(
+				'main_content_container_width'          => array(
+					'default' => 1240,
+				),
+				'main_content_container_sides_spacing'  => array(
+					'default' => 42,
+				),
+				'main_content_container_padding'        => array(
+					'default' => 0,
+				),
+				'main_content_content_width'            => array(
+					'default' => 720,
+					'css'     => array(
+						array(
+							'property' => 'max-width',
+							'selector' => '
+									.u-content-width > :not(.wp-block-image):not([class*="align"]):not([class*="gallery"]):not(blockquote),
+									.mce-content-body:not([class*="page-template-full-width"]) > :not(.wp-block-image):not([class*="align"]):not([data-wpview-type*="gallery"]):not(blockquote):not(.mceTemp),
+									.swp_social_panel',
+							'unit'     => 'px',
+						),
+					),
+				),
+				'main_content_border_width'             => array(
+					'default' => 0,
+					'css'     => array(
+						array(
+							'property' => 'border-width',
+							'selector' => 'html',
+							'unit'     => 'px',
+						),
+						array(
+							'property' => 'border-top-width',
+							'selector' => '.site-header, .c-toolbar',
+							'unit'     => 'px',
+						),
+						array(
+							'property' => 'right',
+							'selector' => '.site-header, .c-toolbar, .back-to-top',
+							'unit'     => 'px',
+						),
+						array(
+							'property' => 'bottom',
+							'selector' => '.c-toolbar',
+							'unit'     => 'px',
+						),
+						array(
+							'property' => 'left',
+							'selector' => '.site-header',
+							'unit'     => 'px',
+						),
+					),
+				),
+				'main_content_underlined_body_links'    => array(
+					'default' => 1,
+				),
+
 				'main_content_border_color'             => array(
 					'default'   => VASCOLITE_SM_LIGHT_PRIMARY,
 					'type'      => 'hidden_control',
@@ -506,7 +670,7 @@ function vasco_lite_fill_customify_options( $options ) {
 					'default'   => VASCOLITE_SM_COLOR_SECONDARY,
 					'css'       => array(
 						array(
-							'selector' => 'h5, .h5, .nav-links__label, .c-author__links a',
+							'selector' => 'h5, .h5, .post-navigation .nav-links__label, .c-author__links a',
 							'property' => 'color'
 						),
 					),
@@ -577,12 +741,253 @@ function vasco_lite_fill_customify_options( $options ) {
 						),
 					),
 				),
+
+				// [Section] FONTS
+				'main_content_page_title_font'          => array(
+					'type'      => 'hidden_control',
+					'selector' => '
+						.single-post .entry-title,
+						.page .entry-title,
+						.archive .entry-title,
+						.search .entry-title,
+						.no-results .page-title,
+						.h0[class],
+						.c-search-overlay .search-field,
+						.edit-post-visual-editor .editor-post-title__block .editor-post-title__input[class],
+						.woocommerce-products-header__title',
+					'default'  => array(
+						'font-family'    => VASCOLITE_HEADINGS_FONT,
+						'font-size'      => 72,
+						'line-height'    => 1.11,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+
+				'main_content_body_text_font' => array(
+					'type'      => 'hidden_control',
+					'selector' => '
+						body,
+						.o-layout__side .c-profile__content .c-profile__title,
+						.o-layout__side .widget_categories .cat-item,
+						.o-layout__side .widget_categories .cat-link',
+					'default'  => array(
+						'font-family'    => VASCOLITE_BODY_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 17,
+						'line-height'    => 1.647,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+
+				'main_content_paragraph_text_font' => array(
+					'type'      => 'hidden_control',
+					'default' => array(
+						'font-family'    => VASCOLITE_BODY_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 18,
+						'line-height'    => 1.66,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+
+				'main_content_quote_block_font' => array(
+					'type'      => 'hidden_control',
+					'default' => array(
+						'font-family'    => VASCOLITE_HEADINGS_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 32,
+						'line-height'    => 1.5,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+
+				// [Sub Section] Headings Fonts
+				'main_content_heading_1_font'   => array(
+					'type'      => 'hidden_control',
+					'default' => array(
+						'font-family'    => VASCOLITE_HEADINGS_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 48,
+						'line-height'    => 1.167,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+
+				'main_content_heading_2_font' => array(
+					'type'      => 'hidden_control',
+					'selector' => '
+							.widget_promo_box .c-promo__title,
+							 h2,
+							 .h2',
+					'default'  => array(
+						'font-family'    => VASCOLITE_HEADINGS_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 40,
+						'line-height'    => 1.1,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+
+				'main_content_heading_3_font' => array(
+					'type'      => 'hidden_control',
+					'selector' => '
+						.widget_callout_box .c-feature__title,
+						 h3,
+						 .h3',
+					'default'  => array(
+						'font-family'    => VASCOLITE_HEADINGS_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 24,
+						'line-height'    => 1.417,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+
+				'main_content_heading_4_font' => array(
+					'type'      => 'hidden_control',
+					'selector' => '
+						h4, .h4,
+						.wp-caption-text,
+						.widget_categories .cat-link,
+						.c-announcement-bar__text,
+						.widget-area:not(.widget-area--footer-featured) .widget_wpcom_social_media_icons_widget .widget__title,
+						.widget-area:not(.widget-area--footer-featured) .jetpack_widget_social_icons .widget__title,
+						.c-stamp',
+					'default'  => array(
+						'font-family'    => VASCOLITE_HEADINGS_FONT_ALT,
+						'font-weight'    => '500',
+						'font-size'      => 18,
+						'line-height'    => 1.21,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+
+				'main_content_heading_5_font' => array(
+					'type'      => 'hidden_control',
+					'selector' => '
+						.h5, h5,
+						.wp-caption-text .credit,
+						.site-description, 
+						.nav-links__label,
+						.c-footer__zone--bottom .menu,
+						.c-cart-trigger .cart-count,
+						table th,
+						.shop_attributes[class][class][class] th',
+					'default'  => array(
+						'font-family'    => VASCOLITE_HEADINGS_FONT_ALT,
+						'font-weight'    => '700',
+						'font-size'      => 14,
+						'line-height'    => 1.25,
+						'letter-spacing' => 0.07,
+						'text-transform' => 'uppercase',
+					),
+				),
+
+				'main_content_heading_6_font' => array(
+					'type'      => 'hidden_control',
+					'default' => array(
+						'font-family'    => VASCOLITE_HEADINGS_FONT_ALT,
+						'font-weight'    => '700',
+						'font-size'      => 12,
+						'line-height'    => 1.25,
+						'letter-spacing' => 0.08,
+						'text-transform' => 'uppercase',
+					),
+				),
+				'main_content_badge_font' => array(
+					'type'      => 'hidden_control',
+					'selector' => '
+				.single .header-meta .byline, 
+				.single .header-meta .posted-on,  
+				.c-meta__secondary[class],
+				.c-btn--sale-flash,
+				.entry-content .cats[class] > a',
+					'callback' => 'typeline_font_cb',
+
+					'default' => array(
+						'font-family'    => VASCOLITE_SITE_TITLE_FONT,
+						'font-weight'    => '700',
+						'font-size'      => 19,
+						'line-height'    => 1.21,
+						'letter-spacing' => 0.052,
+						'text-transform' => 'none',
+					),
+
+					// Sub Fields Configuration (optional)
+					'fields'  => array(
+						'font-size'       => array(                           // Set custom values for a range slider
+							'min'  => 8,
+							'max'  => 90,
+							'step' => 1,
+							'unit' => 'px',
+						),
+						'line-height'     => array( 0, 2, 0.1, '' ),
+						// Short-hand version
+						'letter-spacing'  => array( - 1, 2, 0.01, 'em' ),
+						'text-align'      => false,
+						// Disable sub-field (False by default)
+						'text-transform'  => true,
+						'text-decoration' => false,
+					),
+				),
 			)
 		),
 		'footer_section'        => array(
 			'title'     => '',
 			'type'      => 'hidden',
 			'options'   => array(
+				// [Section] Layout
+				'copyright_text'               => array(
+					'type'      => 'hidden_control',
+					/* translators: %year%: current year, %site-title%: the site title */
+					'default' => esc_html__( '&copy; %year% %site-title%.', '__theme_txtd' ),
+				),
+				'footer_top_spacing'           => array(
+					'type'      => 'hidden_control',
+					'default' => 80,
+				),
+				'footer_bottom_spacing'        => array(
+					'type'      => 'hidden_control',
+					'default' => 98,
+					'css'     => array(
+						// Component
+						array(
+							'property'        => 'padding-bottom',
+							'selector'        => '.u-footer-bottom-spacing',
+							'unit'            => 'px',
+							'callback_filter' => 'typeline_spacing_cb',
+						),
+						// Custom for Vasco
+						array(
+							'property'        => 'padding-top',
+							'selector'        => '.c-footer__zone--bottom:not(:first-child)',
+							'unit'            => 'px',
+							'callback_filter' => 'typeline_spacing_cb',
+						),
+					),
+				),
+				'footer_hide_back_to_top_link' => array(
+					'type'      => 'hidden_control',
+					'default' => false,
+				),
+				'footer_hide_credits'          => array(
+					'type'      => 'hidden_control',
+					'default' => false,
+				),
+				'footer_layout'                => array(
+					'type'      => 'hidden_control',
+					'default' => 'stacked',
+				),
+
+				// [Section] COLORS
 				'footer_body_text_color'       => array(
 					'default'   => VASCOLITE_SM_DARK_PRIMARY,
 					'type'      => 'hidden_control',
@@ -644,12 +1049,131 @@ function vasco_lite_fill_customify_options( $options ) {
 						),
 					),
 				),
+				'buttons_font'       => array(
+					'type'      => 'hidden_control',
+					'selector' => $buttons_default . ',
+						.button.default,
+						.not-found .search-form .search-submit, 
+						.contact-form > div > .grunion-field-label:not(.checkbox):not(.radio),
+						.nf-form-cont .label-above .nf-field-label label,
+						.nf-form-cont .list-checkbox-wrap .nf-field-element li label, 
+						.nf-form-cont .list-radio-wrap .nf-field-element li label,
+						input[type=date], 
+						input[type=email], 
+						input[type=number], 
+						input[type=password], 
+						input[type=search], 
+						input[type=tel], 
+						input[type=text], 
+						input[type=url],
+						.c-card__action,
+						textarea,
+						select,
+						div.wpforms-container[class] .wpforms-form .wpforms-field-label,
+						div.wpforms-container[class] .wpforms-form input, 
+						div.wpforms-container[class] .wpforms-form select, 
+						div.wpforms-container[class] .wpforms-form textarea, 
+						.widgets-list-layout-links a',
+					'default'  => array(
+						'font-family'    => VASCOLITE_HEADINGS_FONT_ALT,
+						'font-weight'    => '500',
+						'font-size'      => 17,
+						'line-height'    => 1.6,
+						'letter-spacing' => 0,
+					),
+				),
 			)
 		),
 		'blog_grid'             => array(
 			'title'     => '',
 			'type'      => 'hidden',
 			'options'   => array(
+				// [Section] Layout
+				'blog_grid_width'                    => array(
+					'type'    => 'hidden_control',
+					'default' => 1200,
+				),
+				'blog_container_sides_spacing'       => array(
+					'type'    => 'hidden_control',
+					'default' => 42,
+				),
+				// [Sub Section] Items Grid
+				'blog_grid_layout'                   => array(
+					'type'    => 'hidden_control',
+					'default' => 'regular',
+				),
+				'blog_items_aspect_ratio'            => array(
+					'type'    => 'hidden_control',
+					'default' => 40,
+					'css'     => array(
+						array(
+							'property'        => 'column-gap',
+							'selector'        => '.c-card__frame',
+							'callback_filter' => 'pixelgrade_aspect_ratio_cb',
+							'unit'            => '%',
+						),
+					),
+				),
+				'blog_items_per_row'                 => array(
+					'type'    => 'hidden_control',
+					'default' => 3,
+				),
+				'blog_items_vertical_spacing'        => array(
+					'type'    => 'hidden_control',
+					'default' => 0,
+				),
+				'blog_items_horizontal_spacing'      => array(
+					'type'    => 'hidden_control',
+					'default' => 32,
+				),
+				// [Sub Section] Items Title
+				'blog_items_title_position'          => array(
+					'type'    => 'hidden_control',
+					'default' => 'below',
+				),
+				'blog_items_title_alignment_nearby'  => array(
+					'default' => 'left',
+				),
+				'blog_items_title_alignment_overlay' => array(
+					'type'    => 'hidden_control',
+					'default' => 'middle-center',
+				),
+				// Title Visiblity
+				'blog_items_title_visibility'        => array(
+					'type'    => 'hidden_control',
+					'default' => 1,
+				),
+				// Excerpt Visiblity
+				'blog_items_excerpt_visibility'      => array(
+					'type'    => 'hidden_control',
+					'default' => 1,
+				),
+				// [Sub Section] Items Meta
+				'blog_items_heading'                 => array(
+					'type'    => 'hidden_control',
+					'default' => 'title',
+				),
+				'blog_items_content'                 => array(
+					'type'    => 'hidden_control',
+					'default' => 'excerpt',
+				),
+				'blog_items_footer'                  => array(
+					'type'    => 'hidden_control',
+					'default' => 'read_more',
+				),
+				'blog_items_primary_meta'            => array(
+					'type'    => 'hidden_control',
+					'default' => 'comments_category',
+					'choices' => array(
+						// Add a new option
+						'comments_category' => esc_html__( 'Comments + Category', '__theme_txtd' ),
+					),
+				),
+				'blog_items_secondary_meta'          => array(
+					'type'    => 'hidden_control',
+					'default' => 'date',
+				),
+
 				'blog_item_title_color'              => array(
 					'default'   => VASCOLITE_SM_DARK_SECONDARY,
 					'type'      => 'hidden_control',
@@ -709,11 +1233,69 @@ function vasco_lite_fill_customify_options( $options ) {
 						),
 					),
 				),
+
+				// [Sub Section] Thumbnail Hover
+				'blog_item_thumbnail_hover_opacity'  => array(
+					'default' => 1,
+					'css'     => array(
+						array(
+							'property' => 'opacity',
+							'selector' => '.c-card:hover .c-card__frame',
+							'unit'     => '',
+						),
+					),
+				),
+
+				// [Section] FONTS
+				'blog_item_title_font'               => array(
+					'type'    => 'hidden_control',
+					'selector' => '.c-card__title, .c-card__letter',
+					'default'  => array(
+						'font-family'    => VASCOLITE_HEADINGS_FONT,
+						'font-weight'    => '700',
+						'font-size'      => 24,
+						'line-height'    => 1.25,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'blog_item_meta_font'                => array(
+					'type'    => 'hidden_control',
+					'selector' => '.c-meta__primary, .archive-title__pre-title',
+					'default'  => array(
+						'font-family' => VASCOLITE_HEADINGS_FONT_ALT,
+						'font-weight' => '500',
+						'font-size'   => 19,
+						'line-height' => 1.1
+					),
+				),
+				'blog_item_excerpt_font'             => array(
+					'type'    => 'hidden_control',
+					'default' => array(
+						'font-family'    => VASCOLITE_BODY_FONT,
+						'font-weight'    => '400',
+						'font-size'      => 16,
+						'line-height'    => 1.5,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'blog_item_footer_font'             => array(
+					'type'    => 'hidden_control',
+					'default' => array(
+						'font-family'    => VASCOLITE_BODY_FONT,
+						'font-weight'    => '400',
+						'font-size'      => 16,
+						'line-height'    => 1.5,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
 			)
 		)
 	);
 
-	$options['sections'] = Customify_Array::array_merge_recursive_distinct( $options['sections'], $new_config );
+	$options['sections'] = Pixelgrade_Config::merge( $options['sections'], $new_config );
 
 	return $options;
 }
@@ -741,11 +1323,42 @@ function vasco_prefix_outline_buttons( $value ) {
 	return '.u-buttons-outline ' . $value;
 }
 
+/**
+ * Add out custom self-hosted fonts to the Customizer font control options.
+ *
+ * @param array $fonts
+ *
+ * @return array
+ */
+function vasco_lite_add_customify_theme_fonts( $fonts ) {
+	$fonts['YoungSerif'] = array(
+		'family'   => 'YoungSerif',
+		'src'      => get_template_directory_uri() . '/assets/fonts/youngserif/stylesheet.css',
+		'variants' => array( 'regular' )
+	);
+
+	$fonts['HK Grotesk'] = array(
+		'family'   => 'HK Grotesk',
+		'src'      => get_template_directory_uri() . '/assets/fonts/hkgrotesk/stylesheet.css',
+		'variants' => array( '300', '400', '500', '700' )
+	);
+
+	$fonts['Bebas Neue'] = array(
+		'family'   => 'Bebas Neue',
+		'src'      => get_template_directory_uri() . '/assets/fonts/bebasneue/stylesheet.css',
+		'variants' => array( '700' )
+	);
+
+	return $fonts;
+}
+
+add_filter( 'customify_theme_fonts', 'vasco_lite_add_customify_theme_fonts' );
+
 function vasco_lite_add_default_color_palette( $color_palettes ) {
 
 	$color_palettes = array_merge( array(
 		'default' => array(
-			'label'   => esc_html__( 'Theme Default', 'felt' ),
+			'label'   => esc_html__( 'Theme Default', '__theme_txtd' ),
 			'preview' => array(
 				'background_image_url' => 'http://pxgcdn.com/images/style-manager/color-palettes/vasco-theme-palette.jpg',
 			),

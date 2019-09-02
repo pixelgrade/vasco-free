@@ -78,10 +78,18 @@ export class Vasco extends BaseTheme {
   public updateBlobParameters() {
     const extWindow: ExtendedWindow = window;
     const wp = extWindow.wp;
+    const complexitySetting = wp.customize( 'vasco_options[blobs_complexity]' );
+    const smoothnessSetting = wp.customize( 'vasco_options[blobs_smoothness]' );
+    const presetSetting = wp.customize( 'vasco_options[blobs_preset]' );
 
-    const complexity = parseInt( wp.customize( 'vasco_options[blobs_complexity]' )(), 10 ) / 100;
-    const smoothness = parseInt( wp.customize( 'vasco_options[blobs_smoothness]' )(), 10 ) / 100;
-    const preset = parseInt( wp.customize( 'vasco_options[blobs_preset]' )(), 10 );
+    if ( typeof complexitySetting === "undefined" ||
+      typeof smoothnessSetting === "undefined" ||
+      typeof presetSetting === "undefined" ) {
+      return;
+    }
+    const complexity = parseInt( complexitySetting(), 10 ) / 100;
+    const smoothness = parseInt( smoothnessSetting(), 10 ) / 100;
+    const preset = parseInt( presetSetting(), 10 );
 
     this.blobs.forEach( ( blob ) => {
       blob.morph({complexity, preset, smoothness});
