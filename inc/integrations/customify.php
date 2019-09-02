@@ -1200,6 +1200,10 @@ function vasco_lite_fill_customify_options( $options ) {
 							'property' => 'background-color',
 							'selector' => '.c-meta__primary .comments',
 						),
+						array(
+							'property' => 'border-color',
+							'selector' => '.c-card__thumbnail-background:before',
+						),
 					),
 				),
 				'blog_item_thumbnail_background'     => array(
