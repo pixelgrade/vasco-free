@@ -555,6 +555,7 @@ function vasco_lite_fill_customify_options( $options ) {
 						array(
 							'property' => 'color',
 							'selector' => 'body,
+								textarea,
 								.c-stamp__container.is-light .c-stamp.c-stamp--auto,
 								.u-buttons-outline .button.default,
 								.u-buttons-outline .c-btn--default[class],
@@ -565,7 +566,8 @@ function vasco_lite_fill_customify_options( $options ) {
 								.u-buttons-outline .not-found .search-form .search-submit,
 								.c-search-overlay .search-field,
 								.u-buttons-solid .c-feature__btn[class],
-								.u-buttons-solid .c-feature__btn[class]:hover',
+								.u-buttons-solid .c-feature__btn[class]:hover,
+								.comment-form label',
 						),
 						array(
 							'property' => 'background-color',

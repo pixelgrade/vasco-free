@@ -1722,22 +1722,22 @@ a {
               transform: translate3d(5px, calc(0.5px - 50%), 0); }
 
 ::-webkit-input-placeholder {
-  color: #3B3B3B;
+  color: currentColor;
   opacity: .6;
   font-style: italic; }
 
 ::-moz-placeholder {
-  color: #3B3B3B;
+  color: currentColor;
   opacity: .6;
   font-style: italic; }
 
 :-ms-input-placeholder {
-  color: #3B3B3B;
+  color: currentColor;
   opacity: .6;
   font-style: italic; }
 
 :-moz-placeholder {
-  color: #3B3B3B;
+  color: currentColor;
   opacity: .6;
   font-style: italic; }
 
