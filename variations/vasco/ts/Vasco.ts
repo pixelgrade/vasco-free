@@ -8,7 +8,6 @@ import { SearchOverlay } from '../../../components/base/ts/components/SearchOver
 import { Header } from '../../../components/header/ts/Header';
 import { Gallery } from '../../../components/base/ts/components/Gallery';
 import { ExtendedWindow, GlobalService } from '../../../components/base/ts/services/global.service';
-import { Blob } from '../../../components/base/ts/components/blob';
 
 import { takeWhile, debounceTime } from 'rxjs/operators';
 
@@ -27,8 +26,6 @@ export class Vasco extends BaseTheme {
     width: this.$window.width()
   };
 
-  private blobs: Blob[] = [];
-
   constructor() {
     super();
 
@@ -46,7 +43,6 @@ export class Vasco extends BaseTheme {
 
     this.handleContent();
     this.groupWidgets();
-    this.generateBlobs();
 
     GlobalService
       .onCustomizerRender()
@@ -65,7 +61,6 @@ export class Vasco extends BaseTheme {
       .subscribe( () => {
         this.prepareFeatureHover();
         this.initStamp();
-        this.updateBlobParameters();
       } );
   }
 
@@ -73,27 +68,6 @@ export class Vasco extends BaseTheme {
     const extWindow: ExtendedWindow = window;
 
     $( 'body' ).toggleClass( 'is-safari', !! extWindow.safari );
-  }
-
-  public updateBlobParameters() {
-    const extWindow: ExtendedWindow = window;
-    const wp = extWindow.wp;
-    const complexitySetting = wp.customize( 'vasco_options[blobs_complexity]' );
-    const smoothnessSetting = wp.customize( 'vasco_options[blobs_smoothness]' );
-    const presetSetting = wp.customize( 'vasco_options[blobs_preset]' );
-
-    if ( typeof complexitySetting === "undefined" ||
-      typeof smoothnessSetting === "undefined" ||
-      typeof presetSetting === "undefined" ) {
-      return;
-    }
-    const complexity = parseInt( complexitySetting(), 10 ) / 100;
-    const smoothness = parseInt( smoothnessSetting(), 10 ) / 100;
-    const preset = parseInt( presetSetting(), 10 );
-
-    this.blobs.forEach( ( blob ) => {
-      blob.morph({complexity, preset, smoothness});
-    });
   }
 
   public bindEvents() {
@@ -187,42 +161,6 @@ export class Vasco extends BaseTheme {
 
       $meta.remove();
     });
-  }
-
-  public generateBlobs() {
-    const preset = parseInt( $( 'body' ).data( 'blobs-preset' ), 10 );
-    const complexity = parseInt( $( 'body' ).data( 'blobs-complexity' ), 10 ) / 100;
-    const smoothness = parseInt( $( 'body' ).data( 'blobs-smoothness' ), 10 ) / 100;
-
-    $( '.blob--shape-1' ).each( (i, obj) => {
-      const $obj = $(obj);
-      const blob = new Blob(preset, complexity, smoothness);
-
-      this.blobs.push( blob );
-      $obj.append( blob.getSvg() );
-    });
-
-    $( '.blob--shape-2' ).each( (i, obj) => {
-      const $obj = $(obj);
-      const blob = new Blob(preset, complexity, smoothness, 1);
-
-      this.blobs.push( blob );
-      $obj.append( blob.getSvg() );
-    });
-
-    $( '.blob--shape-3' ).each( (i, obj) => {
-      const $obj = $(obj);
-      const blob = new Blob(preset, complexity, smoothness, 2);
-
-      this.blobs.push( blob );
-      $obj.append( blob.getSvg() );
-    });
-
-    setTimeout(() => {
-      window.requestAnimationFrame(() => {
-        $( '.blob--shape' ).closest( '.blob' ).addClass( 'blob--loaded' );
-      });
-    }, 500);
   }
 
   public groupWidgets() {
@@ -391,9 +329,6 @@ export class Vasco extends BaseTheme {
       const $text = $element.find('.c-stamp__text').first();
       circleType = new CircleType($text[0]);
       circleType.radius(89).dir(-1);
-      if ($element.parent().hasClass('blob-container')) {
-        $element.addClass('c-stamp--rotated');
-      }
       setTimeout(() => {
         $element.css('opacity', 0.9);
       }, 200);
