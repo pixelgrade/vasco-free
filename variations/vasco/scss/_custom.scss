@@ -277,3 +277,7 @@ table.variations {
   @include leading-map($woocommerce-card-meta-secondary-font);
   background-color: $btn-background;
 }
+
+.entry-footer {
+  @include spacing(min-height, 2rem);
+}

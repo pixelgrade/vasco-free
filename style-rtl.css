@@ -12692,4 +12692,16 @@ table.variations tbody tr {
     .c-btn--sale-flash {
       font-size: 17.20614px; } }
 
+.entry-footer {
+  min-height: 28px; }
+  @media only screen and (max-width: 1024px) {
+    .entry-footer {
+      min-height: 20.74074px; } }
+  @media only screen and (max-width: 768px) {
+    .entry-footer {
+      min-height: 16.47059px; } }
+  @media only screen and (max-width: 320px) {
+    .entry-footer {
+      min-height: 13.65854px; } }
+
 /*# sourceMappingURL=to.css.map */
