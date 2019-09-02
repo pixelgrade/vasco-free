@@ -1749,7 +1749,7 @@ input[type="text"], input[type="tel"], input[type="number"], input[type="date"],
   font-family: "HK Grotesk", sans-serif;
   font-size: 17px;
   line-height: 1.6;
-  color: #3B3B3B;
+  color: currentColor;
   border-radius: 4px;
   font-family: inherit;
   -webkit-font-smoothing: initial; }
@@ -1948,7 +1948,7 @@ textarea {
   font-family: "HK Grotesk", sans-serif;
   font-size: 17px;
   line-height: 1.6;
-  color: #3B3B3B;
+  color: currentColor;
   border-radius: 4px;
   font-family: inherit;
   -webkit-font-smoothing: initial;
@@ -1989,7 +1989,7 @@ select {
   font-family: "HK Grotesk", sans-serif;
   font-size: 17px;
   line-height: 1.6;
-  color: #3B3B3B;
+  color: currentColor;
   border-radius: 4px;
   font-family: inherit;
   -webkit-font-smoothing: initial;
@@ -2065,7 +2065,7 @@ fieldset {
     font-family: "HK Grotesk", sans-serif;
     font-size: 17px;
     line-height: 1.6;
-    color: #3B3B3B; }
+    color: currentColor; }
     @media only screen and (max-width: 1024px) {
       .select2-container--default .select2-selection--single .select2-selection__rendered {
         padding: 7.8329px 14.77689px 9.6px; } }
@@ -6999,7 +6999,7 @@ div.wpforms-container[class] {
     font-family: "HK Grotesk", sans-serif;
     font-size: 17px;
     line-height: 1.6;
-    color: #3B3B3B;
+    color: currentColor;
     border-radius: 4px;
     font-family: inherit;
     -webkit-font-smoothing: initial;
@@ -7057,7 +7057,7 @@ div.wpforms-container[class] {
     font-family: "HK Grotesk", sans-serif;
     font-size: 17px;
     line-height: 1.6;
-    color: #3B3B3B;
+    color: currentColor;
     border-radius: 4px;
     font-family: inherit;
     -webkit-font-smoothing: initial;
