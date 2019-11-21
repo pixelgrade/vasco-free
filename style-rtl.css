@@ -6107,7 +6107,7 @@ and the top and bottom ones rotate to form an X
   font-family: "HK Grotesk", sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  font-weight: normal;
+  font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   -webkit-transition: all 0.3s ease-in-out;
