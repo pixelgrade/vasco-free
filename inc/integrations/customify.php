@@ -1357,7 +1357,6 @@ function vasco_lite_add_customify_theme_fonts( $fonts ) {
 
 	return $fonts;
 }
-
 add_filter( 'customify_theme_fonts', 'vasco_lite_add_customify_theme_fonts' );
 
 function vasco_lite_add_default_color_palette( $color_palettes ) {
