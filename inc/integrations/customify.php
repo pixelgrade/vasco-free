@@ -1365,7 +1365,7 @@ function vasco_lite_add_default_color_palette( $color_palettes ) {
 		'default' => array(
 			'label'   => esc_html__( 'Theme Default', '__theme_txtd' ),
 			'preview' => array(
-				'background_image_url' => 'http://pxgcdn.com/images/style-manager/color-palettes/vasco-theme-palette.jpg',
+				'background_image_url' => get_template_directory_uri() . '/assets/images/vasco-theme-palette.jpg',
 			),
 			'options' => array(
 				'sm_color_primary'   => VASCOLITE_SM_COLOR_PRIMARY,
